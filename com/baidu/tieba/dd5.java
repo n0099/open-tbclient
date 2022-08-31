@@ -1,75 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.kd5;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.id5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class dd5 extends g65 {
+public class dd5 implements cd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView a;
+    public final HashMap<ViewType, ed5> a;
+    public final ViewGroup b;
+    public final ld5 c;
+    public final id5 d;
+    public ViewType e;
+    public ed5 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dd5(Context context) {
-        super(new NoDataView(context));
+    public dd5(ld5 ld5Var, @NonNull ViewGroup viewGroup, @NonNull id5 id5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {ld5Var, viewGroup, id5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (NoDataView) getView();
+        this.a = new HashMap<>();
+        this.b = viewGroup;
+        this.c = ld5Var;
+        this.d = id5Var;
     }
 
-    public void a(int i) {
+    @Override // com.baidu.tieba.cd5
+    public void a(ViewType viewType, String str) {
+        id5.a aVar;
+        id5.b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.f(i9.a(getView().getContext()), i);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
+            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
+                bVar.a = str;
+            } else if (viewType != ViewType.EMPTY || (aVar = this.d.b) == null) {
+            } else {
+                aVar.a = str;
+            }
         }
     }
 
-    public void b(kd5.a aVar) {
+    @Override // com.baidu.tieba.cd5
+    public void b(ViewType viewType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) == null) || this.e == viewType) {
             return;
         }
-        this.a.setVisibility(0);
-        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
-        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
-        aVar2.h(aVar.c);
-        aVar2.j(aVar.g);
-        this.a.setImgOption(aVar2.f());
-        String str = (!aVar.b || TextUtils.isEmpty(aVar.a)) ? aVar.d : aVar.a;
-        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
-        aVar3.g(str);
-        this.a.setTextOption(aVar3.f());
-        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
-            String str2 = aVar.e;
-            View.OnClickListener onClickListener = aVar.h;
-            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
-            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
-            this.a.setButtonOption(aVar4.e());
-        } else {
-            this.a.setButtonOption(null);
+        this.e = viewType;
+        if (this.b == null) {
+            return;
         }
-        a(TbadkCoreApplication.getInst().getSkinType());
+        ld5 ld5Var = this.c;
+        if (ld5Var != null && ld5Var.getView() != null) {
+            this.c.getView().setVisibility(viewType == ViewType.CONTENT ? 0 : 8);
+        }
+        ed5 ed5Var = this.f;
+        if (ed5Var != null) {
+            ed5Var.b(this.b);
+        }
+        ed5 ed5Var2 = this.a.get(viewType);
+        id5.e d = d(viewType);
+        if (ed5Var2 == null || d == null) {
+            return;
+        }
+        ed5Var2.c(viewType, this.b, d);
+        this.f = ed5Var2;
+        this.a.put(viewType, ed5Var2);
+    }
+
+    @Override // com.baidu.tieba.cd5
+    public void c(ViewType viewType, @NonNull ed5 ed5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, ed5Var) == null) {
+            this.a.put(viewType, ed5Var);
+        }
+    }
+
+    public final id5.e d(ViewType viewType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
+            if (viewType == ViewType.ERROR) {
+                return this.d.c;
+            }
+            if (viewType == ViewType.EMPTY) {
+                return this.d.b;
+            }
+            if (viewType == ViewType.LOADING) {
+                return this.d.a;
+            }
+            return null;
+        }
+        return (id5.e) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cd5
+    public void onChangeSkinType(int i) {
+        ed5 ed5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (ed5Var = this.f) == null) {
+            return;
+        }
+        ed5Var.e(i);
+    }
+
+    @Override // com.baidu.tieba.cd5
+    public void onDestroy() {
+        ed5 ed5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (ed5Var = this.f) == null) {
+            return;
+        }
+        ed5Var.b(this.b);
     }
 }

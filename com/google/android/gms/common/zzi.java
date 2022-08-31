@@ -4,7 +4,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn9;
+import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public abstract class zzi extends zzy {
                 return;
             }
         }
-        jn9.a(bArr.length == 25);
+        hn9.a(bArr.length == 25);
         this.zza = Arrays.hashCode(bArr);
     }
 

@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ln9;
-import com.baidu.tieba.zn9;
+import com.baidu.tieba.jn9;
+import com.baidu.tieba.xn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public final class WakeLockEvent extends StatsEvent {
                 return;
             }
         }
-        CREATOR = new zn9();
+        CREATOR = new xn9();
     }
 
     public WakeLockEvent(int i, long j, int i2, String str, int i3, @Nullable List<String> list, String str2, long j2, int i4, String str3, String str4, float f, long j3, String str5, boolean z) {
@@ -94,23 +94,23 @@ public final class WakeLockEvent extends StatsEvent {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.g(parcel, 1, this.zza);
-            ln9.i(parcel, 2, this.zzb);
-            ln9.k(parcel, 4, this.zzd, false);
-            ln9.g(parcel, 5, this.zzg);
-            ln9.l(parcel, 6, this.zzh, false);
-            ln9.i(parcel, 8, this.zzj);
-            ln9.k(parcel, 10, this.zze, false);
-            ln9.g(parcel, 11, this.zzc);
-            ln9.k(parcel, 12, this.zzi, false);
-            ln9.k(parcel, 13, this.zzl, false);
-            ln9.g(parcel, 14, this.zzk);
-            ln9.e(parcel, 15, this.zzm);
-            ln9.i(parcel, 16, this.zzn);
-            ln9.k(parcel, 17, this.zzf, false);
-            ln9.c(parcel, 18, this.zzo);
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.g(parcel, 1, this.zza);
+            jn9.i(parcel, 2, this.zzb);
+            jn9.k(parcel, 4, this.zzd, false);
+            jn9.g(parcel, 5, this.zzg);
+            jn9.l(parcel, 6, this.zzh, false);
+            jn9.i(parcel, 8, this.zzj);
+            jn9.k(parcel, 10, this.zze, false);
+            jn9.g(parcel, 11, this.zzc);
+            jn9.k(parcel, 12, this.zzi, false);
+            jn9.k(parcel, 13, this.zzl, false);
+            jn9.g(parcel, 14, this.zzk);
+            jn9.e(parcel, 15, this.zzm);
+            jn9.i(parcel, 16, this.zzn);
+            jn9.k(parcel, 17, this.zzf, false);
+            jn9.c(parcel, 18, this.zzo);
+            jn9.b(parcel, a);
         }
     }
 

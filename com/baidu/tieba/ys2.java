@@ -35,12 +35,12 @@ public class ys2 extends zs2 {
 
         /* renamed from: com.baidu.tieba.ys2$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0471a implements xs2 {
+        public class C0475a implements xs2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0471a(a aVar) {
+            public C0475a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -102,7 +102,7 @@ public class ys2 extends zs2 {
                     return;
                 }
                 ay1.k("SwanAppUpdateManager", "has not scope set，required request from server");
-                ws2.g().update(new C0471a(this));
+                ws2.g().update(new C0475a(this));
             }
         }
     }

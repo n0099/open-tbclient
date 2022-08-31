@@ -23,12 +23,12 @@ public class s21 {
 
         /* renamed from: com.baidu.tieba.s21$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0398a implements Runnable {
+        public class RunnableC0397a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0398a(a aVar) {
+            public RunnableC0397a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -80,7 +80,7 @@ public class s21 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 int unused = s21.a = 3;
-                rh0.b(new RunnableC0398a(this));
+                rh0.b(new RunnableC0397a(this));
             }
         }
     }

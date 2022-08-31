@@ -20,8 +20,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.ff9;
-import com.baidu.tieba.gf9;
+import com.baidu.tieba.df9;
+import com.baidu.tieba.ef9;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -1368,7 +1368,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public gf9 d;
+        public ef9 d;
 
         public g(String str) {
             Interceptable interceptable = $ic;
@@ -1387,7 +1387,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new gf9();
+            this.d = new ef9();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -2594,7 +2594,7 @@ public class SVGParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             if (str.charAt(0) == '#') {
-                ff9 b2 = ff9.b(str, 1, str.length());
+                df9 b2 = df9.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 == 4) {
@@ -2761,7 +2761,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new gf9().b(str, i, i2);
+            float b2 = new ef9().b(str, i, i2);
             if (Float.isNaN(b2)) {
                 throw new SVGParseException("Invalid float value: " + str);
             }

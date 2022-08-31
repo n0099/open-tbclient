@@ -28,11 +28,11 @@ public class fn4 {
 
         /* renamed from: com.baidu.tieba.fn4$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0250a extends Thread {
+        public class C0256a extends Thread {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0250a(a aVar) {
+            public C0256a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -87,15 +87,15 @@ public class fn4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                long m = tu4.k().m("key_clear_resource", 0L);
+                long m = su4.k().m("key_clear_resource", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (m == 0) {
-                    tu4.k().x("key_clear_resource", currentTimeMillis);
+                    su4.k().x("key_clear_resource", currentTimeMillis);
                     m = currentTimeMillis;
                 }
                 if (currentTimeMillis - m > fn4.a) {
-                    new C0250a(this).start();
-                    tu4.k().x("key_clear_resource", currentTimeMillis);
+                    new C0256a(this).start();
+                    su4.k().x("key_clear_resource", currentTimeMillis);
                 }
             }
         }

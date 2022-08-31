@@ -7,7 +7,6 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +51,7 @@ public class DeviceInfo {
                 if (Build.VERSION.SDK_INT >= 23) {
                     deviceId = telephonyManager.getDeviceId(0);
                 } else {
-                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                    deviceId = telephonyManager.getDeviceId();
                 }
                 if (deviceId != null) {
                     str = deviceId;
@@ -81,7 +80,7 @@ public class DeviceInfo {
                 if (telephonyManager == null) {
                     return null;
                 }
-                str = ApiReplaceUtil.getSubscriberId(telephonyManager);
+                str = telephonyManager.getSubscriberId();
             } else {
                 str = "";
             }
@@ -102,7 +101,7 @@ public class DeviceInfo {
                     if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {
                         return null;
                     }
-                    str = ApiReplaceUtil.getMacAddress(connectionInfo);
+                    str = connectionInfo.getMacAddress();
                 } catch (Exception unused) {
                     str = "";
                 }

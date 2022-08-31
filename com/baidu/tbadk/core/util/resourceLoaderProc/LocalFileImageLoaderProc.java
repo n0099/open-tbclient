@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.effect.ImageOperation;
-import com.baidu.tieba.a65;
 import com.baidu.tieba.an;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.mg;
-import com.baidu.tieba.o55;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class LocalFileImageLoaderProc implements mg<an> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = a65.g(this.width, this.height);
+            ImageOperation g = y55.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
@@ -143,7 +143,7 @@ public class LocalFileImageLoaderProc implements mg<an> {
             if (anVar.u()) {
                 anVar.A(i);
                 anVar.z(i2);
-                o55.k().d(toCacheKey(str), anVar);
+                m55.k().d(toCacheKey(str), anVar);
             }
         }
     }
@@ -170,7 +170,7 @@ public class LocalFileImageLoaderProc implements mg<an> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), o55.k().m(toCacheKey(str)), i, i2);
+            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), m55.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

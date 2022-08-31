@@ -46,12 +46,12 @@ public class qn3 {
 
         /* renamed from: com.baidu.tieba.qn3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0388a extends RequestBody {
+        public class C0389a extends RequestBody {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ RequestBody a;
 
-            public C0388a(a aVar, RequestBody requestBody) {
+            public C0389a(a aVar, RequestBody requestBody) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -119,7 +119,7 @@ public class qn3 {
         public final RequestBody a(RequestBody requestBody) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0388a(this, requestBody) : (RequestBody) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, requestBody)) == null) ? new C0389a(this, requestBody) : (RequestBody) invokeL.objValue;
         }
 
         @Override // okhttp3.Interceptor

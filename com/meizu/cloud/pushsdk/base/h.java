@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.base;
 
 import android.content.Context;
 import android.os.Environment;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h extends i<g> implements g {
     public static h c;
     public boolean d;

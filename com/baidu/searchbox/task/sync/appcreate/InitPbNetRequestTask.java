@@ -2,10 +2,10 @@ package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.ft4;
+import com.baidu.tieba.et4;
+import com.baidu.tieba.uu7;
+import com.baidu.tieba.vu7;
 import com.baidu.tieba.wu7;
-import com.baidu.tieba.xu7;
-import com.baidu.tieba.yu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,13 +40,13 @@ public class InitPbNetRequestTask extends LaunchTask {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            if (wu7.a().c() && ft4.a().c == 1) {
-                new yu7().i(ft4.a().d);
+            if (uu7.a().c() && et4.a().c == 1) {
+                new wu7().i(et4.a().d);
             }
-            if (wu7.a().c() && ft4.a().c == 2) {
+            if (uu7.a().c() && et4.a().c == 2) {
                 try {
-                    String str = ft4.a().d;
-                    xu7.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
+                    String str = et4.a().d;
+                    vu7.l(new String[]{new JSONObject(str.substring(str.indexOf("tbyunpushnotifybody=") + 20)).getString("jump_scheme")});
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }

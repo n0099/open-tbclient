@@ -6,7 +6,7 @@ import android.opengl.EGLSurface;
 import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ac9;
+import com.baidu.tieba.yb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,7 +141,7 @@ public class EglSurfaceBase {
                     createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
                     createBitmap.recycle();
                     bufferedOutputStream2.close();
-                    ac9.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
+                    yb9.c("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
                 } catch (Throwable th) {
                     th = th;
                     bufferedOutputStream = bufferedOutputStream2;
@@ -171,7 +171,7 @@ public class EglSurfaceBase {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             boolean swapBuffers = this.mEglCore.swapBuffers(this.mEGLSurface);
             if (!swapBuffers) {
-                ac9.c("Grafika", "WARNING: swapBuffers() failed");
+                yb9.c("Grafika", "WARNING: swapBuffers() failed");
             }
             return swapBuffers;
         }

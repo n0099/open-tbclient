@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public interface ge7 {
-    void a(int i, long j, String str, String str2);
-
-    void b(long j, String str);
+    void setUniqueId(BdUniqueId bdUniqueId);
 }

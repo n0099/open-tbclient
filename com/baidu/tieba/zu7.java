@@ -1,15 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContextSupport;
+import android.view.View;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 /* loaded from: classes6.dex */
-public interface zu7<T> extends TbPageContextSupport {
-    boolean E(String str);
+public interface zu7 {
+    void c(boolean z);
 
-    int T();
+    void d(View.OnLongClickListener onLongClickListener);
 
-    String X0();
+    void e(View.OnClickListener onClickListener);
 
-    boolean u0();
+    void f(boolean z);
 
-    yy7 z0();
+    void k(View.OnClickListener onClickListener);
+
+    void l(int i);
+
+    void n(TbRichTextView.y yVar);
+
+    void o(String str);
+
+    void q(boolean z);
+
+    void r(kt7 kt7Var);
+
+    void setFromCDN(boolean z);
 }

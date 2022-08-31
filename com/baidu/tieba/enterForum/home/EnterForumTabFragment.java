@@ -13,12 +13,12 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aa5;
 import com.baidu.tieba.ca5;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.n76;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.l76;
 import com.baidu.tieba.on4;
-import com.baidu.tieba.x77;
+import com.baidu.tieba.v77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import java.util.Set;
 public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n76 g;
+    public l76 g;
     public NewPagerSlidingTabBaseStrip.c h;
     public CustomMessageListener i;
     public CustomMessageListener j;
@@ -166,7 +166,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
     }
 
     /* loaded from: classes3.dex */
-    public class d extends ca5 {
+    public class d extends aa5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EnterForumTabFragment b;
@@ -189,24 +189,24 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
             this.b = enterForumTabFragment;
         }
 
-        @Override // com.baidu.tieba.ca5
-        public boolean a(ea5 ea5Var) {
+        @Override // com.baidu.tieba.aa5
+        public boolean a(ca5 ca5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ea5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ca5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.aa5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? fa5.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? da5.b().c() : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.aa5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -240,9 +240,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.changeSkinType(i);
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                n76Var.onChangeSkinType(i);
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                l76Var.onChangeSkinType(i);
             }
         }
     }
@@ -262,25 +262,25 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                return n76Var.x();
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                return l76Var.x();
             }
             return null;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
-    public ca5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.z95
+    public aa5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this) : (ca5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new d(this) : (aa5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -297,9 +297,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                n76Var.K(i, i2, intent);
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                l76Var.K(i, i2, intent);
             }
         }
     }
@@ -309,9 +309,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                n76Var.onChangeSkinType(this.mSkinType);
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                l76Var.onChangeSkinType(this.mSkinType);
             }
         }
     }
@@ -321,7 +321,7 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.g = new n76(this);
+            this.g = new l76(this);
             registerListener(this.i);
             registerListener(this.j);
         }
@@ -332,11 +332,11 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            x77.m().c();
+            v77.m().c();
             MessageManager.getInstance().unRegisterListener(this.i);
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                n76Var.L();
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                l76Var.L();
             }
         }
     }
@@ -357,9 +357,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
             if (isPrimary() && getActivity() != null) {
                 w1(getActivity().getIntent(), null);
             }
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                n76Var.U(isPrimary());
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                l76Var.U(isPrimary());
             }
         }
     }
@@ -407,9 +407,9 @@ public class EnterForumTabFragment extends LazyBaseFragment implements on4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
             super.setPrimary(z);
-            n76 n76Var = this.g;
-            if (n76Var != null) {
-                n76Var.U(z);
+            l76 l76Var = this.g;
+            if (l76Var != null) {
+                l76Var.U(z);
             }
         }
     }

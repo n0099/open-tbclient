@@ -3,7 +3,7 @@ package com.baidu.tbadk.switchs;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.cf;
 import com.baidu.tieba.debugtool.annotation.Modify;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class GdtPrivacySwitch extends cf {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? tu4.k().l("pref_key_splash_gdt_privacy_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? su4.k().l("pref_key_splash_gdt_privacy_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.cf

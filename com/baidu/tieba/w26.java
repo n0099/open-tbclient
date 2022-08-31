@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class w26 implements l0, z7.a {
+public final class w26 implements Comparator<o0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p26 a;
 
     public w26() {
         Interceptable interceptable = $ic;
@@ -25,31 +22,31 @@ public abstract class w26 implements l0, z7.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = p26.i.a();
     }
 
-    public final p26 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(o0 entity1, o0 entity2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (p26) invokeV.objValue;
-    }
-
-    public final void b(p26 p26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p26Var) == null) {
-            Intrinsics.checkNotNullParameter(p26Var, "<set-?>");
-            this.a = p26Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            z26 b = x36.b(entity2);
+            n26 a = b == null ? null : b.a();
+            if (a == null) {
+                return 0;
+            }
+            z26 b2 = x36.b(entity1);
+            n26 a2 = b2 != null ? b2.a() : null;
+            if (a2 == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
-    }
-
-    @CallSuper
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = p26.i.a();
-        }
+        return invokeLL.intValue;
     }
 }

@@ -1,39 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
+import android.app.Activity;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
+import androidx.lifecycle.Lifecycle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tieba.frs.FrsTabInfoData;
-import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.widget.floatball.FullScreenLayout;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.tabs.TabLayout;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class dy6 implements TabLayout.OnTabSelectedListener {
+public class dy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TabLayout.OnTabSelectedListener a;
-    public Context b;
-    public TabLayout c;
-    public int d;
+    public final Set<Activity> a;
 
-    public dy6(Context context) {
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dy6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(dy6 dy6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dy6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dy6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ir4)) {
+                this.a.d((ir4) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements qg5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(dy6 dy6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dy6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.qg5
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                ey6.a();
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final dy6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-845940535, "Lcom/baidu/tieba/dy6$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-845940535, "Lcom/baidu/tieba/dy6$c;");
+                    return;
+                }
+            }
+            a = new dy6();
+        }
+    }
+
+    public dy6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,180 +127,43 @@ public class dy6 implements TabLayout.OnTabSelectedListener {
                 return;
             }
         }
-        this.b = context;
-        b();
+        this.a = new HashSet();
     }
 
-    public TabLayout a() {
+    public static dy6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (TabLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (dy6) invokeV.objValue;
     }
 
-    public final void b() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TabLayout tabLayout = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d020d, (ViewGroup) null);
-            this.c = tabLayout;
-            tabLayout.setOnTabSelectedListener((TabLayout.OnTabSelectedListener) this);
-            this.c.setTabGravity(2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().registerListener(new a(this, 2921698));
         }
     }
 
-    public void c(int i) {
+    public final void d(ir4 ir4Var) {
+        Activity activity;
+        m15 m15Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            for (int i2 = 0; i2 < this.c.getTabCount(); i2++) {
-                TabLayout.Tab tabAt = this.c.getTabAt(i2);
-                if (tabAt != null) {
-                    if (tabAt.isSelected()) {
-                        f(tabAt);
-                    } else {
-                        g(tabAt);
-                    }
-                    if (tabAt.getCustomView() instanceof TBSpecificationBtn) {
-                        ((TBSpecificationBtn) tabAt.getCustomView()).l(i);
-                    }
-                }
-            }
-        }
-    }
-
-    public void d(TabLayout.OnTabSelectedListener onTabSelectedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onTabSelectedListener) == null) {
-            this.a = onTabSelectedListener;
-        }
-    }
-
-    public void e(FrsTabInfoData frsTabInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, frsTabInfoData) == null) {
-            h(this.d, frsTabInfoData.tabList, this.c);
-        }
-    }
-
-    public final void f(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, tab) == null) || tab.getCustomView() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ir4Var) == null) || ir4Var == null || (activity = ir4Var.b) == null || ir4Var.c == null || !"com.duowan.mobile.basemedia.watchlive.activity.LiveTemplateActivity".equals(activity.getClass().getName())) {
             return;
         }
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
-        if (tBSpecificationBtn.getStyleConfig() instanceof sv4) {
-            ((sv4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0304);
-        }
-    }
-
-    public final void g(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, tab) == null) || tab == null || tab.getCustomView() == null) {
-            return;
-        }
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) tab.getCustomView();
-        if (tBSpecificationBtn.getStyleConfig() instanceof sv4) {
-            ((sv4) tBSpecificationBtn.getStyleConfig()).u(R.color.CAM_X0108);
-        }
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    public final void h(int i, List<FrsTabItemData> list, TabLayout tabLayout) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list, tabLayout) == null) {
-            int min = Math.min(list.size(), 9);
-            if (tabLayout.getTabCount() > min) {
-                int tabCount = tabLayout.getTabCount() - min;
-                for (int i2 = 0; i2 < tabCount; i2++) {
-                    tabLayout.removeTabAt(0);
-                }
+        if (!Lifecycle.Event.ON_START.equals(ir4Var.c)) {
+            if (Lifecycle.Event.ON_DESTROY.equals(ir4Var.c)) {
+                this.a.remove(ir4Var.b);
             }
-            LinearLayout linearLayout = (LinearLayout) tabLayout.getChildAt(0);
-            if (linearLayout == null) {
-                return;
-            }
-            ViewGroup.LayoutParams layoutParams = linearLayout.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -2;
-            linearLayout.requestLayout();
-            int f = ri.f(getContext(), R.dimen.M_W_X006) / 2;
-            int f2 = ri.f(getContext(), R.dimen.M_H_X003);
-            int f3 = ri.f(getContext(), R.dimen.M_H_X001);
-            for (int i3 = 0; i3 < min; i3++) {
-                TabLayout.Tab tabAt = tabLayout.getTabAt(i3);
-                if (tabAt == null) {
-                    tabAt = tabLayout.newTab();
-                    tabLayout.addTab(tabAt, false);
-                    View childAt = linearLayout.getChildAt(i3);
-                    ViewGroup.LayoutParams layoutParams2 = childAt.getLayoutParams();
-                    layoutParams2.width = -2;
-                    layoutParams2.height = -2;
-                    childAt.requestLayout();
-                    if (childAt != null) {
-                        childAt.setPadding(0, 0, 0, 0);
-                    }
-                }
-                FrsTabItemData frsTabItemData = list.get(i3);
-                tabAt.setTag(frsTabItemData);
-                if (!(tabAt.getCustomView() instanceof TBSpecificationBtn)) {
-                    TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-                    sv4 sv4Var = new sv4();
-                    sv4Var.u(R.color.CAM_X0108);
-                    tBSpecificationBtn.setConfig(sv4Var);
-                    LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds177), UtilHelper.getDimenPixelSize(R.dimen.tbds75));
-                    layoutParams3.setMargins(f, f2, f, f3);
-                    tBSpecificationBtn.setLayoutParams(layoutParams3);
-                    tabAt.setCustomView(tBSpecificationBtn);
-                }
-                ((TBSpecificationBtn) tabAt.getCustomView()).setText(StringHelper.cutForumNameWithSuffix(frsTabItemData.name, 10, StringHelper.STRING_MORE));
-                tabAt.f1076view.setBackgroundColor(0);
-                if (!tabAt.isSelected() && i == frsTabItemData.tabId) {
-                    tabAt.select();
-                }
-            }
-            linearLayout.setPadding(0, 0, 0, 0);
-        }
-    }
-
-    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-    public void onTabReselected(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, tab) == null) {
-            f(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;
-            if (onTabSelectedListener != null) {
-                onTabSelectedListener.onTabReselected(tab);
-            }
-        }
-    }
-
-    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-    public void onTabSelected(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, tab) == null) {
-            if (tab != null && (tab.getTag() instanceof FrsTabItemData)) {
-                this.d = ((FrsTabItemData) tab.getTag()).tabId;
-            }
-            f(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;
-            if (onTabSelectedListener != null) {
-                onTabSelectedListener.onTabSelected(tab);
-            }
-        }
-    }
-
-    @Override // com.google.android.material.tabs.TabLayout.BaseOnTabSelectedListener
-    public void onTabUnselected(TabLayout.Tab tab) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, tab) == null) {
-            g(tab);
-            TabLayout.OnTabSelectedListener onTabSelectedListener = this.a;
-            if (onTabSelectedListener != null) {
-                onTabSelectedListener.onTabUnselected(tab);
-            }
+        } else if (this.a.contains(ir4Var.b) || (m15Var = TbSingleton.getInstance().mLiveActivityGuide) == null || !m15Var.isValid()) {
+        } else {
+            FullScreenLayout fullScreenLayout = new FullScreenLayout(ir4Var.b);
+            ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
+            fullScreenLayout.setFloatData(m15Var);
+            fullScreenLayout.setClickListener(new b(this));
+            ir4Var.b.addContentView(fullScreenLayout, layoutParams);
+            ey6.b();
+            this.a.add(ir4Var.b);
+            ir4Var.b.getWindow().setCallback(new cy6(ir4Var.b, fullScreenLayout));
         }
     }
 }

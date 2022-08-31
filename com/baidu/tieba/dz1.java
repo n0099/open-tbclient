@@ -52,12 +52,12 @@ public class dz1 implements Runnable {
 
         /* renamed from: com.baidu.tieba.dz1$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0235a implements Runnable {
+        public class RunnableC0234a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0235a(a aVar) {
+            public RunnableC0234a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -147,7 +147,7 @@ public class dz1 implements Runnable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, webSocketFrame) == null) {
                 this.a.d.offer(webSocketFrame.g());
-                this.a.f.postOnJSThread(new RunnableC0235a(this));
+                this.a.f.postOnJSThread(new RunnableC0234a(this));
             }
         }
 

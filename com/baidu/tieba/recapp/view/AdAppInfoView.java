@@ -20,9 +20,9 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.fc8;
+import com.baidu.tieba.io4;
 import com.baidu.tieba.iy0;
-import com.baidu.tieba.jo4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public jo4 i;
+    public io4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -193,60 +193,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(jo4 jo4Var) {
+    public void setAppInfo(io4 io4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jo4Var) == null) {
-            if (jo4Var != null && jo4.c(jo4Var)) {
-                this.i = jo4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, io4Var) == null) {
+            if (io4Var != null && io4.c(io4Var)) {
+                this.i = io4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(jo4Var.c)) {
+                    if (!TextUtils.isEmpty(io4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(jo4Var.c);
+                        this.a.setText(io4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = jo4Var.e;
+                    float f = io4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(jo4Var.e);
+                        this.b.setRating(io4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(jo4Var.f)) {
+                    if (!TextUtils.isEmpty(io4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(jo4Var.f);
+                        this.c.setText(io4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(jo4Var.d)) {
+                    if (!TextUtils.isEmpty(io4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(jo4Var.d);
+                        this.d.setText(io4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    jo4.b bVar = jo4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(jo4Var.g.a)) {
+                    io4.b bVar = io4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(io4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(jo4Var.g.a);
+                        this.e.setText(io4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    jo4.a aVar = jo4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(jo4Var.h.a)) {
+                    io4.a aVar = io4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(io4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(jo4Var.h.a);
+                        this.f.setText(io4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
@@ -353,7 +353,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.obfuscated_res_0x7f0900df) {
-                    jo4.b bVar = this.a.i.g;
+                    io4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -363,7 +363,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.obfuscated_res_0x7f0900dc) {
-                        jo4.a aVar = this.a.i.h;
+                        io4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -376,7 +376,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                hc8.a(this.a.getContext(), str3, null, null, str);
+                fc8.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };

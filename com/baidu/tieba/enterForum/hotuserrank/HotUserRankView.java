@@ -28,11 +28,11 @@ import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r76;
+import com.baidu.tieba.p76;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s76;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.u76;
-import com.baidu.tieba.v76;
+import com.baidu.tieba.t76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class HotUserRankView {
     public CustomViewPager g;
     public FragmentAdapter h;
     public List<e> i;
-    public r76 j;
+    public p76 j;
     public View k;
     public TextView l;
     public String m;
@@ -305,14 +305,14 @@ public class HotUserRankView {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof u76) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof s76) || customResponsedMessage.getOrginalMessage() == null || customResponsedMessage.getOrginalMessage().getTag() == null || !customResponsedMessage.getOrginalMessage().getTag().equals(this.a.a.getUniqueId())) {
                 return;
             }
-            u76 u76Var = (u76) customResponsedMessage.getData();
-            if (u76Var.c == null) {
+            s76 s76Var = (s76) customResponsedMessage.getData();
+            if (s76Var.c == null) {
                 return;
             }
-            this.a.j.e(u76Var);
+            this.a.j.e(s76Var);
         }
     }
 
@@ -384,7 +384,7 @@ public class HotUserRankView {
         this.h = fragmentAdapter;
         this.g.setAdapter(fragmentAdapter);
         this.d.setupWithViewPager(this.g);
-        this.j = new r76(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903f7));
+        this.j = new p76(this.a.getPageContext(), this.b.findViewById(R.id.obfuscated_res_0x7f0903f7));
         this.a.registerListener(this.u);
         this.n = this.b.findViewById(R.id.obfuscated_res_0x7f09241a);
         this.o = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09241b);
@@ -429,7 +429,7 @@ public class HotUserRankView {
         }
     }
 
-    public void l(List<v76> list, long j, int i, String str) {
+    public void l(List<t76> list, long j, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
             this.m = str;
@@ -446,14 +446,14 @@ public class HotUserRankView {
                     this.j.f(1);
                     return;
                 }
-                for (v76 v76Var : list) {
+                for (t76 t76Var : list) {
                     this.d.d(this.d.z());
                     e eVar2 = new e(this);
                     HotUserRankFragment hotUserRankFragment2 = new HotUserRankFragment();
                     eVar2.a = hotUserRankFragment2;
-                    hotUserRankFragment2.E1(v76Var.b);
+                    hotUserRankFragment2.E1(t76Var.b);
                     eVar2.a.G1(this.q);
-                    eVar2.b = v76Var.a;
+                    eVar2.b = t76Var.a;
                     this.i.add(eVar2);
                 }
                 if (this.q) {

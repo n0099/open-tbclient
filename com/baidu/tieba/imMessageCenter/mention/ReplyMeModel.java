@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.rk8;
+import com.baidu.tieba.pk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,8 +152,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        rk8.f(303010, CheckPostResponseMessage.class, false);
-        rk8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        pk8.f(303010, CheckPostResponseMessage.class, false);
+        pk8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

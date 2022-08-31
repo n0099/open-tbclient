@@ -1,13 +1,45 @@
 package com.baidu.tieba;
 
-import rx.subjects.ReplaySubject$ReplayProducer;
+import com.baidu.tieba.yu9;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface qz9<T> {
-    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
+public abstract class qz9<T, R> extends yu9<R> implements zu9<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void complete();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qz9(yu9.a<R> aVar) {
+        super(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((yu9.a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 
-    void error(Throwable th);
-
-    void next(T t);
+    public final pz9<T, R> C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getClass() == pz9.class) {
+                return (pz9) this;
+            }
+            return new pz9<>(this);
+        }
+        return (pz9) invokeV.objValue;
+    }
 }

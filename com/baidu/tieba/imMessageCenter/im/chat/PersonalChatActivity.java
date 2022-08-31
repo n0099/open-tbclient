@@ -43,10 +43,11 @@ import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.newFriends.ResponseNewFriendDataMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb7;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.e67;
+import com.baidu.tieba.a05;
+import com.baidu.tieba.c67;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.hf5;
+import com.baidu.tieba.ib7;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.CommonPersonalChatActivity;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
@@ -65,28 +66,27 @@ import com.baidu.tieba.imMessageCenter.PersonalTalkSettingActivityConfig;
 import com.baidu.tieba.imMessageCenter.RequestNewFriendDataMessage;
 import com.baidu.tieba.imMessageCenter.im.model.GamePlayServiceModel;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
-import com.baidu.tieba.jf5;
-import com.baidu.tieba.kb7;
-import com.baidu.tieba.l05;
-import com.baidu.tieba.m97;
-import com.baidu.tieba.n77;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.o77;
-import com.baidu.tieba.p95;
+import com.baidu.tieba.j05;
+import com.baidu.tieba.k97;
+import com.baidu.tieba.l77;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.lz4;
+import com.baidu.tieba.m77;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.o87;
+import com.baidu.tieba.oe5;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.q87;
-import com.baidu.tieba.qe5;
+import com.baidu.tieba.qb7;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.r87;
+import com.baidu.tieba.rb7;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sb7;
-import com.baidu.tieba.t87;
-import com.baidu.tieba.tb7;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.u97;
+import com.baidu.tieba.s97;
+import com.baidu.tieba.su4;
+import com.baidu.tieba.ua7;
+import com.baidu.tieba.vb7;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.wa7;
-import com.baidu.tieba.xb7;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -102,7 +102,7 @@ import org.json.JSONObject;
 public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalChatActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kb7 A;
+    public ib7 A;
     public boolean B;
     public boolean C;
     public PersonalMsglistModel D;
@@ -133,7 +133,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public Handler w;
     public UserData x;
     public long y;
-    public c05 z;
+    public a05 z;
 
     /* loaded from: classes4.dex */
     public class a implements GamePlayServiceModel.a {
@@ -207,7 +207,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     }
 
     /* loaded from: classes4.dex */
-    public class c extends jf5<Void> {
+    public class c extends hf5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -233,13 +233,13 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jf5
+        @Override // com.baidu.tieba.hf5
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                u97.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.a);
+                s97.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -396,7 +396,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
 
         @Override // com.baidu.tieba.im.model.IceBreakEmotionModel.IceBreakRequestCallback
-        public void onSuccess(List<n77> list) {
+        public void onSuccess(List<l77> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 PersonalChatMessage personalChatMessage = new PersonalChatMessage();
@@ -457,7 +457,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                         this.a.b.refreshPersonalHeadFooter(this.a.x.getName_show(), this.a.z);
                         this.a.b.getAdapter().f();
                     }
-                    t87.o().O(imMessageCenterPojo, false, 1);
+                    r87.o().O(imMessageCenterPojo, false, 1);
                 }
                 if ((httpResponsedMessage.getOrginalMessage() instanceof IMUserListHttpReqMessage) && ((IMUserListHttpReqMessage) httpResponsedMessage.getOrginalMessage()).hasCheckParam() && !this.a.L) {
                     this.a.u2(iMUserListHttpResponseMsg.getUserDataResultList());
@@ -498,7 +498,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
-                o77 data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
+                m77 data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
                 PersonalMsglistModel.CardStatus J = this.a.D.J(data);
                 this.a.D.S(J);
                 if (J != PersonalMsglistModel.CardStatus.AGREE) {
@@ -733,7 +733,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || (data = ((UpdateAttentionMessage) customResponsedMessage).getData()) == null || TextUtils.isEmpty(data.c) || this.a.x == null || !data.c.equals(this.a.x.getUserId()) || this.a.E == null) {
                 return;
             }
-            wa7.a("关注状态变化 = " + data.d);
+            ua7.a("关注状态变化 = " + data.d);
             if (data.d) {
                 this.a.E.hideFollowTip(true);
             }
@@ -786,7 +786,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     }
 
     /* loaded from: classes4.dex */
-    public class p extends jf5<Boolean> {
+    public class p extends hf5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserData a;
@@ -813,16 +813,16 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.jf5
+        @Override // com.baidu.tieba.hf5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(u97.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getUserId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(s97.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getUserId()))) : (Boolean) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class q implements qe5<Boolean> {
+    public class q implements oe5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalChatActivity a;
@@ -846,7 +846,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qe5
+        @Override // com.baidu.tieba.oe5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -898,7 +898,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public void A1(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, userData) == null) {
-            nf5.c(new c(this, userData), null);
+            lf5.c(new c(this, userData), null);
         }
     }
 
@@ -1013,7 +1013,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || j2 <= 0) {
             return;
         }
-        tu4 k2 = tu4.k();
+        su4 k2 = su4.k();
         k2.u("im_ice_break_msg_is_closed_" + j2, true);
         d1();
     }
@@ -1056,7 +1056,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public final void J2(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            wa7.a("触发展示破冰表情：showBreakIceEmotions");
+            ua7.a("触发展示破冰表情：showBreakIceEmotions");
             if (this.F == null) {
                 IceBreakEmotionModel iceBreakEmotionModel = new IceBreakEmotionModel(getPageContext());
                 this.F = iceBreakEmotionModel;
@@ -1071,7 +1071,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.x.canChat()) {
             return;
         }
-        wa7.a("触发展示陌生人提示");
+        ua7.a("触发展示陌生人提示");
         PersonalChatMessage personalChatMessage = new PersonalChatMessage();
         personalChatMessage.setMsgType(PermissionsHelperActivity.b);
         personalChatMessage.setUserInfo(this.x);
@@ -1141,7 +1141,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.qi5
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tieba.oi5
     public gg<ItemCardView> e0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1186,11 +1186,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean m1(e67 e67Var) {
+    public boolean m1(c67 c67Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, e67Var)) == null) {
-            this.c.loadFirst(e67Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, c67Var)) == null) {
+            this.c.loadFirst(c67Var);
             return true;
         }
         return invokeL.booleanValue;
@@ -1214,7 +1214,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 registerListener(this.S);
                 registerListener(this.T);
                 if (PersonalChatActivityStatic.b() == null) {
-                    PersonalChatActivityStatic.d(new sb7());
+                    PersonalChatActivityStatic.d(new qb7());
                 }
                 PersonalMsglistModel personalMsglistModel = new PersonalMsglistModel(this);
                 this.c = personalMsglistModel;
@@ -1247,7 +1247,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         ChatMessage msg;
         ChatMessage msg2;
         String i4;
-        xb7.a a2;
+        vb7.a a2;
         ChatMessage findIceBreakMsg;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{view2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
@@ -1258,7 +1258,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), msg.getUserInfo().getUserId(), msg.getUserInfo().getUserName())));
             } else if (i2 == 4) {
-                if (V0() && (msg2 = this.c.getMsg(i3)) != null && bb7.y(msg2) && (i4 = bb7.i(msg2.getContent(), true)) != null) {
+                if (V0() && (msg2 = this.c.getMsg(i3)) != null && za7.y(msg2) && (i4 = za7.i(msg2.getContent(), true)) != null) {
                     MsglistModel msglistModel = this.c;
                     if (!(msglistModel instanceof CommonPersonalMsglistModel) || ((CommonPersonalMsglistModel) msglistModel).getUser() == null) {
                         return;
@@ -1267,7 +1267,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 }
             } else if (i2 == 14) {
                 ChatMessage msg3 = this.c.getMsg(i3);
-                if (msg3 == null || msg3.getContent() == null || (a2 = xb7.a(msg3.getContent())) == null) {
+                if (msg3 == null || msg3.getContent() == null || (a2 = vb7.a(msg3.getContent())) == null) {
                     return;
                 }
                 if (a2.h == 1) {
@@ -1276,11 +1276,11 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                     MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(a2.e, a2.f, null)));
                 }
             } else if (i2 != 18) {
-                if (i2 != 19 || q87.a(this) || (findIceBreakMsg = this.c.findIceBreakMsg()) == null || ListUtils.isEmpty(findIceBreakMsg.getIceBreakEmotions()) || findIceBreakMsg.getIceBreakEmotions().size() <= j2) {
+                if (i2 != 19 || o87.a(this) || (findIceBreakMsg = this.c.findIceBreakMsg()) == null || ListUtils.isEmpty(findIceBreakMsg.getIceBreakEmotions()) || findIceBreakMsg.getIceBreakEmotions().size() <= j2) {
                     return;
                 }
-                n77 n77Var = findIceBreakMsg.getIceBreakEmotions().get((int) j2);
-                this.c.sendIceBreakEmotion(n77Var.a, n77Var.b, n77Var.c, n77Var.d);
+                l77 l77Var = findIceBreakMsg.getIceBreakEmotions().get((int) j2);
+                this.c.sendIceBreakEmotion(l77Var.a, l77Var.b, l77Var.c, l77Var.d);
             } else {
                 UserData userData = this.x;
                 if (userData != null) {
@@ -1301,7 +1301,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             if (this.A == null) {
-                this.A = new kb7();
+                this.A = new ib7();
             }
             this.A.a(this.D, getListView());
         }
@@ -1338,12 +1338,12 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                         return;
                     }
                     sendMessage(new CustomMessage(2002001, new PersonalTalkSettingActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong())));
-                    tb7.a("c14627");
+                    rb7.a("c14627");
                 }
             } else if (view2 == this.E.z()) {
                 if (this.D.I() != PersonalMsglistModel.CardStatus.APPLY && this.D.I() != PersonalMsglistModel.CardStatus.WAIT) {
                     if (this.D.I() == PersonalMsglistModel.CardStatus.AGREE) {
-                        p95.a(pg.g(this.D.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+                        n95.a(pg.g(this.D.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
                         TiebaStatic.eventStat(getActivity(), "add_fri_aio", "click", 1, new Object[0]);
                         return;
                     }
@@ -1439,12 +1439,12 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(this).areNotificationsEnabled();
-            boolean h2 = tu4.k().h("key_private_chat_show_notification", false);
+            boolean h2 = su4.k().h("key_private_chat_show_notification", false);
             if (areNotificationsEnabled || h2 || UbsABTestHelper.isPushOpenNewStyle()) {
                 return false;
             }
-            l05.h(getPageContext(), new boolean[]{true, false}, 3);
-            tu4.k().u("key_private_chat_show_notification", true);
+            j05.h(getPageContext(), new boolean[]{true, false}, 3);
+            su4.k().u("key_private_chat_show_notification", true);
             return true;
         }
         return invokeV.booleanValue;
@@ -1473,7 +1473,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             super.r1();
             MsglistModel msglistModel = this.c;
             if ((msglistModel instanceof CommonPersonalMsglistModel) && (user = ((CommonPersonalMsglistModel) msglistModel).getUser()) != null) {
-                nf5.c(new p(this, user), new q(this));
+                lf5.c(new p(this, user), new q(this));
             }
         }
     }
@@ -1491,7 +1491,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
             ChatStatusManager.getInst().setIsOpen(0, true);
             String curId = ChatStatusManager.getInst().getCurId(0);
-            ImMessageCenterPojo i2 = t87.o().i(curId, 2);
+            ImMessageCenterPojo i2 = r87.o().i(curId, 2);
             if (i2 != null) {
                 this.B = i2.getUnread_count() > 0;
             }
@@ -1499,7 +1499,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 this.C = false;
                 o2();
             }
-            nz4.h0().r(curId);
+            lz4.h0().r(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 2)));
             MsglistModel msglistModel = this.c;
             if (msglistModel != null && (msglistModel instanceof PersonalMsglistModel)) {
@@ -1550,7 +1550,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048615, this, j2)) == null) {
             if (j2 > 0) {
-                tu4 k2 = tu4.k();
+                su4 k2 = su4.k();
                 return k2.h("im_ice_break_msg_is_closed_" + j2, false);
             }
             return false;
@@ -1594,7 +1594,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         UserData user;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            long longValue = m97.j.longValue();
+            long longValue = k97.j.longValue();
             MsglistModel msglistModel = this.c;
             if ((msglistModel instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) msglistModel).getUser()) != null) {
                 this.x = user;

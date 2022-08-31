@@ -1,29 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.homepage.personalize.view.HomePageAlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class l17 {
+public class l17 extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HomePageAlaRecommendLayout f;
+    public int g;
 
-    public static boolean a(TbPageContext<?> tbPageContext, pn pnVar) {
-        InterceptResult invokeLL;
-        n06 n06Var;
-        ThreadData threadData;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l17(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, pnVar)) == null) {
-            if (!(pnVar instanceof n06) || (threadData = (n06Var = (n06) pnVar).a) == null || threadData.getVoiceRoomData() == null || StringUtils.isNull(n06Var.a.getVoiceRoomData().room_name) || n06Var.a.getVoiceRoomData().room_id.longValue() <= 0) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ((d75) ServiceManager.getService(d75.a.a())).a(tbPageContext, n06Var.a.getVoiceRoomData().room_id.longValue());
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.g = 3;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().b instanceof HomePageAlaRecommendLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().b.getParent() == null) {
+            this.f = (HomePageAlaRecommendLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().b;
+        } else {
+            this.f = new HomePageAlaRecommendLayout(tbPageContext.getPageActivity());
+        }
+    }
+
+    @Override // com.baidu.tieba.sw
+    public View h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.g != i) {
+                this.f.c(i);
+                n(this.f, 3);
+            }
+            this.g = i;
+        }
+    }
+
+    public z06 p(go4 go4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, go4Var)) == null) {
+            if (go4Var instanceof q07) {
+                q07 q07Var = (q07) go4Var;
+                return new z06(q07Var.getType(), q07Var.c(), "recommend");
+            } else if (go4Var instanceof yv6) {
+                yv6 yv6Var = (yv6) go4Var;
+                return new z06(yv6Var.getType(), yv6Var.c(), ImageViewerConfig.FROM_CONCERN);
+            } else {
+                return new z06();
+            }
+        }
+        return (z06) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ix
+    /* renamed from: q */
+    public void a(go4 go4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) {
+            this.f.setData(p(go4Var));
+        }
     }
 }

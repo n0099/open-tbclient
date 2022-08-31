@@ -46,11 +46,11 @@ import com.baidu.tbadk.core.view.TbCheckBox;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e19;
-import com.baidu.tieba.g09;
-import com.baidu.tieba.j09;
-import com.baidu.tieba.ob5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.c19;
+import com.baidu.tieba.e09;
+import com.baidu.tieba.h09;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tn;
@@ -63,7 +63,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class AtListActivity extends SuspendedActivity implements ob5, AdapterView.OnItemClickListener, e19.c {
+public class AtListActivity extends SuspendedActivity implements mb5, AdapterView.OnItemClickListener, c19.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
@@ -94,8 +94,8 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
     public LinearLayout s;
     public Button t;
     public l u;
-    public j09 v;
-    public e19 w;
+    public h09 v;
+    public c19 w;
     public String x;
     public RelativeLayout y;
     public View z;
@@ -108,12 +108,12 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
 
         /* renamed from: com.baidu.tieba.write.write.AtListActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class View$OnClickListenerC0442a implements View.OnClickListener {
+        public class View$OnClickListenerC0447a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0442a(a aVar) {
+            public View$OnClickListenerC0447a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,7 +168,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
                 this.a.B.setVisibility(8);
                 if (this.a.e == null) {
                     AtListActivity atListActivity = this.a;
-                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04ea), new View$OnClickListenerC0442a(this));
+                    atListActivity.e = atListActivity.l.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f04ea), new View$OnClickListenerC0447a(this));
                 }
             }
         }
@@ -644,7 +644,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ob5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public mb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -653,7 +653,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0120, (ViewGroup) this.o, true);
             return this;
         }
-        return (ob5) invokeLL.objValue;
+        return (mb5) invokeLL.objValue;
     }
 
     public final void G1(MetaData metaData) {
@@ -683,7 +683,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
         }
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public boolean I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -705,7 +705,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
     public final void I1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
-            this.v = new j09();
+            this.v = new h09();
             if (bundle != null) {
                 this.I = bundle.getBoolean(IntentConfig.IS_NEED_MULTIPLE);
                 this.J = bundle.getBoolean(AtListActivityConfig.IS_FOR_CHAT, false);
@@ -735,9 +735,9 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
             this.p = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09040e);
             this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0906bd);
             this.q = (BdListView) findViewById(R.id.obfuscated_res_0x7f09130a);
-            e19 e19Var = new e19(this, this.I);
-            this.w = e19Var;
-            e19Var.g(this);
+            c19 c19Var = new c19(this, this.I);
+            this.w = c19Var;
+            c19Var.g(this);
             this.w.e(new e(this));
             this.q.setAdapter((ListAdapter) this.w);
             this.q.setOnItemClickListener(this);
@@ -898,14 +898,14 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
         this.q.setSelection(0);
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.M : (Intent) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e19.c
+    @Override // com.baidu.tieba.c19.c
     public void l0(View view2, MetaData metaData) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, view2, metaData) == null) || metaData == null) {
@@ -914,7 +914,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
         this.r.g(metaData);
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
@@ -936,21 +936,21 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
             this.w.notifyDataSetChanged();
             SkinManager.setBackgroundResource(this.F, R.drawable.invite_friend_list_item_bg_color);
             SkinManager.setBackgroundResource(this.t, R.drawable.post_button_bg);
-            os4 d2 = os4.d(this.t);
+            ns4 d2 = ns4.d(this.t);
             d2.n(R.string.J_X03);
             d2.f(R.color.CAM_X0302);
             SkinManager.setViewTextColor(this.t, R.color.CAM_X0101, 3);
             this.D.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a07, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             SkinManager.setViewTextColor(this.H, (int) R.color.CAM_X0201);
             WebPManager.setPureDrawable(this.E, R.drawable.obfuscated_res_0x7f080a50, R.color.CAM_X0109, null);
-            os4 d3 = os4.d(this.p);
+            ns4 d3 = ns4.d(this.p);
             d3.n(R.string.J_X07);
             d3.l(R.dimen.L_X01);
             d3.k(R.color.CAM_X0615);
             d3.f(R.color.CAM_X0209);
-            os4.d(this.m).v(R.color.CAM_X0109);
-            os4.d(this.n).A(R.string.F_X01);
-            os4.d(this.e).v(R.color.CAM_X0109);
+            ns4.d(this.m).v(R.color.CAM_X0109);
+            ns4.d(this.n).A(R.string.F_X01);
+            ns4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
@@ -1062,7 +1062,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
         }
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public boolean s() {
         InterceptResult invokeV;
         View childAt;
@@ -1075,7 +1075,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
     }
 
     /* loaded from: classes6.dex */
-    public class l extends BdAsyncTask<String, Integer, g09> {
+    public class l extends BdAsyncTask<String, Integer, e09> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -1103,7 +1103,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public g09 doInBackground(String... strArr) {
+        public e09 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
@@ -1129,21 +1129,21 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
                 }
                 String postNetData = this.a.postNetData();
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    g09 g09Var = new g09();
-                    g09Var.b(postNetData);
-                    return g09Var;
+                    e09 e09Var = new e09();
+                    e09Var.b(postNetData);
+                    return e09Var;
                 }
                 return null;
             }
-            return (g09) invokeL.objValue;
+            return (e09) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(g09 g09Var) {
+        public void onPostExecute(e09 e09Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g09Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e09Var) == null) {
                 this.b.u = null;
                 AtListActivity atListActivity = this.b;
                 atListActivity.hideNetRefreshView(atListActivity.H);
@@ -1151,17 +1151,17 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
                     this.b.z.setVisibility(0);
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    this.b.v.b(g09Var);
+                    this.b.v.b(e09Var);
                     if (this.b.w == null) {
                         return;
                     }
-                    if (g09Var == null || g09Var.a() == null || !g09Var.a().isEmpty()) {
+                    if (e09Var == null || e09Var.a() == null || !e09Var.a().isEmpty()) {
                         this.b.N1(0);
                     } else {
                         this.b.N1(2);
                     }
-                    if (g09Var != null) {
-                        this.b.k = g09Var.a();
+                    if (e09Var != null) {
+                        this.b.k = e09Var.a();
                     }
                     this.b.w.f(this.b.k);
                     this.b.w.notifyDataSetInvalidated();
@@ -1171,7 +1171,7 @@ public class AtListActivity extends SuspendedActivity implements ob5, AdapterVie
                     AtListActivity atListActivity2 = this.b;
                     atListActivity2.showNetRefreshView(atListActivity2.H, this.b.getString(R.string.obfuscated_res_0x7f0f0fbd), null, this.b.getString(R.string.obfuscated_res_0x7f0f0fbc), true, this.b.getNetRefreshListener());
                 }
-                super.onPostExecute(g09Var);
+                super.onPostExecute(e09Var);
             }
         }
 

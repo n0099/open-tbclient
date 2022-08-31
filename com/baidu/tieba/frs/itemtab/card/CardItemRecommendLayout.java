@@ -30,13 +30,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.yn6;
+import com.baidu.tieba.wn6;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,7 +120,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jx {
                 return;
             }
             ItemClickJumpUtil.itemClickJump(((ItemInfo) ListUtils.getItem(this.a.d, i)).forum_name, String.valueOf(((ItemInfo) ListUtils.getItem(this.a.d, i)).id), 0);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(3, i + 1, 2)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new zv4(3, i + 1, 2)));
         }
     }
 
@@ -157,7 +157,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jx {
                 return;
             }
             dVar.b((ItemInfo) ListUtils.getItem(this.a.d, i));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(3, i + 1, 1)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new zv4(3, i + 1, 1)));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -308,7 +308,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jx {
                 ImageView imageView = this.c;
                 int i2 = R.color.CAM_X0305;
                 WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f0809d7, R.color.CAM_X0305, null);
-                os4.d(this.b).v(R.color.CAM_X0105);
+                ns4.d(this.b).v(R.color.CAM_X0105);
                 TextView textView = this.d;
                 if (!this.e) {
                     i2 = R.color.CAM_X0109;
@@ -348,7 +348,7 @@ public class CardItemRecommendLayout extends LinearLayout implements jx {
             this.a = eMTextView;
             eMTextView.setGravity(16);
             this.a.setText(R.string.obfuscated_res_0x7f0f071a);
-            os4 d2 = os4.d(this.a);
+            ns4 d2 = ns4.d(this.a);
             d2.A(R.string.F_X02);
             d2.z(R.dimen.T_X07);
             this.a.setPadding(ri.f(getContext(), R.dimen.M_W_X005), ri.f(getContext(), R.dimen.M_H_X004), ri.f(getContext(), R.dimen.M_W_X005), ri.f(getContext(), R.dimen.M_H_X008));
@@ -371,8 +371,8 @@ public class CardItemRecommendLayout extends LinearLayout implements jx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             this.c.notifyDataSetChanged();
-            os4.d(this.a).v(R.color.CAM_X0105);
-            os4 d2 = os4.d(this);
+            ns4.d(this.a).v(R.color.CAM_X0105);
+            ns4 d2 = ns4.d(this);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0205);
         }
@@ -408,14 +408,14 @@ public class CardItemRecommendLayout extends LinearLayout implements jx {
         return invokeL.booleanValue;
     }
 
-    public void setData(ho4 ho4Var) {
+    public void setData(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) && (ho4Var instanceof yn6)) {
-            yn6 yn6Var = (yn6) ho4Var;
-            if (yn6Var.c() == null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) && (go4Var instanceof wn6)) {
+            wn6 wn6Var = (wn6) go4Var;
+            if (wn6Var.c() == null) {
                 return;
             }
-            this.d = yn6Var.c();
+            this.d = wn6Var.c();
             this.c.notifyDataSetChanged();
         }
     }

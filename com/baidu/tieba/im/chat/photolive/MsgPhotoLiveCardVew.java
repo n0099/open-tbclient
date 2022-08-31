@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.ClickableHeaderImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d77;
-import com.baidu.tieba.h67;
+import com.baidu.tieba.b77;
+import com.baidu.tieba.f67;
+import com.baidu.tieba.hm8;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.jm8;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
-public class MsgPhotoLiveCardVew extends h67 {
+public class MsgPhotoLiveCardVew extends f67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long E;
@@ -80,7 +80,7 @@ public class MsgPhotoLiveCardVew extends h67 {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.E <= 0) {
                 return;
             }
-            jm8 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
+            hm8 photoLiveReadThreadHistory = TbadkCoreApplication.getInst().getPhotoLiveReadThreadHistory();
             if (this.a.G != 1) {
                 if (this.a.G != 3) {
                     if (this.a.G != 4) {
@@ -236,7 +236,7 @@ public class MsgPhotoLiveCardVew extends h67 {
         if (!(interceptable == null || interceptable.invokeLLL(1048581, this, tbPageContext, chatMessage, view2) == null) || chatMessage == null) {
             return;
         }
-        d77.a a2 = d77.a(chatMessage.getContent());
+        b77.a a2 = b77.a(chatMessage.getContent());
         if (a2 == null) {
             this.E = 0L;
             return;

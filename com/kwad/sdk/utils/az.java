@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.os.LocaleList;
 import android.os.Process;
 import android.os.SystemClock;
+import android.provider.Settings;
 import android.system.Os;
 import android.system.StructStat;
 import android.telephony.SubscriptionManager;
@@ -23,7 +24,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.kwad.sdk.service.ServiceProvider;
 import java.io.BufferedReader;
@@ -312,7 +312,7 @@ public final class az {
                 return aoQ;
             }
             try {
-                String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 aoQ = string;
                 if (!dY(string)) {
                     aoQ = "";
@@ -333,7 +333,7 @@ public final class az {
             if (context != null) {
                 if (!aoV && TextUtils.isEmpty(aoO) && SystemUtil.dk(context) && !aq.zV() && !((com.kwad.sdk.service.kwai.f) ServiceProvider.get(com.kwad.sdk.service.kwai.f.class)).i(128L)) {
                     try {
-                        aoO = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getApplicationContext().getSystemService("phone"));
+                        aoO = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSubscriberId();
                     } catch (Exception unused) {
                     }
                     aoV = TextUtils.isEmpty(aoO);
@@ -442,7 +442,7 @@ public final class az {
                         try {
                             z = SystemUtil.dk(context);
                             if (z) {
-                                String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+                                String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                                 aoH = deviceId;
                                 if (TextUtils.isEmpty(deviceId)) {
                                     aoU = true;
@@ -487,7 +487,7 @@ public final class az {
                             String meid = telephonyManager.getMeid();
                             aoI = meid;
                         } else if (telephonyManager.getPhoneType() == 2) {
-                            String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                            String deviceId = telephonyManager.getDeviceId();
                             aoI = deviceId;
                             if (TextUtils.isEmpty(deviceId)) {
                             }
@@ -550,7 +550,7 @@ public final class az {
                                                     aoN[i2] = telephonyManager.getDeviceId(i2);
                                                 }
                                             } else {
-                                                aoN[0] = ApiReplaceUtil.getDeviceId(telephonyManager);
+                                                aoN[0] = telephonyManager.getDeviceId();
                                                 aoN[1] = null;
                                             }
                                             if (TextUtils.isEmpty(aoN[0]) && TextUtils.isEmpty(aoN[1])) {
@@ -624,7 +624,7 @@ public final class az {
         try {
             z = SystemUtil.dk(context);
             if (z) {
-                aoP = ApiReplaceUtil.getSimSerialNumber((TelephonyManager) context.getApplicationContext().getSystemService("phone"));
+                aoP = ((TelephonyManager) context.getApplicationContext().getSystemService("phone")).getSimSerialNumber();
             }
         } catch (Exception e) {
             com.kwad.sdk.core.e.b.printStackTrace(e);
@@ -664,7 +664,7 @@ public final class az {
                     try {
                         WifiInfo connectionInfo = ((WifiManager) context.getApplicationContext().getSystemService("wifi")).getConnectionInfo();
                         if (connectionInfo != null) {
-                            aoF = ApiReplaceUtil.getMacAddress(connectionInfo);
+                            aoF = connectionInfo.getMacAddress();
                         }
                         if (dW(aoF)) {
                             Iterator it = Collections.list(NetworkInterface.getNetworkInterfaces()).iterator();
@@ -674,7 +674,7 @@ public final class az {
                                 }
                                 NetworkInterface networkInterface = (NetworkInterface) it.next();
                                 if (networkInterface != null && "wlan0".equals(networkInterface.getName())) {
-                                    byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
+                                    byte[] hardwareAddress = networkInterface.getHardwareAddress();
                                     if (hardwareAddress != null && hardwareAddress.length != 0) {
                                         StringBuilder sb = new StringBuilder();
                                         int length = hardwareAddress.length;

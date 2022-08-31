@@ -34,13 +34,13 @@ public class f03 extends zz2 {
 
         /* renamed from: com.baidu.tieba.f03$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0242a implements View.OnClickListener {
+        public class View$OnClickListenerC0247a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0242a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0247a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -215,7 +215,7 @@ public class f03 extends zz2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, onClickListener)) == null) {
                 this.a.a.setText(charSequence);
-                this.a.a.setOnClickListener(new View$OnClickListenerC0242a(this, onClickListener));
+                this.a.a.setOnClickListener(new View$OnClickListenerC0247a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

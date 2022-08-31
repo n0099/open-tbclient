@@ -1,66 +1,209 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.MessageSyncMessage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.GroupImageView;
+import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.tieba.im.mygroup.PersonalGroupFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class b97 extends ab {
+public class b97 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PersonalGroupFragment a;
+    public List<GroupInfoData> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b97() {
-        super(202003);
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public LinearLayout a;
+        public GroupImageView b;
+        public TextView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public ImageView g;
+        public ImageView h;
+        public ImageView i;
+        public ImageView j;
+        public ImageView k;
+        public ImageView l;
+        public ImageView[] m;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public b97(PersonalGroupFragment personalGroupFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalGroupFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new ArrayList();
+        this.a = personalGroupFragment;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.baidu.tieba.va
-    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        SocketMessage socketMessage2 = socketMessage;
-        process2(socketMessage2, socketMessageTask);
-        return socketMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
+    public final void a(ImageView[] imageViewArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-            StringBuilder sb = new StringBuilder(200);
-            if (socketMessage instanceof MessageSyncMessage) {
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) socketMessage;
-                LongSparseArray<Long> groupMids = messageSyncMessage.getGroupMids();
-                for (int i = 0; i < groupMids.size(); i++) {
-                    sb.append(groupMids.keyAt(i));
-                    sb.append("-");
-                    sb.append(groupMids.valueAt(i));
-                    sb.append("|");
-                }
-                iu4.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
+        if (interceptable == null || interceptable.invokeLI(1048576, this, imageViewArr, i) == null) {
+            if (i < 0) {
+                i = 0;
             }
-            return socketMessage;
+            if (i > 3) {
+                i = 3;
+            }
+            for (int i2 = 1; i2 <= 3; i2++) {
+                if (i2 <= i) {
+                    imageViewArr[i2].setVisibility(0);
+                } else {
+                    imageViewArr[i2].setVisibility(8);
+                }
+            }
         }
-        return (SocketMessage) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public GroupInfoData getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int itemId = (int) getItemId(i);
+            if (itemId < 0 || itemId >= this.b.size()) {
+                return null;
+            }
+            return this.b.get(itemId);
+        }
+        return (GroupInfoData) invokeI.objValue;
+    }
+
+    public void c(List<GroupInfoData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof a)) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.a.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0830, viewGroup, false);
+                aVar = new a();
+                aVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090637);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907da);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907d9);
+                aVar.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907db);
+                aVar.b = (GroupImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f8d);
+                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f8a);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f8b);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f96);
+                aVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f6c);
+                aVar.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f86);
+                aVar.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f87);
+                ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f88);
+                aVar.l = imageView;
+                ImageView[] imageViewArr = new ImageView[4];
+                aVar.m = imageViewArr;
+                imageViewArr[1] = aVar.j;
+                imageViewArr[2] = aVar.k;
+                imageViewArr[3] = imageView;
+                view2.setTag(aVar);
+            }
+            GroupInfoData groupInfoData = this.b.get(i);
+            aVar.b.setTag(null);
+            aVar.b.setDrawBorder(true);
+            aVar.b.setPlaceHolder(1);
+            if (groupInfoData != null) {
+                String portrait = groupInfoData.getPortrait();
+                if (!TextUtils.isEmpty(portrait)) {
+                    aVar.b.K(portrait, 10, false);
+                } else {
+                    aVar.b.K("", 10, false);
+                }
+                aVar.a.setOnClickListener(this.a);
+                aVar.a.setTag(groupInfoData);
+                aVar.g.setVisibility(8);
+                aVar.i.setVisibility(8);
+                aVar.h.setVisibility(0);
+                aVar.c.setText(groupInfoData.getName());
+                TextView textView = aVar.d;
+                textView.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+                aVar.e.setText(groupInfoData.getIntro());
+                if (groupInfoData.getIsGroupManager() == 1) {
+                    aVar.f.setVisibility(0);
+                } else {
+                    aVar.f.setVisibility(8);
+                }
+                a(aVar.m, groupInfoData.getGrade());
+            }
+            this.a.getBaseFragmentActivity().getLayoutMode().l(TbadkApplication.getInst().getSkinType() == 1);
+            this.a.getBaseFragmentActivity().getLayoutMode().k(view2);
+            if (groupInfoData != null && groupInfoData.isMemGroup()) {
+                SkinManager.setViewTextColor(aVar.c, R.color.common_color_10009, 1);
+                SkinManager.setImageResource(aVar.j, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setImageResource(aVar.k, R.drawable.icon_vip_grade_big_small_s);
+                SkinManager.setImageResource(aVar.l, R.drawable.icon_vip_grade_big_small_s);
+            }
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br4;
+import com.baidu.tieba.ar4;
 import com.baidu.tieba.cn4;
 import com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter;
 import com.baidu.tieba.jx;
@@ -166,19 +166,19 @@ public class ConcernRecommendLayout extends LinearLayout implements jx {
         }
     }
 
-    public void setData(br4 br4Var) {
+    public void setData(ar4 ar4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, br4Var) == null) {
-            if (br4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, ar4Var) == null) {
+            if (ar4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(br4Var.a) && br4Var.b != 0) {
+            if (!TextUtils.isEmpty(ar4Var.a) && ar4Var.b != 0) {
                 this.c.setTextSize(0, ri.f(this.a, R.dimen.tbds37));
-                this.c.setText(br4Var.a);
+                this.c.setText(ar4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = br4Var.b;
+                this.g = ar4Var.b;
             } else {
                 this.c.setTextSize(0, ri.f(this.a, R.dimen.tbds37));
                 this.c.setText(R.string.obfuscated_res_0x7f0f042d);
@@ -186,7 +186,7 @@ public class ConcernRecommendLayout extends LinearLayout implements jx {
                 this.g = R.color.CAM_X0105;
             }
             this.e.h(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(br4Var.c());
+            this.e.setData(ar4Var.c());
             this.e.notifyDataSetChanged();
         }
     }

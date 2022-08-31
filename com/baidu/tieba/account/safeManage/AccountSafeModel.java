@@ -5,8 +5,8 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.se8;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
-import com.baidu.tieba.ue8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public ue8 b;
+    public se8 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,10 +42,10 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public ue8 A() {
+    public se8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ue8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (se8) invokeV.objValue;
     }
 
     public String B() {
@@ -58,8 +58,8 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ue8 ue8Var = this.b;
-            if (ue8Var == null || ue8Var.f() == null) {
+            se8 se8Var = this.b;
+            if (se8Var == null || se8Var.f() == null) {
                 return null;
             }
             return this.b.f();
@@ -98,10 +98,10 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void G(ue8 ue8Var) {
+    public void G(se8 se8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ue8Var) == null) {
-            this.b = ue8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, se8Var) == null) {
+            this.b = se8Var;
             E();
         }
     }

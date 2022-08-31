@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface ci6 {
-    void a(int i);
+    void k(String str);
 
-    void cancel();
+    void l();
+
+    void m(boolean z);
 }

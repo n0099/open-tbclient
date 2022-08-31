@@ -89,7 +89,7 @@ public class fm4 extends Thread {
             }
             BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f);
             TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
-            cb5.a();
+            ab5.a();
         }
     }
 

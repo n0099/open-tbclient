@@ -1,23 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface zm8 {
-    void a(TbPageContext<?> tbPageContext);
+public class zm8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
-
-    boolean c(gj gjVar, int i);
-
-    void cancelRecord();
-
-    void d(int i);
-
-    void e(gj gjVar);
-
-    boolean f();
-
-    void release();
-
-    void stopRecord();
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? MessageManager.getInstance().runTask(2001274, Boolean.class) != null : invokeV.booleanValue;
+    }
 }

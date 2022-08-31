@@ -30,7 +30,7 @@ import com.baidu.rtc.signalling.play.RemoteSdpResponse;
 import com.baidu.rtc.snapshot.SnapShotCallback;
 import com.baidu.rtc.snapshot.SnapShotHelper;
 import com.baidu.rtc.utils.CommonUtils;
-import com.baidu.tieba.su9;
+import com.baidu.tieba.qu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -266,7 +266,7 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         };
         this.mContext = context.getApplicationContext();
         this.mLocalUserId = Long.valueOf(CommonUtils.randomNumber(10)).longValue();
-        this.mRootEglBase = su9.a();
+        this.mRootEglBase = qu9.a();
         this.mReportHandler = RtcReportHandle.getInstance(this.mContext);
         RtcReportHandle.enableMonitor(true, this.mEnablePullQualityMonitor, this.mIsEnableErrorInfoMonitor, false);
         this.mTimeStatistician = new PlayTimeStatistician();

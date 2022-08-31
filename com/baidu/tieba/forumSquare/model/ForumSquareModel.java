@@ -17,16 +17,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.e76;
 import com.baidu.tieba.enterForum.data.ForumSquareHttpResponsedMessage;
 import com.baidu.tieba.enterForum.data.ForumSquareSocketResponsedMessage;
+import com.baidu.tieba.fn8;
 import com.baidu.tieba.forumSquare.ForumSquareStatic;
 import com.baidu.tieba.forumSquare.message.ForumSquareRequestMessage;
-import com.baidu.tieba.g76;
-import com.baidu.tieba.hn8;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.vd6;
-import com.baidu.tieba.yd6;
-import com.baidu.tieba.zd6;
+import com.baidu.tieba.td6;
+import com.baidu.tieba.wd6;
+import com.baidu.tieba.xd6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,9 +40,9 @@ import java.util.Map;
 public class ForumSquareModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vd6 a;
+    public td6 a;
     public boolean b;
-    public final HashMap<String, zd6> c;
+    public final HashMap<String, xd6> c;
     public final List<String> d;
     public boolean e;
     public CustomMessageListener f;
@@ -80,10 +80,10 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hn8)) {
-                hn8 hn8Var = (hn8) customResponsedMessage.getData();
-                if (hn8Var.b) {
-                    this.a.V(hn8Var.a, true);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof fn8)) {
+                fn8 fn8Var = (fn8) customResponsedMessage.getData();
+                if (fn8Var.b) {
+                    this.a.V(fn8Var.a, true);
                 }
             }
         }
@@ -120,10 +120,10 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hn8)) {
-                hn8 hn8Var = (hn8) customResponsedMessage.getData();
-                if (hn8Var.b) {
-                    this.a.V(hn8Var.a, false);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof fn8)) {
+                fn8 fn8Var = (fn8) customResponsedMessage.getData();
+                if (fn8Var.b) {
+                    this.a.V(fn8Var.a, false);
                 }
             }
         }
@@ -160,7 +160,7 @@ public class ForumSquareModel extends BdBaseModel {
         @Override // com.baidu.tieba.bb
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str;
-            g76 data;
+            e76 data;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.b = false;
@@ -209,13 +209,13 @@ public class ForumSquareModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumSquareModel(Context context, vd6 vd6Var) {
+    public ForumSquareModel(Context context, td6 td6Var) {
         super(UtilHelper.getTbPageContext(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, vd6Var};
+            Object[] objArr = {context, td6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -233,7 +233,7 @@ public class ForumSquareModel extends BdBaseModel {
         this.g = new b(this, 2001438);
         this.h = new c(this, CmdConfigHttp.CMD_FORUM_SQUARE, 309653);
         new ForumSquareStatic();
-        this.a = vd6Var;
+        this.a = td6Var;
         this.h.getHttpMessageListener().setSelfListener(true);
         this.h.getSocketMessageListener().setSelfListener(true);
         registerListener(this.h);
@@ -247,7 +247,7 @@ public class ForumSquareModel extends BdBaseModel {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.d.contains(str) : invokeL.booleanValue;
     }
 
-    public zd6 O(String str) {
+    public xd6 O(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -256,18 +256,18 @@ public class ForumSquareModel extends BdBaseModel {
             }
             return this.c.get(str);
         }
-        return (zd6) invokeL.objValue;
+        return (xd6) invokeL.objValue;
     }
 
     public boolean P(String str) {
         InterceptResult invokeL;
-        zd6 zd6Var;
+        xd6 xd6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (zd6Var = this.c.get(str)) == null) {
+            if (TextUtils.isEmpty(str) || (xd6Var = this.c.get(str)) == null) {
                 return false;
             }
-            return zd6Var.d;
+            return xd6Var.d;
         }
         return invokeL.booleanValue;
     }
@@ -279,56 +279,56 @@ public class ForumSquareModel extends BdBaseModel {
     }
 
     public void R(String str) {
-        zd6 zd6Var;
+        xd6 xd6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             ForumSquareRequestMessage forumSquareRequestMessage = new ForumSquareRequestMessage();
             forumSquareRequestMessage.className = str;
             if (TextUtils.isEmpty(str)) {
-                zd6Var = new zd6();
+                xd6Var = new xd6();
             } else {
-                zd6 zd6Var2 = this.c.get(str);
-                if (zd6Var2 == null) {
-                    zd6Var2 = new zd6();
-                    this.c.put(str, zd6Var2);
+                xd6 xd6Var2 = this.c.get(str);
+                if (xd6Var2 == null) {
+                    xd6Var2 = new xd6();
+                    this.c.put(str, xd6Var2);
                 }
-                zd6Var = zd6Var2;
+                xd6Var = xd6Var2;
             }
-            forumSquareRequestMessage.pn = zd6Var.e + 1;
+            forumSquareRequestMessage.pn = xd6Var.e + 1;
             this.b = true;
             sendMessage(forumSquareRequestMessage);
         }
     }
 
-    public final void S(g76 g76Var) {
+    public final void S(e76 e76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, g76Var) == null) || !ListUtils.isEmpty(this.d) || g76Var == null || ListUtils.isEmpty(g76Var.b)) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, e76Var) == null) || !ListUtils.isEmpty(this.d) || e76Var == null || ListUtils.isEmpty(e76Var.b)) {
             return;
         }
-        for (String str : g76Var.b) {
+        for (String str : e76Var.b) {
             if (!TextUtils.isEmpty(str) && !this.d.contains(str)) {
                 this.d.add(str);
             }
         }
     }
 
-    public final void T(g76 g76Var) {
+    public final void T(e76 e76Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, g76Var) == null) {
-            String str = g76Var.d;
+        if (interceptable == null || interceptable.invokeL(1048582, this, e76Var) == null) {
+            String str = e76Var.d;
             if (TextUtils.isEmpty(str)) {
                 str = (String) ListUtils.getItem(this.d, 0);
-                g76Var.d = str;
+                e76Var.d = str;
             }
-            zd6 zd6Var = this.c.get(str);
-            if (zd6Var == null) {
-                zd6Var = new zd6();
-                this.c.put(str, zd6Var);
+            xd6 xd6Var = this.c.get(str);
+            if (xd6Var == null) {
+                xd6Var = new xd6();
+                this.c.put(str, xd6Var);
             }
-            zd6Var.b(g76Var);
-            vd6 vd6Var = this.a;
-            if (vd6Var != null) {
-                vd6Var.onSucc(str, this.d, zd6Var.a());
+            xd6Var.b(e76Var);
+            td6 td6Var = this.a;
+            if (td6Var != null) {
+                td6Var.onSucc(str, this.d, xd6Var.a());
             }
         }
     }
@@ -356,14 +356,14 @@ public class ForumSquareModel extends BdBaseModel {
     public final void V(long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            for (Map.Entry<String, zd6> entry : this.c.entrySet()) {
-                zd6 value = entry.getValue();
+            for (Map.Entry<String, xd6> entry : this.c.entrySet()) {
+                xd6 value = entry.getValue();
                 if (value != null && !ListUtils.isEmpty(value.a())) {
                     for (pn pnVar : value.a()) {
-                        if (pnVar instanceof yd6) {
-                            yd6 yd6Var = (yd6) pnVar;
-                            if (yd6Var.a == j) {
-                                yd6Var.d = z;
+                        if (pnVar instanceof wd6) {
+                            wd6 wd6Var = (wd6) pnVar;
+                            if (wd6Var.a == j) {
+                                wd6Var.d = z;
                             }
                         }
                     }

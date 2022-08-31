@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.u0a;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.IYYPayWayView;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class j1a implements u0a.a {
+public class j1a implements s0a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public j1a(IYYPayWayView iYYPayWayView) {
+    public j1a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {iYYPayWayView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,14 +26,22 @@ public class j1a implements u0a.a {
                 return;
             }
         }
-        RLog.info("PayConfirmDialogCallback", "create PayConfirmDialogCallback");
+        RLog.info("PayGiftDialogCallback", "create PayGiftDialogCallback");
     }
 
-    @Override // com.baidu.tieba.u0a.a
+    @Override // com.baidu.tieba.s0a.b
     public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogCallback", "onNotifyCancelType clickArea:" + cancelType);
+            RLog.info("PayGiftDialogCallback", "PayGiftDialog onNotifyCancelType clickArea:" + cancelType);
+        }
+    }
+
+    @Override // com.baidu.tieba.s0a.b
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RLog.info("PayGiftDialogCallback", "showPayGiftDialog onKonwn");
         }
     }
 }

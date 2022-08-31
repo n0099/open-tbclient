@@ -93,7 +93,7 @@ public class tj4 {
             missionEvent.pageId = i2;
             missionEvent.pageType = i;
             missionEvent.actionType = str;
-            u75.i(missionEvent);
+            s75.i(missionEvent);
         }
     }
 
@@ -104,7 +104,7 @@ public class tj4 {
             missionEvent.tid = j;
             missionEvent.pageId = i;
             missionEvent.actionType = str;
-            u75.i(missionEvent);
+            s75.i(missionEvent);
         }
     }
 
@@ -163,7 +163,7 @@ public class tj4 {
         }
     }
 
-    public static cs4 i(CompleteTaskToastData completeTaskToastData) {
+    public static bs4 i(CompleteTaskToastData completeTaskToastData) {
         InterceptResult invokeL;
         TbPageContext d;
         Interceptable interceptable = $ic;
@@ -171,14 +171,14 @@ public class tj4 {
             if (completeTaskToastData == null || (d = d()) == null || d.getUniqueId() == null || completeTaskToastData.pageId != d.getUniqueId().getId()) {
                 return null;
             }
-            cs4 f = cs4.f(d.getPageActivity(), completeTaskToastData.message);
+            bs4 f = bs4.f(d.getPageActivity(), completeTaskToastData.message);
             f.g(completeTaskToastData.duration);
             f.h(a);
             f.i(completeTaskToastData);
             f.j();
             return f;
         }
-        return (cs4) invokeL.objValue;
+        return (bs4) invokeL.objValue;
     }
 
     public static void j(int i, int i2, long j) {

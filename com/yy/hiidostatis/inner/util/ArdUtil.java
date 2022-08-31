@@ -28,7 +28,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -151,7 +150,7 @@ public class ArdUtil {
             if (mAndroidId != null) {
                 return mAndroidId;
             }
-            mAndroidId = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            mAndroidId = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             return mAndroidId;
         }
         return (String) invokeL.objValue;
@@ -498,7 +497,7 @@ public class ArdUtil {
             try {
                 if (checkPermissions(context, h.d) && (wifiManager = (WifiManager) context.getSystemService("wifi")) != null) {
                     WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                    mMacAddress = connectionInfo == null ? null : ApiReplaceUtil.getMacAddress(connectionInfo);
+                    mMacAddress = connectionInfo == null ? null : connectionInfo.getMacAddress();
                 }
             } catch (Throwable th) {
                 L.debug("ArdUtil", "exception on getMacAddr : %s", th);
@@ -520,7 +519,7 @@ public class ArdUtil {
                     Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
                     while (networkInterfaces.hasMoreElements()) {
                         NetworkInterface nextElement = networkInterfaces.nextElement();
-                        if (nextElement.getName().equalsIgnoreCase("wlan0") && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(nextElement)) != null && hardwareAddress.length != 0) {
+                        if (nextElement.getName().equalsIgnoreCase("wlan0") && (hardwareAddress = nextElement.getHardwareAddress()) != null && hardwareAddress.length != 0) {
                             StringBuilder sb = new StringBuilder();
                             int length = hardwareAddress.length;
                             for (int i = 0; i < length; i++) {

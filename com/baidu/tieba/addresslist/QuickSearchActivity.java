@@ -27,9 +27,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.addresslist.model.QuickSearchModel;
-import com.baidu.tieba.b05;
 import com.baidu.tieba.kn4;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -360,7 +360,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public final void G1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            List<b05> z = this.a.z(str);
+            List<zz4> z = this.a.z(str);
             if (z.size() > 0) {
                 H1(true);
                 this.h.b(z);
@@ -443,7 +443,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             if (headerViewsCount > 0) {
                 i -= headerViewsCount;
             }
-            b05 item = this.h.getItem(i);
+            zz4 item = this.h.getItem(i);
             if (item == null || item.d() <= 0) {
                 return;
             }
@@ -459,7 +459,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
     public class g extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<b05> a;
+        public List<zz4> a;
         public final /* synthetic */ QuickSearchActivity b;
 
         public g(QuickSearchActivity quickSearchActivity) {
@@ -484,7 +484,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public b05 getItem(int i) {
+        public zz4 getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -493,10 +493,10 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
                 }
                 return this.a.get(i);
             }
-            return (b05) invokeI.objValue;
+            return (zz4) invokeI.objValue;
         }
 
-        public void b(List<b05> list) {
+        public void b(List<zz4> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                 this.a = list;
@@ -508,7 +508,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                List<b05> list = this.a;
+                List<zz4> list = this.a;
                 if (list != null) {
                     return list.size();
                 }
@@ -532,7 +532,7 @@ public class QuickSearchActivity extends BaseActivity<QuickSearchActivity> {
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
                 kn4 layoutMode = this.b.getLayoutMode();
                 TbadkCoreApplication.getInst().getSkinType();
-                b05 item = getItem(i);
+                zz4 item = getItem(i);
                 if (item == null) {
                     return null;
                 }

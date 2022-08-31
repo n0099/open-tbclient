@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tieba.ie;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.nh;
-import com.baidu.tieba.o55;
 import com.baidu.tieba.og;
+import com.baidu.tieba.pe5;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.qf;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.re5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sf;
 import com.baidu.tieba.xg;
@@ -227,7 +227,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, Boolean.valueOf(z), str2, bool, sfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && ri.D() && sfVar != null) {
             String str4 = "";
-            boolean a = re5.a(str2);
+            boolean a = pe5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -354,7 +354,7 @@ public class ImageLogger {
     public static String memoryUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? o55.k().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? m55.k().v() : (String) invokeV.objValue;
     }
 
     public static void mobileTachometerLoger(ArrayList<String> arrayList, long j) {

@@ -39,12 +39,12 @@ public class mm2 {
 
         /* renamed from: com.baidu.tieba.mm2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0323a extends TimerTask {
+        public class C0325a extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0323a(a aVar) {
+            public C0325a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class mm2 {
         public final TimerTask e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0323a(this) : (TimerTask) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C0325a(this) : (TimerTask) invokeV.objValue;
         }
 
         public void f() {

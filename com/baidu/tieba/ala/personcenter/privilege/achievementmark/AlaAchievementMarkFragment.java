@@ -15,11 +15,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
-import com.baidu.tieba.m65;
-import com.baidu.tieba.nx5;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.lx5;
+import com.baidu.tieba.ox5;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.qx5;
-import com.baidu.tieba.tx5;
+import com.baidu.tieba.rx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +32,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx5 a;
+    public rx5 a;
     public AlaPersonCenterPrivilegeMarkModel b;
-    public m65 c;
-    public nx5 d;
+    public k65 c;
+    public lx5 d;
     public AlaPersonCenterPrivilegeMarkModel.b e;
     public View.OnClickListener f;
-    public tx5.c g;
+    public rx5.c g;
 
     /* loaded from: classes3.dex */
-    public class a implements nx5.h {
+    public class a implements lx5.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -64,10 +64,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.nx5.h
-        public void a(boolean z, qx5 qx5Var) {
+        @Override // com.baidu.tieba.lx5.h
+        public void a(boolean z, ox5 ox5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, qx5Var) == null) && z) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, ox5Var) == null) && z) {
                 this.a.v1();
             }
         }
@@ -163,7 +163,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements tx5.c {
+    public class d implements rx5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -186,10 +186,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.tx5.c
-        public void a(qx5 qx5Var) {
+        @Override // com.baidu.tieba.rx5.c
+        public void a(ox5 ox5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qx5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, ox5Var) == null) {
             }
         }
     }
@@ -246,9 +246,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     public final void m() {
-        tx5 tx5Var;
+        rx5 rx5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null || (tx5Var = this.a) == null || tx5Var.c() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null || (rx5Var = this.a) == null || rx5Var.c() == null) {
             return;
         }
         this.c.dettachView(this.a.c());
@@ -259,9 +259,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            m65 m65Var = this.c;
-            if (m65Var != null) {
-                m65Var.onChangeSkinType();
+            k65 k65Var = this.c;
+            if (k65Var != null) {
+                k65Var.onChangeSkinType();
             }
         }
     }
@@ -272,10 +272,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new tx5(getPageContext(), this.g);
+            this.a = new rx5(getPageContext(), this.g);
             w1();
             v1();
-            this.d = new nx5(getPageContext(), new a(this));
+            this.d = new lx5(getPageContext(), new a(this));
             return this.a.c();
         }
         return (View) invokeLLL.objValue;
@@ -290,9 +290,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             if (alaPersonCenterPrivilegeMarkModel != null) {
                 alaPersonCenterPrivilegeMarkModel.destory();
             }
-            nx5 nx5Var = this.d;
-            if (nx5Var != null) {
-                nx5Var.p();
+            lx5 lx5Var = this.d;
+            if (lx5Var != null) {
+                lx5Var.p();
             }
             m();
         }
@@ -323,10 +323,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.c == null) {
-                this.c = new m65(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
+                this.c = new k65(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
             }
-            tx5 tx5Var = this.a;
-            if (tx5Var == null || tx5Var.c() == null) {
+            rx5 rx5Var = this.a;
+            if (rx5Var == null || rx5Var.c() == null) {
                 return;
             }
             this.c.attachView(this.a.c(), false);

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.permission.PermissionRequestDialog;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.wr4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -384,11 +384,11 @@ public class PermissionJudgePolicy {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, str)) {
                 return true;
             }
-            wr4 wr4Var = new wr4(activity);
-            wr4Var.setCanceledOnTouchOutside(false);
-            wr4Var.setTitle(R.string.obfuscated_res_0x7f0f1001);
-            wr4Var.setMessageId(getPermissionDescriptionId(str));
-            wr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0984, new wr4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
+            vr4 vr4Var = new vr4(activity);
+            vr4Var.setCanceledOnTouchOutside(false);
+            vr4Var.setTitle(R.string.obfuscated_res_0x7f0f1001);
+            vr4Var.setMessageId(getPermissionDescriptionId(str));
+            vr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0984, new vr4.e(this, activity, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -415,11 +415,11 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.baidu.tieba.wr4.e
-                public void onClick(wr4 wr4Var2) {
+                @Override // com.baidu.tieba.vr4.e
+                public void onClick(vr4 vr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, wr4Var2) == null) {
-                        wr4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, vr4Var2) == null) {
+                        vr4Var2.dismiss();
                         Intent intent = new Intent();
                         intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
@@ -430,7 +430,7 @@ public class PermissionJudgePolicy {
                         }
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new wr4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new vr4.e(this, str) { // from class: com.baidu.tbadk.core.util.permission.PermissionJudgePolicy.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PermissionJudgePolicy this$0;
@@ -455,18 +455,18 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // com.baidu.tieba.wr4.e
-                public void onClick(wr4 wr4Var2) {
+                @Override // com.baidu.tieba.vr4.e
+                public void onClick(vr4 vr4Var2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, wr4Var2) == null) {
-                        wr4Var2.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, vr4Var2) == null) {
+                        vr4Var2.dismiss();
                         if (this.this$0.mDialogClickListener != null) {
                             this.this$0.mDialogClickListener.onDialogCaneled(this.val$permission);
                         }
                     }
                 }
             }).create(i9.a(activity));
-            wr4Var.show();
+            vr4Var.show();
             return false;
         }
         return invokeLL.booleanValue;

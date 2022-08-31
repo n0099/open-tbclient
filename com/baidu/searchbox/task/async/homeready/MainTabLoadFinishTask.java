@@ -10,7 +10,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.a40;
 import com.baidu.tieba.q10;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,16 +65,16 @@ public class MainTabLoadFinishTask extends LaunchTask {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             Loki.startTrack();
             try {
-                tu4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                su4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
                 String f = q10.e(TbadkCoreApplication.getInst().getContext()).f();
-                String q = tu4.k().q("key_last_cached_oid", "");
+                String q = su4.k().q("key_last_cached_oid", "");
                 if (StringUtils.isNull(q) || !q.equals(f)) {
-                    tu4.k().y("key_last_cached_oid", f);
-                    tu4.k().y("key_last_cached_real_oid", getRealOaid(f));
+                    su4.k().y("key_last_cached_oid", f);
+                    su4.k().y("key_last_cached_real_oid", getRealOaid(f));
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();

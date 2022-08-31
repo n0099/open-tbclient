@@ -4,10 +4,10 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.kl6;
-import com.baidu.tieba.ll6;
+import com.baidu.tieba.il6;
+import com.baidu.tieba.jl6;
+import com.baidu.tieba.pl6;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.rl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mHasMore;
-    public List<rl6> mTabList;
+    public List<pl6> mTabList;
     public List<pn> mThreadList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -44,7 +44,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
         this.mHasMore = false;
     }
 
-    public List<rl6> getTabList() {
+    public List<pl6> getTabList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTabList : (List) invokeV.objValue;
@@ -70,7 +70,7 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
             Message<?> orginalMessage = getOrginalMessage();
             FrsGameStrategyRequestMessage frsGameStrategyRequestMessage = (orginalMessage == null || !(orginalMessage.getExtra() instanceof FrsGameStrategyRequestMessage)) ? null : (FrsGameStrategyRequestMessage) orginalMessage.getExtra();
             if (frsGameStrategyRequestMessage != null) {
-                new ll6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
+                new jl6().d(String.valueOf(frsGameStrategyRequestMessage.getFid()), bArr, false);
             }
         }
     }
@@ -89,8 +89,8 @@ public class FrsGameStrategyHttpResponseMessage extends HttpResponsedMessage {
                 setError(error.errorno.intValue());
                 setErrorString(gameForumGuideTabResIdl.error.errmsg);
             }
-            this.mTabList = kl6.a(gameForumGuideTabResIdl.data.sub_tab_list);
-            this.mThreadList = kl6.b(gameForumGuideTabResIdl.data.thread_list);
+            this.mTabList = il6.a(gameForumGuideTabResIdl.data.sub_tab_list);
+            this.mThreadList = il6.b(gameForumGuideTabResIdl.data.thread_list);
             this.mHasMore = gameForumGuideTabResIdl.data.has_more.intValue() == 1;
         }
     }

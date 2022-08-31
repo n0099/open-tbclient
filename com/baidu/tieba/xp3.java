@@ -32,7 +32,7 @@ public class xp3 {
 
         /* renamed from: com.baidu.tieba.xp3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0455a extends ResponseCallback<AdResponseInfo> {
+        public class C0461a extends ResponseCallback<AdResponseInfo> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int a;
@@ -40,18 +40,18 @@ public class xp3 {
 
             /* renamed from: com.baidu.tieba.xp3$a$a$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0456a implements Runnable {
+            public class RunnableC0462a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0455a b;
+                public final /* synthetic */ C0461a b;
 
-                public RunnableC0456a(C0455a c0455a, AdElementInfo adElementInfo) {
+                public RunnableC0462a(C0461a c0461a, AdElementInfo adElementInfo) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0455a, adElementInfo};
+                        Object[] objArr = {c0461a, adElementInfo};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -61,7 +61,7 @@ public class xp3 {
                             return;
                         }
                     }
-                    this.b = c0455a;
+                    this.b = c0461a;
                     this.a = adElementInfo;
                 }
 
@@ -75,7 +75,7 @@ public class xp3 {
                 }
             }
 
-            public C0455a(a aVar) {
+            public C0461a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class xp3 {
                         }
                         this.b.c.g(errorCode);
                     } else {
-                        oq3.c(new RunnableC0456a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
+                        oq3.c(new RunnableC0462a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
                     }
                 }
             }
@@ -192,7 +192,7 @@ public class xp3 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (cq3Var = this.a) == null || cq3Var.i == null) {
                 return;
             }
-            C0455a c0455a = new C0455a(this);
+            C0461a c0461a = new C0461a(this);
             if (NetworkUtils.f(this.c.a)) {
                 if (this.c.c) {
                     cq3 cq3Var2 = this.a;
@@ -201,7 +201,7 @@ public class xp3 {
                         if (this.b == null || dq3Var.i() == null) {
                             return;
                         }
-                        this.b.a(dq3Var.g(), dq3Var.i(), c0455a);
+                        this.b.a(dq3Var.g(), dq3Var.i(), c0461a);
                         return;
                     }
                 }
@@ -209,7 +209,7 @@ public class xp3 {
                 String g = this.a.g();
                 qp3 qp3Var = this.b;
                 if (qp3Var != null) {
-                    qp3Var.f(g, c0455a);
+                    qp3Var.f(g, c0461a);
                 }
                 this.c.j(this.a, "request", this.b);
                 return;

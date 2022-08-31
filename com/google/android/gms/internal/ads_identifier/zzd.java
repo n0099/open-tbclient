@@ -4,7 +4,7 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.po9;
+import com.baidu.tieba.no9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public final class zzd extends zza implements zzf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Parcel zzb = zzb(6, zza());
-            boolean b = po9.b(zzb);
+            boolean b = no9.b(zzb);
             zzb.recycle();
             return b;
         }
@@ -68,9 +68,9 @@ public final class zzd extends zza implements zzf {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             Parcel zza = zza();
-            po9.a(zza, true);
+            no9.a(zza, true);
             Parcel zzb = zzb(2, zza);
-            boolean b = po9.b(zzb);
+            boolean b = no9.b(zzb);
             zzb.recycle();
             return b;
         }

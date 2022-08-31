@@ -15,8 +15,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nb5;
-import com.baidu.tieba.ob5;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.mb5;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +30,7 @@ public class SusPendedView extends LinearLayout {
     public LinearLayout a;
     public TranView b;
     public LinearLayout c;
-    public ob5 d;
+    public mb5 d;
     public float e;
     public float f;
     public boolean g;
@@ -108,11 +108,11 @@ public class SusPendedView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ob5 ob5Var = this.d;
-            if (ob5Var == null) {
+            mb5 mb5Var = this.d;
+            if (mb5Var == null) {
                 return false;
             }
-            return ob5Var.s();
+            return mb5Var.s();
         }
         return invokeV.booleanValue;
     }
@@ -281,9 +281,9 @@ public class SusPendedView extends LinearLayout {
                 if (f <= f2 || !this.g) {
                     return;
                 }
-                ob5 ob5Var = this.d;
-                if (ob5Var instanceof nb5) {
-                    ((nb5) ob5Var).J(f - f2);
+                mb5 mb5Var = this.d;
+                if (mb5Var instanceof lb5) {
+                    ((lb5) mb5Var).J(f - f2);
                 }
                 LinearLayout linearLayout = this.a;
                 float f3 = this.f;
@@ -312,10 +312,10 @@ public class SusPendedView extends LinearLayout {
         }
     }
 
-    public void setContentViewTop(ob5 ob5Var) {
+    public void setContentViewTop(mb5 mb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, ob5Var) == null) {
-            this.d = ob5Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, mb5Var) == null) {
+            this.d = mb5Var;
         }
     }
 

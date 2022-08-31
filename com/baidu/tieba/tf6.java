@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tf6 implements pn {
+/* loaded from: classes5.dex */
+public class tf6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static tf6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<uf6> a;
 
     static {
         InterceptResult invokeClinit;
@@ -27,7 +28,7 @@ public class tf6 implements pn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        b = new tf6();
     }
 
     public tf6() {
@@ -40,14 +41,21 @@ public class tf6 implements pn {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new SparseArray<>();
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
+    public static tf6 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (tf6) invokeV.objValue;
+    }
+
+    public uf6 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (uf6) invokeI.objValue;
     }
 }

@@ -1,428 +1,228 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.text.format.DateUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoHttpResMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoReqMessage;
-import com.baidu.tbadk.core.bigday.GetBigdayInfoSocketResMessage;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
-import com.baidu.tbadk.switchs.BigdaySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.GetBigday.BigdayInfo;
-import tbclient.GetBigday.GetBigdayResIdl;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class do4 {
     public static /* synthetic */ Interceptable $ic;
-    public static do4 h;
+    public static do4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public co4 a;
-    public co4 b;
-    public SparseArray<Long> c;
-    public ArrayList<co4> d;
-    public BdUniqueId e;
-    public boolean f;
-    public bb g;
-
-    /* loaded from: classes3.dex */
-    public class a extends bb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ do4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(do4 do4Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do4Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = do4Var;
-        }
-
-        @Override // com.baidu.tieba.bb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.hasError()) {
-                return;
-            }
-            this.a.f = true;
-            ArrayList<co4> arrayList = null;
-            if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
-                arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
-            } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
-                arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
-            }
-            this.a.m(arrayList);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<Void, Void, ArrayList<co4>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ do4 a;
-
-        public b(do4 do4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {do4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = do4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ArrayList<co4> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            byte[] bArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                ArrayList<co4> arrayList = new ArrayList<>();
-                vr4.f();
-                ve<byte[]> d = vr4.d("tb.bigday_datas");
-                if (d == null || (bArr = d.get("tb.bigday_datas")) == null) {
-                    return arrayList;
-                }
-                try {
-                    GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
-                    if (getBigdayResIdl.data != null) {
-                        for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
-                            if (bigdayInfo != null) {
-                                co4 co4Var = new co4();
-                                co4Var.b(bigdayInfo);
-                                if (co4Var.a()) {
-                                    arrayList.add(co4Var);
-                                }
-                            }
-                        }
-                        return arrayList;
-                    }
-                    return arrayList;
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (ArrayList) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ArrayList<co4> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                super.onPostExecute(arrayList);
-                if (arrayList != null) {
-                    this.a.l(arrayList);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c extends DiskFileOperate implements tb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<String> a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(String str, String str2, DiskFileOperate.Action action, ArrayList<co4> arrayList) {
-            super(str, str2, action);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, action, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new ArrayList<>();
-            Iterator<co4> it = arrayList.iterator();
-            while (it.hasNext()) {
-                co4 next = it.next();
-                if (next != null) {
-                    String g = lg.h().g(next.a, 41);
-                    if (!StringUtils.isNULL(g)) {
-                        String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(g);
-                        if (!StringUtils.isNULL(nameMd5FromUrl)) {
-                            this.a.add(nameMd5FromUrl);
-                        }
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.tb
-        public boolean compare(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                if (file == null || StringUtils.isNULL(file.getName())) {
-                    return false;
-                }
-                return !this.a.contains(file.getName());
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947711264, "Lcom/baidu/tieba/do4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947711264, "Lcom/baidu/tieba/do4;");
-        }
-    }
+    public ArrayList<hk4> a;
 
     public do4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
-        rk8.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
-        rk8.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
-        MessageManager.getInstance().registerListener(this.g);
-        this.c = new SparseArray<>();
+        this.a = new ArrayList<>();
     }
 
-    public static do4 i() {
+    public static do4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (h == null) {
-                h = new do4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (do4.class) {
+                    if (b == null) {
+                        b = new do4();
+                    }
+                }
             }
-            return h;
+            return b;
         }
         return (do4) invokeV.objValue;
     }
 
-    public final void d(ArrayList<co4> arrayList) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            ListUtils.addAll(arrayList2, 0, arrayList);
-            ListUtils.add(arrayList2, this.a);
-            ListUtils.add(arrayList2, this.b);
-            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
-            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
-            cVar.setSdCard(false);
-            cVar.setSavedCache(true);
-            wb.f().a(cVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).edit().clear();
         }
     }
 
-    public void e() {
+    public int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.g);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getInt(str, 0) : invokeL.intValue;
     }
 
-    public final void f() {
+    public long d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || ListUtils.isEmpty(this.d)) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getLong(str, 0L) : invokeL.longValue;
+    }
+
+    public final ArrayList<hk4> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public void f(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) || jSONArray == null) {
             return;
         }
-        Iterator<co4> it = this.d.iterator();
-        while (it.hasNext()) {
-            co4 next = it.next();
-            if (!BigdayImageLoaderProc.isImageFileExist(next.a)) {
-                lg.h().m(next.a, 41, null, this.e);
+        h(jSONArray);
+    }
+
+    public boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).contains(str) : invokeL.booleanValue;
+    }
+
+    public final void h(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONArray) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(currentAccount) || jSONArray == null) {
+                return;
+            }
+            this.a.clear();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = null;
+                try {
+                    jSONObject = jSONArray.getJSONObject(i);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (jSONObject != null) {
+                    hk4 hk4Var = new hk4();
+                    hk4Var.a = jSONObject.optInt("active_id");
+                    hk4Var.b = jSONObject.optInt("mission_id");
+                    hk4Var.c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+                    long d = d("business_update_time" + currentAccount + hk4Var.a);
+                    if (g("business_count_hint" + currentAccount + hk4Var.a) && DateUtils.isToday(d)) {
+                        hk4Var.s = c("business_count_hint" + currentAccount + hk4Var.a);
+                    } else {
+                        hk4Var.s = jSONObject.optInt("show_num");
+                        a();
+                        i("business_count_hint" + currentAccount + hk4Var.a, hk4Var.s);
+                        j("business_update_time" + currentAccount + hk4Var.a, System.currentTimeMillis());
+                    }
+                    hk4Var.t = jSONObject.optInt("show_time_begin");
+                    hk4Var.u = jSONObject.optInt("show_time_end");
+                    JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        try {
+                            hk4Var.w.add((String) optJSONArray.get(i2));
+                        } catch (JSONException e2) {
+                            e2.printStackTrace();
+                        }
+                    }
+                    JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        try {
+                            hk4Var.v.add((String) optJSONArray2.get(i3));
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
+                    }
+                    this.a.add(hk4Var);
+                }
             }
         }
     }
 
-    public final co4 g(List<co4> list, int i) {
-        InterceptResult invokeLI;
+    public void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, list, i)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+            EditorHelper.putInt(TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0), str, i);
+        }
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {
+            EditorHelper.putLong(TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0), str, j);
+        }
+    }
+
+    public final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+            completeTaskReqMsg.completeId = str;
+            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(8:33|(5:35|(4:38|(2:40|41)(1:43)|42|36)|44|45|(2:56|52))(1:57)|47|48|49|50|51|52) */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ea, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00eb, code lost:
+        r0.printStackTrace();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(String str, String str2) {
+        ArrayList<hk4> e;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) && (e = e()) != null && pi.z()) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(currentAccount)) {
+                return;
             }
-            for (co4 co4Var : list) {
-                if (co4Var.a() && co4Var.e == i) {
-                    long currentTimeMillis = System.currentTimeMillis() / 1000;
-                    long j = co4Var.f;
-                    if (j > currentTimeMillis) {
-                        this.c.put(i, Long.valueOf(j));
-                        return null;
-                    } else if (co4Var.g >= currentTimeMillis) {
-                        return co4Var;
+            while (i < e.size()) {
+                int i2 = e.get(i).a;
+                int i3 = e.get(i).b;
+                int i4 = e.get(i).c;
+                int c = c("business_count_hint" + currentAccount + i2);
+                long j = e.get(i).t;
+                long j2 = e.get(i).u;
+                ArrayList<String> arrayList = e.get(i).v;
+                ArrayList<String> arrayList2 = e.get(i).w;
+                if (c != 0 && System.currentTimeMillis() / 1000 > j && System.currentTimeMillis() / 1000 < j2) {
+                    boolean z = false;
+                    for (int i5 = 0; i5 < arrayList.size(); i5++) {
+                        if (arrayList.get(i5).equals(str)) {
+                            z = true;
+                        }
+                    }
+                    if (z) {
+                        if (str.equals("2")) {
+                            boolean z2 = false;
+                            for (int i6 = 0; i6 < arrayList2.size(); i6++) {
+                                if (arrayList2.get(i6).equals(str2)) {
+                                    z2 = true;
+                                }
+                            }
+                            i = z2 ? 0 : i + 1;
+                        }
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put(String.valueOf(i2), String.valueOf(i3));
+                        k(jSONObject.toString());
                     }
                 }
             }
-            return null;
-        }
-        return (co4) invokeLI.objValue;
-    }
-
-    public co4 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (i == 1) {
-                if (this.a == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
-                    this.a = g(this.d, 1);
-                }
-                co4 co4Var = this.a;
-                if (co4Var != null && (currentTimeMillis < co4Var.f || currentTimeMillis > co4Var.g)) {
-                    this.a = g(this.d, 1);
-                }
-                co4 co4Var2 = this.a;
-                if (co4Var2 != null && BigdayImageLoaderProc.isImageFileExist(co4Var2.a)) {
-                    return this.a;
-                }
-            } else if (i == 3) {
-                if (this.b == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
-                    this.a = g(this.d, 3);
-                }
-                co4 co4Var3 = this.b;
-                if (co4Var3 != null && (currentTimeMillis < co4Var3.f || currentTimeMillis > co4Var3.g)) {
-                    this.b = g(this.d, 3);
-                }
-                co4 co4Var4 = this.b;
-                if (co4Var4 != null && BigdayImageLoaderProc.isImageFileExist(co4Var4.a)) {
-                    return this.b;
-                }
-            }
-            return null;
-        }
-        return (co4) invokeI.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            new b(this).execute(new Void[0]);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f = false;
-            GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
-            getBigdayInfoReqMessage.setTag(this.e);
-            MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
-        }
-    }
-
-    public final void l(ArrayList<co4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, arrayList) == null) || ListUtils.isEmpty(arrayList) || this.f) {
-            return;
-        }
-        this.a = g(arrayList, 1);
-        this.b = g(arrayList, 3);
-        this.d = arrayList;
-        f();
-        co4 co4Var = this.a;
-        if (co4Var == null || !BigdayImageLoaderProc.isImageFileExist(co4Var.a) || SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) != 1 || System.currentTimeMillis() <= tu4.k().m("key_bigday_next_showtime_home", 0L)) {
-            return;
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
-    }
-
-    public final void m(ArrayList<co4> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
-            co4 g = g(arrayList, 1);
-            co4 g2 = g(arrayList, 3);
-            d(arrayList);
-            this.d = arrayList;
-            if (g != null && g.a()) {
-                this.a = g;
-            }
-            if (g2 != null && g2.a()) {
-                this.b = g2;
-            }
-            f();
-            co4 co4Var = this.a;
-            if (co4Var == null || !BigdayImageLoaderProc.isImageFileExist(co4Var.a) || SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) != 1 || System.currentTimeMillis() <= tu4.k().m("key_bigday_next_showtime_home", 0L)) {
-                return;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
-        }
-    }
-
-    public void n(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            this.e = bdUniqueId;
         }
     }
 }

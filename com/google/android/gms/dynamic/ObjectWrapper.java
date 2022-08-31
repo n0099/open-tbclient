@@ -2,7 +2,7 @@ package com.google.android.gms.dynamic;
 
 import android.os.IBinder;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.jn9;
+import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public final class ObjectWrapper<T> extends IObjectWrapper.Stub {
                 }
             }
             if (i == 1) {
-                jn9.d(field);
+                hn9.d(field);
                 if (!field.isAccessible()) {
                     field.setAccessible(true);
                     try {

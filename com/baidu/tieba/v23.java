@@ -45,12 +45,12 @@ public class v23 extends x23 {
 
         /* renamed from: com.baidu.tieba.v23$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0422a implements Runnable {
+        public class RunnableC0430a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0422a(a aVar) {
+            public RunnableC0430a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class v23 extends x23 {
                     y53.q(d63Var, this.a, this.b);
                     return;
                 }
-                ud3.k(new RunnableC0422a(this), "SaveImageAction");
+                ud3.k(new RunnableC0430a(this), "SaveImageAction");
             }
         }
     }

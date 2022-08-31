@@ -6,15 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.BirthdayInfo;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes5.dex */
 public class or4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public String b;
-    public int c;
-    public int d;
+    public int b;
 
     public or4() {
         Interceptable interceptable = $ic;
@@ -35,20 +33,21 @@ public class or4 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optLong("birthday_time", 0L);
-        this.d = jSONObject.optInt("birthday_show_status", 0);
-        this.b = jSONObject.optString("constellation", "");
-        this.c = jSONObject.optInt("age", 0);
+        try {
+            this.a = jSONObject.optLong("channel_id", 0L);
+            jSONObject.optString("channel_name");
+            jSONObject.optString("channel_avatar");
+        } catch (Exception unused) {
+        }
     }
 
-    public void b(BirthdayInfo birthdayInfo) {
+    public void b(VideoChannelInfo videoChannelInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, birthdayInfo) == null) || birthdayInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) || videoChannelInfo == null || videoChannelInfo.channel_id.longValue() <= 0) {
             return;
         }
-        this.a = birthdayInfo.birthday_time.longValue();
-        this.d = birthdayInfo.birthday_show_status.intValue();
-        this.b = birthdayInfo.constellation;
-        this.c = birthdayInfo.age.intValue();
+        this.a = videoChannelInfo.channel_id.longValue();
+        String str = videoChannelInfo.channel_name;
+        String str2 = videoChannelInfo.channel_avatar;
     }
 }

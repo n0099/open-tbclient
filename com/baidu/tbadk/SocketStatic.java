@@ -8,7 +8,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.f65;
+import com.baidu.tieba.d65;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.sb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -93,7 +93,7 @@ public class SocketStatic {
                         public void run() {
                             Interceptable interceptable3 = $ic;
                             if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && pi.z() && BdSocketLinkService.isClose()) {
-                                f65.b(0, 0, 0, 1, 6);
+                                d65.b(0, 0, 0, 1, 6);
                                 BdSocketLinkService.setAvailable(true);
                                 BdSocketLinkService.startService(false, "net succ");
                             }

@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveYYSubTabModel;
-import com.baidu.tieba.ar5;
-import com.baidu.tieba.dv4;
-import com.baidu.tieba.ev4;
-import com.baidu.tieba.n65;
+import com.baidu.tieba.bv4;
+import com.baidu.tieba.cv4;
+import com.baidu.tieba.l65;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pn;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.yq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,14 +38,14 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     public View j;
     public BdSwipeRefreshLayout k;
     public BdTypeRecyclerView l;
-    public ar5 m;
-    public ev4 n;
+    public yq5 m;
+    public cv4 n;
     public PbListView o;
     public AlaLiveYYSubTabModel p;
     public int q;
     public int r;
     public AlaLiveYYSubTabModel.b s;
-    public dv4.g t;
+    public bv4.g t;
     public BdListView.p u;
     public RecyclerView.OnScrollListener v;
 
@@ -116,7 +116,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements dv4.g {
+    public class b implements bv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveTabYYSubFragment a;
@@ -139,7 +139,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
             this.a = liveTabYYSubFragment;
         }
 
-        @Override // com.baidu.tieba.dv4.g
+        @Override // com.baidu.tieba.bv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -308,9 +308,9 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.b.setVisibility(8);
-            n65 n65Var = this.mRefreshView;
-            if (n65Var != null) {
-                n65Var.dettachView(this.b);
+            l65 l65Var = this.mRefreshView;
+            if (l65Var != null) {
+                l65Var.dettachView(this.b);
                 this.mRefreshView = null;
             }
         }
@@ -321,15 +321,15 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k = (BdSwipeRefreshLayout) this.j.findViewById(R.id.obfuscated_res_0x7f09139e);
             this.b = (LinearLayout) this.j.findViewById(R.id.obfuscated_res_0x7f092242);
-            ev4 ev4Var = new ev4(getPageContext());
-            this.n = ev4Var;
-            this.k.setProgressView(ev4Var);
+            cv4 cv4Var = new cv4(getPageContext());
+            this.n = cv4Var;
+            this.k.setProgressView(cv4Var);
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.j.findViewById(R.id.obfuscated_res_0x7f09139c);
             this.l = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.a));
             this.l.setFadingEdgeLength(0);
             this.l.setOverScrollMode(2);
-            this.m = new ar5(getPageContext(), this.l, this.f);
+            this.m = new yq5(getPageContext(), this.l, this.f);
             PbListView pbListView = new PbListView(this.a);
             this.o = pbListView;
             pbListView.a();
@@ -355,13 +355,13 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         }
     }
 
-    public final void L1(dv4.g gVar) {
-        ev4 ev4Var;
+    public final void L1(bv4.g gVar) {
+        cv4 cv4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (ev4Var = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (cv4Var = this.n) == null) {
             return;
         }
-        ev4Var.f(gVar);
+        cv4Var.f(gVar);
     }
 
     public final void M1(BdListView.p pVar) {
@@ -400,7 +400,7 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.b.setVisibility(0);
             if (this.mRefreshView == null) {
-                this.mRefreshView = new n65(getContext(), new e(this));
+                this.mRefreshView = new l65(getContext(), new e(this));
             }
             this.mRefreshView.p();
             this.mRefreshView.m(null);
@@ -456,18 +456,18 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
-            ev4 ev4Var = this.n;
-            if (ev4Var != null) {
-                ev4Var.H(i);
+            cv4 cv4Var = this.n;
+            if (cv4Var != null) {
+                cv4Var.H(i);
             }
             PbListView pbListView = this.o;
             if (pbListView != null) {
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0109));
                 this.o.d(i);
             }
-            ar5 ar5Var = this.m;
-            if (ar5Var != null) {
-                ar5Var.b();
+            yq5 yq5Var = this.m;
+            if (yq5Var != null) {
+                yq5Var.b();
             }
         }
     }
@@ -522,9 +522,9 @@ public class LiveTabYYSubFragment extends LiveTabBaseSubFragment {
                 bdTypeRecyclerView.removeOnScrollListener(this.v);
                 this.l.setOnSrollToBottomListener(null);
             }
-            ev4 ev4Var = this.n;
-            if (ev4Var != null) {
-                ev4Var.f(null);
+            cv4 cv4Var = this.n;
+            if (cv4Var != null) {
+                cv4Var.f(null);
                 this.n.Z();
             }
             AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.p;

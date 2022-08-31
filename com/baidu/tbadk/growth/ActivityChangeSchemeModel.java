@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.j55;
+import com.baidu.tieba.nu4;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -79,17 +79,17 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
                 }
                 if ("NewUserRedPackageActivity".equals(simpleName)) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    l55.c(scheme);
+                    j55.c(scheme);
                 } else if (!"MainTabActivity".equalsIgnoreCase(simpleName)) {
                     this.a.B();
                 } else {
-                    int a = ou4.a();
+                    int a = nu4.a();
                     if (a != 2) {
                         this.a.C(a);
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{scheme});
-                    l55.c(scheme);
+                    j55.c(scheme);
                 }
             }
         }
@@ -132,7 +132,7 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
                 Object invoke = z8.g().b().getClass().getMethod("getCurrentPageKey", new Class[0]).invoke(z8.g().b(), new Object[0]);
-                l55.b(invoke != null ? (String) invoke : null);
+                j55.b(invoke != null ? (String) invoke : null);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchMethodException e2) {
@@ -147,13 +147,13 @@ public class ActivityChangeSchemeModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (i == 1) {
-                l55.b("a025");
+                j55.b("a025");
             } else if (i == 22) {
-                l55.b("a088");
+                j55.b("a088");
             } else if (i == 3) {
-                l55.b("a079");
+                j55.b("a079");
             } else if (i == 8) {
-                l55.b("a011");
+                j55.b("a011");
             }
         }
     }

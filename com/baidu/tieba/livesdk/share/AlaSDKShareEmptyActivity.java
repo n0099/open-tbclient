@@ -24,8 +24,8 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gi;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.qg7;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sg7;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public sg7 m;
+    public qg7 m;
 
     /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -221,10 +221,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     public final void F1() {
-        sg7 sg7Var;
+        qg7 qg7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (sg7Var = this.m) != null) {
-            if (ListUtils.isEmpty(sg7Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (qg7Var = this.m) != null) {
+            if (ListUtils.isEmpty(qg7Var.b())) {
                 this.m.c();
             }
             this.m.e(pg.g(this.g, 0L), this.i, this.l);
@@ -255,9 +255,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0249, R.drawable.obfuscated_res_0x7f080901, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        sg7 sg7Var = this.m;
-        if (sg7Var != null) {
-            sg7Var.c();
+        qg7 qg7Var = this.m;
+        if (qg7Var != null) {
+            qg7Var.c();
         }
     }
 
@@ -279,7 +279,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new sg7(getPageContext());
+            this.m = new qg7(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");
@@ -325,9 +325,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            sg7 sg7Var = this.m;
-            if (sg7Var != null) {
-                sg7Var.d();
+            qg7 qg7Var = this.m;
+            if (qg7Var != null) {
+                qg7Var.d();
             }
         }
     }

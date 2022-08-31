@@ -10,15 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipDailyList;
 import tbclient.GetVipInfo.VipThemeItem;
+import tbclient.GetVipInfo.VipThemeList;
 /* loaded from: classes6.dex */
 public class yk7 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk7 a;
+    public tk7 a;
     public List<zk7> b;
+    public List<zk7> c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,16 +34,15 @@ public class yk7 implements pn {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
-    public yk7(VipDailyList vipDailyList) {
-        List<VipThemeItem> list;
+    public yk7(VipThemeList vipThemeList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipDailyList};
+            Object[] objArr = {vipThemeList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,19 +52,27 @@ public class yk7 implements pn {
                 return;
             }
         }
-        if (vipDailyList == null || (list = vipDailyList.item) == null || list.size() <= 0) {
+        if (vipThemeList == null) {
             return;
         }
-        String str = vipDailyList.card_id;
-        vk7 vk7Var = new vk7();
-        this.a = vk7Var;
-        vk7Var.e(1);
-        this.a.d(vipDailyList.class_name);
-        this.a.f(vipDailyList.class_url_name);
-        this.a.g(vipDailyList.class_url);
-        this.b = new ArrayList();
-        for (VipThemeItem vipThemeItem : vipDailyList.item) {
-            this.b.add(new zk7(vipThemeItem));
+        String str = vipThemeList.card_id;
+        tk7 tk7Var = new tk7();
+        this.a = tk7Var;
+        tk7Var.e(2);
+        this.a.d(vipThemeList.class_name);
+        this.a.f(vipThemeList.class_url_name);
+        this.a.g(vipThemeList.class_url);
+        if (vipThemeList.item != null) {
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipThemeList.item) {
+                this.b.add(new zk7(vipThemeItem));
+            }
+        }
+        if (vipThemeList.item_card != null) {
+            this.c = new ArrayList();
+            for (VipThemeItem vipThemeItem2 : vipThemeList.item_card) {
+                this.c.add(new zk7(vipThemeItem2));
+            }
         }
     }
 
@@ -72,6 +80,6 @@ public class yk7 implements pn {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.f65;
+import com.baidu.tieba.d65;
 import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -39,7 +39,7 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                 if (Build.VERSION.SDK_INT >= 24 || !pi.z()) {
                     return;
                 }
-                f65.b(0, 0, 0, 1, 6);
+                d65.b(0, 0, 0, 1, 6);
                 BdSocketLinkService.setAvailable(true);
                 BdSocketLinkService.startService(false, "net succ");
             } else if ("com.baidu.android.pushservice.action.BIND_SYNC".equals(intent.getAction())) {
@@ -47,7 +47,7 @@ public class TiebaSocketReceiver extends BroadcastReceiver {
                     TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 0);
                     return;
                 }
-                f65.b(0, 0, 0, 1, 7);
+                d65.b(0, 0, 0, 1, 7);
                 BdSocketLinkService.startService(false, "frombaidupushservice");
                 TiebaStatic.eventStat(context, "baidupushservice_activate_tieba", "socket", 1, "iscon", 1);
             } else {

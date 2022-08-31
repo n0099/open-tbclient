@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.EllipsizeTagTitleView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b37;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.z27;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,15 +51,15 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements j
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09226e);
     }
 
-    public void a(b37 b37Var) {
+    public void a(z27 z27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, b37Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, z27Var) == null) {
             this.b.setConrers(15);
             this.b.setPlaceHolder(1);
-            this.b.K(b37Var.d, 10, false);
-            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a49, b37Var.a), b37Var.c);
-            if (!TextUtils.isEmpty(b37Var.b)) {
-                this.d.setText(b37Var.b);
+            this.b.K(z27Var.d, 10, false);
+            this.c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a49, z27Var.a), z27Var.c);
+            if (!TextUtils.isEmpty(z27Var.b)) {
+                this.d.setText(z27Var.b);
                 this.d.setVisibility(0);
                 return;
             }
@@ -76,7 +76,7 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements j
                 ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i);
             }
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
-            os4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
+            ns4.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

@@ -104,7 +104,7 @@ public class yl4 {
                 this.a.b = false;
                 CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
                 if (checkBaiduSimResponseMessage.isSuc) {
-                    tu4.k().y("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02d5) : "");
+                    su4.k().y("key_baidu_sim_card_writting_tip", checkBaiduSimResponseMessage.isBaiduSim ? TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02d5) : "");
                     MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
                 }
             }
@@ -160,8 +160,8 @@ public class yl4 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
             this.b = true;
-            if (System.currentTimeMillis() >= tu4.k().m("key_next_check_baidu_sim_time", 0L)) {
-                tu4.k().x("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
+            if (System.currentTimeMillis() >= su4.k().m("key_next_check_baidu_sim_time", 0L)) {
+                su4.k().x("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
                 tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);

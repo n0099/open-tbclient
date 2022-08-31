@@ -33,13 +33,13 @@ public class fo2 extends x23 {
 
         /* renamed from: com.baidu.tieba.fo2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0251a implements Runnable {
+        public class RunnableC0257a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0251a(a aVar, String str) {
+            public RunnableC0257a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public class fo2 extends x23 {
                 if (TextUtils.isEmpty(str)) {
                     g83.b("audio", 3001, "cloud url is null", -1, "");
                 }
-                ue3.e0(new RunnableC0251a(this, str));
+                ue3.e0(new RunnableC0257a(this, str));
             }
         }
     }

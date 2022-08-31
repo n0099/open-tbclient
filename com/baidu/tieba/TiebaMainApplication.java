@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.LaunchUpApplicationSwitch;
@@ -37,37 +36,27 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
             TbadkApplication.sApp = this;
-            ya5.b().t(currentTimeMillis);
-        }
-    }
-
-    @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.core.TbadkCoreApplication
-    public void doAfterSuperOnCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.doAfterSuperOnCreate();
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                if (!LaunchUpApplicationSwitch.getIsOn()) {
-                    if (getSplash() != null) {
-                        getSplash().a();
-                    }
-                    if (fb5.a(getContext())) {
-                        TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
-                    } else {
-                        TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
-                    }
-                }
-                ya5.b().F(System.currentTimeMillis());
-            }
+            wa5.b().t(currentTimeMillis);
         }
     }
 
     @Override // com.baidu.tieba.TiebaBaseApplication, com.baidu.tbadk.TbadkApplication, com.baidu.tbadk.core.TbadkCoreApplication, com.baidu.adp.base.BdBaseApplication, android.app.Application
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setPageStayOpen(true);
             super.onCreate();
+            if (!LaunchUpApplicationSwitch.getIsOn()) {
+                if (getSplash() != null) {
+                    getSplash().a();
+                }
+                if (db5.a(getContext())) {
+                    TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
+                } else {
+                    TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
+                }
+            }
+            wa5.b().F(System.currentTimeMillis());
         }
     }
 }

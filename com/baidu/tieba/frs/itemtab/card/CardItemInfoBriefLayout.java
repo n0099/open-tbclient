@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -134,7 +134,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
             multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f05d7))));
-            os4 d = os4.d(this.a);
+            ns4 d = ns4.d(this.a);
             d.z(R.dimen.T_X07);
             d.w(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, ri.f(getContext(), R.dimen.M_H_X005));
@@ -143,7 +143,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
             eMTextView.setText(R.string.obfuscated_res_0x7f0f05d7);
-            os4.d(this.a).z(R.dimen.T_X07);
+            ns4.d(this.a).z(R.dimen.T_X07);
             this.b.setPadding(ri.f(getContext(), R.dimen.M_W_X005), ri.f(getContext(), R.dimen.M_H_X005), 0, ri.f(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
@@ -157,12 +157,12 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            os4 d = os4.d(this);
+            ns4 d = ns4.d(this);
             d.m(2);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            os4.d(this.a).v(R.color.CAM_X0105);
-            os4.d(this.b).v(R.color.CAM_X0304);
+            ns4.d(this.a).v(R.color.CAM_X0105);
+            ns4.d(this.b).v(R.color.CAM_X0304);
         }
     }
 

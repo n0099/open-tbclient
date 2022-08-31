@@ -13,10 +13,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dv4;
+import com.baidu.tieba.bv4;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.jg6;
-import com.baidu.tieba.jm6;
+import com.baidu.tieba.hg6;
+import com.baidu.tieba.hm6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pn;
@@ -27,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
+public class FrsGameRecommendFragment extends BaseFragment implements hg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jm6 a;
+    public hm6 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public dv4.g g;
+    public bv4.g g;
     public BdListView.p h;
 
     /* loaded from: classes4.dex */
@@ -134,7 +134,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements dv4.g {
+    public class c implements bv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -157,7 +157,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.dv4.g
+        @Override // com.baidu.tieba.bv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -241,7 +241,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
         return (FrsGameRecommendFragment) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.jg6
+    @Override // com.baidu.tieba.hg6
     public NavigationBar M0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,12 +250,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        jm6 jm6Var;
+        hm6 hm6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (jm6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (hm6Var = this.a) == null) {
             return;
         }
-        jm6Var.i(i);
+        hm6Var.i(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -269,9 +269,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            jm6 jm6Var = new jm6(getPageContext(), this.c, this.d);
-            this.a = jm6Var;
-            jm6Var.l(this.g);
+            hm6 hm6Var = new hm6(getPageContext(), this.c, this.d);
+            this.a = hm6Var;
+            hm6Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);
@@ -290,9 +290,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements jg6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            jm6 jm6Var = this.a;
-            if (jm6Var != null) {
-                jm6Var.j();
+            hm6 hm6Var = this.a;
+            if (hm6Var != null) {
+                hm6Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {

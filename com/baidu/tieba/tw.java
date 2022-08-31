@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tw extends sw<ho4> {
+public class tw extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BjhArticleLayout f;
-    public ho4 g;
+    public go4 g;
     public View.OnClickListener h;
 
     /* loaded from: classes6.dex */
@@ -86,8 +86,8 @@ public class tw extends sw<ho4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    uz5.a(this.a.g.getThreadData().getId());
-                    uz5.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    sz5.a(this.a.g.getThreadData().getId());
+                    sz5.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -136,11 +136,11 @@ public class tw extends sw<ho4> {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j06Var) == null) {
-            super.m(j06Var);
-            this.f.setSubClickListener(j06Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h06Var) == null) {
+            super.m(h06Var);
+            this.f.setSubClickListener(h06Var);
         }
     }
 
@@ -155,18 +155,18 @@ public class tw extends sw<ho4> {
     public final void s(View view2, pn pnVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, pnVar) == null) {
-            ho4 ho4Var = this.g;
-            if (((ho4Var instanceof q06) || (ho4Var instanceof ThreadData)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            go4 go4Var = this.g;
+            if (((go4Var instanceof o06) || (go4Var instanceof ThreadData)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                if (pnVar instanceof q06) {
-                    q06 q06Var = (q06) this.g;
-                    q06Var.f = 1;
-                    ThreadCardUtils.jumpToPB((ho4) q06Var, view2.getContext(), q06Var.a.isFromHomPage ? 2 : 1, false);
+                if (pnVar instanceof o06) {
+                    o06 o06Var = (o06) this.g;
+                    o06Var.f = 1;
+                    ThreadCardUtils.jumpToPB((go4) o06Var, view2.getContext(), o06Var.a.isFromHomPage ? 2 : 1, false);
                     threadCardViewHolder.a().o(new py.a(1));
                 } else if (pnVar instanceof ThreadData) {
                     ThreadData threadData = (ThreadData) this.g;
                     threadData.objType = 1;
-                    ThreadCardUtils.jumpToPB((ho4) threadData, view2.getContext(), 3, false);
+                    ThreadCardUtils.jumpToPB((go4) threadData, view2.getContext(), 3, false);
                     threadCardViewHolder.a().o(new py.a(1));
                 }
             }
@@ -176,11 +176,11 @@ public class tw extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: t */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ho4Var) == null) {
-            this.g = ho4Var;
-            this.f.a(ho4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, go4Var) == null) {
+            this.g = go4Var;
+            this.f.a(go4Var);
         }
     }
 }

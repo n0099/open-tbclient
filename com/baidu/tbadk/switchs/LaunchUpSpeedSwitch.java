@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class LaunchUpSpeedSwitch extends BaseNormalSwitch {
                 if (UbsABTestHelper.isLaunchUpA()) {
                     type = 0;
                 } else {
-                    type = tu4.k().l("key_launch_up_speed", 1);
+                    type = su4.k().l("key_launch_up_speed", 1);
                 }
             }
             return type == 1;

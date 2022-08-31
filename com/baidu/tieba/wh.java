@@ -99,7 +99,7 @@ public class wh {
                 super.callback(z);
                 if (z) {
                     this.a.G(0L);
-                    qh.m().r(this.a, this.b, this.c, this.d);
+                    qh.m().t(this.a, this.b, this.c, this.d);
                 } else if (this.a.t() < 307200 || this.a.o() == "stat") {
                 } else {
                     wh.a(BdStatisticsManager.getInstance().getWriteDir(), this.a.r(), this.a);

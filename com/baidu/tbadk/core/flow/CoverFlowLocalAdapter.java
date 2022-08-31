@@ -10,9 +10,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.rs4;
 import com.baidu.tieba.ss4;
-import com.baidu.tieba.ts4;
-import com.baidu.tieba.ze6;
+import com.baidu.tieba.xe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class CoverFlowLocalAdapter<T extends ts4> extends PagerAdapter {
+public class CoverFlowLocalAdapter<T extends ss4> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<ImageView> a;
@@ -90,10 +90,10 @@ public class CoverFlowLocalAdapter<T extends ts4> extends PagerAdapter {
         }
     }
 
-    public void e(List<T> list, ss4 ss4Var) {
+    public void e(List<T> list, rs4 rs4Var) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, ss4Var) == null) || list == null || list.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, list, rs4Var) == null) || list == null || list.isEmpty()) {
             return;
         }
         this.b.clear();
@@ -111,7 +111,7 @@ public class CoverFlowLocalAdapter<T extends ts4> extends PagerAdapter {
                 this.f.get(i);
             }
             if (this.b.get(i) != null && imageView != null) {
-                if (this.b.get(i) instanceof ze6) {
+                if (this.b.get(i) instanceof xe6) {
                     imageView.setImageDrawable(SkinManager.getDrawable(imageView.getResources(), Integer.valueOf(this.b.get(i).a()).intValue()));
                 }
                 imageView.setOnClickListener(this.d);

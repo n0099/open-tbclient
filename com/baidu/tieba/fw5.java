@@ -1,121 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.ala.atomdata.AlaForbiddenListActivityConfig;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fw5 extends cn<vw5, CardViewHolder<ay5>> {
+public class fw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public BdTypeListView b;
+    public List<cn> c;
+    public List<pn> d;
+    public hx5 e;
+    public lw5 f;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fw5 a;
-
-        public a(fw5 fw5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fw5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fw5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.u();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fw5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), vw5.b);
+    public fw5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, hx5 hx5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeListView, hx5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = hx5Var;
+        a();
     }
 
-    public final void t(vw5 vw5Var, ay5 ay5Var) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vw5Var, ay5Var) == null) {
-            ay5Var.w(8);
-            ay5Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f023d));
-            ay5Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ew5 ew5Var = new ew5(this.a);
+            iw5 iw5Var = new iw5(this.a);
+            jw5 jw5Var = new jw5(this.a);
+            cw5 cw5Var = new cw5(this.a);
+            hw5 hw5Var = new hw5(this.a);
+            kw5 kw5Var = new kw5(this.a);
+            gw5 gw5Var = new gw5(this.a);
+            dw5 dw5Var = new dw5(this.a);
+            this.f = new lw5(this.a);
+            nw5 nw5Var = new nw5(this.a, this.e);
+            mw5 mw5Var = new mw5(this.a);
+            this.c.add(ew5Var);
+            this.c.add(this.f);
+            this.c.add(iw5Var);
+            this.c.add(jw5Var);
+            this.c.add(cw5Var);
+            this.c.add(hw5Var);
+            this.c.add(kw5Var);
+            this.c.add(gw5Var);
+            this.c.add(dw5Var);
+            this.c.add(nw5Var);
+            this.c.add(mw5Var);
+            this.b.a(this.c);
         }
     }
 
-    public final void u() {
+    public void b(List<pn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaForbiddenListActivityConfig(this.a.getPageActivity())));
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.b == null || ListUtils.isEmpty(list)) {
+            return;
         }
+        this.d.clear();
+        this.d.addAll(list);
+        this.b.setData(this.d);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: v */
-    public CardViewHolder<ay5> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void c(String str) {
+        lw5 lw5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new ay5(this.a)) : (CardViewHolder) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (lw5Var = this.f) == null) {
+            return;
+        }
+        lw5Var.D(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: w */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vw5 vw5Var, CardViewHolder<ay5> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void d(String str) {
+        lw5 lw5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vw5Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
-            }
-            t(vw5Var, cardViewHolder.a());
-            cardViewHolder.a().h().setOnClickListener(new a(this));
-            return cardViewHolder.a().h();
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || (lw5Var = this.f) == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        lw5Var.a(str);
+    }
+
+    public void e(String str) {
+        lw5 lw5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (lw5Var = this.f) == null) {
+            return;
+        }
+        lw5Var.E(str);
+    }
+
+    public void f(boolean z) {
+        lw5 lw5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (lw5Var = this.f) == null) {
+            return;
+        }
+        lw5Var.F(z);
     }
 }

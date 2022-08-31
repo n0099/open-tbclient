@@ -15,14 +15,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xg5;
+import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class RefreshView extends FrameLayout implements xg5 {
+public class RefreshView extends FrameLayout implements vg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
@@ -51,7 +51,7 @@ public class RefreshView extends FrameLayout implements xg5 {
         }
     }
 
-    @Override // com.baidu.tieba.xg5
+    @Override // com.baidu.tieba.vg5
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.d == 2) {
@@ -62,7 +62,7 @@ public class RefreshView extends FrameLayout implements xg5 {
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0805f9, R.color.CAM_X0109, null);
     }
 
-    @Override // com.baidu.tieba.xg5
+    @Override // com.baidu.tieba.vg5
     public void b(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || this.d == 1) {
@@ -93,7 +93,7 @@ public class RefreshView extends FrameLayout implements xg5 {
         SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
     }
 
-    @Override // com.baidu.tieba.xg5
+    @Override // com.baidu.tieba.vg5
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

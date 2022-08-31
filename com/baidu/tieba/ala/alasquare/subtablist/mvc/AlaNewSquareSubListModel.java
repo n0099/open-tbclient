@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.cu5;
+import com.baidu.tieba.au5;
+import com.baidu.tieba.bu5;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.du5;
+import com.baidu.tieba.oq5;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.qq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -178,41 +178,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i += 2) {
             if (this.o) {
-                cu5 cu5Var = new cu5();
-                qq5 qq5Var = new qq5();
-                qq5Var.e = this.i;
-                qq5Var.b = this.e;
-                qq5Var.c = this.d;
-                qq5Var.d = list.get(i);
-                cu5Var.a = qq5Var;
+                au5 au5Var = new au5();
+                oq5 oq5Var = new oq5();
+                oq5Var.e = this.i;
+                oq5Var.b = this.e;
+                oq5Var.c = this.d;
+                oq5Var.d = list.get(i);
+                au5Var.a = oq5Var;
                 int i2 = i + 1;
                 if (i2 < size) {
-                    qq5 qq5Var2 = new qq5();
-                    qq5Var2.e = this.i;
-                    qq5Var2.b = this.e;
-                    qq5Var2.c = this.d;
-                    qq5Var2.d = list.get(i2);
-                    cu5Var.b = qq5Var2;
+                    oq5 oq5Var2 = new oq5();
+                    oq5Var2.e = this.i;
+                    oq5Var2.b = this.e;
+                    oq5Var2.c = this.d;
+                    oq5Var2.d = list.get(i2);
+                    au5Var.b = oq5Var2;
                 }
-                this.n.add(cu5Var);
+                this.n.add(au5Var);
             } else {
-                du5 du5Var = new du5();
-                qq5 qq5Var3 = new qq5();
-                qq5Var3.e = this.i;
-                qq5Var3.b = this.e;
-                qq5Var3.c = this.d;
-                qq5Var3.d = list.get(i);
-                du5Var.a = qq5Var3;
+                bu5 bu5Var = new bu5();
+                oq5 oq5Var3 = new oq5();
+                oq5Var3.e = this.i;
+                oq5Var3.b = this.e;
+                oq5Var3.c = this.d;
+                oq5Var3.d = list.get(i);
+                bu5Var.a = oq5Var3;
                 int i3 = i + 1;
                 if (i3 < size) {
-                    qq5 qq5Var4 = new qq5();
-                    qq5Var4.e = this.i;
-                    qq5Var4.b = this.e;
-                    qq5Var4.c = this.d;
-                    qq5Var4.d = list.get(i3);
-                    du5Var.b = qq5Var4;
+                    oq5 oq5Var4 = new oq5();
+                    oq5Var4.e = this.i;
+                    oq5Var4.b = this.e;
+                    oq5Var4.c = this.d;
+                    oq5Var4.d = list.get(i3);
+                    bu5Var.b = oq5Var4;
                 }
-                this.n.add(du5Var);
+                this.n.add(bu5Var);
             }
         }
     }

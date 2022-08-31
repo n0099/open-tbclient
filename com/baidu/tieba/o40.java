@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
+import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.g40;
 import com.baidu.tieba.j40;
@@ -173,7 +173,7 @@ public class o40 extends j40 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = this.a.f(e());
-            String string = ApiReplaceUtil.Overload.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
+            String string = Settings.Secure.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
             if (string == null) {
                 string = "0";
             }

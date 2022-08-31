@@ -1,83 +1,77 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.List;
-import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class w36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    public static final <T extends u26> T a(v26 v26Var, Class<T> type, o0 entity, n26 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, v26Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(v26Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            n0 f = v26Var.f();
+            if (f == null || (t = (T) f.h(type)) == null) {
+                return null;
             }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues <= 0) {
-                    return i2 - 1;
-                } else {
-                    size = i2;
-                }
-            }
-            return i;
+            entity.a(t);
+            t.b(item);
+            return t;
         }
-        return invokeLLL.intValue;
+        return (T) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
-            }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues <= 0) {
-                    return i2 - 1;
-                } else {
-                    size = i2;
-                }
-            }
-            return size;
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static final <T extends Comparable<? super T>> o26<T> c(Collection<? extends T> collection) {
+    public static final long b(v26 v26Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
-            Intrinsics.checkNotNullParameter(collection, "<this>");
-            return new o26<>(collection);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, v26Var)) == null) {
+            Intrinsics.checkNotNullParameter(v26Var, "<this>");
+            return d(v26Var).a();
         }
-        return (o26) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    public static final n46 c(v26 v26Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v26Var)) == null) {
+            Intrinsics.checkNotNullParameter(v26Var, "<this>");
+            return v26Var.i().d();
+        }
+        return (n46) invokeL.objValue;
+    }
+
+    public static final q46 d(v26 v26Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, v26Var)) == null) {
+            Intrinsics.checkNotNullParameter(v26Var, "<this>");
+            return v26Var.i().f();
+        }
+        return (q46) invokeL.objValue;
+    }
+
+    public static final boolean e(v26 v26Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v26Var)) == null) {
+            Intrinsics.checkNotNullParameter(v26Var, "<this>");
+            n0 f = v26Var.f();
+            t26 t26Var = f instanceof t26 ? (t26) f : null;
+            if (t26Var == null) {
+                return true;
+            }
+            return t26Var.x();
+        }
+        return invokeL.booleanValue;
     }
 }

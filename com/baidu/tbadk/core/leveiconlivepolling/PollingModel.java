@@ -23,14 +23,14 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.fu4;
 import com.baidu.tieba.gu4;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.rk8;
-import com.baidu.tieba.sb5;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.qb5;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.su4;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -182,15 +182,15 @@ public class PollingModel extends BdBaseModel {
         this.b = tbPageContext;
         setUniqueId(bdUniqueId);
         this.c = bdUniqueId;
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, rk8.a(TbConfig.GET_POLLING_DATA, 309732));
-        sb5 sb5Var = new sb5(309732);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HTTP_POLLING_INTERFACE, pk8.a(TbConfig.GET_POLLING_DATA, 309732));
+        qb5 qb5Var = new qb5(309732);
         tbHttpMessageTask.setResponsedClass(PollingHttpResMessage.class);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        sb5Var.setResponsedClass(PollingSocketResMessage.class);
-        sb5Var.g(true);
-        sb5Var.h(false);
-        MessageManager.getInstance().registerTask(sb5Var);
+        qb5Var.setResponsedClass(PollingSocketResMessage.class);
+        qb5Var.g(true);
+        qb5Var.h(false);
+        MessageManager.getInstance().registerTask(qb5Var);
         registerListener(this.f);
     }
 
@@ -219,7 +219,7 @@ public class PollingModel extends BdBaseModel {
         }
         iconPopData.setHadShow(z);
         TbSingleton.getInstance().setIconPopData(iconPopData);
-        tu4 k = tu4.k();
+        su4 k = su4.k();
         k.y("key_polling_icon_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(iconPopData));
     }
 
@@ -230,7 +230,7 @@ public class PollingModel extends BdBaseModel {
         }
         levePopData.setHadShow(z);
         TbSingleton.getInstance().setLevePopData(levePopData);
-        tu4 k = tu4.k();
+        su4 k = su4.k();
         k.y("key_polling_level_change" + TbadkCoreApplication.getCurrentAccountId(), DataExt.toJson(levePopData));
     }
 
@@ -274,10 +274,10 @@ public class PollingModel extends BdBaseModel {
     public final void P() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            gu4.a().d(this.a);
+            fu4.a().d(this.a);
             LiveRemindDataEvent liveRemindDataEvent = new LiveRemindDataEvent();
             liveRemindDataEvent.liveRemindData = this.a;
-            u75.i(liveRemindDataEvent);
+            s75.i(liveRemindDataEvent);
         }
     }
 
@@ -285,8 +285,8 @@ public class PollingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
             int i = 0;
-            LiveRemindRecommendData c = gu4.a().c(0);
-            if (c == null || !hu4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+            LiveRemindRecommendData c = fu4.a().c(0);
+            if (c == null || !gu4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
                 return;
             }
             HashMap hashMap = new HashMap();
@@ -308,8 +308,8 @@ public class PollingModel extends BdBaseModel {
             hashMap.put("view_top_params_key_yyext", c.getYyExtData());
             hashMap.put("view_top_params_key_type", Integer.valueOf(i));
             hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-            if (lz4.e(null, tbPageContext, hashMap, 0L, 4000L) != null) {
-                hu4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+            if (jz4.e(null, tbPageContext, hashMap, 0L, 4000L) != null) {
+                gu4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
             }
         }
     }

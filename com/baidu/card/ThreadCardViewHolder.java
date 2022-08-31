@@ -16,8 +16,8 @@ import com.baidu.tieba.bx;
 import com.baidu.tieba.dy;
 import com.baidu.tieba.ey;
 import com.baidu.tieba.fy;
-import com.baidu.tieba.ho4;
-import com.baidu.tieba.j06;
+import com.baidu.tieba.go4;
+import com.baidu.tieba.h06;
 import com.baidu.tieba.ky;
 import com.baidu.tieba.nx;
 import com.baidu.tieba.uw;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class ThreadCardViewHolder<T extends ho4> extends TypeAdapter.ViewHolder {
+public class ThreadCardViewHolder<T extends go4> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -181,10 +181,10 @@ public class ThreadCardViewHolder<T extends ho4> extends TypeAdapter.ViewHolder 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b.j() : (View) invokeV.objValue;
     }
 
-    public void h(j06<T> j06Var) {
+    public void h(h06<T> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j06Var) == null) {
-            this.b.p(j06Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h06Var) == null) {
+            this.b.p(h06Var);
         }
     }
 

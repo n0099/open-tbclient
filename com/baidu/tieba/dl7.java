@@ -8,16 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AutoPayInfo;
-import tbclient.GetVipInfo.DataRes;
-import tbclient.GetVipInfo.VipInfo;
-import tbclient.GetVipInfo.VipUpgrade;
-import tbclient.GetVipInfo.VipUser;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes3.dex */
 public class dl7 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public tk7 a;
+    public List<el7> b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,17 +33,16 @@ public class dl7 implements pn {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
-    public dl7(DataRes dataRes) {
-        VipUser vipUser;
-        VipUpgrade vipUpgrade;
+    public dl7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataRes};
+            Object[] objArr = {vipSpecialList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,42 +52,26 @@ public class dl7 implements pn {
                 return;
             }
         }
-        if (dataRes == null || (vipUser = dataRes.user) == null || (vipUpgrade = dataRes.upgrade) == null) {
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
             return;
         }
-        String str = vipUser.card_id;
-        String str2 = vipUser.total_scores_link;
-        String str3 = vipUser.speed_link;
-        String str4 = vipUser.task_scores_link;
-        vipUser.task_scores.intValue();
-        String str5 = vipUser.name;
-        vipUser.id.longValue();
-        String str6 = vipUser.portrait;
-        String str7 = vipUser.name_show;
-        String str8 = vipUser.vip_link;
-        VipInfo vipInfo = vipUser.vipInfo;
-        if (vipInfo != null) {
-            String str9 = vipInfo.icon_url;
-            vipInfo.s_time.intValue();
-            vipUser.vipInfo.e_time.intValue();
-            vipUser.now_time.intValue();
-            vipUser.vipInfo.v_status.intValue();
-            vipUser.vipInfo.v_level.intValue();
-            vipUser.vipInfo.ext_score.intValue();
-            vipUser.vipInfo.a_score.intValue();
-            vipUser.vipInfo.n_score.intValue();
+        String str = vipSpecialList.card_id;
+        tk7 tk7Var = new tk7();
+        this.a = tk7Var;
+        tk7Var.e(1);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        this.b = new ArrayList();
+        for (VipSpecialItem vipSpecialItem : vipSpecialList.item) {
+            this.b.add(new el7(vipSpecialItem));
         }
-        dataRes.today_get_score.intValue();
-        dataRes.today_unget_score.intValue();
-        vipUpgrade.normal.intValue();
-        vipUpgrade.pay.intValue();
-        AutoPayInfo autoPayInfo = dataRes.autopay_info;
     }
 
     @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

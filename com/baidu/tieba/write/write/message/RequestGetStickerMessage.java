@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.af5;
+import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class RequestGetStickerMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.f1240common = this.f1060common;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                af5.a(builder, true);
+                ye5.a(builder, true);
             }
             GetStickerReqIdl.Builder builder2 = new GetStickerReqIdl.Builder();
             builder2.data = builder.build(false);

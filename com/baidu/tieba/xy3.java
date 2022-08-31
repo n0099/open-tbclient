@@ -57,12 +57,12 @@ public class xy3 extends UnitedSchemeBaseInterceptor {
 
         /* renamed from: com.baidu.tieba.xy3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0457a implements Runnable {
+        public class RunnableC0463a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0457a(a aVar) {
+            public RunnableC0463a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -187,7 +187,7 @@ public class xy3 extends UnitedSchemeBaseInterceptor {
                 if (xy3.a) {
                     Log.d("SwanGameLaunchAction", "onSuccess");
                 }
-                ue3.e0(new RunnableC0457a(this));
+                ue3.e0(new RunnableC0463a(this));
                 this.b.a1("1.6.0");
                 this.b.A0(true);
                 xl2 d = this.e.d(this.b);

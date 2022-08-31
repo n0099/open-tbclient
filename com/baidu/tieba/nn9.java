@@ -1,70 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.annotation.concurrent.GuardedBy;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.RootTelemetryConfiguration;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes5.dex */
-public final class nn9 {
+public final class nn9 implements Parcelable.Creator<RootTelemetryConfiguration> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Object a;
-    @GuardedBy("sLock")
-    public static boolean b;
-    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008368, "Lcom/baidu/tieba/nn9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948008368, "Lcom/baidu/tieba/nn9;");
-                return;
+    public nn9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new Object();
     }
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            b(context);
-            return c;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void b(Context context) {
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            synchronized (a) {
-                if (b) {
-                    return;
-                }
-                b = true;
-                try {
-                    bundle = fo9.a(context).a(context.getPackageName(), 128).metaData;
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.wtf("MetadataValueReader", "This should never happen.", e);
-                }
-                if (bundle == null) {
-                    return;
-                }
-                bundle.getString("com.google.app.id");
-                c = bundle.getInt("com.google.android.gms.version");
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ RootTelemetryConfiguration createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        int i = 0;
+        boolean z = false;
+        boolean z2 = false;
+        int i2 = 0;
+        int i3 = 0;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            int h = SafeParcelReader.h(k);
+            if (h == 1) {
+                i = SafeParcelReader.m(parcel, k);
+            } else if (h == 2) {
+                z = SafeParcelReader.i(parcel, k);
+            } else if (h == 3) {
+                z2 = SafeParcelReader.i(parcel, k);
+            } else if (h == 4) {
+                i2 = SafeParcelReader.m(parcel, k);
+            } else if (h != 5) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                i3 = SafeParcelReader.m(parcel, k);
             }
         }
+        SafeParcelReader.g(parcel, q);
+        return new RootTelemetryConfiguration(i, z, z2, i2, i3);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ RootTelemetryConfiguration[] newArray(int i) {
+        return new RootTelemetryConfiguration[i];
     }
 }

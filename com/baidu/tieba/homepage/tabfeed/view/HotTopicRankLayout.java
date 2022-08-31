@@ -18,17 +18,17 @@ import com.baidu.tieba.cn4;
 import com.baidu.tieba.homepage.hotTopic.tab.view.HotTopicTabRankListLayout;
 import com.baidu.tieba.ix;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.v17;
-import com.baidu.tieba.v27;
-import com.baidu.tieba.zx6;
+import com.baidu.tieba.t17;
+import com.baidu.tieba.t27;
+import com.baidu.tieba.xx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HotTopicRankLayout extends LinearLayout implements jx, ix<v27>, View.OnClickListener {
+public class HotTopicRankLayout extends LinearLayout implements jx, ix<t27>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -41,10 +41,10 @@ public class HotTopicRankLayout extends LinearLayout implements jx, ix<v27>, Vie
     public View h;
     public LinearLayout i;
     public String j;
-    public cn4<zx6> k;
+    public cn4<xx6> k;
 
     /* loaded from: classes4.dex */
-    public class a implements cn4<zx6> {
+    public class a implements cn4<xx6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicRankLayout a;
@@ -70,21 +70,21 @@ public class HotTopicRankLayout extends LinearLayout implements jx, ix<v27>, Vie
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.cn4
         /* renamed from: a */
-        public void d(View view2, zx6 zx6Var, int i, long j) {
+        public void d(View view2, xx6 xx6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, zx6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || zx6Var == null) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, xx6Var, Integer.valueOf(i), Long.valueOf(j)}) != null) || xx6Var == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.cn4
         /* renamed from: b */
-        public void c(View view2, zx6 zx6Var, int i, long j) {
+        public void c(View view2, xx6 xx6Var, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, zx6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || zx6Var == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, xx6Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || xx6Var == null) {
                 return;
             }
-            v17.a("c13753", zx6Var, i + 1, this.a.j);
+            t17.a("c13753", xx6Var, i + 1, this.a.j);
         }
     }
 
@@ -150,20 +150,20 @@ public class HotTopicRankLayout extends LinearLayout implements jx, ix<v27>, Vie
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: d */
-    public void a(v27 v27Var) {
+    public void a(t27 t27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v27Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t27Var) == null) {
             TextView textView = this.d;
-            String str = v27Var.b;
+            String str = t27Var.b;
             if (str == null) {
                 str = "";
             }
             textView.setText(str);
-            this.b.b(v27Var);
+            this.b.b(t27Var);
             this.g.setVisibility(0);
             this.h.setVisibility(8);
             HomeGroupUbsUIHelper.handleLine(this.g);
-            v17.c("c13753", this.j);
+            t17.c("c13753", this.j);
         }
     }
 
@@ -173,14 +173,14 @@ public class HotTopicRankLayout extends LinearLayout implements jx, ix<v27>, Vie
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
-        os4 d = os4.d(this.d);
+        ns4 d = ns4.d(this.d);
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08094e, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         HomeGroupUbsUIHelper.handleLineColor(this.g);
         this.a = i;
-        os4 d2 = os4.d(this.i);
+        ns4 d2 = ns4.d(this.i);
         d2.n(R.string.J_X06);
         d2.f(R.color.CAM_X0205);
     }

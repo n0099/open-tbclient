@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cv9;
+import com.baidu.tieba.yu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.producers.SingleProducer;
 /* loaded from: classes5.dex */
-public final class qw9<T> extends fv9<T> {
+public final class qw9<T> implements yu9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gv9<? super T> b;
+    public final cv9.c<T> a;
 
-    public qw9(gv9<? super T> gv9Var) {
+    public qw9(cv9.c<T> cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gv9Var};
+            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,22 +27,20 @@ public final class qw9<T> extends fv9<T> {
                 return;
             }
         }
-        this.b = gv9Var;
+        this.a = cVar;
     }
 
-    @Override // com.baidu.tieba.fv9
-    public void b(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            this.b.onError(th);
-        }
+    @Override // com.baidu.tieba.yu9.a, com.baidu.tieba.mv9
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((ev9) ((ev9) obj));
     }
 
-    @Override // com.baidu.tieba.fv9
-    public void c(T t) {
+    public void call(ev9<? super T> ev9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b.f(new SingleProducer(this.b, t));
+        if (interceptable == null || interceptable.invokeL(1048576, this, ev9Var) == null) {
+            ow9 ow9Var = new ow9(ev9Var);
+            ev9Var.b(ow9Var);
+            this.a.call(ow9Var);
         }
     }
 }

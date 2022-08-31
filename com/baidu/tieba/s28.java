@@ -1,95 +1,85 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.StateInfo;
-import tbclient.VirtualImageInfo;
 /* loaded from: classes5.dex */
-public class s28 {
+public class s28 extends cn<n28, PersonCenterIntervalHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s28 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public c25 b;
-    public List<c25> c;
-    public boolean d;
 
-    public s28() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s28(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static s28 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.cn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, n28 n28Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        t(i, view2, viewGroup, n28Var, personCenterIntervalHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: s */
+    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (s28.class) {
-                    e = new s28();
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03f5, viewGroup, false)) : (PersonCenterIntervalHolder) invokeL.objValue;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, n28 n28Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, n28Var, personCenterIntervalHolder})) == null) {
+            if (n28Var != null && personCenterIntervalHolder != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (personCenterIntervalHolder.a != skinType) {
+                    personCenterIntervalHolder.a = skinType;
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, n28Var.c);
                 }
-            }
-            return e;
-        }
-        return (s28) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public void d(VirtualImageInfo virtualImageInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, virtualImageInfo) == null) || virtualImageInfo == null) {
-            return;
-        }
-        this.a = virtualImageInfo.isset_virtual_image.intValue();
-        String str = virtualImageInfo.virtual_image_url;
-        virtualImageInfo.image_agree_count.intValue();
-        virtualImageInfo.is_allow_agree.intValue();
-        virtualImageInfo.virtual_background_type.intValue();
-        String str2 = virtualImageInfo.virtual_background;
-        virtualImageInfo.recent_incr_agree.intValue();
-        virtualImageInfo.snapshoot_id.intValue();
-        if (virtualImageInfo.personal_state != null) {
-            c25 c25Var = new c25();
-            this.b = c25Var;
-            c25Var.d(virtualImageInfo.personal_state);
-        }
-        if (virtualImageInfo.state_list != null) {
-            this.c = new ArrayList();
-            for (int i = 0; i < virtualImageInfo.state_list.size(); i++) {
-                StateInfo stateInfo = virtualImageInfo.state_list.get(i);
-                if (stateInfo != null) {
-                    c25 c25Var2 = new c25();
-                    c25Var2.d(stateInfo);
-                    this.c.add(c25Var2);
+                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
+                int i2 = n28Var.a;
+                if (i2 > 0) {
+                    layoutParams.height = i2;
                 }
+                int i3 = n28Var.b;
+                if (i3 > 0) {
+                    layoutParams.width = i3;
+                }
+                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
+                personCenterIntervalHolder.b.setOnClickListener(null);
             }
+            return view2;
         }
-        virtualImageInfo.allow_customize.intValue();
-        this.d = true;
+        return (View) invokeCommon.objValue;
     }
 }

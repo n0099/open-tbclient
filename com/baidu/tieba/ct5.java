@@ -1,76 +1,91 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.ala.alasquare.special_forum.SpecialLiveFragment;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.special_forum.subtab.view.ConcernTabLiveItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ct5 extends s65 {
+public class ct5 extends cn<lt5, ConcernTabLiveItemView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpecialLiveFragment c;
+    public TbPageContext a;
+    public String b;
+    public String c;
 
-    public ct5(String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ct5(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), lt5.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = SpecialLiveFragment.t2(str, str2);
-        b().a = this.c;
+        this.b = "";
+        this.c = "";
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.s65
-    public t65 a() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            t65 t65Var = new t65();
-            t65Var.e = 4;
-            t65Var.b = R.string.obfuscated_res_0x7f0f0224;
-            t65Var.i = t65.k;
-            return t65Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c = str;
         }
-        return (t65) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s65
-    public TbFragmentTabIndicator c(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: s */
+    public ConcernTabLiveItemView.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            ConcernTabLiveItemView concernTabLiveItemView = new ConcernTabLiveItemView(this.a, viewGroup);
+            concernTabLiveItemView.u(this.b);
+            concernTabLiveItemView.a(this.c);
+            concernTabLiveItemView.getClass();
+            return new ConcernTabLiveItemView.ViewHolder(concernTabLiveItemView, concernTabLiveItemView);
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        return (ConcernTabLiveItemView.ViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s65
-    public boolean d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lt5 lt5Var, ConcernTabLiveItemView.ViewHolder viewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lt5Var, viewHolder})) == null) {
+            if (viewHolder == null || lt5Var == null) {
+                return null;
+            }
+            viewHolder.a.i(lt5Var);
+            return viewHolder.getView();
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
     }
 }

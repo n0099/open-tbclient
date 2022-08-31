@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lm4 extends vt4 {
+public class lm4 extends ut4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lm4(tt4 tt4Var) {
-        super(tt4Var);
+    public lm4(st4 st4Var) {
+        super(st4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tt4Var};
+            Object[] objArr = {st4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((tt4) newInitContext.callArgs[0]);
+                super((st4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public class lm4 extends vt4 {
         }
     }
 
-    @wt4(isAsync = false, value = "showDeviceInfo")
+    @vt4(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class lm4 extends vt4 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @wt4(isAsync = false, value = "showNetStatus")
+    @vt4(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -96,7 +96,7 @@ public class lm4 extends vt4 {
         return (JSONObject) invokeV.objValue;
     }
 
-    @wt4(isAsync = false, value = "showToast")
+    @vt4(isAsync = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
@@ -105,7 +105,7 @@ public class lm4 extends vt4 {
         BdToast.b(getContext(), jSONObject.optString("message")).i();
     }
 
-    @Override // com.baidu.tieba.vt4
+    @Override // com.baidu.tieba.ut4
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

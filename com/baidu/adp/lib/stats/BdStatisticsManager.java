@@ -1,14 +1,12 @@
 package com.baidu.adp.lib.stats;
 
 import android.app.ActivityManager;
-import android.app.Application;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.location.Address;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -290,26 +288,16 @@ public class BdStatisticsManager {
         }
     }
 
-    private String formatProcessNameMd5(String str) throws UnsupportedEncodingException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
-            String d = xi.d(str.getBytes("UTF-8"));
-            return (TextUtils.isEmpty(d) || d.length() <= 8) ? d : d.substring(d.length() - 8);
-        }
-        return (String) invokeL.objValue;
-    }
-
     private SharedPreferences getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? BdBaseApplication.getInst().getSharedPreferences("alert", 0) : (SharedPreferences) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) ? BdBaseApplication.getInst().getSharedPreferences("alert", 0) : (SharedPreferences) invokeV.objValue;
     }
 
     public static BdStatisticsManager getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
             if (statisticsManager == null) {
                 synchronized (BdStatisticsManager.class) {
                     if (statisticsManager == null) {
@@ -324,34 +312,22 @@ public class BdStatisticsManager {
 
     private String getProcessNameMd5() {
         InterceptResult invokeV;
+        ActivityManager activityManager;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             Context context = this.mContext;
-            if (context == null) {
-                return null;
-            }
-            if (Build.VERSION.SDK_INT >= 28 && (context instanceof Application)) {
-                Application application = (Application) context;
-                String processName = Application.getProcessName();
-                try {
-                    return formatProcessNameMd5(processName);
-                } catch (UnsupportedEncodingException e) {
-                    BdLog.e(e.getMessage());
-                    return processName;
-                }
-            }
-            ActivityManager activityManager = (ActivityManager) this.mContext.getSystemService("activity");
-            if (activityManager != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
+            if (context != null && (activityManager = (ActivityManager) context.getSystemService("activity")) != null && (runningAppProcesses = activityManager.getRunningAppProcesses()) != null) {
                 int myPid = Process.myPid();
                 for (int i = 0; i < runningAppProcesses.size(); i++) {
                     if (runningAppProcesses.get(i).pid == myPid) {
                         String str = runningAppProcesses.get(i).processName;
                         if (!TextUtils.isEmpty(str)) {
                             try {
-                                return formatProcessNameMd5(str);
-                            } catch (UnsupportedEncodingException e2) {
-                                BdLog.e(e2.getMessage());
+                                String d = xi.d(str.getBytes("UTF-8"));
+                                return (TextUtils.isEmpty(d) || d.length() <= 8) ? d : d.substring(d.length() - 8);
+                            } catch (UnsupportedEncodingException e) {
+                                BdLog.e(e.getMessage());
                                 return str;
                             }
                         }
@@ -365,7 +341,7 @@ public class BdStatisticsManager {
 
     private void setUploadTime(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(65552, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         EditorHelper.putLong(getConfig(), str, System.currentTimeMillis());
@@ -374,7 +350,7 @@ public class BdStatisticsManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void startOrNextUploadTimer() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65554, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             mHandler.removeMessages(1);
             Handler handler = mHandler;
             handler.sendMessageDelayed(handler.obtainMessage(1), this.mUploadInterval);
@@ -832,7 +808,7 @@ public class BdStatisticsManager {
     public void setUser(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048627, this, str, str2, str3) == null) {
-            qh.m().o(str, str2, str3);
+            qh.m().q(str, str2, str3);
         }
     }
 
@@ -906,10 +882,10 @@ public class BdStatisticsManager {
             fh.a(xgVar);
             if (dh.e()) {
                 xgVar.d(this.mCommonData);
-                qh.m().q(j, xgVar.f().c().toString());
+                qh.m().s(j, xgVar.f().c().toString());
             }
             BdLog.i("alert item = " + xgVar.toString());
-            qh.m().p(j, xgVar.toString());
+            qh.m().r(j, xgVar.toString());
         }
     }
 }

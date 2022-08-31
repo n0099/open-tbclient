@@ -7,8 +7,8 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lt7;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.jt7;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,13 +46,13 @@ public class PbChildTitleViewHolder extends TypeAdapter.ViewHolder {
         this.c = (ViewGroup) view2.findViewById(R.id.obfuscated_res_0x7f091c16);
         TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092380);
         this.d = textView;
-        os4.d(textView).A(R.string.F_X02);
+        ns4.d(textView).A(R.string.F_X02);
     }
 
-    public void a(lt7 lt7Var) {
+    public void a(jt7 jt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lt7Var) == null) {
-            this.d.setText(lt7Var.b());
+        if (interceptable == null || interceptable.invokeL(1048576, this, jt7Var) == null) {
+            this.d.setText(jt7Var.b());
         }
     }
 

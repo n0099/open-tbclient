@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.xw4;
+import com.baidu.tieba.vw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdBaseViewPagerContainerHolder a;
-    public xw4 b;
+    public vw4 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainer(Context context) {
@@ -71,7 +71,7 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
             this.a = bdBaseViewPagerContainerHolder;
             a(bdBaseViewPagerContainerHolder);
             BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.a;
-            this.b = new xw4(context, bdBaseViewPagerContainerHolder2.f, bdBaseViewPagerContainerHolder2.d, bdBaseViewPagerContainerHolder2.c, 4, false, true);
+            this.b = new vw4(context, bdBaseViewPagerContainerHolder2.f, bdBaseViewPagerContainerHolder2.d, bdBaseViewPagerContainerHolder2.c, 4, false, true);
         }
     }
 

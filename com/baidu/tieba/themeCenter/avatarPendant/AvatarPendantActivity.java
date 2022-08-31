@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.data.UserPendantData;
 import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tieba.jq8;
+import com.baidu.tieba.kq8;
 import com.baidu.tieba.lq8;
-import com.baidu.tieba.mq8;
 import com.baidu.tieba.nq8;
-import com.baidu.tieba.pq8;
-import com.baidu.tieba.pr8;
+import com.baidu.tieba.nr8;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel;
 import com.baidu.tieba.themeCenter.avatarPendant.SetAvatarPendantModel;
 import com.baidu.tieba.themeCenter.background.DressItemData;
@@ -34,11 +34,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
-public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAvatarPendantModel.b, View.OnClickListener {
+/* loaded from: classes5.dex */
+public class AvatarPendantActivity extends BaseActivity implements nq8.a, SetAvatarPendantModel.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pq8 a;
+    public nq8 a;
     public AvatarPendantModel b;
     public SetAvatarPendantModel c;
     public String d;
@@ -46,7 +46,7 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
     public AvatarPendantModel.b f;
     public NoNetworkView.b g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements AvatarPendantModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,13 +71,13 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
         }
 
         @Override // com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantModel.b
-        public void a(int i, String str, pr8 pr8Var, List<nq8> list) {
+        public void a(int i, String str, nr8 nr8Var, List<lq8> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, pr8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, nr8Var, list}) == null) {
                 AvatarPendantActivity avatarPendantActivity = this.a;
                 avatarPendantActivity.hideLoadingView(avatarPendantActivity.a.m());
                 if (i == 0) {
-                    this.a.a.t(pr8Var, list);
+                    this.a.a.t(nr8Var, list);
                 } else {
                     this.a.showToast(str);
                     this.a.a.s();
@@ -87,7 +87,7 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
             if (dressItemData == null) {
                 return "";
             }
-            List<nq8> E = this.b.E();
+            List<lq8> E = this.b.E();
             if (E != null && E.size() > 0) {
                 int size = E.size();
                 for (int i = 0; i < size; i++) {
@@ -189,9 +189,9 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pq8 pq8Var = new pq8(this);
-            this.a = pq8Var;
-            pq8Var.j(this.g);
+            nq8 nq8Var = new nq8(this);
+            this.a = nq8Var;
+            nq8Var.j(this.g);
             this.a.r(this);
         }
     }
@@ -203,15 +203,15 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i == mq8.a) {
-                lq8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
-            } else if (i == mq8.b) {
-                lq8.c(getPageContext(), 7, str, i3);
+            if (i == kq8.a) {
+                jq8.d(getPageContext(), 7, str, i3, MemberPayStatistic.REFER_PAGE_AVANTAR_PENDANT, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+            } else if (i == kq8.b) {
+                jq8.c(getPageContext(), 7, str, i3);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pq8.a
+    @Override // com.baidu.tieba.nq8.a
     public void S0(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, dressItemData) == null) && B1() && dressItemData != null && dressItemData.getPropsId() >= 0 && this.e) {
@@ -241,7 +241,7 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
                 E1(i2, str, i);
                 return;
             }
-            List<nq8> E = this.b.E();
+            List<lq8> E = this.b.E();
             if (E == null || E.size() <= 0) {
                 return;
             }
@@ -328,12 +328,12 @@ public class AvatarPendantActivity extends BaseActivity implements pq8.a, SetAva
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        pq8 pq8Var;
+        nq8 nq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.b == null || (pq8Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.b == null || (nq8Var = this.a) == null) {
             return;
         }
-        showLoadingView(pq8Var.m());
+        showLoadingView(nq8Var.m());
         this.b.loadData();
     }
 }

@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
-import com.baidu.tieba.pq4;
+import com.baidu.tieba.oq4;
+import com.baidu.tieba.ur4;
 import com.baidu.tieba.ve;
-import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pq4 data;
+    public oq4 data;
     public int mErrCode;
     public String mErrMsg;
 
@@ -56,17 +56,17 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
             if (statusCode == 200 && error == 0) {
                 this.mErrCode = jSONObject.optInt("error_code");
                 this.mErrMsg = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                pq4 pq4Var = new pq4();
-                this.data = pq4Var;
-                pq4Var.c(jSONObject);
+                oq4 oq4Var = new oq4();
+                this.data = oq4Var;
+                oq4Var.c(jSONObject);
             }
         }
     }
 
-    public pq4 getData() {
+    public oq4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (pq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.data : (oq4) invokeV.objValue;
     }
 
     public String getErrMsg() {
@@ -97,8 +97,8 @@ public class ResponseNetPersonListMessage extends JsonHttpResponsedMessage {
                 if ((map.get("page") == null || map.get("page").equals("0")) && map.get("id") != null) {
                     boolean z = tag != null && tag.equals(PersonListModel.FOLLOWME);
                     String str = new String(bArr);
-                    vr4.f();
-                    ve<String> g = vr4.g("tb.my_pages");
+                    ur4.f();
+                    ve<String> g = ur4.g("tb.my_pages");
                     if (g != null) {
                         String str2 = z ? "personal_followme" : "personal_myfollow";
                         g.e(str2 + "_" + map.get("id"), str, 604800000L);

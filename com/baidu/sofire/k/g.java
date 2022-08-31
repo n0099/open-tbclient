@@ -4,10 +4,10 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
+import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -281,7 +281,7 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
-                return m.c(this.a) ? ApiReplaceUtil.getString(this.a.getContentResolver(), str) : "";
+                return m.c(this.a) ? Settings.System.getString(this.a.getContentResolver(), str) : "";
             } catch (Throwable unused) {
                 int i = com.baidu.sofire.a.b.a;
                 return null;

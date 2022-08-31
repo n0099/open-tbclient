@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ln9;
-import com.baidu.tieba.wn9;
+import com.baidu.tieba.jn9;
+import com.baidu.tieba.un9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new wn9();
+        CREATOR = new un9();
     }
 
     public ConnectionTelemetryConfiguration(@NonNull RootTelemetryConfiguration rootTelemetryConfiguration, boolean z, boolean z2, @Nullable int[] iArr, int i, @Nullable int[] iArr2) {
@@ -105,14 +105,14 @@ public class ConnectionTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.j(parcel, 1, this.zza, i, false);
-            ln9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            ln9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            ln9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
-            ln9.g(parcel, 5, getMaxMethodInvocationsLogged());
-            ln9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.j(parcel, 1, this.zza, i, false);
+            jn9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
+            jn9.c(parcel, 3, getMethodTimingTelemetryEnabled());
+            jn9.h(parcel, 4, getMethodInvocationMethodKeyAllowlist(), false);
+            jn9.g(parcel, 5, getMaxMethodInvocationsLogged());
+            jn9.h(parcel, 6, getMethodInvocationMethodKeyDisallowlist(), false);
+            jn9.b(parcel, a);
         }
     }
 

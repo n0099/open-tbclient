@@ -22,19 +22,19 @@ import java.net.URISyntaxException;
 import java.util.concurrent.LinkedBlockingQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ez1 implements bz1.c {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
     public final bz1.b a;
-    public js9 b;
+    public hs9 b;
     public InspectorNativeClient c;
     public i82 d;
     public LinkedBlockingQueue<String> e;
     public String f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends InspectorNativeChannel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,13 +96,13 @@ public class ez1 implements bz1.c {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends js9 {
+    /* loaded from: classes3.dex */
+    public class b extends hs9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ez1 a;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -142,13 +142,13 @@ public class ez1 implements bz1.c {
         }
 
         /* renamed from: com.baidu.tieba.ez1$b$b  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class RunnableC0241b implements Runnable {
+        /* loaded from: classes3.dex */
+        public class RunnableC0246b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0241b(b bVar) {
+            public RunnableC0246b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -206,7 +206,7 @@ public class ez1 implements bz1.c {
                     z03 K = z03.K();
                     SwanAppActivity w = K.w();
                     if (K.E() && w != null) {
-                        w.runOnUiThread(new RunnableC0241b(this));
+                        w.runOnUiThread(new RunnableC0246b(this));
                     }
                 }
             } catch (JSONException e) {
@@ -267,7 +267,7 @@ public class ez1 implements bz1.c {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.hs9
         public void onClose(int i, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
@@ -275,7 +275,7 @@ public class ez1 implements bz1.c {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.hs9
         public void onError(Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
@@ -283,7 +283,7 @@ public class ez1 implements bz1.c {
             }
         }
 
-        @Override // com.baidu.tieba.js9
+        @Override // com.baidu.tieba.hs9
         public void onMessage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
@@ -292,10 +292,10 @@ public class ez1 implements bz1.c {
             }
         }
 
-        @Override // com.baidu.tieba.js9
-        public void onOpen(dt9 dt9Var) {
+        @Override // com.baidu.tieba.hs9
+        public void onOpen(bt9 bt9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, dt9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048581, this, bt9Var) == null) {
                 ay1.i("V8InspectorClient", "V8 inspector opened");
                 w22 W = u72.U().W();
                 if (W instanceof a32) {
@@ -364,12 +364,12 @@ public class ez1 implements bz1.c {
 
     @Override // com.baidu.tieba.bz1.c
     public void stop() {
-        js9 js9Var;
+        hs9 hs9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (js9Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (hs9Var = this.b) == null) {
             return;
         }
-        js9Var.close();
+        hs9Var.close();
         this.b = null;
     }
 }

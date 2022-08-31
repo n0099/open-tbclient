@@ -1,82 +1,47 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes5.dex */
-public class my8 {
+public class my8 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Bitmap a;
     public String b;
-    public float c;
-    public long d;
-    public Bitmap e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public ky8 j;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my8 a;
-
-        public a(my8 my8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {my8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = my8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap bitmap;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                my8 my8Var = this.a;
-                if (my8Var.j == null || (bitmap = my8Var.e) == null || bitmap.isRecycled()) {
-                    return;
-                }
-                my8 my8Var2 = this.a;
-                my8Var2.j.a(my8Var2.f, my8Var2.e);
-            }
-        }
-    }
-
-    public my8() {
+    public my8(String str, String str2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = str;
+        this.c = str2;
+        this.a = bitmap;
     }
 
-    public void a() {
+    @Override // java.lang.Runnable
+    public void run() {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sc9.a().post(new a(this));
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (bitmap = this.a) == null || bitmap.isRecycled()) {
+            return;
         }
+        FileUtils.saveBitmap2JPG(this.b, dy8.a(this.c), this.a, 100);
     }
 }

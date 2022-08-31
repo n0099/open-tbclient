@@ -704,7 +704,7 @@ public class ej4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return !TbSingleton.getInstance().isNewUserRedPackageShowed() && tu4.k().l("app_restart_times", 0) > 1;
+            return !TbSingleton.getInstance().isNewUserRedPackageShowed() && su4.k().l("app_restart_times", 0) > 1;
         }
         return invokeV.booleanValue;
     }
@@ -1133,7 +1133,7 @@ public class ej4 {
     public boolean r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? UtilHelper.isSameDay(tu4.k().m("pref_key_last_active_config", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? UtilHelper.isSameDay(su4.k().m("pref_key_last_active_config", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
     public boolean s() {
@@ -1205,7 +1205,7 @@ public class ej4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            long m2 = tu4.k().m("pref_key_active_config_info", 0L);
+            long m2 = su4.k().m("pref_key_active_config_info", 0L);
             this.n = m2;
             return m2;
         }
@@ -1489,7 +1489,7 @@ public class ej4 {
         this.p.setPriority(Integer.MIN_VALUE);
         this.p.setTag(this.h);
         MessageManager.getInstance().registerListener(this.p);
-        ru4.e().f();
+        qu4.e().f();
         rj4.c().d(this.h);
         Q();
         if (A()) {

@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
+import com.baidu.tieba.kk7;
 import com.baidu.tieba.km4;
+import com.baidu.tieba.lk7;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
 import com.baidu.tieba.memberCenter.bubble.BubbleListModel;
 import com.baidu.tieba.mk7;
-import com.baidu.tieba.nk7;
-import com.baidu.tieba.ok7;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,12 +35,12 @@ import java.util.List;
 public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nk7 a;
+    public lk7 a;
     public BubbleListModel b;
     public BubbleListModel.c c;
     public BubbleListModel.d d;
-    public ok7.e e;
-    public ok7.e f;
+    public mk7.e e;
+    public mk7.e f;
     public CustomMessageListener g;
 
     /* loaded from: classes5.dex */
@@ -147,7 +147,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, setBubbleResultData) == null) {
                 this.a.a.n();
                 int C = this.a.b.C();
-                mk7 j = this.a.a.j();
+                kk7 j = this.a.a.j();
                 if (C == 0) {
                     j.d(true);
                     for (BubbleListData.BubbleData bubbleData : j.b()) {
@@ -196,7 +196,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class c implements ok7.e {
+    public class c implements mk7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleChooseActivity a;
@@ -219,7 +219,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // com.baidu.tieba.ok7.e
+        @Override // com.baidu.tieba.mk7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -228,7 +228,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.ok7.e
+        @Override // com.baidu.tieba.mk7.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -237,7 +237,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class d implements ok7.e {
+    public class d implements mk7.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleChooseActivity a;
@@ -260,7 +260,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             this.a = bubbleChooseActivity;
         }
 
-        @Override // com.baidu.tieba.ok7.e
+        @Override // com.baidu.tieba.mk7.e
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -272,7 +272,7 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.ok7.e
+        @Override // com.baidu.tieba.mk7.e
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -340,9 +340,9 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            nk7 nk7Var = new nk7(getPageContext());
-            this.a = nk7Var;
-            nk7Var.l().setOnItemClickListener(this);
+            lk7 lk7Var = new lk7(getPageContext());
+            this.a = lk7Var;
+            lk7Var.l().setOnItemClickListener(this);
             this.a.p();
         }
     }
@@ -450,10 +450,10 @@ public class BubbleChooseActivity extends BaseActivity<BubbleChooseActivity> {
             }
             if (m.getBcode() != 0 && !m.canUse()) {
                 if (m.isFree()) {
-                    ok7.a(getPageContext(), m, this.e);
+                    mk7.a(getPageContext(), m, this.e);
                     return;
                 } else {
-                    ok7.b(getPageContext(), m, this.f);
+                    mk7.b(getPageContext(), m, this.f);
                     return;
                 }
             }

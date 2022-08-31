@@ -21,15 +21,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bp6;
+import com.baidu.tieba.cp6;
 import com.baidu.tieba.dp6;
 import com.baidu.tieba.ep6;
-import com.baidu.tieba.fp6;
 import com.baidu.tieba.frs.recommend.FrsLikeRecommendLayout;
-import com.baidu.tieba.gp6;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.xj8;
+import com.baidu.tieba.vj8;
 import com.baidu.tieba.zn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -47,10 +47,10 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public dp6 f;
-    public ep6 g;
+    public bp6 f;
+    public cp6 g;
     public ValueAnimator h;
-    public fp6 i;
+    public dp6 i;
     public boolean j;
     public int k;
 
@@ -170,7 +170,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
     private zn getItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? new zn() { // from class: com.baidu.tieba.ap6
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) ? new zn() { // from class: com.baidu.tieba.yo6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -217,9 +217,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b6c);
             this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090b6b);
             this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090b68);
-            dp6 dp6Var = new dp6(getContext());
-            this.f = dp6Var;
-            dp6Var.setOnAdapterItemClickListener(getItemClickListener());
+            bp6 bp6Var = new bp6(getContext());
+            this.f = bp6Var;
+            bp6Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -238,16 +238,16 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
     }
 
     public /* synthetic */ void h(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, final int i, long j) {
-        ep6 ep6Var;
-        if (pnVar instanceof xj8) {
+        cp6 cp6Var;
+        if (pnVar instanceof vj8) {
             if (view2.getId() == R.id.obfuscated_res_0x7f090b69) {
-                ep6 ep6Var2 = this.g;
-                if (ep6Var2 != null) {
-                    ep6Var2.b((xj8) pnVar);
+                cp6 cp6Var2 = this.g;
+                if (cp6Var2 != null) {
+                    cp6Var2.b((vj8) pnVar);
                 }
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f090a66 || (ep6Var = this.g) == null) {
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f090a66 || (cp6Var = this.g) == null) {
             } else {
-                ep6Var.c((xj8) pnVar, i, new gp6() { // from class: com.baidu.tieba.cp6
+                cp6Var.c((vj8) pnVar, i, new ep6() { // from class: com.baidu.tieba.ap6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                 });
@@ -259,9 +259,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
         if (onClickListener != null) {
             onClickListener.onClick(view2);
         }
-        ep6 ep6Var = this.g;
-        if (ep6Var != null) {
-            ep6Var.d();
+        cp6 cp6Var = this.g;
+        if (cp6Var != null) {
+            cp6Var.d();
         }
     }
 
@@ -281,7 +281,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                os4 d = os4.d(textView);
+                ns4 d = ns4.d(textView);
                 d.A(R.string.F_X02);
                 d.v(R.color.CAM_X0101);
             }
@@ -289,9 +289,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            dp6 dp6Var = this.f;
-            if (dp6Var != null) {
-                dp6Var.notifyDataSetChanged();
+            bp6 bp6Var = this.f;
+            if (bp6Var != null) {
+                bp6Var.notifyDataSetChanged();
             }
         }
     }
@@ -301,9 +301,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDetachedFromWindow();
-            ep6 ep6Var = this.g;
-            if (ep6Var != null) {
-                ep6Var.a();
+            cp6 cp6Var = this.g;
+            if (cp6Var != null) {
+                cp6Var.a();
             }
             j();
         }
@@ -315,7 +315,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
         if (!(interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) || (imageView = this.d) == null) {
             return;
         }
-        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bp6
+        imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.zo6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -329,20 +329,20 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements jx {
         });
     }
 
-    public void setHeightChangeListener(fp6 fp6Var) {
+    public void setHeightChangeListener(dp6 dp6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, fp6Var) == null) {
-            this.i = fp6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, dp6Var) == null) {
+            this.i = dp6Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        dp6 dp6Var;
+        bp6 bp6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, themeColorInfo) == null) || (dp6Var = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, themeColorInfo) == null) || (bp6Var = this.f) == null) {
             return;
         }
-        dp6Var.v(themeColorInfo);
+        bp6Var.v(themeColorInfo);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

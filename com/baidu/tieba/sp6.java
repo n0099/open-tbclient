@@ -3,29 +3,20 @@ package com.baidu.tieba;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
 /* loaded from: classes5.dex */
 public interface sp6 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+    void d(int i, @NonNull String str);
 
-    void b(@NonNull ThemeElement themeElement);
+    void g(boolean z);
 
-    void c(float f);
+    void h(View.OnClickListener onClickListener);
 
-    void d(int i, boolean z);
+    void i(long j, long j2);
 
-    @NonNull
-    NavigationBar e();
+    void j(@Nullable String str, @NonNull String str2);
 
-    void f(boolean z);
-
-    int g();
-
-    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
+    void k(@NonNull LogicField logicField, int i);
 
     void onChangeSkinType(int i);
 }

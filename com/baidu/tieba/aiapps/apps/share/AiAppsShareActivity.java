@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tieba.tp5;
+import com.baidu.tieba.rp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -106,10 +106,10 @@ public class AiAppsShareActivity extends Activity {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
-            tp5 tp5Var = new tp5();
+            rp5 rp5Var = new rp5();
             try {
-                tp5Var.p(new JSONObject(stringExtra));
-                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, tp5Var, false)));
+                rp5Var.p(new JSONObject(stringExtra));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig(this, rp5Var, false)));
                 MessageManager.getInstance().registerListener(this.a);
                 LogUtil.logActivity(this, "onCreate");
             } catch (JSONException unused) {

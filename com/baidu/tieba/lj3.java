@@ -17,7 +17,7 @@ import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.tieba.al2;
-import com.baidu.tieba.av9;
+import com.baidu.tieba.yu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public abstract class lj3 extends x23 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements ov9<pj3> {
+    public class a implements mv9<pj3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ oj3 a;
@@ -67,7 +67,7 @@ public abstract class lj3 extends x23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov9
+        @Override // com.baidu.tieba.mv9
         public void call(pj3 pj3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pj3Var) == null) {
@@ -78,7 +78,7 @@ public abstract class lj3 extends x23 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements ov9<Throwable> {
+    public class b implements mv9<Throwable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -110,7 +110,7 @@ public abstract class lj3 extends x23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov9
+        @Override // com.baidu.tieba.mv9
         public void call(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -121,7 +121,7 @@ public abstract class lj3 extends x23 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements av9.a<pj3> {
+    public class c implements yu9.a<pj3> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,14 +129,14 @@ public abstract class lj3 extends x23 {
         public class a implements al2.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ gv9 a;
+            public final /* synthetic */ ev9 a;
 
-            public a(c cVar, gv9 gv9Var) {
+            public a(c cVar, ev9 ev9Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar, gv9Var};
+                    Object[] objArr = {cVar, ev9Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -146,7 +146,7 @@ public abstract class lj3 extends x23 {
                         return;
                     }
                 }
-                this.a = gv9Var;
+                this.a = ev9Var;
             }
 
             @Override // com.baidu.tieba.al2.a
@@ -192,11 +192,11 @@ public abstract class lj3 extends x23 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.av9.a, com.baidu.tieba.ov9
-        public void call(gv9<? super pj3> gv9Var) {
+        @Override // com.baidu.tieba.yu9.a, com.baidu.tieba.mv9
+        public void call(ev9<? super pj3> ev9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, gv9Var) == null) {
-                hk2.I().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new a(this, gv9Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, ev9Var) == null) {
+                hk2.I().b(BDLocation.BDLOCATION_GCJ02_TO_BD09, true, false, new a(this, ev9Var));
             }
         }
     }
@@ -435,7 +435,7 @@ public abstract class lj3 extends x23 {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tf3Var)) == null) ? new e(this, tf3Var) : (ResponseCallback) invokeL.objValue;
     }
 
-    public final av9<pj3> q(Context context) {
+    public final yu9<pj3> q(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
@@ -443,11 +443,11 @@ public abstract class lj3 extends x23 {
                 return null;
             }
             if (!hd3.h() || (context.checkSelfPermission(com.kuaishou.weapon.p0.h.g) == 0 && context.checkSelfPermission(com.kuaishou.weapon.p0.h.h) == 0)) {
-                return av9.a(new c(this));
+                return yu9.a(new c(this));
             }
             return null;
         }
-        return (av9) invokeL.objValue;
+        return (yu9) invokeL.objValue;
     }
 
     @NonNull
@@ -458,7 +458,7 @@ public abstract class lj3 extends x23 {
         if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, callbackHandler, str, jSONObject) == null) {
             ay1.i("recommend", "get request params");
             oj3 oj3Var = new oj3(context, jSONObject);
-            av9<pj3> q = q(context);
+            yu9<pj3> q = q(context);
             if (q != null) {
                 q.z(60L, TimeUnit.MILLISECONDS).x(new a(this, oj3Var, context, callbackHandler, str), new b(this, context, callbackHandler, str, oj3Var));
                 return;

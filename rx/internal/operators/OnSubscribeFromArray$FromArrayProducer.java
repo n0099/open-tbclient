@@ -1,29 +1,29 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cv9;
-import com.baidu.tieba.gv9;
-import com.baidu.tieba.vv9;
+import com.baidu.tieba.av9;
+import com.baidu.tieba.ev9;
+import com.baidu.tieba.tv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes8.dex */
-public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements cv9 {
+public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements av9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3534218984725836979L;
     public transient /* synthetic */ FieldHolder $fh;
     public final T[] array;
-    public final gv9<? super T> child;
+    public final ev9<? super T> child;
     public int index;
 
-    public OnSubscribeFromArray$FromArrayProducer(gv9<? super T> gv9Var, T[] tArr) {
+    public OnSubscribeFromArray$FromArrayProducer(ev9<? super T> ev9Var, T[] tArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gv9Var, tArr};
+            Object[] objArr = {ev9Var, tArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,29 +33,29 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 return;
             }
         }
-        this.child = gv9Var;
+        this.child = ev9Var;
         this.array = tArr;
     }
 
     public void fastPath() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gv9<? super T> gv9Var = this.child;
+            ev9<? super T> ev9Var = this.child;
             for (T t : this.array) {
                 Object obj = (Object) t;
-                if (gv9Var.isUnsubscribed()) {
+                if (ev9Var.isUnsubscribed()) {
                     return;
                 }
-                gv9Var.onNext(obj);
+                ev9Var.onNext(obj);
             }
-            if (gv9Var.isUnsubscribed()) {
+            if (ev9Var.isUnsubscribed()) {
                 return;
             }
-            gv9Var.onCompleted();
+            ev9Var.onCompleted();
         }
     }
 
-    @Override // com.baidu.tieba.cv9
+    @Override // com.baidu.tieba.av9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -63,10 +63,10 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
             if (i < 0) {
                 throw new IllegalArgumentException("n >= 0 required but it was " + j);
             } else if (j == Long.MAX_VALUE) {
-                if (vv9.b(this, j) == 0) {
+                if (tv9.b(this, j) == 0) {
                     fastPath();
                 }
-            } else if (i == 0 || vv9.b(this, j) != 0) {
+            } else if (i == 0 || tv9.b(this, j) != 0) {
             } else {
                 slowPath(j);
             }
@@ -76,7 +76,7 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
     public void slowPath(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            gv9<? super T> gv9Var = this.child;
+            ev9<? super T> ev9Var = this.child;
             T[] tArr = this.array;
             int length = tArr.length;
             int i = this.index;
@@ -84,16 +84,16 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
                 long j2 = 0;
                 while (true) {
                     if (j != 0 && i != length) {
-                        if (gv9Var.isUnsubscribed()) {
+                        if (ev9Var.isUnsubscribed()) {
                             return;
                         }
-                        gv9Var.onNext((Object) tArr[i]);
+                        ev9Var.onNext((Object) tArr[i]);
                         i++;
                         if (i == length) {
-                            if (gv9Var.isUnsubscribed()) {
+                            if (ev9Var.isUnsubscribed()) {
                                 return;
                             }
-                            gv9Var.onCompleted();
+                            ev9Var.onCompleted();
                             return;
                         }
                         j--;

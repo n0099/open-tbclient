@@ -1,23 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class r36 extends z26 {
+public final class r36 extends v26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h26 e;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public r36(u26 context) {
-        super(context, r3, null, 4, null);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r36(s26 context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,35 +26,86 @@ public final class r36 extends z26 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((u26) objArr2[0], (r0) objArr2[1], (Comparator) objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                super((s26) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        r0 b = r0.i(e36.class).b();
-        Intrinsics.checkNotNullExpressionValue(b, "one(ActionComponent::class.java).get()");
     }
 
-    @Override // com.baidu.tieba.z26
-    public void l(o0 entity, float f) {
-        e36 a;
+    @Override // com.baidu.tieba.q0
+    public void c(n0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(1048576, this, entity, f) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            b36 b = z36.b(entity);
-            p26 a2 = b == null ? null : b.a();
-            if (a2 == null || (a = z36.a(entity)) == null) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+        }
+    }
+
+    @Override // com.baidu.tieba.v26
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public final h26 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (h26) invokeV.objValue;
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            h26 h26Var = this.e;
+            if (h26Var != null) {
+                h26 c = i().c();
+                if (c.j() != h26Var.j() || c.g() != h26Var.g()) {
+                    BdLog.w("DanmakuEngine [Config] density from " + c.j() + " to " + h26Var.j());
+                    h26Var.G();
+                    h26Var.I();
+                    h26Var.F();
+                    h26Var.C();
+                }
+                if (!(c.v() == h26Var.v())) {
+                    BdLog.w("DanmakuEngine [Config] textSizeScale change from " + c.v() + " to " + h26Var.v());
+                    h26Var.I();
+                    h26Var.F();
+                    h26Var.G();
+                    h26Var.C();
+                }
+                if (c.w() != h26Var.w()) {
+                    h26Var.J();
+                }
+                if (!(c.u() == h26Var.u()) || c.e() != h26Var.e()) {
+                    h26Var.F();
+                    h26Var.J();
+                    h26Var.I();
+                }
+                if (c.n().size() != h26Var.n().size() || c.l() != h26Var.l()) {
+                    h26Var.D();
+                }
+                i().h(h26Var);
             }
-            if (y36.b(this) >= a2.e().k()) {
-                a.h(true);
-                a.c(y36.b(this) - a2.e().k());
-                return;
-            }
-            a.h(false);
+            this.e = null;
+        }
+    }
+
+    public final void m(h26 danmakuConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
+            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
+            this.e = danmakuConfig;
+        }
+    }
+
+    @Override // com.baidu.tieba.q0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            l();
         }
     }
 }

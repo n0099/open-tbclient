@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.eq4;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.dq4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends ho4 {
+public class CardPersonDynamicThreadData extends go4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -687,17 +687,17 @@ public class CardPersonDynamicThreadData extends ho4 {
         }
     }
 
-    @Override // com.baidu.tieba.ho4
-    public eq4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.go4
+    public dq4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (eq4) invokeV.objValue;
+        return (dq4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ho4
+    @Override // com.baidu.tieba.go4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

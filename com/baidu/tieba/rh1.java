@@ -106,11 +106,11 @@ public class rh1 extends dp1 {
 
         /* renamed from: com.baidu.tieba.rh1$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0393b implements Runnable {
+        public class RunnableC0392b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0393b(b bVar) {
+            public RunnableC0392b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -213,7 +213,7 @@ public class rh1 extends dp1 {
                 int optInt = jSONObject.optInt("errno", -1);
                 if (optInt != 0) {
                     if (this.a) {
-                        ue3.e0(new RunnableC0393b(this));
+                        ue3.e0(new RunnableC0392b(this));
                     }
                     this.c.N(this.b, optInt, jSONObject.optString("errmsg"), false);
                     return;

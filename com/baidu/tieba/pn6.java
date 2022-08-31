@@ -4,17 +4,17 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pn6 extends sw<ho4> {
+public class pn6 extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardItemHotVideoLayout f;
+    public CardItemRecommendLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pn6(Context context) {
@@ -34,7 +34,7 @@ public class pn6 extends sw<ho4> {
                 return;
             }
         }
-        this.f = new CardItemHotVideoLayout(context);
+        this.f = new CardItemRecommendLayout(context);
     }
 
     @Override // com.baidu.tieba.sw
@@ -55,10 +55,10 @@ public class pn6 extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: p */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) {
-            this.f.setData((wn6) ho4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) {
+            this.f.setData(go4Var);
         }
     }
 }

@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.ur4;
 import com.baidu.tieba.ve;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.y48;
+import com.baidu.tieba.w48;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public y48 a;
+    public w48 a;
     public boolean b;
     public String c;
     public int d;
@@ -73,7 +73,7 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new y48();
+        this.a = new w48();
         this.b = z;
     }
 
@@ -112,8 +112,8 @@ public class PersonBarModel extends BdBaseModel {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
-                    vr4.f();
-                    ve<String> g = vr4.g("tb.my_pages");
+                    ur4.f();
+                    ve<String> g = ur4.g("tb.my_pages");
                     if (g != null) {
                         g.e(id, str, 604800000L);
                     }
@@ -170,9 +170,9 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public y48 z() {
+    public w48 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (y48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (w48) invokeV.objValue;
     }
 }

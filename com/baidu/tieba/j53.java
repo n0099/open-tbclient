@@ -52,12 +52,12 @@ public class j53 extends b13 {
 
         /* renamed from: com.baidu.tieba.j53$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0300a implements tf3<d63<f63.e>> {
+        public class C0305a implements tf3<d63<f63.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0300a(a aVar) {
+            public C0305a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class j53 extends b13 {
                         z = true;
                     }
                     if (z) {
-                        this.e.c(this.d, this.b, this.c, new C0300a(this));
+                        this.e.c(this.d, this.b, this.c, new C0305a(this));
                         return;
                     }
                     if (a63Var.j > 0) {

@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ImageHeaderParserUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MARK_POSITION = 5242880;

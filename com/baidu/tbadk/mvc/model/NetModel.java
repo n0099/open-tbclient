@@ -24,17 +24,17 @@ import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a95;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.db;
+import com.baidu.tieba.qb5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sb5;
 import com.baidu.tieba.sg;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.ur4;
 import com.baidu.tieba.ve;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.w85;
-import com.baidu.tieba.z85;
+import com.baidu.tieba.x85;
+import com.baidu.tieba.y85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import protobuf.Error;
 /* loaded from: classes3.dex */
-public abstract class NetModel<T extends z85, D extends a95, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class NetModel<T extends x85, D extends y85, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public l<T, D> a;
@@ -502,7 +502,7 @@ public abstract class NetModel<T extends z85, D extends a95, ActivityType> exten
     }
 
     /* loaded from: classes3.dex */
-    public static class j<T extends z85, D extends a95, ActivityType> extends BdAsyncTask<Object, D, D> {
+    public static class j<T extends x85, D extends y85, ActivityType> extends BdAsyncTask<Object, D, D> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetModel<T, D, ActivityType> a;
@@ -572,14 +572,14 @@ public abstract class NetModel<T extends z85, D extends a95, ActivityType> exten
                 publishProgress(b);
                 if (this.a.isNeedCache() && (httpNetContext = this.b) != null && httpNetContext.getResponse() != null && this.b.getResponse().isRequestSuccess() && b != null) {
                     T t = this.a.c;
-                    if (t instanceof w85) {
-                        w85 w85Var = (w85) t;
-                        String cacheKey = w85Var.getCacheKey();
-                        String y = w85Var.y();
-                        String currentAccount = w85Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+                    if (t instanceof u85) {
+                        u85 u85Var = (u85) t;
+                        String cacheKey = u85Var.getCacheKey();
+                        String y = u85Var.y();
+                        String currentAccount = u85Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                         if (cacheKey != null && !TextUtils.isEmpty(y) && b != null) {
-                            vr4.f();
-                            ve<String> h = vr4.h(y, currentAccount);
+                            ur4.f();
+                            ve<String> h = ur4.h(y, currentAccount);
                             if (h == null) {
                                 return b;
                             }
@@ -639,16 +639,16 @@ public abstract class NetModel<T extends z85, D extends a95, ActivityType> exten
     }
 
     /* loaded from: classes3.dex */
-    public interface k<T extends z85, D extends a95> extends l<T, D>, m<T, D> {
+    public interface k<T extends x85, D extends y85> extends l<T, D>, m<T, D> {
     }
 
     /* loaded from: classes3.dex */
-    public interface l<T extends z85, D extends a95> {
+    public interface l<T extends x85, D extends y85> {
         void s(MvcHttpResponsedMessage<D> mvcHttpResponsedMessage, MvcHttpMessage<T, D> mvcHttpMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
     /* loaded from: classes3.dex */
-    public interface m<T extends z85, D extends a95> {
+    public interface m<T extends x85, D extends y85> {
         void n(MvcSocketResponsedMessage<D, ?> mvcSocketResponsedMessage, MvcSocketMessage<T, D> mvcSocketMessage, MvcNetMessage<T, D> mvcNetMessage);
     }
 
@@ -733,11 +733,11 @@ public abstract class NetModel<T extends z85, D extends a95, ActivityType> exten
     public final void L() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.h && MessageManager.getInstance().findTask(Q()) == null) {
-            sb5 sb5Var = new sb5(Q());
-            sb5Var.setResponsedClass(R());
-            Z(sb5Var);
+            qb5 qb5Var = new qb5(Q());
+            qb5Var.setResponsedClass(R());
+            Z(qb5Var);
             MessageManager.getInstance().unRegisterTask(Q());
-            MessageManager.getInstance().registerTask(sb5Var);
+            MessageManager.getInstance().registerTask(qb5Var);
             this.h = true;
         }
     }
@@ -943,9 +943,9 @@ public abstract class NetModel<T extends z85, D extends a95, ActivityType> exten
         }
     }
 
-    public void Z(sb5 sb5Var) {
+    public void Z(qb5 qb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, sb5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, qb5Var) == null) {
         }
     }
 

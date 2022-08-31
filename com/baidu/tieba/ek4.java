@@ -75,19 +75,19 @@ public class ek4 {
                     dk4Var = ((ActiveConfigHTTPResMsg) responsedMessage).getData();
                 }
                 if ((responsedMessage.getOrginalMessage().getExtra() instanceof ActiveConfigReqMsg) && ((ActiveConfigReqMsg) responsedMessage.getOrginalMessage().getExtra()).launtchType == 0) {
-                    tu4.k().x("pref_key_active_config_info", System.currentTimeMillis());
+                    su4.k().x("pref_key_active_config_info", System.currentTimeMillis());
                 }
                 if (dk4Var != null && dk4Var.g != null && this.a.a != null) {
                     this.a.a.a(dk4Var);
                 }
                 if (dk4Var != null && this.a.c()) {
-                    tu4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
+                    su4.k().x("pref_key_last_register_mission", System.currentTimeMillis());
                     pj4.b().i(dk4Var);
                     if (this.a.a != null) {
                         this.a.a.onSuccess(dk4Var);
                     }
                 }
-                ru4.e().j(dk4Var);
+                qu4.e().j(dk4Var);
             }
         }
     }
@@ -118,7 +118,7 @@ public class ek4 {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(tu4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !UtilHelper.isSameDay(su4.k().m("pref_key_last_register_mission", 0L), System.currentTimeMillis()) : invokeV.booleanValue;
     }
 
     public BdUniqueId d() {
@@ -130,8 +130,8 @@ public class ek4 {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rk8.h(309637, ActiveConfigSocketResMsg.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, rk8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
+            pk8.h(309637, ActiveConfigSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ACTIVE_CONFIG, pk8.a(TbConfig.URL_ACTIVE_CONFIG, 309637));
             tbHttpMessageTask.setResponsedClass(ActiveConfigHTTPResMsg.class);
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
@@ -146,7 +146,7 @@ public class ek4 {
         if (!z) {
             this.b = true;
         }
-        tu4.k().x("pref_key_last_active_config", System.currentTimeMillis());
+        su4.k().x("pref_key_last_active_config", System.currentTimeMillis());
         ActiveConfigReqMsg activeConfigReqMsg = new ActiveConfigReqMsg();
         activeConfigReqMsg.setFirstUp(z);
         activeConfigReqMsg.setSchemaUp(z2);

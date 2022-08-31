@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xg5;
+import com.baidu.tieba.vg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-    public xg5 b;
+    public vg5 b;
     public View c;
     public int d;
     public int e;
@@ -557,9 +557,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
                             this.d = 2;
-                            xg5 xg5Var = this.b;
-                            if (xg5Var != null) {
-                                xg5Var.b(this.c);
+                            vg5 vg5Var = this.b;
+                            if (vg5Var != null) {
+                                vg5Var.b(this.c);
                             }
                             return true;
                         }
@@ -632,9 +632,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            xg5 xg5Var = this.b;
-                            if (xg5Var != null) {
-                                xg5Var.b(this.c);
+                            vg5 vg5Var = this.b;
+                            if (vg5Var != null) {
+                                vg5Var.b(this.c);
                             }
                         } else {
                             int i2 = this.f;
@@ -642,21 +642,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                xg5 xg5Var2 = this.b;
-                                if (xg5Var2 != null) {
-                                    xg5Var2.a(this.c);
+                                vg5 vg5Var2 = this.b;
+                                if (vg5Var2 != null) {
+                                    vg5Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
                                 if (Math.abs(this.n) > this.h) {
-                                    xg5 xg5Var3 = this.b;
-                                    if (xg5Var3 != null) {
-                                        xg5Var3.a(this.c);
+                                    vg5 vg5Var3 = this.b;
+                                    if (vg5Var3 != null) {
+                                        vg5Var3.a(this.c);
                                     }
                                 } else {
-                                    xg5 xg5Var4 = this.b;
-                                    if (xg5Var4 != null) {
-                                        xg5Var4.b(this.c);
+                                    vg5 vg5Var4 = this.b;
+                                    if (vg5Var4 != null) {
+                                        vg5Var4.b(this.c);
                                     }
                                 }
                             }
@@ -698,11 +698,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(xg5 xg5Var) {
+    public void setRefreshViewAndListener(vg5 vg5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, xg5Var) == null) {
-            this.b = xg5Var;
-            this.c = xg5Var.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, vg5Var) == null) {
+            this.b = vg5Var;
+            this.c = vg5Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
             this.c.setLayoutParams(layoutParams);

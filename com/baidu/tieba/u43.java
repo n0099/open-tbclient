@@ -42,13 +42,13 @@ public class u43 extends x23 {
 
         /* renamed from: com.baidu.tieba.u43$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0410a implements Runnable {
+        public class RunnableC0417a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0410a(a aVar, Bitmap bitmap) {
+            public RunnableC0417a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,7 +106,7 @@ public class u43 extends x23 {
                 if (y == null) {
                     this.d.n(this.a, this.b, "can't get screenshot");
                 } else {
-                    ud3.k(new RunnableC0410a(this, y), "savescreenshot");
+                    ud3.k(new RunnableC0417a(this, y), "savescreenshot");
                 }
             }
         }

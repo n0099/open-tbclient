@@ -22,14 +22,14 @@ import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i35;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.la6;
-import com.baidu.tieba.ma6;
-import com.baidu.tieba.n25;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.hy4;
+import com.baidu.tieba.ja6;
+import com.baidu.tieba.ka6;
+import com.baidu.tieba.l25;
+import com.baidu.tieba.qz8;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sz8;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.x25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 /* loaded from: classes4.dex */
-public class TopicDetaiInputContainer extends LinearLayout implements z25, View.OnClickListener {
+public class TopicDetaiInputContainer extends LinearLayout implements x25, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int n = 1;
     public static int o;
@@ -86,7 +86,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.J(new n25(8, -1, null));
+                this.a.J(new l25(8, -1, null));
             }
         }
     }
@@ -122,7 +122,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
                 return;
             }
             TopicDetaiInputContainer topicDetaiInputContainer = this.a;
-            topicDetaiInputContainer.J(new n25(4, -1, topicDetaiInputContainer.b.getText().toString()));
+            topicDetaiInputContainer.J(new l25(4, -1, topicDetaiInputContainer.b.getText().toString()));
         }
 
         @Override // android.text.TextWatcher
@@ -176,7 +176,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.J(new n25(5, -1, null));
+                    this.a.J(new l25(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -186,7 +186,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
     }
 
     /* loaded from: classes4.dex */
-    public class d implements ma6.h {
+    public class d implements ka6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TopicDetaiInputContainer a;
@@ -209,13 +209,13 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
             this.a = topicDetaiInputContainer;
         }
 
-        @Override // com.baidu.tieba.ma6.h
+        @Override // com.baidu.tieba.ka6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.J(new n25(5, -1, null));
+                this.a.J(new l25(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -257,28 +257,28 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         }
     }
 
-    @Override // com.baidu.tieba.o25
-    public void A(n25 n25Var) {
+    @Override // com.baidu.tieba.m25
+    public void A(l25 l25Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, n25Var) == null) || n25Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, l25Var) == null) || l25Var == null) {
             return;
         }
-        int i = n25Var.a;
+        int i = l25Var.a;
         if (i != 3) {
             if (i != 4) {
                 if (i == 6) {
-                    Object obj = n25Var.c;
+                    Object obj = l25Var.c;
                     if (obj == null) {
                         this.b.setText((CharSequence) null);
                     } else if (obj instanceof String) {
                         if (TextUtils.isEmpty((String) obj)) {
                             this.b.setText((CharSequence) null);
                         } else {
-                            ma6.f(getContext(), (String) n25Var.c, new d(this));
+                            ka6.f(getContext(), (String) l25Var.c, new d(this));
                         }
                     }
                 } else if (i == 9) {
-                    if (((Boolean) n25Var.c).booleanValue()) {
+                    if (((Boolean) l25Var.c).booleanValue()) {
                         this.b.setText((CharSequence) null);
                     }
                     boolean[] zArr = this.k;
@@ -291,17 +291,17 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
                     iArr[0] = 0;
                     iArr[1] = 0;
                 } else if (i == 24) {
-                    i(n25Var);
+                    i(l25Var);
                 } else if (i == 12) {
-                    Object obj2 = n25Var.c;
-                    if (!(obj2 instanceof i35)) {
+                    Object obj2 = l25Var.c;
+                    if (!(obj2 instanceof g35)) {
                         return;
                     }
-                    i35 i35Var = (i35) obj2;
-                    WriteImagesInfo writeImagesInfo = i35Var.a;
+                    g35 g35Var = (g35) obj2;
+                    WriteImagesInfo writeImagesInfo = g35Var.a;
                     if (writeImagesInfo != null) {
                         if (writeImagesInfo.getChosedFiles() != null) {
-                            this.l[0] = i35Var.a.getChosedFiles().size();
+                            this.l[0] = g35Var.a.getChosedFiles().size();
                         } else {
                             this.l[0] = 0;
                         }
@@ -321,7 +321,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
                     }
                 }
             }
-            Object obj3 = n25Var.c;
+            Object obj3 = l25Var.c;
             if (obj3 != null && (!(obj3 instanceof String) || !StringUtils.isNull((String) obj3))) {
                 this.k[0] = true;
             } else {
@@ -329,7 +329,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
             }
         } else if (this.b.getSelectionStart() > 0) {
             String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-            Matcher matcher = la6.b.matcher(substring);
+            Matcher matcher = ja6.b.matcher(substring);
             if (matcher.find()) {
                 this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
             } else {
@@ -339,17 +339,17 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         f(this.m);
     }
 
-    @Override // com.baidu.tieba.z25
-    public void J(n25 n25Var) {
+    @Override // com.baidu.tieba.x25
+    public void J(l25 l25Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n25Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l25Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(n25Var);
+        editorTools.A(l25Var);
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -395,7 +395,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
             this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
             this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0110));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            sz8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
+            qz8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
             this.b.setPadding(0, ri.f(context, R.dimen.obfuscated_res_0x7f0701e8), ri.f(context, R.dimen.obfuscated_res_0x7f0702da), ri.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
@@ -425,7 +425,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : (TextView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -449,7 +449,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         }
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -457,55 +457,55 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         }
     }
 
-    public final void i(n25 n25Var) {
+    public final void i(l25 l25Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, n25Var) == null) || n25Var == null || (obj = n25Var.c) == null || !(obj instanceof jy4)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, l25Var) == null) || l25Var == null || (obj = l25Var.c) == null || !(obj instanceof hy4)) {
             return;
         }
-        jy4 jy4Var = (jy4) obj;
-        if (jy4Var.getType() == EmotionGroupType.NET_SUG) {
-            k(jy4Var);
+        hy4 hy4Var = (hy4) obj;
+        if (hy4Var.getType() == EmotionGroupType.NET_SUG) {
+            k(hy4Var);
         } else {
-            j(jy4Var);
+            j(hy4Var);
         }
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    public final void j(jy4 jy4Var) {
+    public final void j(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jy4Var) == null) {
-            if (!this.g || jy4Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, hy4Var) == null) {
+            if (!this.g || hy4Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
-                if (this.h && la6.a(obj) >= 10 && getContext() != null) {
+                if (this.h && ja6.a(obj) >= 10 && getContext() != null) {
                     CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1436);
                 } else {
-                    ma6.b(getContext(), jy4Var, this.b);
+                    ka6.b(getContext(), hy4Var, this.b);
                 }
             }
         }
     }
 
-    public final void k(jy4 jy4Var) {
+    public final void k(hy4 hy4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, jy4Var) == null) || jy4Var == null || TextUtils.isEmpty(jy4Var.d()) || TextUtils.isEmpty(jy4Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(1048590, this, hy4Var) == null) || hy4Var == null || TextUtils.isEmpty(hy4Var.d()) || TextUtils.isEmpty(hy4Var.g())) {
             return;
         }
         String obj = this.b.getText().toString();
-        if (this.h && la6.a(obj) >= 10 && getContext() != null) {
+        if (this.h && ja6.a(obj) >= 10 && getContext() != null) {
             CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1436);
         } else {
-            ma6.c(getContext(), jy4Var, this.b);
+            ka6.c(getContext(), hy4Var, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
@@ -513,10 +513,10 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0207);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
             if (i == 0) {
-                sz8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
+                qz8.l(this.b, R.drawable.obfuscated_res_0x7f0804ae);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0110));
             } else {
-                sz8.l(this.b, R.drawable.obfuscated_res_0x7f0804af);
+                qz8.l(this.b, R.drawable.obfuscated_res_0x7f0804af);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0110));
             }
             SkinManager.setBackgroundResource(this.c, R.drawable.topic_discuss_send_bg);
@@ -535,7 +535,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         }
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, editorTools) == null) {
@@ -565,7 +565,7 @@ public class TopicDetaiInputContainer extends LinearLayout implements z25, View.
         }
     }
 
-    @Override // com.baidu.tieba.z25
+    @Override // com.baidu.tieba.x25
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {

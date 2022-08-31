@@ -13,7 +13,7 @@ import okhttp3.Callback;
 import okhttp3.Request;
 @Singleton
 @Service
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ey3 implements ni1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

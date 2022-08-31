@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import java.util.Map;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFlowType;
+import android.app.Dialog;
+import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
+import tv.athena.revenue.payui.view.IYYPayWayView;
 /* loaded from: classes6.dex */
 public interface v0a {
-    void a(Activity activity, PayFlowType payFlowType, i2a i2aVar, f2a f2aVar, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback iPayCallback, String str);
+    void f(Activity activity, g2a g2aVar, Dialog dialog, IYYPayWayView iYYPayWayView);
+
+    void l(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
+
+    void q(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar);
 }

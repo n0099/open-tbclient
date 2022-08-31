@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.yz7;
+import com.baidu.tieba.wz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class SubPbLayout extends ViewGroup {
     public View.OnClickListener a;
     public View.OnLongClickListener b;
     public View.OnTouchListener c;
-    public yz7 d;
+    public wz7 d;
     public int e;
     public PostData f;
     public View g;
@@ -218,7 +218,7 @@ public class SubPbLayout extends ViewGroup {
                         sparseArray.put(-3, this.n.get(-3));
                         sparseArray.put(-4, this.n.get(-4));
                     }
-                    yz7.b bVar = (yz7.b) sparseArray.get(R.id.obfuscated_res_0x7f091fff);
+                    wz7.b bVar = (wz7.b) sparseArray.get(R.id.obfuscated_res_0x7f091fff);
                     this.d.c(bVar, list.get(i3), this.f.a0() > list.size() || list.size() - i3 > 1, i3 == 0, false);
                     bVar.e.setPadding(0, 0, 0, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
                     if (UbsABTestHelper.isPBPlanA()) {
@@ -286,9 +286,9 @@ public class SubPbLayout extends ViewGroup {
         }
         textView.setTextSize(0, TbConfig.getContentSizeOfLzl());
         if (this.k) {
-            os4.d(this.j).v(R.color.CAM_X0304);
+            ns4.d(this.j).v(R.color.CAM_X0304);
         } else {
-            os4.d(this.j).v(R.color.CAM_X0108);
+            ns4.d(this.j).v(R.color.CAM_X0108);
         }
     }
 
@@ -300,9 +300,9 @@ public class SubPbLayout extends ViewGroup {
         }
         textView.setTextSize(0, TbConfig.getTestContentSizeOfLzl());
         if (this.k) {
-            os4.d(this.j).v(R.color.CAM_X0318);
+            ns4.d(this.j).v(R.color.CAM_X0318);
         } else {
-            os4.d(this.j).v(R.color.CAM_X0108);
+            ns4.d(this.j).v(R.color.CAM_X0108);
         }
     }
 
@@ -433,10 +433,10 @@ public class SubPbLayout extends ViewGroup {
         }
     }
 
-    public void setSubPbAdapter(yz7 yz7Var) {
+    public void setSubPbAdapter(wz7 wz7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, yz7Var) == null) {
-            this.d = yz7Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, wz7Var) == null) {
+            this.d = wz7Var;
         }
     }
 

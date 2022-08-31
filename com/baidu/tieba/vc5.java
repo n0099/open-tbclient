@@ -1,11 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.tieba.tc5;
+import com.baidu.tieba.uc5;
 /* loaded from: classes6.dex */
-public interface vc5<T> {
-    void a(Intent intent);
+public interface vc5<Q extends tc5, P extends uc5> {
+    int a();
 
-    T b(boolean z);
+    Q b();
 
-    pc5 c();
+    String c();
+
+    P d();
+
+    int e();
 }

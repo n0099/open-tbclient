@@ -20,7 +20,7 @@ import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.kc1;
-import com.baidu.tieba.mg8;
+import com.baidu.tieba.kg8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -379,7 +379,7 @@ public final class DeviceInfoManager {
     public final IDeviceInfoAppHost getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? mg8.a() : (IDeviceInfoAppHost) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) ? kg8.a() : (IDeviceInfoAppHost) invokeV.objValue;
     }
 
     @JvmStatic

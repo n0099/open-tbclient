@@ -33,12 +33,12 @@ import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.special_forum.data.SpecialLiveTabInfo;
 import com.baidu.tieba.ala.alasquare.subtablist.mvc.AlaNewSquareSubListModel;
-import com.baidu.tieba.dv4;
-import com.baidu.tieba.eu5;
-import com.baidu.tieba.ev4;
-import com.baidu.tieba.ht5;
-import com.baidu.tieba.lu5;
-import com.baidu.tieba.n65;
+import com.baidu.tieba.bv4;
+import com.baidu.tieba.cu5;
+import com.baidu.tieba.cv4;
+import com.baidu.tieba.ft5;
+import com.baidu.tieba.ju5;
+import com.baidu.tieba.l65;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +54,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     public View d;
     public BdTypeListView e;
     public PbListView f;
-    public ev4 g;
-    public n65 h;
-    public ht5 i;
+    public cv4 g;
+    public l65 h;
+    public ft5 i;
     public AlaNewSquareSubListModel j;
     public boolean k;
     public boolean l;
@@ -67,10 +67,10 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     public String q;
     public AlaNewSquareSubListModel.b r;
     public BdListView.p s;
-    public final dv4.g t;
+    public final bv4.g t;
 
     /* loaded from: classes3.dex */
-    public class a implements lu5 {
+    public class a implements ju5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OtherSubTabFragment a;
@@ -93,7 +93,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.a = otherSubTabFragment;
         }
 
-        @Override // com.baidu.tieba.lu5
+        @Override // com.baidu.tieba.ju5
         public void a(int i, String str, ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, threadData) == null) {
@@ -125,10 +125,10 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.lu5
-        public void b(eu5 eu5Var) {
+        @Override // com.baidu.tieba.ju5
+        public void b(cu5 cu5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eu5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu5Var) == null) {
             }
         }
     }
@@ -230,7 +230,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements dv4.g {
+    public class d implements bv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OtherSubTabFragment a;
@@ -253,7 +253,7 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.a = otherSubTabFragment;
         }
 
-        @Override // com.baidu.tieba.dv4.g
+        @Override // com.baidu.tieba.bv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -318,13 +318,13 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
 
     public final void M1() {
         BdTypeListView bdTypeListView;
-        n65 n65Var;
+        l65 l65Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeListView = this.e) == null || (n65Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bdTypeListView = this.e) == null || (l65Var = this.h) == null) {
             return;
         }
         this.l = false;
-        bdTypeListView.removeHeaderView(n65Var.b());
+        bdTypeListView.removeHeaderView(l65Var.b());
     }
 
     public final void N1(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
@@ -400,9 +400,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.h == null) {
-                n65 n65Var = new n65(getPageContext().getContext(), getNetRefreshListener());
-                this.h = n65Var;
-                n65Var.n(null);
+                l65 l65Var = new l65(getPageContext().getContext(), getNetRefreshListener());
+                this.h = l65Var;
+                l65Var.n(null);
                 this.h.g(null);
                 this.h.p();
                 this.h.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -433,9 +433,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            ev4 ev4Var = this.g;
-            if (ev4Var != null) {
-                ev4Var.H(i);
+            cv4 cv4Var = this.g;
+            if (cv4Var != null) {
+                cv4Var.H(i);
             }
             PbListView pbListView = this.f;
             if (pbListView != null) {
@@ -479,9 +479,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
             this.j.setLabelName(this.o);
             this.j.V(false);
             if (this.i == null) {
-                ht5 ht5Var = new ht5(getPageContext());
-                this.i = ht5Var;
-                ht5Var.v(1);
+                ft5 ft5Var = new ft5(getPageContext());
+                this.i = ft5Var;
+                ft5Var.v(1);
                 this.i.w(new a(this));
             }
         }
@@ -498,9 +498,9 @@ public class OtherSubTabFragment extends SpecialForumTabBaseFragment {
                 BdTypeListView bdTypeListView = (BdTypeListView) inflate.findViewById(R.id.obfuscated_res_0x7f0906dc);
                 this.e = bdTypeListView;
                 bdTypeListView.setOnSrollToBottomListener(this.s);
-                ev4 ev4Var = new ev4(getPageContext());
-                this.g = ev4Var;
-                ev4Var.f(this.t);
+                cv4 cv4Var = new cv4(getPageContext());
+                this.g = cv4Var;
+                cv4Var.f(this.t);
                 this.e.setPullRefresh(this.g);
                 PbListView pbListView = new PbListView(getContext());
                 this.f = pbListView;

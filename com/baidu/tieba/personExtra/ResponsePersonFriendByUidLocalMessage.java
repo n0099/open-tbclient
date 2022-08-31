@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oq4;
+import com.baidu.tieba.nq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public oq4 mData;
+    public nq4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonFriendByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         }
     }
 
-    public oq4 getPersonFriendData() {
+    public nq4 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (oq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (nq4) invokeV.objValue;
     }
 
-    public void setPersonFriendData(oq4 oq4Var) {
+    public void setPersonFriendData(nq4 nq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, oq4Var) == null) {
-            this.mData = oq4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nq4Var) == null) {
+            this.mData = nq4Var;
         }
     }
 
@@ -72,8 +72,8 @@ public class ResponsePersonFriendByUidLocalMessage extends CustomResponsedMessag
         if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || str == null) {
             return;
         }
-        oq4 oq4Var = new oq4();
-        this.mData = oq4Var;
-        oq4Var.a(str);
+        nq4 nq4Var = new nq4();
+        this.mData = nq4Var;
+        nq4Var.a(str);
     }
 }

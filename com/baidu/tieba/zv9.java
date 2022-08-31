@@ -1,105 +1,97 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.av9;
+import com.baidu.tieba.yu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes6.dex */
-public class zv9<T> implements av9.a<T> {
+public final class zv9<T, R> implements yu9.a<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bv9<? super T> a;
-    public final av9<T> b;
+    public final yu9<T> a;
+    public final qv9<? super T, ? extends R> b;
 
     /* loaded from: classes6.dex */
-    public static final class a<T> extends gv9<T> {
+    public static final class a<T, R> extends ev9<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final gv9<? super T> e;
-        public final bv9<? super T> f;
+        public final ev9<? super R> e;
+        public final qv9<? super T, ? extends R> f;
         public boolean g;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gv9<? super T> gv9Var, bv9<? super T> bv9Var) {
-            super(gv9Var);
+        public a(ev9<? super R> ev9Var, qv9<? super T, ? extends R> qv9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gv9Var, bv9Var};
+                Object[] objArr = {ev9Var, qv9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((gv9) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = gv9Var;
-            this.f = bv9Var;
+            this.e = ev9Var;
+            this.f = qv9Var;
         }
 
-        @Override // com.baidu.tieba.bv9
+        @Override // com.baidu.tieba.ev9
+        public void f(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, av9Var) == null) {
+                this.e.f(av9Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.zu9
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.g) {
+            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.g) {
                 return;
             }
-            try {
-                this.f.onCompleted();
-                this.g = true;
-                this.e.onCompleted();
-            } catch (Throwable th) {
-                mv9.f(th, this);
-            }
+            this.e.onCompleted();
         }
 
-        @Override // com.baidu.tieba.bv9
+        @Override // com.baidu.tieba.zu9
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
                 if (this.g) {
-                    hz9.j(th);
+                    fz9.j(th);
                     return;
                 }
                 this.g = true;
-                try {
-                    this.f.onError(th);
-                    this.e.onError(th);
-                } catch (Throwable th2) {
-                    mv9.e(th2);
-                    this.e.onError(new CompositeException(Arrays.asList(th, th2)));
-                }
+                this.e.onError(th);
             }
         }
 
-        @Override // com.baidu.tieba.bv9
+        @Override // com.baidu.tieba.zu9
         public void onNext(T t) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) || this.g) {
-                return;
-            }
-            try {
-                this.f.onNext(t);
-                this.e.onNext(t);
-            } catch (Throwable th) {
-                mv9.g(th, this, t);
+            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                try {
+                    this.e.onNext(this.f.call(t));
+                } catch (Throwable th) {
+                    kv9.e(th);
+                    unsubscribe();
+                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                }
             }
         }
     }
 
-    public zv9(av9<T> av9Var, bv9<? super T> bv9Var) {
+    public zv9(yu9<T> yu9Var, qv9<? super T, ? extends R> qv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {av9Var, bv9Var};
+            Object[] objArr = {yu9Var, qv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,19 +101,21 @@ public class zv9<T> implements av9.a<T> {
                 return;
             }
         }
-        this.b = av9Var;
-        this.a = bv9Var;
+        this.a = yu9Var;
+        this.b = qv9Var;
     }
 
-    @Override // com.baidu.tieba.av9.a, com.baidu.tieba.ov9
+    @Override // com.baidu.tieba.yu9.a, com.baidu.tieba.mv9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((gv9) ((gv9) obj));
+        call((ev9) ((ev9) obj));
     }
 
-    public void call(gv9<? super T> gv9Var) {
+    public void call(ev9<? super R> ev9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gv9Var) == null) {
-            this.b.B(new a(gv9Var, this.a));
+        if (interceptable == null || interceptable.invokeL(1048576, this, ev9Var) == null) {
+            a aVar = new a(ev9Var, this.b);
+            ev9Var.b(aVar);
+            this.a.B(aVar);
         }
     }
 }

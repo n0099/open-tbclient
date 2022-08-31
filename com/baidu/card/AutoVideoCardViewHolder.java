@@ -3,18 +3,18 @@ package com.baidu.card;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.e98;
 import com.baidu.tieba.ey;
-import com.baidu.tieba.g98;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.my;
-import com.baidu.tieba.q88;
+import com.baidu.tieba.o88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder<T> implements q88 {
+public class AutoVideoCardViewHolder<T extends go4> extends ThreadCardViewHolder<T> implements o88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public my j;
@@ -43,7 +43,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         }
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,7 +99,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,7 +127,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public void startPlay() {
         my myVar;
         Interceptable interceptable = $ic;
@@ -137,7 +137,7 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         myVar.startPlay();
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public void stopPlay() {
         my myVar;
         Interceptable interceptable = $ic;
@@ -153,12 +153,12 @@ public class AutoVideoCardViewHolder<T extends ho4> extends ThreadCardViewHolder
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.j : (my) invokeV.objValue;
     }
 
-    public void u(g98 g98Var) {
+    public void u(e98 e98Var) {
         my myVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, g98Var) == null) || (myVar = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, e98Var) == null) || (myVar = this.j) == null) {
             return;
         }
-        myVar.z(g98Var);
+        myVar.z(e98Var);
     }
 }

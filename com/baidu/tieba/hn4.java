@@ -13,7 +13,7 @@ import java.util.Iterator;
 public class hn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<s65> a;
+    public ArrayList<q65> a;
     public Context b;
 
     public hn4(Context context) {
@@ -35,22 +35,22 @@ public class hn4 {
         this.b = context;
     }
 
-    public void a(s65 s65Var) {
+    public void a(q65 q65Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, s65Var) == null) || s65Var == null || s65Var.b() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, q65Var) == null) || q65Var == null || q65Var.b() == null) {
             return;
         }
-        Iterator<s65> it = this.a.iterator();
+        Iterator<q65> it = this.a.iterator();
         while (it.hasNext()) {
-            s65 next = it.next();
-            if (next != null && next.b() != null && next.b().e == s65Var.b().e) {
+            q65 next = it.next();
+            if (next != null && next.b() != null && next.b().e == q65Var.b().e) {
                 return;
             }
         }
-        this.a.add(s65Var);
+        this.a.add(q65Var);
     }
 
-    public ArrayList<s65> b() {
+    public ArrayList<q65> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;

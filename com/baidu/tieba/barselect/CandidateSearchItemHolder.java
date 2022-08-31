@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.CommitVoteReqMsg;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jy5;
+import com.baidu.tieba.hy5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
     public TextView d;
     public TextView e;
     public int f;
-    public jy5 g;
+    public hy5 g;
     public BdUniqueId h;
     public View i;
     public View.OnClickListener j;
@@ -135,21 +135,21 @@ public class CandidateSearchItemHolder extends RecyclerView.ViewHolder {
         findViewById.setOnClickListener(this.j);
     }
 
-    public void g(jy5 jy5Var) {
+    public void g(hy5 hy5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jy5Var) == null) {
-            this.g = jy5Var;
-            if (jy5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, hy5Var) == null) {
+            this.g = hy5Var;
+            if (hy5Var == null) {
                 return;
             }
-            this.a.K(jy5Var.c, 12, false);
-            this.b.setText(jy5Var.d);
-            String valueOf = String.valueOf(jy5Var.e);
+            this.a.K(hy5Var.c, 12, false);
+            this.b.setText(hy5Var.d);
+            String valueOf = String.valueOf(hy5Var.e);
             if (valueOf != null && valueOf.length() < 4) {
-                valueOf = String.format("%04d", Long.valueOf(jy5Var.e));
+                valueOf = String.format("%04d", Long.valueOf(hy5Var.e));
             }
-            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cc9), valueOf, Integer.valueOf(jy5Var.f)), jy5Var.j);
-            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e8), StringHelper.numFormatOverWanWithNegative(jy5Var.g), StringHelper.numFormatOverWanWithNegative(jy5Var.h), StringHelper.numFormatOverWanWithNegative(jy5Var.i)));
+            h(this.c, String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0cc9), valueOf, Integer.valueOf(hy5Var.f)), hy5Var.j);
+            this.d.setText(String.format(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f00e8), StringHelper.numFormatOverWanWithNegative(hy5Var.g), StringHelper.numFormatOverWanWithNegative(hy5Var.h), StringHelper.numFormatOverWanWithNegative(hy5Var.i)));
             i();
         }
     }

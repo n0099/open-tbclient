@@ -119,7 +119,7 @@ public class yn0 {
 
         /* renamed from: com.baidu.tieba.yn0$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0462b {
+        public static class C0468b {
             public static /* synthetic */ Interceptable $ic;
             public static final b a;
             public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class yn0 {
         public static b b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0462b.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0468b.a : (b) invokeV.objValue;
         }
 
         public go0 a(String str) {

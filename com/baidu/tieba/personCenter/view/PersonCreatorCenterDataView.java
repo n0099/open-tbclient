@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.dialog.RoundLinearLayout;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -92,7 +92,7 @@ public class PersonCreatorCenterDataView extends LinearLayout implements View.On
             this.d = roundLinearLayout;
             roundLinearLayout.setRadius(ri.f(getContext(), R.dimen.obfuscated_res_0x7f070287));
             this.d.setRoundCount(8);
-            os4.d(this.d).n(R.string.J_X03);
+            ns4.d(this.d).n(R.string.J_X03);
             this.e = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0918f3);
             this.f = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918f4);
             this.g = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0918ed);

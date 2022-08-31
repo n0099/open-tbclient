@@ -21,7 +21,7 @@ public class zx extends zw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RichTextLayout h;
-    public ho4 i;
+    public go4 i;
     public int j;
     public String k;
 
@@ -92,9 +92,9 @@ public class zx extends zw {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.g().booleanValue()) {
                     ThreadData threadData = this.a.i.getThreadData();
-                    uz5.a(threadData.getId());
-                    uz5.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    uz5.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.a(threadData.getId());
+                    sz5.l(this.a.h.b, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.l(this.a.h.c, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -154,12 +154,12 @@ public class zx extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: v */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) {
-            this.i = ho4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) {
+            this.i = go4Var;
             this.h.setTransmit(g().booleanValue());
-            this.h.a(ho4Var);
+            this.h.a(go4Var);
             this.h.setJumpToPbListener(new a(this));
             this.h.setFrom(this.k);
         }

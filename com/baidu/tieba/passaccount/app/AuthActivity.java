@@ -21,7 +21,7 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds7;
+import com.baidu.tieba.bs7;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -213,13 +213,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                ds7.f().b(z, str);
+                bs7.f().b(z, str);
             } else if (i == 1) {
-                ds7.f().e(z);
+                bs7.f().e(z);
             } else if (i == 2) {
-                ds7.f().c(z);
+                bs7.f().c(z);
             } else {
-                ds7.f().a(null);
+                bs7.f().a(null);
             }
             finish();
         }

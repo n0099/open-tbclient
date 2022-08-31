@@ -6,82 +6,109 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.pb.adapter.PbNoDataItemViewHolder;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gx7 extends iw7<wt7, PbNoDataItemViewHolder> {
+public class gx7 extends gw7<lq4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kt7 g;
+    public PbRecommendNovelHolder.b h;
+
+    /* loaded from: classes4.dex */
+    public class a implements PbRecommendNovelHolder.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gx7 a;
+
+        public a(gx7 gx7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gx7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gx7Var;
+        }
+
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(lq4 lq4Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, lq4Var) == null) || lq4Var == null) {
+                return;
+            }
+            n08.a(this.a.g, lq4Var, lq4Var.b0, 6);
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx7(a18 a18Var, BdUniqueId bdUniqueId) {
-        super(a18Var, bdUniqueId);
+    public gx7(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a18Var, bdUniqueId};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((a18) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((y08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.h = new a(this);
     }
 
-    @Override // com.baidu.tieba.iw7, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.gw7, com.baidu.tieba.cn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        v(i, view2, viewGroup, (wt7) obj, (PbNoDataItemViewHolder) viewHolder);
+        w(i, view2, viewGroup, (lq4) obj, (PbRecommendNovelHolder) viewHolder);
         return view2;
+    }
+
+    public void r(kt7 kt7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kt7Var) == null) {
+            this.g = kt7Var;
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public PbNoDataItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: v */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbNoDataItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06c3, viewGroup, false), this.mContext) : (PbNoDataItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06ca, viewGroup, false), this.h) : (PbRecommendNovelHolder) invokeL.objValue;
     }
 
-    public View v(int i, View view2, ViewGroup viewGroup, wt7 wt7Var, PbNoDataItemViewHolder pbNoDataItemViewHolder) {
+    public View w(int i, View view2, ViewGroup viewGroup, lq4 lq4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wt7Var, pbNoDataItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, wt7Var, pbNoDataItemViewHolder);
-            this.d = TbadkCoreApplication.getInst().getSkinType();
-            pbNoDataItemViewHolder.a.setText(wt7Var.U0);
-            int i2 = wt7Var.T0;
-            if (i2 != 0) {
-                SkinManager.setImageResource(pbNoDataItemViewHolder.b, i2);
-            } else {
-                SkinManager.setImageResource(pbNoDataItemViewHolder.b, R.drawable.new_pic_emotion_06);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lq4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, lq4Var, pbRecommendNovelHolder);
+            if (lq4Var == null) {
+                return view2;
             }
-            SkinManager.setViewTextColor(pbNoDataItemViewHolder.a, (int) R.color.CAM_X0109);
-            if (wt7Var.V0 != 0 && view2.getLayoutParams() != null) {
-                view2.getLayoutParams().height = wt7Var.V0;
-            }
-            if (wt7Var.W0 != 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.b.getLayoutParams();
-                marginLayoutParams.setMargins(marginLayoutParams.leftMargin, wt7Var.W0, marginLayoutParams.rightMargin, marginLayoutParams.bottomMargin);
-            }
-            if (wt7Var.X0 != 0) {
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) pbNoDataItemViewHolder.a.getLayoutParams();
-                int i3 = marginLayoutParams2.leftMargin;
-                marginLayoutParams2.setMargins(i3, i3, marginLayoutParams2.rightMargin, wt7Var.X0);
-            }
-            pbNoDataItemViewHolder.b.setVisibility(wt7Var.Y0);
+            lq4Var.b0 = i + 1;
+            n08.d(this.b.getUniqueId(), this.g, lq4Var, lq4Var.b0, 6);
+            pbRecommendNovelHolder.d(lq4Var);
             return view2;
         }
         return (View) invokeCommon.objValue;

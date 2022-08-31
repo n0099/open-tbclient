@@ -11,13 +11,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vw4;
+import com.baidu.tieba.tw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class CommonUserLikeButton extends TextView implements vw4 {
+public class CommonUserLikeButton extends TextView implements tw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -57,7 +57,7 @@ public class CommonUserLikeButton extends TextView implements vw4 {
         f();
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class CommonUserLikeButton extends TextView implements vw4 {
         onClickListener.onClick(view2);
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -75,7 +75,7 @@ public class CommonUserLikeButton extends TextView implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -83,7 +83,7 @@ public class CommonUserLikeButton extends TextView implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void d(int i) {
         a aVar;
         Interceptable interceptable = $ic;

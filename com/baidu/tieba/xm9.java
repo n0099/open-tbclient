@@ -1,73 +1,69 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.WorkerThread;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class xm9 {
+public class xm9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
+    public static final xm9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @WorkerThread
-    public static final void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            try {
-                try {
-                    so9.b(263);
-                    HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    try {
-                        int responseCode = httpURLConnection.getResponseCode();
-                        if (responseCode < 200 || responseCode >= 300) {
-                            StringBuilder sb = new StringBuilder(String.valueOf(str).length() + 65);
-                            sb.append("Received non-success response code ");
-                            sb.append(responseCode);
-                            sb.append(" from pinging URL: ");
-                            sb.append(str);
-                            Log.w("HttpUrlPinger", sb.toString());
-                        }
-                        so9.a();
-                    } finally {
-                        httpURLConnection.disconnect();
-                    }
-                } catch (IOException e) {
-                    e = e;
-                    String message = e.getMessage();
-                    StringBuilder sb2 = new StringBuilder(String.valueOf(str).length() + 27 + String.valueOf(message).length());
-                    sb2.append("Error while pinging URL: ");
-                    sb2.append(str);
-                    sb2.append(". ");
-                    sb2.append(message);
-                    Log.w("HttpUrlPinger", sb2.toString(), e);
-                    so9.a();
-                } catch (IndexOutOfBoundsException e2) {
-                    String message2 = e2.getMessage();
-                    StringBuilder sb3 = new StringBuilder(String.valueOf(str).length() + 32 + String.valueOf(message2).length());
-                    sb3.append("Error while parsing ping URL: ");
-                    sb3.append(str);
-                    sb3.append(". ");
-                    sb3.append(message2);
-                    Log.w("HttpUrlPinger", sb3.toString(), e2);
-                    so9.a();
-                } catch (RuntimeException e3) {
-                    e = e3;
-                    String message3 = e.getMessage();
-                    StringBuilder sb22 = new StringBuilder(String.valueOf(str).length() + 27 + String.valueOf(message3).length());
-                    sb22.append("Error while pinging URL: ");
-                    sb22.append(str);
-                    sb22.append(". ");
-                    sb22.append(message3);
-                    Log.w("HttpUrlPinger", sb22.toString(), e);
-                    so9.a();
-                }
-            } catch (Throwable th) {
-                so9.a();
-                throw th;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948305317, "Lcom/baidu/tieba/xm9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948305317, "Lcom/baidu/tieba/xm9;");
+                return;
             }
         }
+        a = ym9.a;
+        b = new xm9();
+    }
+
+    public xm9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @NonNull
+    public static xm9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (xm9) invokeV.objValue;
+    }
+
+    public int b(@NonNull Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            int a2 = ym9.a(context, i);
+            if (ym9.b(context, a2)) {
+                return 18;
+            }
+            return a2;
+        }
+        return invokeLI.intValue;
     }
 }

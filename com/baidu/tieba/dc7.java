@@ -5,13 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dc7 {
+public class dc7 extends hc7 implements r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
 
     public dc7() {
         Interceptable interceptable = $ic;
@@ -24,6 +20,15 @@ public class dc7 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    public void c(hc7 hc7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hc7Var) == null) {
+            a().addAll(hc7Var.a());
+            this.b = hc7Var.b;
+            this.c = hc7Var.c;
         }
     }
 }

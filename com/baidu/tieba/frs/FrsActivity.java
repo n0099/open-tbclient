@@ -39,41 +39,41 @@ import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be5;
+import com.baidu.tieba.aa5;
 import com.baidu.tieba.ca5;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.eg6;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.fm5;
+import com.baidu.tieba.cg6;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.dm5;
+import com.baidu.tieba.dt6;
 import com.baidu.tieba.frs.gametab.FrsTabController;
 import com.baidu.tieba.frs.mc.FrsNetModel;
-import com.baidu.tieba.ft6;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ig0;
+import com.baidu.tieba.iu4;
 import com.baidu.tieba.jg0;
 import com.baidu.tieba.ju4;
-import com.baidu.tieba.ku4;
+import com.baidu.tieba.kk5;
+import com.baidu.tieba.lk5;
 import com.baidu.tieba.mk5;
-import com.baidu.tieba.nk5;
-import com.baidu.tieba.ok5;
+import com.baidu.tieba.o05;
+import com.baidu.tieba.o16;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.q16;
+import com.baidu.tieba.qe6;
+import com.baidu.tieba.qg6;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.re6;
 import com.baidu.tieba.se6;
-import com.baidu.tieba.sg6;
+import com.baidu.tieba.su4;
+import com.baidu.tieba.t75;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
-import com.baidu.tieba.te6;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.ue6;
+import com.baidu.tieba.tf5;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.v75;
-import com.baidu.tieba.vf5;
+import com.baidu.tieba.uq6;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.view.GuidePopupWindow;
-import com.baidu.tieba.wq6;
+import com.baidu.tieba.xs6;
 import com.baidu.tieba.z8;
-import com.baidu.tieba.zs6;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,28 +84,28 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
-public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, eg6, ju4, ig0 {
+public class FrsActivity extends BaseFragmentActivity implements mk5, VoiceManager.j, UserIconBox.c, FrsCommonImageLayout.e, IVideoNeedPreload, cg6, iu4, ig0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsTabController a;
-    public wq6 b;
+    public uq6 b;
     public gg<TbImageView> c;
     public gg<TbImageView> d;
     public boolean e;
     public boolean f;
     public boolean g;
     public WeakReference<Context> h;
-    public sg6 i;
+    public qg6 i;
     public long j;
     public ItemInfo k;
     public GuidePopupWindow l;
     public final jg0 m;
-    public v75 n;
-    public v75 o;
+    public t75 n;
+    public t75 o;
     public CustomMessageListener p;
 
     /* loaded from: classes4.dex */
-    public class a extends v75<TipEvent> {
+    public class a extends t75<TipEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsActivity c;
@@ -129,7 +129,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.o75
+        @Override // com.baidu.tieba.m75
         /* renamed from: a */
         public boolean onEvent(TipEvent tipEvent) {
             InterceptResult invokeL;
@@ -146,7 +146,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
     }
 
     /* loaded from: classes4.dex */
-    public class b extends v75<GoodsEvent> {
+    public class b extends t75<GoodsEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsActivity c;
@@ -170,7 +170,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.o75
+        @Override // com.baidu.tieba.m75
         /* renamed from: a */
         public boolean onEvent(GoodsEvent goodsEvent) {
             InterceptResult invokeL;
@@ -231,7 +231,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
     }
 
     /* loaded from: classes4.dex */
-    public class d extends ca5 {
+    public class d extends aa5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsActivity b;
@@ -254,14 +254,14 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
             this.b = frsActivity;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.aa5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? fa5.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? da5.b().c() : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.aa5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -293,7 +293,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         this.p = new c(this, 2921476);
     }
 
-    @Override // com.baidu.tieba.eg6
+    @Override // com.baidu.tieba.cg6
     public void B0(ItemInfo itemInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, itemInfo) == null) {
@@ -301,7 +301,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.ju4
+    @Override // com.baidu.tieba.iu4
     public String C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -337,10 +337,10 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         return (gg) invokeV.objValue;
     }
 
-    public sg6 G0() {
+    public qg6 G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (sg6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : (qg6) invokeV.objValue;
     }
 
     public FrsTabController K0() {
@@ -350,21 +350,21 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
     }
 
     public void L0() {
-        wq6 wq6Var;
+        uq6 uq6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (wq6Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (uq6Var = this.b) == null) {
             return;
         }
-        wq6Var.h();
+        uq6Var.h();
     }
 
-    @Override // com.baidu.tieba.ok5
-    public void M(mk5 mk5Var) {
+    @Override // com.baidu.tieba.mk5
+    public void M(kk5 kk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mk5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, kk5Var) == null) {
             FrsTabController frsTabController = this.a;
-            if (frsTabController instanceof ok5) {
-                frsTabController.M(mk5Var);
+            if (frsTabController instanceof mk5) {
+                frsTabController.M(kk5Var);
             }
         }
     }
@@ -373,7 +373,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (TbadkCoreApplication.isLogin() && !tu4.k().h("has_guide_popup_window_been_shown", false)) {
+            if (TbadkCoreApplication.isLogin() && !su4.k().h("has_guide_popup_window_been_shown", false)) {
                 FrsTabController frsTabController = this.a;
                 return frsTabController == null || frsTabController.Y() == null || this.a.Y().getUserData() == null || this.a.Y().getUserData().getIs_manager() == 1;
             }
@@ -421,18 +421,18 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         this.l.u(forum.getName());
     }
 
-    @Override // com.baidu.tieba.ok5
-    public nk5 Q0(int i) {
+    @Override // com.baidu.tieba.mk5
+    public lk5 Q0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             FrsTabController frsTabController = this.a;
-            if (frsTabController instanceof ok5) {
+            if (frsTabController instanceof mk5) {
                 return frsTabController.Q0(i);
             }
             return null;
         }
-        return (nk5) invokeI.objValue;
+        return (lk5) invokeI.objValue;
     }
 
     @Override // com.baidu.tieba.tbadkCore.FrsCommonImageLayout.e
@@ -451,7 +451,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
     public final void S0() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && M0()) {
-            tu4.k().u("has_guide_popup_window_been_shown", true);
+            su4.k().u("has_guide_popup_window_been_shown", true);
             P0();
             ug.i(this.l, this);
         }
@@ -485,7 +485,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.ju4
+    @Override // com.baidu.tieba.iu4
     public String X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -499,7 +499,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.eg6
+    @Override // com.baidu.tieba.cg6
     public ItemInfo d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -550,7 +550,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -564,7 +564,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? TbadkCoreApplication.getInst().isGpuOpen() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
     public List<String> getNextPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -585,11 +585,11 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public ea5 getPageStayDurationItem() {
+    public ca5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            ea5 pageStayDurationItem = super.getPageStayDurationItem();
+            ca5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 FrsTabController frsTabController = this.a;
                 if (frsTabController != null && frsTabController.T() != null) {
@@ -601,14 +601,14 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
             }
             return pageStayDurationItem;
         }
-        return (ea5) invokeV.objValue;
+        return (ca5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
-    public ca5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
+    public aa5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? new d(this) : (ca5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? new d(this) : (aa5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -675,35 +675,35 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            fm5.k().d();
+            dm5.k().d();
             FrsTabController frsTabController = new FrsTabController(this);
             this.a = frsTabController;
             frsTabController.a0(bundle);
-            if (wq6.i(intent)) {
+            if (uq6.i(intent)) {
                 this.e = true;
                 enterExitAnimation();
                 if (this.b == null) {
-                    wq6 wq6Var = new wq6(this, (ViewGroup) getWindow().getDecorView(), getIntent());
-                    this.b = wq6Var;
-                    wq6Var.l();
+                    uq6 uq6Var = new uq6(this, (ViewGroup) getWindow().getDecorView(), getIntent());
+                    this.b = uq6Var;
+                    uq6Var.l();
                 }
             }
             this.h = new WeakReference<>(TbadkCoreApplication.getInst());
-            this.i = new sg6(this);
+            this.i = new qg6(this);
             registerResponsedEventListener(TipEvent.class, this.n);
-            q16.a(getIntent(), getPageContext(), 25050);
+            o16.a(getIntent(), getPageContext(), 25050);
             this.l = new GuidePopupWindow(this);
             registerListener(this.p);
             this.o.setPriority(10);
             registerResponsedEventListener(GoodsEvent.class, this.o);
-            if (UbsABTestHelper.isFrsFunAdSdkTest() && be5.r()) {
+            if (UbsABTestHelper.isFrsFunAdSdkTest() && zd5.r()) {
                 FrsTabController frsTabController2 = this.a;
-                zs6.m().K(this, ft6.e().d("frs_feed"), zs6.b("frs", "1"), (frsTabController2 == null || frsTabController2.T() == null) ? "" : this.a.T().U(), be5.f());
+                xs6.m().K(this, dt6.e().d("frs_feed"), xs6.b("frs", "1"), (frsTabController2 == null || frsTabController2.T() == null) ? "" : this.a.T().U(), zd5.f());
             }
             if (this.a != null) {
-                ku4.c(this.a.Q() + "_onCreate_" + System.currentTimeMillis());
+                ju4.c(this.a.Q() + "_onCreate_" + System.currentTimeMillis());
             }
-            q05.b(true);
+            o05.b(true);
         }
     }
 
@@ -721,10 +721,10 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
                 }
                 this.a.m0();
             }
-            te6.f().m();
-            se6.h().n();
-            se6.h().c();
-            ue6.c().a();
+            re6.f().m();
+            qe6.h().n();
+            qe6.h().c();
+            se6.c().a();
             if (!qi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 TbadkCoreApplication.getInst().setTaskId("");
             }
@@ -734,7 +734,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
             }
             TbadkCoreApplication.getInst().getFrsModeArray().remove(getUniqueId().getId());
             TbPageExtraHelper.setPrePageKey(getCurrentPageKey());
-            fm5.k().e();
+            dm5.k().e();
         }
     }
 
@@ -766,7 +766,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
-        ea5 pageStayDurationItem;
+        ca5 pageStayDurationItem;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
             long currentTimeMillis = System.currentTimeMillis() - this.lastResumeTime;
@@ -781,13 +781,13 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
                 long j2 = currentTimeMillis - j;
                 if (j2 >= 0 && (pageStayDurationItem = getPageStayDurationItem()) != null) {
                     pageStayDurationItem.y(j2);
-                    fa5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
+                    da5.b().k(getPageContext().getPageActivity(), pageStayDurationItem, getPageStayFilter());
                 }
             }
             TbSingleton.getInstance().isInFrs = false;
-            sg6 sg6Var = this.i;
-            if (sg6Var != null) {
-                sg6Var.a();
+            qg6 qg6Var = this.i;
+            if (qg6Var != null) {
+                qg6Var.a();
             }
         }
     }
@@ -807,7 +807,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             super.onResume();
             if (this.g) {
-                vf5.f(this.h);
+                tf5.f(this.h);
                 this.g = false;
             }
             FrsTabController frsTabController = this.a;
@@ -851,13 +851,13 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.ok5
-    public void p0(int i, nk5 nk5Var) {
+    @Override // com.baidu.tieba.mk5
+    public void p0(int i, lk5 lk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048619, this, i, nk5Var) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048619, this, i, lk5Var) == null) {
             FrsTabController frsTabController = this.a;
-            if (frsTabController instanceof ok5) {
-                frsTabController.p0(i, nk5Var);
+            if (frsTabController instanceof mk5) {
+                frsTabController.p0(i, lk5Var);
             }
         }
     }
@@ -871,7 +871,7 @@ public class FrsActivity extends BaseFragmentActivity implements ok5, VoiceManag
         }
     }
 
-    @Override // com.baidu.tieba.eg6
+    @Override // com.baidu.tieba.cg6
     public boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -1,425 +1,258 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.graphics.Rect;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.RelativeLayout;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.widget.SwipeBackLayout;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.videopb.VideoContainerLayout;
-import com.baidu.tieba.pb.videopb.VideoZoomBehavior;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.adapter.PbReplyLoadMoreAdapter;
+import com.baidu.tieba.pb.pb.main.adapter.PbFirstFloorCommentAndPraiseAdapter;
+import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d18 {
+public class d18 extends c18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FragmentActivity a;
-    public ViewGroup b;
-    public SwipeBackLayout c;
-    public ViewGroup d;
-    public View e;
-    public View f;
-    public ViewGroup.LayoutParams g;
-    public ViewGroup.LayoutParams h;
-    public View i;
-    public Rect j;
-    public Rect k;
-    public boolean l;
-    public ValueAnimator m;
-    public ValueAnimator n;
-    public Animator.AnimatorListener o;
-    public View[] p;
-    public boolean q;
+    public ex7 n;
+    public vw7 o;
+    public ww7 p;
+    public zx7 q;
+    public PbReplyLoadMoreAdapter r;
+    public l18 s;
+    public k18 t;
+    public xw7 u;
 
-    /* loaded from: classes3.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d18 a;
-
-        public a(d18 d18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d18Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.p(valueAnimator.getAnimatedFraction());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d18 a;
-
-        public b(d18 d18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d18Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.o();
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.o();
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048579, this, animator) == null) || this.a.o == null) {
-                return;
-            }
-            this.a.o.onAnimationStart(animator);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d18 a;
-
-        public c(d18 d18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d18Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.n(valueAnimator.getAnimatedFraction());
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d18 a;
-
-        public d(d18 d18Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d18Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = d18Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.m();
-                if (this.a.o != null) {
-                    this.a.o.onAnimationCancel(animator);
-                }
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.m();
-                if (this.a.o != null) {
-                    this.a.o.onAnimationEnd(animator);
-                }
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            View[] viewArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.b.removeView(this.a.e);
-                SkinManager.setBackgroundColor(this.a.d, R.color.CAM_X0201);
-                for (View view2 : this.a.p) {
-                    view2.setVisibility(0);
-                    view2.setAlpha(0.0f);
-                }
-            }
-        }
-    }
-
-    public d18(FragmentActivity fragmentActivity, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d18(DetailInfoAndReplyFragment detailInfoAndReplyFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+        super(detailInfoAndReplyFragment, bdTypeRecyclerView);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentActivity, view2};
+            Object[] objArr = {detailInfoAndReplyFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((DetailInfoAndReplyFragment) objArr2[0], (BdTypeRecyclerView) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = true;
-        this.q = false;
-        this.a = fragmentActivity;
-        this.f = view2;
-        ViewGroup viewGroup = (ViewGroup) fragmentActivity.getWindow().getDecorView();
-        this.b = viewGroup;
-        this.i = viewGroup.findViewById(R.id.obfuscated_res_0x7f0902a3);
-        this.d = (ViewGroup) this.b.findViewById(R.id.obfuscated_res_0x7f0924f4);
+        I();
     }
 
-    public final void j() {
+    @Override // com.baidu.tieba.c18
+    public void A(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View[] viewArr = new View[3];
-            this.p = viewArr;
-            viewArr[0] = this.b.findViewById(R.id.obfuscated_res_0x7f09186f);
-            this.p[1] = this.b.findViewById(R.id.obfuscated_res_0x7f09186d);
-            this.p[2] = this.b.findViewById(R.id.obfuscated_res_0x7f0924ee);
-            this.b.findViewById(16908290).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0906bd).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0924f4).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f091868).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f0902a3).setBackgroundResource(R.color.transparent);
-            this.b.findViewById(R.id.obfuscated_res_0x7f091d7d).setBackgroundResource(R.color.transparent);
-            if (this.b.getChildAt(0) instanceof SwipeBackLayout) {
-                SwipeBackLayout swipeBackLayout = (SwipeBackLayout) this.b.getChildAt(0);
-                this.c = swipeBackLayout;
-                swipeBackLayout.setBgTransparent();
-            }
-            View view2 = new View(this.a);
-            this.e = view2;
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
-            this.b.addView(this.e, 0, new ViewGroup.LayoutParams(-1, -1));
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.m = ofFloat;
-            ofFloat.setInterpolator(new DecelerateInterpolator());
-            this.m.setDuration(300L);
-            this.m.addUpdateListener(new a(this));
-            this.m.addListener(new b(this));
-            ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.n = ofFloat2;
-            ofFloat2.setDuration(100L);
-            this.n.addUpdateListener(new c(this));
-            this.n.addListener(new d(this));
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            super.A(onClickListener);
+            this.q.e(onClickListener);
+            this.r.w(onClickListener);
+            this.u.e(onClickListener);
         }
     }
 
-    public boolean k() {
+    @Override // com.baidu.tieba.c18
+    public void B(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.o.w(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void C(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.p.w(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void D(kt7 kt7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kt7Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void E(mu7 mu7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mu7Var) == null) {
+            super.E(mu7Var);
+            this.q.o0(mu7Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void F(kt7 kt7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, kt7Var) == null) {
+            this.s.M(kt7Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void G(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.s.o(str);
+        }
+    }
+
+    public final void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.s = new l18(this.b.B(), PostData.J0);
+            this.o = new vw7(this.b.B(), qt7.c, this.b.getUniqueId());
+            this.p = new ww7(this.b.B(), rt7.a);
+            this.n = new ex7(this.b.B(), ut7.Z0);
+            zx7 zx7Var = new zx7(this.b.B(), PostData.K0);
+            this.q = zx7Var;
+            zx7Var.p0(this.b.B());
+            this.q.k0(this.b.B().N3());
+            this.r = new PbReplyLoadMoreAdapter(this.b.B(), PostData.R0);
+            this.t = new k18(this.b.getContext(), eu7.b, this.b.B());
+            this.u = new xw7(this.b.B(), st7.c);
+            this.e.add(this.s);
+            this.e.add(this.t);
+            this.e.add(this.n);
+            this.e.add(this.o);
+            this.e.add(this.p);
+            this.e.add(this.q);
+            this.e.add(this.r);
+            this.e.add(this.u);
+            this.c.a(this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public ix7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.q : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return null;
+        }
+        return (ix7) invokeV.objValue;
     }
 
-    public boolean l() {
+    @Override // com.baidu.tieba.c18
+    public ew7 f() {
         InterceptResult invokeV;
-        Rect rect;
-        Rect rect2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (!this.l || (rect = this.j) == null || rect.isEmpty() || (rect2 = this.k) == null || rect2.isEmpty()) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (ew7) invokeV.objValue;
     }
 
-    public final void m() {
+    @Override // com.baidu.tieba.c18
+    public PbFirstFloorCommentAndPraiseAdapter g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.q = false;
-            for (View view2 : this.p) {
-                view2.setAlpha(1.0f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return null;
+        }
+        return (PbFirstFloorCommentAndPraiseAdapter) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void l() {
+        BdTypeRecyclerView bdTypeRecyclerView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (bdTypeRecyclerView = this.c) == null || bdTypeRecyclerView.getAdapter() == null) {
+            return;
+        }
+        this.c.getListAdapter().notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void m() {
+        l18 l18Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (l18Var = this.s) == null) {
+            return;
+        }
+        l18Var.notifyDataSetChanged();
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void q(kt7 kt7Var, boolean z, String str, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{kt7Var, Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
+            this.q.r(kt7Var);
+            this.q.setFromCDN(z);
+            this.q.o(str);
+            this.q.c(z2);
+            this.q.m0(0.5f);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void v(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
+            super.v(onClickListener);
+            this.q.k(onClickListener);
+        }
+    }
+
+    @Override // com.baidu.tieba.c18
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            zx7 zx7Var = this.q;
+            if (zx7Var != null) {
+                zx7Var.n0(z);
+            }
+            k18 k18Var = this.t;
+            if (k18Var != null) {
+                k18Var.v(z);
+            }
+            l18 l18Var = this.s;
+            if (l18Var != null) {
+                l18Var.L(z);
             }
         }
     }
 
-    public final void n(float f) {
+    @Override // com.baidu.tieba.c18
+    public void x(TbRichTextView.y yVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            for (View view2 : this.p) {
-                view2.setAlpha(f);
-            }
+        if (interceptable == null || interceptable.invokeL(1048594, this, yVar) == null) {
+            super.x(yVar);
+            this.q.n(yVar);
         }
     }
 
-    public final void o() {
+    @Override // com.baidu.tieba.c18
+    public void y(View.OnLongClickListener onLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            View view2 = this.e;
-            if (view2 != null) {
-                view2.setAlpha(1.0f);
-            }
-            this.f.setTranslationX(0.0f);
-            this.f.setTranslationY(0.0f);
-            this.i.setLayoutParams(this.g);
-            if (this.i.getLayoutParams() instanceof CoordinatorLayout.LayoutParams) {
-                CoordinatorLayout.Behavior behavior = ((CoordinatorLayout.LayoutParams) this.i.getLayoutParams()).getBehavior();
-                if (behavior instanceof VideoZoomBehavior) {
-                    View view3 = this.f;
-                    if (view3 instanceof VideoContainerLayout) {
-                        ((VideoZoomBehavior) behavior).setTopAndBottomOffset(((VideoContainerLayout) view3).getOriginHeight() - ((VideoContainerLayout) this.f).getMaxHeight());
-                    }
-                }
-            }
-            this.f.setLayoutParams(this.h);
-            this.n.start();
-        }
-    }
-
-    public final void p(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048582, this, f) == null) {
-            float width = this.j.width() + ((this.k.width() - this.j.width()) * f);
-            float height = this.j.height() + ((this.k.height() - this.j.height()) * f);
-            Rect rect = this.j;
-            int i = rect.left;
-            Rect rect2 = this.k;
-            int i2 = rect2.left;
-            float f2 = i + ((i2 - i) * f);
-            int i3 = rect.top;
-            int i4 = rect2.top;
-            float f3 = i3 + ((i4 - i3) * f);
-            int i5 = (int) (f2 - i2);
-            int i6 = (int) (f3 - i4);
-            View view2 = this.e;
-            if (view2 != null) {
-                view2.setAlpha(f);
-            }
-            this.f.setTranslationX(i5);
-            this.f.setTranslationY(i6);
-            ViewGroup.LayoutParams layoutParams = this.f.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = (int) width;
-                layoutParams.height = (int) height;
-                this.f.setLayoutParams(layoutParams);
-            }
-        }
-    }
-
-    public void q(Animator.AnimatorListener animatorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, animatorListener) == null) {
-            this.o = animatorListener;
-        }
-    }
-
-    public void r(Rect rect, Rect rect2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect, rect2) == null) {
-            this.j = rect;
-            this.k = rect2;
-            if (l()) {
-                j();
-            }
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.l = false;
-            this.q = true;
-            for (View view2 : this.p) {
-                view2.setVisibility(8);
-            }
-            this.g = this.i.getLayoutParams();
-            this.i.setLayoutParams(new CoordinatorLayout.LayoutParams(ri.k(TbadkCoreApplication.getInst()), ri.i(TbadkCoreApplication.getInst())));
-            this.h = this.f.getLayoutParams();
-            View view3 = this.f;
-            ViewGroup.LayoutParams layoutParams = this.h;
-            view3.setLayoutParams(new RelativeLayout.LayoutParams(layoutParams.width, layoutParams.height));
-            View view4 = this.e;
-            if (view4 != null) {
-                view4.setAlpha(0.0f);
-            }
-            this.m.start();
+        if (interceptable == null || interceptable.invokeL(1048595, this, onLongClickListener) == null) {
+            super.y(onLongClickListener);
+            this.q.d(onLongClickListener);
         }
     }
 }

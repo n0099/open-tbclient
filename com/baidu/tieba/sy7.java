@@ -1,62 +1,65 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Handler;
+import android.content.Intent;
 import android.text.TextUtils;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.img.GetEmotionPidModel;
 import com.baidu.tbadk.img.UploadedImageInfo;
 import com.baidu.tieba.face.data.EmotionImageData;
-import com.baidu.tieba.face.view.EmotionView;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
-import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel;
-import com.baidu.tieba.ry7;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class sy7 implements QueryMatchEmotionModel.b, ry7.b, EmotionView.c {
+public class sy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public List<String> b;
-    public HListView c;
-    public ry7 d;
-    public QueryMatchEmotionModel e;
-    public String f;
-    public Handler g;
-    public ViewGroup h;
-    public ViewGroup.LayoutParams i;
-    public EditorTools j;
-    public GetEmotionPidModel k;
-    public Runnable l;
+    public BaseFragmentActivity a;
+    public NewWriteModel b;
+    public LocationModel c;
+    public m45 d;
+    public NewWriteModel.e e;
+    public GetEmotionPidModel f;
+    public EmotionImageData g;
+    public PbModel h;
+    public kt7 i;
+    public final NewWriteModel.e j;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements GetEmotionPidModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy7 a;
+        public final /* synthetic */ EmotionImageData a;
+        public final /* synthetic */ PbModel b;
+        public final /* synthetic */ kt7 c;
+        public final /* synthetic */ sy7 d;
 
-        public a(sy7 sy7Var) {
+        public a(sy7 sy7Var, EmotionImageData emotionImageData, PbModel pbModel, kt7 kt7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sy7Var};
+                Object[] objArr = {sy7Var, emotionImageData, pbModel, kt7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,21 +69,34 @@ public class sy7 implements QueryMatchEmotionModel.b, ry7.b, EmotionView.c {
                     return;
                 }
             }
-            this.a = sy7Var;
+            this.d = sy7Var;
+            this.a = emotionImageData;
+            this.b = pbModel;
+            this.c = kt7Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
+        public void a(q55 q55Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f = "";
-                this.a.c.setVisibility(8);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, q55Var) == null) || q55Var == null || TextUtils.isEmpty(q55Var.a)) {
+                return;
             }
+            this.a.setPicId(q55Var.a);
+            this.d.l(this.a, this.b, this.c);
+        }
+
+        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
+        public void onFail(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) || this.d.e == null) {
+                return;
+            }
+            this.d.e.callback(false, null, null, null, null);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements AbsHListView.i {
+    public class b implements NewWriteModel.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ sy7 a;
@@ -103,78 +119,40 @@ public class sy7 implements QueryMatchEmotionModel.b, ry7.b, EmotionView.c {
             this.a = sy7Var;
         }
 
-        @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
-        public void a(AbsHListView absHListView, int i, int i2, int i3) {
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.e
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, bz4 bz4Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048576, this, absHListView, i, i2, i3) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.horizonalList.widget.AbsHListView.i
-        public void b(AbsHListView absHListView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absHListView, i) == null) {
-                if (i == 0) {
-                    this.a.g.removeCallbacks(this.a.l);
-                    this.a.g.postDelayed(this.a.l, 5000L);
-                } else if (i != 1) {
-                } else {
-                    this.a.g.removeCallbacks(this.a.l);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, bz4Var, writeData, antiData}) == null) {
+                if (writeData == null) {
+                    writeData = this.a.b.U();
+                }
+                if (z) {
+                    this.a.j();
+                } else if (writeData != null && bz4Var != null && !TextUtils.isEmpty(bz4Var.d())) {
+                    writeData.setVcodeMD5(bz4Var.b());
+                    writeData.setVcodeUrl(bz4Var.c());
+                    writeData.setVcodeExtra(bz4Var.a());
+                    if (zf5.b(bz4Var.d())) {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.a.getPageContext().getPageActivity(), 25017, writeData, false, bz4Var.d())));
+                    } else {
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.a.getPageContext().getPageActivity(), writeData, 25017)));
+                    }
+                } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getPageContext().getPageActivity(), 25017, writeData, postWriteCallBackData.getAccessState())));
+                }
+                if (this.a.e != null) {
+                    this.a.e.callback(z, postWriteCallBackData, bz4Var, writeData, antiData);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements GetEmotionPidModel.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EmotionImageData a;
-        public final /* synthetic */ sy7 b;
-
-        public c(sy7 sy7Var, EmotionImageData emotionImageData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sy7Var, emotionImageData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = sy7Var;
-            this.a = emotionImageData;
-        }
-
-        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
-        public void a(s55 s55Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, s55Var) == null) || s55Var == null || TextUtils.isEmpty(s55Var.a)) {
-                return;
-            }
-            this.a.setPicId(s55Var.a);
-            this.b.n(this.a);
-        }
-
-        @Override // com.baidu.tbadk.img.GetEmotionPidModel.b
-        public void onFail(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            }
-        }
-    }
-
-    public sy7(d9 d9Var, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
+    public sy7(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, viewGroup, layoutParams};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,194 +162,176 @@ public class sy7 implements QueryMatchEmotionModel.b, ry7.b, EmotionView.c {
                 return;
             }
         }
-        this.l = new a(this);
-        this.a = d9Var;
-        this.h = viewGroup;
-        this.i = layoutParams;
-        this.g = new Handler();
+        this.j = new b(this);
+        this.a = baseFragmentActivity;
+        this.b = new NewWriteModel(baseFragmentActivity);
+        this.c = new LocationModel(baseFragmentActivity.getPageContext());
     }
 
-    @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
-    public void a(String str, List<EmotionImageData> list) {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) && !TextUtils.isEmpty(str) && str.equals(this.f)) {
-            if (ListUtils.isEmpty(list)) {
-                this.f = "";
-            } else if (this.h == null || this.i == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            GetEmotionPidModel getEmotionPidModel = this.f;
+            if (getEmotionPidModel != null) {
+                getEmotionPidModel.cancelLoadData();
+                return true;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null || currentAccount.length() <= 0) {
+                TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public final String h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return "@" + str + " ";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void i(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && i2 == -1) {
+            if (i != 25017) {
+                if (i == 11042) {
+                    k(this.g, this.h, this.i);
+                }
+            } else if (intent == null) {
             } else {
-                if (list.size() > 10) {
-                    list = list.subList(0, 10);
+                NewWriteModel newWriteModel = this.b;
+                WriteData U = newWriteModel != null ? newWriteModel.U() : null;
+                j();
+                NewWriteModel.e eVar = this.e;
+                if (eVar != null) {
+                    eVar.callback(true, null, null, U, null);
                 }
-                TiebaStatic.log("c12488");
-                HListView hListView = this.c;
-                if (hListView == null || hListView.getParent() == null) {
-                    HListView hListView2 = new HListView(this.a.getContext());
-                    this.c = hListView2;
-                    SkinManager.setBackgroundColor(hListView2, R.color.CAM_X0201);
-                    this.c.setDividerWidth(ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702f6));
-                    this.c.setClipToPadding(false);
-                    int f = ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070230);
-                    this.c.setPadding(f, f, f, f);
-                    this.c.setSelector(R.drawable.obfuscated_res_0x7f080cc4);
-                    this.i.height = ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070245);
-                    this.h.addView(this.c, this.i);
-                    if (this.d == null) {
-                        ry7 ry7Var = new ry7();
-                        this.d = ry7Var;
-                        ry7Var.d(this);
-                        this.d.c(this);
-                        this.c.setAdapter((ListAdapter) this.d);
-                        this.c.setOnScrollListener(new b(this));
-                    }
-                }
-                this.c.setVisibility(0);
-                this.d.b(list);
-                this.d.notifyDataSetChanged();
-                this.c.setSelection(0);
-                this.g.removeCallbacks(this.l);
-                this.g.postDelayed(this.l, 5000L);
             }
         }
     }
 
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public void b() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.g.removeCallbacks(this.l);
-            this.g.postDelayed(this.l, 5000L);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.g = null;
+            this.i = null;
+            this.h = null;
+            NewWriteModel newWriteModel = this.b;
+            if (newWriteModel != null) {
+                newWriteModel.setWriteData(null);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public boolean c() {
-        InterceptResult invokeV;
+    public void k(EmotionImageData emotionImageData, PbModel pbModel, kt7 kt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, emotionImageData, pbModel, kt7Var) == null) || emotionImageData == null || kt7Var == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g.removeCallbacks(this.l);
-        }
-    }
-
-    @Override // com.baidu.tieba.face.view.EmotionView.c
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ry7.b
-    public void f(EmotionImageData emotionImageData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, emotionImageData) == null) {
-            this.g.removeCallbacks(this.l);
-            this.g.postDelayed(this.l, 5000L);
-            if (emotionImageData == null || TextUtils.isEmpty(emotionImageData.getPicUrl()) || this.j == null) {
+        this.g = emotionImageData;
+        this.h = pbModel;
+        this.i = kt7Var;
+        if (!pi.z()) {
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+        } else if (g(this.a.getPageContext(), 11042)) {
+            if (TextUtils.isEmpty(emotionImageData.getPicId())) {
+                if (TextUtils.isEmpty(emotionImageData.getPicUrl())) {
+                    return;
+                }
+                if (this.f == null) {
+                    this.f = new GetEmotionPidModel();
+                }
+                m45 m45Var = this.d;
+                if (m45Var != null) {
+                    m45Var.a();
+                }
+                this.f.A(emotionImageData.getPicUrl(), new a(this, emotionImageData, pbModel, kt7Var));
                 return;
             }
-            if (!TextUtils.isEmpty(emotionImageData.getPicId()) && !emotionImageData.getPicId().equals("0")) {
-                n(emotionImageData);
-                return;
+            m45 m45Var2 = this.d;
+            if (m45Var2 != null) {
+                m45Var2.a();
             }
-            if (this.k == null) {
-                this.k = new GetEmotionPidModel();
-            }
-            this.k.A(emotionImageData.getPicUrl(), new c(this, emotionImageData));
+            l(emotionImageData, pbModel, kt7Var);
         }
     }
 
-    public void l() {
-        QueryMatchEmotionModel queryMatchEmotionModel;
+    public final void l(EmotionImageData emotionImageData, PbModel pbModel, kt7 kt7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (queryMatchEmotionModel = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, emotionImageData, pbModel, kt7Var) == null) || emotionImageData == null || kt7Var == null) {
             return;
         }
-        queryMatchEmotionModel.cancelLoadData();
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            HListView hListView = this.c;
-            if (hListView != null) {
-                hListView.setVisibility(8);
+        if (this.b.U() == null && pbModel != null) {
+            this.b.setWriteData(pbModel.G(null));
+        }
+        if (this.b.U() == null) {
+            return;
+        }
+        boolean z = true;
+        if (kt7Var.O().isMutiForumThread()) {
+            this.b.U().setCanNoForum(true);
+            if (kt7Var.l() != null) {
+                this.b.U().setVForumId(kt7Var.l().getId());
+                this.b.U().setVForumName(kt7Var.l().getName());
             }
-            this.g.removeCallbacks(this.l);
-            this.f = "";
+        } else {
+            this.b.U().setCanNoForum(false);
+            this.b.U().setVForumId("");
+            this.b.U().setVForumName("");
+        }
+        WriteData U = this.b.U();
+        LocationModel locationModel = this.c;
+        U.setHasLocationData((locationModel == null || !locationModel.C()) ? false : false);
+        StringBuilder sb = new StringBuilder(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT);
+        sb.append(emotionImageData.getPicId());
+        sb.append(",");
+        sb.append(emotionImageData.getWidth());
+        sb.append(",");
+        sb.append(emotionImageData.getHeight());
+        sb.append(",");
+        String str = SmallTailInfo.EMOTION_PREFIX + sb.toString() + xi.c(sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase() + SmallTailInfo.EMOTION_SUFFIX;
+        if (StringUtils.isNull(emotionImageData.getAuthorNameShow())) {
+            this.b.U().setContent(str);
+        } else {
+            this.b.U().setContent(h(emotionImageData.getAuthorNameShow()) + str);
+        }
+        if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
+            this.b.U().setMemeContSign(emotionImageData.getMemeContSign());
+        }
+        if (!TextUtils.isEmpty(emotionImageData.getMemeText())) {
+            this.b.U().setMemeText(emotionImageData.getMemeText());
+        }
+        this.b.d0(this.j);
+        if (!this.b.g0()) {
         }
     }
 
-    public final void n(EmotionImageData emotionImageData) {
+    public void m(NewWriteModel.e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, emotionImageData) == null) {
-            TiebaStatic.log("c12489");
-            jy4 jy4Var = new jy4();
-            StringBuilder sb = new StringBuilder();
-            sb.append(emotionImageData.getPicId());
-            sb.append(",");
-            sb.append(emotionImageData.getWidth());
-            sb.append(",");
-            sb.append(emotionImageData.getHeight());
-            sb.append(",");
-            String lowerCase = xi.c(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX_SHORT + sb.toString() + UploadedImageInfo.MD5_KEY).toLowerCase();
-            jy4Var.n("#(meme,net_" + Uri.encode(emotionImageData.getPicUrl()) + "," + sb.toString() + lowerCase + SmallTailInfo.EMOTION_SUFFIX);
-            jy4Var.q(EmotionGroupType.NET_SUG);
-            jy4Var.s(emotionImageData.getWidth());
-            jy4Var.l(emotionImageData.getHeight());
-            jy4Var.r(emotionImageData.getPicUrl());
-            this.j.A(new n25(24, -1, jy4Var));
+        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
+            this.e = eVar;
         }
     }
 
-    public final void o(String str) {
+    public void n(m45 m45Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || TextUtils.isEmpty(str) || str.equals(this.f)) {
-            return;
-        }
-        this.f = str;
-        if (this.e == null) {
-            this.e = new QueryMatchEmotionModel(this.a);
-        }
-        this.e.C(str, this);
-    }
-
-    @Override // com.baidu.tieba.pb.pb.main.emotion.model.QueryMatchEmotionModel.b
-    public void onFail(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || TextUtils.isEmpty(str) || ListUtils.isEmpty(this.b) || !this.b.contains(str)) {
-            return;
-        }
-        o(str);
-    }
-
-    public void q(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    public void r(EditorTools editorTools) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, editorTools) == null) {
-            this.j = editorTools;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m45Var) == null) {
+            this.d = m45Var;
         }
     }
 }

@@ -4,10 +4,12 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.atomdata.AlaAdminListActivityConfig;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gw5 extends cn<ww5, CardViewHolder<by5>> {
+public class gw5 extends cn<vw5, CardViewHolder<yx5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
@@ -24,15 +26,15 @@ public class gw5 extends cn<ww5, CardViewHolder<by5>> {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ww5 a;
+        public final /* synthetic */ vw5 a;
         public final /* synthetic */ gw5 b;
 
-        public a(gw5 gw5Var, ww5 ww5Var) {
+        public a(gw5 gw5Var, vw5 vw5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gw5Var, ww5Var};
+                Object[] objArr = {gw5Var, vw5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,21 +45,21 @@ public class gw5 extends cn<ww5, CardViewHolder<by5>> {
                 }
             }
             this.b = gw5Var;
-            this.a = ww5Var;
+            this.a = vw5Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.t(this.a);
+                this.b.u(this.a);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gw5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), ww5.b);
+        super(tbPageContext.getPageActivity(), vw5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -77,49 +79,46 @@ public class gw5 extends cn<ww5, CardViewHolder<by5>> {
         this.a = tbPageContext;
     }
 
-    public final void t(ww5 ww5Var) {
-        tw5 c;
+    public final void t(vw5 vw5Var, yx5 yx5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ww5Var) == null) || ww5Var == null || (c = ww5Var.c()) == null || c.b() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vw5Var, yx5Var) == null) || vw5Var.c() == null) {
             return;
         }
-        if (!c.c()) {
-            TiebaStatic.log("c11864");
-        } else {
-            TiebaStatic.log("c11857");
-        }
-        String q = tu4.k().q("ala_personal_exp_detail_url", "https://sv.baidu.com/cashliveui/userLevel.html#/level");
-        if (q == null) {
-            return;
-        }
-        if (q.endsWith("/")) {
-            q = q.substring(0, q.length() - 1);
-        }
-        km4.o(this.a.getPageActivity(), q);
+        yx5Var.w(0);
+        yx5Var.x(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f023c));
+        yx5Var.j(this.a, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: u */
-    public CardViewHolder<by5> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void u(vw5 vw5Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) ? new CardViewHolder<>(new by5(this.a)) : (CardViewHolder) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, vw5Var) == null) || vw5Var == null || vw5Var.c() == null) {
+            return;
+        }
+        rw5 c = vw5Var.c();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaAdminListActivityConfig(this.a.getPageActivity(), (c.b() == null || !c.c()) ? "" : c.b().live_id)));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: v */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ww5 ww5Var, CardViewHolder<by5> cardViewHolder) {
+    public CardViewHolder<yx5> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new CardViewHolder<>(new yx5(this.a)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: w */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vw5 vw5Var, CardViewHolder<yx5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ww5Var, cardViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vw5Var, cardViewHolder})) == null) {
             if (cardViewHolder.a() == null) {
                 return null;
             }
-            cardViewHolder.a().i(ww5Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            cardViewHolder.a().k.setOnClickListener(new a(this, ww5Var));
+            t(vw5Var, cardViewHolder.a());
+            cardViewHolder.a().h().setOnClickListener(new a(this, vw5Var));
             return cardViewHolder.a().h();
         }
         return (View) invokeCommon.objValue;

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.atomData.SelectForumConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.ol5;
+import com.baidu.tieba.ml5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class SelectForumActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fk5 k;
+    public dk5 k;
     public boolean l;
     public ArrayList<SelectForumData> m;
     public CustomMessageListener n;
@@ -108,7 +108,7 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ol5.f {
+    public class c implements ml5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -131,7 +131,7 @@ public class SelectForumActivity extends SuspendedActivity {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.ol5.f
+        @Override // com.baidu.tieba.ml5.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -162,20 +162,20 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ob5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public mb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
                 if (this.l) {
-                    this.k = new ol5(getPageContext(), linearLayout, navigationBar, V0(), this.m);
+                    this.k = new ml5(getPageContext(), linearLayout, navigationBar, V0(), this.m);
                 } else {
-                    this.k = new nl5(getPageContext(), linearLayout, navigationBar);
+                    this.k = new ll5(getPageContext(), linearLayout, navigationBar);
                 }
             }
             return this.k;
         }
-        return (ob5) invokeLL.objValue;
+        return (mb5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -185,10 +185,10 @@ public class SelectForumActivity extends SuspendedActivity {
         }
     }
 
-    public final ol5.f V0() {
+    public final ml5.f V0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c(this) : (ol5.f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new c(this) : (ml5.f) invokeV.objValue;
     }
 
     public final void W0() {
@@ -218,9 +218,9 @@ public class SelectForumActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onDestroy();
-            fk5 fk5Var = this.k;
-            if (fk5Var != null) {
-                fk5Var.onDestroy();
+            dk5 dk5Var = this.k;
+            if (dk5Var != null) {
+                dk5Var.onDestroy();
             }
         }
     }
@@ -230,9 +230,9 @@ public class SelectForumActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            fk5 fk5Var = this.k;
-            if (fk5Var != null) {
-                fk5Var.onResume();
+            dk5 dk5Var = this.k;
+            if (dk5Var != null) {
+                dk5Var.onResume();
             }
         }
     }

@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc8;
-import com.baidu.tieba.op4;
+import com.baidu.tieba.fc8;
+import com.baidu.tieba.np4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public op4 l;
+    public np4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -190,11 +190,11 @@ public class BannerView extends RelativeLayout {
         }
     }
 
-    public void setBannerData(op4 op4Var) {
+    public void setBannerData(np4 np4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, op4Var) == null) {
-            this.l = op4Var;
-            hc8.f(op4Var.g, this.f, op4Var.h, ri.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, np4Var) == null) {
+            this.l = np4Var;
+            fc8.f(np4Var.g, this.f, np4Var.h, ri.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 

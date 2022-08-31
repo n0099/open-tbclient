@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
-import com.baidu.tieba.m77;
-import com.baidu.tieba.n77;
+import com.baidu.tieba.k77;
+import com.baidu.tieba.l77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes4.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<n77> list);
+        void onSuccess(List<l77> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -86,10 +86,10 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    m77 m77Var;
+                    k77 k77Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof IceBreakHttpResponsedMessage) && httpResponsedMessage.getError() == 0 && (m77Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) != null) {
-                        List<n77> a = m77Var.a();
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof IceBreakHttpResponsedMessage) && httpResponsedMessage.getError() == 0 && (k77Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) != null) {
+                        List<l77> a = k77Var.a();
                         if (ListUtils.isEmpty(a) || this.this$0.mCallback == null) {
                             return;
                         }

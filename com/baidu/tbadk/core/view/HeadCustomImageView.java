@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nj8;
+import com.baidu.tieba.lj8;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -253,7 +253,7 @@ public class HeadCustomImageView extends RelativeLayout {
             return;
         }
         this.a.setDefaultBgResource(R.color.transparent);
-        this.a.setBackgroundColor(nj8.a(nj8.f(str), 0.3f));
+        this.a.setBackgroundColor(lj8.a(lj8.f(str), 0.3f));
     }
 
     public void setHeadImageBackgroundResource(String str) {

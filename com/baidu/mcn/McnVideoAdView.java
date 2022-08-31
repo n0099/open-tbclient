@@ -18,7 +18,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.fc8;
 import com.baidu.tieba.mc0;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -213,7 +213,7 @@ public class McnVideoAdView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (context = this.a) == null || (mc0Var = this.j) == null || (str = mc0Var.d) == null) {
             return;
         }
-        hc8.a(context, str, null, null, null);
+        fc8.a(context, str, null, null, null);
         c cVar = this.k;
         if (cVar != null) {
             cVar.b(this.j);

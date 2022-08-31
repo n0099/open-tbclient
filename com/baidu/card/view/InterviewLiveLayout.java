@@ -30,14 +30,14 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.an;
-import com.baidu.tieba.ho4;
-import com.baidu.tieba.ir4;
+import com.baidu.tieba.go4;
+import com.baidu.tieba.h06;
+import com.baidu.tieba.hr4;
 import com.baidu.tieba.ix;
-import com.baidu.tieba.j06;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tn4;
+import com.baidu.tieba.sn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes.dex */
-public class InterviewLiveLayout extends FrameLayout implements ix<ho4> {
+public class InterviewLiveLayout extends FrameLayout implements ix<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public j06<ho4> c;
-    public ho4 d;
+    public h06<go4> c;
+    public go4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -178,7 +178,7 @@ public class InterviewLiveLayout extends FrameLayout implements ix<ho4> {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            an m = o55.k().m(lg.h().g(tbImageView.getUrl(), this.a.b ? 13 : 14));
+            an m = m55.k().m(lg.h().g(tbImageView.getUrl(), this.a.b ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -263,13 +263,13 @@ public class InterviewLiveLayout extends FrameLayout implements ix<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: k */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho4Var) == null) {
-            this.d = ho4Var;
-            if (ho4Var != null && this.e != null) {
-                ThreadData threadData = ho4Var.getThreadData();
-                ir4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go4Var) == null) {
+            this.d = go4Var;
+            if (go4Var != null && this.e != null) {
+                ThreadData threadData = go4Var.getThreadData();
+                hr4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -277,7 +277,7 @@ public class InterviewLiveLayout extends FrameLayout implements ix<ho4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.f();
-                if (tn4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
+                if (sn4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.i())) {
                     this.i.clear();
                     this.i.add(taskInfoData.i());
                     setVisibility(0);
@@ -326,10 +326,10 @@ public class InterviewLiveLayout extends FrameLayout implements ix<ho4> {
         tbImageView.setPageId(bdUniqueId);
     }
 
-    public void setSubClickListener(j06<ho4> j06Var) {
+    public void setSubClickListener(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, j06Var) == null) {
-            this.c = j06Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, h06Var) == null) {
+            this.c = h06Var;
         }
     }
 

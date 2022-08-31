@@ -15,12 +15,12 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.ac;
 import com.baidu.tieba.an;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.mg;
-import com.baidu.tieba.o55;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tn4;
-import com.baidu.tieba.ue5;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.sn4;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -106,7 +106,7 @@ public class MemeLoaderProc2 implements mg<an> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? tn4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? sn4.c().g() : invokeV.booleanValue;
     }
 
     public void setIsShare(boolean z) {
@@ -158,7 +158,7 @@ public class MemeLoaderProc2 implements mg<an> {
             if (anVar.u()) {
                 anVar.A(i);
                 anVar.z(i2);
-                o55.k().d(str, anVar);
+                m55.k().d(str, anVar);
             }
         }
     }
@@ -208,7 +208,7 @@ public class MemeLoaderProc2 implements mg<an> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, o55.k().m(str), i, i2);
+            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, m55.k().m(str), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -231,13 +231,13 @@ public class MemeLoaderProc2 implements mg<an> {
             int d = i == 0 ? ri.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i;
             int d2 = i2 == 0 ? ri.d(TbadkCoreApplication.getInst().getApp(), 105.0f) : i2;
             if (!this.isShare) {
-                ue5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d3 = ue5.d(str);
+                se5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d3 = se5.d(str);
                 if (((Boolean) d3.first).booleanValue()) {
                     str3 = (String) d3.second;
                 }
             } else {
-                ue5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                se5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();
@@ -248,7 +248,7 @@ public class MemeLoaderProc2 implements mg<an> {
             boolean needCache = webClient.needCache();
             if (downloadImageBytes != null || webClient.getResponse().a) {
                 boolean z = false;
-                o55.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
+                m55.k().i(TbConfig.getPbImageSize() + (downloadImageBytes != null ? downloadImageBytes.length : 0));
                 return storeBitmap(str4, str2, jgVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), d, d2), (webClient.isGif || ri.B(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
             }
             return null;

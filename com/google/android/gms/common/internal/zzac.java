@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xn9;
+import com.baidu.tieba.vn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public final class zzac implements IGmsServiceBroker {
                 obtain.writeStrongBinder(iGmsCallbacks != null ? iGmsCallbacks.asBinder() : null);
                 if (getServiceRequest != null) {
                     obtain.writeInt(1);
-                    xn9.a(getServiceRequest, obtain, 0);
+                    vn9.a(getServiceRequest, obtain, 0);
                 } else {
                     obtain.writeInt(0);
                 }

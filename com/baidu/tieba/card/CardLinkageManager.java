@@ -7,12 +7,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be5;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ho4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.go4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pn;
 import com.baidu.tieba.vn;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -93,8 +93,8 @@ public final class CardLinkageManager {
     public void cancelHighLight(vn vnVar, BaseCardInfo baseCardInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vnVar, baseCardInfo) == null) && baseCardInfo.isHighLight()) {
-            if (baseCardInfo instanceof ho4) {
-                ((ho4) baseCardInfo).getThreadData().cancelHighLight();
+            if (baseCardInfo instanceof go4) {
+                ((go4) baseCardInfo).getThreadData().cancelHighLight();
             }
             if (vnVar == null || vnVar.getListAdapter() == null) {
                 return;
@@ -135,17 +135,17 @@ public final class CardLinkageManager {
                         BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
                         if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null) {
                             if (baseCardInfo2.isSupportFull()) {
-                                os4 d = os4.d(findViewByPosition);
+                                ns4 d = ns4.d(findViewByPosition);
                                 d.m(0);
                                 d.n(R.string.J_X06);
                                 d.f(i2);
                             } else if (baseCardInfo2.isSupportTop()) {
-                                os4 d2 = os4.d(findViewByPosition);
+                                ns4 d2 = ns4.d(findViewByPosition);
                                 d2.m(1);
                                 d2.n(R.string.J_X06);
                                 d2.f(i2);
                             } else if (baseCardInfo2.isSupportBottom()) {
-                                os4 d3 = os4.d(findViewByPosition);
+                                ns4 d3 = ns4.d(findViewByPosition);
                                 d3.m(2);
                                 d3.n(R.string.J_X06);
                                 d3.f(i2);
@@ -178,7 +178,7 @@ public final class CardLinkageManager {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
             for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
                 Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-                if (!be5.p(item2)) {
+                if (!zd5.p(item2)) {
                     if (!(item2 instanceof BaseCardInfo)) {
                         if ((item2 instanceof pn) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                             findViewByPosition2.setTranslationY(f);

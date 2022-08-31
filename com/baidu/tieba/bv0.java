@@ -29,13 +29,13 @@ public class bv0 extends av0 {
 
         /* renamed from: com.baidu.tieba.bv0$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0214a implements Runnable {
+        public class RunnableC0218a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ vr0 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0214a(a aVar, vr0 vr0Var) {
+            public RunnableC0218a(a aVar, vr0 vr0Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -92,7 +92,7 @@ public class bv0 extends av0 {
                 super.handleMessage(message);
                 Object obj = message.obj;
                 if (obj instanceof vr0) {
-                    rh0.b(new RunnableC0214a(this, (vr0) obj));
+                    rh0.b(new RunnableC0218a(this, (vr0) obj));
                 }
             }
         }

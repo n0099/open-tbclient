@@ -5,7 +5,7 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GroupData;
-import com.baidu.tieba.e67;
+import com.baidu.tieba.c67;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.MsgPageData;
 import com.baidu.tieba.im.message.GroupSaveDraftMessage;
@@ -76,7 +76,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                e67 callback;
+                c67 callback;
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                     return;
@@ -155,10 +155,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     }
 
     @Override // com.baidu.tieba.im.model.MsglistModel
-    public boolean loadFirst(e67 e67Var) {
+    public boolean loadFirst(c67 c67Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, e67Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, c67Var)) == null) {
             if (this.mGroup == null) {
                 return false;
             }
@@ -168,7 +168,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             aVar.b = null;
             aVar.d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
-            loadGroupHistoryMessage.setCallback(e67Var);
+            loadGroupHistoryMessage.setCallback(c67Var);
             super.sendMessage(loadGroupHistoryMessage);
             return true;
         }

@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.uf6;
-import com.baidu.tieba.xg6;
+import com.baidu.tieba.sf6;
+import com.baidu.tieba.vg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -137,17 +137,17 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<xg6> list, xg6 xg6Var) {
+    public void setCategoryContainerData(List<vg6> list, vg6 vg6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, xg6Var) == null) {
-            this.e.setData(list, xg6Var);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, vg6Var) == null) {
+            this.e.setData(list, vg6Var);
         }
     }
 
-    public void setCategoryContainerData(List<uf6> list, uf6 uf6Var, int i) {
+    public void setCategoryContainerData(List<sf6> list, sf6 sf6Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, list, uf6Var, i) == null) {
-            this.e.setData(list, uf6Var, i);
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, list, sf6Var, i) == null) {
+            this.e.setData(list, sf6Var, i);
         }
     }
 }

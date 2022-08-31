@@ -17,7 +17,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy8;
+import com.baidu.tieba.by8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,7 +54,7 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public dy8 y;
+    public by8 y;
     public Paint z;
 
     /* loaded from: classes6.dex */
@@ -95,20 +95,20 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                dy8 dy8Var = this.y;
-                if (dy8Var != null) {
-                    dy8Var.setX(f);
+                by8 by8Var = this.y;
+                if (by8Var != null) {
+                    by8Var.setX(f);
                     return;
                 }
                 return;
             }
-            dy8 dy8Var2 = this.y;
-            if (dy8Var2 == null || (thumbView = this.f) == null) {
+            by8 by8Var2 = this.y;
+            if (by8Var2 == null || (thumbView = this.f) == null) {
                 return;
             }
             float f2 = this.g;
             if (f <= f2) {
-                dy8Var2.setX(f2);
+                by8Var2.setX(f2);
             } else if (f >= thumbView.getX()) {
                 this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
             } else {
@@ -304,7 +304,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        dy8 dy8Var;
+        by8 by8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -315,8 +315,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (dy8Var = this.y) != null) {
-                dy8Var.setX(f + this.p);
+            if (this.A == 1 && (by8Var = this.y) != null) {
+                by8Var.setX(f + this.p);
             }
             invalidate();
         }
@@ -480,8 +480,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            dy8 dy8Var = this.y;
-            if (dy8Var == null || dy8Var.isPressed()) {
+            by8 by8Var = this.y;
+            if (by8Var == null || by8Var.isPressed()) {
                 return;
             }
             setVideoPointerViewPosition(this.j);
@@ -623,7 +623,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new dy8(context);
+        this.y = new by8(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;

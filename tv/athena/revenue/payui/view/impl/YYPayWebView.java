@@ -26,13 +26,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c3a;
 import com.baidu.tieba.e3a;
-import com.baidu.tieba.g3a;
-import com.baidu.tieba.k2a;
-import com.baidu.tieba.l2a;
-import com.baidu.tieba.o0a;
-import com.baidu.tieba.x3a;
-import com.baidu.tieba.y3a;
+import com.baidu.tieba.i2a;
+import com.baidu.tieba.j2a;
+import com.baidu.tieba.m0a;
+import com.baidu.tieba.v3a;
+import com.baidu.tieba.w3a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ import tv.athena.revenue.payui.model.NativeOperationParams;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.webview.UrlPageParams;
 /* loaded from: classes9.dex */
-public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
+public class YYPayWebView extends LinearLayout implements e3a, w3a.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
@@ -85,7 +85,7 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onPageFinished(webView, str);
-                RLog.info("YYPayWebView", "onPageFinished: url:" + e3a.a(str));
+                RLog.info("YYPayWebView", "onPageFinished: url:" + c3a.a(str));
             }
         }
 
@@ -94,7 +94,7 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
                 super.onPageStarted(webView, str, bitmap);
-                RLog.info("YYPayWebView", "onPageStarted: url:" + e3a.a(str));
+                RLog.info("YYPayWebView", "onPageStarted: url:" + c3a.a(str));
             }
         }
 
@@ -205,11 +205,11 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
     public interface c {
         void a(NativeOperationParams nativeOperationParams);
 
-        void b(l2a l2aVar, k2a k2aVar);
+        void b(j2a j2aVar, i2a i2aVar);
 
         void c(WebView webView, String str);
 
-        void d(k2a k2aVar);
+        void d(i2a i2aVar);
 
         String getToken();
     }
@@ -235,7 +235,7 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
         }
     }
 
-    @Override // com.baidu.tieba.y3a.f
+    @Override // com.baidu.tieba.w3a.f
     public void a(NativeOperationParams nativeOperationParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, nativeOperationParams) == null) {
@@ -251,14 +251,14 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
         }
     }
 
-    @Override // com.baidu.tieba.g3a
+    @Override // com.baidu.tieba.e3a
     public void attachWindow(Window window) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, window) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.y3a.f
+    @Override // com.baidu.tieba.w3a.f
     public void b(UrlPageParams urlPageParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, urlPageParams) == null) {
@@ -269,12 +269,12 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
             RLog.debug("YYPayWebView", "onUpdateTopUi pageParams: %s", urlPageParams);
             c cVar = this.a;
             if (cVar != null) {
-                cVar.d(new k2a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
+                cVar.d(new i2a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
             }
         }
     }
 
-    @Override // com.baidu.tieba.y3a.f
+    @Override // com.baidu.tieba.w3a.f
     public void c(UrlPageParams urlPageParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, urlPageParams) == null) {
@@ -284,7 +284,7 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
             }
             RLog.debug("YYPayWebView", "onOpenUrl pageParams: %s", urlPageParams);
             if (this.a != null) {
-                this.a.b(new l2a(urlPageParams.url, urlPageParams.pageType), new k2a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
+                this.a.b(new j2a(urlPageParams.url, urlPageParams.pageType), new i2a(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
             }
         }
     }
@@ -293,7 +293,7 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            Object[] objArr = o0a.a;
+            Object[] objArr = m0a.a;
             if (objArr == null || objArr.length <= 0 || str == null) {
                 return null;
             }
@@ -318,14 +318,14 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
         return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.g3a
+    @Override // com.baidu.tieba.e3a
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y3a.f
+    @Override // com.baidu.tieba.w3a.f
     public String getToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -362,12 +362,12 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
                     settings.setMixedContentMode(0);
                 }
             }
-            this.b.addJavascriptInterface(new y3a(this), "YYPaySdkJsInterface");
+            this.b.addJavascriptInterface(new w3a(this), "YYPaySdkJsInterface");
             this.b.setWebViewClient(new a(this));
             if (Build.VERSION.SDK_INT < 23) {
                 this.b.setWebChromeClient(new b(this));
             }
-            x3a.a(this.b);
+            v3a.a(this.b);
             this.d = !Env.instance().isTestEnv();
             RLog.info("YYPayWebView", "isEnableBackupDomain=" + this.d);
         }
@@ -376,7 +376,7 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RLog.info("YYPayWebView", "loadUrl: " + e3a.a(str));
+            RLog.info("YYPayWebView", "loadUrl: " + c3a.a(str));
             this.b.loadUrl(str);
         }
     }
@@ -429,14 +429,14 @@ public class YYPayWebView extends LinearLayout implements g3a, y3a.f {
         }
     }
 
-    @Override // com.baidu.tieba.g3a
+    @Override // com.baidu.tieba.e3a
     public void refreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.g3a
+    @Override // com.baidu.tieba.e3a
     public void refreshWindow(WindowParams windowParams) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, windowParams) == null) {

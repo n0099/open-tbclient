@@ -76,7 +76,7 @@ public class kx extends my {
             this.A = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09250b);
             this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090aba);
             this.y = (InterviewLiveLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090ab6);
-            l98 q = q();
+            j98 q = q();
             this.j = q;
             q.getMainView().setBackgroundResource(R.color.transparent);
         }
@@ -97,10 +97,10 @@ public class kx extends my {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, j06Var) == null) {
-            this.y.setSubClickListener(j06Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, h06Var) == null) {
+            this.y.setSubClickListener(h06Var);
         }
     }
 
@@ -117,39 +117,39 @@ public class kx extends my {
     }
 
     @Override // com.baidu.tieba.my
-    public l98 q() {
+    public j98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            m98 m98Var = new m98(this.b, this.i);
-            m98Var.setStageType("2003");
-            return m98Var;
+            k98 k98Var = new k98(this.b, this.i);
+            k98Var.setStageType("2003");
+            return k98Var;
         }
-        return (l98) invokeV.objValue;
+        return (j98) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.my, com.baidu.tieba.ix
     /* renamed from: r */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ho4Var) == null) {
-            this.h = ho4Var;
-            if (ho4Var == null || ho4Var.getThreadData() == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, go4Var) == null) {
+            this.h = go4Var;
+            if (go4Var == null || go4Var.getThreadData() == null) {
                 return;
             }
-            ThreadData threadData = ho4Var.getThreadData();
+            ThreadData threadData = go4Var.getThreadData();
             if (threadData.getThreadVideoInfo() != null) {
                 this.y.setVisibility(8);
                 this.i.setVisibility(0);
                 this.A.setVisibility(8);
-                super.a(ho4Var);
+                super.a(go4Var);
                 return;
             }
             this.i.setVisibility(8);
             this.y.setVisibility(0);
             this.A.setVisibility(0);
-            this.y.a(ho4Var);
+            this.y.a(go4Var);
             ThreadCardUtils.setTitle(this.g, threadData);
             ThreadCardUtils.setAbstract(this.A, this.g, threadData, B);
         }

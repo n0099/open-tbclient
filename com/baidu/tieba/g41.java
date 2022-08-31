@@ -50,13 +50,13 @@ public class g41 implements i41<ImageView> {
 
         /* renamed from: com.baidu.tieba.g41$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0263a implements Runnable {
+        public class RunnableC0268a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Bitmap a;
             public final /* synthetic */ a b;
 
-            public RunnableC0263a(a aVar, Bitmap bitmap) {
+            public RunnableC0268a(a aVar, Bitmap bitmap) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class g41 implements i41<ImageView> {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                rh0.b(new RunnableC0263a(this, bitmap));
+                rh0.b(new RunnableC0268a(this, bitmap));
             }
         }
     }

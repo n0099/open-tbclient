@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ll9;
 import com.baidu.tieba.og9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
+import com.fun.ad.sdk.FunAdLoader;
 /* loaded from: classes6.dex */
-public class vg9 implements ll9.a<ng9> {
+public class vg9 implements og9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ll9 a;
+    public final /* synthetic */ jg9 a;
 
-    public vg9(ll9 ll9Var) {
+    public vg9(il9 il9Var, jg9 jg9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ll9Var};
+            Object[] objArr = {il9Var, jg9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,32 +28,13 @@ public class vg9 implements ll9.a<ng9> {
                 return;
             }
         }
-        this.a = ll9Var;
+        this.a = jg9Var;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.ll9.a
-    public void a(ng9 ng9Var) {
+    @Override // com.baidu.tieba.og9.a
+    public FunAdLoader a(zf9 zf9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ng9Var) == null) {
-            LogPrinter.v("SlotId:%s is totally same with oldOne", ng9Var.a);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.baidu.tieba.ll9.a
-    public void b(ng9 ng9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ng9Var) == null) {
-            ng9 ng9Var2 = ng9Var;
-            LogPrinter.v("Update SlotId:%s", ng9Var2.a);
-            HashMap<String, qg9> hashMap = this.a.c;
-            String str = ng9Var2.a;
-            hashMap.put(str, new qg9(str, new tg9(this, ng9Var2)));
-            og9 og9Var = this.a.b;
-            synchronized (og9Var.a) {
-                og9Var.a(ng9Var2.a).add(new og9.a(ng9Var2));
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zf9Var)) == null) ? new am9(this.a, zf9Var) : (FunAdLoader) invokeL.objValue;
     }
 }

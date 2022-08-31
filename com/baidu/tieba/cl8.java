@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActBtn;
-import tbclient.TPointPost;
 import tbclient.Timgs;
-import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
-public class cl8 {
+public class cl8 implements ss4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<bl8> b;
-    public ArrayList<el8> c;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
-    public cl8(TPointPost tPointPost) {
+    public cl8(Timgs timgs) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tPointPost};
+            Object[] objArr = {timgs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,42 +32,54 @@ public class cl8 {
                 return;
             }
         }
-        if (tPointPost != null) {
+        this.a = null;
+        this.b = null;
+        this.c = 1;
+        this.d = 1;
+        if (timgs == null) {
+            return;
+        }
+        this.a = timgs.img_url;
+        timgs.flag.intValue();
+        this.b = timgs.url;
+        String str = timgs.big_cdn_url;
+        String str2 = timgs.des_main;
+        String str3 = timgs.des_sub;
+        String str4 = timgs.bsize;
+        if (str4 != null) {
             try {
-                String str = tPointPost.position;
-                tPointPost.template_id.longValue();
-                this.a = tPointPost.is_tuiguang.intValue() != 0;
-                tPointPost.template_type.intValue();
-                List<ActBtn> list = tPointPost.act_btn;
-                if (list != null && list.size() > 0) {
-                    this.b = new ArrayList<>();
-                    for (int i3 = 0; i3 != list.size(); i3++) {
-                        this.b.add(new bl8(list.get(i3)));
-                    }
-                }
-                List<Timgs> list2 = tPointPost.t_imgs;
-                if (list2 != null && list2.size() > 0) {
-                    this.c = new ArrayList<>();
-                    for (int i4 = 0; i4 != list2.size(); i4++) {
-                        this.c.add(new el8(list2.get(i4)));
-                    }
-                }
-                if (tPointPost.detail_info != null) {
-                    new dl8(tPointPost.detail_info);
-                }
-                String str2 = tPointPost.monitor_id;
-                tPointPost.hidden_day.intValue();
-                VideoInfo videoInfo = tPointPost.t_video;
-                String str3 = tPointPost.tag_name;
+                String[] split = str4.split(",");
+                this.c = pg.e(split[0], 1);
+                this.d = pg.e(split[1], 1);
             } catch (Exception e) {
-                BdLog.detailException(e);
+                BdLog.e(e.getMessage());
             }
+        }
+        if (this.c <= 0) {
+            this.c = 1;
+        }
+        if (this.d <= 0) {
+            this.d = 1;
         }
     }
 
-    public el8 a() {
+    @Override // com.baidu.tieba.ss4
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (el8) ListUtils.getItem(this.c, 0) : (el8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ss4
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

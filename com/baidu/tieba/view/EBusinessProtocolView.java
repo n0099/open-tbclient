@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tv4;
+import com.baidu.tieba.rv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -356,10 +356,10 @@ public class EBusinessProtocolView extends Dialog {
                 setCanceledOnTouchOutside(true);
                 this.g.setText(this.k);
                 this.h.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f140c));
-                tv4 tv4Var = new tv4();
-                tv4Var.p(R.color.CAM_X0302);
+                rv4 rv4Var = new rv4();
+                rv4Var.p(R.color.CAM_X0302);
                 this.h.setTextSize(R.dimen.T_X08);
-                this.h.setConfig(tv4Var);
+                this.h.setConfig(rv4Var);
             } else if (i != 2) {
             } else {
                 n();
@@ -367,15 +367,15 @@ public class EBusinessProtocolView extends Dialog {
                 this.f.setVisibility(0);
                 this.e.setVisibility(0);
                 this.d.loadUrl(this.l);
-                tv4 tv4Var2 = new tv4();
-                tv4Var2.p(R.color.CAM_X0107);
-                this.e.setConfig(tv4Var2);
+                rv4 rv4Var2 = new rv4();
+                rv4Var2.p(R.color.CAM_X0107);
+                this.e.setConfig(rv4Var2);
                 this.e.setTextSize(R.dimen.tbds42);
                 this.e.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f31));
                 this.f.setTextSize(R.dimen.tbds42);
-                tv4 tv4Var3 = new tv4();
-                tv4Var3.p(R.color.CAM_X0302);
-                this.f.setConfig(tv4Var3);
+                rv4 rv4Var3 = new rv4();
+                rv4Var3.p(R.color.CAM_X0302);
+                this.f.setConfig(rv4Var3);
                 this.f.setTextSize(R.dimen.tbds42);
                 this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0f30));
             }

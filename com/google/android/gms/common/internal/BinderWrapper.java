@@ -5,7 +5,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tn9;
+import com.baidu.tieba.rn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public final class BinderWrapper implements Parcelable {
                 return;
             }
         }
-        CREATOR = new tn9();
+        CREATOR = new rn9();
     }
 
     public BinderWrapper(@NonNull IBinder iBinder) {

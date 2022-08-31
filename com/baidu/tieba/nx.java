@@ -108,16 +108,16 @@ public class nx extends uw implements jx, ix<ThreadData> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null || this.a.l == null || this.a.k == null || this.a.l.isTransportThread() || !this.a.n) {
                 return;
             }
-            if (this.a.l.isMarkToDel() || !te6.f().i()) {
-                if (this.a.l.isMarkToMove() || !se6.h().j()) {
-                    te6.f().l(this.a.l);
+            if (this.a.l.isMarkToDel() || !re6.f().i()) {
+                if (this.a.l.isMarkToMove() || !qe6.h().j()) {
+                    re6.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    se6.h().l(this.a.l);
+                    qe6.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
-                } else if (se6.h().a(this.a.l)) {
+                } else if (qe6.h().a(this.a.l)) {
                     this.a.l.setMarkToMove(true);
                 }
-            } else if (te6.f().a(this.a.l)) {
+            } else if (re6.f().a(this.a.l)) {
                 this.a.l.setMarkToDel(true);
             }
             this.a.r();
@@ -188,15 +188,15 @@ public class nx extends uw implements jx, ix<ThreadData> {
             } else {
                 WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080936, R.color.CAM_X0304, null);
             }
-            os4 d = os4.d(this.h);
+            ns4 d = ns4.d(this.h);
             d.n(R.string.J_X06);
             d.m(this.m ? 2 : 1);
             d.f(R.color.CAM_X0201);
-            os4 d2 = os4.d(this.i);
+            ns4 d2 = ns4.d(this.i);
             d2.n(R.string.J_X06);
             d2.m(2);
             d2.f(R.color.CAM_X0201);
-            os4.d(this.k).A(R.string.F_X01);
+            ns4.d(this.k).A(R.string.F_X01);
             SkinManager.setViewTextColor(this.k, (this.l.isMarkToDel() || this.l.isMarkToMove()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }
@@ -209,7 +209,7 @@ public class nx extends uw implements jx, ix<ThreadData> {
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             this.l = threadData;
             this.n = threadData.getType() != ThreadData.TYPE_FAKE_VIDEO && (threadData == null || threadData.getAuthor() == null || !threadData.getAuthor().isForumBusinessAccount() || threadData.isSelf()) && threadData != null && (!threadData.isTiePlusCantDeleteUnion() || threadData.isSelf());
-            if (!te6.f().i() && !se6.h().j()) {
+            if (!re6.f().i() && !qe6.h().j()) {
                 this.d.o(new py.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;

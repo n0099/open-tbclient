@@ -1,14 +1,23 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class m89 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
+public interface m89 {
+    boolean available();
+
+    int availableBytes();
+
+    void clearQueues();
+
+    void close();
+
+    void flush();
+
+    int getBytes(byte[] bArr, int i);
+
+    void initVoiceChanger(int i, int i2, int i3, int i4);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    void setVoiceChangeType(int[] iArr);
+
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

@@ -34,13 +34,13 @@ public class o81 implements n81 {
 
         /* renamed from: com.baidu.tieba.o81$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0338a implements Runnable {
+        public class RunnableC0347a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0338a(a aVar, String str) {
+            public RunnableC0347a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -204,7 +204,7 @@ public class o81 implements n81 {
                         httpURLConnection = inputStream;
                         if (this.c != null) {
                             if (this.d.b) {
-                                this.d.a.post(new RunnableC0338a(this, c2));
+                                this.d.a.post(new RunnableC0347a(this, c2));
                                 httpURLConnection = inputStream;
                             } else {
                                 this.c.c(c2);
@@ -301,14 +301,14 @@ public class o81 implements n81 {
 
         /* renamed from: com.baidu.tieba.o81$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0339b implements Runnable {
+        public class RunnableC0348b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ String b;
             public final /* synthetic */ b c;
 
-            public RunnableC0339b(b bVar, int i, String str) {
+            public RunnableC0348b(b bVar, int i, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -450,7 +450,7 @@ public class o81 implements n81 {
                         String c3 = y91.c(errorStream);
                         if (this.d != null) {
                             if (this.e.b) {
-                                this.e.a.post(new RunnableC0339b(this, responseCode, c3));
+                                this.e.a.post(new RunnableC0348b(this, responseCode, c3));
                             } else {
                                 i81 i81Var = this.d;
                                 StringBuilder sb2 = new StringBuilder();

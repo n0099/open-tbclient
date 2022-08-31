@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.ga5;
 import com.baidu.tieba.ia5;
-import com.baidu.tieba.ka5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.GetClientConfig.DataRes;
 public class PayConfigModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ia5 a;
+    public ga5 a;
     public final bb b;
 
     /* loaded from: classes3.dex */
@@ -86,13 +86,13 @@ public class PayConfigModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PayConfigModel(TbPageContext tbPageContext, ia5 ia5Var) {
+    public PayConfigModel(TbPageContext tbPageContext, ga5 ga5Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ia5Var};
+            Object[] objArr = {tbPageContext, ga5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class PayConfigModel extends BdBaseModel {
         }
         a aVar = new a(this, CmdConfigHttp.CMD_CLIENT_CONFIG, 303039);
         this.b = aVar;
-        this.a = ia5Var;
+        this.a = ga5Var;
         registerListener(aVar);
     }
 
@@ -121,19 +121,19 @@ public class PayConfigModel extends BdBaseModel {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
             if (dataRes != null && (cPayType = dataRes.payType) != null) {
                 if (cPayType.pay_type.intValue() == 1) {
-                    ia5 ia5Var = this.a;
-                    if (ia5Var != null) {
-                        ia5Var.b();
+                    ga5 ga5Var = this.a;
+                    if (ga5Var != null) {
+                        ga5Var.b();
                     }
                 } else if (dataRes.payType.pay_type.intValue() == 2) {
-                    ia5 ia5Var2 = this.a;
-                    if (ia5Var2 != null) {
-                        ia5Var2.a();
+                    ga5 ga5Var2 = this.a;
+                    if (ga5Var2 != null) {
+                        ga5Var2.a();
                     }
                 } else {
-                    ia5 ia5Var3 = this.a;
-                    if (ia5Var3 != null) {
-                        ia5Var3.onError("");
+                    ga5 ga5Var3 = this.a;
+                    if (ga5Var3 != null) {
+                        ga5Var3.onError("");
                     }
                 }
             } else if (this.a != null) {
@@ -145,15 +145,15 @@ public class PayConfigModel extends BdBaseModel {
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!ka5.c().d()) {
-                ia5 ia5Var = this.a;
-                if (ia5Var != null) {
-                    ia5Var.a();
+            if (!ia5.c().d()) {
+                ga5 ga5Var = this.a;
+                if (ga5Var != null) {
+                    ga5Var.a();
                 }
             } else if (TbadkCoreApplication.getInst().checkInterrupt()) {
-                ia5 ia5Var2 = this.a;
-                if (ia5Var2 != null) {
-                    ia5Var2.b();
+                ga5 ga5Var2 = this.a;
+                if (ga5Var2 != null) {
+                    ga5Var2.b();
                 }
             } else {
                 ClientConfigNetMessage clientConfigNetMessage = new ClientConfigNetMessage();

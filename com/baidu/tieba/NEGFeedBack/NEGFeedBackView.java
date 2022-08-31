@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl5;
-import com.baidu.tieba.eq4;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.dq4;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int e;
     public int f;
     public int g;
-    public cl5 h;
+    public al5 h;
     public View.OnClickListener i;
 
     /* loaded from: classes3.dex */
@@ -80,11 +80,11 @@ public class NEGFeedBackView extends AppCompatImageView {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(ArrayList<Integer> arrayList, String str, eq4 eq4Var);
+        void a(ArrayList<Integer> arrayList, String str, dq4 dq4Var);
 
-        void b(eq4 eq4Var, CompoundButton compoundButton, boolean z);
+        void b(dq4 dq4Var, CompoundButton compoundButton, boolean z);
 
-        void c(eq4 eq4Var);
+        void c(dq4 dq4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -168,7 +168,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public final void p(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
-            this.h = new cl5(tbPageContext, this);
+            this.h = new al5(tbPageContext, this);
             setOnClickListener(this.i);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             q();
@@ -215,10 +215,10 @@ public class NEGFeedBackView extends AppCompatImageView {
         }
     }
 
-    public void setData(eq4 eq4Var) {
+    public void setData(dq4 dq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, eq4Var) == null) {
-            this.h.v(eq4Var);
+        if (interceptable == null || interceptable.invokeL(1048587, this, dq4Var) == null) {
+            this.h.v(dq4Var);
         }
     }
 

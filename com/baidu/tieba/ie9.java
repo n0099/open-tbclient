@@ -1,40 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.upload.AcUploadResultObserver;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ie9 implements fc1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ie9 {
+    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
 
-    public ie9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void a(String str, String str2, int i, he9 he9Var);
 
-    @Override // com.baidu.tieba.fc1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new AcUploadResultObserver());
-            return arrayList;
-        }
-        return invokeV.objValue;
-    }
+    void b(List<String> list, String str, long j, JSONObject jSONObject);
+
+    void c(String str, String str2, JSONObject jSONObject);
+
+    void d(String str, String str2, he9 he9Var);
+
+    void e(List<String> list, String str, long j, he9 he9Var);
 }

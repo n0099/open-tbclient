@@ -17,12 +17,12 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.tieba.am8;
-import com.baidu.tieba.em8;
+import com.baidu.tieba.cm8;
+import com.baidu.tieba.py4;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.ry4;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.xl8;
+import com.baidu.tieba.vl8;
+import com.baidu.tieba.yl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xl8 callback;
+    public vl8 callback;
     public TbWebViewActivity mActivity;
 
     public TbWebChromeClient(TbWebViewActivity tbWebViewActivity) {
@@ -131,16 +131,16 @@ public class TbWebChromeClient extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        xl8 xl8Var;
+        vl8 vl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!ry4.a(str) && str2.startsWith("tiebaapp")) {
-                am8 am8Var = new am8();
-                am8Var.v(em8.b(str2));
-                am8Var.x(301);
-                callJsMethod(webView, am8Var.c(), am8Var.d());
+            if (!py4.a(str) && str2.startsWith("tiebaapp")) {
+                yl8 yl8Var = new yl8();
+                yl8Var.v(cm8.b(str2));
+                yl8Var.x(301);
+                callJsMethod(webView, yl8Var.c(), yl8Var.d());
             }
-            if (ry4.a(str) && (xl8Var = this.callback) != null && xl8Var.onJsPrompt(str2, jsPromptResult)) {
+            if (py4.a(str) && (vl8Var = this.callback) != null && vl8Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();
@@ -193,10 +193,10 @@ public class TbWebChromeClient extends WebChromeClient {
         }
     }
 
-    public void setOnJsPromptCallback(xl8 xl8Var) {
+    public void setOnJsPromptCallback(vl8 vl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, xl8Var) == null) {
-            this.callback = xl8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, vl8Var) == null) {
+            this.callback = vl8Var;
         }
     }
 

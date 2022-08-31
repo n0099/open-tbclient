@@ -30,11 +30,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d48;
+import com.baidu.tieba.b48;
 import com.baidu.tieba.km4;
-import com.baidu.tieba.po5;
+import com.baidu.tieba.no5;
+import com.baidu.tieba.p95;
 import com.baidu.tieba.ql4;
-import com.baidu.tieba.r95;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView a;
     public TextView b;
-    public d48 c;
+    public b48 c;
 
     /* loaded from: classes5.dex */
     public class a implements ql4 {
@@ -127,12 +127,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
         }
     }
 
-    public void a(d48 d48Var) {
+    public void a(b48 b48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d48Var) == null) {
-            this.c = d48Var;
-            this.a.setImageResource(d48Var.b);
-            this.b.setText(d48Var.e);
+        if (interceptable == null || interceptable.invokeL(1048576, this, b48Var) == null) {
+            this.c = b48Var;
+            this.a.setImageResource(b48Var.b);
+            this.b.setText(b48Var.e);
         }
     }
 
@@ -155,9 +155,9 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
     }
 
     public void d() {
-        d48 d48Var;
+        b48 b48Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (d48Var = this.c) != null && d48Var.a == 59 && TbSingleton.getInstance().isMyTabClicked()) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b48Var = this.c) != null && b48Var.a == 59 && TbSingleton.getInstance().isMyTabClicked()) {
             int[] iArr = new int[2];
             getLocationOnScreen(iArr);
             int i = iArr[1];
@@ -185,12 +185,12 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        d48 d48Var;
+        b48 b48Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (d48Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || (b48Var = this.c) == null) {
             return;
         }
-        int i = d48Var.a;
+        int i = b48Var.a;
         String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         String displayName = currentAccountInfo.getDisplayName();
@@ -223,7 +223,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "AuthenticationCenterPage", hashMap)));
                     return;
                 case 54:
-                    km4.o(getContext(), r95.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
+                    km4.o(getContext(), p95.g("https://boxnovel.baidu.com/boxnovel/tbvipright?data={\"fromaction\": \"tieba\"}"));
                     return;
                 case 55:
                     e(TbConfig.COMMUNITY_CONVENTION);
@@ -238,7 +238,7 @@ public class PersonOftenFuncItemView extends LinearLayout implements View.OnClic
                     TiebaStatic.log(new StatisticItem("c14711").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 case 58:
-                    po5.b("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "", "1191000600000000", 0);
+                    no5.b("T43rINkXjgPfdKNXTuhQER2KdACVdB00", "", "1191000600000000", 0);
                     TiebaStatic.log(new StatisticItem("c14710").addParam("uid", TbadkCoreApplication.getCurrentAccount()));
                     return;
                 case 59:

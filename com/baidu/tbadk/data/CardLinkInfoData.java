@@ -2,7 +2,7 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o06;
+import com.baidu.tieba.m06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import tbclient.CardLinkInfo;
 /* loaded from: classes3.dex */
-public class CardLinkInfoData extends o06 implements Serializable {
+public class CardLinkInfoData extends m06 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARROW_BTN_STYLE = "2";
     public static final String DEL_BTN_STYLE = "3";
@@ -208,7 +208,7 @@ public class CardLinkInfoData extends o06 implements Serializable {
         }
     }
 
-    @Override // com.baidu.tieba.o06
+    @Override // com.baidu.tieba.m06
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -134,7 +134,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<dj8> {
+    public static class b implements CustomMessageTask.CustomRunnable<bj8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -153,12 +153,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<dj8> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<bj8> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof fr4)) {
-                    new yi8().j((fr4) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof er4)) {
+                    new wi8().j((er4) customMessage.getData());
                 }
                 return null;
             }

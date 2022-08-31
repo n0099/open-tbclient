@@ -27,15 +27,15 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.an;
 import com.baidu.tieba.an4;
+import com.baidu.tieba.h55;
 import com.baidu.tieba.h9;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.j55;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.ob;
+import com.baidu.tieba.os4;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.ps4;
-import com.baidu.tieba.re5;
+import com.baidu.tieba.pe5;
 import com.baidu.tieba.xk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,7 +70,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public an T0;
     public String U0;
     public int V0;
-    public j55 W0;
+    public h55 W0;
     public int X0;
     public Handler Y0;
     public boolean Z0;
@@ -484,7 +484,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public float[] getRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? ps4.b(this.V0) : (float[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? os4.b(this.V0) : (float[]) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
@@ -498,9 +498,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             SkinManager.setImageResource(this, this.X0);
-            j55 j55Var = this.W0;
-            if (j55Var != null) {
-                j55Var.onLoadFail();
+            h55 h55Var = this.W0;
+            if (h55Var != null) {
+                h55Var.onLoadFail();
             }
         }
     }
@@ -517,11 +517,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 h0();
                 return;
             }
-            j55 j55Var = this.W0;
-            if (j55Var != null) {
-                j55Var.a();
+            h55 h55Var = this.W0;
+            if (h55Var != null) {
+                h55Var.a();
             }
-            boolean c2 = re5.c();
+            boolean c2 = pe5.c();
             h9 c3 = i9.c(getContext());
             if (c3 != null) {
                 bdUniqueId = c3.getUniqueId();
@@ -575,9 +575,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 h0();
                 return;
             }
-            j55 j55Var = this.W0;
-            if (j55Var != null) {
-                j55Var.a();
+            h55 h55Var = this.W0;
+            if (h55Var != null) {
+                h55Var.a();
             }
             h9 c2 = i9.c(getContext());
             if (c2 != null) {
@@ -631,7 +631,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             an4 an4Var = this.O0;
             if (an4Var == null || !an4Var.a(view2)) {
                 if (this.a1 != null) {
-                    boolean c2 = re5.c();
+                    boolean c2 = pe5.c();
                     GifInfo gifInfo = this.a1;
                     String str = c2 ? gifInfo.mDynamicUrl : gifInfo.mStaticUrl;
                     lg h = lg.h();
@@ -876,9 +876,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 }
                 return;
             }
-            j55 j55Var = this.W0;
-            if (j55Var != null) {
-                j55Var.onLoadSuccess();
+            h55 h55Var = this.W0;
+            if (h55Var != null) {
+                h55Var.onLoadSuccess();
             }
             if (anVar.l() == null) {
                 if (!anVar.s()) {
@@ -1068,10 +1068,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setLoadCallback(j55 j55Var) {
+    public void setLoadCallback(h55 h55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048621, this, j55Var) == null) {
-            this.W0 = j55Var;
+        if (interceptable == null || interceptable.invokeL(1048621, this, h55Var) == null) {
+            this.W0 = h55Var;
         }
     }
 

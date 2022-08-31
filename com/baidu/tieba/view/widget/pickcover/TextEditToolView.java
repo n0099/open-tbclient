@@ -22,11 +22,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.pc9;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.rc9;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.tc9;
-import com.baidu.tieba.wy8;
+import com.baidu.tieba.uy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
     public View d;
     public View e;
     public TBSpecificationBtn f;
-    public wy8 g;
+    public uy8 g;
     public TextPaint h;
     public int i;
     public boolean j;
@@ -233,7 +233,7 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             setLayoutParams(layoutParams);
         }
         this.m = false;
-        if (!TextUtils.equals(str, rc9.l(R.string.obfuscated_res_0x7f0f1499))) {
+        if (!TextUtils.equals(str, pc9.l(R.string.obfuscated_res_0x7f0f1499))) {
             this.b.setText(str);
         }
         setVisibility(0);
@@ -247,19 +247,19 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (this.h == null) {
                 TextPaint textPaint = new TextPaint();
                 this.h = textPaint;
-                textPaint.setTextSize(rc9.j(R.dimen.obfuscated_res_0x7f0702b7));
+                textPaint.setTextSize(pc9.j(R.dimen.obfuscated_res_0x7f0702b7));
             }
-            StaticLayout staticLayout = new StaticLayout(str, this.h, tc9.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
+            StaticLayout staticLayout = new StaticLayout(str, this.h, rc9.c(), Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, false);
             if (staticLayout.getLineCount() > i) {
                 str = str.substring(0, staticLayout.getLineStart(i) - 1);
                 this.b.setText(str);
             }
             this.b.setSelection(this.b.getText() != null ? this.b.getText().length() : 0);
-            wy8 wy8Var = this.g;
-            if (wy8Var == null || !this.m) {
+            uy8 uy8Var = this.g;
+            if (uy8Var == null || !this.m) {
                 return;
             }
-            wy8Var.k(str);
+            uy8Var.k(str);
         }
     }
 
@@ -270,9 +270,9 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
             if (view2 == this.f) {
                 String obj = this.b.getText().toString();
                 j();
-                wy8 wy8Var = this.g;
-                if (wy8Var != null) {
-                    wy8Var.g(obj);
+                uy8 uy8Var = this.g;
+                if (uy8Var != null) {
+                    uy8Var.g(obj);
                 }
             } else if (view2 == this.c) {
                 this.b.setText("");
@@ -298,10 +298,10 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         }
     }
 
-    public void setOnTextWordsEditListener(wy8 wy8Var) {
+    public void setOnTextWordsEditListener(uy8 uy8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, wy8Var) == null) {
-            this.g = wy8Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, uy8Var) == null) {
+            this.g = uy8Var;
         }
     }
 
@@ -353,13 +353,13 @@ public class TextEditToolView extends FrameLayout implements View.OnClickListene
         this.e = findViewById(R.id.obfuscated_res_0x7f091269);
         View findViewById = findViewById(R.id.obfuscated_res_0x7f091275);
         this.d = findViewById;
-        os4 d = os4.d(findViewById);
+        ns4 d = ns4.d(findViewById);
         d.n(R.string.J_X01);
         d.f(R.color.CAM_X0106);
         this.f = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0920d6);
-        sv4 sv4Var = new sv4();
-        sv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-        this.f.setConfig(sv4Var);
+        qv4 qv4Var = new qv4();
+        qv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+        this.f.setConfig(qv4Var);
         this.f.setTextSize(R.dimen.T_X08);
         this.f.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0df2));
         this.b = (EditText) findViewById(R.id.obfuscated_res_0x7f09086e);

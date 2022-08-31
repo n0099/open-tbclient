@@ -1,31 +1,31 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hv9;
-import com.baidu.tieba.wz9;
-import com.baidu.tieba.yu9;
-import com.baidu.tieba.zu9;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.uz9;
+import com.baidu.tieba.wu9;
+import com.baidu.tieba.xu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes8.dex */
-public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements zu9 {
+public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber extends AtomicInteger implements xu9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7965400327305809232L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final zu9 actual;
+    public final xu9 actual;
     public int index;
-    public final wz9 sd;
-    public final yu9[] sources;
+    public final uz9 sd;
+    public final wu9[] sources;
 
-    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(zu9 zu9Var, yu9[] yu9VarArr) {
+    public CompletableOnSubscribeConcatArray$ConcatInnerSubscriber(xu9 xu9Var, wu9[] wu9VarArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zu9Var, yu9VarArr};
+            Object[] objArr = {xu9Var, wu9VarArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,23 +35,23 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
                 return;
             }
         }
-        this.actual = zu9Var;
-        this.sources = yu9VarArr;
-        this.sd = new wz9();
+        this.actual = xu9Var;
+        this.sources = wu9VarArr;
+        this.sd = new uz9();
     }
 
     public void next() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isUnsubscribed() && getAndIncrement() == 0) {
-            yu9[] yu9VarArr = this.sources;
+            wu9[] wu9VarArr = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 int i = this.index;
                 this.index = i + 1;
-                if (i == yu9VarArr.length) {
+                if (i == wu9VarArr.length) {
                     this.actual.onCompleted();
                     return;
                 }
-                yu9VarArr[i].j(this);
+                wu9VarArr[i].j(this);
                 if (decrementAndGet() == 0) {
                     return;
                 }
@@ -59,7 +59,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.zu9
+    @Override // com.baidu.tieba.xu9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -67,7 +67,7 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.zu9
+    @Override // com.baidu.tieba.xu9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
@@ -75,11 +75,11 @@ public final class CompletableOnSubscribeConcatArray$ConcatInnerSubscriber exten
         }
     }
 
-    @Override // com.baidu.tieba.zu9
-    public void onSubscribe(hv9 hv9Var) {
+    @Override // com.baidu.tieba.xu9
+    public void onSubscribe(fv9 fv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hv9Var) == null) {
-            this.sd.a(hv9Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, fv9Var) == null) {
+            this.sd.a(fv9Var);
         }
     }
 }

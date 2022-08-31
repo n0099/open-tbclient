@@ -1,46 +1,58 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ValueAnimator;
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.OvershootInterpolator;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.OvalActionButton;
-import com.baidu.tieba.iz8;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.pz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class lz8 extends pz8 {
+public class lz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ValueAnimator h;
-    public ValueAnimator i;
-    public float j;
-    public float k;
-    public ValueAnimator l;
-    public ValueAnimator m;
-    public AnimatorSet n;
-    public ValueAnimator o;
-    public ValueAnimator p;
-    public float q;
-    public float r;
-    public float s;
+    public BottomSheetDialog a;
+    public final Context b;
+    public final pz8 c;
+    public final int d;
+    public final String e;
+    public ForumWriteData f;
+    public String g;
+    public LinearLayout h;
+    public View i;
+    public LinearLayout j;
+    public TextView k;
+    public TextView l;
+    public ImageView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public TextView q;
+    public TextView r;
+    public int s;
     public int t;
-    public iz8.c u;
-    public gy5 v;
-    public gy5 w;
+    public de5 u;
 
     /* loaded from: classes5.dex */
-    public class a implements Animator.AnimatorListener {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz8 a;
@@ -63,73 +75,18 @@ public class lz8 extends pz8 {
             this.a = lz8Var;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                hy5 hy5Var = new hy5(this.a.s);
-                hy5Var.d(0.5f);
-                hy5Var.f(800.0f);
-                lz8 lz8Var = this.a;
-                gy5 gy5Var = new gy5(this.a.u.H, ey5.m);
-                gy5Var.m(hy5Var);
-                lz8Var.v = gy5Var;
-                this.a.v.h();
-                lz8 lz8Var2 = this.a;
-                gy5 gy5Var2 = new gy5(this.a.u.s, ey5.m);
-                gy5Var2.m(hy5Var);
-                lz8Var2.w = gy5Var2;
-                this.a.w.h();
-                this.a.u.H.setTranslationY(0.0f);
-                this.a.u.s.setTranslationY(0.0f);
-                lz8 lz8Var3 = this.a;
-                lz8Var3.e = 2;
-                pz8.a aVar = lz8Var3.d;
-                if (aVar != null) {
-                    aVar.a(2);
-                }
-                this.a.u.q.setClickable(true);
-                this.a.u.n.setClickable(true);
-                this.a.u.k.setClickable(true);
-                this.a.u.h.setClickable(true);
-                this.a.u.x.setClickable(true);
-                this.a.u.A.setClickable(true);
-                this.a.u.D.setClickable(true);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.u.q.setClickable(false);
-                this.a.u.n.setClickable(false);
-                this.a.u.k.setClickable(false);
-                this.a.u.h.setClickable(false);
-                this.a.u.x.setClickable(false);
-                this.a.u.A.setClickable(false);
-                this.a.u.D.setClickable(false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.dismiss();
+                this.a.c.k(this.a.f, this.a.g);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
+    public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz8 a;
@@ -152,20 +109,18 @@ public class lz8 extends pz8 {
             this.a = lz8Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.a.u.H.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.u.H.setTranslationY(this.a.r * valueAnimator.getAnimatedFraction());
-                this.a.u.s.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.u.s.setTranslationY(this.a.r * valueAnimator.getAnimatedFraction());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.dismiss();
+                this.a.c.f(this.a.f, this.a.g);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements Animator.AnimatorListener {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz8 a;
@@ -188,57 +143,18 @@ public class lz8 extends pz8 {
             this.a = lz8Var;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.u.H.setAlpha(0.0f);
-                this.a.u.H.setTranslationY(this.a.r);
-                this.a.u.s.setAlpha(0);
-                this.a.u.s.setTranslationY(this.a.r);
-                this.a.A();
-                this.a.u.q.setClickable(true);
-                this.a.u.n.setClickable(true);
-                this.a.u.k.setClickable(true);
-                this.a.u.h.setClickable(true);
-                this.a.u.x.setClickable(true);
-                this.a.u.A.setClickable(true);
-                this.a.u.D.setClickable(true);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.u.q.setClickable(false);
-                this.a.u.n.setClickable(false);
-                this.a.u.k.setClickable(false);
-                this.a.u.h.setClickable(false);
-                this.a.u.x.setClickable(false);
-                this.a.u.A.setClickable(false);
-                this.a.u.D.setClickable(false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.dismiss();
+                this.a.c.h(this.a.f, this.a.g);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements Runnable {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz8 a;
@@ -261,33 +177,19 @@ public class lz8 extends pz8 {
             this.a = lz8Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                lz8 lz8Var = this.a;
-                if (lz8Var.f != null && lz8Var.j == 0.0f && this.a.k == 0.0f) {
-                    this.a.u.G.getGlobalVisibleRect(this.a.g);
-                    lz8 lz8Var2 = this.a;
-                    lz8Var2.j = lz8Var2.f.centerX() - this.a.g.centerX();
-                    lz8 lz8Var3 = this.a;
-                    lz8Var3.k = lz8Var3.f.centerY() - this.a.g.centerY();
-                }
-                this.a.u.G.setVisibility(0);
-                this.a.u.G.setTranslationX(this.a.j);
-                this.a.u.G.setTranslationY(this.a.k);
-                lz8 lz8Var4 = this.a;
-                View view2 = lz8Var4.c;
-                if (view2 instanceof OvalActionButton) {
-                    ((OvalActionButton) view2).b(lz8Var4.u.G);
-                }
-                this.a.h.start();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.u.n(false);
+                this.a.a.dismiss();
+                this.a.c.p(this.a.f);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements ValueAnimator.AnimatorUpdateListener {
+    public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz8 a;
@@ -310,25 +212,63 @@ public class lz8 extends pz8 {
             this.a = lz8Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (!(this.a.j == 0.0f && this.a.k == 0.0f) && valueAnimator.isRunning()) {
-                    this.a.u.G.setCrossFade(valueAnimator.getAnimatedFraction(), false);
-                    this.a.u.G.setTranslationX(this.a.j - (this.a.j * valueAnimator.getAnimatedFraction()));
-                    this.a.u.G.setTranslationY(this.a.k - (this.a.k * valueAnimator.getAnimatedFraction()));
-                    this.a.u.G.setRotation(valueAnimator.getAnimatedFraction() * (-90.0f));
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.dismiss();
+                this.a.c.j(this.a.f, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_HOME_VIDEO, this.a.g);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements Animator.AnimatorListener {
+    public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lz8 a;
+
+        /* loaded from: classes5.dex */
+        public class a implements pz8.d {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ f a;
+
+            public a(f fVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = fVar;
+            }
+
+            @Override // com.baidu.tieba.pz8.d
+            public void onSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    String str = this.a.a.f != null ? this.a.a.f.forumId : "0";
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", this.a.a.e).param("obj_type", 4));
+                    if (this.a.a.d != 1) {
+                        if (this.a.a.d == 2) {
+                            TiebaStatic.log(new StatisticItem(CommonStatisticKey.FRS_PUBLISH_ALA_CLICK).param("fid", str));
+                            return;
+                        }
+                        return;
+                    }
+                    TiebaStatic.log(new StatisticItem(CommonStatisticKey.HOME_PUBLISH_ALA_CLICK));
+                }
+            }
+        }
 
         public f(lz8 lz8Var) {
             Interceptable interceptable = $ic;
@@ -348,535 +288,142 @@ public class lz8 extends pz8 {
             this.a = lz8Var;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.u.G.setTranslationX(0.0f);
-                this.a.u.G.setTranslationY(0.0f);
-                this.a.u.G.setRotation(-90.0f);
-                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080937, this.a.t, "webp");
-                this.a.u.G.setCrossFade(1.0f, false);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                View view2 = this.a.c;
-                if (view2 != null) {
-                    view2.setVisibility(4);
-                    this.a.c.setAlpha(0.0f);
-                }
-                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080937, this.a.t, "webp");
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.a.dismiss();
+                this.a.c.d(this.a.f, new a(this));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class g implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public g(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                if (!(this.a.j == 0.0f && this.a.k == 0.0f) && valueAnimator.isRunning()) {
-                    this.a.u.G.setCrossFade(valueAnimator.getAnimatedFraction(), true);
-                    this.a.u.G.setTranslationX(this.a.j * valueAnimator.getAnimatedFraction());
-                    this.a.u.G.setTranslationY(this.a.k * valueAnimator.getAnimatedFraction());
-                    this.a.u.G.setRotation((valueAnimator.getAnimatedFraction() * 90.0f) - 90.0f);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class h implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public h(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.u.G.setTranslationX(this.a.j);
-                this.a.u.G.setTranslationY(this.a.k);
-                this.a.u.G.setRotation(0.0f);
-                this.a.u.G.setEndIcon(0, 0, "");
-                this.a.u.G.setCrossFade(1.0f, true);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.a.u.G.setEndIcon(R.drawable.obfuscated_res_0x7f080937, this.a.t, "webp");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class i implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public i(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.a.u.H.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.u.s.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.u.e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.u.f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public j(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.u.H.setAlpha(1.0f);
-                this.a.u.s.setAlpha(1);
-                this.a.u.e.setAlpha(1.0f);
-                this.a.u.f.setAlpha(1.0f);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class k implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public k(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.a.u.e.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.u.f.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class l implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public l(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                onAnimationEnd(animator);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.a.u.e.setAlpha(0.0f);
-                this.a.u.f.setAlpha(0.0f);
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class m implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lz8 a;
-
-        public m(lz8 lz8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lz8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lz8Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && valueAnimator.isRunning()) {
-                this.a.u.H.setTranslationY(this.a.q - (this.a.q * valueAnimator.getAnimatedFraction()));
-                this.a.u.s.setTranslationY(this.a.q - (this.a.q * valueAnimator.getAnimatedFraction()));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz8(Context context, iz8.c cVar) {
-        super(context, cVar);
+    public lz8(Context context, String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, cVar};
+            Object[] objArr = {context, str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (iz8) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ri.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X009);
-        this.u = cVar;
-        this.t = ri.f(this.a, R.dimen.tbds0);
-        z();
+        this.s = 3;
+        this.b = context;
+        this.d = i;
+        this.e = str2;
+        pz8 pz8Var = new pz8(((TbPageContextSupport) context).getPageContext(), str);
+        this.c = pz8Var;
+        pz8Var.s(true);
     }
 
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                view2.setVisibility(0);
-            }
-            this.e = 4;
-            x();
-            B(8);
-            this.u.G.setVisibility(4);
-            View view3 = this.c;
-            if (view3 != null) {
-                view3.setVisibility(0);
-                this.c.setAlpha(1.0f);
-            }
-            pz8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(this.e);
-            }
-        }
-    }
-
-    public final void B(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.u.f.setVisibility(i2);
-            this.u.e.setVisibility(i2);
-            this.u.H.setVisibility(i2);
-            this.u.s.setVisibility(i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.pz8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            A();
-        }
-    }
-
-    @Override // com.baidu.tieba.pz8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            x();
-        }
-    }
-
-    @Override // com.baidu.tieba.pz8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.e == 4) {
-            this.e = 1;
-            pz8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(1);
-            }
-            x();
-            B(0);
-            this.l.start();
-            this.n.start();
-            y();
-        }
-    }
-
-    @Override // com.baidu.tieba.pz8
     public void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.e == 2) {
-            this.e = 3;
-            pz8.a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(3);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (this.b instanceof TbPageContextSupport)) {
+            this.a = new BottomSheetDialog(this.b, R.style.obfuscated_res_0x7f1000fa);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0919, (ViewGroup) null);
+            this.h = linearLayout;
+            this.i = linearLayout.findViewById(R.id.obfuscated_res_0x7f092669);
+            this.j = (LinearLayout) this.h.findViewById(R.id.obfuscated_res_0x7f092655);
+            this.k = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f092657);
+            this.l = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f092656);
+            this.j.setOnClickListener(new a(this));
+            this.m = (ImageView) this.h.findViewById(R.id.obfuscated_res_0x7f09265d);
+            this.n = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f09265f);
+            ((LinearLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09265e)).setOnClickListener(new b(this));
+            this.o = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f092651);
+            ((LinearLayout) this.h.findViewById(R.id.obfuscated_res_0x7f092650)).setOnClickListener(new c(this));
+            this.p = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f092664);
+            de5 c2 = de5.c(this.b);
+            c2.h(BadgeDrawable.TOP_END);
+            c2.g(-65536);
+            c2.m(R.dimen.tbds12, false);
+            c2.k(R.dimen.tbds15, true);
+            c2.i(R.dimen.tbds9);
+            c2.f(false);
+            c2.l("WriteBottomSheetController.sendHelp");
+            c2.b(this.p);
+            this.u = c2;
+            ((LinearLayout) this.h.findViewById(R.id.obfuscated_res_0x7f092663)).setOnClickListener(new d(this));
+            this.q = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f09266c);
+            ((LinearLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09266a)).setOnClickListener(new e(this));
+            this.r = (TextView) this.h.findViewById(R.id.obfuscated_res_0x7f09264f);
+            ((LinearLayout) this.h.findViewById(R.id.obfuscated_res_0x7f09264e)).setOnClickListener(new f(this));
+            this.a.setContentView(this.h);
+            if (this.a.getWindow() != null && this.a.getWindow().getAttributes() != null) {
+                this.t = this.a.getWindow().getAttributes().windowAnimations;
             }
-            x();
-            this.m.start();
-            this.i.start();
-            this.p.start();
+            i(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public final void x() {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h.cancel();
-            this.i.cancel();
-            this.m.cancel();
-            this.l.cancel();
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == null || i == this.s) {
+            return;
+        }
+        ns4 d2 = ns4.d(this.h);
+        d2.m(1);
+        d2.n(R.string.J_X14);
+        d2.f(R.color.CAM_X0211);
+        ns4 d3 = ns4.d(this.i);
+        d3.m(0);
+        d3.n(R.string.J_X03);
+        d3.f(R.color.CAM_X1112);
+        ns4 d4 = ns4.d(this.j);
+        d4.m(0);
+        d4.n(R.string.J_X06);
+        d4.f(R.color.CAM_X0206);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0110);
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809a0, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.r, (int) R.color.CAM_X0105);
+    }
+
+    public void j(ForumWriteData forumWriteData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumWriteData) == null) {
+            this.f = forumWriteData;
         }
     }
 
-    public final void y() {
+    public void k(ItemInfo itemInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.u.G.post(new d(this));
+        if (interceptable == null || interceptable.invokeL(1048579, this, itemInfo) == null) {
         }
     }
 
-    public final void z() {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.n = new AnimatorSet();
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.h = ofFloat;
-            ofFloat.setDuration(450L);
-            this.h.setInterpolator(new OvershootInterpolator());
-            this.h.addUpdateListener(new e(this));
-            this.h.addListener(new f(this));
-            ValueAnimator ofFloat2 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.i = ofFloat2;
-            ofFloat2.setDuration(450L);
-            this.i.setInterpolator(new AccelerateInterpolator());
-            this.i.addUpdateListener(new g(this));
-            this.i.addListener(new h(this));
-            ValueAnimator ofFloat3 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.l = ofFloat3;
-            ofFloat3.setDuration(416L);
-            this.l.addUpdateListener(new i(this));
-            this.l.addListener(new j(this));
-            ValueAnimator ofFloat4 = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.m = ofFloat4;
-            ofFloat4.setDuration(200L);
-            this.m.addUpdateListener(new k(this));
-            this.m.addListener(new l(this));
-            ValueAnimator ofFloat5 = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.o = ofFloat5;
-            ofFloat5.setDuration(240L);
-            this.o.addUpdateListener(new m(this));
-            this.n.addListener(new a(this));
-            ValueAnimator ofFloat6 = ValueAnimator.ofFloat(1.0f, 0.0f);
-            this.p = ofFloat6;
-            ofFloat6.setDuration(200L);
-            this.p.addUpdateListener(new b(this));
-            this.p.addListener(new c(this));
-            this.u.j.setVisibility(0);
-            this.u.g.setVisibility(0);
-            this.u.m.setVisibility(0);
-            this.u.p.setVisibility(TbSingleton.getInstance().isShowStartLiveEntry() ? 0 : 8);
-            this.u.x.setVisibility(0);
-            if (this.u.A.getVisibility() != 8) {
-                this.u.A.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.a == null) {
+                h();
+            } else if (this.u.e() && !this.u.d()) {
+                this.u.n(false);
             }
-            this.q = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds360);
-            this.s = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds25);
-            this.r = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds177);
-            this.n.play(this.o);
+            if (this.a.getWindow() != null && this.t > 0) {
+                this.a.getWindow().setWindowAnimations(this.t);
+            }
+            this.a.show();
+            if (this.a.getWindow() != null) {
+                this.a.getWindow().setWindowAnimations(-1);
+            }
         }
     }
 }

@@ -24,7 +24,7 @@ public class gx extends zw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadGodReplyLayout h;
-    public ho4 i;
+    public go4 i;
     public StatisticItem j;
 
     /* loaded from: classes4.dex */
@@ -131,7 +131,7 @@ public class gx extends zw {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                uz5.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                sz5.l(this.a.h.getGodReplyContent(), this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
             return invokeL.booleanValue;
@@ -203,16 +203,16 @@ public class gx extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: w */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ho4Var) == null) {
-            this.i = ho4Var;
-            PostData topAgreePost = ho4Var.getThreadData().getTopAgreePost();
+        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
+            this.i = go4Var;
+            PostData topAgreePost = go4Var.getThreadData().getTopAgreePost();
             if (this.j != null && topAgreePost != null && topAgreePost.s() != null && topAgreePost.s().getUserId() != null) {
-                this.j.param("tid", ho4Var.getThreadData().tid).param("post_id", topAgreePost.K()).param("uid", topAgreePost.s().getUserId());
-                c06.b().a(this.j);
+                this.j.param("tid", go4Var.getThreadData().tid).param("post_id", topAgreePost.K()).param("uid", topAgreePost.s().getUserId());
+                a06.b().a(this.j);
             }
-            this.h.setData(ho4Var.getThreadData());
+            this.h.setData(go4Var.getThreadData());
         }
     }
 

@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
     public double b;
-    public List<String> c;
-    public int d;
-    public int e;
+    public double c;
 
     public gd8() {
         Interceptable interceptable = $ic;
@@ -33,7 +29,7 @@ public class gd8 {
         }
     }
 
-    public static gd8 a(JSONObject jSONObject) {
+    public static gd8 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -41,24 +37,19 @@ public class gd8 {
                 return null;
             }
             gd8 gd8Var = new gd8();
-            gd8Var.a = jSONObject.optInt("label_measure") == 2;
-            gd8Var.b = jSONObject.optDouble("show_width_scale", 1.0d);
-            ArrayList arrayList = new ArrayList();
-            JSONArray optJSONArray = jSONObject.optJSONArray("thread_pic_list");
-            if (optJSONArray != null) {
-                int length = optJSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        if7.a(arrayList, optJSONObject.optString("pic"));
-                    }
-                }
-            }
-            gd8Var.c = arrayList;
-            gd8Var.d = jSONObject.optInt("width");
-            gd8Var.e = jSONObject.optInt("height");
+            gd8Var.a = jSONObject.optString("bottom_picture", "");
+            jSONObject.optInt("cover_shadow_switch", 0);
+            gd8Var.b = jSONObject.optDouble("player_width_ratio", 0.0d);
+            gd8Var.c = jSONObject.optDouble("right_margin_ratio", 0.0d);
+            jSONObject.optDouble("player_height_clipping_ratio", 0.0d);
             return gd8Var;
         }
         return (gd8) invokeL.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
     }
 }

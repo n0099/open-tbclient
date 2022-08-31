@@ -6,7 +6,6 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +69,7 @@ public class Util {
             }
             StringBuilder sb = new StringBuilder();
             try {
-                deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+                deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -78,7 +77,7 @@ public class Util {
                 sb.append(deviceId);
                 return sb.toString();
             }
-            String macAddress = ApiReplaceUtil.getMacAddress(((WifiManager) context.getSystemService("wifi")).getConnectionInfo());
+            String macAddress = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo().getMacAddress();
             if (!isEmpty(macAddress)) {
                 sb.append(macAddress);
                 return sb.toString();

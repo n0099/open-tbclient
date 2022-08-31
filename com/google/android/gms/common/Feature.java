@@ -5,9 +5,9 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ho9;
-import com.baidu.tieba.in9;
-import com.baidu.tieba.ln9;
+import com.baidu.tieba.fo9;
+import com.baidu.tieba.gn9;
+import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public class Feature extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new ho9();
+        CREATOR = new fo9();
     }
 
     public Feature(@NonNull String str, int i, long j) {
@@ -118,7 +118,7 @@ public class Feature extends AbstractSafeParcelable {
     public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? in9.b(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? gn9.b(getName(), Long.valueOf(getVersion())) : invokeV.intValue;
     }
 
     @NonNull
@@ -126,7 +126,7 @@ public class Feature extends AbstractSafeParcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            in9.a c = in9.c(this);
+            gn9.a c = gn9.c(this);
             c.a("name", getName());
             c.a("version", Long.valueOf(getVersion()));
             return c.toString();
@@ -138,11 +138,11 @@ public class Feature extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.k(parcel, 1, getName(), false);
-            ln9.g(parcel, 2, this.zzb);
-            ln9.i(parcel, 3, getVersion());
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.k(parcel, 1, getName(), false);
+            jn9.g(parcel, 2, this.zzb);
+            jn9.i(parcel, 3, getVersion());
+            jn9.b(parcel, a);
         }
     }
 }

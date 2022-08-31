@@ -12,12 +12,12 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.os.StatFs;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -372,7 +372,7 @@ public class j {
                 f799a = m541d;
                 if (m541d) {
                     try {
-                        b = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                        b = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                     } catch (Throwable th) {
                         com.xiaomi.channel.commonutils.logger.b.m89a("failure to get androidId: " + th);
                     }
@@ -486,7 +486,7 @@ public class j {
                     if (str == null) {
                         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                         if (Build.VERSION.SDK_INT < 26) {
-                            str = ApiReplaceUtil.getDeviceId(telephonyManager);
+                            str = telephonyManager.getDeviceId();
                         } else {
                             if (1 == telephonyManager.getPhoneType()) {
                                 obj = bk.a((Object) telephonyManager, "getImei", (Object[]) null);

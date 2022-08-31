@@ -2,11 +2,11 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.hz;
 import com.baidu.tieba.i00;
@@ -473,7 +473,7 @@ public class yy {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             return TextUtils.isEmpty(string) ? "" : string;
         }
         return (String) invokeL.objValue;

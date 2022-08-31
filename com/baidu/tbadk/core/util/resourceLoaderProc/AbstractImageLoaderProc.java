@@ -26,14 +26,14 @@ import com.baidu.tieba.eg;
 import com.baidu.tieba.ig;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.lg;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.mg;
-import com.baidu.tieba.o55;
 import com.baidu.tieba.og;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tn4;
-import com.baidu.tieba.ue5;
+import com.baidu.tieba.se5;
+import com.baidu.tieba.sn4;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -208,7 +208,7 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? tn4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? sn4.c().g() : invokeV.booleanValue;
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i, int i2) {
@@ -219,7 +219,7 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                o55.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+                m55.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -263,7 +263,7 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
                 long currentTimeMillis = System.currentTimeMillis();
                 anVar.A(i);
                 anVar.z(i2);
-                o55.k().d(str, anVar);
+                m55.k().d(str, anVar);
                 ig.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -339,7 +339,7 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            an m = o55.k().m(str);
+            an m = m55.k().m(str);
             if (z) {
                 ig.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -396,8 +396,8 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
             int i8 = suggestHeight;
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, i7, i8);
-            ue5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = ue5.d(urlbyClientServerAddr);
+            se5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = se5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -493,7 +493,7 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            o55.k().i(TbConfig.getPbImageSize() + bArr3.length);
+            m55.k().i(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i6 = 1;
                 p = m41decodeToResource(bArr3, rect).p();
@@ -504,7 +504,7 @@ public abstract class AbstractImageLoaderProc implements mg<an> {
                 p = decodeToResourceWithWH(bArr3, i5, i4).p();
             }
             if (z && p == null) {
-                ue5.b(str4);
+                se5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z4);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {

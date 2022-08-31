@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn9;
+import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -137,7 +137,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048586, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            jn9.d(view2);
+            hn9.d(view2);
             fragment.registerForContextMenu(view2);
         }
     }
@@ -196,7 +196,7 @@ public final class FragmentWrapper extends IFragmentWrapper.Stub {
         if (interceptable == null || interceptable.invokeL(1048593, this, iObjectWrapper) == null) {
             View view2 = (View) ObjectWrapper.unwrap(iObjectWrapper);
             Fragment fragment = this.zza;
-            jn9.d(view2);
+            hn9.d(view2);
             fragment.unregisterForContextMenu(view2);
         }
     }

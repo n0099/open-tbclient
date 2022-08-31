@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.AbstractQueue;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes4.dex */
-public final class lx9 implements hv9 {
+public abstract class lx9<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<hv9> a;
-    public volatile boolean b;
+    public final AtomicReference<LinkedQueueNode<E>> a;
+    public final AtomicReference<LinkedQueueNode<E>> b;
 
     public lx9() {
         Interceptable interceptable = $ic;
@@ -28,125 +28,86 @@ public final class lx9 implements hv9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new AtomicReference<>();
+        this.b = new AtomicReference<>();
     }
 
-    public static void c(Collection<hv9> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, collection) == null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (hv9 hv9Var : collection) {
-            try {
-                hv9Var.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
-            }
-        }
-        mv9.d(arrayList);
-    }
-
-    public void a(hv9 hv9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hv9Var) == null) || hv9Var.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    List list = this.a;
-                    if (list == null) {
-                        list = new LinkedList();
-                        this.a = list;
-                    }
-                    list.add(hv9Var);
-                    return;
-                }
-            }
-        }
-        hv9Var.unsubscribe();
-    }
-
-    public void b(hv9 hv9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hv9Var) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            List<hv9> list = this.a;
-            if (!this.b && list != null) {
-                boolean remove = list.remove(hv9Var);
-                if (remove) {
-                    hv9Var.unsubscribe();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.hv9
-    public boolean isUnsubscribed() {
+    public final LinkedQueueNode<E> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hv9
-    public void unsubscribe() {
+    public final LinkedQueueNode<E> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            List<hv9> list = this.a;
-            this.a = null;
-            c(list);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final LinkedQueueNode<E> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.get() : (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final LinkedQueueNode<E> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.get() : (LinkedQueueNode) invokeV.objValue;
+    }
+
+    public final void e(LinkedQueueNode<E> linkedQueueNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, linkedQueueNode) == null) {
+            this.b.lazySet(linkedQueueNode);
         }
     }
 
-    public lx9(hv9... hv9VarArr) {
+    public final void f(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hv9VarArr};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedQueueNode) == null) {
+            this.a.lazySet(linkedQueueNode);
         }
-        this.a = new LinkedList(Arrays.asList(hv9VarArr));
     }
 
-    public lx9(hv9 hv9Var) {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final boolean isEmpty() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hv9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c() == d() : invokeV.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public final Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            throw new UnsupportedOperationException();
         }
-        LinkedList linkedList = new LinkedList();
-        this.a = linkedList;
-        linkedList.add(hv9Var);
+        return (Iterator) invokeV.objValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public final int size() {
+        InterceptResult invokeV;
+        LinkedQueueNode<E> lvNext;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            LinkedQueueNode<E> c = c();
+            LinkedQueueNode<E> d = d();
+            int i = 0;
+            while (c != d && i < Integer.MAX_VALUE) {
+                do {
+                    lvNext = c.lvNext();
+                } while (lvNext == null);
+                i++;
+                c = lvNext;
+            }
+            return i;
+        }
+        return invokeV.intValue;
     }
 }

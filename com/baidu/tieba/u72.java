@@ -97,11 +97,11 @@ public final class u72 implements pm2 {
 
         /* renamed from: com.baidu.tieba.u72$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0412a implements Runnable {
+        public class RunnableC0419a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0412a(a aVar) {
+            public RunnableC0419a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -150,7 +150,7 @@ public final class u72 implements pm2 {
                     return;
                 }
                 z03.K().y().Y(15);
-                ue3.e0(new RunnableC0412a(this));
+                ue3.e0(new RunnableC0419a(this));
             }
         }
     }

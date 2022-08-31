@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.interest.data.RecentClientInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import tbclient.GetTagList.ResponseTagInfo;
+/* loaded from: classes5.dex */
 public class td7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rd7 a;
-    public RecentClientInfo b;
+    public int a;
+    public String b;
+    public boolean c;
 
     public td7() {
         Interceptable interceptable = $ic;
@@ -28,29 +27,13 @@ public class td7 {
         }
     }
 
-    public rd7 a() {
-        InterceptResult invokeV;
+    public void a(ResponseTagInfo responseTagInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (rd7) invokeV.objValue;
-    }
-
-    public RecentClientInfo b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (RecentClientInfo) invokeV.objValue;
-    }
-
-    public void c(rd7 rd7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rd7Var) == null) {
-            this.a = rd7Var;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, responseTagInfo) == null) || responseTagInfo == null) {
+            return;
         }
-    }
-
-    public void d(RecentClientInfo recentClientInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, recentClientInfo) == null) {
-            this.b = recentClientInfo;
-        }
+        this.a = responseTagInfo.tag_id.intValue();
+        this.b = responseTagInfo.tag_name;
+        this.c = responseTagInfo.is_followed.intValue() == 1;
     }
 }

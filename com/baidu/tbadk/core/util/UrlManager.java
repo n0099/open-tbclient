@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
+import com.baidu.tieba.li5;
 import com.baidu.tieba.mn4;
-import com.baidu.tieba.ni5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
@@ -132,7 +132,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new ni5(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new li5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }

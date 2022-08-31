@@ -1,38 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
 /* loaded from: classes6.dex */
 public class y2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, View view2, GridView gridView) {
+    public static boolean a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) || i == 0 || gridView == null || view2 == null) {
-            return;
-        }
-        int i2 = i >= 3 ? 82 : 110;
-        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-        if (i == 1) {
-            gridView.setNumColumns(1);
-            layoutParams.width = q2a.a(i2);
-        } else if (i == 2) {
-            gridView.setNumColumns(2);
-            layoutParams.width = q2a.a((i2 * 2) + 7);
-        } else if (i == 3) {
-            gridView.setNumColumns(3);
-            layoutParams.width = q2a.a((i2 * 3) + 14);
-        } else if (i != 4) {
-            gridView.setNumColumns(3);
-            layoutParams.width = q2a.a((i2 * 3) + 14);
-        } else {
-            gridView.setNumColumns(2);
-            layoutParams.width = q2a.a((i2 * 2) + 7);
-        }
-        view2.setLayoutParams(layoutParams);
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) ? PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2) : invokeLL.booleanValue;
+    }
+
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2) : invokeLL.booleanValue;
+    }
+
+    public static boolean c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? b(str, str2) || a(str, str2) || PayType.MOCK_TEST_PAY.getChannel().equals(str) || PayType.UNION_PAY.getChannel().equals(str) : invokeLL.booleanValue;
     }
 }

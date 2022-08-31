@@ -6,9 +6,9 @@ import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.af5;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
                 builder.scr_dip = Integer.valueOf((int) ri.h(TbadkCoreApplication.getInst()));
                 builder.network_type = String.valueOf(pi.K());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    af5.a(builder, true);
+                    ye5.a(builder, true);
                 }
                 LiveSquareReqIdl.Builder builder2 = new LiveSquareReqIdl.Builder();
                 builder2.data = builder.build(false);

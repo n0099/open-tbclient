@@ -19,11 +19,11 @@ import com.baidu.tieba.ac;
 import com.baidu.tieba.an;
 import com.baidu.tieba.eg;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.og;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ue5;
+import com.baidu.tieba.se5;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -218,8 +218,8 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             }
             boolean isFromCDN = isFromCDN();
             String urlbyClientServerAddr = isFromCDN ? str : getUrlbyClientServerAddr(str, suggestWidth, suggestHeight);
-            ue5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = ue5.d(urlbyClientServerAddr);
+            se5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = se5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 urlbyClientServerAddr = (String) d.second;
                 z = true;
@@ -309,7 +309,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr2 = bArr;
-            o55.k().i(TbConfig.getPbImageSize() + bArr2.length);
+            m55.k().i(TbConfig.getPbImageSize() + bArr2.length);
             boolean z5 = webClient.isGif || ri.B(bArr2);
             an anVar3 = new an((Bitmap) null, z5, str, bArr2);
             anVar3.y(z2);

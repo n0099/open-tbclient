@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.pv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -228,9 +228,9 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923b2);
             this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0923bd);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.obfuscated_res_0x7f090429);
-            rv4 rv4Var = new rv4();
+            pv4 pv4Var = new pv4();
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(rv4Var);
+            this.h.setConfig(pv4Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0923d3);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
@@ -351,11 +351,11 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f090431);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.obfuscated_res_0x7f09044b);
-                rv4 rv4Var = new rv4();
+                pv4 pv4Var = new pv4();
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(rv4Var);
+                this.i.setConfig(pv4Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(rv4Var);
+                this.j.setConfig(pv4Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);

@@ -36,12 +36,12 @@ public class kq1 {
 
         /* renamed from: com.baidu.tieba.kq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0309a implements Runnable {
+        public class RunnableC0311a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0309a(a aVar) {
+            public RunnableC0311a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public class kq1 {
         public void onReceiveValue(Long l) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, l) == null) {
-                this.a.runOnJSThread(new RunnableC0309a(this));
+                this.a.runOnJSThread(new RunnableC0311a(this));
             }
         }
     }

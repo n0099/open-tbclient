@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +13,16 @@ public class xo8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final un8 b;
+    public final sn8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xo8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2921348);
+    public xo8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2010045);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,21 +34,20 @@ public class xo8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = un8Var;
+        this.b = sn8Var;
+        setTag(mainTabActivity.getUniqueId());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        un8 un8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean) || (un8Var = this.b) == null || un8Var.B() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || this.b == null || TbadkCoreApplication.getInst().getCurrentActivity() != this.a) {
             return;
         }
-        if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            this.b.B().getTabWrapper().animate().translationY(this.b.B().getTabWrapper().getHeight()).setDuration(200L).start();
-        } else {
-            this.b.B().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
-        }
+        boolean z = false;
+        this.b.v = pg.b(customResponsedMessage.getData().toString(), false);
+        sn8 sn8Var = this.b;
+        this.b.H((sn8Var.v || sn8Var.w) ? true : true);
     }
 }

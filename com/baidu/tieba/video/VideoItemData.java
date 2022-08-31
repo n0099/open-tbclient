@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eq4;
-import com.baidu.tieba.f75;
-import com.baidu.tieba.jq4;
-import com.baidu.tieba.mi5;
+import com.baidu.tieba.d75;
+import com.baidu.tieba.dq4;
+import com.baidu.tieba.iq4;
+import com.baidu.tieba.ki5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
@@ -232,7 +232,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = jq4.a(new JSONArray(DataExt.toJson(obj2)));
+                        this.mRichAbstractList = iq4.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -474,7 +474,7 @@ public class VideoItemData implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.channel_mid_request_video_num : invokeV.intValue;
     }
 
-    public eq4 getNegFeedBackData() {
+    public dq4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
@@ -482,19 +482,19 @@ public class VideoItemData implements Serializable, Parcelable {
             if (sparseArray == null || sparseArray.size() <= 0) {
                 return null;
             }
-            eq4 eq4Var = new eq4();
-            eq4Var.n(this.nid);
-            eq4Var.o(this.thread_id);
-            eq4Var.l(this.forum_id);
-            eq4Var.j(this.feedBackReasonMap);
-            eq4Var.g = this.feedBackExtraMap;
-            eq4Var.p = this.mRecomAbTag;
-            eq4Var.k = this.mRecomWeight;
-            eq4Var.m = this.mRecomExtra;
-            eq4Var.l = this.mRecomSource;
-            return eq4Var;
+            dq4 dq4Var = new dq4();
+            dq4Var.n(this.nid);
+            dq4Var.o(this.thread_id);
+            dq4Var.l(this.forum_id);
+            dq4Var.j(this.feedBackReasonMap);
+            dq4Var.g = this.feedBackExtraMap;
+            dq4Var.p = this.mRecomAbTag;
+            dq4Var.k = this.mRecomWeight;
+            dq4Var.m = this.mRecomExtra;
+            dq4Var.l = this.mRecomSource;
+            return dq4Var;
         }
-        return (eq4) invokeV.objValue;
+        return (dq4) invokeV.objValue;
     }
 
     public String getThreadId() {
@@ -594,7 +594,7 @@ public class VideoItemData implements Serializable, Parcelable {
             this.title = jSONObject.optString("title");
             JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray != null) {
-                this.mRichAbstractList = jq4.a(optJSONArray);
+                this.mRichAbstractList = iq4.a(optJSONArray);
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
             if (optJSONArray2 != null) {
@@ -733,7 +733,7 @@ public class VideoItemData implements Serializable, Parcelable {
             }
             JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray2 != null) {
-                this.mRichAbstractList = jq4.a(optJSONArray2);
+                this.mRichAbstractList = iq4.a(optJSONArray2);
             }
             StringBuilder sb = new StringBuilder();
             JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -888,13 +888,13 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        f75 f = f75.f(this.threadData, pbContent);
+                        d75 f = d75.f(this.threadData, pbContent);
                         f.d(R.color.CAM_X0101);
                         f.e(R.color.CAM_X0113);
                         f.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        n = mi5.o(f);
+                        n = ki5.o(f);
                     } else {
-                        n = mi5.n(this.threadData, pbContent);
+                        n = ki5.n(this.threadData, pbContent);
                     }
                     this.titleSsb.append(n);
                 }

@@ -61,8 +61,10 @@ public final class px9<T> implements Queue<T> {
                 return;
             }
         }
-        int b = ay9.b(i2);
+        int b = yx9.b(Math.max(8, i2));
         int i5 = b - 1;
+        this.a = new AtomicLong();
+        this.h = new AtomicLong();
         AtomicReferenceArray<Object> atomicReferenceArray = new AtomicReferenceArray<>(b + 1);
         this.e = atomicReferenceArray;
         this.d = i5;
@@ -70,8 +72,7 @@ public final class px9<T> implements Queue<T> {
         this.g = atomicReferenceArray;
         this.f = i5;
         this.c = i5 - 1;
-        this.a = new AtomicLong();
-        this.h = new AtomicLong();
+        p(0L);
     }
 
     public static int b(int i2) {
@@ -97,7 +98,7 @@ public final class px9<T> implements Queue<T> {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, atomicReferenceArray, i2)) == null) ? atomicReferenceArray.get(i2) : invokeLI.objValue;
     }
 
-    public static void o(AtomicReferenceArray<Object> atomicReferenceArray, int i2, Object obj) {
+    public static void n(AtomicReferenceArray<Object> atomicReferenceArray, int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65541, null, atomicReferenceArray, i2, obj) == null) {
             atomicReferenceArray.lazySet(i2, obj);
@@ -246,58 +247,39 @@ public final class px9<T> implements Queue<T> {
             if (t == null) {
                 return null;
             }
-            o(atomicReferenceArray, c, null);
-            n(j2 + 1);
+            m(j2 + 1);
+            n(atomicReferenceArray, c, null);
             return t;
         }
         return (T) invokeCommon.objValue;
     }
 
-    public boolean l(T t, T t2) {
-        InterceptResult invokeLL;
+    public final void l(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2, T t, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, t, t2)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.e;
-            long i2 = i();
-            int i3 = this.d;
-            long j2 = 2 + i2;
-            if (g(atomicReferenceArray, c(j2, i3)) == null) {
-                int c = c(i2, i3);
-                o(atomicReferenceArray, c + 1, t2);
-                o(atomicReferenceArray, c, t);
-                q(j2);
-                return true;
-            }
-            AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
-            this.e = atomicReferenceArray2;
-            int c2 = c(i2, i3);
-            o(atomicReferenceArray2, c2 + 1, t2);
-            o(atomicReferenceArray2, c2, t);
-            p(atomicReferenceArray, atomicReferenceArray2);
-            o(atomicReferenceArray, c2, j);
-            q(j2);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void m(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2, T t, long j3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
             AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
             this.e = atomicReferenceArray2;
             this.c = (j3 + j2) - 1;
-            o(atomicReferenceArray2, i2, t);
-            p(atomicReferenceArray, atomicReferenceArray2);
-            o(atomicReferenceArray, i2, j);
-            q(j2 + 1);
+            p(j2 + 1);
+            n(atomicReferenceArray2, i2, t);
+            o(atomicReferenceArray, atomicReferenceArray2);
+            n(atomicReferenceArray, i2, j);
         }
     }
 
-    public final void n(long j2) {
+    public final void m(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
             this.h.lazySet(j2);
+        }
+    }
+
+    public final void o(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048594, this, atomicReferenceArray, atomicReferenceArray2) == null) {
+            int length = atomicReferenceArray.length() - 1;
+            b(length);
+            n(atomicReferenceArray, length, atomicReferenceArray2);
         }
     }
 
@@ -306,33 +288,34 @@ public final class px9<T> implements Queue<T> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, t)) == null) {
-            AtomicReferenceArray<Object> atomicReferenceArray = this.e;
-            long e = e();
-            int i2 = this.d;
-            int c = c(e, i2);
-            if (e < this.c) {
-                return r(atomicReferenceArray, t, e, c);
+            if (t != null) {
+                AtomicReferenceArray<Object> atomicReferenceArray = this.e;
+                long e = e();
+                int i2 = this.d;
+                int c = c(e, i2);
+                if (e < this.c) {
+                    return q(atomicReferenceArray, t, e, c);
+                }
+                long j2 = this.b + e;
+                if (g(atomicReferenceArray, c(j2, i2)) == null) {
+                    this.c = j2 - 1;
+                    return q(atomicReferenceArray, t, e, c);
+                } else if (g(atomicReferenceArray, c(1 + e, i2)) != null) {
+                    return q(atomicReferenceArray, t, e, c);
+                } else {
+                    l(atomicReferenceArray, e, c, t, i2);
+                    return true;
+                }
             }
-            long j2 = this.b + e;
-            if (g(atomicReferenceArray, c(j2, i2)) == null) {
-                this.c = j2 - 1;
-                return r(atomicReferenceArray, t, e, c);
-            } else if (g(atomicReferenceArray, c(1 + e, i2)) == null) {
-                return r(atomicReferenceArray, t, e, c);
-            } else {
-                m(atomicReferenceArray, e, c, t, i2);
-                return true;
-            }
+            throw null;
         }
         return invokeL.booleanValue;
     }
 
-    public final void p(AtomicReferenceArray<Object> atomicReferenceArray, AtomicReferenceArray<Object> atomicReferenceArray2) {
+    public final void p(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, atomicReferenceArray, atomicReferenceArray2) == null) {
-            int length = atomicReferenceArray.length() - 1;
-            b(length);
-            o(atomicReferenceArray, length, atomicReferenceArray2);
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.a.lazySet(j2);
         }
     }
 
@@ -367,26 +350,19 @@ public final class px9<T> implements Queue<T> {
                 }
                 return null;
             }
-            o(atomicReferenceArray, c, null);
-            n(d + 1);
+            m(d + 1);
+            n(atomicReferenceArray, c, null);
             return t;
         }
         return (T) invokeV.objValue;
     }
 
-    public final void q(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.a.lazySet(j2);
-        }
-    }
-
-    public final boolean r(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j2, int i2) {
+    public final boolean q(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{atomicReferenceArray, t, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            o(atomicReferenceArray, i2, t);
-            q(j2 + 1);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{atomicReferenceArray, t, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+            p(j2 + 1);
+            n(atomicReferenceArray, i2, t);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -396,7 +372,7 @@ public final class px9<T> implements Queue<T> {
     public boolean remove(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, obj)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
@@ -406,7 +382,7 @@ public final class px9<T> implements Queue<T> {
     public boolean removeAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, collection)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
@@ -416,7 +392,7 @@ public final class px9<T> implements Queue<T> {
     public boolean retainAll(Collection<?> collection) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, collection)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, collection)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeL.booleanValue;
@@ -426,7 +402,7 @@ public final class px9<T> implements Queue<T> {
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048605, this)) != null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(1048604, this)) != null) {
             return invokeV.intValue;
         }
         long f = f();
@@ -444,7 +420,7 @@ public final class px9<T> implements Queue<T> {
     public Object[] toArray() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             throw new UnsupportedOperationException();
         }
         return (Object[]) invokeV.objValue;
@@ -454,7 +430,7 @@ public final class px9<T> implements Queue<T> {
     public T remove() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             throw new UnsupportedOperationException();
         }
         return (T) invokeV.objValue;
@@ -464,7 +440,7 @@ public final class px9<T> implements Queue<T> {
     public <E> E[] toArray(E[] eArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, eArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, eArr)) == null) {
             throw new UnsupportedOperationException();
         }
         return (E[]) ((Object[]) invokeL.objValue);

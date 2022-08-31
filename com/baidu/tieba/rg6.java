@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rg6 {
+public class rg6 implements s47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public boolean d;
+    public MetaData a;
 
     public rg6() {
         Interceptable interceptable = $ic;
@@ -26,6 +25,10 @@ public class rg6 {
                 return;
             }
         }
-        this.d = false;
+        MetaData metaData = new MetaData();
+        this.a = metaData;
+        if (metaData.getGodUserData() == null) {
+            this.a.setGodUserData(new GodUserData());
+        }
     }
 }

@@ -93,12 +93,12 @@ public class xb3 extends ub3 {
 
         /* renamed from: com.baidu.tieba.xb3$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0452b implements rb3 {
+        public class C0456b implements rb3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public C0452b(b bVar) {
+            public C0456b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -295,9 +295,9 @@ public class xb3 extends ub3 {
             this.d = new Handler(Looper.getMainLooper());
             this.e = new ReentrantLock();
             this.f = new a(this);
-            C0452b c0452b = new C0452b(this);
-            this.g = c0452b;
-            xb3Var.c.setConnectListener(c0452b);
+            C0456b c0456b = new C0456b(this);
+            this.g = c0456b;
+            xb3Var.c.setConnectListener(c0456b);
         }
 
         @Override // com.baidu.tieba.vb3

@@ -1,125 +1,274 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.text.Layout;
+import android.text.StaticLayout;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.TextWordsEntity;
+import com.baidu.ugc.editvideo.subtitle.NewSubTitleCreater;
+import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ns8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ns8 k;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public Context c;
+    public TextWordsEntity.TextStyleEntity d;
+    public TextWordsEntity.TextFontEntity e;
+    public final TextPaint f;
+    public final TextPaint g;
+    public final TextPaint h;
+    public int i;
+    public List<String> j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948013142, "Lcom/baidu/tieba/ns8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ns8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948013142, "Lcom/baidu/tieba/ns8;");
-        }
+        this.b = 5;
+        this.j = new ArrayList();
+        this.f = new TextPaint(1);
+        this.g = new TextPaint(1);
+        this.h = new TextPaint(1);
+        this.a = pc9.j(R.dimen.tbds72);
     }
 
-    public static boolean a(InputStream inputStream, String str, za9 za9Var) throws IOException {
-        InterceptResult invokeLLL;
+    public static ns8 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, za9Var)) == null) {
-            try {
-                double size = inputStream instanceof FileInputStream ? ((FileInputStream) inputStream).getChannel().size() : 0.0d;
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (za9Var != null && size != 0.0d) {
-                        za9Var.c((int) ((i / size) * 100.0d));
-                    } else if (za9Var != null && size == 0.0d) {
-                        za9Var.c(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (k == null) {
+                synchronized (ns8.class) {
+                    if (k == null) {
+                        k = new ns8();
                     }
                 }
             }
+            return k;
         }
-        return invokeLLL.booleanValue;
+        return (ns8) invokeV.objValue;
     }
 
-    public static boolean b(String str, String str2, za9 za9Var) throws IOException {
-        InterceptResult invokeLLL;
+    public final void a(String str, Canvas canvas, int i, int i2, int i3, TextPaint textPaint) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, za9Var)) == null) ? a(new FileInputStream(str), str2, za9Var) : invokeLLL.booleanValue;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, canvas, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textPaint}) == null) {
+            i(textPaint);
+            canvas.drawText(str, i, i2, textPaint);
+        }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f.setTypeface(Typeface.DEFAULT);
+            this.g.setTypeface(Typeface.DEFAULT);
+            this.h.setTypeface(Typeface.DEFAULT);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f.setShader(null);
+            this.f.setColor(-1);
+            this.f.clearShadowLayer();
+            this.g.clearShadowLayer();
+            this.h.clearShadowLayer();
+            this.j.clear();
+        }
+    }
+
+    public final String e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = pg.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = pg.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = pg.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = pg.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str.contains("\n")) {
+                String[] split = str.split("\n");
+                if (split.length > 1) {
+                    int i = 0;
+                    int i2 = 0;
+                    for (int i3 = 0; i3 < split.length; i3++) {
+                        int length = split[i3].length();
+                        if (length > i2) {
+                            i = i3;
+                            i2 = length;
                         }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
                     }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                    return split[i];
                 }
-                return videoFileInfo;
+                return str;
             }
-            return null;
+            return str;
         }
-        return (VideoFileInfo) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (int) (rc9.e() * 0.85d) : invokeV.intValue;
+    }
+
+    public final int[] g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new int[]{0, 0};
+            }
+            String e = e(str);
+            int[] iArr = new int[2];
+            TextPaint textPaint = new TextPaint(1);
+            i(textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setTextSize(this.a);
+            float measureText = textPaint.measureText(e) + 2.0f + 40.0f;
+            if (measureText > f()) {
+                measureText = f() + 2.0f;
+            }
+            float f = 0.0f;
+            if (measureText > 0.0f) {
+                StaticLayout measuredStaticLayout = NewSubTitleCreater.getMeasuredStaticLayout(str, textPaint, (int) measureText, this.b, Layout.Alignment.ALIGN_CENTER, 0);
+                this.i = measuredStaticLayout.getLineCount();
+                int i = 0;
+                for (int i2 = 0; i2 < this.i; i2++) {
+                    int lineEnd = measuredStaticLayout.getLineEnd(i2);
+                    if (lineEnd != 0) {
+                        this.j.add(str.substring(i, lineEnd));
+                        i = lineEnd;
+                    }
+                }
+                f = measuredStaticLayout.getHeight() + 2.0f + 40.0f;
+            }
+            iArr[0] = (int) measureText;
+            iArr[1] = (int) f;
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public Bitmap h(Context context, String str, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextFontEntity textFontEntity) {
+        InterceptResult invokeLLLL;
+        int i;
+        int i2;
+        int i3;
+        Canvas canvas;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, context, str, textStyleEntity, textFontEntity)) == null) {
+            c();
+            this.c = context;
+            this.d = textStyleEntity;
+            this.e = textFontEntity;
+            this.f.setTextSize(this.a);
+            int[] g = g(str);
+            if (g[0] >= 1 && g[1] >= 1) {
+                Bitmap a = bc9.a(this.d);
+                NinePatchChunk f = bc9.f(a, this.d);
+                if (f != null) {
+                    Rect rect = f.padding;
+                    i = rect.left;
+                    int i4 = rect.top;
+                    g[0] = g[0] + i;
+                    g[1] = g[1] + i4;
+                    g[0] = g[0] + rect.right;
+                    g[1] = g[1] + rect.bottom;
+                    if (a != null && g[0] < a.getWidth()) {
+                        g[0] = a.getWidth();
+                    }
+                    i2 = i4;
+                } else {
+                    i = 0;
+                    i2 = 0;
+                }
+                Bitmap createBitmap = Bitmap.createBitmap(g[0], g[1], Bitmap.Config.ARGB_8888);
+                Canvas canvas2 = new Canvas(createBitmap);
+                canvas2.save();
+                int i5 = 20;
+                bc9.b(a, f, canvas2, 20);
+                int g2 = bc9.g(this.f);
+                int i6 = i + 20;
+                int abs = (g2 / 2) + ((int) (Math.abs(this.f.ascent() + this.f.descent()) / 2.0f)) + 20 + i2;
+                int i7 = 0;
+                while (i7 < this.i) {
+                    int i8 = i7 + 1;
+                    bc9.c(this.f, this.d, null);
+                    int[] d = bc9.d(this.f, this.g, this.h, this.d, null);
+                    bc9.e(canvas2, this.f, i6, (g2 * i7) + i5 + i2, (g2 * i8) + i5 + i2, this.d, null);
+                    if (d[0] != 0) {
+                        i3 = i7;
+                        canvas = canvas2;
+                        a(this.j.get(i7), canvas2, i6, abs, i3, this.g);
+                    } else {
+                        i3 = i7;
+                        canvas = canvas2;
+                    }
+                    if (d[1] != 0) {
+                        a(this.j.get(i3), canvas, i6, abs, i3, this.h);
+                    }
+                    a(this.j.get(i3), canvas, i6, abs, i3, this.f);
+                    abs += g2;
+                    canvas2 = canvas;
+                    i7 = i8;
+                    i5 = 20;
+                }
+                canvas2.restore();
+                return createBitmap;
+            }
+            return Bitmap.createBitmap(10, this.a, Bitmap.Config.ARGB_8888);
+        }
+        return (Bitmap) invokeLLLL.objValue;
+    }
+
+    public final void i(TextPaint textPaint) {
+        TextWordsEntity.TextFontEntity textFontEntity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, textPaint) == null) || (textFontEntity = this.e) == null) {
+            return;
+        }
+        try {
+            if (textFontEntity.isDefault()) {
+                b();
+                return;
+            }
+            this.e.setFontRootDir(new File(FileHelper.getVideoTmpDir()));
+            textPaint.setTypeface(Typeface.createFromFile(this.e.getSourceFile()));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
+        }
     }
 }

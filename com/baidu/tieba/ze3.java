@@ -34,12 +34,12 @@ public class ze3 implements tf3<Exception> {
 
         /* renamed from: com.baidu.tieba.ze3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0480a implements Runnable {
+        public class RunnableC0481a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0480a(a aVar) {
+            public RunnableC0481a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -101,7 +101,7 @@ public class ze3 implements tf3<Exception> {
                         if (this.a.c != null) {
                             this.a.b.removeCallbacks(this.a.c);
                         }
-                        this.a.c = new RunnableC0480a(this);
+                        this.a.c = new RunnableC0481a(this);
                         long a = ed4.a(300) * 1000;
                         this.a.b.postDelayed(this.a.c, a);
                         if (ze3.e) {

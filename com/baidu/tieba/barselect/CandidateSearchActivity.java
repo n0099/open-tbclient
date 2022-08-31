@@ -28,14 +28,14 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
 import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.jy5;
-import com.baidu.tieba.mm8;
+import com.baidu.tieba.hy5;
+import com.baidu.tieba.km8;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
+import com.baidu.tieba.sy5;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.uy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public NavigationBar a;
     public BdRecyclerView b;
     public CandidateSearchAdapter c;
-    public uy5 d;
+    public sy5 d;
     public String e;
     public View f;
     public View g;
@@ -58,7 +58,7 @@ public class CandidateSearchActivity extends BaseActivity {
     public EditText i;
     public ImageView j;
     public TextView k;
-    public List<jy5> l;
+    public List<hy5> l;
     public View.OnClickListener m;
     public bb n;
     public TextView.OnEditorActionListener o;
@@ -143,13 +143,13 @@ public class CandidateSearchActivity extends BaseActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
-            jy5 jy5Var = null;
+            hy5 hy5Var = null;
             if (responsedMessage instanceof CandidateSearchHttpResMsg) {
-                jy5Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
+                hy5Var = ((CandidateSearchHttpResMsg) responsedMessage).candidateData;
             } else if (responsedMessage instanceof CandidateSearchSocketResMsg) {
-                jy5Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
+                hy5Var = ((CandidateSearchSocketResMsg) responsedMessage).candidateData;
             }
-            if (responsedMessage.getError() != 0 || jy5Var == null) {
+            if (responsedMessage.getError() != 0 || hy5Var == null) {
                 this.a.b.setVisibility(8);
                 this.a.f.setVisibility(0);
                 return;
@@ -157,14 +157,14 @@ public class CandidateSearchActivity extends BaseActivity {
             this.a.b.setVisibility(0);
             this.a.f.setVisibility(8);
             if (this.a.i.getText() != null) {
-                jy5Var.j = this.a.i.getText().toString();
+                hy5Var.j = this.a.i.getText().toString();
             }
             if (this.a.l != null) {
                 this.a.l.clear();
             } else {
                 this.a.l = new ArrayList();
             }
-            this.a.l.add(jy5Var);
+            this.a.l.add(hy5Var);
             this.a.c.setData(this.a.l);
         }
     }
@@ -248,15 +248,15 @@ public class CandidateSearchActivity extends BaseActivity {
             if (error == 0) {
                 ri.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f02ec);
                 if (this.a.l != null) {
-                    for (jy5 jy5Var : this.a.l) {
-                        jy5Var.k = true;
+                    for (hy5 hy5Var : this.a.l) {
+                        hy5Var.k = true;
                     }
                 }
             } else if (error == 3250023) {
-                mm8.b(error, "", null);
+                km8.b(error, "", null);
             } else if (error == 3250021) {
                 if (httpResponsedMessage instanceof CommitVoteResMsg) {
-                    mm8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
+                    km8.a(error, ((CommitVoteResMsg) httpResponsedMessage).getTokenData(), null);
                 }
             } else if (error != 3250002 && error != 3250004) {
                 ri.N(TbadkCoreApplication.getInst(), httpResponsedMessage.getErrorString());
@@ -438,7 +438,7 @@ public class CandidateSearchActivity extends BaseActivity {
             this.b.setAdapter(candidateSearchAdapter);
             registerListener(this.n);
             registerListener(this.p);
-            this.d = new uy5(getPageContext());
+            this.d = new sy5(getPageContext());
             sg.a().postDelayed(this.r, 100L);
         }
     }

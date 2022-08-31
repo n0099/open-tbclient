@@ -10,9 +10,9 @@ import android.view.Surface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gn7;
-import com.baidu.tieba.mn7;
-import com.baidu.tieba.qn7;
+import com.baidu.tieba.en7;
+import com.baidu.tieba.kn7;
+import com.baidu.tieba.on7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public mn7 mPostMonitorManager;
+    public kn7 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
@@ -56,10 +56,10 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, qn7.class);
-        qn7 qn7Var = runTask != null ? (qn7) runTask.getData() : null;
-        if (qn7Var != null) {
-            this.mPostMonitorManager = qn7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, on7.class);
+        on7 on7Var = runTask != null ? (on7) runTask.getData() : null;
+        if (on7Var != null) {
+            this.mPostMonitorManager = on7Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -180,9 +180,9 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    mn7 mn7Var = this.mPostMonitorManager;
-                    if (mn7Var != null) {
-                        mn7Var.b(17, gn7.a(e));
+                    kn7 kn7Var = this.mPostMonitorManager;
+                    if (kn7Var != null) {
+                        kn7Var.b(17, en7.a(e));
                     }
                 }
                 this.mMuxer = null;

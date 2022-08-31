@@ -1,75 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
+import tbclient.ApkDetail;
 /* loaded from: classes5.dex */
-public class s56 implements a95 {
+public class s56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<j56> a;
-    public List<j56> b;
-    public Integer c;
 
-    public s56() {
+    public static void a(h56 h56Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65536, null, h56Var) == null) || h56Var == null || (itemData = h56Var.a) == null) {
+            return;
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
-    }
-
-    public void a(s56 s56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s56Var) == null) {
-            this.a.addAll(s56Var.a);
-            this.b = s56Var.b;
-            this.c = s56Var.c;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+        httpMessage.addParam("item_id", itemData.itemId);
+        httpMessage.addParam("app_name", itemData.mTitle);
+        httpMessage.addParam("source_type", h56Var.b);
+        httpMessage.addParam("icon_url", itemData.mIconUrl);
+        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+        httpMessage.addParam("tags", itemData.mTags);
+        httpMessage.addParam("apk_name", itemData.pkgName);
+        ApkDetail apkDetail = itemData.apkDetail;
+        if (apkDetail != null) {
+            httpMessage.addParam("developer", apkDetail.developer);
+            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+            httpMessage.addParam("version", itemData.apkDetail.version);
+            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
         }
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(j56.c(manageInfo));
-            }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(j56.c(manageInfo2));
-            }
-            this.c = dataRes.has_more;
-        }
-    }
-
-    @Override // com.baidu.tieba.a95
-    public void initByJson(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.a95
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-        }
+        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

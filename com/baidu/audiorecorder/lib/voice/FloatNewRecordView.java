@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d67;
+import com.baidu.tieba.b67;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements d67 {
+public class FloatNewRecordView extends RelativeLayout implements b67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -154,14 +154,14 @@ public class FloatNewRecordView extends RelativeLayout implements d67 {
         this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0afd), Integer.valueOf(((ej.b - i) / 1000) + 1)));
     }
 
-    @Override // com.baidu.tieba.d67
+    @Override // com.baidu.tieba.b67
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.d67
+    @Override // com.baidu.tieba.b67
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -214,7 +214,7 @@ public class FloatNewRecordView extends RelativeLayout implements d67 {
         this.g = true;
     }
 
-    @Override // com.baidu.tieba.d67
+    @Override // com.baidu.tieba.b67
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

@@ -1,13 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.airbnb.lottie.ImageAssetDelegate;
-import com.airbnb.lottie.LottieImageAsset;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,28 +11,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lh5 implements ImageAssetDelegate {
+public class lh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String d;
+    public static lh5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public LocalFileImageLoaderProc b;
-    public boolean c;
+    public yh5 a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947942896, "Lcom/baidu/tieba/lh5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947942896, "Lcom/baidu/tieba/lh5;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947942896, "Lcom/baidu/tieba/lh5;")) == null) {
+            return;
         }
-        d = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947942896, "Lcom/baidu/tieba/lh5;");
+        }
     }
 
     public lh5() {
@@ -50,71 +42,76 @@ public class lh5 implements ImageAssetDelegate {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = false;
     }
 
-    public static String a() {
+    public static lh5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d + "/" + TbConfig.getTempDirName() + "/animation/";
+            if (b == null) {
+                b = new lh5();
+            }
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (lh5) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void a() {
+        yh5 yh5Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.c = z;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (yh5Var = this.a) == null || yh5Var.b() == null) {
+            return;
         }
+        this.a.b().dismiss();
     }
 
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = a() + str + "/";
-        }
-    }
-
-    @Override // com.airbnb.lottie.ImageAssetDelegate
-    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+    public boolean c(qh5 qh5Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, lottieImageAsset)) == null) {
-            if (qi.isEmpty(this.a)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qh5Var)) == null) {
+            yh5 yh5Var = this.a;
+            if (yh5Var == null || yh5Var.b() == null) {
+                return false;
             }
-            String str = this.a + lottieImageAsset.getDirName().replace("/", "") + "/" + lottieImageAsset.getFileName();
-            an anVar = (an) lg.h().n(str, 36, new Object[0]);
-            if (anVar == null && b()) {
-                if (this.b == null) {
-                    this.b = new LocalFileImageLoaderProc();
-                }
-                anVar = this.b.getBitmapFromFile(str, 0, 0);
-            }
-            if (anVar != null && anVar.p() != null) {
-                Bitmap p = anVar.p();
-                try {
-                    if (p.getConfig() != null) {
-                        return p.copy(p.getConfig(), false);
-                    }
-                } catch (OutOfMemoryError e) {
-                    TbadkCoreApplication.getInst().onAppMemoryLow();
-                    BdLog.e(e);
-                }
-            }
-            lg.h().m(str, 36, null, null);
-            return null;
+            return this.a.b().c(qh5Var);
         }
-        return (Bitmap) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void d(int i) {
+        yh5 yh5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (yh5Var = this.a) == null || yh5Var.b() == null) {
+            return;
+        }
+        this.a.b().b(i);
+    }
+
+    public void e(TbPageContext tbPageContext, ViewGroup viewGroup, oh5 oh5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, tbPageContext, viewGroup, oh5Var) == null) {
+            yh5 yh5Var = this.a;
+            if (yh5Var == null || !yh5Var.a) {
+                this.a = new zh5(tbPageContext, viewGroup, oh5Var);
+            }
+            if (this.a.b() != null) {
+                this.a.b().show();
+            }
+        }
+    }
+
+    public boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            yh5 yh5Var = this.a;
+            if (yh5Var == null || yh5Var.b() == null) {
+                return false;
+            }
+            return this.a.b().a(str);
+        }
+        return invokeL.booleanValue;
     }
 }

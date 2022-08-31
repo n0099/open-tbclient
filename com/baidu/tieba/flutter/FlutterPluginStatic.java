@@ -7,7 +7,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.eb5;
+import com.baidu.tieba.cb5;
 import com.baidu.tieba.mn4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -69,8 +69,8 @@ public class FlutterPluginStatic {
                     }
                     if (customResponsedMessage.getData() instanceof IntentConfig) {
                         FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                    } else if (customResponsedMessage.getData() instanceof eb5) {
-                        FlutterPluginManager.getInstance().init((eb5) customResponsedMessage.getData());
+                    } else if (customResponsedMessage.getData() instanceof cb5) {
+                        FlutterPluginManager.getInstance().init((cb5) customResponsedMessage.getData());
                     } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                         FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                     } else {

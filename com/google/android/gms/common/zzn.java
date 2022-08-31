@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tieba.ko9;
-import com.baidu.tieba.ln9;
+import com.baidu.tieba.io9;
+import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ public final class zzn extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new ko9();
+        CREATOR = new io9();
     }
 
     public zzn(String str, boolean z, boolean z2, IBinder iBinder, boolean z3) {
@@ -70,13 +70,13 @@ public final class zzn extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.k(parcel, 1, this.zza, false);
-            ln9.c(parcel, 2, this.zzb);
-            ln9.c(parcel, 3, this.zzc);
-            ln9.f(parcel, 4, ObjectWrapper.wrap(this.zzd), false);
-            ln9.c(parcel, 5, this.zze);
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.k(parcel, 1, this.zza, false);
+            jn9.c(parcel, 2, this.zzb);
+            jn9.c(parcel, 3, this.zzc);
+            jn9.f(parcel, 4, ObjectWrapper.wrap(this.zzd), false);
+            jn9.c(parcel, 5, this.zze);
+            jn9.b(parcel, a);
         }
     }
 }

@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vw extends sw<ho4> implements ez8 {
+public class vw extends sw<go4> implements cz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardUserInfoLayout f;
     public int g;
-    public ho4 h;
+    public go4 h;
     public b i;
 
     /* loaded from: classes6.dex */
@@ -62,7 +62,7 @@ public class vw extends sw<ho4> implements ez8 {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(ho4 ho4Var, View view2);
+        void a(go4 go4Var, View view2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -93,7 +93,7 @@ public class vw extends sw<ho4> implements ez8 {
         this.f.setUserAfterClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.ez8
+    @Override // com.baidu.tieba.cz8
     public void b() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -138,7 +138,7 @@ public class vw extends sw<ho4> implements ez8 {
         }
     }
 
-    @Override // com.baidu.tieba.ez8
+    @Override // com.baidu.tieba.cz8
     public void play() {
         CardUserInfoLayout cardUserInfoLayout;
         Interceptable interceptable = $ic;
@@ -153,11 +153,11 @@ public class vw extends sw<ho4> implements ez8 {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: r */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ho4Var) == null) {
-            this.h = ho4Var;
-            this.f.setData(ho4Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048583, this, go4Var) == null) {
+            this.h = go4Var;
+            this.f.setData(go4Var.getThreadData());
         }
     }
 

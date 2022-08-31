@@ -20,17 +20,17 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.df7;
-import com.baidu.tieba.ed8;
-import com.baidu.tieba.hm5;
-import com.baidu.tieba.jo4;
-import com.baidu.tieba.kd8;
+import com.baidu.tieba.ae8;
+import com.baidu.tieba.bf7;
+import com.baidu.tieba.cd8;
+import com.baidu.tieba.fm5;
+import com.baidu.tieba.id8;
+import com.baidu.tieba.io4;
+import com.baidu.tieba.pm5;
+import com.baidu.tieba.qm5;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.AdAppInfoView;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rm5;
-import com.baidu.tieba.sm5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class AdEnhanceButtonView extends FrameLayout {
     public int f;
     public int g;
     public View h;
-    public ce8 i;
+    public ae8 i;
     public AdvertAppInfo j;
     public AdCard k;
 
@@ -241,7 +241,7 @@ public class AdEnhanceButtonView extends FrameLayout {
                 View view2 = this.b.q() ? this.b.b : this.b.d;
                 if (view2.getBackground() instanceof GradientDrawable) {
                     GradientDrawable gradientDrawable = (GradientDrawable) view2.getBackground();
-                    gradientDrawable.setColor(kd8.g(animatedFraction, SkinManager.getColor(R.color.CAM_X0614), this.a));
+                    gradientDrawable.setColor(id8.g(animatedFraction, SkinManager.getColor(R.color.CAM_X0614), this.a));
                     gradientDrawable.setCornerRadius(AdEnhanceButtonView.l);
                 }
             }
@@ -300,7 +300,7 @@ public class AdEnhanceButtonView extends FrameLayout {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements sm5.a {
+    public class f implements qm5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AdEnhanceButtonView a;
@@ -323,13 +323,13 @@ public class AdEnhanceButtonView extends FrameLayout {
             this.a = adEnhanceButtonView;
         }
 
-        @Override // com.baidu.tieba.sm5.a
+        @Override // com.baidu.tieba.qm5.a
         public boolean a(View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-                hm5.a(this.a.k.getButtonCmdScheme());
-                df7.c(this.a.j);
+                fm5.a(this.a.k.getButtonCmdScheme());
+                bf7.c(this.a.j);
                 return false;
             }
             return invokeL.booleanValue;
@@ -421,7 +421,7 @@ public class AdEnhanceButtonView extends FrameLayout {
     private int getBtnFinalColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? kd8.h(this.k.enhanceModel.a, SkinManager.getColor(R.color.CAM_X0302)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) ? id8.h(this.k.enhanceModel.a, SkinManager.getColor(R.color.CAM_X0302)) : invokeV.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -445,9 +445,9 @@ public class AdEnhanceButtonView extends FrameLayout {
                     return;
                 }
                 setVisibility(0);
-                jo4 jo4Var = this.k.appInfoModel;
-                if (jo4Var != null) {
-                    this.a.setAppInfo(jo4Var);
+                io4 io4Var = this.k.appInfoModel;
+                if (io4Var != null) {
+                    this.a.setAppInfo(io4Var);
                     this.a.setVisibility(0);
                 }
                 String str = this.k.operate.a;
@@ -487,14 +487,14 @@ public class AdEnhanceButtonView extends FrameLayout {
         }
     }
 
-    public final void k(@NonNull ed8 ed8Var) {
-        List<ed8.a> list;
+    public final void k(@NonNull cd8 cd8Var) {
+        List<cd8.a> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ed8Var) == null) || (list = ed8Var.b) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, cd8Var) == null) || (list = cd8Var.b) == null || list.size() <= 0) {
             return;
         }
         this.e = new ArrayList();
-        for (ed8.a aVar : list) {
+        for (cd8.a aVar : list) {
             if (aVar != null) {
                 p(aVar);
             }
@@ -518,7 +518,7 @@ public class AdEnhanceButtonView extends FrameLayout {
         }
     }
 
-    public final void m(@NonNull ed8.a aVar) {
+    public final void m(@NonNull cd8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             s();
@@ -542,7 +542,7 @@ public class AdEnhanceButtonView extends FrameLayout {
         }
     }
 
-    public final void n(@NonNull ed8.a aVar) {
+    public final void n(@NonNull cd8.a aVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || aVar.c <= 0) {
             return;
@@ -562,11 +562,11 @@ public class AdEnhanceButtonView extends FrameLayout {
             }
             this.c.setInitText(adCard.operate.a);
             this.c.setOnClickInterceptListener(new f(this));
-            new rm5(this.c, kd8.d(this.k));
+            new pm5(this.c, id8.d(this.k));
         }
     }
 
-    public final void p(@NonNull ed8.a aVar) {
+    public final void p(@NonNull cd8.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
             int i = aVar.a;
@@ -660,9 +660,9 @@ public class AdEnhanceButtonView extends FrameLayout {
                 }
                 return;
             }
-            ce8 ce8Var = this.i;
-            if (ce8Var != null) {
-                ce8Var.b();
+            ae8 ae8Var = this.i;
+            if (ae8Var != null) {
+                ae8Var.b();
             }
         }
     }

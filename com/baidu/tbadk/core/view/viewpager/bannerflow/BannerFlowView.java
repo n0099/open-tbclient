@@ -9,12 +9,12 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax4;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.pn;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xw4;
+import com.baidu.tieba.vw4;
+import com.baidu.tieba.ww4;
 import com.baidu.tieba.yw4;
+import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public xw4 c;
-    public bx4 d;
+    public vw4 c;
+    public zw4 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -67,8 +67,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new xw4(context, this.a, this.b, null);
-            this.d = new bx4(context, ax4.a);
+            this.c = new vw4(context, this.a, this.b, null);
+            this.d = new zw4(context, yw4.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -100,13 +100,13 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(yw4.a<ax4, bx4.a> aVar) {
-        bx4 bx4Var;
+    public void setOnItemClickListener(ww4.a<yw4, zw4.a> aVar) {
+        zw4 zw4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (bx4Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || (zw4Var = this.d) == null) {
             return;
         }
-        bx4Var.e(aVar);
+        zw4Var.e(aVar);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

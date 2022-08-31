@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xx extends sw<xq4> {
+public class xx extends sw<wq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecommendForumLayout f;
@@ -66,10 +66,10 @@ public class xx extends sw<xq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: p */
-    public void a(xq4 xq4Var) {
+    public void a(wq4 wq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, xq4Var) == null) {
-            this.f.setData(xq4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, wq4Var) == null) {
+            this.f.setData(wq4Var);
         }
     }
 
@@ -87,7 +87,7 @@ public class xx extends sw<xq4> {
         }
     }
 
-    public void s(cn4<wq4> cn4Var) {
+    public void s(cn4<vq4> cn4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cn4Var) == null) {
             this.f.setOnItemCoverListener(cn4Var);

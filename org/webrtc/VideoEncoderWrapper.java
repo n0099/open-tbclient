@@ -34,7 +34,7 @@ public class VideoEncoderWrapper {
     public static VideoEncoder.Callback createEncoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoEncoder.Callback() { // from class: com.baidu.tieba.ju9
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoEncoder.Callback() { // from class: com.baidu.tieba.hu9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

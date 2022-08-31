@@ -21,13 +21,13 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h67;
+import com.baidu.tieba.f67;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.p87;
+import com.baidu.tieba.n87;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vz7;
+import com.baidu.tieba.tz7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgrightView extends h67 {
+public class MsgrightView extends f67 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String O = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class MsgrightView extends h67 {
     public TextView K;
     public CenterTextView L;
     public RelativeLayout M;
-    public vz7 N;
+    public tz7 N;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -86,7 +86,7 @@ public class MsgrightView extends h67 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements p87.c {
+    public class b implements n87.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -111,7 +111,7 @@ public class MsgrightView extends h67 {
             this.a = chatMessage;
         }
 
-        @Override // com.baidu.tieba.p87.c
+        @Override // com.baidu.tieba.n87.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -123,9 +123,9 @@ public class MsgrightView extends h67 {
                     }
                     return;
                 }
-                vz7 vz7Var = this.b.N;
-                if (vz7Var != null) {
-                    vz7Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                tz7 tz7Var = this.b.N;
+                if (tz7Var != null) {
+                    tz7Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                 }
             }
         }
@@ -181,13 +181,13 @@ public class MsgrightView extends h67 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, vz7 vz7Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, tz7 tz7Var) {
         super(tbPageContext, R.layout.obfuscated_res_0x7f0d0587);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vz7Var};
+            Object[] objArr = {tbPageContext, tz7Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -200,7 +200,7 @@ public class MsgrightView extends h67 {
             }
         }
         this.N = null;
-        this.N = vz7Var;
+        this.N = tz7Var;
         q();
         this.G = (TextView) j(R.id.obfuscated_res_0x7f090ed9);
         this.E = (ProgressBar) j(R.id.obfuscated_res_0x7f091a7a);
@@ -209,10 +209,10 @@ public class MsgrightView extends h67 {
         this.L = (CenterTextView) j(R.id.obfuscated_res_0x7f09236e);
         this.M = (RelativeLayout) j(R.id.obfuscated_res_0x7f091c0c);
         this.I = (FrameLayout) j(R.id.obfuscated_res_0x7f091504);
-        os4 d = os4.d(this.M);
+        ns4 d = ns4.d(this.M);
         d.n(R.string.J_X05);
         d.f(R.color.CAM_X0603);
-        os4 d2 = os4.d(this.L);
+        ns4 d2 = ns4.d(this.L);
         d2.z(R.dimen.T_X09);
         d2.A(R.string.F_X01);
         d2.v(R.color.CAM_X0101);
@@ -227,7 +227,7 @@ public class MsgrightView extends h67 {
         this.o.setIsLeft(false);
     }
 
-    @Override // com.baidu.tieba.h67
+    @Override // com.baidu.tieba.f67
     public void E(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, chatMessage) == null) {
@@ -248,7 +248,7 @@ public class MsgrightView extends h67 {
         }
     }
 
-    @Override // com.baidu.tieba.h67
+    @Override // com.baidu.tieba.f67
     public void s() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -264,7 +264,7 @@ public class MsgrightView extends h67 {
         this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0610));
     }
 
-    @Override // com.baidu.tieba.h67
+    @Override // com.baidu.tieba.f67
     public void u(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {
@@ -376,7 +376,7 @@ public class MsgrightView extends h67 {
                                 this.L.setText(R.string.obfuscated_res_0x7f0f0ad2);
                                 break;
                             } else {
-                                p87 f = p87.f(this.L.getContext());
+                                n87 f = n87.f(this.L.getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
                                     f.h(this.L);

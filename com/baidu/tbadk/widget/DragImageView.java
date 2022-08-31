@@ -37,14 +37,14 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah5;
 import com.baidu.tieba.an;
-import com.baidu.tieba.bh5;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.iu4;
+import com.baidu.tieba.hu4;
 import com.baidu.tieba.ob;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.yg5;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,7 +72,7 @@ public class DragImageView extends ImageView {
     public boolean L;
     public boolean M;
     public float N;
-    public bh5 O;
+    public zg5 O;
     public ImageUrlData P;
     public Interpolator Q;
     public Matrix R;
@@ -847,9 +847,9 @@ public class DragImageView extends ImageView {
     public void T() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.O == null) {
-            bh5 bh5Var = new bh5(this);
-            this.O = bh5Var;
-            bh5Var.S(this.p);
+            zg5 zg5Var = new zg5(this);
+            this.O = zg5Var;
+            zg5Var.S(this.p);
             this.O.T(this.q);
         }
     }
@@ -858,9 +858,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bitmap)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                return bh5Var.y();
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                return zg5Var.y();
             }
             if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
                 return 1.0f;
@@ -924,9 +924,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                return bh5Var.D();
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                return zg5Var.D();
             }
             return false;
         }
@@ -943,11 +943,11 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var == null) {
+            zg5 zg5Var = this.O;
+            if (zg5Var == null) {
                 return false;
             }
-            return bh5Var.G();
+            return zg5Var.G();
         }
         return invokeV.booleanValue;
     }
@@ -956,11 +956,11 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var == null) {
+            zg5 zg5Var = this.O;
+            if (zg5Var == null) {
                 return false;
             }
-            return bh5Var.H();
+            return zg5Var.H();
         }
         return invokeV.booleanValue;
     }
@@ -979,9 +979,9 @@ public class DragImageView extends ImageView {
                 this.B.close();
                 this.B = null;
             }
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                bh5Var.O();
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                zg5Var.O();
                 System.gc();
             }
         }
@@ -1009,12 +1009,12 @@ public class DragImageView extends ImageView {
 
     @Override // android.view.View
     public void computeScroll() {
-        bh5 bh5Var;
+        zg5 zg5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (bh5Var = this.O) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (zg5Var = this.O) == null) {
             return;
         }
-        bh5Var.t();
+        zg5Var.t();
     }
 
     @Override // android.view.View
@@ -1054,9 +1054,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                return bh5Var.F();
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                return zg5Var.F();
             }
             return this.g == this.i;
         }
@@ -1136,9 +1136,9 @@ public class DragImageView extends ImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                return bh5Var.z();
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                return zg5Var.z();
             }
             return this.g / 4.0f;
         }
@@ -1198,7 +1198,7 @@ public class DragImageView extends ImageView {
                         this.A = 0;
                     }
                 } else {
-                    iu4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "DragImageView.play", -1, "decode error", new Object[0]);
+                    hu4.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "DragImageView.play", -1, "decode error", new Object[0]);
                     return;
                 }
             }
@@ -1248,9 +1248,9 @@ public class DragImageView extends ImageView {
         float min;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, bitmap)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                return bh5Var.N();
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                return zg5Var.N();
             }
             if (bitmap == null || bitmap.isRecycled() || bitmap.getWidth() <= 0 || bitmap.getHeight() <= 0) {
                 return 1.0f;
@@ -1543,8 +1543,8 @@ public class DragImageView extends ImageView {
         float f5;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048621, this, canvas) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var == null || !bh5Var.K(canvas, getImageBitmap())) {
+            zg5 zg5Var = this.O;
+            if (zg5Var == null || !zg5Var.K(canvas, getImageBitmap())) {
                 if (this.w == 2 && this.J != 0 && !this.s.a()) {
                     int width = getWidth();
                     int height = getHeight();
@@ -1675,14 +1675,14 @@ public class DragImageView extends ImageView {
 
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i2, int i3) {
-        bh5 bh5Var;
+        zg5 zg5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048623, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            if (getMeasuredHeight() == 0 || getMeasuredWidth() == 0 || (bh5Var = this.O) == null) {
+            if (getMeasuredHeight() == 0 || getMeasuredWidth() == 0 || (zg5Var = this.O) == null) {
                 return;
             }
-            bh5Var.V();
+            zg5Var.V();
         }
     }
 
@@ -1691,8 +1691,8 @@ public class DragImageView extends ImageView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048624, this, motionEvent)) == null) {
-            bh5 bh5Var = this.O;
-            if (bh5Var != null && bh5Var.M(motionEvent)) {
+            zg5 zg5Var = this.O;
+            if (zg5Var != null && zg5Var.M(motionEvent)) {
                 if (getScrollX() != 0 || getScrollY() != 0) {
                     this.O.I(getScrollX(), getScrollY());
                     scrollTo(0, 0);
@@ -1951,21 +1951,21 @@ public class DragImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048636, this, bitmap, bArr) == null) {
             this.l = bArr;
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                bh5Var.Q(bitmap, bArr);
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                zg5Var.Q(bitmap, bArr);
             }
             setImageBitmap(bitmap);
         }
     }
 
-    public void setImageLoadCallBack(ah5 ah5Var) {
-        bh5 bh5Var;
+    public void setImageLoadCallBack(yg5 yg5Var) {
+        zg5 zg5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048637, this, ah5Var) == null) || (bh5Var = this.O) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048637, this, yg5Var) == null) || (zg5Var = this.O) == null) {
             return;
         }
-        bh5Var.R(ah5Var);
+        zg5Var.R(yg5Var);
     }
 
     public void setImageMode(int i2) {
@@ -1986,9 +1986,9 @@ public class DragImageView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048640, this, onLongClickListener) == null) {
             this.q = onLongClickListener;
-            bh5 bh5Var = this.O;
-            if (bh5Var != null) {
-                bh5Var.T(onLongClickListener);
+            zg5 zg5Var = this.O;
+            if (zg5Var != null) {
+                zg5Var.T(onLongClickListener);
             }
         }
     }

@@ -21,8 +21,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.je5;
-import com.baidu.tieba.mf5;
+import com.baidu.tieba.he5;
+import com.baidu.tieba.kf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -221,7 +221,7 @@ public class CoverSelectLayout extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        int[] e = je5.e(str);
+        int[] e = he5.e(str);
         int i = e[0];
         int i2 = e[1];
         int i3 = this.q;
@@ -232,7 +232,7 @@ public class CoverSelectLayout extends RelativeLayout {
         if (i2 > i4) {
             i2 = i4;
         }
-        Bitmap b = je5.b(str, i, i2);
+        Bitmap b = he5.b(str, i, i2);
         if (b == null) {
             return;
         }
@@ -289,7 +289,7 @@ public class CoverSelectLayout extends RelativeLayout {
                     this.h.postTranslate(x, y);
                     b();
                 } else if (i == 2) {
-                    float d = mf5.d(motionEvent);
+                    float d = kf5.d(motionEvent);
                     if (d > 10.0f) {
                         float f = d / this.m;
                         if (f < 1.0f) {
@@ -319,11 +319,11 @@ public class CoverSelectLayout extends RelativeLayout {
                 }
                 this.a.setImageMatrix(this.h);
             } else if (action == 5) {
-                float d2 = mf5.d(motionEvent);
+                float d2 = kf5.d(motionEvent);
                 this.m = d2;
                 if (d2 > 10.0f) {
                     this.i.set(this.h);
-                    this.l = mf5.b(motionEvent);
+                    this.l = kf5.b(motionEvent);
                     this.j = 2;
                 }
             } else if (action == 6) {

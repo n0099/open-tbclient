@@ -25,13 +25,13 @@ public class kr1 extends gr1 {
 
         /* renamed from: com.baidu.tieba.kr1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0310a implements za3.c {
+        public class C0312a implements za3.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ sr1 a;
             public final /* synthetic */ a b;
 
-            public C0310a(a aVar, sr1 sr1Var) {
+            public C0312a(a aVar, sr1 sr1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,7 +93,7 @@ public class kr1 extends gr1 {
                 sr1 sr1Var = new sr1("compassChange", jSONObject, str);
                 za3 i = za3.i();
                 i.l(this.a.getContext());
-                i.o(new C0310a(this, sr1Var));
+                i.o(new C0312a(this, sr1Var));
                 ay1.i("CompassApi", "start listen compass");
                 i.p();
                 sr1Var.b(this.a);

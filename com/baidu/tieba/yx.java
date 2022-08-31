@@ -84,10 +84,10 @@ public class yx extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: u */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) {
-            this.h.setData(ho4Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) {
+            this.h.setData(go4Var);
         }
     }
 

@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,7 +143,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
                 w.getIntent().putExtra("from", "index");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2010000, w));
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(1, i + 1, albumElement.album_type.intValue())));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new zv4(1, i + 1, albumElement.album_type.intValue())));
         }
     }
 
@@ -188,8 +188,8 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
                 this.a.setPageId(i9.a(view2.getContext()).getUniqueId());
                 View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090b51);
                 this.b = findViewById;
-                os4.d(findViewById).s(R.array.Mask_X001);
-                os4.d(this.b).n(R.string.J_X05);
+                ns4.d(findViewById).s(R.array.Mask_X001);
+                ns4.d(this.b).n(R.string.J_X05);
                 this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b52);
             }
 

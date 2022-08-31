@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
+import android.util.Printer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
+import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class qg8 implements ILokiIdentityNeedContext {
+public class qg8 implements ILooperNeedContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,10 +31,20 @@ public class qg8 implements ILokiIdentityNeedContext {
         }
     }
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext
-    public String getAppName() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void addLooperPrinter(Printer printer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, printer) == null) || printer == null) {
+            return;
+        }
+        Looper.getMainLooper().setMessageLogging(printer);
+    }
+
+    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
+    public void removeLooperPrinter(Printer printer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
+            Looper.getMainLooper().setMessageLogging(null);
+        }
     }
 }

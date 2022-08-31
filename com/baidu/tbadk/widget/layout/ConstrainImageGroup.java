@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MediaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.eh5;
+import com.baidu.tieba.fh5;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.gh5;
-import com.baidu.tieba.hh5;
-import com.baidu.tieba.ih5;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,11 +30,11 @@ public class ConstrainImageGroup extends LinearLayout {
     public BdUniqueId a;
     public gg<ConstrainImageLayout> b;
     public gg<TbImageView> c;
-    public hh5 d;
+    public fh5 d;
     public int e;
     public boolean f;
     public double g;
-    public ih5 h;
+    public gh5 h;
     public View.OnClickListener i;
     public ym j;
     public ViewGroup.OnHierarchyChangeListener k;
@@ -100,7 +100,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new gh5();
+        this.d = new eh5();
         this.f = false;
         this.k = new a(this);
         this.l = false;
@@ -188,10 +188,10 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    public void setImageClickListener(ih5 ih5Var) {
+    public void setImageClickListener(gh5 gh5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ih5Var) == null) {
-            this.h = ih5Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, gh5Var) == null) {
+            this.h = gh5Var;
             int childCount = getChildCount();
             if (childCount > 0) {
                 for (int i = 0; i < childCount; i++) {
@@ -245,12 +245,12 @@ public class ConstrainImageGroup extends LinearLayout {
         }
     }
 
-    public void setImageProcessor(hh5 hh5Var) {
+    public void setImageProcessor(fh5 fh5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, hh5Var) == null) || hh5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, fh5Var) == null) || fh5Var == null) {
             return;
         }
-        this.d = hh5Var;
+        this.d = fh5Var;
     }
 
     @Deprecated
@@ -330,7 +330,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new gh5();
+        this.d = new eh5();
         this.f = false;
         this.k = new a(this);
         this.l = false;
@@ -357,7 +357,7 @@ public class ConstrainImageGroup extends LinearLayout {
                 return;
             }
         }
-        this.d = new gh5();
+        this.d = new eh5();
         this.f = false;
         this.k = new a(this);
         this.l = false;

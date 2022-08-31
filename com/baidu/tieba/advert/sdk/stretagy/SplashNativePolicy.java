@@ -1,11 +1,11 @@
 package com.baidu.tieba.advert.sdk.stretagy;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.go5;
+import com.baidu.tieba.eo5;
 import com.baidu.tieba.ni;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.wt4;
+import com.baidu.tieba.vt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -71,15 +71,15 @@ public class SplashNativePolicy {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 switch (this.a) {
                     case 128:
-                        go5.d().l(true);
+                        eo5.d().l(true);
                         return;
                     case 129:
-                        go5.d().l(false);
+                        eo5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        go5.d().b();
+                        eo5.d().b();
                         return;
                     case 131:
                     default:
@@ -108,19 +108,19 @@ public class SplashNativePolicy {
         printStream.println("SplashPolicy loadResult: " + this.loadResult);
     }
 
-    @wt4
+    @vt4
     private native void nativeInitSplashPolicy(String str, String str2, int i, int i2, int i3, int i4, int i5);
 
-    @wt4
+    @vt4
     private native void nativeReleaseSplash();
 
-    @wt4
+    @vt4
     private native void nativeUpdateSplashConfig(int i, int i2, int i3, int i4, int i5);
 
-    @wt4
+    @vt4
     private native void onNativeSplashEvent(int i, int i2);
 
-    @wt4
+    @vt4
     public void eventCallback(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -128,26 +128,26 @@ public class SplashNativePolicy {
             printStream.println("SplashPolicy eventCallback=>" + i);
             if (i == 128 || i == 129) {
                 int i2 = this.plgAdType;
-                go5.d().i(i2 > 120 ? 1 : i2 == 120 ? 2 : 3);
+                eo5.d().i(i2 > 120 ? 1 : i2 == 120 ? 2 : 3);
             } else if (i == 131) {
-                go5.d().i(-1);
+                eo5.d().i(-1);
             } else if (i == 132) {
-                go5.d().i(-2);
+                eo5.d().i(-2);
             } else if (i == 130) {
-                go5.d().i(-3);
+                eo5.d().i(-3);
             }
             if (ri.C()) {
                 switch (i) {
                     case 128:
-                        go5.d().l(true);
+                        eo5.d().l(true);
                         return;
                     case 129:
-                        go5.d().l(false);
+                        eo5.d().l(false);
                         return;
                     case 130:
                     case 132:
                     case 133:
-                        go5.d().b();
+                        eo5.d().b();
                         return;
                     case 131:
                     default:

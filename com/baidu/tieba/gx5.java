@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,6 +9,8 @@ import org.json.JSONObject;
 public class gx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public gx5() {
         Interceptable interceptable = $ic;
@@ -30,22 +31,7 @@ public class gx5 {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        jSONObject.optString("user_id");
-        jSONObject.optString("user_name");
-        jSONObject.optString("sex");
-        jSONObject.optString("description");
-        jSONObject.optString("portrait");
-        jSONObject.optString("level_id");
-        jSONObject.optString("location");
-        jSONObject.optString(DI.FOLLOW_STATUS);
-        jSONObject.optString("follow_count");
-        jSONObject.optString("fans_count");
-        jSONObject.optString("live_count");
-        jSONObject.optString("record_count");
-        jSONObject.optInt("yy_level_id");
-        jSONObject.optLong("yy_levelup_exp");
-        jSONObject.optLong("yy_level_exp");
-        jSONObject.optString("yy_level_name");
-        jSONObject.optString("yy_level_next_name");
+        this.a = jSONObject.optString("name");
+        this.b = jSONObject.optString("url");
     }
 }

@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.addresslist.relationship.ContactComparator;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class bn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static bn5 c;
+    public static bn5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public List<b05> b;
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void p(List<b05> list);
-    }
 
     public bn5() {
         Interceptable interceptable = $ic;
@@ -35,137 +31,391 @@ public class bn5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public static synchronized bn5 d() {
+    public static synchronized bn5 f() {
         InterceptResult invokeV;
         bn5 bn5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (bn5.class) {
-                if (c == null) {
-                    c = new bn5();
+                if (a == null) {
+                    a = new bn5();
                 }
-                bn5Var = c;
+                bn5Var = a;
             }
             return bn5Var;
         }
         return (bn5) invokeV.objValue;
     }
 
-    public void a(b05 b05Var) {
+    public final int a(m77 m77Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, b05Var) == null) || this.b == null || b05Var == null) {
-            return;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, m77Var)) != null) {
+            return invokeL.intValue;
         }
-        String a2 = b05Var.a();
-        if (TextUtils.isEmpty(a2)) {
-            a2 = "#";
-            b05Var.j("#");
+        SQLiteDatabase c = x77.c();
+        int i = 0;
+        if (c == null) {
+            return 0;
         }
-        String e = b05Var.e();
-        if (e == null) {
-            e = "";
-        }
-        boolean z = false;
-        boolean z2 = false;
-        for (b05 b05Var2 : this.b) {
-            if (e.equals(b05Var2.e())) {
-                z = true;
-            }
-            if (a2.equals(b05Var2.a())) {
-                z2 = true;
-            }
-        }
-        if (z) {
-            return;
-        }
-        if (!z2) {
-            b05 b05Var3 = new b05();
-            b05Var3.j(a2);
-            this.b.add(b05Var3);
-        }
-        this.b.add(b05Var);
-        Collections.sort(this.b, new ContactComparator());
-        e();
-    }
-
-    public void b(long j) {
-        List<b05> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || (list = this.b) == null) {
-            return;
-        }
-        String str = null;
-        Iterator<b05> it = list.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            b05 next = it.next();
-            if (next.d() == j) {
-                str = next.a();
-                this.b.remove(next);
-                break;
-            }
-        }
-        if (str != null) {
-            ArrayList arrayList = new ArrayList();
-            for (b05 b05Var : this.b) {
-                if (str.equals(b05Var.a())) {
-                    arrayList.add(b05Var);
+        try {
+            if (o(c, m77Var.b())) {
+                ContentValues contentValues = new ContentValues();
+                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(m77Var.b());
+                contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
+                int update = y77.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(m77Var.b())});
+                try {
+                    m77Var.h(correctUserIdAfterOverflowCut);
+                    return update;
+                } catch (Exception e) {
+                    e = e;
+                    i = update;
+                    e.printStackTrace();
+                    return i;
                 }
             }
-            if (arrayList.size() <= 1) {
-                this.b.removeAll(arrayList);
-            }
+            return 0;
+        } catch (Exception e2) {
+            e = e2;
         }
-        e();
     }
 
-    public List<b05> c() {
+    public boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? c(x77.c(), j) : invokeJ.booleanValue;
+    }
+
+    public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
+            try {
+                return y77.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public final long d(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = x77.c();
+            }
+            if (sQLiteDatabase != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        try {
+                            cursor = y77.d().e("select * from tb_new_friends", new String[0]);
+                            if (cursor != null && cursor.moveToNext()) {
+                                return cursor.getLong(cursor.getColumnIndex("uid"));
+                            }
+                        } catch (SQLiteException e) {
+                            e.printStackTrace();
+                        }
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                    return 0L;
+                } finally {
+                    si.a(cursor);
+                }
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public synchronized m77 e(long j) {
+        InterceptResult invokeJ;
+        m77 m77Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            synchronized (this) {
+                m77Var = new m77();
+                Cursor cursor = null;
+                try {
+                    cursor = y77.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
+                    if (cursor != null && cursor.moveToNext()) {
+                        m77Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                        m77Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                        m77Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                        m77Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                        m77Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                si.a(cursor);
+            }
+            return m77Var;
+        }
+        return (m77) invokeJ.objValue;
+    }
+
+    public List<m77> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = y77.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
+                    if (cursor != null) {
+                        while (cursor.moveToNext()) {
+                            m77 m77Var = new m77();
+                            m77Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                            m77Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                            m77Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                            m77Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                            m77Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                            m77Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                            arrayList.add(m77Var);
+                        }
+                        p();
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return arrayList;
+            } finally {
+                si.a(cursor);
+            }
+        }
+        return (List) invokeV.objValue;
     }
 
-    public final void e() {
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (a aVar : this.a) {
-                aVar.p(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = y77.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
+                    if (cursor != null && cursor.moveToNext()) {
+                        return cursor.getInt(0);
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return 0;
+            } finally {
+                si.a(cursor);
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    public final int i(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = x77.c();
+            }
+            Cursor cursor = null;
+            try {
+                if (sQLiteDatabase == null) {
+                    return 0;
+                }
+                try {
+                    cursor = y77.d().e("select * from tb_new_friends", new String[0]);
+                    if (cursor != null && cursor.moveToFirst()) {
+                        return cursor.getCount();
+                    }
+                } catch (SQLiteException e) {
+                    e.printStackTrace();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return 0;
+            } finally {
+                si.a(cursor);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public List<m77> j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            SQLiteDatabase c = x77.c();
+            ArrayList arrayList = new ArrayList();
+            if (c != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        try {
+                            cursor = y77.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
+                            if (cursor != null) {
+                                while (cursor.moveToNext()) {
+                                    m77 m77Var = new m77();
+                                    m77Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
+                                    if (m77Var.b() < 0) {
+                                        a(m77Var);
+                                    }
+                                    m77Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
+                                    m77Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
+                                    m77Var.j(cursor.getString(cursor.getColumnIndex("uname")));
+                                    m77Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
+                                    m77Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
+                                    arrayList.add(m77Var);
+                                }
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } catch (SQLiteException e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    si.a(cursor);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void k(SQLiteDatabase sQLiteDatabase, m77 m77Var) throws Exception {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, m77Var) == null) || m77Var == null || m77Var.b() == 0 || TextUtils.isEmpty(m77Var.d())) {
+            return;
+        }
+        if (sQLiteDatabase == null) {
+            sQLiteDatabase = x77.c();
+        }
+        if (sQLiteDatabase != null) {
+            c(sQLiteDatabase, m77Var.b());
+            if (i(sQLiteDatabase) >= 200) {
+                b(d(sQLiteDatabase));
+            }
+            if (sQLiteDatabase != null) {
+                ContentValues contentValues = new ContentValues();
+                contentValues.put("uid", Long.valueOf(m77Var.b()));
+                contentValues.put("uname", m77Var.d());
+                contentValues.put("uportrait", m77Var.e());
+                contentValues.put("ucontent", m77Var.a());
+                contentValues.put("ustatus", Integer.valueOf(m77Var.f()));
+                contentValues.put("isread", Integer.valueOf(m77Var.c()));
+                y77.d().insert("tb_new_friends", null, contentValues);
             }
         }
     }
 
-    public void f(a aVar) {
+    public void l(m77 m77Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || this.a.contains(aVar)) {
-            return;
-        }
-        this.a.add(aVar);
-    }
-
-    public void g(List<b05> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.b = list;
-            if (list != null) {
-                Collections.sort(list, new ContactComparator());
+        if (interceptable == null || interceptable.invokeL(1048586, this, m77Var) == null) {
+            try {
+                k(x77.c(), m77Var);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            e();
         }
     }
 
-    public void h(a aVar) {
+    public void m(List<m77> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || aVar == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
+            try {
+                for (m77 m77Var : list) {
+                    k(x77.c(), m77Var);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        this.a.remove(aVar);
+    }
+
+    public boolean n(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) ? o(x77.c(), j) : invokeJ.booleanValue;
+    }
+
+    public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
+            if (sQLiteDatabase == null) {
+                sQLiteDatabase = x77.c();
+            }
+            boolean z = false;
+            if (sQLiteDatabase != null) {
+                Cursor cursor = null;
+                try {
+                    try {
+                        cursor = y77.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
+                        if (cursor != null) {
+                            if (cursor.moveToFirst()) {
+                                z = true;
+                            }
+                        }
+                    } catch (SQLiteException e) {
+                        e.printStackTrace();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                    }
+                } finally {
+                    si.a(cursor);
+                }
+            }
+            return z;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("isread", (Integer) 1);
+            y77.d().update("tb_new_friends", contentValues, null, null);
+        }
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
+    public int q(m77 m77Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, m77Var)) == null) {
+            SQLiteDatabase c = x77.c();
+            int i = 0;
+            if (c != null) {
+                try {
+                    if (o(c, m77Var.b())) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("ustatus", Integer.valueOf(m77Var.f()));
+                        contentValues.put("isread", Integer.valueOf(m77Var.c()));
+                        i = y77.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(m77Var.b())});
+                    } else {
+                        k(c, m77Var);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

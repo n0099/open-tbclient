@@ -57,12 +57,12 @@ public class by extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: t */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) || (smartAppBottomLayout = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) || (smartAppBottomLayout = this.h) == null) {
             return;
         }
-        smartAppBottomLayout.a(ho4Var);
+        smartAppBottomLayout.a(go4Var);
     }
 }

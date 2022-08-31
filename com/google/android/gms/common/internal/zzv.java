@@ -4,7 +4,7 @@ import android.accounts.Account;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
-import com.baidu.tieba.ap9;
+import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public final class zzv extends zza implements IAccountAccessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Parcel zzB = zzB(2, zza());
-            Account account = (Account) ap9.a(zzB, Account.CREATOR);
+            Account account = (Account) yo9.a(zzB, Account.CREATOR);
             zzB.recycle();
             return account;
         }

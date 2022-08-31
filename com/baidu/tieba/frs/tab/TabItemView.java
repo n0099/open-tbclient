@@ -10,10 +10,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mq6;
+import com.baidu.tieba.kq6;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xg6;
-import com.baidu.tieba.yg6;
+import com.baidu.tieba.vg6;
+import com.baidu.tieba.wg6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,7 +30,7 @@ public class TabItemView extends TextView {
     public static int f = 1;
     public static int g = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public mq6 a;
+    public kq6 a;
     public int b;
     public boolean c;
     public int d;
@@ -51,13 +51,13 @@ public class TabItemView extends TextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabItemView(Context context, mq6 mq6Var, int i, boolean z) {
+    public TabItemView(Context context, kq6 kq6Var, int i, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, mq6Var, Integer.valueOf(i), Boolean.valueOf(z)};
+            Object[] objArr = {context, kq6Var, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -70,7 +70,7 @@ public class TabItemView extends TextView {
         }
         this.b = e;
         this.d = 0;
-        this.a = mq6Var;
+        this.a = kq6Var;
         this.c = z;
         b(context, i);
     }
@@ -108,9 +108,9 @@ public class TabItemView extends TextView {
             }
             setSingleLine();
             setFilters(new InputFilter[]{new InputFilter.LengthFilter(i)});
-            mq6 mq6Var = this.a;
-            if (mq6Var != null) {
-                setText(mq6Var.a);
+            kq6 kq6Var = this.a;
+            if (kq6Var != null) {
+                setText(kq6Var.a);
             }
             a();
         }
@@ -140,11 +140,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            mq6 mq6Var = this.a;
-            if (mq6Var == null) {
+            kq6 kq6Var = this.a;
+            if (kq6Var == null) {
                 return -1;
             }
-            return mq6Var.b;
+            return kq6Var.b;
         }
         return invokeV.intValue;
     }
@@ -153,11 +153,11 @@ public class TabItemView extends TextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            mq6 mq6Var = this.a;
-            if (mq6Var == null) {
+            kq6 kq6Var = this.a;
+            if (kq6Var == null) {
                 return null;
             }
-            return mq6Var.d;
+            return kq6Var.d;
         }
         return (String) invokeV.objValue;
     }
@@ -205,12 +205,12 @@ public class TabItemView extends TextView {
     }
 
     public void setState(int i) {
-        yg6 yg6Var;
-        List<xg6> list;
+        wg6 wg6Var;
+        List<vg6> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            mq6 mq6Var = this.a;
-            if (mq6Var != null && (yg6Var = mq6Var.c) != null && (list = yg6Var.b) != null && list.size() > 0) {
+            kq6 kq6Var = this.a;
+            if (kq6Var != null && (wg6Var = kq6Var.c) != null && (list = wg6Var.b) != null && list.size() > 0) {
                 int i2 = -ri.f(getContext(), R.dimen.tbds20);
                 if (!this.c) {
                     i2 = 0;

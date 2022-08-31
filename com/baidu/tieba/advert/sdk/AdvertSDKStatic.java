@@ -8,13 +8,13 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.be5;
-import com.baidu.tieba.go5;
+import com.baidu.tieba.eo5;
 import com.baidu.tieba.im4;
 import com.baidu.tieba.jm4;
+import com.baidu.tieba.on5;
 import com.baidu.tieba.qb1;
 import com.baidu.tieba.qn5;
-import com.baidu.tieba.sn5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +58,7 @@ public class AdvertSDKStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                sn5.u();
+                qn5.u();
             }
         }
     }
@@ -88,8 +88,8 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && PermissionUtil.isAgreePrivacyPolicy()) {
-                    go5.d().k(customMessage.getData());
-                    return new CustomResponsedMessage<>(2016555, Long.valueOf(be5.l()));
+                    eo5.d().k(customMessage.getData());
+                    return new CustomResponsedMessage<>(2016555, Long.valueOf(zd5.l()));
                 }
                 return null;
             }
@@ -122,7 +122,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    go5.d().j(5);
+                    eo5.d().j(5);
                     return null;
                 }
                 return null;
@@ -156,7 +156,7 @@ public class AdvertSDKStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    go5.d().j(6);
+                    eo5.d().j(6);
                     return null;
                 }
                 return null;
@@ -192,7 +192,7 @@ public class AdvertSDKStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                go5.d().n(customMessage.getData());
+                eo5.d().n(customMessage.getData());
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -286,7 +286,7 @@ public class AdvertSDKStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                go5.d().a();
+                eo5.d().a();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -316,7 +316,7 @@ public class AdvertSDKStatic {
         public CustomResponsedMessage<Boolean> run(CustomMessage<Boolean> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921657, Boolean.valueOf(go5.d().g())) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921657, Boolean.valueOf(eo5.d().g())) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -344,7 +344,7 @@ public class AdvertSDKStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                go5.d().m();
+                eo5.d().m();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -364,9 +364,9 @@ public class AdvertSDKStatic {
                 return;
             }
         }
-        new qn5().g();
+        new on5().g();
         if (PermissionUtil.isAgreePrivacyPolicy() && TbadkCoreApplication.getInst().isMainProcess(false)) {
-            sn5.u();
+            qn5.u();
         }
         MessageManager.getInstance().registerListener(new a(2921554));
         CustomMessageTask customMessageTask = new CustomMessageTask(2016555, new b());

@@ -6,8 +6,8 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.ob5;
-import com.baidu.tieba.y19;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.w19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y19 k;
+    public w19 k;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -67,7 +67,7 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ob5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public mb5 E0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -77,11 +77,11 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
                 if (stringExtra == null) {
                     stringExtra = "";
                 }
-                this.k = new y19(linearLayout, navigationBar, this, stringExtra);
+                this.k = new w19(linearLayout, navigationBar, this, stringExtra);
             }
             return this.k;
         }
-        return (ob5) invokeLL.objValue;
+        return (mb5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -103,9 +103,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            y19 y19Var = this.k;
-            if (y19Var != null) {
-                y19Var.onDestroy();
+            w19 w19Var = this.k;
+            if (w19Var != null) {
+                w19Var.onDestroy();
             }
         }
     }

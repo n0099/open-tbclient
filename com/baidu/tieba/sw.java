@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ThreadCardView;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.py;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class sw<T extends ho4> implements jx, ix<T> {
+public abstract class sw<T extends go4> implements jx, ix<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ey a;
     public Context b;
     public Boolean c;
-    public j06<T> d;
+    public h06<T> d;
     public a e;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(ho4 ho4Var);
+        void a(go4 go4Var);
     }
 
     public sw(Context context) {
@@ -59,10 +59,10 @@ public abstract class sw<T extends ho4> implements jx, ix<T> {
         }
     }
 
-    public j06<T> e() {
+    public h06<T> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (j06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (h06) invokeV.objValue;
     }
 
     public final ThreadCardView f(View view2, int i) {
@@ -119,10 +119,10 @@ public abstract class sw<T extends ho4> implements jx, ix<T> {
         }
     }
 
-    public void m(j06<T> j06Var) {
+    public void m(h06<T> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, j06Var) == null) {
-            this.d = j06Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, h06Var) == null) {
+            this.d = h06Var;
         }
     }
 
@@ -132,7 +132,7 @@ public abstract class sw<T extends ho4> implements jx, ix<T> {
         if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (f = f(view2, i)) == null) {
             return;
         }
-        os4 d = os4.d(f);
+        ns4 d = ns4.d(f);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0205);
     }

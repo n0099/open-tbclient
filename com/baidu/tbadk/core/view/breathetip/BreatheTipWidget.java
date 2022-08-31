@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.tieba.Cif;
 import com.baidu.tieba.gf;
 import com.baidu.tieba.hf;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.lv4;
 import com.baidu.tieba.mv4;
 import com.baidu.tieba.nv4;
 import com.baidu.tieba.ov4;
-import com.baidu.tieba.pv4;
-import com.baidu.tieba.qv4;
 import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,10 +31,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public hf b;
-    public pv4 c;
+    public nv4 c;
     public BreatheTipView d;
     public View e;
-    public qv4 f;
+    public ov4 f;
     public final Runnable g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -313,26 +313,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget f(mv4 mv4Var, lv4 lv4Var) {
+    public BreatheTipWidget f(kv4 kv4Var, jv4 jv4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mv4Var, lv4Var)) == null) {
-            PointType pointType = lv4Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kv4Var, jv4Var)) == null) {
+            PointType pointType = jv4Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new nv4(this.a);
+                this.c = new lv4(this.a);
             } else if (pointType == PointType.DRAWABLE) {
-                this.c = new ov4(this.a);
+                this.c = new mv4(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            pv4 pv4Var = this.c;
-            if (pv4Var != null) {
-                pv4Var.a(lv4Var);
+            nv4 nv4Var = this.c;
+            if (nv4Var != null) {
+                nv4Var.a(jv4Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(mv4Var);
+                breatheTipView.setData(kv4Var);
             }
             return this;
         }
@@ -357,9 +357,9 @@ public class BreatheTipWidget {
                 return false;
             }
             h = true;
-            qv4 qv4Var = new qv4();
-            this.f = qv4Var;
-            qv4Var.h(this.d, this.c, this.e);
+            ov4 ov4Var = new ov4();
+            this.f = ov4Var;
+            ov4Var.h(this.d, this.c, this.e);
             Cif cif = new Cif();
             cif.c(0);
             cif.k(this.e);

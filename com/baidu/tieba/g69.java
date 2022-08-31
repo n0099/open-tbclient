@@ -1,87 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.Base64OutputStream;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.Closeable;
 /* loaded from: classes4.dex */
-public class g69 extends Base64OutputStream {
+public class g69 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public long c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g69(OutputStream outputStream, int i) {
-        super(outputStream, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((OutputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746015, "Lcom/baidu/tieba/g69;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746015, "Lcom/baidu/tieba/g69;");
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = 0L;
+        a = f59.m();
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
-    public void write(byte[] bArr, int i, int i2) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
-            if (this.a && !this.b && i2 > 0 && bArr.length - i > 0) {
-                bArr[i] = 123;
-                this.b = true;
-            } else if (!this.a && i2 == 1 && bArr.length - i > 0) {
-                bArr[i] = 117;
-                this.a = true;
-            } else if (!this.a && i2 > 1 && bArr.length - i > 1) {
-                bArr[i] = 117;
-                this.a = true;
-                bArr[i + 1] = 123;
-                this.b = true;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
+            return;
+        }
+        try {
+            if (cursor.isClosed()) {
+                return;
             }
-            if (i2 > 0) {
-                this.c += i2;
+            cursor.close();
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
             }
-            super.write(bArr, i, i2);
         }
     }
 
-    @Override // android.util.Base64OutputStream, java.io.FilterOutputStream, java.io.OutputStream
-    public void write(int i) throws IOException {
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (!this.a) {
-                super.write(117);
-                this.a = true;
-            } else if (!this.b) {
-                super.write(123);
-                this.b = true;
-            } else {
-                super.write(i);
+        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
             }
         }
     }

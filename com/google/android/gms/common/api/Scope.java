@@ -5,9 +5,9 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fn9;
+import com.baidu.tieba.dn9;
+import com.baidu.tieba.hn9;
 import com.baidu.tieba.jn9;
-import com.baidu.tieba.ln9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 return;
             }
         }
-        CREATOR = new fn9();
+        CREATOR = new dn9();
     }
 
     public Scope(int i, String str) {
@@ -57,7 +57,7 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
                 return;
             }
         }
-        jn9.b(str, "scopeUri must not be null or empty");
+        hn9.b(str, "scopeUri must not be null or empty");
         this.zza = i;
         this.zzb = str;
     }
@@ -101,10 +101,10 @@ public final class Scope extends AbstractSafeParcelable implements ReflectedParc
     public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.g(parcel, 1, this.zza);
-            ln9.k(parcel, 2, getScopeUri(), false);
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.g(parcel, 1, this.zza);
+            jn9.k(parcel, 2, getScopeUri(), false);
+            jn9.b(parcel, a);
         }
     }
 

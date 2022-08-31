@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.a95;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ti;
+import com.baidu.tieba.u85;
+import com.baidu.tieba.ur4;
 import com.baidu.tieba.ve;
-import com.baidu.tieba.vr4;
-import com.baidu.tieba.w85;
+import com.baidu.tieba.y85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes3.dex */
-public abstract class MvcSocketResponsedMessage<D extends a95, M extends Message> extends TbSocketReponsedMessage {
+public abstract class MvcSocketResponsedMessage<D extends y85, M extends Message> extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public D data;
@@ -105,7 +105,7 @@ public abstract class MvcSocketResponsedMessage<D extends a95, M extends Message
             } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                 obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
             }
-            if (obj instanceof a95) {
+            if (obj instanceof y85) {
                 D d = (D) obj;
                 this.data = d;
                 d.initByProtobuf(parseFrom);
@@ -133,7 +133,7 @@ public abstract class MvcSocketResponsedMessage<D extends a95, M extends Message
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        w85 w85Var;
+        u85 u85Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -142,28 +142,28 @@ public abstract class MvcSocketResponsedMessage<D extends a95, M extends Message
             }
             if (getOrginalMessage() instanceof MvcSocketMessage) {
                 MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof w85)) {
-                    w85Var = (w85) mvcSocketMessage.getData();
+                if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof u85)) {
+                    u85Var = (u85) mvcSocketMessage.getData();
                 }
-                w85Var = null;
+                u85Var = null;
             } else {
                 if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                     MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof w85)) {
-                        w85Var = (w85) mvcNetMessage.getRequestData();
+                    if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof u85)) {
+                        u85Var = (u85) mvcNetMessage.getRequestData();
                     }
                 }
-                w85Var = null;
+                u85Var = null;
             }
-            if (w85Var != null) {
-                String cacheKey = w85Var.getCacheKey();
-                String y = w85Var.y();
-                String currentAccount = w85Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
+            if (u85Var != null) {
+                String cacheKey = u85Var.getCacheKey();
+                String y = u85Var.y();
+                String currentAccount = u85Var.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
                 if (cacheKey == null || TextUtils.isEmpty(y) || bArr == null) {
                     return;
                 }
-                vr4.f();
-                ve<byte[]> e = vr4.e(y, currentAccount);
+                ur4.f();
+                ve<byte[]> e = ur4.e(y, currentAccount);
                 if (e == null) {
                     return;
                 }

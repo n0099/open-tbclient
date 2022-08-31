@@ -8,14 +8,14 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.mq8;
-import com.baidu.tieba.rk8;
+import com.baidu.tieba.kq8;
+import com.baidu.tieba.pk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_SET_USE = 1;
@@ -27,7 +27,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
     public b e;
     public bb f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                     this.a.c = setPendantSocketResponse.getFreeUseLevel();
                 }
                 if (this.a.e != null) {
-                    int i = mq8.b;
-                    if (responsedMessage.getError() == mq8.c) {
-                        i = mq8.a;
+                    int i = kq8.b;
+                    if (responsedMessage.getError() == kq8.c) {
+                        i = kq8.a;
                     }
                     this.a.e.l1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
                 }
@@ -88,7 +88,7 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void l1(boolean z, long j, int i, String str, int i2);
     }
@@ -108,8 +108,8 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        rk8.h(309412, SetPendantSocketResponse.class, false, false);
-        rk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        pk8.h(309412, SetPendantSocketResponse.class, false, false);
+        pk8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 

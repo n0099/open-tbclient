@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
 import android.media.MediaCodec;
-import android.media.MediaCrypto;
 import android.media.MediaFormat;
-import android.view.Surface;
+import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.faceunity.encoder.AudioEncoderCore;
+import com.faceunity.encoder.MediaMuxerWrapper;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
 public class mb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ob9 a;
-    public MediaCodec b;
-    public MediaCodec.BufferInfo c;
-    public int d;
-    public boolean e;
-    public long f;
+    public final MediaMuxer a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public mb9(ob9 ob9Var) {
+    public mb9(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ob9Var};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,137 +36,91 @@ public class mb9 {
                 return;
             }
         }
-        this.f = 0L;
-        this.c = new MediaCodec.BufferInfo();
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
-        createAudioFormat.setInteger("aac-profile", 2);
-        createAudioFormat.setInteger("channel-mask", 16);
-        createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
-        createAudioFormat.setInteger("max-input-size", 163840);
-        try {
-            this.b = MediaCodec.createEncoderByType("audio/mp4a-latm");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.b.start();
-        this.d = -1;
-        this.e = false;
-        this.a = ob9Var;
+        this.b = 2;
+        this.c = 0;
+        this.d = false;
+        this.a = new MediaMuxer(str, 0);
     }
 
-    public void a() {
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void b(ByteBuffer byteBuffer, int i, int i2, long j) throws Exception {
-        int dequeueInputBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            ByteBuffer[] inputBuffers = this.b.getInputBuffers();
-            while (true) {
-                dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    break;
-                } else if (dequeueInputBuffer == -1) {
-                    ac9.b("wait for MediaCodec encoder");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                if (this.d) {
+                    throw new IllegalStateException("muxer already started");
                 }
+                addTrack = this.a.addTrack(mediaFormat);
+                yb9.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
             }
-            ByteBuffer byteBuffer2 = inputBuffers[dequeueInputBuffer];
-            byteBuffer2.clear();
-            if (byteBuffer != null) {
-                byteBuffer2.put(byteBuffer);
-            }
-            this.b.queueInputBuffer(dequeueInputBuffer, i, i2, j, i2 <= 0 ? 4 : 0);
+            return addTrack;
         }
+        return invokeL.intValue;
     }
 
-    public void c() throws Exception {
+    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
-            return;
-        }
-        while (true) {
-            ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
-                if (dequeueOutputBuffer == -1) {
-                    return;
-                }
-                if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    if (this.e) {
-                        throw new RuntimeException("format changed twice");
-                    }
-                    MediaFormat outputFormat = this.b.getOutputFormat();
-                    ac9.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.d = this.a.a(outputFormat);
-                    if (!this.a.c()) {
-                        synchronized (this.a) {
-                            while (!this.a.e()) {
-                                try {
-                                    this.a.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        }
-                    }
-                    this.e = true;
-                } else if (dequeueOutputBuffer < 0) {
-                    ac9.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                    }
-                    MediaCodec.BufferInfo bufferInfo = this.c;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.c;
-                    if (bufferInfo2.size != 0) {
-                        if (!this.e) {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                        long j = this.f;
-                        if (j != 0 && j > bufferInfo2.presentationTimeUs) {
-                            bufferInfo2.presentationTimeUs = j + 20000;
-                        }
-                        byteBuffer.position(this.c.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.c;
-                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.a.b(this.d, byteBuffer, this.c);
-                        this.f = this.c.presentationTimeUs;
-                    }
-                    this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.c.flags & 4) != 0) {
-                        return;
-                    }
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
+            synchronized (this) {
+                if (this.c > 0) {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
                 }
             }
         }
     }
 
-    public void d() {
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                yb9.k(MediaMuxerWrapper.TAG, "start:");
+                int i = this.c + 1;
+                this.c = i;
+                if (this.b > 0 && i == this.b) {
+                    this.a.start();
+                    this.d = true;
+                    notifyAll();
+                    yb9.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
+                }
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.b != null) {
-                    this.b.stop();
-                    this.b.release();
-                    this.b = null;
+            synchronized (this) {
+                yb9.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
+                int i = this.c + (-1);
+                this.c = i;
+                if (this.b > 0 && i <= 0) {
+                    if (this.d) {
+                        this.a.stop();
+                    }
+                    this.a.release();
+                    this.d = false;
+                    yb9.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
                 }
-                if (this.a != null) {
-                    this.a.d();
-                    this.a = null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
         }
+    }
+
+    public synchronized boolean e() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -5,10 +5,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.UserData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.c87;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.t87;
-import com.baidu.tieba.wp4;
+import com.baidu.tieba.r87;
+import com.baidu.tieba.vp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeL(65537, this, list) == null) {
             this.changedList = new HashMap<>();
             for (UserData userData : list) {
-                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = c87.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
+                if (userData != null && !TextUtils.isEmpty(userData.getUserId()) && (g = a87.f().g(userData.getUserId(), 2)) != null && g.getCustomGroupType() == 2) {
                     boolean z = false;
                     boolean z2 = true;
                     if (!TextUtils.isEmpty(userData.getName_show()) && !userData.getName_show().equals(g.getNameShow())) {
@@ -65,23 +65,23 @@ public class IMUserListHttpResponseMsg extends JsonHttpResponsedMessage {
                         g.setIsFriend(userData.getRelation());
                         z = true;
                     }
-                    wp4 wp4Var = new wp4();
-                    wp4Var.b(userData);
+                    vp4 vp4Var = new vp4();
+                    vp4Var.b(userData);
                     if (g.getImUserExtraData() == null) {
-                        g.setImUserExtraData(wp4Var);
+                        g.setImUserExtraData(vp4Var);
                     } else {
-                        String c = wp4Var.c();
+                        String c = vp4Var.c();
                         String c2 = g.getImUserExtraData().c();
                         if (c == null || c.equals(c2)) {
                             z2 = z;
                         } else {
-                            g.setImUserExtraData(wp4Var);
+                            g.setImUserExtraData(vp4Var);
                         }
                     }
                     if (z2) {
                         this.changedList.put(userData.getUserId(), g);
-                        c87.f().k(g);
-                        ImMessageCenterPojo i = t87.o().i(g.getGid(), 2);
+                        a87.f().k(g);
+                        ImMessageCenterPojo i = r87.o().i(g.getGid(), 2);
                         if (i != null) {
                             i.setNameShow(g.getNameShow());
                             i.setGroup_head(g.getGroup_head());

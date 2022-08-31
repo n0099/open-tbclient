@@ -1,166 +1,81 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.Process;
+import androidx.multidex.MultiDex;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import com.baidu.turbonet.base.BuildConfig;
+import java.lang.reflect.InvocationTargetException;
 /* loaded from: classes5.dex */
 public class r39 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948070833, "Lcom/baidu/tieba/r39;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948070833, "Lcom/baidu/tieba/r39;");
-        }
-    }
-
-    public r39() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            b(str, str2, new Object[0]);
-        }
-    }
-
-    public static void b(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
-            String e = e(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.d(i(str), e, g);
-                }
-            } else if (a) {
-                Log.d(i(str), e);
-            }
-        }
-    }
-
-    public static void c(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr) == null) {
-            String d = d(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.e(i(str), d, g);
-                }
-            } else if (a) {
-                Log.e(i(str), d);
-            }
-        }
-    }
-
-    public static String d(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, objArr)) == null) ? (objArr == null || objArr.length == 0) ? str : String.format(Locale.US, str, objArr) : (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String name = r39.class.getName();
-            int i = 0;
-            while (true) {
-                if (i >= stackTrace.length) {
-                    break;
-                } else if (stackTrace[i].getClassName().equals(name)) {
-                    i += 4;
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            return stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Throwable g(Object[] objArr) {
+    public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, objArr)) == null) {
-            if (objArr == null || objArr.length == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            try {
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            } catch (SecurityException unused) {
                 return null;
             }
-            Object obj = objArr[objArr.length - 1];
-            if (obj instanceof Throwable) {
-                return (Throwable) obj;
-            }
-            return null;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static void h(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, objArr) == null) {
-            String d = d(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.i(i(str), d, g);
-                }
-            } else if (a) {
-                Log.i(i(str), d);
-            }
-        }
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (str.startsWith("cr_")) {
-                return str;
-            }
-            int i = str.startsWith("cr.") ? 3 : 0;
-            return "cr_" + str.substring(i, str.length());
         }
         return (String) invokeL.objValue;
+    }
+
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && BuildConfig.isMultidexEnabled()) {
+            if (Build.VERSION.SDK_INT < 21 && !c(context)) {
+                p39.h("base_multidex", "Skipping multidex installation: not needed for process.", new Object[0]);
+                return;
+            }
+            MultiDex.install(context);
+            p39.h("base_multidex", "Completed multidex installation.", new Object[0]);
+        }
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            try {
+                Object invoke = Process.class.getMethod("isIsolated", new Class[0]).invoke(null, new Object[0]);
+                if (invoke != null && (invoke instanceof Boolean)) {
+                    if (((Boolean) invoke).booleanValue()) {
+                        return false;
+                    }
+                }
+            } catch (IllegalAccessException | IllegalArgumentException | NoSuchMethodException | InvocationTargetException unused) {
+            }
+            String a = a(context);
+            if (a == null) {
+                return true;
+            }
+            try {
+                ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
+                if (applicationInfo != null && applicationInfo.metaData != null) {
+                    Bundle bundle = applicationInfo.metaData;
+                    return !bundle.getBoolean(a + ".ignore_multidex", false);
+                }
+            } catch (PackageManager.NameNotFoundException unused2) {
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.t37;
+import com.baidu.tieba.r37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,15 +15,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t37 a;
+    public r37 a;
     public bb b;
     public bb c;
     public boolean d;
 
-    public void A(t37 t37Var) {
+    public void A(r37 r37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t37Var) == null) {
-            this.a = t37Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, r37Var) == null) {
+            this.a = r37Var;
         }
     }
 
@@ -73,9 +73,9 @@ public class TopicModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (!pi.A()) {
-                t37 t37Var = this.a;
-                if (t37Var != null) {
-                    t37Var.j(-1, null);
+                r37 r37Var = this.a;
+                if (r37Var != null) {
+                    r37Var.j(-1, null);
                 }
             } else if (this.d) {
             } else {

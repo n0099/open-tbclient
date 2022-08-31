@@ -1,64 +1,125 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import tbclient.RecomVideo.DislikeReason;
-import tbclient.RecomVideo.ThreadPersonalized;
 /* loaded from: classes4.dex */
 public class j47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(List<ThreadPersonalized> list, List<pn> list2) {
-        n06 n06Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public static void a(l06 l06Var, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) || list == null || list2 == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, l06Var, statisticItem) == null) || l06Var == null || l06Var.getThreadData() == null || statisticItem == null) {
             return;
         }
-        HashMap hashMap = new HashMap();
-        for (ThreadPersonalized threadPersonalized2 : list) {
-            if (threadPersonalized2 != null) {
-                hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
-            }
+        if (l06Var.getThreadData().getBaijiahaoData() != null) {
+            BaijiahaoData baijiahaoData = l06Var.getThreadData().getBaijiahaoData();
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
+            return;
         }
-        int count = ListUtils.getCount(list2);
-        for (int i = 0; i < count; i++) {
-            pn pnVar = (pn) ListUtils.getItem(list2, i);
-            if ((pnVar instanceof n06) && (threadData = (n06Var = (n06) pnVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
-                n06Var.J(threadPersonalized.source);
-                n06Var.M(threadPersonalized.weight);
-                n06Var.F(threadPersonalized.abtest_tag);
-                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                threadData.mRecomSource = threadPersonalized.source;
-                threadData.mRecomWeight = threadPersonalized.weight;
-                if (threadData.getThreadVideoInfo() != null) {
-                    n06Var.H(threadData.getThreadVideoInfo().is_vertical);
-                }
-                List<DislikeReason> list3 = threadPersonalized.dislike_resource;
-                if (list3 != null) {
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    for (DislikeReason dislikeReason : list3) {
-                        int intValue = dislikeReason.dislike_id.intValue();
-                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                    }
-                    n06Var.feedBackReasonMap = sparseArray;
-                    n06Var.G(threadPersonalized.extra);
-                }
-            }
-        }
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
     }
 
-    public static void b(List<ThreadPersonalized> list, List<pn> list2) {
+    public static boolean b(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            a(list, list2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
+            }
+            int i = threadData.threadType;
+            return i == 0 || i == 11 || i == 40 || threadData.isUgcThreadType();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(go4 go4Var, Context context, int i, boolean z, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || go4Var == null || go4Var.getThreadData() == null || context == null) {
+            return;
+        }
+        ThreadData threadData = go4Var.getThreadData();
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+        createFromThreadCfg.setFrom("from_video_tab");
+        createFromThreadCfg.setForumName(threadData.getForum_name());
+        createFromThreadCfg.setStartFrom(i);
+        createFromThreadCfg.setVideoOriginArea(rect);
+        if (go4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(go4Var.getPbInputLocate());
+        }
+        if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
+            createFromThreadCfg.setNeedPreLoad(true);
+            bf6.update(threadData);
+        }
+        createFromThreadCfg.setVideo_source("video_tab");
+        createFromThreadCfg.setJumpGodReply(z);
+        sz5.a(threadData.getTid());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
+    }
+
+    public static void d(l06 l06Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, l06Var) == null) || l06Var == null || (w = l06Var.w("c13583", true)) == null) {
+            return;
+        }
+        a(l06Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void e(l06 l06Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, l06Var) == null) || l06Var == null || (w = l06Var.w("c13584", true)) == null) {
+            return;
+        }
+        a(l06Var, w);
+        w.param(TiebaStatic.Params.OBJ_FLOOR, l06Var.position + 1);
+        TiebaStatic.log(w);
+    }
+
+    public static void f(l06 l06Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, l06Var) == null) || l06Var == null || (w = l06Var.w("c13585", true)) == null) {
+            return;
+        }
+        a(l06Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void g(l06 l06Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, l06Var) == null) || l06Var == null || (w = l06Var.w("c13586", true)) == null) {
+            return;
+        }
+        a(l06Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void h(l06 l06Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, l06Var) == null) || l06Var == null || (w = l06Var.w("c13587", true)) == null) {
+            return;
+        }
+        a(l06Var, w);
+        TiebaStatic.log(w);
     }
 }

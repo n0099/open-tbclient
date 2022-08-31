@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface gg6 {
-    void W();
+    void h0(boolean z);
 
-    void b0();
+    void o1();
 
-    void t();
-
-    void z();
+    void x();
 }

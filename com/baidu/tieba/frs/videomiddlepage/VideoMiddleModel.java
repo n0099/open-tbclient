@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ee5;
-import com.baidu.tieba.ii6;
+import com.baidu.tieba.ce5;
+import com.baidu.tieba.gi6;
 import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.zl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,10 +87,10 @@ public class VideoMiddleModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        ii6 ii6Var = new ii6();
-                        ii6Var.f(jSONArray.optString(i2));
-                        if (ii6Var.n != null) {
-                            this.mDataList.add(ii6Var);
+                        gi6 gi6Var = new gi6();
+                        gi6Var.f(jSONArray.optString(i2));
+                        if (gi6Var.n != null) {
+                            this.mDataList.add(gi6Var);
                         }
                     }
                 }
@@ -143,7 +143,7 @@ public class VideoMiddleModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", this.e.mBaijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", this.e.mBaijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", ee5.a());
+            httpMessage.addParam("app_transmit_data", ce5.a());
             sendMessage(httpMessage);
             return true;
         }

@@ -52,7 +52,7 @@ public class d82 implements ua2 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements ov9<Cursor> {
+    public static class a implements mv9<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o33.c a;
@@ -76,7 +76,7 @@ public class d82 implements ua2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov9
+        @Override // com.baidu.tieba.mv9
         public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
@@ -94,7 +94,7 @@ public class d82 implements ua2 {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements sv9<String, Cursor> {
+    public static class b implements qv9<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -113,7 +113,7 @@ public class d82 implements ua2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sv9
+        @Override // com.baidu.tieba.qv9
         public Cursor call(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -518,7 +518,7 @@ public class d82 implements ua2 {
         if (!(interceptable == null || interceptable.invokeL(65546, null, cVar) == null) || cVar == null) {
             return;
         }
-        av9.f("").y(Schedulers.io()).h(new b()).k(kv9.b()).w(new a(cVar));
+        yu9.f("").y(Schedulers.io()).h(new b()).k(iv9.b()).w(new a(cVar));
     }
 
     @NonNull

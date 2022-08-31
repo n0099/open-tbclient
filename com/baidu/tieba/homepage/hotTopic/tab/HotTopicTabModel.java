@@ -11,11 +11,11 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ay6;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.cy6;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.homepage.hotTopic.tab.net.HotTopicTabRequest;
-import com.baidu.tieba.jx6;
+import com.baidu.tieba.hx6;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pn;
 import com.baidu.tieba.ri;
@@ -30,7 +30,7 @@ import java.util.List;
 public class HotTopicTabModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jx6 a;
+    public hx6 a;
     public bb b;
     public boolean c;
     public String d;
@@ -70,17 +70,17 @@ public class HotTopicTabModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (this.a.a != null && (responsedMessage instanceof cy6) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
+                if (this.a.a != null && (responsedMessage instanceof ay6) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
                     if (responsedMessage.getOrginalMessage() == null) {
                         this.a.a.D0(-1, null);
                         return;
                     }
                     HotTopicTabRequest hotTopicTabRequest = (HotTopicTabRequest) responsedMessage.getOrginalMessage().getExtra();
-                    cy6 cy6Var = (cy6) responsedMessage;
+                    ay6 ay6Var = (ay6) responsedMessage;
                     if (!TextUtils.isEmpty(this.a.d)) {
-                        this.a.f.put(this.a.d, cy6Var.getDataList());
+                        this.a.f.put(this.a.d, ay6Var.getDataList());
                     }
-                    this.a.a.D0(responsedMessage.getError(), cy6Var);
+                    this.a.a.D0(responsedMessage.getError(), ay6Var);
                 }
             }
         }
@@ -135,10 +135,10 @@ public class HotTopicTabModel extends BdBaseModel {
         }
     }
 
-    public void I(jx6 jx6Var) {
+    public void I(hx6 hx6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jx6Var) == null) {
-            this.a = jx6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, hx6Var) == null) {
+            this.a = hx6Var;
         }
     }
 

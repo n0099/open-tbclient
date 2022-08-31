@@ -47,13 +47,13 @@ public class ok2 implements h84 {
 
         /* renamed from: com.baidu.tieba.ok2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0343a extends u32 {
+        public class C0352a extends u32 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AtomicInteger a;
             public final /* synthetic */ a b;
 
-            public C0343a(a aVar, AtomicInteger atomicInteger) {
+            public C0352a(a aVar, AtomicInteger atomicInteger) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -135,7 +135,7 @@ public class ok2 implements h84 {
                 if (arrayList.isEmpty()) {
                     return;
                 }
-                qz1.b(arrayList, "3", new C0343a(this, atomicInteger));
+                qz1.b(arrayList, "3", new C0352a(this, atomicInteger));
             }
         }
     }

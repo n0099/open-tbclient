@@ -12,8 +12,8 @@ import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.qf;
 import com.baidu.tieba.sf;
+import com.baidu.tieba.su4;
 import com.baidu.tieba.tf;
-import com.baidu.tieba.tu4;
 import com.baidu.tieba.uf;
 import com.baidu.tieba.vf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -334,7 +334,7 @@ public class WebClient implements jg.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (tu4.k().l("image_no_cache_switch", 0) == 1) {
+            if (su4.k().l("image_no_cache_switch", 0) == 1) {
                 return this.needCache;
             }
             return true;

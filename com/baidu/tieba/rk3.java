@@ -22,13 +22,13 @@ public class rk3 {
 
         /* renamed from: com.baidu.tieba.rk3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0394a implements Runnable {
+        public class RunnableC0393a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0394a(a aVar, byte[] bArr) {
+            public RunnableC0393a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class rk3 {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ud3.l(new RunnableC0394a(this, bArr), "HandshakeRequest");
+                ud3.l(new RunnableC0393a(this, bArr), "HandshakeRequest");
             }
         }
 

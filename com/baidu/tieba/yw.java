@@ -34,10 +34,10 @@ public class yw extends my {
     }
 
     @Override // com.baidu.tieba.my
-    public l98 q() {
+    public j98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new m98(this.b, this.i, this.y) : (l98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new k98(this.b, this.i, this.y) : (j98) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

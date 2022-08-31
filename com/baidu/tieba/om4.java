@@ -20,7 +20,7 @@ public class om4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public d9 a;
-    public xl8 b;
+    public vl8 b;
 
     public om4(d9 d9Var) {
         Interceptable interceptable = $ic;
@@ -52,10 +52,10 @@ public class om4 extends WebChromeClient {
         webView.loadUrl("javascript:" + str + "('" + str2 + "')");
     }
 
-    public void b(xl8 xl8Var) {
+    public void b(vl8 vl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xl8Var) == null) {
-            this.b = xl8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vl8Var) == null) {
+            this.b = vl8Var;
         }
     }
 
@@ -125,16 +125,16 @@ public class om4 extends WebChromeClient {
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLLL;
-        xl8 xl8Var;
+        vl8 vl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!ry4.a(str) && str2.startsWith("tiebaapp")) {
-                am8 am8Var = new am8();
-                am8Var.v(em8.b(str2));
-                am8Var.x(301);
-                a(webView, am8Var.c(), am8Var.d());
+            if (!py4.a(str) && str2.startsWith("tiebaapp")) {
+                yl8 yl8Var = new yl8();
+                yl8Var.v(cm8.b(str2));
+                yl8Var.x(301);
+                a(webView, yl8Var.c(), yl8Var.d());
             }
-            if (ry4.a(str) && (xl8Var = this.b) != null && xl8Var.onJsPrompt(str2, jsPromptResult)) {
+            if (py4.a(str) && (vl8Var = this.b) != null && vl8Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
             jsPromptResult.cancel();

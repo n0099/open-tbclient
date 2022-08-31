@@ -1,231 +1,167 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.e77;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
 public class j77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
 
-    /* loaded from: classes4.dex */
-    public static class a implements e77.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public j77() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        @Override // com.baidu.tieba.e77.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+    public static j77 g(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (obj instanceof Map) {
+                Map map = (Map) obj;
+                j77 j77Var = new j77();
+                try {
+                    j77Var.a = (String) map.get("user_id");
+                    j77Var.b = (String) map.get("username");
+                    j77Var.c = (String) map.get("avatar");
+                    j77Var.d = ((Boolean) map.get("is_free")).booleanValue();
+                    j77Var.e = ((Integer) map.get("pos")).intValue();
+                } catch (Exception unused) {
+                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
+                }
+                if (j77Var.f()) {
+                    return j77Var;
+                }
+                return null;
+            }
+            return null;
+        }
+        return (j77) invokeL.objValue;
+    }
+
+    @NonNull
+    public static List<j77> h(HashMap hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Object obj = hashMap.get("imUserList");
+            if (obj instanceof List) {
+                int i = 0;
+                while (true) {
+                    List list = (List) obj;
+                    if (i >= list.size()) {
+                        break;
+                    }
+                    j77 g = g(list.get(i));
+                    if (g != null) {
+                        arrayList.add(g);
+                    }
+                    i++;
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
                 return true;
             }
-            return invokeL.booleanValue;
+            if (obj == null || j77.class != obj.getClass()) {
+                return false;
+            }
+            String str = this.a;
+            String str2 = ((j77) obj).a;
+            return str != null ? str.equals(str2) : str2 == null;
         }
+        return invokeL.booleanValue;
     }
 
-    public static GroupNewsPojo a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public final boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                return null;
-            }
-            try {
-                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                    return null;
-                }
-                String optString = new JSONObject(content).optString(TbEnum.SystemMessage.KEY_EVENT_ID);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
-                groupNewsPojo.setOriginalPushMsg(chatMessage);
-                return groupNewsPojo;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (GroupNewsPojo) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
     }
 
-    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
-            if (linkedList == null || linkedList.size() == 0) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
             }
-            LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-            Iterator<ChatMessage> it = linkedList.iterator();
-            while (it.hasNext()) {
-                GroupNewsPojo a2 = a(it.next());
-                if (a2 != null) {
-                    linkedList2.add(a2);
-                }
-            }
-            return linkedList2;
+            return 0;
         }
-        return (LinkedList) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        String optString;
-        String optString2;
-        String str3;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str2);
-                String optString3 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (!str.equals("apply_join_group")) {
-                    return "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) ? optString3 : "";
-                }
-                if (true != jSONObject.isNull("notice_id")) {
-                    optString = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    String optString4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                    optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
-                    str3 = optString4;
-                } else if (optJSONObject != null) {
-                    optString = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_ID);
-                    str3 = optJSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
-                    optString2 = optJSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
-                } else {
-                    optString = "";
-                    optString2 = optString;
-                    str3 = optString2;
-                }
-                ImMessageCenterPojo i = t87.o().i(optString, 1);
-                if (i != null) {
-                    optString2 = i.getGroup_name();
-                }
-                if (TextUtils.isEmpty(optString2) || TextUtils.isEmpty(str3)) {
-                    return "";
-                }
-                return str3 + TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f14f8) + optString2;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str) : invokeL.booleanValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? !TextUtils.isEmpty(str) && str.equals("apply_join_group") : invokeL.booleanValue;
-    }
-
-    public static void f(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, e77.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            e77.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
-        }
-    }
-
-    public static void g(GroupMsgData groupMsgData) {
-        LinkedList<GroupNewsPojo> b;
-        PushMessage newInstance;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, groupMsgData) == null) || (b = b(groupMsgData.getListMessage())) == null || b.isEmpty()) {
-            return;
-        }
-        LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-        Iterator<GroupNewsPojo> it = b.iterator();
-        GroupNewsPojo groupNewsPojo = null;
-        GroupNewsPojo groupNewsPojo2 = null;
-        long j = 0;
-        while (it.hasNext()) {
-            GroupNewsPojo next = it.next();
-            if (!TextUtils.isEmpty(next.getNotice_id())) {
-                long parseLong = Long.parseLong(next.getNotice_id());
-                if (parseLong > j) {
-                    j = parseLong;
-                }
-                if (d(next.getCmd())) {
-                    linkedList.add(next);
-                    if (groupNewsPojo2 == null || parseLong > Long.parseLong(groupNewsPojo2.getNotice_id())) {
-                        groupNewsPojo2 = next;
-                    }
-                } else if (e(next.getCmd())) {
-                    linkedList.add(next);
-                    if (groupNewsPojo == null || parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
-                        groupNewsPojo = next;
-                    }
-                }
-            }
-        }
-        w77.f().m(linkedList);
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
-        imMessageCenterPojo.setIs_hidden(1);
-        imMessageCenterPojo.setCustomGroupType(-2);
-        imMessageCenterPojo.setPulled_msgId(j);
-        c87.f().k(imMessageCenterPojo);
-        if (groupNewsPojo != null) {
-            ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
-            imMessageCenterPojo2.setGid(TbEnum.CustomGroupId.GROUP_VALIDATION);
-            imMessageCenterPojo2.setCustomGroupType(-4);
-            imMessageCenterPojo2.setUnread_count(1);
-            imMessageCenterPojo2.setLast_rid(pg.g(groupNewsPojo.getNotice_id(), 0L));
-            imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
-            imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
-            imMessageCenterPojo2.setIs_hidden(0);
-            c87.f().l(imMessageCenterPojo2, 2);
-        }
-        Iterator<GroupNewsPojo> it2 = b.iterator();
-        while (it2.hasNext()) {
-            GroupNewsPojo next2 = it2.next();
-            if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
-                MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
-            }
-        }
+        return (String) invokeV.objValue;
     }
 }

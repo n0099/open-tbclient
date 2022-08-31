@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u0a;
+import com.baidu.tieba.s0a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,17 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class k1a implements s3a {
+public class k1a implements q3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u0a.a a;
+    public s0a.b a;
 
-    public k1a(u0a.a aVar) {
+    public k1a(s0a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,22 +31,22 @@ public class k1a implements s3a {
                 return;
             }
         }
-        this.a = aVar;
+        this.a = bVar;
     }
 
-    @Override // com.baidu.tieba.s3a
+    @Override // com.baidu.tieba.q3a
     public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("PayConfirmDialogListener", "createConfirmFinishDialog cancel clickArea:" + cancelType);
-            u0a.a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(cancelType);
+            RLog.info("PayGiftDialogListener", "createPayGiftDialog cancel clickArea:" + cancelType);
+            s0a.b bVar = this.a;
+            if (bVar != null) {
+                bVar.a(cancelType);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s3a
+    @Override // com.baidu.tieba.q3a
     public boolean b(DialogInterface dialogInterface) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

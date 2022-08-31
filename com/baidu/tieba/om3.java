@@ -15,7 +15,7 @@ public class om3 {
     public static pm3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? rp5.a() : (pm3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? pp5.a() : (pm3) invokeV.objValue;
     }
 
     @Inject(force = false)

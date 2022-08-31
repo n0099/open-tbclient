@@ -1,47 +1,93 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class t08 extends ww4 {
+public class t08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public q08 a;
+    public BaseFragmentActivity b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t08(TbPageContext tbPageContext, vw4 vw4Var) {
-        super(tbPageContext, vw4Var);
+    public t08(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vw4Var};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (vw4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = 3;
+        this.b = baseFragmentActivity;
     }
 
-    @Override // com.baidu.tieba.ww4, android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public final void a(kt7 kt7Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            super.onClick(view2);
-            if (this.a != null) {
-                TiebaStatic.log(new StatisticItem("c11924").param("obj_id", this.a.getUserId()));
-            }
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, kt7Var, str) == null) || kt7Var == null) {
+            return;
         }
+        if (this.a == null) {
+            this.a = new q08(LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d06b0, (ViewGroup) null));
+        }
+        this.a.m(kt7Var, str);
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q08 q08Var = this.a;
+            if (q08Var == null) {
+                return null;
+            }
+            return q08Var.a;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.c == i) {
+            return;
+        }
+        q08 q08Var = this.a;
+        if (q08Var != null) {
+            q08Var.o();
+        }
+        this.c = i;
+    }
+
+    public void d(kt7 kt7Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, kt7Var, str) == null) || kt7Var == null || kt7Var.O() == null) {
+            return;
+        }
+        a(kt7Var, str);
+    }
+
+    public void e(BdTypeListView bdTypeListView) {
+        q08 q08Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdTypeListView) == null) || (q08Var = this.a) == null) {
+            return;
+        }
+        bdTypeListView.removeHeaderView(q08Var.a);
     }
 }

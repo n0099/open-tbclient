@@ -1,34 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes6.dex */
 public class v2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Dialog dialog, PayDialogType payDialogType) {
+    public static PayFlowType a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndContinueFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i == PayFlowType.DIOALOG_PAY_FLOW.getTypeId()) {
+                return PayFlowType.DIOALOG_PAY_FLOW;
             }
-            dialog.dismiss();
-        }
-    }
-
-    public static void b(Dialog dialog, PayDialogType payDialogType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, dialog, payDialogType) == null) {
-            RLog.info("DialogUtils", "onPayFlow closeDialogAndInterrupteFlow payDialogType:" + payDialogType);
-            if (dialog == null || !dialog.isShowing()) {
-                return;
+            if (i == PayFlowType.WALLET_PAY_FLOW.getTypeId()) {
+                return PayFlowType.WALLET_PAY_FLOW;
             }
-            dialog.cancel();
+            return null;
         }
+        return (PayFlowType) invokeI.objValue;
     }
 }

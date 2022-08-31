@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l77;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.j77;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public l77 d;
+    public j77 d;
 
     static {
         InterceptResult invokeClinit;
@@ -107,7 +107,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            os4 d = os4.d(this.c);
+            ns4 d = ns4.d(this.c);
             d.n(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -148,10 +148,10 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public l77 getGameMatchUser() {
+    public j77 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (l77) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (j77) invokeV.objValue;
     }
 
     public void h() {
@@ -170,12 +170,12 @@ public class GameContactsItemView extends RelativeLayout {
         this.a.getImgView().K(this.d.a(), 12, false);
     }
 
-    public void setGameMatchUser(@NonNull l77 l77Var) {
+    public void setGameMatchUser(@NonNull j77 j77Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, l77Var) == null) || l77Var.equals(this.d)) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, j77Var) == null) || j77Var.equals(this.d)) {
             return;
         }
-        this.d = l77Var;
+        this.d = j77Var;
         i();
     }
 

@@ -14,10 +14,10 @@ import com.baidu.tieba.ac;
 import com.baidu.tieba.an;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.lg;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.mg;
-import com.baidu.tieba.o55;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.ue5;
+import com.baidu.tieba.se5;
 import com.baidu.tieba.wb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -110,7 +110,7 @@ public class BigdayImageLoaderProc implements mg<an> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof an)) {
             an anVar = (an) obj;
             if (anVar.u()) {
-                o55.k().d(str, anVar);
+                m55.k().d(str, anVar);
             }
         }
     }
@@ -164,7 +164,7 @@ public class BigdayImageLoaderProc implements mg<an> {
     public an getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? o55.k().m(str) : (an) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? m55.k().m(str) : (an) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -177,7 +177,7 @@ public class BigdayImageLoaderProc implements mg<an> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            ue5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            se5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (jgVar != null) {
                 jgVar.a = webClient;

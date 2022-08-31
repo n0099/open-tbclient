@@ -29,28 +29,28 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tbadk.coreExtra.data.VideoPreloadData;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
-import com.baidu.tieba.ae5;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.be5;
-import com.baidu.tieba.ce7;
+import com.baidu.tieba.ae7;
+import com.baidu.tieba.dt6;
 import com.baidu.tieba.fi;
-import com.baidu.tieba.ft6;
-import com.baidu.tieba.hy4;
-import com.baidu.tieba.hz4;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.q39;
-import com.baidu.tieba.qx4;
+import com.baidu.tieba.fy4;
+import com.baidu.tieba.fz4;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.o39;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.pl5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rl5;
-import com.baidu.tieba.tn4;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.uy4;
-import com.baidu.tieba.vy4;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.sn4;
+import com.baidu.tieba.su4;
+import com.baidu.tieba.sy4;
+import com.baidu.tieba.ty4;
+import com.baidu.tieba.va5;
 import com.baidu.tieba.wallet.YYLiveConfig;
-import com.baidu.tieba.xa5;
+import com.baidu.tieba.wz4;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.yz4;
+import com.baidu.tieba.yd5;
+import com.baidu.tieba.yj5;
+import com.baidu.tieba.zd5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -68,7 +68,7 @@ public class TiebaSyncService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mHandler;
     public int mHaveRetry;
-    public yz4 mModel;
+    public wz4 mModel;
     public Runnable mRunnable;
     public b mSyncTask;
 
@@ -170,7 +170,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteConfigData() {
-        hy4 k;
+        fy4 k;
         int performSampleCount;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65557, this) == null) || (k = this.mModel.k()) == null) {
@@ -190,7 +190,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteProfilData() {
-        vy4 q;
+        ty4 q;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65558, this) == null) || (q = this.mModel.q()) == null) {
             return;
@@ -198,16 +198,16 @@ public class TiebaSyncService extends BdBaseService {
         String b2 = q.b();
         long c = q.c();
         long a2 = q.a();
-        tu4.k().y("sync_send_maintab_my_tab_lottie_url", b2);
-        tu4.k().x("sync_send_maintab_my_tab_lottie_start_time", c);
-        tu4.k().x("sync_send_maintab_my_tab_lottie_end_time", a2);
+        su4.k().y("sync_send_maintab_my_tab_lottie_url", b2);
+        su4.k().x("sync_send_maintab_my_tab_lottie_start_time", c);
+        su4.k().x("sync_send_maintab_my_tab_lottie_end_time", a2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteUpdateData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            ce7.b().a(false);
+            ae7.b().a(false);
             VersionData t = this.mModel.t();
             if (t != null && t.hasNewVer() && TbConfig.COULD_UPDATE) {
                 TbadkCoreApplication.getInst().setVersionData(t);
@@ -216,8 +216,7 @@ public class TiebaSyncService extends BdBaseService {
                     if (this.mModel.k() == null || TbadkCoreApplication.getInst().getResumeNum() <= 0) {
                         return;
                     }
-                    TbSingleton.getInstance();
-                    TbSingleton.setExceptInsertAdDiaShow(true);
+                    TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), t, this.mModel.j())));
                     return;
                 }
@@ -228,9 +227,8 @@ public class TiebaSyncService extends BdBaseService {
                 }
                 TbSingleton.getInstance().setSyncModel(this.mModel);
                 if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-                    TbSingleton.getInstance();
-                    TbSingleton.setExceptInsertAdDiaShow(true);
-                    rl5.d();
+                    TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
+                    pl5.d();
                 }
                 TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
             }
@@ -239,7 +237,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteWlConfigData() {
-        hz4 u;
+        fz4 u;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65560, this) == null) || (u = this.mModel.u()) == null) {
             return;
@@ -253,64 +251,64 @@ public class TiebaSyncService extends BdBaseService {
         TbadkCoreApplication.getInst().setUrlText(u.Y());
         PullViewHelper.getInstance().saveOrUpdateImages(u.o(), u.p(), u.q(), u.m(), u.n());
         String f = u.f();
-        tu4.k().w("key_fps_time", u.r());
-        tu4.k().w("key_switch_immediately_upload", u.P());
-        tu4 k = tu4.k();
+        su4.k().w("key_fps_time", u.r());
+        su4.k().w("key_switch_immediately_upload", u.P());
+        su4 k = su4.k();
         if (f == null) {
             f = "";
         }
         k.y("apply_vip_live_room_pid", f);
-        tu4.k().y("tail_link", u.R());
-        tu4.k().y("bubble_link", u.i());
+        su4.k().y("tail_link", u.R());
+        su4.k().y("bubble_link", u.i());
         long Z = u.Z();
         if (Z >= 0 && Z != TbadkCoreApplication.getInst().getUseTimeInterval()) {
             TbadkCoreApplication.getInst().setUseTimeInterval(u.Z());
         }
         long h = u.h() * 1000;
         if (h > 0) {
-            tu4.k().x("KEY_UPLOAD_LOG_INTERVAL", h);
+            su4.k().x("KEY_UPLOAD_LOG_INTERVAL", h);
         } else {
             long E = u.E() * 1000;
             if (E > 0) {
-                tu4.k().x("KEY_UPLOAD_LOG_INTERVAL", E);
+                su4.k().x("KEY_UPLOAD_LOG_INTERVAL", E);
             }
         }
-        tu4.k().x("recommend_frs_cache_time", u.I());
-        tu4.k().w("home_page_max_thread_count", u.v());
-        tu4.k().u("localvideo_open", u.y());
+        su4.k().x("recommend_frs_cache_time", u.I());
+        su4.k().w("home_page_max_thread_count", u.v());
+        su4.k().u("localvideo_open", u.y());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001365));
-        tu4.k().w("card_show_statistic_max_count", u.u);
-        tu4.k().y("nick_name_activity_link", u.G());
-        String q = tu4.k().q("clean_smart_frs_cookie", "");
+        su4.k().w("card_show_statistic_max_count", u.u);
+        su4.k().y("nick_name_activity_link", u.G());
+        String q = su4.k().q("clean_smart_frs_cookie", "");
         String j = u.j();
         if (!TextUtils.equals(q, j)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016501, Boolean.TRUE));
         }
-        tu4.k().y("clean_smart_frs_cookie", j);
-        tu4.k().w("recommend_tab_show", u.e());
-        tu4.k().w("ribao_switch", u.L());
-        tu4.k().w("key_upload_pic_max_width", u.W());
-        tu4.k().w("key_upload_pic_max_height", u.V());
-        tu4.k().w("key_upload_pic_parallel_count", u.X());
-        tu4.k().w("key_upload_pic_chunk_size", u.U());
-        tu4.k().w("key_upload_pic_chunk_retry", u.T());
+        su4.k().y("clean_smart_frs_cookie", j);
+        su4.k().w("recommend_tab_show", u.e());
+        su4.k().w("ribao_switch", u.L());
+        su4.k().w("key_upload_pic_max_width", u.W());
+        su4.k().w("key_upload_pic_max_height", u.V());
+        su4.k().w("key_upload_pic_parallel_count", u.X());
+        su4.k().w("key_upload_pic_chunk_size", u.U());
+        su4.k().w("key_upload_pic_chunk_retry", u.T());
         TbConfig.setMaxPhotoMemoryCache(u.J());
-        tu4.k().w("key_card_show_type", u.Q());
+        su4.k().w("key_card_show_type", u.Q());
         TbadkCoreApplication.getInst().setCardShowType(u.Q());
-        tu4.k().w("key_card_abstract_switch", u.b());
+        su4.k().w("key_card_abstract_switch", u.b());
         TbadkCoreApplication.getInst().setInterestBoardConfigData(u.w());
-        uy4 D = u.D();
+        sy4 D = u.D();
         if (D != null) {
-            tu4.k().u("nani_key_is_show_download_nani_panel", D.a);
-            tu4.k().u("nani_key_is_activate_app", D.b);
-            tu4.k().w("nani_key_download_show_position", D.c);
-            tu4.k().w("nani_key_download_show_rate", D.d);
-            tu4.k().y("nani_key_download_link_url", D.e);
-            tu4.k().y("nani_key_download_txt", D.f);
-            tu4.k().y("nani_key_show_tail_txt", D.g);
-            tu4.k().w("nani_key_show_tail_video_type", D.h);
-            tu4.k().y("nani_key_show_tail_txt", D.g);
-            tu4.k().y("nani_key_pre_h5_link", D.i);
+            su4.k().u("nani_key_is_show_download_nani_panel", D.a);
+            su4.k().u("nani_key_is_activate_app", D.b);
+            su4.k().w("nani_key_download_show_position", D.c);
+            su4.k().w("nani_key_download_show_rate", D.d);
+            su4.k().y("nani_key_download_link_url", D.e);
+            su4.k().y("nani_key_download_txt", D.f);
+            su4.k().y("nani_key_show_tail_txt", D.g);
+            su4.k().w("nani_key_show_tail_video_type", D.h);
+            su4.k().y("nani_key_show_tail_txt", D.g);
+            su4.k().y("nani_key_pre_h5_link", D.i);
         }
         if (u.N() != null) {
             TbSingleton.getInstance().setShakeData(u.N());
@@ -318,8 +316,8 @@ public class TiebaSyncService extends BdBaseService {
         if (!TextUtils.isEmpty(u.O())) {
             TbSingleton.getInstance().setSharePanelText(u.O());
         }
-        tu4.k().x("key_frs_cache_time", u.s() * 1000);
-        tu4.k().u("key_baidu_id_cookie_switch", u.g() == 1);
+        su4.k().x("key_frs_cache_time", u.s() * 1000);
+        su4.k().u("key_baidu_id_cookie_switch", u.g() == 1);
         TbSingleton.getInstance().setPushDialogLoopTime(u.k());
         TbSingleton.getInstance().setPushDialogShowTime(u.l());
         TbSingleton.getInstance().setCanShowPermDlg(u.a());
@@ -358,7 +356,7 @@ public class TiebaSyncService extends BdBaseService {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onPostExecuteYYLiveTabConfigData() {
-        q39 w;
+        o39 w;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65562, this) == null) || (w = this.mModel.w()) == null) {
             return;
@@ -377,10 +375,10 @@ public class TiebaSyncService extends BdBaseService {
     public void statisticForAdvert(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, this, str) == null) {
-            xg a2 = xa5.a();
-            a2.c("ad_sdk_priority", Integer.valueOf(tu4.k().l("splash_ad_strategy_key", 0)));
-            a2.c("bear_sid_type", Integer.valueOf(tu4.k().l("splash_bear_sid_type_key", 0)));
-            a2.b("ubs", tu4.k().q(UbsABTestDataManager.getSharedPrefKeyForUbsABTest(), null));
+            xg a2 = va5.a();
+            a2.c("ad_sdk_priority", Integer.valueOf(su4.k().l("splash_ad_strategy_key", 0)));
+            a2.c("bear_sid_type", Integer.valueOf(su4.k().l("splash_bear_sid_type_key", 0)));
+            a2.b("ubs", su4.k().q(UbsABTestDataManager.getSharedPrefKeyForUbsABTest(), null));
             BdStatisticsManager.getInstance().debug(str, a2);
         }
     }
@@ -428,7 +426,7 @@ public class TiebaSyncService extends BdBaseService {
     }
 
     /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, yz4> {
+    public class b extends BdAsyncTask<String, Integer, wz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
@@ -456,14 +454,14 @@ public class TiebaSyncService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public yz4 doInBackground(String... strArr) {
+        public wz4 doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, strArr)) != null) {
-                return (yz4) invokeL.objValue;
+                return (wz4) invokeL.objValue;
             }
             this.b.statisticForAdvert("advert_before_sync");
-            yz4 yz4Var = null;
+            wz4 wz4Var = null;
             try {
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_SYNC_ADDRESS);
                 this.a = netWork;
@@ -482,7 +480,7 @@ public class TiebaSyncService extends BdBaseService {
                 this.a.addPostData("scr_h", String.valueOf(ri.i(app)));
                 this.a.addPostData("scr_dip", String.valueOf(ri.h(app)));
                 String str = "0";
-                if (pz4.d().f() > 0) {
+                if (nz4.d().f() > 0) {
                     this.a.addPostData("_msg_status", "0");
                 } else {
                     this.a.addPostData("_msg_status", "1");
@@ -494,7 +492,7 @@ public class TiebaSyncService extends BdBaseService {
                     }
                     this.a.addPostData("_active", str);
                 }
-                this.a.addPostData("_pic_quality", String.valueOf(tn4.c().e()));
+                this.a.addPostData("_pic_quality", String.valueOf(sn4.c().e()));
                 if (TiebaSyncService.mStatistics != null) {
                     this.a.addPostData("_msg_type", TiebaSyncService.mStatistics);
                 }
@@ -504,7 +502,7 @@ public class TiebaSyncService extends BdBaseService {
                 NetWork netWork2 = this.a;
                 netWork2.addPostData("versioncode", versionCode + "");
                 this.a.addPostData("signmd5", TbMd5.creatSignInt(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(packageName, 64)));
-                this.a.addPostData(PackageTable.MD5, rl5.a());
+                this.a.addPostData(PackageTable.MD5, pl5.a());
                 NetWork netWork3 = this.a;
                 boolean a = fi.a();
                 String str2 = WebKitFactory.OS_64;
@@ -519,28 +517,28 @@ public class TiebaSyncService extends BdBaseService {
                     TbadkCoreApplication.getInst().clearActiveVersion();
                 }
                 if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                    yz4 yz4Var2 = new yz4();
+                    wz4 wz4Var2 = new wz4();
                     try {
-                        yz4Var2.A(postNetData);
-                        if (TbadkCoreApplication.getClientId() == null && yz4Var2.i().a() != null && yz4Var2.i().a().length() > 0) {
-                            TbadkCoreApplication.saveClientId(this.b, yz4Var2.i().a());
-                            TbadkCoreApplication.setClientId(yz4Var2.i().a());
+                        wz4Var2.A(postNetData);
+                        if (TbadkCoreApplication.getClientId() == null && wz4Var2.i().a() != null && wz4Var2.i().a().length() > 0) {
+                            TbadkCoreApplication.saveClientId(this.b, wz4Var2.i().a());
+                            TbadkCoreApplication.setClientId(wz4Var2.i().a());
                         }
-                        if (yz4Var2.k() != null) {
-                            tu4.k().w("crash_limit_count", yz4Var2.k().b());
+                        if (wz4Var2.k() != null) {
+                            su4.k().w("crash_limit_count", wz4Var2.k().b());
                         }
-                        qx4 e = yz4Var2.e();
-                        if (yz4Var2.e() != null && !TextUtils.isEmpty(e.c())) {
-                            tu4.k().y("sync_ad_privacy_url", e.c());
+                        ox4 e = wz4Var2.e();
+                        if (wz4Var2.e() != null && !TextUtils.isEmpty(e.c())) {
+                            su4.k().y("sync_ad_privacy_url", e.c());
                         }
-                        TbSingleton.getInstance().setUbsABTestJsonArray(yz4Var2.r());
+                        TbSingleton.getInstance().setUbsABTestJsonArray(wz4Var2.r());
                         String unused = TiebaSyncService.mStatistics = null;
-                        return yz4Var2;
+                        return wz4Var2;
                     } catch (Exception e2) {
                         e = e2;
-                        yz4Var = yz4Var2;
+                        wz4Var = wz4Var2;
                         BdLog.detailException(e);
-                        return yz4Var;
+                        return wz4Var;
                     }
                 }
                 return null;
@@ -552,15 +550,15 @@ public class TiebaSyncService extends BdBaseService {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(yz4 yz4Var) {
+        public void onPostExecute(wz4 wz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz4Var) == null) {
-                super.onPostExecute(yz4Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz4Var) == null) {
+                super.onPostExecute(wz4Var);
                 this.b.mSyncTask = null;
-                if (yz4Var != null) {
-                    be5.j().x();
-                    this.b.mModel = yz4Var;
-                    ak5.b(this.b.mModel.h());
+                if (wz4Var != null) {
+                    zd5.j().x();
+                    this.b.mModel = wz4Var;
+                    yj5.b(this.b.mModel.h());
                     this.b.onPostExecuteUpdateData();
                     TbadkCoreApplication.getInst().setIsNoInterestTag(1 == this.b.mModel.o());
                     TbadkCoreApplication.getInst().setIsFirstTimeMotivate(this.b.mModel.m());
@@ -588,21 +586,21 @@ public class TiebaSyncService extends BdBaseService {
                         TbadkCoreApplication.getInst().setActivitySwitch(this.b.mModel.d());
                     }
                     if (this.b.mModel.a() != null) {
-                        ae5.d().e(this.b.mModel.a());
+                        yd5.d().e(this.b.mModel.a());
                     }
                     if (this.b.mModel.b() != null) {
-                        ae5.d().f(this.b.mModel.b());
+                        yd5.d().f(this.b.mModel.b());
                     }
                     ABTestSwitchManager.getInstance().parseJSONArray(this.b.mModel.c());
                     UbsABTestDataManager.getInstance().parseJSONArray(this.b.mModel.r());
-                    ft6.e().k(this.b.mModel.l());
+                    dt6.e().k(this.b.mModel.l());
                     TbSingleton.getInstance().setAdFloatViewData(this.b.mModel.f());
                     SyncDataEvent syncDataEvent = new SyncDataEvent();
                     syncDataEvent.sampleId = this.b.mModel.u() != null ? this.b.mModel.u().M() : "";
                     syncDataEvent.ubsABTest = this.b.mModel.r() != null ? this.b.mModel.r().toString() : "[]";
                     syncDataEvent.abtestExtraData = this.b.mModel.b();
                     syncDataEvent.userGrowthTaskListData = this.b.mModel.s();
-                    u75.i(syncDataEvent);
+                    s75.i(syncDataEvent);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001371));
                     this.b.statisticForAdvert("advert_after_sync");
                     this.b.stopSelf();

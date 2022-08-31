@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
+import android.text.TextUtils;
+import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c85 implements o75<EmotionReloadEvent> {
+public class c85 implements m75<HistoryEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,16 +27,16 @@ public class c85 implements o75<EmotionReloadEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o75
+    @Override // com.baidu.tieba.m75
     /* renamed from: a */
-    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
+    public boolean onEvent(HistoryEvent historyEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
-            if (emotionReloadEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
+            if (historyEvent == null || TextUtils.isEmpty(historyEvent.tid)) {
                 return false;
             }
-            MessageManager.getInstance().runTask(2004603, (Class) null);
+            sz5.a(historyEvent.tid);
             return true;
         }
         return invokeL.booleanValue;

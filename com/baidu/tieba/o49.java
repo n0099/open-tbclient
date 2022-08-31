@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class o49 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile n49 a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized n49 a() {
-        InterceptResult invokeV;
-        n49 n49Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (o49.class) {
-                if (a == null) {
-                    a = new n49();
-                }
-                n49Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982421, "Lcom/baidu/tieba/o49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return n49Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947982421, "Lcom/baidu/tieba/o49;");
+                return;
+            }
         }
-        return (n49) invokeV.objValue;
+        a = f59.m();
     }
 }

@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes4.dex */
+import java.util.List;
+import tbclient.AdMixFloor;
+import tbclient.FrsTabInfo;
+/* loaded from: classes3.dex */
 public class et6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile et6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
+    public int a;
 
     public et6() {
         Interceptable interceptable = $ic;
@@ -31,111 +30,125 @@ public class et6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
     }
 
-    public static et6 e() {
+    public static et6 a(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
+            if (z && d()) {
+                return new et6();
+            }
+            return null;
+        }
+        return (et6) invokeZ.objValue;
+    }
+
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (et6.class) {
-                    if (b == null) {
-                        b = new et6();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? UbsABTestHelper.isFrsFunAdSdkTest() : invokeV.booleanValue;
+    }
+
+    public static boolean e(FrsTabInfo frsTabInfo, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, frsTabInfo, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1) {
+                return false;
+            }
+            if (frsTabInfo != null && 505 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) {
+                return false;
+            }
+            return ((frsTabInfo != null && 502 == frsTabInfo.tab_id.intValue() && 91 == frsTabInfo.tab_type.intValue()) || i == 2) ? false : true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getCurrentAccountInfo() != null && TbadkCoreApplication.getCurrentAccountInfo().getMemberCloseAdVipClose() == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void b(List<pn> list, boolean z, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{list, Boolean.valueOf(z), str}) == null) {
+            int h = xs6.m().h();
+            if (z) {
+                i = xs6.m().i() - 1;
+                for (pn pnVar : list) {
+                    if (pnVar instanceof ThreadData) {
+                        if (((ThreadData) pnVar).getIs_top() != 1) {
+                            break;
+                        }
+                        i++;
                     }
                 }
+            } else {
+                i = this.a;
             }
-            return b;
+            this.a = c(i, h, list, str);
         }
-        return (et6) invokeV.objValue;
     }
 
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final int c(int i, int i2, List<pn> list, String str) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, str})) == null) {
+            if (list == null || list.size() == 0 || i > list.size() - 1) {
+                return 0;
             }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str)) {
-                return null;
-            }
-            return this.a.get(str);
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final Map<String, FunAdSidConfigData> c() {
-        InterceptResult invokeV;
-        FunAdSidConfigData d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : ft6.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                ThreadData threadData = new ThreadData();
+                fl8 fl8Var = new fl8();
+                fl8Var.n(true);
+                threadData.funAdData = fl8Var;
+                fl8Var.m(str);
+                list.add(i, threadData);
+                i = i + i2 + 1;
+                if (i > list.size() - 1) {
+                    return (i - (list.size() - 1)) - 1;
                 }
             }
-            return hashMap;
+            return 0;
         }
-        return (Map) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
+    public void g(List<pn> list, List<AdMixFloor> list2, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, list2, Boolean.valueOf(z), str}) == null) {
+            if (((AdMixFloor) ListUtils.getItem(list2, 0)) == null) {
+                return;
             }
-            String string = ft6.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
+            int i = 0;
+            for (int i2 = 0; z && i2 < list.size(); i2++) {
+                pn pnVar = list.get(i2);
+                if (pnVar instanceof ThreadData) {
+                    if (((ThreadData) pnVar).getIs_top() != 1) {
+                        break;
+                    }
+                    i++;
+                }
             }
-            try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
+            for (int i3 = 0; i3 < list2.size(); i3++) {
+                AdMixFloor adMixFloor = list2.get(i3);
+                if (adMixFloor.ad_type.intValue() != 1) {
+                    ThreadData threadData = new ThreadData();
+                    fl8 fl8Var = new fl8();
+                    fl8Var.n(true);
+                    threadData.funAdData = fl8Var;
+                    fl8Var.m(str);
+                    ListUtils.add(list, (adMixFloor.floor_num.intValue() + i) - 1, threadData);
+                }
             }
-            return a(jSONObject);
         }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) || this.a == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.a.put(str, funAdSidConfigData);
-        g(str);
-    }
-
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
-            return;
-        }
-        EditorHelper.putString(ft6.g(), str, json.toString());
     }
 }

@@ -8,7 +8,6 @@ import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tieba.q10;
 import com.baidu.tieba.s10;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -124,7 +123,7 @@ public class DeviceUtil {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (telephonyManager != null) {
-                        str = ApiReplaceUtil.getDeviceId(telephonyManager);
+                        str = telephonyManager.getDeviceId();
                     }
                 } catch (Exception e) {
                     if (DEBUG) {

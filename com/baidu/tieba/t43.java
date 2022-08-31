@@ -42,14 +42,14 @@ public class t43 extends x23 {
 
         /* renamed from: com.baidu.tieba.t43$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0405a implements f72.f {
+        public class C0408a implements f72.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f72.e a;
             public final /* synthetic */ JSONObject b;
             public final /* synthetic */ a c;
 
-            public C0405a(a aVar, f72.e eVar, JSONObject jSONObject) {
+            public C0408a(a aVar, f72.e eVar, JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -131,7 +131,7 @@ public class t43 extends x23 {
                 HybridUbcFlow q = fu2.q("route", this.a);
                 q.F(new UbcFlowEvent("na_pre_load_slave_check"));
                 q.D("preload", f.b ? "1" : "0");
-                f72.q(f, new C0405a(this, f, c2));
+                f72.q(f, new C0408a(this, f, c2));
             }
         }
 

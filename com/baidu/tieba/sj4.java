@@ -167,7 +167,7 @@ public class sj4 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ou4.e(this.a.getPageActivity(), 1);
+                    nu4.e(this.a.getPageActivity(), 1);
                 }
             }
         }
@@ -452,7 +452,7 @@ public class sj4 {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ou4.e(this.a.getPageActivity(), 1);
+                    nu4.e(this.a.getPageActivity(), 1);
                 }
             }
         }
@@ -660,10 +660,10 @@ public class sj4 {
         this.i = new d(this, 9);
         this.j = new c(this, 13);
         if (ej4.w().r()) {
-            this.b = tu4.k().h("key_delete_mission_home_entrance", true);
+            this.b = su4.k().h("key_delete_mission_home_entrance", true);
             return;
         }
         this.b = true;
-        tu4.k().u("key_delete_mission_home_entrance", true);
+        su4.k().u("key_delete_mission_home_entrance", true);
     }
 }

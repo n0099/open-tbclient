@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.Window;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes4.dex */
-public interface g3a {
-    void attachWindow(Window window);
+public interface g3a extends e3a {
 
-    View getContentView();
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a();
+    }
 
-    void refreshView();
+    void setCallback(a aVar);
 
-    void refreshWindow(WindowParams windowParams);
+    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
 }

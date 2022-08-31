@@ -1,29 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class de7 {
-    public static /* synthetic */ Interceptable $ic;
-    public static int[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface de7 {
+    void a(List<xf7> list);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701747, "Lcom/baidu/tieba/de7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947701747, "Lcom/baidu/tieba/de7;");
-                return;
-            }
-        }
-        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
-    }
+    void b();
+
+    void c(long j, String str);
+
+    void d(String str, String str2, String str3, List<yf7> list);
+
+    void e(long j, String str, int i, String str2);
 }

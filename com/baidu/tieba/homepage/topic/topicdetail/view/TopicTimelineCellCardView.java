@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l37;
+import com.baidu.tieba.j37;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
     public TextView d;
     public int e;
     public int f;
-    public l37 g;
+    public j37 g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -105,19 +105,19 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         }
     }
 
-    public void setData(l37 l37Var) {
+    public void setData(j37 j37Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, l37Var) == null) {
-            if (l37Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, j37Var) == null) {
+            if (j37Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.g = l37Var;
-            this.c.setText(l37Var.d);
-            this.d.setText(l37Var.c);
-            if (StringUtils.isNull(l37Var.e)) {
-                int i = l37Var.f;
+            this.g = j37Var;
+            this.c.setText(j37Var.d);
+            this.d.setText(j37Var.c);
+            if (StringUtils.isNull(j37Var.e)) {
+                int i = j37Var.f;
                 if (i == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                     return;
@@ -131,10 +131,10 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             }
             try {
                 GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f081207);
-                gradientDrawable.setColor(Color.parseColor(l37Var.e));
+                gradientDrawable.setColor(Color.parseColor(j37Var.e));
                 this.b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i2 = l37Var.f;
+                int i2 = j37Var.f;
                 if (i2 == 0) {
                     SkinManager.setBackgroundResource(this.b, R.drawable.topic_timeline_bg_one);
                 } else if (i2 == 1) {

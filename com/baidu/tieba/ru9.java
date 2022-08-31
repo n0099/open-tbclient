@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import android.media.MediaRecorder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.webrtc.CameraVideoCapturer;
-/* compiled from: CameraVideoCapturer.java */
+import org.webrtc.CalledByNative;
+import org.webrtc.PeerConnection;
+import org.webrtc.RtpTransceiver;
+/* compiled from: PeerConnection.java */
 /* loaded from: classes5.dex */
 public final /* synthetic */ class ru9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public static void $default$addMediaRecorderToCamera(CameraVideoCapturer cameraVideoCapturer, MediaRecorder mediaRecorder, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+    @CalledByNative("Observer")
+    public static void $default$onConnectionChange(PeerConnection.Observer observer, PeerConnection.PeerConnectionState peerConnectionState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, cameraVideoCapturer, mediaRecorder, mediaRecorderHandler) == null) {
-            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        if (interceptable == null || interceptable.invokeLL(65536, null, observer, peerConnectionState) == null) {
         }
     }
 
-    @Deprecated
-    public static void $default$removeMediaRecorderFromCamera(CameraVideoCapturer cameraVideoCapturer, CameraVideoCapturer.MediaRecorderHandler mediaRecorderHandler) {
+    @CalledByNative("Observer")
+    public static void $default$onTrack(PeerConnection.Observer observer, RtpTransceiver rtpTransceiver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, cameraVideoCapturer, mediaRecorderHandler) == null) {
-            throw new UnsupportedOperationException("Deprecated and not implemented.");
+        if (interceptable == null || interceptable.invokeLL(65537, null, observer, rtpTransceiver) == null) {
         }
     }
 }

@@ -58,13 +58,13 @@ public final class by2 {
 
         /* renamed from: com.baidu.tieba.by2$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0215a implements tf3<xx2> {
+        public class C0220a implements tf3<xx2> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ zx2 b;
 
-            public C0215a(a aVar, String str, zx2 zx2Var) {
+            public C0220a(a aVar, String str, zx2 zx2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public final class by2 {
                     Log.i("SwanPuppetManager", "onEvent: to=" + this.a.g.size() + " event=" + str + " client=" + zx2Var.b);
                 }
                 synchronized (this.a.g) {
-                    sf3.a(z03.M(), new C0215a(this, str, zx2Var), this.a.g);
+                    sf3.a(z03.M(), new C0220a(this, str, zx2Var), this.a.g);
                 }
             }
         }

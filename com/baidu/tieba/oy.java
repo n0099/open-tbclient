@@ -24,15 +24,15 @@ public class oy extends zw {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ho4 a;
+        public final /* synthetic */ go4 a;
         public final /* synthetic */ oy b;
 
-        public a(oy oyVar, ho4 ho4Var) {
+        public a(oy oyVar, go4 go4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oyVar, ho4Var};
+                Object[] objArr = {oyVar, go4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,7 +43,7 @@ public class oy extends zw {
                 }
             }
             this.b = oyVar;
-            this.a = ho4Var;
+            this.a = go4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -92,22 +92,22 @@ public class oy extends zw {
         }
     }
 
-    public final boolean v(ho4 ho4Var) {
+    public final boolean v(go4 go4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ho4Var)) == null) ? (ho4Var == null || ho4Var.getThreadData() == null || ho4Var.getThreadData().getPollData() == null || ho4Var.getThreadData().getPollData().getOptions() == null || ho4Var.getThreadData().getPollData().getOptions().size() <= 0 || ho4Var.getThreadData().isVideoThreadType()) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, go4Var)) == null) ? (go4Var == null || go4Var.getThreadData() == null || go4Var.getThreadData().getPollData() == null || go4Var.getThreadData().getPollData().getOptions() == null || go4Var.getThreadData().getPollData().getOptions().size() <= 0 || go4Var.getThreadData().isVideoThreadType()) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: w */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) {
-            if (v(ho4Var)) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) {
+            if (v(go4Var)) {
                 this.j.setVisibility(0);
-                this.j.setData(ho4Var.getThreadData().getPollData(), ho4Var.getThreadData().getTid(), ho4Var.getThreadData().getFid());
-                this.j.setOnItemClickListener(new a(this, ho4Var));
+                this.j.setData(go4Var.getThreadData().getPollData(), go4Var.getThreadData().getTid(), go4Var.getThreadData().getFid());
+                this.j.setOnItemClickListener(new a(this, go4Var));
                 return;
             }
             this.j.setVisibility(8);

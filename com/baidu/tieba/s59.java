@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import android.content.Context;
 /* loaded from: classes5.dex */
-public class s59 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface s59 {
+    void a(int i);
 
-    @Inject
-    public static x49 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? xg8.a() : (x49) invokeV.objValue;
-    }
+    String b(boolean z);
 
-    @Inject
-    public static w49 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? vg8.a() : (w49) invokeV.objValue;
-    }
+    String c(String str);
 
-    @Inject
-    public static a59 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? o49.a() : (a59) invokeV.objValue;
-    }
+    int d();
+
+    String e(String str);
+
+    Context getAppContext();
+
+    int getInt(String str, int i);
+
+    long getLong(String str, long j);
+
+    boolean isDebug();
+
+    void putInt(String str, int i);
+
+    void putLong(String str, long j);
+
+    void putString(String str, String str2);
 }

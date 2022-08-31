@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.GridView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.o2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public class NoScrollGridView extends GridView {
             int integer = obtainStyledAttributes.getInteger(0, 536870911);
             this.a = integer;
             if (integer != 536870911) {
-                this.a = q2a.a(integer);
+                this.a = o2a.a(integer);
             }
             obtainStyledAttributes.recycle();
         }

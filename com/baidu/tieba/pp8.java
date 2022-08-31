@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +13,16 @@ public class pp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public uq4 b;
+    public final fo8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2921333);
+    public pp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2921532);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,25 +34,17 @@ public class pp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = mainTabActivity.f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        fo8 fo8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || TbSingleton.getInstance().isNewUserRedPackageShowed() || !this.a.F || !TbSingleton.getInstance().hasPerformedFirstLoginTest() || (fo8Var = this.b) == null || fo8Var.d() == null) {
             return;
         }
-        if (this.b != null || (customResponsedMessage.getData() instanceof uq4)) {
-            if (customResponsedMessage.getData() != null) {
-                this.b = (uq4) customResponsedMessage.getData();
-            }
-            if (this.b == null || !TbadkCoreApplication.isLogin()) {
-                return;
-            }
-            sn8 sn8Var = this.a.x;
-            uq4 uq4Var = this.b;
-            sn8Var.j(uq4Var.a, uq4Var.b, uq4Var.c);
-        }
+        this.b.d().d();
     }
 }

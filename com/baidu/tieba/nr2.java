@@ -30,14 +30,14 @@ public final class nr2 {
 
         /* renamed from: com.baidu.tieba.nr2$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0335a implements Runnable {
+        public class RunnableC0344a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ Bitmap b;
             public final /* synthetic */ Rect c;
 
-            public RunnableC0335a(a aVar, int i, Bitmap bitmap, Rect rect) {
+            public RunnableC0344a(a aVar, int i, Bitmap bitmap, Rect rect) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,7 +99,7 @@ public final class nr2 {
                 return;
             }
             Bitmap p = re3.p();
-            ud3.f().execute(new RunnableC0335a(this, jr2.d(o), p, jr2.b(p, o, nm2.U().B(this.a))), "SwanNAArrivalCheck");
+            ud3.f().execute(new RunnableC0344a(this, jr2.d(o), p, jr2.b(p, o, nm2.U().B(this.a))), "SwanNAArrivalCheck");
         }
     }
 

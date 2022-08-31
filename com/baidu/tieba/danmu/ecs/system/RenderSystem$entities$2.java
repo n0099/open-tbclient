@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
 import com.baidu.tieba.o0;
-import com.baidu.tieba.u46;
+import com.baidu.tieba.s46;
 import com.baidu.tieba.y0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,6 +45,6 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<y
     public final y0<o0> invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(u46.a.c()) : (y0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(s46.a.c()) : (y0) invokeV.objValue;
     }
 }

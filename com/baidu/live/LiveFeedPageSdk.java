@@ -14,7 +14,7 @@ import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.bb0;
 import com.baidu.tieba.fa0;
-import com.baidu.tieba.hr9;
+import com.baidu.tieba.fr9;
 import com.baidu.tieba.r90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -186,7 +186,7 @@ public class LiveFeedPageSdk {
     public String getYYHDID(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? hr9.a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) ? fr9.a(context) : (String) invokeL.objValue;
     }
 
     public void initHostInfo(String str, String str2) {

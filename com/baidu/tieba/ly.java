@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ly extends zw {
     public static /* synthetic */ Interceptable $ic;
     public static final int r;
@@ -30,14 +30,14 @@ public class ly extends zw {
     public int i;
     public int j;
     public Context k;
-    public ho4 l;
+    public go4 l;
     public VideoImageNoPlayerLayout m;
     public int n;
     public String o;
     public int p;
     public qy q;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class ly extends zw {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements qy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,9 +98,9 @@ public class ly extends zw {
         }
 
         @Override // com.baidu.tieba.qy
-        public void a(ho4 ho4Var) {
+        public void a(go4 go4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, ho4Var) == null) || this.a.q == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, go4Var) == null) || this.a.q == null) {
                 return;
             }
             this.a.q.a(this.a.l);
@@ -170,11 +170,11 @@ public class ly extends zw {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j06Var) == null) {
-            super.m(j06Var);
-            this.m.setOnCardSubClickListener(j06Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h06Var) == null) {
+            super.m(h06Var);
+            this.m.setOnCardSubClickListener(h06Var);
         }
     }
 
@@ -213,9 +213,9 @@ public class ly extends zw {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ho4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, go4Var) == null) {
             int k = ri.k(TbadkCoreApplication.getInst());
             if (k != this.n) {
                 s = ri.k(TbadkCoreApplication.getInst());
@@ -229,10 +229,10 @@ public class ly extends zw {
                 this.j = i / 3;
                 this.n = k;
             }
-            this.l = ho4Var;
-            if (ho4Var != null && ho4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
+            this.l = go4Var;
+            if (go4Var != null && go4Var.getThreadData() != null && this.l.getThreadData().originalThreadData != null && !this.l.getThreadData().originalThreadData.m && !this.l.getThreadData().shouldShowBlockedState()) {
                 this.m.setVisibility(0);
-                this.m.a(ho4Var);
+                this.m.a(go4Var);
                 ViewGroup.LayoutParams layoutParams = this.m.getLayoutParams();
                 ViewGroup.LayoutParams layoutParams2 = this.m.j.getLayoutParams();
                 int i2 = layoutParams.width;

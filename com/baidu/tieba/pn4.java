@@ -46,7 +46,7 @@ public class pn4 {
             lg.h().o(27, new BigImageLoaderProc(27));
             lg.h().o(29, new SimpleForeverLoaderProc(true, 29));
             lg.h().o(32, new LocalFileDrawableLoaderProc(32));
-            lg.h().o(23, new fx4());
+            lg.h().o(23, new dx4());
             lg.h().o(33, new MemeLoaderProc2());
             lg.h().o(34, new EmotionShareLoaderProc());
             lg.h().o(35, new LocalFileImageLoaderProc(160, 160));

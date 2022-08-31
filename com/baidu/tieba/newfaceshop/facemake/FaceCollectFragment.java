@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq7;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ya6;
+import com.baidu.tieba.wa6;
+import com.baidu.tieba.xp7;
 import com.baidu.tieba.zp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,9 +38,9 @@ public class FaceCollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public bq7 b;
+    public zp7 b;
     public List<EmotionImageData> c;
-    public zp7 d;
+    public xp7 d;
     public NoDataView e;
     public Activity f;
 
@@ -75,7 +75,7 @@ public class FaceCollectFragment extends BaseFragment {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> q = ya6.o().q(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> q = wa6.o().q(TbadkCoreApplication.getCurrentAccount());
                 if (q == null) {
                     return null;
                 }
@@ -144,9 +144,9 @@ public class FaceCollectFragment extends BaseFragment {
             this.e.setVisibility(8);
             this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09131c);
             this.c = new ArrayList();
-            bq7 bq7Var = new bq7(this.c, 20);
-            this.b = bq7Var;
-            bq7Var.l(this.d);
+            zp7 zp7Var = new zp7(this.c, 20);
+            this.b = zp7Var;
+            zp7Var.l(this.d);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 Iterator it = ((ArrayList) serializable).iterator();
@@ -169,9 +169,9 @@ public class FaceCollectFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bq7 bq7Var = this.b;
-            if (bq7Var != null) {
-                return bq7Var.i();
+            zp7 zp7Var = this.b;
+            if (zp7Var != null) {
+                return zp7Var.i();
             }
             return null;
         }
@@ -185,13 +185,13 @@ public class FaceCollectFragment extends BaseFragment {
         }
     }
 
-    public void x1(zp7 zp7Var) {
+    public void x1(xp7 xp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, zp7Var) == null) {
-            this.d = zp7Var;
-            bq7 bq7Var = this.b;
-            if (bq7Var != null) {
-                bq7Var.l(zp7Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, xp7Var) == null) {
+            this.d = xp7Var;
+            zp7 zp7Var = this.b;
+            if (zp7Var != null) {
+                zp7Var.l(xp7Var);
             }
         }
     }

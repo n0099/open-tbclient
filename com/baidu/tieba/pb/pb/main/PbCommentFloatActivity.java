@@ -35,14 +35,14 @@ import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ob5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.mb5;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pb.pb.main.view.CommentFloatSusPendedView;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.videopb.VideoPbCommentFloatFragment;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.vi5;
+import com.baidu.tieba.ti5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,13 +55,13 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout A;
-    public ob5 B;
+    public mb5 B;
     public BdUniqueId C;
     public TextView D;
     public ImageView E;
     public LinearLayout F;
     public TiePlusEventController G;
-    public vi5 H;
+    public ti5 H;
     public int I;
     public NoNetworkView.b J;
     public CustomMessageListener K;
@@ -369,7 +369,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         }
         Integer num = pbContent.type;
         this.I = tiebaPlusInfo.jump_type.intValue();
-        vi5 c2 = vi5.c(num.intValue(), tiebaPlusInfo, this.a.S1().O());
+        ti5 c2 = ti5.c(num.intValue(), tiebaPlusInfo, this.a.S1().O());
         this.H = c2;
         c2.b(this.a.S1().O().statFloor);
         this.H.q(TiePlusStat.StatType.EXPOSE);
@@ -490,9 +490,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            ob5 ob5Var = this.B;
-            if (ob5Var != null) {
-                Intent resultIntent = ob5Var.getResultIntent();
+            mb5 mb5Var = this.B;
+            if (mb5Var != null) {
+                Intent resultIntent = mb5Var.getResultIntent();
                 if (resultIntent != null) {
                     setResult(-1, resultIntent);
                 }
@@ -524,9 +524,9 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             this.u.p(i);
             SkinManager.setBackgroundColor(this.u, R.color.CAM_X0608);
             SkinManager.setBackgroundColor(this.A, R.color.CAM_X0201);
-            ob5 ob5Var = this.B;
-            if (ob5Var != null) {
-                ob5Var.n(i);
+            mb5 mb5Var = this.B;
+            if (mb5Var != null) {
+                mb5Var.n(i);
             }
         }
     }
@@ -579,7 +579,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             super.onResume();
             H1(true);
             if (this.B == null) {
-                ob5 z1 = z1(this.A, this.w);
+                mb5 z1 = z1(this.A, this.w);
                 this.B = z1;
                 if (z1 != null) {
                     this.u.setContentViewTop(z1);
@@ -596,7 +596,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         ImageView imageView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            os4.d(this.D).v(R.color.CAM_X0304);
+            ns4.d(this.D).v(R.color.CAM_X0304);
             int i = this.I;
             if (i == 0 || (imageView = this.E) == null) {
                 return;
@@ -618,8 +618,8 @@ public class PbCommentFloatActivity extends AbsPbActivity {
     public void w1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            ob5 ob5Var = this.B;
-            if (ob5Var == null || ob5Var.I0()) {
+            mb5 mb5Var = this.B;
+            if (mb5Var == null || mb5Var.I0()) {
                 if (this.v != null) {
                     this.u.r();
                 } else {
@@ -641,7 +641,7 @@ public class PbCommentFloatActivity extends AbsPbActivity {
         return invokeV.intValue;
     }
 
-    public final ob5 z1(FrameLayout frameLayout, NavigationBar navigationBar) {
+    public final mb5 z1(FrameLayout frameLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048601, this, frameLayout, navigationBar)) == null) {
@@ -656,6 +656,6 @@ public class PbCommentFloatActivity extends AbsPbActivity {
             }
             return null;
         }
-        return (ob5) invokeLL.objValue;
+        return (mb5) invokeLL.objValue;
     }
 }

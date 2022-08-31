@@ -1,33 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.userblock.UserBlockInfoModel;
+import com.baidu.tieba.userblock.UserBlockSetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
+import java.util.Iterator;
+import tbclient.GetUserBlackInfo.DataRes;
+import tbclient.PermissionList;
 /* loaded from: classes3.dex */
 public class cs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<String> b;
-    public List<String> c;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public vu4 c;
+    public as4 d;
+    public ArrayList<is4> e;
+    public long f;
+    public UserBlockSetModel g;
+    public UserBlockInfoModel h;
+    public AdapterView.OnItemClickListener i;
+    public View.OnClickListener j;
+    public View.OnClickListener k;
 
     /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
+    public class a implements wm4<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cs8 a;
 
         public a(cs8 cs8Var) {
             Interceptable interceptable = $ic;
@@ -41,29 +58,36 @@ public class cs8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = cs8Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.wm4
+        /* renamed from: b */
+        public void onSuccess(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                jn7.a(in7.b);
-                jn7.a(in7.c);
-                jn7.a(in7.d);
-                jn7.a(in7.f);
-                jn7.a(in7.g);
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.k();
+                bs8.g((ViewGroup) this.a.a.getPageActivity().findViewById(16908290), str, true);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921690));
             }
-            return (Void) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.wm4
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.k();
+                bs8.g((ViewGroup) this.a.a.getPageActivity().findViewById(16908290), str, false);
+            }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<Void, Void, Void> {
+    public class b implements wm4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cs8 a;
@@ -86,28 +110,40 @@ public class cs8 {
             this.a = cs8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.wm4
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List j = cs8.j(in7.e);
-                if (j == null) {
-                    return null;
-                }
-                int size = j.size();
-                for (int i = 0; i < size; i++) {
-                    this.a.n((bs8) j.get(i));
-                }
-                return null;
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || this.a.a == null) {
+                return;
             }
-            return (Void) invokeL.objValue;
+            this.a.a.showToast(str);
+        }
+
+        @Override // com.baidu.tieba.wm4
+        public void onSuccess(Object obj) {
+            int i;
+            PermissionList permissionList;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+                if (obj instanceof DataRes) {
+                    DataRes dataRes = (DataRes) obj;
+                    i = dataRes.is_black_white.intValue();
+                    permissionList = dataRes.perm_list;
+                } else {
+                    i = 0;
+                    permissionList = null;
+                }
+                if (permissionList != null) {
+                    this.a.m(i, permissionList);
+                } else if (this.a.a != null) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f05b5);
+                }
+            }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class c extends BdAsyncTask<String, Void, Void> {
+    public class c implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cs8 a;
@@ -130,23 +166,22 @@ public class cs8 {
             this.a = cs8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
-                if (strArr != null && strArr.length == 2 && !StringUtils.isNull(strArr[0]) && !StringUtils.isNull(strArr[1])) {
-                    this.a.f(strArr[0], strArr[1]);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                is4 is4Var = (is4) ListUtils.getItem(this.a.e, i);
+                if (is4Var != null) {
+                    this.a.d.r(true);
                 }
-                return null;
+                this.a.d.h(i);
+                bs8.a(is4Var, i);
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class d extends BdAsyncTask<bs8, Void, Void> {
+    public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cs8 a;
@@ -169,198 +204,106 @@ public class cs8 {
             this.a = cs8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(bs8... bs8VarArr) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bs8VarArr)) == null) {
-                if (bs8VarArr != null && bs8VarArr.length == 1 && bs8VarArr[0] != null) {
-                    this.a.g(bs8VarArr[0]);
-                }
-                return null;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.d();
             }
-            return (Void) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class e {
+    public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
-        public static final cs8 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cs8 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-880051168, "Lcom/baidu/tieba/cs8$e;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-880051168, "Lcom/baidu/tieba/cs8$e;");
+        public e(cs8 cs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new cs8(null);
+            this.a = cs8Var;
         }
-    }
 
-    public /* synthetic */ cs8(a aVar) {
-        this();
-    }
-
-    public static cs8 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? e.a : (cs8) invokeV.objValue;
-    }
-
-    public static List<bs8> j(String str) {
-        InterceptResult invokeL;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            File file = new File(str);
-            if (file.exists() && (listFiles = file.listFiles()) != null) {
-                int length = listFiles.length;
-                ArrayList arrayList = new ArrayList(length);
-                for (int i = 0; i < length; i++) {
-                    arrayList.add(new bs8(m(jn7.e(listFiles[i])), listFiles[i].getAbsolutePath()));
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.d.d();
+                if (this.a.e == null || !pi.z() || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return;
                 }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public static List<String> m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String[] split = str.split("\n");
-            int length = split.length;
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                if (!StringUtils.isNull(split[i])) {
-                    arrayList.add(split[i]);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new a(this).execute(new Void[0]);
-        }
-    }
-
-    public final synchronized boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            synchronized (this) {
-                if (this.c.contains(str)) {
-                    return false;
-                }
-                File file = new File(str);
-                return jn7.f(file, str2 + "\n");
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final synchronized void g(bs8 bs8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bs8Var) == null) {
-            synchronized (this) {
-                try {
-                    byte[] a2 = as8.a(bs8Var.a);
-                    if (as8.c(a2, TbConfig.SERVER_ADDRESS + TbConfig.URL_VIDEO_MONITOR_REPORT) && !StringUtils.isNull(bs8Var.b)) {
-                        FileHelper.deleteFile(new File(bs8Var.b));
-                        this.c.add(bs8Var.b);
+                Iterator it = this.a.e.iterator();
+                int i = 0;
+                int i2 = 0;
+                int i3 = 0;
+                while (it.hasNext()) {
+                    is4 is4Var = (is4) it.next();
+                    if (is4Var.d() && "1".equals(is4Var.b())) {
+                        i = 1;
+                    } else if (is4Var.d() && "2".equals(is4Var.b())) {
+                        i2 = 1;
+                    } else if (is4Var.d() && "3".equals(is4Var.b())) {
+                        i3 = 1;
                     }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
                 }
+                this.a.o();
+                this.a.g.F(this.a.f, i, i2, i3);
             }
         }
     }
 
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (StringUtils.isNull(this.a)) {
-                if (!li.c()) {
-                    return null;
-                }
-                this.a = String.valueOf(System.currentTimeMillis());
-            }
-            return in7.e + this.a;
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes3.dex */
+    public class f implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cs8 a;
 
-    public synchronized void k(JSONObject jSONObject, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, jSONObject, z) == null) {
-            synchronized (this) {
-                if (jSONObject == null) {
+        public f(cs8 cs8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cs8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                this.b.add(jSONObject.toString());
-                String i = i();
-                if (li.c()) {
-                    l(jSONObject, i);
-                }
-                if (this.b.size() >= a05.a() || z) {
-                    n(new bs8(this.b, i));
-                    this.b.clear();
-                    this.a = null;
-                }
+            }
+            this.a = cs8Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.a.b);
             }
         }
     }
 
-    public final void l(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) && !StringUtils.isNull(str) && li.c()) {
-            new c(this).execute(str, jSONObject.toString());
-        }
-    }
-
-    public final void n(bs8 bs8Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, bs8Var) == null) || bs8Var == null) {
-            return;
-        }
-        new d(this).execute(bs8Var);
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && li.c()) {
-            new b(this).execute(new Void[0]);
-        }
-    }
-
-    public cs8() {
+    public cs8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -370,10 +313,107 @@ public class cs8 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        if (li.c()) {
-            e();
+        this.i = new c(this);
+        this.j = new d(this);
+        this.k = new e(this);
+        this.a = tbPageContext;
+        this.b = bdUniqueId;
+        UserBlockSetModel userBlockSetModel = new UserBlockSetModel(tbPageContext, bdUniqueId);
+        this.g = userBlockSetModel;
+        userBlockSetModel.G(new a(this));
+        UserBlockInfoModel userBlockInfoModel = new UserBlockInfoModel(tbPageContext, bdUniqueId);
+        this.h = userBlockInfoModel;
+        userBlockInfoModel.G(new b(this));
+    }
+
+    public final String j(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
+    }
+
+    public final void k() {
+        vu4 vu4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (vu4Var = this.c) == null) {
+            return;
+        }
+        vu4Var.h(false);
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = -1L;
+            vu4 vu4Var = this.c;
+            if (vu4Var != null) {
+                vu4Var.h(false);
+            }
+            as4 as4Var = this.d;
+            if (as4Var != null) {
+                as4Var.d();
+            }
+            UserBlockInfoModel userBlockInfoModel = this.h;
+            if (userBlockInfoModel != null) {
+                userBlockInfoModel.onDestroy();
+            }
+            UserBlockSetModel userBlockSetModel = this.g;
+            if (userBlockSetModel != null) {
+                userBlockSetModel.onDestroy();
+            }
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, this.b);
+            MessageManager.getInstance().removeMessage(CmdConfigHttp.CMD_USER_BLOCK_SET, this.b);
+        }
+    }
+
+    public final void m(int i, PermissionList permissionList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, permissionList) == null) {
+            boolean z = false;
+            boolean z2 = permissionList != null && permissionList.follow.intValue() == 1;
+            boolean z3 = permissionList != null && permissionList.interact.intValue() == 1;
+            if (permissionList != null && permissionList.chat.intValue() == 1) {
+                z = true;
+            }
+            ArrayList<is4> arrayList = new ArrayList<>();
+            this.e = arrayList;
+            if (i == 1) {
+                arrayList.add(new is4(j(R.string.obfuscated_res_0x7f0f031d), z2, "1"));
+                this.e.add(new is4(j(R.string.obfuscated_res_0x7f0f0318), z3, "2"));
+                this.e.add(new is4(j(R.string.obfuscated_res_0x7f0f031e), z, "3"));
+            } else {
+                arrayList.add(new is4(j(R.string.obfuscated_res_0x7f0f031c), z3, "2"));
+                this.e.add(new is4(j(R.string.obfuscated_res_0x7f0f031e), z, "3"));
+            }
+            as4 as4Var = new as4(this.a);
+            this.d = as4Var;
+            as4Var.l(R.string.obfuscated_res_0x7f0f0325);
+            this.d.k(this.e, this.i);
+            this.d.q(R.string.obfuscated_res_0x7f0f04f9, this.k);
+            this.d.p(R.string.obfuscated_res_0x7f0f0371, this.j);
+            as4 as4Var2 = this.d;
+            as4Var2.c();
+            as4Var2.n();
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.f = j;
+            this.h.F(j);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (this.c == null) {
+                vu4 vu4Var = new vu4(this.a);
+                this.c = vu4Var;
+                vu4Var.e(new f(this));
+            }
+            this.c.h(true);
         }
     }
 }

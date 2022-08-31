@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public final class vp9 extends BroadcastReceiver {
+public final class vp9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ sp9 a;
-    public final /* synthetic */ rp9 b;
+    public final /* synthetic */ AtomicBoolean a;
+    public final /* synthetic */ up9 b;
 
-    public vp9(rp9 rp9Var, sp9 sp9Var) {
+    public vp9(up9 up9Var, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rp9Var, sp9Var};
+            Object[] objArr = {up9Var, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,28 +28,19 @@ public final class vp9 extends BroadcastReceiver {
                 return;
             }
         }
-        this.b = rp9Var;
-        this.a = sp9Var;
+        this.b = up9Var;
+        this.a = atomicBoolean;
     }
 
-    @Override // android.content.BroadcastReceiver
-    public final void onReceive(Context context, Intent intent) {
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            Bundle extras = intent.getExtras();
-            if ("com.google.android.play.core.install.ACTION_INSTALL_STATUS".equals(action) && extras != null && extras.containsKey("install.status")) {
-                this.b.p();
-                int i = extras.getInt("install.status");
-                if (i == 1 || i == 2 || i == 3) {
-                    this.a.a(com.google.ar.core.p.a);
-                } else if (i == 4) {
-                    this.a.a(com.google.ar.core.p.c);
-                } else if (i != 6) {
-                } else {
-                    this.a.a(com.google.ar.core.p.b);
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
+            return;
         }
+        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
+        up9 up9Var = this.b;
+        pp9 pp9Var = up9Var.c;
+        pp9.n(up9Var.a, up9Var.b);
     }
 }

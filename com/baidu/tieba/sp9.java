@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.google.ar.core.ArCoreApk;
 /* loaded from: classes5.dex */
-public class sp9 {
+public final class sp9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ pp9 c;
 
-    public sp9(InstallActivity installActivity) {
+    public sp9(pp9 pp9Var, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
+            Object[] objArr = {pp9Var, context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,45 +32,26 @@ public class sp9 {
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
+        this.c = pp9Var;
+        this.a = context;
+        this.b = aVar;
     }
 
-    public void a(com.google.ar.core.p pVar) {
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                InstallActivity.e(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
-                    } else if (ordinal == 2) {
-                        if (!InstallActivity.f(this.b)) {
-                            InstallActivity.g(this.b);
-                        }
-                        InstallActivity.a(this.b, null);
-                    }
-                    this.a = true;
-                }
-            }
-        }
-    }
-
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.e(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.a(this.b, exc);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                aVar = this.c.d;
+                String str = this.a.getApplicationInfo().packageName;
+                pp9 pp9Var = this.c;
+                l = pp9.l();
+                aVar.a(str, l, new com.google.ar.core.u(this));
+            } catch (RemoteException e) {
+                Log.e("ARCore-InstallService", "requestInfo threw", e);
+                this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
             }
         }
     }

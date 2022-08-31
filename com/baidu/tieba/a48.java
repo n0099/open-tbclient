@@ -10,13 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DuxiaomanEntry;
+import tbclient.CreationData;
 /* loaded from: classes3.dex */
 public class a48 extends BaseCardInfo implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public DuxiaomanEntry a;
+    public CreationData a;
+    public CreationData b;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +32,7 @@ public class a48 extends BaseCardInfo implements pn {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public a48() {
@@ -48,23 +49,36 @@ public class a48 extends BaseCardInfo implements pn {
         }
     }
 
-    public DuxiaomanEntry c() {
+    public CreationData c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (DuxiaomanEntry) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (CreationData) invokeV.objValue;
     }
 
-    public void f(DuxiaomanEntry duxiaomanEntry) {
+    public CreationData f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, duxiaomanEntry) == null) {
-            this.a = duxiaomanEntry;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (CreationData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(CreationData creationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, creationData) == null) {
+            this.a = creationData;
+        }
+    }
+
+    public void j(CreationData creationData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, creationData) == null) {
+            this.b = creationData;
+        }
     }
 }

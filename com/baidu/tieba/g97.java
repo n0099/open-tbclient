@@ -6,24 +6,35 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
+import com.baidu.tieba.im.message.RequestMemoryListMessage;
+import com.baidu.tieba.im.message.ResponsedMemoryListMessage;
+import com.baidu.tieba.xz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class g97 {
     public static /* synthetic */ Interceptable $ic;
-    public static g97 d;
+    public static volatile g97 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public List<Long> b;
-    public final CustomMessageListener c;
+    public List<ImMessageCenterPojo> a;
+    public final CustomMessageListener b;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -56,24 +67,27 @@ public class g97 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                this.a.b();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+                return;
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947748836, "Lcom/baidu/tieba/g97;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947748836, "Lcom/baidu/tieba/g97;");
+            if (customResponsedMessage.getCmd() == 2016002) {
+                this.a.s(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2016004) {
+                this.a.r(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2016007) {
+                this.a.t(customResponsedMessage);
+            } else if (customResponsedMessage.getCmd() == 2016001) {
+                if (this.a.a != null) {
+                    this.a.a.clear();
+                }
+                lz4.h0().g0(new xz4());
+                lz4.h0().b0(0);
+                lz4.h0().a();
+                lz4.h0().k();
+            } else if (customResponsedMessage.getCmd() != 2016010 || this.a.a == null) {
+            } else {
+                this.a.u(false);
+            }
         }
     }
 
@@ -81,179 +95,386 @@ public class g97 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = new ArrayList();
-        this.c = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.c);
+        this.a = new LinkedList();
+        this.b = new a(this, 0);
+        v();
     }
 
-    public static g97 e() {
+    public static g97 n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == null) {
                 synchronized (g97.class) {
-                    if (d == null) {
-                        d = new g97();
+                    if (c == null) {
+                        c = new g97();
                     }
                 }
             }
-            return d;
+            return c;
         }
         return (g97) invokeV.objValue;
     }
 
-    public synchronized void a(long j, long j2) {
+    public final boolean f(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            synchronized (this) {
-                if (this.a != 0 && this.a != j) {
-                    this.b.clear();
-                    ga.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.a);
-                }
-                this.a = j;
-                for (Long l : this.b) {
-                    if (l != null && l.longValue() == j2) {
-                        return;
-                    }
-                }
-                this.b.add(Long.valueOf(j2));
-            }
-        }
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a = 0L;
-                this.b.clear();
-            }
-        }
-    }
-
-    public synchronized boolean c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            synchronized (this) {
-                for (Long l : this.b) {
-                    if (l != null && l.longValue() == j) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo == null) {
                 return false;
             }
+            return (TextUtils.isEmpty(imMessageCenterPojo.getGroup_name()) && TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) ? false : true;
         }
-        return invokeJ.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public final void g(ImMessageCenterPojo imMessageCenterPojo, xz4 xz4Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public Long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t87.o().r().get(this.a) : (Long) invokeV.objValue;
-    }
-
-    public synchronized List<Long> g() {
-        InterceptResult invokeV;
-        ArrayList arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                arrayList = new ArrayList();
-                for (Long l : this.b) {
-                    if (l != null) {
-                        arrayList.add(Long.valueOf(ab7.c(l.longValue())));
-                    }
-                }
-            }
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imMessageCenterPojo, xz4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -8 && q97.a().b()) {
+            xz4Var.Q(imMessageCenterPojo.getUnread_count());
         }
-        return (List) invokeV.objValue;
     }
 
-    public synchronized String h() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0086  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0090  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x00fd  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void h(ImMessageCenterPojo imMessageCenterPojo, xz4 xz4Var) {
+        int userType;
         String str;
+        String str2;
+        String str3;
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                str = "";
-                for (Long l : this.b) {
-                    if (l != null && l.longValue() != 0) {
-                        str = (str + l.longValue()) + ",";
-                    }
-                }
-            }
-            return str;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imMessageCenterPojo, xz4Var) == null) || imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() != 4 || !r97.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid()) || StringUtils.isNull(imMessageCenterPojo.getLast_content()) || imMessageCenterPojo.getUnread_count() <= 0 || (userType = imMessageCenterPojo.getUserType()) == 3) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized boolean i() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                if (this.a > 0) {
-                    z = this.b.size() > 0;
-                }
+        xz4.a aVar = new xz4.a();
+        aVar.a = imMessageCenterPojo.getGid();
+        aVar.e = imMessageCenterPojo.getGroup_name();
+        if (userType == 4) {
+            String str4 = null;
+            try {
+                jSONArray = new JSONArray(imMessageCenterPojo.getLastContentRawData());
+            } catch (Exception e) {
+                e = e;
+                str = null;
+                str2 = null;
             }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void j(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            synchronized (this) {
-                b();
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                    return;
+            if (jSONArray.length() == 1) {
+                JSONObject jSONObject = jSONArray.getJSONObject(0);
+                str = jSONObject.optString("title", null);
+                try {
+                    str2 = jSONObject.optString("text", null);
+                } catch (Exception e2) {
+                    e = e2;
+                    str2 = null;
                 }
                 try {
-                    this.a = pg.g(str, 0L);
-                    try {
-                        String[] split = str2.split(",");
-                        if (split != null && split.length > 0) {
-                            for (int i = 0; i < split.length; i++) {
-                                if (!TextUtils.isEmpty(split[i])) {
-                                    this.b.add(Long.valueOf(Long.parseLong(split[i])));
-                                }
-                            }
-                        }
-                    } catch (Exception e) {
-                        BdLog.e(e);
+                    str3 = jSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, null);
+                } catch (Exception e3) {
+                    e = e3;
+                    BdLog.e(e, true);
+                    str3 = null;
+                    str4 = str;
+                    if (str2 == null) {
                     }
-                } catch (Exception e2) {
-                    BdLog.e(e2);
+                    if (str4 == null) {
+                    }
+                    aVar.b = str4;
+                    aVar.c = str2;
+                    aVar.i = str3;
+                    aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+                    aVar.f = userType;
+                    aVar.g = imMessageCenterPojo.getUnread_count();
+                    xz4Var.g().add(aVar);
+                    if (userType == 4) {
+                    }
+                    xz4Var.R(xz4Var.u() + imMessageCenterPojo.getUnread_count());
+                }
+                str4 = str;
+                if (str2 == null) {
+                    str4 = imMessageCenterPojo.getGroup_name();
+                    str2 = imMessageCenterPojo.getLast_content();
+                }
+                if (str4 == null) {
+                    str4 = imMessageCenterPojo.getGroup_name();
+                }
+                aVar.b = str4;
+                aVar.c = str2;
+                aVar.i = str3;
+                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+            } else {
+                str3 = null;
+                str2 = null;
+                if (str2 == null) {
+                }
+                if (str4 == null) {
+                }
+                aVar.b = str4;
+                aVar.c = str2;
+                aVar.i = str3;
+                aVar.d = imMessageCenterPojo.getGroup_name() + ":" + imMessageCenterPojo.getLast_content();
+            }
+        } else {
+            String str5 = TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f03d3, imMessageCenterPojo.getGroup_name()) + ZeusCrashHandler.NAME_SEPERATOR + imMessageCenterPojo.getLast_content();
+            aVar.c = str5;
+            aVar.d = str5;
+        }
+        aVar.f = userType;
+        aVar.g = imMessageCenterPojo.getUnread_count();
+        xz4Var.g().add(aVar);
+        if (userType == 4) {
+            xz4Var.P(xz4Var.s() + imMessageCenterPojo.getUnread_count());
+        }
+        xz4Var.R(xz4Var.u() + imMessageCenterPojo.getUnread_count());
+    }
+
+    public final void i(ImMessageCenterPojo imMessageCenterPojo, xz4 xz4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, xz4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1 && s97.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+            if (imMessageCenterPojo.getUnread_count() > 0) {
+                xz4Var.F(imMessageCenterPojo.getLast_content());
+                String nameShow = imMessageCenterPojo.getNameShow();
+                HashMap<String, String> h = xz4Var.h();
+                if (h != null) {
+                    h.put(imMessageCenterPojo.getGid(), nameShow);
+                }
+            }
+            xz4Var.T(xz4Var.w() + imMessageCenterPojo.getUnread_count());
+        }
+    }
+
+    public final void j(ImMessageCenterPojo imMessageCenterPojo, xz4 xz4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, imMessageCenterPojo, xz4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -7 && t97.a().b()) {
+            xz4Var.V(imMessageCenterPojo.getUnread_count());
+        }
+    }
+
+    public final void k(ImMessageCenterPojo imMessageCenterPojo, xz4 xz4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, xz4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == -4) {
+            xz4Var.N(imMessageCenterPojo.getUnread_count());
+            xz4Var.G(imMessageCenterPojo.getLast_content());
+            xz4Var.B(imMessageCenterPojo.getGroup_name());
+        }
+    }
+
+    public final void l(ImMessageCenterPojo imMessageCenterPojo, xz4 xz4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, imMessageCenterPojo, xz4Var) == null) && imMessageCenterPojo != null && imMessageCenterPojo.getCustomGroupType() == 1) {
+            HashMap<String, String> a2 = xz4Var.a();
+            if (!p97.k().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid())) {
+                xz4Var.K(xz4Var.l() + imMessageCenterPojo.getUnread_count());
+            } else if (imMessageCenterPojo.getUnread_count() > 0) {
+                if (TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name())) {
+                    xz4Var.E(imMessageCenterPojo.getLast_content());
+                } else {
+                    xz4Var.E(imMessageCenterPojo.getLast_user_name() + ":" + imMessageCenterPojo.getLast_content());
+                }
+                a2.put(imMessageCenterPojo.getGid(), imMessageCenterPojo.getGroup_name());
+            }
+            xz4Var.J(xz4Var.j() + imMessageCenterPojo.getUnread_count());
+        }
+    }
+
+    public final void m(List<xz4.a> list, List<xz4.a> list2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048583, this, list, list2) == null) || list == null || list.size() == 0 || list2 == null || list2.size() == 0) {
+            return;
+        }
+        for (xz4.a aVar : list) {
+            if (aVar != null) {
+                for (xz4.a aVar2 : list2) {
+                    if (aVar2 != null && StringHelper.equals(aVar.a, aVar2.a)) {
+                        aVar.h = aVar2.g;
+                    }
                 }
             }
         }
     }
 
-    public synchronized void k() {
+    public final void o(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                this.b.clear();
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imMessageCenterPojo, list) == null) || imMessageCenterPojo == null || list == null) {
+            return;
+        }
+        w(imMessageCenterPojo, list);
+        list.add(imMessageCenterPojo);
+    }
+
+    public final boolean p(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo == null) {
+                return false;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 1) {
+                return f(imMessageCenterPojo);
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == -4) {
+                return true;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 4) {
+                return f(imMessageCenterPojo);
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == -8) {
+                return true;
+            }
+            if (imMessageCenterPojo.getCustomGroupType() == 2) {
+                return f(imMessageCenterPojo);
+            }
+            return imMessageCenterPojo.getCustomGroupType() == -7;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean q(ImMessageCenterPojo imMessageCenterPojo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, imMessageCenterPojo)) == null) {
+            if (imMessageCenterPojo.getCustomGroupType() == 2 && imMessageCenterPojo.getIsFriend() == 1) {
+                return s97.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            }
+            if (imMessageCenterPojo.getCustomGroupType() != 1 && imMessageCenterPojo.getCustomGroupType() == 4) {
+                return r97.j().c(TbadkCoreApplication.getCurrentAccount(), imMessageCenterPojo.getGid());
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void r(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, customResponsedMessage) == null) && (customResponsedMessage instanceof MemoryChangedMessage)) {
+            MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+            ImMessageCenterPojo data = memoryChangedMessage.getData();
+            boolean q = q(data);
+            if (memoryChangedMessage.getType() == 1) {
+                o(data, this.a);
+            } else if (memoryChangedMessage.getType() == 2) {
+                w(data, this.a);
+            }
+            u(q);
+        }
+    }
+
+    public final void s(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048588, this, customResponsedMessage) == null) && (customResponsedMessage instanceof MemoryInitCompleteMessage) && ((MemoryInitCompleteMessage) customResponsedMessage).getData().booleanValue()) {
+            MessageManager.getInstance().sendMessage(new RequestMemoryListMessage(1));
+        }
+    }
+
+    public final void t(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048589, this, customResponsedMessage) == null) && (customResponsedMessage instanceof ResponsedMemoryListMessage)) {
+            ResponsedMemoryListMessage responsedMemoryListMessage = (ResponsedMemoryListMessage) customResponsedMessage;
+            List<ImMessageCenterPojo> data = responsedMemoryListMessage.getData();
+            if (responsedMemoryListMessage.getType() == 1) {
+                this.a.clear();
+                for (ImMessageCenterPojo imMessageCenterPojo : data) {
+                    if (p(imMessageCenterPojo)) {
+                        this.a.add(imMessageCenterPojo);
+                    }
+                }
+            }
+        }
+    }
+
+    public final void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            xz4 xz4Var = new xz4();
+            xz4Var.I(z);
+            x(xz4Var);
+            xz4Var.C();
+            xz4Var.D();
+            xz4Var.U(lz4.h0().E().w());
+            xz4Var.L(lz4.h0().E().k());
+            xz4Var.S(lz4.h0().E().u());
+            xz4Var.O(lz4.h0().E().q());
+            xz4Var.M(lz4.h0().E().n());
+            m(xz4Var.g(), lz4.h0().E().g());
+            if (!nz4.d().s()) {
+                xz4Var.J(0);
+            }
+            if (!nz4.d().u()) {
+                xz4Var.T(0);
+            }
+            if (!nz4.d().n()) {
+                xz4Var.R(0);
+                xz4Var.Q(0);
+                xz4Var.P(0);
+            }
+            if (nz4.d().f() <= 0) {
+                xz4Var.J(0);
+                xz4Var.T(0);
+                xz4Var.Q(0);
+                xz4Var.R(0);
+                xz4Var.P(0);
+                xz4Var.V(0);
+                xz4Var.I(false);
+            }
+            if ((((((xz4Var.w() + xz4Var.j()) + xz4Var.n()) + xz4Var.q()) + xz4Var.t()) + xz4Var.u()) - xz4Var.l() <= 0) {
+                xz4Var.I(false);
+            }
+            lz4.h0().V(xz4Var);
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            MessageManager.getInstance().registerListener(2016004, this.b);
+            MessageManager.getInstance().registerListener(2016007, this.b);
+            MessageManager.getInstance().registerListener(2016001, this.b);
+            MessageManager.getInstance().registerListener(2016010, this.b);
+            MessageManager.getInstance().registerListener(2016002, this.b);
+        }
+    }
+
+    public final void w(ImMessageCenterPojo imMessageCenterPojo, List<ImMessageCenterPojo> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048592, this, imMessageCenterPojo, list) == null) || imMessageCenterPojo == null || list == null) {
+            return;
+        }
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            ImMessageCenterPojo imMessageCenterPojo2 = list.get(i);
+            if (imMessageCenterPojo2 != null && imMessageCenterPojo2.getGid().equals(imMessageCenterPojo.getGid()) && imMessageCenterPojo2.getCustomGroupType() == imMessageCenterPojo.getCustomGroupType()) {
+                list.remove(i);
+                return;
+            }
+        }
+    }
+
+    public final void x(xz4 xz4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, xz4Var) == null) || xz4Var == null) {
+            return;
+        }
+        for (ImMessageCenterPojo imMessageCenterPojo : this.a) {
+            if (imMessageCenterPojo != null && imMessageCenterPojo.getIs_hidden() != 1 && p(imMessageCenterPojo)) {
+                l(imMessageCenterPojo, xz4Var);
+                h(imMessageCenterPojo, xz4Var);
+                i(imMessageCenterPojo, xz4Var);
+                k(imMessageCenterPojo, xz4Var);
+                g(imMessageCenterPojo, xz4Var);
+                j(imMessageCenterPojo, xz4Var);
             }
         }
     }

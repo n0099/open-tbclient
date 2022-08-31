@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m65;
+import com.baidu.tieba.k65;
 import com.baidu.tieba.pn;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.square.adapter.LeftAdapter;
-import com.baidu.tieba.yh8;
+import com.baidu.tieba.wh8;
 import com.baidu.tieba.yn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,11 +34,11 @@ public class RightLeftListView {
     public LeftAdapter mLeftAdapter;
     public LinearLayoutManager mLeftLayoutManager;
     public PbListView mLoadMoreView;
-    public m65 mLoadingView;
+    public k65 mLoadingView;
     public BdListView.p mOnRightScrollToBottomListener;
     public BdListView.p mOnScrollToBottomListener;
     public TbPageContext<?> mPageContext;
-    public yh8 mRightAdapterManager;
+    public wh8 mRightAdapterManager;
     public RelativeLayout mRightContainer;
     public LinearLayoutManager mRightLayoutManager;
     public final View mRoot;
@@ -114,7 +114,7 @@ public class RightLeftListView {
             LeftAdapter leftAdapter = new LeftAdapter(this.mPageContext.getPageActivity());
             this.mLeftAdapter = leftAdapter;
             this.mRvLeft.setAdapter(leftAdapter);
-            this.mRightAdapterManager = new yh8(this.mPageContext, this.mRvRight);
+            this.mRightAdapterManager = new wh8(this.mPageContext, this.mRvRight);
             LinearLayoutManager linearLayoutManager2 = new LinearLayoutManager(this.mPageContext.getPageActivity());
             this.mRightLayoutManager = linearLayoutManager2;
             this.mRvRight.setLayoutManager(linearLayoutManager2);
@@ -147,9 +147,9 @@ public class RightLeftListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            m65 m65Var = this.mLoadingView;
-            if (m65Var != null) {
-                return m65Var.isViewAttached();
+            k65 k65Var = this.mLoadingView;
+            if (k65Var != null) {
+                return k65Var.isViewAttached();
             }
             return false;
         }
@@ -213,12 +213,12 @@ public class RightLeftListView {
     }
 
     public void hideLoadingView() {
-        m65 m65Var;
+        k65 k65Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (m65Var = this.mLoadingView) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (k65Var = this.mLoadingView) == null) {
             return;
         }
-        m65Var.dettachView(this.mRightContainer);
+        k65Var.dettachView(this.mRightContainer);
         this.mLoadingView = null;
     }
 
@@ -257,9 +257,9 @@ public class RightLeftListView {
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            yh8 yh8Var = this.mRightAdapterManager;
-            if (yh8Var != null) {
-                yh8Var.b();
+            wh8 wh8Var = this.mRightAdapterManager;
+            if (wh8Var != null) {
+                wh8Var.b();
             }
             LeftAdapter leftAdapter = this.mLeftAdapter;
             if (leftAdapter != null) {
@@ -270,9 +270,9 @@ public class RightLeftListView {
                 pbListView.E(SkinManager.getColor(R.color.CAM_X0107));
                 this.mLoadMoreView.d(i);
             }
-            m65 m65Var = this.mLoadingView;
-            if (m65Var != null) {
-                m65Var.onChangeSkinType();
+            k65 k65Var = this.mLoadingView;
+            if (k65Var != null) {
+                k65Var.onChangeSkinType();
             }
         }
     }
@@ -373,9 +373,9 @@ public class RightLeftListView {
             return;
         }
         if (this.mLoadingView == null) {
-            m65 m65Var = new m65(this.mPageContext.getPageActivity());
-            this.mLoadingView = m65Var;
-            m65Var.s(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
+            k65 k65Var = new k65(this.mPageContext.getPageActivity());
+            this.mLoadingView = k65Var;
+            k65Var.s(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028e));
         }
         this.mLoadingView.onChangeSkinType();
         this.mLoadingView.attachView(this.mRightContainer, z);

@@ -1,41 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.Abstract;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes5.dex */
-public class qd8 implements tc8 {
+public class qd8 {
     public static /* synthetic */ Interceptable $ic;
+    public static qd8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lm5 a;
-    public Map<String, AdvertAppInfo> b;
-    public od8 c;
-    public int d;
-    public final Set<String> e;
-    public boolean f;
+    public ConcurrentHashMap<String, List<JSONObject>> a;
+    public ConcurrentHashMap<String, Integer> b;
 
-    public qd8(IAdBaseAsyncController.a aVar) {
+    public qd8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,142 +39,147 @@ public class qd8 implements tc8 {
                 return;
             }
         }
-        this.e = new LinkedHashSet();
-        this.f = false;
-        lm5 lm5Var = new lm5(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
-        this.a = lm5Var;
-        lm5Var.e(false);
-        this.b = new HashMap();
-        this.d = zj5.a().c();
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
     }
 
-    @Override // com.baidu.tieba.tc8
-    public View b(@NonNull String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            this.f = z;
-            return this.c.b(this.b.get(str), z);
-        }
-        return (View) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public AdvertAppInfo d(@NonNull String str) {
+    public static JSONObject b(ThreadInfo threadInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.get(str) : (AdvertAppInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, advertAppInfo) == null) {
-            this.b.put(str, advertAppInfo);
-        }
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public boolean f(@NonNull String str) {
-        InterceptResult invokeL;
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (TextUtils.isEmpty(str) || (advertAppInfo = this.b.get(str)) == null || kb8.l(advertAppInfo)) ? false : true : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public void g(@NonNull ce5 ce5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ce5Var) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("forum_id", ce5Var.c);
-            hashMap.put("forum_name", ce5Var.d);
-            this.a.d(this.d, hashMap);
-        }
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public int getAdCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = 0;
-            if (this.b.isEmpty()) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadInfo)) == null) {
+            if (threadInfo == null) {
+                return null;
             }
-            for (AdvertAppInfo advertAppInfo : this.b.values()) {
-                if (!kb8.l(advertAppInfo)) {
-                    i++;
+            return c(threadInfo, threadInfo.fname);
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONObject c(ThreadInfo threadInfo, String str) {
+        InterceptResult invokeLL;
+        Long l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, threadInfo, str)) == null) {
+            if (threadInfo == null) {
+                return null;
+            }
+            String str2 = "" + threadInfo.tid;
+            if (StringUtils.isNull(str2) || "0".equals(str2)) {
+                str2 = "" + threadInfo.id;
+            }
+            String str3 = threadInfo.video_info != null ? "" + threadInfo.video_info.video_duration : "0";
+            StringBuilder sb = new StringBuilder();
+            List<Abstract> list = threadInfo._abstract;
+            if (list != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    Abstract r6 = (Abstract) gf7.d(list, i);
+                    if (r6 != null && r6.type.intValue() == 0) {
+                        sb.append(r6.text);
+                    }
                 }
             }
-            return i;
+            String sb2 = sb.toString();
+            String str4 = "" + threadInfo.author_id;
+            User user = threadInfo.author;
+            if (user != null && (l = user.id) != null && l.longValue() != 0) {
+                str4 = "" + threadInfo.author.id;
+            }
+            if (StringUtils.isNull(str)) {
+                str = threadInfo.fname;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("title", threadInfo.title);
+                jSONObject.put("tid", str2);
+                jSONObject.put("fname", str);
+                jSONObject.put("abstract", sb2);
+                jSONObject.put("author_id", str4);
+                jSONObject.put(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.tc8
-    public void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048582, this, tbPageContext, hVar, z) == null) {
-            this.c = new od8(tbPageContext, z, hVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public void j(@NonNull String str) {
-        AdvertAppInfo advertAppInfo;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (advertAppInfo = this.b.get(str)) == null) {
-            return;
-        }
-        td8.o(advertAppInfo);
-        df7.b(df7.a(advertAppInfo));
-        boolean add = this.e.add(str);
-        if (!this.f && add) {
-            this.c.d();
-        } else {
-            this.c.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public void k(@NonNull AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo) == null) {
-            td8.h(advertAppInfo, 0, 2);
-        }
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.clear();
-        }
-    }
-
-    @Override // com.baidu.tieba.tc8
-    public boolean n() {
+    public static qd8 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !this.b.isEmpty() : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (qd8.class) {
+                    if (c == null) {
+                        c = new qd8();
+                    }
+                }
+            }
+            return c;
+        }
+        return (qd8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tc8
-    public void o(String str) {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.c.f(this.b.get(str));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.put(str, new ArrayList());
         }
     }
 
-    @Override // com.baidu.tieba.tc8
-    public void onDestroy() {
+    public String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            this.c.e();
-            this.a.b();
-            this.e.clear();
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? g(this.a.get(str)) : (String) invokeL.objValue;
+    }
+
+    public int e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            Integer num = this.b.get(str);
+            if (num == null) {
+                return 0;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public final String g(List<JSONObject> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            try {
+                if (ListUtils.isEmpty(list)) {
+                    return "";
+                }
+                JSONArray jSONArray = new JSONArray();
+                for (JSONObject jSONObject : list) {
+                    if (jSONObject != null) {
+                        jSONArray.put(jSONObject);
+                    }
+                }
+                return ii.j(jSONArray.toString().getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h(String str, List<JSONObject> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(list);
+            this.a.put(str, arrayList);
+        }
+    }
+
+    public void i(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.b.put(str, Integer.valueOf(i));
         }
     }
 }

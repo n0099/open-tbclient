@@ -36,16 +36,16 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax8;
-import com.baidu.tieba.bb7;
-import com.baidu.tieba.da7;
+import com.baidu.tieba.ba7;
 import com.baidu.tieba.kf;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.q77;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s77;
-import com.baidu.tieba.x87;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.v87;
+import com.baidu.tieba.wu4;
+import com.baidu.tieba.yw8;
+import com.baidu.tieba.za7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -112,14 +112,14 @@ public class SingleImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b extends ni5 {
+    public class b extends li5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x87.a h;
+        public final /* synthetic */ v87.a h;
         public final /* synthetic */ SingleImageTextView i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SingleImageTextView singleImageTextView, int i, String str, x87.a aVar) {
+        public b(SingleImageTextView singleImageTextView, int i, String str, v87.a aVar) {
             super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -141,7 +141,7 @@ public class SingleImageTextView extends RelativeLayout {
             this.h = aVar;
         }
 
-        @Override // com.baidu.tieba.ni5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.li5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -149,7 +149,7 @@ public class SingleImageTextView extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.ni5, android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        @Override // com.baidu.tieba.li5, android.text.style.ClickableSpan, android.text.style.CharacterStyle
         public void updateDrawState(TextPaint textPaint) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
@@ -163,12 +163,12 @@ public class SingleImageTextView extends RelativeLayout {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x87.a a;
+        public final /* synthetic */ v87.a a;
         public final /* synthetic */ TbPageContext b;
         public final /* synthetic */ int c;
         public final /* synthetic */ SingleImageTextView d;
 
-        public c(SingleImageTextView singleImageTextView, x87.a aVar, TbPageContext tbPageContext, int i) {
+        public c(SingleImageTextView singleImageTextView, v87.a aVar, TbPageContext tbPageContext, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -196,13 +196,13 @@ public class SingleImageTextView extends RelativeLayout {
         */
         public void onClick(View view2) {
             String str;
-            x87.a aVar;
+            v87.a aVar;
             String str2;
             int i;
             String str3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                x87.a aVar2 = this.a;
+                v87.a aVar2 = this.a;
                 if (aVar2 != null && (str3 = aVar2.d) != null && str3.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                     try {
                         this.d.a.startActivity(Intent.parseUri(this.a.d, 1));
@@ -237,12 +237,12 @@ public class SingleImageTextView extends RelativeLayout {
                 }
                 if (this.c == 1) {
                     TiebaStatic.eventStat(this.d.a, "official_msg_ck", "click", 1, "fid", this.a.e);
-                    s77 m = bb7.m(this.a.f);
+                    q77 m = za7.m(this.a.f);
                     if (m != null) {
                         TiebaStatic.eventStat(this.d.a, "message_open_detail", "click", 1, "task_type", m.a, "task_id", m.b, "loc", "0");
                         int i2 = this.a.g;
                         if ((i2 == 1 || i2 == 3) && !"0".equals(m.b)) {
-                            da7.c().a(m.b);
+                            ba7.c().a(m.b);
                         }
                     }
                     StatisticItem statisticItem = new StatisticItem("official_message_open_detail");
@@ -357,7 +357,7 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void f(x87.a aVar) {
+    public void f(v87.a aVar) {
         String str;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
@@ -429,14 +429,14 @@ public class SingleImageTextView extends RelativeLayout {
             String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0dc4);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             spannableStringBuilder.append((CharSequence) string);
-            yu4 yu4Var = new yu4(f, -1, R.color.CAM_X0302, f3, R.color.CAM_X0101, f4, f7);
-            yu4Var.f(true);
-            yu4Var.b(f2);
-            yu4Var.h(f5);
-            yu4Var.i(f6);
-            yu4Var.g(true);
-            yu4Var.d(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-            spannableStringBuilder.setSpan(yu4Var, 0, string.length(), 17);
+            wu4 wu4Var = new wu4(f, -1, R.color.CAM_X0302, f3, R.color.CAM_X0101, f4, f7);
+            wu4Var.f(true);
+            wu4Var.b(f2);
+            wu4Var.h(f5);
+            wu4Var.i(f6);
+            wu4Var.g(true);
+            wu4Var.d(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+            spannableStringBuilder.setSpan(wu4Var, 0, string.length(), 17);
             spannableStringBuilder.append((CharSequence) str);
             return spannableStringBuilder;
         }
@@ -482,7 +482,7 @@ public class SingleImageTextView extends RelativeLayout {
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.obfuscated_res_0x7f0805ea, R.color.CAM_X0109, null);
             SkinManager.setViewTextColor(this.h, R.color.common_color_10067, 1, skinType);
             SkinManager.setBackgroundResource(this.e, R.drawable.multi_single_divider_selector, skinType);
-            os4 d = os4.d(this.l);
+            ns4 d = ns4.d(this.l);
             d.v(R.color.CAM_X0107);
             d.w(R.dimen.M_T_X003);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
@@ -524,7 +524,7 @@ public class SingleImageTextView extends RelativeLayout {
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, x87.a aVar, View view2, int i) {
+    public void setData(TbPageContext<?> tbPageContext, v87.a aVar, View view2, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLI(1048583, this, tbPageContext, aVar, view2, i) == null) || aVar == null) {
             return;
@@ -536,7 +536,7 @@ public class SingleImageTextView extends RelativeLayout {
             int indexOf = aVar.b.indexOf(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f08e6));
             SpannableString spannableString = new SpannableString(aVar.b);
             spannableString.setSpan(bVar, indexOf - 1, indexOf + 6, 33);
-            this.c.setOnTouchListener(new ax8(spannableString));
+            this.c.setOnTouchListener(new yw8(spannableString));
             this.c.setText(spannableString);
             this.f.setText(R.string.obfuscated_res_0x7f0f02f5);
         } else {

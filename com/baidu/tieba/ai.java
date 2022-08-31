@@ -93,7 +93,7 @@ public class ai {
                 super.callback(z);
                 if (z) {
                     this.a.F(0L);
-                    qh.m().s(this.a);
+                    qh.m().u(this.a);
                     return;
                 }
                 BdLog.e("Track Log rename fail!");

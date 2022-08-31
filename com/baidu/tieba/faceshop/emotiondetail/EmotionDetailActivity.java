@@ -54,20 +54,20 @@ import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.tieba.faceshop.emotiondetail.data.EmotionDetailData;
 import com.baidu.tieba.faceshop.emotiondetail.model.EmotionDetailModel;
 import com.baidu.tieba.faceshop.emotiondetail.view.EmotionDetailImageView;
+import com.baidu.tieba.gb6;
 import com.baidu.tieba.gi;
-import com.baidu.tieba.ib6;
-import com.baidu.tieba.jb6;
+import com.baidu.tieba.hb6;
+import com.baidu.tieba.mp7;
+import com.baidu.tieba.n55;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
-import com.baidu.tieba.op7;
-import com.baidu.tieba.p55;
+import com.baidu.tieba.oa6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.qa6;
+import com.baidu.tieba.pp7;
+import com.baidu.tieba.q55;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rp7;
-import com.baidu.tieba.s55;
+import com.baidu.tieba.wa6;
 import com.baidu.tieba.wm;
-import com.baidu.tieba.ya6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,7 +122,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     public EmotionDetailData z;
 
     /* loaded from: classes4.dex */
-    public class a implements rp7 {
+    public class a implements pp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailActivity a;
@@ -145,7 +145,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.a = emotionDetailActivity;
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -153,14 +153,14 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -374,7 +374,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                             this.a.k.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f065c), this.a.z.pck_info.owner.user_name, StringHelper.numFormatOverWan(pg.g(this.a.z.pck_info.download, 0L))));
                         }
                     }
-                    qa6 c = qa6.c();
+                    oa6 c = oa6.c();
                     if (c.e("" + this.a.v)) {
                         this.a.l.setText(R.string.obfuscated_res_0x7f0f027a);
                         SkinManager.setViewTextColor(this.a.l, (int) R.color.CAM_X0109);
@@ -385,7 +385,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                         SkinManager.setViewTextColor(this.a.l, (int) R.color.CAM_X0302);
                         SkinManager.setBackgroundResource(this.a.l, R.drawable.bg_emotion_download);
                     }
-                    if (jb6.e().f(StringUtils.string(Long.valueOf(this.a.z.pic_info.pic_id)))) {
+                    if (hb6.e().f(StringUtils.string(Long.valueOf(this.a.z.pic_info.pic_id)))) {
                         SkinManager.setImageResource(this.a.m, R.drawable.icon_bar_collectioned);
                         this.a.o.setText(R.string.obfuscated_res_0x7f0f054e);
                         SkinManager.setViewTextColor(this.a.o, (int) R.color.CAM_X0302);
@@ -441,7 +441,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class h implements rp7 {
+    public class h implements pp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailActivity a;
@@ -464,7 +464,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.a = emotionDetailActivity;
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -473,7 +473,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -485,7 +485,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -509,7 +509,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         public final /* synthetic */ EmotionDetailActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements ib6.l {
+        public class a implements gb6.l {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ i a;
@@ -532,7 +532,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                 this.a = iVar;
             }
 
-            @Override // com.baidu.tieba.ib6.l
+            @Override // com.baidu.tieba.gb6.l
             public void onResult(int i, int i2, int i3) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
@@ -572,7 +572,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> q = ya6.o().q(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> q = wa6.o().q(TbadkCoreApplication.getCurrentAccount());
                 if (q == null || q.size() < 1) {
                     return null;
                 }
@@ -583,8 +583,8 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
                         break;
                     }
                     CollectEmotionData next = it.next();
-                    if (!p55.f.equals(next.getSharpText()) && !TextUtils.isEmpty(next.pid)) {
-                        String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.collect/" + p55.d() + "/" + next.pid + "_s.jpg";
+                    if (!n55.f.equals(next.getSharpText()) && !TextUtils.isEmpty(next.pid)) {
+                        String str = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/" + TbConfig.getTempDirName() + "/.collect/" + n55.d() + "/" + next.pid + "_s.jpg";
                         ImageFileInfo imageFileInfo = new ImageFileInfo();
                         imageFileInfo.setFilePath(str);
                         File file = new File(str);
@@ -609,12 +609,12 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || list == null || list.size() == 0) {
                 return;
             }
-            ib6.t().m(list, true, new a(this));
+            gb6.t().m(list, true, new a(this));
         }
     }
 
     /* loaded from: classes4.dex */
-    public class j implements ib6.l {
+    public class j implements gb6.l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionDetailActivity a;
@@ -637,7 +637,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             this.a = emotionDetailActivity;
         }
 
-        @Override // com.baidu.tieba.ib6.l
+        @Override // com.baidu.tieba.gb6.l
         public void onResult(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) && i == 4) {
@@ -678,7 +678,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
             TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 25031)));
-        } else if (jb6.e().f(StringUtils.string(Long.valueOf(this.z.pic_info.pic_id)))) {
+        } else if (hb6.e().f(StringUtils.string(Long.valueOf(this.z.pic_info.pic_id)))) {
             if (this.C != null) {
                 Rect rect = new Rect();
                 getPageContext().getPageActivity().getWindow().getDecorView().getWindowVisibleDisplayFrame(rect);
@@ -689,12 +689,12 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             String str = emotionDetailData.pic_info.pic_url;
             EmotionDetailData.PckInfo pckInfo = emotionDetailData.pck_info;
             int i2 = pckInfo == null ? 0 : pckInfo.pck_id;
-            s55 s55Var = new s55();
-            s55Var.d = str;
-            s55Var.f = StringUtils.string(Integer.valueOf(i2));
+            q55 q55Var = new q55();
+            q55Var.d = str;
+            q55Var.f = StringUtils.string(Integer.valueOf(i2));
             ArrayList arrayList = new ArrayList();
-            arrayList.add(s55Var);
-            ib6.t().i(arrayList, true, new j(this));
+            arrayList.add(q55Var);
+            gb6.t().i(arrayList, true, new j(this));
         }
     }
 
@@ -833,7 +833,7 @@ public class EmotionDetailActivity extends BaseActivity<EmotionDetailActivity> {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            op7.i().d(str, new a(this));
+            mp7.i().d(str, new a(this));
         }
     }
 

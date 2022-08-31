@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface ly3 {
     String a();
 

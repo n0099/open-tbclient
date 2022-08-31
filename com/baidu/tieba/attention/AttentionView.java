@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.m65;
-import com.baidu.tieba.n65;
-import com.baidu.tieba.ol5;
+import com.baidu.tieba.ek5;
+import com.baidu.tieba.k65;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.ml5;
 import com.baidu.tieba.pi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,15 +34,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AttentionView extends FrameLayout implements gk5<String> {
+public class AttentionView extends FrameLayout implements ek5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public m65 e;
-    public n65 f;
+    public k65 e;
+    public l65 f;
     public List<SelectForumData> g;
     public List<SelectForumData> h;
     public boolean i;
@@ -215,7 +215,7 @@ public class AttentionView extends FrameLayout implements gk5<String> {
         return i;
     }
 
-    @Override // com.baidu.tieba.gk5
+    @Override // com.baidu.tieba.ek5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -223,25 +223,25 @@ public class AttentionView extends FrameLayout implements gk5<String> {
             return;
         }
         this.a = skinType;
-        m65 m65Var = this.e;
-        if (m65Var != null) {
-            m65Var.onChangeSkinType();
+        k65 k65Var = this.e;
+        if (k65Var != null) {
+            k65Var.onChangeSkinType();
         }
-        n65 n65Var = this.f;
-        if (n65Var != null) {
-            n65Var.onChangeSkinType();
+        l65 l65Var = this.f;
+        if (l65Var != null) {
+            l65Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.gk5
+    @Override // com.baidu.tieba.ek5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.gk5
+    @Override // com.baidu.tieba.ek5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -249,21 +249,21 @@ public class AttentionView extends FrameLayout implements gk5<String> {
     }
 
     public void l() {
-        m65 m65Var;
+        k65 k65Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (m65Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (k65Var = this.e) == null) {
             return;
         }
-        m65Var.dettachView(this);
+        k65Var.dettachView(this);
         this.e = null;
     }
 
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            n65 n65Var = this.f;
-            if (n65Var != null) {
-                n65Var.dettachView(this);
+            l65 l65Var = this.f;
+            if (l65Var != null) {
+                l65Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -294,7 +294,7 @@ public class AttentionView extends FrameLayout implements gk5<String> {
         }
     }
 
-    @Override // com.baidu.tieba.gk5
+    @Override // com.baidu.tieba.ek5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -329,9 +329,9 @@ public class AttentionView extends FrameLayout implements gk5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            m65 m65Var = this.e;
-            if (m65Var != null) {
-                return m65Var.isViewAttached();
+            k65 k65Var = this.e;
+            if (k65Var != null) {
+                return k65Var.isViewAttached();
             }
             return false;
         }
@@ -342,9 +342,9 @@ public class AttentionView extends FrameLayout implements gk5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            n65 n65Var = this.f;
-            if (n65Var != null) {
-                return n65Var.isViewAttached();
+            l65 l65Var = this.f;
+            if (l65Var != null) {
+                return l65Var.isViewAttached();
             }
             return false;
         }
@@ -368,7 +368,7 @@ public class AttentionView extends FrameLayout implements gk5<String> {
         return (List) invokeL.objValue;
     }
 
-    public void setForumSelectStateChangedListener(ol5.e eVar) {
+    public void setForumSelectStateChangedListener(ml5.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) || (selectForumItemAdapter = this.c) == null) {
@@ -394,7 +394,7 @@ public class AttentionView extends FrameLayout implements gk5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gk5
+    @Override // com.baidu.tieba.ek5
     /* renamed from: u */
     public void c(String str) {
         Interceptable interceptable = $ic;
@@ -423,9 +423,9 @@ public class AttentionView extends FrameLayout implements gk5<String> {
             return;
         }
         if (this.e == null) {
-            m65 m65Var = new m65(getContext());
-            this.e = m65Var;
-            m65Var.onChangeSkinType();
+            k65 k65Var = new k65(getContext());
+            this.e = k65Var;
+            k65Var.onChangeSkinType();
         }
         this.e.attachView(this, z);
     }
@@ -436,7 +436,7 @@ public class AttentionView extends FrameLayout implements gk5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new n65(getContext(), new c(this));
+            this.f = new l65(getContext(), new c(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

@@ -4,13 +4,13 @@ import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.util.ObjectsCompat;
 import androidx.media.MediaSessionManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,7 +154,7 @@ public class MediaSessionManagerImplBase implements MediaSessionManager.MediaSes
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, remoteUserInfoImpl)) == null) {
-            String string = ApiReplaceUtil.Overload.getString(this.mContentResolver, "enabled_notification_listeners");
+            String string = Settings.Secure.getString(this.mContentResolver, "enabled_notification_listeners");
             if (string != null) {
                 for (String str : string.split(":")) {
                     ComponentName unflattenFromString = ComponentName.unflattenFromString(str);

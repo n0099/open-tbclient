@@ -7,17 +7,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tieba.mf8;
 import com.baidu.tieba.model.ShareReportModel;
+import com.baidu.tieba.nf8;
 import com.baidu.tieba.of8;
 import com.baidu.tieba.pf8;
 import com.baidu.tieba.qf8;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.rf8;
-import com.baidu.tieba.sf8;
 import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.tieba.tf8;
 import com.baidu.tieba.vf8;
-import com.baidu.tieba.xf8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,14 +28,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.share.WbShareCallback;
 import com.tencent.tauth.Tencent;
 /* loaded from: classes5.dex */
-public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbShareCallback {
+public class ShareHandlerActivity extends ShareBaseActivity implements tf8, WbShareCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public int b;
     public ShareEntity c;
-    public of8 d;
-    public sf8 e;
+    public mf8 d;
+    public qf8 e;
     public ShareReportModel f;
     public PermissionJudgePolicy g;
 
@@ -91,18 +91,18 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
         }
     }
 
-    @Override // com.baidu.tieba.vf8
+    @Override // com.baidu.tieba.tf8
     public void d1(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             if (i2 == 1) {
-                xf8.b(i, this.c);
+                vf8.b(i, this.c);
             }
             if (i2 == 3) {
                 if (i != 8 && i != 6) {
-                    xf8.a(i, this.c);
+                    vf8.a(i, this.c);
                 } else {
-                    xf8.b(i, this.c);
+                    vf8.b(i, this.c);
                 }
             }
             if (this.c.getStats() != null) {
@@ -128,9 +128,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
         if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i != 10103 && i != 10104) {
-                of8 of8Var = this.d;
-                if (of8Var != null) {
-                    of8Var.n(intent);
+                mf8 mf8Var = this.d;
+                if (mf8Var != null) {
+                    mf8Var.n(intent);
                     return;
                 }
                 return;
@@ -158,37 +158,37 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
             }
             A1(shareEntity.getStats());
             this.b = this.c.getShareTo();
-            of8 of8Var = this.d;
-            if (of8Var != null) {
-                of8Var.r();
+            mf8 mf8Var = this.d;
+            if (mf8Var != null) {
+                mf8Var.r();
                 this.d = null;
             }
-            sf8 sf8Var = this.e;
-            if (sf8Var != null) {
-                sf8Var.r();
+            qf8 qf8Var = this.e;
+            if (qf8Var != null) {
+                qf8Var.r();
                 this.e = null;
             }
             int i = this.b;
             if (i == 0) {
-                this.d = new rf8(this);
-            } else if (i == 6) {
-                sf8 sf8Var2 = new sf8(this, this, this);
-                this.e = sf8Var2;
-                this.d = sf8Var2;
-            } else if (i == 8) {
                 this.d = new pf8(this);
+            } else if (i == 6) {
+                qf8 qf8Var2 = new qf8(this, this, this);
+                this.e = qf8Var2;
+                this.d = qf8Var2;
+            } else if (i == 8) {
+                this.d = new nf8(this);
             } else if (i == 2) {
-                this.d = new tf8(this, 2);
+                this.d = new rf8(this, 2);
             } else if (i == 3) {
-                this.d = new tf8(this, 3);
+                this.d = new rf8(this, 3);
             } else if (i != 4) {
                 this.d = null;
             } else {
-                this.d = new qf8(this);
+                this.d = new of8(this);
             }
-            of8 of8Var2 = this.d;
-            if (of8Var2 != null) {
-                of8Var2.x(this.c.getTid());
+            mf8 mf8Var2 = this.d;
+            if (mf8Var2 != null) {
+                mf8Var2.x(this.c.getTid());
                 this.d.w(this.c.getExtLiveInfo());
                 this.d.y(this.c.getUserGrowthWeight());
             }
@@ -202,9 +202,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
                     return;
                 }
             }
-            of8 of8Var3 = this.d;
-            if (of8Var3 != null) {
-                of8Var3.s(getUniqueId());
+            mf8 mf8Var3 = this.d;
+            if (mf8Var3 != null) {
+                mf8Var3.s(getUniqueId());
                 this.d.n(getIntent());
                 this.d.a(this.c, this);
                 return;
@@ -220,9 +220,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            of8 of8Var = this.d;
-            if (of8Var != null) {
-                of8Var.r();
+            mf8 mf8Var = this.d;
+            if (mf8Var != null) {
+                mf8Var.r();
             }
             ShareReportModel shareReportModel = this.f;
             if (shareReportModel != null) {
@@ -240,9 +240,9 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
             if (intent != null) {
                 intent.getIntExtra("extra_skin", 3);
             }
-            of8 of8Var = this.d;
-            if (of8Var != null) {
-                of8Var.n(intent);
+            mf8 mf8Var = this.d;
+            if (mf8Var != null) {
+                mf8Var.n(intent);
             }
         }
     }
@@ -278,31 +278,31 @@ public class ShareHandlerActivity extends ShareBaseActivity implements vf8, WbSh
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareCancel() {
-        sf8 sf8Var;
+        qf8 qf8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (sf8Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (qf8Var = this.e) == null) {
             return;
         }
-        sf8Var.M();
+        qf8Var.M();
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareFail() {
-        sf8 sf8Var;
+        qf8 qf8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (sf8Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (qf8Var = this.e) == null) {
             return;
         }
-        sf8Var.N();
+        qf8Var.N();
     }
 
     @Override // com.sina.weibo.sdk.share.WbShareCallback
     public void onWbShareSuccess() {
-        sf8 sf8Var;
+        qf8 qf8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (sf8Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (qf8Var = this.e) == null) {
             return;
         }
-        sf8Var.O();
+        qf8Var.O();
     }
 }

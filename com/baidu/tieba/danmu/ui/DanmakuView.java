@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.p46;
+import com.baidu.tieba.n46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public final class DanmakuView extends View {
     public final a e;
 
     /* loaded from: classes3.dex */
-    public static final class a implements p46 {
+    public static final class a implements n46 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -54,35 +54,35 @@ public final class DanmakuView extends View {
             this.f = 160;
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public float b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public float d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? p46.a.a(this) : invokeV.floatValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? n46.a.a(this) : invokeV.floatValue;
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public float e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -103,14 +103,14 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public int getHeight() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public int getWidth() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public void setHeight(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
@@ -131,7 +131,7 @@ public final class DanmakuView extends View {
             }
         }
 
-        @Override // com.baidu.tieba.p46
+        @Override // com.baidu.tieba.n46
         public void setWidth(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {

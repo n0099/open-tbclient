@@ -25,7 +25,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.m75;
+import com.baidu.tieba.k75;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -383,9 +383,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return;
             }
             o();
-            if (m75.b().d()) {
-                m75.b().n(false);
-                m75.b().l(false);
+            if (k75.b().d()) {
+                k75.b().n(false);
+                k75.b().l(false);
             }
             if (i != 1) {
                 if (i == 2) {

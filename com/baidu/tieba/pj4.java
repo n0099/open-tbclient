@@ -100,25 +100,25 @@ public class pj4 {
         }
         try {
             if (this.a) {
-                boolean h = tu4.k().h("pref_key_task_first_open", true);
-                int l = tu4.k().l("pref_key_float_tip_num", 0);
-                long m = tu4.k().m("pref_key_new_task_complete_time", 0L);
+                boolean h = su4.k().h("pref_key_task_first_open", true);
+                int l = su4.k().l("pref_key_float_tip_num", 0);
+                long m = su4.k().m("pref_key_new_task_complete_time", 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (h) {
                     if (e(bVar)) {
                         this.c = true;
-                        tu4.k().u("pref_key_task_first_open", false);
+                        su4.k().u("pref_key_task_first_open", false);
                     }
                 } else if (d(bVar, currentTimeMillis / 1000, m / 1000)) {
                     if (z) {
                         if (e(bVar)) {
                             this.c = true;
-                            tu4.k().w("pref_key_float_tip_num", 0);
+                            su4.k().w("pref_key_float_tip_num", 0);
                         }
                     } else if (l >= bVar.f.intValue() || !e(bVar)) {
                     } else {
                         this.c = true;
-                        tu4.k().w("pref_key_float_tip_num", l + 1);
+                        su4.k().w("pref_key_float_tip_num", l + 1);
                     }
                 }
             }
@@ -185,22 +185,22 @@ public class pj4 {
     public final void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            tu4.k().y("pref_key_strategy_json", str);
-            tu4.k().w("pref_key_float_tip_num", 0);
+            su4.k().y("pref_key_strategy_json", str);
+            su4.k().w("pref_key_float_tip_num", 0);
         }
     }
 
     public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            tu4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
+            su4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
     public void h(dj4 dj4Var) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, dj4Var) == null) && dj4Var != null && c(dj4Var)) {
-            tu4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
+            su4.k().x("pref_key_new_task_complete_time", System.currentTimeMillis());
         }
     }
 
@@ -249,7 +249,7 @@ public class pj4 {
                 f("");
                 return;
             }
-            if (!jSONObject2.equals(tu4.k().q("pref_key_strategy_json", null))) {
+            if (!jSONObject2.equals(su4.k().q("pref_key_strategy_json", null))) {
                 f(jSONObject2);
             }
             a(bVar, true);
@@ -265,7 +265,7 @@ public class pj4 {
             if (z && this.b) {
                 this.b = false;
                 if (!this.c && ej4.w().s()) {
-                    String q = tu4.k().q("pref_key_strategy_json", null);
+                    String q = su4.k().q("pref_key_strategy_json", null);
                     if (TextUtils.isEmpty(q)) {
                         return;
                     }

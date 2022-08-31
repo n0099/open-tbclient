@@ -10,7 +10,7 @@ import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic;
 import com.baidu.tieba.cn3;
-import com.baidu.tieba.qo5;
+import com.baidu.tieba.oo5;
 import com.baidu.tieba.y8;
 import com.baidu.tieba.zd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ public class SwanEntryActivity extends Activity {
             SwanAppAbTestStatic.a = uri;
             return;
         }
-        qo5.a();
+        oo5.a();
         cn3.a(uri);
     }
 

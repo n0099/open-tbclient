@@ -1,100 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class fs7 implements mx4 {
+public class fs7 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static fs7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public PayVcodeActivity a;
+    public vl8 b;
 
-    public fs7() {
+    public fs7(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static synchronized fs7 d() {
-        InterceptResult invokeV;
-        fs7 fs7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (fs7.class) {
-                if (a == null) {
-                    a = new fs7();
-                }
-                fs7Var = a;
-            }
-            return fs7Var;
-        }
-        return (fs7) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mx4
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                SapiAccountManager.getInstance().logout();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mx4
-    public void b(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (TextUtils.isEmpty(accountData.getID()) || loginAccounts == null || loginAccounts.size() <= 0) {
                 return;
             }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().validate(sapiAccount);
-                    return;
-                }
-            }
+        }
+        this.a = payVcodeActivity;
+    }
+
+    public void a(vl8 vl8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vl8Var) == null) {
+            this.b = vl8Var;
         }
     }
 
-    @Override // com.baidu.tieba.mx4
-    public void c(AccountData accountData) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
-                SapiAccountManager.getInstance().logout();
-                return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            vl8 vl8Var = this.b;
+            if ((vl8Var == null || !vl8Var.onJsPrompt(str2, jsPromptResult)) && (payVcodeActivity = this.a) != null && ug.f(payVcodeActivity.getPageContext())) {
+                return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
             }
-            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
-            if (loginAccounts == null || loginAccounts.size() <= 0) {
-                return;
-            }
-            for (SapiAccount sapiAccount : loginAccounts) {
-                if (accountData.getID().equals(sapiAccount.uid)) {
-                    SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
-                    return;
-                }
-            }
+            return true;
         }
+        return invokeLLLLL.booleanValue;
     }
 }

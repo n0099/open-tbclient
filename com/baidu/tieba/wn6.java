@@ -11,16 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import tbclient.ThreadInfo;
+import tbclient.ItemInfo;
 /* loaded from: classes6.dex */
-public class wn6 extends ho4 {
+public class wn6 extends go4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
+    public List<ItemInfo> a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,46 +52,30 @@ public class wn6 extends ho4 {
         setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public List<ThreadData> c() {
+    public List<ItemInfo> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.size() > 10) {
-                ArrayList arrayList = new ArrayList();
-                Iterator<ThreadData> it = this.a.iterator();
-                while (it.hasNext() && arrayList.size() < 10) {
-                    arrayList.add(it.next());
-                }
-                return arrayList;
-            }
-            return this.a;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public void f(List<ThreadInfo> list) {
+    public void f(List<ItemInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = new ArrayList();
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                this.a.add(threadData);
-            }
+            this.a = list;
         }
     }
 
-    @Override // com.baidu.tieba.ho4
-    public eq4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.go4
+    public dq4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (eq4) invokeV.objValue;
+        return (dq4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ho4
+    @Override // com.baidu.tieba.go4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

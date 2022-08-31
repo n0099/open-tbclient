@@ -24,7 +24,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.zp7;
+import com.baidu.tieba.xp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public class PickFaceTabActivity extends BaseFragmentActivity implements zp7 {
+public class PickFaceTabActivity extends BaseFragmentActivity implements xp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout a;
@@ -270,7 +270,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements zp7 {
         }
     }
 
-    @Override // com.baidu.tieba.zp7
+    @Override // com.baidu.tieba.xp7
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -282,7 +282,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements zp7 {
         }
     }
 
-    @Override // com.baidu.tieba.zp7
+    @Override // com.baidu.tieba.xp7
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -324,7 +324,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements zp7 {
         }
     }
 
-    @Override // com.baidu.tieba.zp7
+    @Override // com.baidu.tieba.xp7
     public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {

@@ -4,14 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.LotteryRegular;
+import tbclient.LotteryTheme;
 /* loaded from: classes3.dex */
 public class bq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Integer> a;
 
     public bq4() {
         Interceptable interceptable = $ic;
@@ -27,15 +24,12 @@ public class bq4 {
         }
     }
 
-    public void a(LotteryRegular lotteryRegular) {
+    public void a(LotteryTheme lotteryTheme) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lotteryRegular) == null) {
-            String str = lotteryRegular.regular;
-            this.a = new ArrayList();
-            int size = lotteryRegular.chance.size();
-            for (int i = 0; i < size; i++) {
-                this.a.add(lotteryRegular.chance.get(i));
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lotteryTheme) == null) || lotteryTheme == null) {
+            return;
         }
+        String str = lotteryTheme.bgcolor;
+        String str2 = lotteryTheme.bgimage;
     }
 }

@@ -1,63 +1,57 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
+import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
+import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Search.DataRes;
 /* loaded from: classes4.dex */
 public class jy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public boolean k;
-    public long l;
+    public TbPageContext a;
 
-    public jy5() {
+    public jy5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
+        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, pk8.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void a(DataRes dataRes) {
+    public void a(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
+            commitCardInfoReqMsg.resource_id = str;
+            commitCardInfoReqMsg.card_type = i;
+            commitCardInfoReqMsg.image_info = str2;
+            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
         }
-        Long l = dataRes.uid;
-        this.b = l == null ? 0L : l.longValue();
-        this.c = dataRes.portrait;
-        this.d = dataRes.name_show;
-        Long l2 = dataRes.apply_id;
-        this.e = l2 == null ? 0L : l2.longValue();
-        Integer num = dataRes.vote_num;
-        this.f = num == null ? 0 : num.intValue();
-        Integer num2 = dataRes.agree_num;
-        this.g = num2 == null ? 0 : num2.intValue();
-        Integer num3 = dataRes.thread_num;
-        this.h = num3 == null ? 0 : num3.intValue();
-        Integer num4 = dataRes.post_num;
-        this.i = num4 == null ? 0 : num4.intValue();
-        Boolean bool = dataRes.is_vote;
-        this.k = bool != null ? bool.booleanValue() : false;
-        Long l3 = dataRes.tid;
-        this.l = l3 != null ? l3.longValue() : 0L;
     }
 }

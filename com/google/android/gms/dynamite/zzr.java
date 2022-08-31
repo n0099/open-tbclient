@@ -5,7 +5,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap9;
+import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,10 +44,10 @@ public final class zzr extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048576, this, iObjectWrapper, str, i, iObjectWrapper2)) == null) {
             Parcel zza = zza();
-            ap9.e(zza, iObjectWrapper);
+            yo9.e(zza, iObjectWrapper);
             zza.writeString(str);
             zza.writeInt(i);
-            ap9.e(zza, iObjectWrapper2);
+            yo9.e(zza, iObjectWrapper2);
             Parcel zzB = zzB(2, zza);
             IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());
             zzB.recycle();
@@ -61,10 +61,10 @@ public final class zzr extends zza implements IInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iObjectWrapper, str, i, iObjectWrapper2)) == null) {
             Parcel zza = zza();
-            ap9.e(zza, iObjectWrapper);
+            yo9.e(zza, iObjectWrapper);
             zza.writeString(str);
             zza.writeInt(i);
-            ap9.e(zza, iObjectWrapper2);
+            yo9.e(zza, iObjectWrapper2);
             Parcel zzB = zzB(3, zza);
             IObjectWrapper asInterface = IObjectWrapper.Stub.asInterface(zzB.readStrongBinder());
             zzB.recycle();

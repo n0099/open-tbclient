@@ -310,7 +310,7 @@ public class p32 implements xx2 {
 
         /* renamed from: com.baidu.tieba.p32$c$c  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0348c extends a32 {
+        public class C0355c extends a32 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c f;
@@ -320,16 +320,16 @@ public class p32 implements xx2 {
             public class a extends z22 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ C0348c e;
+                public final /* synthetic */ C0355c e;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                public a(C0348c c0348c, String str, String str2) {
+                public a(C0355c c0355c, String str, String str2) {
                     super(str, str2);
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0348c, str, str2};
+                        Object[] objArr = {c0355c, str, str2};
                         interceptable.invokeUnInit(65536, newInitContext);
                         int i = newInitContext.flag;
                         if ((i & 1) != 0) {
@@ -341,7 +341,7 @@ public class p32 implements xx2 {
                             return;
                         }
                     }
-                    this.e = c0348c;
+                    this.e = c0355c;
                 }
 
                 @Override // com.baidu.tieba.z22
@@ -359,7 +359,7 @@ public class p32 implements xx2 {
             }
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0348c(c cVar, Context context) {
+            public C0355c(c cVar, Context context) {
                 super(context);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -480,7 +480,7 @@ public class p32 implements xx2 {
         public final w22 j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C0348c(this, AppRuntime.getAppContext()) : (w22) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new C0355c(this, AppRuntime.getAppContext()) : (w22) invokeV.objValue;
         }
 
         public void k() {

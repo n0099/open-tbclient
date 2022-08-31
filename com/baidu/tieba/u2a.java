@@ -1,128 +1,157 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.PayFinishInfo;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
 public class u2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(double d, double d2) {
-        InterceptResult invokeCommon;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-423534008, "Lcom/baidu/tieba/u2a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-423534008, "Lcom/baidu/tieba/u2a$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[PayDialogType.values().length];
+            a = iArr;
+            try {
+                iArr[PayDialogType.PAY_AMOUNT_DIALOG.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PayDialogType.PAY_INPUT_DIALOG.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PayDialogType.PAY_WAY_DIALOG.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public static PayFinishInfo a(PayDialogType payDialogType, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d + " accountAmount:" + d2);
-            double d3 = (d - d2) / 100.0d;
-            double d4 = 1.0d;
-            if (d3 > 1.0d) {
-                if (d3 <= 1.0d || d3 > 10.0d) {
-                    if (d3 % 10.0d > 0.0d) {
-                        d3 = (((int) (d3 / 10.0d)) + 1) * 10;
-                    }
-                    d4 = d3;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65536, null, payDialogType, i, str)) == null) ? b(payDialogType, i, str, false) : (PayFinishInfo) invokeLIL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:31:0x00a1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PayFinishInfo b(PayDialogType payDialogType, int i, String str, boolean z) {
+        InterceptResult invokeCommon;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{payDialogType, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            int i2 = a.a[payDialogType.ordinal()];
+            if (i2 == 1) {
+                payFinishInfo.step = n0a.a;
+                if (TextUtils.isEmpty(str)) {
+                    str2 = "支付金额选择面板";
                 } else {
-                    d4 = Math.ceil(d3);
+                    str2 = "支付金额选择面板," + str;
                 }
-            }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d4);
-            return (int) d4;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int b(List<f2a> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).b() == i) {
-                    return i2;
+            } else if (i2 == 2) {
+                payFinishInfo.step = n0a.b;
+                if (TextUtils.isEmpty(str)) {
+                    str2 = "支付金额输入面板";
+                } else {
+                    str2 = "支付金额输入面板," + str;
                 }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static f2a c(List<f2a> list, PayUIKitConfig payUIKitConfig, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d + " accountAmount:" + d2);
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            int a = a(d, d2);
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-            int b = b(list, a);
-            RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b);
-            if (b >= 0) {
-                d(list, b);
             } else {
-                f(list, payUIKitConfig, a);
+                if (i2 == 3) {
+                    if (z) {
+                        payFinishInfo.step = n0a.g;
+                        if (TextUtils.isEmpty(str)) {
+                            str2 = "支付渠道选择面板(快捷)";
+                        } else {
+                            str2 = "支付渠道选择面板(快捷)," + str;
+                        }
+                    } else {
+                        payFinishInfo.step = n0a.c;
+                        if (TextUtils.isEmpty(str)) {
+                            str2 = "支付渠道选择面板";
+                        } else {
+                            str2 = "支付渠道选择面板," + str;
+                        }
+                    }
+                }
+                if (TextUtils.isEmpty(str)) {
+                    str = "";
+                }
+                payFinishInfo.message = str;
+                payFinishInfo.code = i;
+                return payFinishInfo;
             }
-            return list.get(0);
+            str = str2;
+            if (TextUtils.isEmpty(str)) {
+            }
+            payFinishInfo.message = str;
+            payFinishInfo.code = i;
+            return payFinishInfo;
         }
-        return (f2a) invokeCommon.objValue;
+        return (PayFinishInfo) invokeCommon.objValue;
     }
 
-    public static void d(List<f2a> list, int i) {
+    public static PayFinishInfo c(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i != 0) {
-                list.add(0, list.remove(i));
-            }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
-                return;
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = n0a.e;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
         }
+        return (PayFinishInfo) invokeIL.objValue;
     }
 
-    public static boolean e(f2a f2aVar) {
-        InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
+    public static PayFinishInfo d(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, f2aVar)) == null) ? (f2aVar == null || (productInfo = f2aVar.a) == null || (list = productInfo.giftbags) == null || list.isEmpty()) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = n0a.d;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
+        }
+        return (PayFinishInfo) invokeIL.objValue;
     }
 
-    public static void f(List<f2a> list, PayUIKitConfig payUIKitConfig, int i) {
+    public static PayFinishInfo e(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i > 500000) {
-                i = 500000;
-            }
-            f2a a = p2a.a(i * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
-            } else {
-                list.remove(0);
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            PayFinishInfo payFinishInfo = new PayFinishInfo();
+            payFinishInfo.step = n0a.f;
+            payFinishInfo.code = i;
+            payFinishInfo.message = str;
+            return payFinishInfo;
         }
+        return (PayFinishInfo) invokeIL.objValue;
     }
 }

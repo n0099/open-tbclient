@@ -6,22 +6,22 @@ public interface v99 extends Runnable {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a(DownloadException downloadException);
+        void b(DownloadException downloadException);
 
-        void onDownloadCanceled();
+        void onConnectCanceled();
 
-        void onDownloadCompleted(String str);
+        void onConnectPaused();
 
-        void onDownloadPaused();
+        void onConnected(long j, long j2, boolean z);
 
-        void onDownloadProgress(long j, long j2);
+        void onConnecting();
     }
 
     void cancel();
 
-    boolean isComplete();
+    boolean isCanceled();
 
-    boolean isDownloading();
+    boolean isPaused();
 
     void pause();
 }

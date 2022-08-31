@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface yb8 {
-    boolean a();
+    ub8 getVideoOrVrView();
 }

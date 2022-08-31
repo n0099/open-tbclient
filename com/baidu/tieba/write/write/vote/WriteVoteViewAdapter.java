@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pf5;
+import com.baidu.tieba.nf5;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -315,10 +315,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (pf5.d(replace) > 28) {
+            if (nf5.d(replace) > 28) {
                 this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f15f4), 14));
             }
-            String n = pf5.n(replace, 28);
+            String n = nf5.n(replace, 28);
             if (!n.equals(editable.toString())) {
                 this.a.a.setText(n);
                 this.a.a.setSelection(n.length());

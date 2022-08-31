@@ -19,9 +19,9 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.w09;
+import com.baidu.tieba.u09;
+import com.baidu.tieba.vu4;
 import com.baidu.tieba.xu4;
-import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public w09 c;
+    public u09 c;
     public BaseWebView d;
     public View e;
-    public xu4 f;
+    public vu4 f;
     public TextView g;
-    public zu4 h;
+    public xu4 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -122,9 +122,9 @@ public class NewVcodeView {
             TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f09073f);
             this.g = textView;
             textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1116));
-            zu4 zu4Var = new zu4();
-            this.h = zu4Var;
-            zu4Var.a = 1000L;
+            xu4 xu4Var = new xu4();
+            this.h = xu4Var;
+            xu4Var.a = 1000L;
             if (this.d == null) {
                 try {
                     this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091676);
@@ -232,9 +232,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                xu4 xu4Var = new xu4(this.a.getPageContext());
-                this.f = xu4Var;
-                xu4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                vu4 vu4Var = new vu4(this.a.getPageContext());
+                this.f = vu4Var;
+                vu4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -285,10 +285,10 @@ public class NewVcodeView {
         this.d.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
     }
 
-    public void setPresenter(w09 w09Var) {
+    public void setPresenter(u09 u09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, w09Var) == null) {
-            this.c = w09Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, u09Var) == null) {
+            this.c = u09Var;
             this.i = false;
         }
     }

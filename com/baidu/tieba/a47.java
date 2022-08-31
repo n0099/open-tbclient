@@ -1,76 +1,177 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class a47 extends jz5<y37> {
+public class a47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public y37 j;
+    public TbPageContext a;
+    public BdTypeRecyclerView b;
+    public LinkedList<cn> c;
+    public g47 d;
+    public b47 e;
+    public e47 f;
+    public f47 g;
+    public d47 h;
+    public c47 i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a47(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public a47(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = h().findViewById(R.id.obfuscated_res_0x7f090581);
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        this.c = new LinkedList<>();
+        b();
     }
 
-    @Override // com.baidu.tieba.jz5
-    public int d() {
+    public List<pn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b9 : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BdTypeRecyclerView bdTypeRecyclerView = this.b;
+            if (bdTypeRecyclerView != null) {
+                return bdTypeRecyclerView.getData();
+            }
+            return null;
+        }
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jz5
-    public void j(TbPageContext<?> tbPageContext, int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new g47(this.a, t06.z0);
+            this.e = new b47(this.a, u06.U);
+            this.f = new e47(this.a, t06.I0);
+            this.g = new f47(this.a, t06.G0);
+            this.h = new d47(this.a, t06.A0);
+            this.i = new c47(this.a, t06.H0);
+            this.d.x(this.b);
+            this.e.D(this.b);
+            this.f.w(this.b);
+            this.g.x(this.b);
+            this.h.y(this.b);
+            this.i.A(this.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.c.add(this.f);
+            this.c.add(this.g);
+            this.c.add(this.h);
+            this.c.add(this.i);
+            this.b.a(this.c);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void c() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jz5
-    /* renamed from: r */
-    public void i(y37 y37Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, y37Var) == null) || y37Var == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdTypeRecyclerView = this.b) == null) {
             return;
         }
-        this.j = y37Var;
-        SkinManager.setBackgroundColor(this.i, y37Var.b);
-        ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
-        layoutParams.height = ri.f(this.c, y37Var.a);
-        this.i.setLayoutParams(layoutParams);
+        bdTypeRecyclerView.getListAdapter().notifyDataSetChanged();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void e() {
+        b47 b47Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (b47Var = this.e) == null) {
+            return;
+        }
+        b47Var.onPause();
+    }
+
+    public void f(List<pn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.b.setData(list);
+        }
+    }
+
+    public void g(NEGFeedBackView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            f47 f47Var = this.g;
+            if (f47Var != null) {
+                f47Var.v(bVar);
+            }
+            g47 g47Var = this.d;
+            if (g47Var != null) {
+                g47Var.v(bVar);
+            }
+        }
+    }
+
+    public void h(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
+            g47 g47Var = this.d;
+            if (g47Var != null) {
+                g47Var.w(bdUniqueId);
+            }
+            b47 b47Var = this.e;
+            if (b47Var != null) {
+                b47Var.B(bdUniqueId);
+            }
+            e47 e47Var = this.f;
+            if (e47Var != null) {
+                e47Var.v(bdUniqueId);
+            }
+            f47 f47Var = this.g;
+            if (f47Var != null) {
+                f47Var.w(bdUniqueId);
+            }
+            d47 d47Var = this.h;
+            if (d47Var != null) {
+                d47Var.x(bdUniqueId);
+            }
+            c47 c47Var = this.i;
+            if (c47Var != null) {
+                c47Var.y(bdUniqueId);
+            }
+        }
+    }
+
+    public void i(a17 a17Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, a17Var) == null) {
+            b47 b47Var = this.e;
+            if (b47Var != null) {
+                b47Var.C(a17Var);
+            }
+            c47 c47Var = this.i;
+            if (c47Var != null) {
+                c47Var.z(a17Var);
+            }
+        }
     }
 }

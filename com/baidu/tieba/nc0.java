@@ -63,7 +63,7 @@ public class nc0 {
                 return;
             }
         }
-        c = tu4.o("advert_hide_list");
+        c = su4.o("advert_hide_list");
     }
 
     public /* synthetic */ nc0(a aVar) {

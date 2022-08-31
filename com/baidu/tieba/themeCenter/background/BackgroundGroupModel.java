@@ -14,31 +14,31 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.lq8;
-import com.baidu.tieba.mq8;
-import com.baidu.tieba.pr8;
-import com.baidu.tieba.rk8;
-import com.baidu.tieba.sq8;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.jq8;
+import com.baidu.tieba.kq8;
+import com.baidu.tieba.nr8;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BackgroundGroupActivity a;
-    public pr8 b;
-    public List<sq8> c;
+    public nr8 b;
+    public List<qq8> c;
     public c d;
     public boolean e;
     public bb f;
     public bb g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,7 +97,7 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,15 +140,15 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                     if (propId == this.a.a.B1() && (H = this.a.H(propId)) != null) {
                         TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", H.getFreeUserLevel()));
                     }
-                    tu4 k = tu4.k();
+                    su4 k = su4.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
                     this.a.N(propId);
                     this.a.d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i = mq8.b;
-                    if (responsedMessage.getError() == mq8.c) {
-                        i = mq8.a;
+                    int i = kq8.b;
+                    if (responsedMessage.getError() == kq8.c) {
+                        i = kq8.a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
@@ -162,9 +162,9 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, String str, pr8 pr8Var, List<sq8> list);
+        void a(int i, String str, nr8 nr8Var, List<qq8> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -199,11 +199,11 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<sq8> list = this.c;
+            List<qq8> list = this.c;
             if (list != null && list.size() > 0) {
-                for (sq8 sq8Var : this.c) {
-                    if (sq8Var != null && sq8Var.a() != null) {
-                        for (DressItemData dressItemData : sq8Var.a()) {
+                for (qq8 qq8Var : this.c) {
+                    if (qq8Var != null && qq8Var.a() != null) {
+                        for (DressItemData dressItemData : qq8Var.a()) {
                             if (dressItemData != null && dressItemData.getPropsId() == i) {
                                 return dressItemData;
                             }
@@ -226,16 +226,16 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rk8.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-            rk8.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+            pk8.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+            pk8.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
     public final void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            rk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            rk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            pk8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            pk8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -253,23 +253,23 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i == mq8.a) {
-                lq8.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i == mq8.b) {
-                lq8.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
+            if (i == kq8.a) {
+                jq8.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i == kq8.b) {
+                jq8.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
             }
         }
     }
 
     public final void N(int i) {
-        List<sq8> list;
+        List<qq8> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (list = this.c) == null || list.size() <= 0) {
             return;
         }
-        for (sq8 sq8Var : this.c) {
-            if (sq8Var != null && sq8Var.a() != null) {
-                for (DressItemData dressItemData : sq8Var.a()) {
+        for (qq8 qq8Var : this.c) {
+            if (qq8Var != null && qq8Var.a() != null) {
+                for (DressItemData dressItemData : qq8Var.a()) {
                     if (dressItemData != null) {
                         if (dressItemData.getPropsId() == i) {
                             dressItemData.setInUse(true);

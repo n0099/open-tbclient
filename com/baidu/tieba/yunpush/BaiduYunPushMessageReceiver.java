@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.push.PushRecevierEvent;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.lz4;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.push.PushGeneralData;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.s75;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +55,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
             String str5 = "onBind errorCode=" + i;
             if (i == 0) {
                 PushManager.setPushBackStatus(TbadkCoreApplication.getInst(), false);
-                tu4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
+                su4.k().u(TbConfig.getVersion() + KEY_SHAREDPRE_PUSH_STARTWORK, true);
                 TbadkCoreApplication.getInst().setYunpushChannelId(str3);
             }
         }
@@ -104,8 +104,8 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                 pushGeneralData.parseData(jSONObject.optString("st_ext"));
                 PushRecevierEvent pushRecevierEvent = new PushRecevierEvent();
                 pushRecevierEvent.generalData = pushGeneralData;
-                u75.i(pushRecevierEvent);
-            } else if (nz4.L()) {
+                s75.i(pushRecevierEvent);
+            } else if (lz4.L()) {
             } else {
                 int e = pg.e(str4, 2500);
                 if (e < 2500) {

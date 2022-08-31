@@ -466,4 +466,11 @@ public class qj {
         }
         return invokeL.booleanValue;
     }
+
+    public void w(List<BasicNameValuePair> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+            this.b = list;
+        }
+    }
 }

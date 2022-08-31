@@ -7,7 +7,7 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.homepage.framework.indicator.StickyAppBarLayout;
-import com.baidu.tieba.v65;
+import com.baidu.tieba.t65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class InitHomeTabBarViewTask extends LaunchTask {
                 }
                 StickyAppBarLayout stickyAppBarLayout = new StickyAppBarLayout(mainActivity);
                 stickyAppBarLayout.setId(R.id.obfuscated_res_0x7f09028b);
-                v65.e().a(1006, stickyAppBarLayout);
+                t65.e().a(1006, stickyAppBarLayout);
             } catch (Exception e) {
                 BdLog.e(e);
             }

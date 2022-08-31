@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.jt5;
-import com.baidu.tieba.kt5;
+import com.baidu.tieba.ht5;
+import com.baidu.tieba.it5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public List<ThreadData> livesList;
-    public kt5 mSpecialActivityListData;
+    public it5 mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSpecialRecommendResponse() {
@@ -39,7 +39,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         }
         this.hasMore = false;
         this.livesList = new ArrayList();
-        this.mSpecialActivityListData = new kt5();
+        this.mSpecialActivityListData = new it5();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -68,17 +68,17 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                     this.hasMore = false;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
-                kt5 kt5Var = this.mSpecialActivityListData;
-                if (kt5Var != null && kt5Var.a == null) {
-                    kt5Var.a = new ArrayList();
+                it5 it5Var = this.mSpecialActivityListData;
+                if (it5Var != null && it5Var.a == null) {
+                    it5Var.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
-                            jt5 jt5Var = new jt5();
-                            jt5Var.c(optJSONObject3);
-                            this.mSpecialActivityListData.a.add(jt5Var);
+                            ht5 ht5Var = new ht5();
+                            ht5Var.c(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(ht5Var);
                         }
                     }
                 }

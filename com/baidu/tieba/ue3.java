@@ -160,12 +160,12 @@ public final class ue3 {
 
         /* renamed from: com.baidu.tieba.ue3$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0414b implements Runnable {
+        public class RunnableC0421b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0414b(b bVar) {
+            public RunnableC0421b(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -227,7 +227,7 @@ public final class ue3 {
                         return;
                     }
                 }
-                ue3.e0(new RunnableC0414b(this));
+                ue3.e0(new RunnableC0421b(this));
             }
         }
     }

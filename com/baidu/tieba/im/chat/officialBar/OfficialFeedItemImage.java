@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l87;
+import com.baidu.tieba.j87;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.x87;
+import com.baidu.tieba.v87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -123,13 +123,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(x87.a aVar, int i, l87 l87Var) {
+    public void setData(v87.a aVar, int i, j87 j87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, l87Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, j87Var) == null) {
             this.b.K(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (l87Var != null) {
-                i = l87Var.i();
+            if (j87Var != null) {
+                i = j87Var.i();
             }
             d(i);
         }

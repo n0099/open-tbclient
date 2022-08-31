@@ -3,9 +3,10 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
-import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,18 +36,21 @@ public class pa7 implements CustomMessageTask.CustomRunnable<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+            if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
                 return null;
             }
-            vr4.f();
-            byte[] bArr = vr4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
-            ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
-            try {
-                responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
-            } catch (Exception e) {
-                e.printStackTrace();
+            String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
+            ur4.f();
+            byte[] bArr = ur4.d("tb.im_entergroup").get(str);
+            ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
+            if (bArr != null) {
+                try {
+                    responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
-            return responseOfficialBarMenuLocalMessage;
+            return responseGroupsByUidLocalMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

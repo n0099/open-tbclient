@@ -1,64 +1,561 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tieba.iu8;
+import com.baidu.tieba.video.meida.MultiAudioMixer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.coremedia.iso.boxes.Container;
+import com.facebook.imageutils.JfifUtil;
+import com.googlecode.mp4parser.FileDataSourceImpl;
+import com.googlecode.mp4parser.authoring.Movie;
+import com.googlecode.mp4parser.authoring.Track;
+import com.googlecode.mp4parser.authoring.builder.DefaultMp4Builder;
+import com.googlecode.mp4parser.authoring.container.mp4.MovieCreator;
+import com.googlecode.mp4parser.authoring.tracks.AACTrackImpl;
+import com.googlecode.mp4parser.authoring.tracks.AppendTrack;
+import com.googlecode.mp4parser.authoring.tracks.CroppedTrack;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileChannel;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ju8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final double[] a;
-    public static final double[] b;
-    public static final double[] c;
+    public static volatile ju8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895900, "Lcom/baidu/tieba/ju8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements MultiAudioMixer.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public FileOutputStream a;
+        public final /* synthetic */ String b;
+
+        public a(ju8 ju8Var, String str) throws FileNotFoundException {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ju8Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947895900, "Lcom/baidu/tieba/ju8;");
+            this.b = str;
+            this.a = new FileOutputStream(this.b);
+        }
+
+        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
+        public void onMixComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
+        public void onMixError(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                try {
+                    if (this.a != null) {
+                        this.a.close();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.video.meida.MultiAudioMixer.c
+        public void onMixing(byte[] bArr) throws IOException {
+            FileOutputStream fileOutputStream;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || (fileOutputStream = this.a) == null) {
+                return;
+            }
+            fileOutputStream.write(bArr);
+        }
+    }
+
+    public ju8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new double[]{8.524682068201687E-11d, 2.5966600546497407E-9d, 7.968999456864018E-8d, 1.990671040966775E-6d, 4.0312469446528E-5d, 6.449987160622426E-4d, 0.007901234576193059d, 0.07111111110920705d, 0.4444444444447249d, 1.7777777777777533d, 4.000000000000001d, 4.0d, 1.0d, 1.1520919130377196E-10d, 2.2287613013610985E-9d, 8.190395193069459E-8d, 1.9821560631611546E-6d, 4.033546194091013E-5d, 6.449533097443221E-4d, 0.007901301261146751d, 0.07111103816087556d, 0.444444503190627d, 1.777777743914645d, 4.000000013233794d, 3.9999999968569013d, 1.0000000003426703d, 1.547687078051524E-10d, 1.2685004214732975E-9d, 9.277686185111423E-8d, 1.9063070109379044E-6d, 4.069800438991794E-5d, 6.437044724429807E-4d, 0.007904474945844498d, 0.07110505241174936d, 0.44445280640924756d, 1.777769493443211d, 4.000005580882401d, 3.9999977081165743d, 1.000000433394932d, 2.0675200625006794E-10d, -6.168955470512568E-10d, 1.243676591540157E-7d, 1.5830429403520612E-6d, 4.2947227560776585E-5d, 6.324986166507344E-4d, 0.007945447284095393d, 0.07099432778566186d, 0.44467219586283d, 1.7774588182255375d, 4.000303898625272d, 3.9998233869142057d, 1.0000472932961288d, 2.747568479498271E-10d, -3.899147207652133E-9d, 1.973017048397605E-7d, 5.965153156196767E-7d, 5.199297147474899E-5d, 5.732733867543377E-4d, 0.008229314383653041d, 0.06999093485872804d, 0.44726764292723986d, 1.7726685170014087d, 4.00629078637127d, 3.9952750700487845d, 1.001635434665418d};
-        b = new double[]{6.785236714494553E-8d, 4.6266061382821827E-7d, 6.970313581235407E-6d, 7.663766346295323E-5d, 7.911351522261269E-4d, 0.007340120473110381d, 0.060677114958668836d, 0.43994941411651567d, 2.742001709766175d, 14.28966192174086d, 59.82060964032071d, 188.7899868119915d, 399.8731367825601d, 427.5641157218048d, 1.8042097874891098E-7d, 1.2277164312044637E-6d, 1.8484393221474274E-5d, 2.029399590009131E-4d, 0.0020918539850246208d, 0.01937531565403395d, 0.15985869016767185d, 1.1565260527420642d, 7.189634122420607d, 37.35477381194748d, 155.8099316426627d, 489.5211371158541d, 1030.9147225169565d, 1093.5883545113747d, 4.801730561318749E-7d, 3.26131784391238E-6d, 4.907313750816616E-5d, 5.380650667648759E-4d, 0.005538791829105187d, 0.05122371748878655d, 0.42190298621367917d, 3.0463625987357354d, 18.895299447327734d, 97.91518902945546d, 407.13940115493494d, 1274.3088990480583d, 2670.9883037012546d, 2815.7166284662544d, 1.2789926338424624E-6d, 8.671826306760492E-6d, 1.304150882129993E-4d, 0.0014282247373727478d, 0.014684070635768789d, 0.13561403190404187d, 1.1152592585977394d, 8.038708855946538d, 49.76131889589548d, 257.2684232313529d, 1066.8543146269567d, 3328.3874581009636d, 6948.858659812164d, 7288.489339821248d, 3.409350368197033E-6d, 2.3079025203103375E-5d, 3.4691373283901833E-4d, 0.0037949949772229084d, 0.038974209677945605d, 0.35949483804148785d, 2.952287889353953d, 21.246564609514287d, 131.28727387146174d, 677.3810709329667d, 2802.3724744545048d, 8718.573142079826d, 18141.348781638833d, 18948.925349296307d};
-        c = new double[]{2.5568678676452704E-15d, 3.039395379230592E-14d, 6.334375199109483E-13d, 1.504129801183301E-11d, 4.4569436918556543E-10d, 1.746393051427168E-8d, 1.0059224011079853E-6d, 1.0729838945088577E-4d, 0.05150322693642528d, 5.252796399171156E-15d, 7.202118481421006E-15d, 7.25614212299048E-13d, 1.4823121466731044E-11d, 4.4602670450376247E-10d, 1.746360006178868E-8d, 1.0059226091322347E-6d, 1.0729838937545111E-4d, 0.0515032269364373d, 1.336591735935807E-14d, -1.2932643065888545E-13d, 1.7450199447905602E-12d, 1.041905120905698E-11d, 4.580478819805983E-10d, 1.744240545007355E-8d, 1.0059461453281293E-6d, 1.0729837434500161E-4d, 0.051503226940658446d, 5.3771611477352306E-14d, -1.139619300641373E-12d, 1.2858641335221653E-11d, -5.980208600457006E-11d, 7.366689430592951E-10d, 1.6731837150730355E-8d, 1.0070831435812128E-6d, 1.0729733111203705E-4d, 0.051503227360726295d, 3.781949208485893E-14d, -4.860049688858804E-13d, 1.6898350504817224E-12d, 4.588462432752426E-11d, 1.2521615963377513E-10d, 1.895965843775473E-8d, 1.0020716710561354E-6d, 1.0730371198569276E-4d, 0.05150322383300231d};
+        iu8.g();
     }
 
-    public static double a(double d) {
-        InterceptResult invokeCommon;
-        double d2;
-        double d3;
+    public static ju8 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            double abs = Math.abs(d);
-            if (abs < 8.5d) {
-                double d4 = abs * abs * 0.0625d;
-                int i = ((int) d4) * 13;
-                double[] dArr = a;
-                d2 = ((((((((((((((((((((((dArr[i] * d4) + dArr[i + 1]) * d4) + dArr[i + 2]) * d4) + dArr[i + 3]) * d4) + dArr[i + 4]) * d4) + dArr[i + 5]) * d4) + dArr[i + 6]) * d4) + dArr[i + 7]) * d4) + dArr[i + 8]) * d4) + dArr[i + 9]) * d4) + dArr[i + 10]) * d4) + dArr[i + 11]) * d4;
-                d3 = dArr[i + 12];
-            } else if (abs < 12.5d) {
-                int i2 = (int) abs;
-                double d5 = abs - i2;
-                int i3 = (i2 - 8) * 14;
-                double[] dArr2 = b;
-                d2 = ((((((((((((((((((((((((dArr2[i3] * d5) + dArr2[i3 + 1]) * d5) + dArr2[i3 + 2]) * d5) + dArr2[i3 + 3]) * d5) + dArr2[i3 + 4]) * d5) + dArr2[i3 + 5]) * d5) + dArr2[i3 + 6]) * d5) + dArr2[i3 + 7]) * d5) + dArr2[i3 + 8]) * d5) + dArr2[i3 + 9]) * d5) + dArr2[i3 + 10]) * d5) + dArr2[i3 + 11]) * d5) + dArr2[i3 + 12]) * d5;
-                d3 = dArr2[i3 + 13];
-            } else {
-                double d6 = 60.0d / abs;
-                int i4 = ((int) d6) * 9;
-                double[] dArr3 = c;
-                return ((((((((((((((((dArr3[i4] * d6) + dArr3[i4 + 1]) * d6) + dArr3[i4 + 2]) * d6) + dArr3[i4 + 3]) * d6) + dArr3[i4 + 4]) * d6) + dArr3[i4 + 5]) * d6) + dArr3[i4 + 6]) * d6) + dArr3[i4 + 7]) * d6) + dArr3[i4 + 8]) * Math.sqrt(d6) * Math.exp(abs);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ju8.class) {
+                    if (a == null) {
+                        a = new ju8();
+                    }
+                }
             }
-            return d2 + d3;
+            return a;
+        }
+        return (ju8) invokeV.objValue;
+    }
+
+    public final void a(long j, long j2, List<Track> list, List<Track> list2) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, list2}) == null) {
+            Movie movie = new Movie();
+            long j3 = 0;
+            while (j > j3) {
+                long j4 = j - j3;
+                if (j4 >= j2) {
+                    movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
+                    j3 += j2;
+                } else {
+                    double d = j4 / 1000;
+                    double d2 = 0.0d;
+                    boolean z = false;
+                    for (Track track : list) {
+                        if (track.getSyncSamples() != null && track.getSyncSamples().length > 0) {
+                            if (!z) {
+                                d2 = d(track, d2, false);
+                                d = d(track, d, true);
+                                z = true;
+                            } else {
+                                throw new RuntimeException("The startTime has already been corrected by another track with SyncSample. Not Supported.");
+                            }
+                        }
+                    }
+                    for (Track track2 : list) {
+                        long j5 = -1;
+                        long j6 = -1;
+                        int i = 0;
+                        long j7 = 0;
+                        double d3 = -1.0d;
+                        double d4 = 0.0d;
+                        while (i < track2.getSampleDurations().length) {
+                            long j8 = j3;
+                            long j9 = track2.getSampleDurations()[i];
+                            int i2 = (d4 > d3 ? 1 : (d4 == d3 ? 0 : -1));
+                            if (i2 > 0 && d4 <= d2) {
+                                j5 = j7;
+                            }
+                            if (i2 > 0 && d4 <= d) {
+                                j6 = j7;
+                            }
+                            j7++;
+                            i++;
+                            d3 = d4;
+                            d2 = d2;
+                            d4 = (j9 / track2.getTrackMetaData().getTimescale()) + d4;
+                            j3 = j8;
+                        }
+                        movie.addTrack(new CroppedTrack(track2, j5, j6));
+                        d2 = d2;
+                    }
+                    j3 += j4;
+                }
+            }
+            for (Track track3 : movie.getTracks()) {
+                if (track3.getHandler().equals("soun")) {
+                    list2.add(track3);
+                }
+            }
+        }
+    }
+
+    public final long b(String str, List<Track> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list)) == null) {
+            try {
+                long j = 0;
+                for (Track track : MovieCreator.build(str).getTracks()) {
+                    if (track.getHandler().equals("soun")) {
+                        list.add(track);
+                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
+                    }
+                }
+                return j;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public final gu8 c(String str, List<Track> list, List<Track> list2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, list, list2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new gu8(-1L, 1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b3));
+            }
+            if (!new File(str).exists()) {
+                return new gu8(-1L, 2, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0614));
+            }
+            long j = 0;
+            try {
+                for (Track track : MovieCreator.build(str).getTracks()) {
+                    if (list2 != null && track.getHandler().equals("soun")) {
+                        list2.add(track);
+                    }
+                    if (track.getHandler().equals("vide")) {
+                        list.add(track);
+                        j += (track.getDuration() * 1000) / track.getTrackMetaData().getTimescale();
+                    }
+                }
+                return new gu8(j, 0, "");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return new gu8(-1L, 3, en7.a(e));
+            }
+        }
+        return (gu8) invokeLLL.objValue;
+    }
+
+    public final double d(Track track, double d, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{track, Double.valueOf(d), Boolean.valueOf(z)})) == null) {
+            int length = track.getSyncSamples().length;
+            double[] dArr = new double[length];
+            int i = 0;
+            double d2 = 0.0d;
+            long j = 0;
+            double d3 = 0.0d;
+            for (int i2 = 0; i2 < track.getSampleDurations().length; i2++) {
+                long j2 = track.getSampleDurations()[i2];
+                j++;
+                if (Arrays.binarySearch(track.getSyncSamples(), j) >= 0) {
+                    dArr[Arrays.binarySearch(track.getSyncSamples(), j)] = d3;
+                }
+                d3 += j2 / track.getTrackMetaData().getTimescale();
+            }
+            while (i < length) {
+                double d4 = dArr[i];
+                if (d4 > d) {
+                    return z ? d4 : d2;
+                }
+                i++;
+                d2 = d4;
+            }
+            return dArr[length - 1];
         }
         return invokeCommon.doubleValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v3, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r2v8 */
+    public boolean f(String str, String str2, String... strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, strArr)) == null) {
+            ?? r2 = 0;
+            if (strArr != null) {
+                int i = 2;
+                if (strArr.length >= 2) {
+                    String str3 = str2 + "temp_" + System.currentTimeMillis();
+                    File[] fileArr = new File[strArr.length];
+                    try {
+                        iu8.a d = iu8.d(strArr[0]);
+                        if (d == null) {
+                            return false;
+                        }
+                        iu8.a aVar = new iu8.a();
+                        char c = 1;
+                        int i2 = 0;
+                        boolean z = true;
+                        while (i2 < strArr.length) {
+                            if (i2 != 0) {
+                                aVar = iu8.d(strArr[i2]);
+                                if (aVar == null) {
+                                    return r2;
+                                }
+                                iu8.a[] aVarArr = new iu8.a[i];
+                                aVarArr[r2] = d;
+                                aVarArr[c] = aVar;
+                                z = iu8.h(aVarArr);
+                            }
+                            String str4 = str2 + "temp_" + i2 + "_" + System.currentTimeMillis();
+                            if (new du8(strArr[i2]).a(str4, z, d, aVar) != null) {
+                                if (!z && i2 != 0 && aVar.c()) {
+                                    String str5 = str2 + "resample_" + System.currentTimeMillis();
+                                    long currentTimeMillis = System.currentTimeMillis();
+                                    boolean i3 = iu8.i(str4, str5, aVar.a, d.a);
+                                    BdLog.e("resample cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                                    if (i3) {
+                                        str4 = str5;
+                                    }
+                                }
+                                fileArr[i2] = new File(str4);
+                            }
+                            i2++;
+                            r2 = 0;
+                            i = 2;
+                            c = 1;
+                        }
+                        MultiAudioMixer a2 = MultiAudioMixer.a();
+                        try {
+                            a2.d(new a(this, str3));
+                            a2.b(fileArr);
+                            fu8 a3 = fu8.a(str3);
+                            a3.d(d.a);
+                            a3.c(d.b);
+                            a3.b(str);
+                            return true;
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            return false;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public ku8 g(String str, String str2) {
+        InterceptResult invokeLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File file = new File(str2);
+                file.mkdirs();
+                if (file.exists()) {
+                    file.delete();
+                }
+                LinkedList linkedList = new LinkedList();
+                try {
+                    gu8 c = c(str, linkedList, null);
+                    if (c.a == -1) {
+                        if (c.b == 1) {
+                            i = 218;
+                        } else {
+                            i = c.b == 2 ? 219 : PassFaceRecogManager.k;
+                        }
+                        return new ku8(i, c.c);
+                    }
+                    BdLog.e("mixingVideoByAudio videoTracks = " + linkedList.size());
+                    j(str2, linkedList, null);
+                    return new ku8(0, "");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return new ku8(221, en7.a(e));
+                } finally {
+                    BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                }
+            }
+            return new ku8(217, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b3));
+        }
+        return (ku8) invokeLL.objValue;
+    }
+
+    public ku8 h(String str, String str2, String str3, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
+        LinkedList linkedList;
+        int i;
+        ku8 ku8Var;
+        StringBuilder sb;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Boolean.valueOf(z)})) != null) {
+            return (ku8) invokeCommon.objValue;
+        }
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
+            long currentTimeMillis = System.currentTimeMillis();
+            String str5 = ws8.f + (TbMd5.getNameMd5FromUrl(str + str2 + str3) + "/");
+            new File(str5).mkdirs();
+            File file = new File(str3);
+            file.mkdirs();
+            if (file.exists()) {
+                file.delete();
+            }
+            LinkedList linkedList2 = new LinkedList();
+            LinkedList linkedList3 = new LinkedList();
+            LinkedList linkedList4 = new LinkedList();
+            LinkedList linkedList5 = new LinkedList();
+            try {
+                gu8 c = c(str, linkedList2, linkedList3);
+                long j = c.a;
+                if (j == -1) {
+                    if (c.b == 1) {
+                        i2 = 210;
+                    } else {
+                        i2 = c.b == 2 ? 211 : 212;
+                    }
+                    ku8Var = new ku8(i2, c.c);
+                    FileHelper.deleteFileOrDir(new File(str5));
+                    sb = new StringBuilder();
+                } else {
+                    long b = b(str2, linkedList4);
+                    if (b == -1) {
+                        if (c.b == 1) {
+                            i = 213;
+                        } else {
+                            i = c.b == 2 ? 214 : 215;
+                        }
+                        ku8Var = new ku8(i, c.c);
+                        FileHelper.deleteFileOrDir(new File(str5));
+                        sb = new StringBuilder();
+                    } else {
+                        try {
+                            a(j, b, linkedList4, linkedList5);
+                            if (!z || linkedList3.size() <= 0 || Build.VERSION.SDK_INT < 16) {
+                                linkedList = linkedList3;
+                            } else {
+                                String str6 = str5 + "temp_" + System.currentTimeMillis();
+                                j(str6, null, linkedList5);
+                                String str7 = str5 + "temp_" + System.currentTimeMillis();
+                                linkedList = linkedList3;
+                                j(str7, null, linkedList);
+                                String str8 = str5 + "temp_" + System.currentTimeMillis() + ".acc";
+                                if (f(str8, str5, str6, str7)) {
+                                    AACTrackImpl aACTrackImpl = new AACTrackImpl(new FileDataSourceImpl(str8));
+                                    linkedList5.clear();
+                                    linkedList5.add(aACTrackImpl);
+                                }
+                                BdLog.e("mixingVideoByAudio mixing cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                            }
+                            BdLog.e("mixingVideoByAudio audioTracks = " + linkedList.size() + " musicTracks = " + linkedList5.size() + " videoTracks = " + linkedList2.size());
+                            j(str3, linkedList2, linkedList5);
+                            ku8 ku8Var2 = new ku8(0, "");
+                            FileHelper.deleteFileOrDir(new File(str5));
+                            BdLog.e("mixingVideoByAudio cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                            return ku8Var2;
+                        } catch (Exception e) {
+                            e = e;
+                            str4 = "mixingVideoByAudio cost = ";
+                            try {
+                                e.printStackTrace();
+                                ku8 ku8Var3 = new ku8(JfifUtil.MARKER_SOI, en7.a(e));
+                                FileHelper.deleteFileOrDir(new File(str5));
+                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
+                                return ku8Var3;
+                            } catch (Throwable th) {
+                                th = th;
+                                FileHelper.deleteFileOrDir(new File(str5));
+                                BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
+                                throw th;
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            str4 = "mixingVideoByAudio cost = ";
+                            FileHelper.deleteFileOrDir(new File(str5));
+                            BdLog.e(str4 + (System.currentTimeMillis() - currentTimeMillis));
+                            throw th;
+                        }
+                    }
+                }
+                sb.append("mixingVideoByAudio cost = ");
+                sb.append(System.currentTimeMillis() - currentTimeMillis);
+                BdLog.e(sb.toString());
+                return ku8Var;
+            } catch (Exception e2) {
+                e = e2;
+                str4 = "mixingVideoByAudio cost = ";
+            } catch (Throwable th3) {
+                th = th3;
+                str4 = "mixingVideoByAudio cost = ";
+            }
+        } else {
+            return new ku8(209, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b3));
+        }
+    }
+
+    public ku8 i(List<String> list, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048583, this, list, str, z)) == null) {
+            if (list != null && !TextUtils.isEmpty(str)) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File file = new File(str);
+                file.mkdirs();
+                if (file.exists()) {
+                    file.delete();
+                }
+                LinkedList linkedList = new LinkedList();
+                LinkedList linkedList2 = new LinkedList();
+                for (int i = 0; i < list.size(); i++) {
+                    try {
+                        gu8 c = c(list.get(i), linkedList, z ? linkedList2 : null);
+                        if (c.a != -1) {
+                            long j = c.a;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return new ku8(11, en7.a(e));
+                    }
+                }
+                j(str, linkedList, linkedList2);
+                BdLog.e("mixingVideoByVideo videoList length = " + list.size() + " cost = " + (System.currentTimeMillis() - currentTimeMillis));
+                return new ku8(0, "");
+            }
+            return new ku8(10, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08b3));
+        }
+        return (ku8) invokeLLZ.objValue;
+    }
+
+    public final void j(String str, List<Track> list, List<Track> list2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, list, list2) == null) {
+            Movie movie = new Movie();
+            if (list2 != null && list2.size() > 0) {
+                movie.addTrack(new AppendTrack((Track[]) list2.toArray(new Track[list2.size()])));
+            }
+            if (list != null && list.size() > 0) {
+                movie.addTrack(new AppendTrack((Track[]) list.toArray(new Track[list.size()])));
+            }
+            Container build = new DefaultMp4Builder().build(movie);
+            FileChannel channel = new RandomAccessFile(String.format(str, new Object[0]), rw.c).getChannel();
+            build.writeContainer(channel);
+            channel.close();
+        }
     }
 }

@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ym6;
-import com.baidu.tieba.zm6;
+import com.baidu.tieba.wm6;
+import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements zm6 {
+public class HeaderComponentMultiView extends FrameLayout implements xm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -54,7 +54,7 @@ public class HeaderComponentMultiView extends FrameLayout implements zm6 {
         c();
     }
 
-    @Override // com.baidu.tieba.zm6
+    @Override // com.baidu.tieba.xm6
     public void a() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -64,13 +64,13 @@ public class HeaderComponentMultiView extends FrameLayout implements zm6 {
         headerComponentMultiAdapter.e();
     }
 
-    @Override // com.baidu.tieba.zm6
-    public void b(List<LiveFuseForumData> list, ym6 ym6Var) {
+    @Override // com.baidu.tieba.xm6
+    public void b(List<LiveFuseForumData> list, wm6 wm6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ym6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, wm6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(ym6Var);
+        this.d.g(wm6Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();

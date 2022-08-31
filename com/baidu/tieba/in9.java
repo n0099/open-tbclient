@@ -2,88 +2,84 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.RootTelemetryConfiguration;
 /* loaded from: classes4.dex */
 public final class in9 {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static in9 b;
+    public static final RootTelemetryConfiguration c;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public RootTelemetryConfiguration a;
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<String> a;
-        public final Object b;
-
-        public /* synthetic */ a(Object obj, on9 on9Var) {
-            jn9.d(obj);
-            this.b = obj;
-            this.a = new ArrayList();
-        }
-
-        @NonNull
-        public a a(@NonNull String str, @Nullable Object obj) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-                List<String> list = this.a;
-                jn9.d(str);
-                String valueOf = String.valueOf(obj);
-                StringBuilder sb = new StringBuilder(str.length() + 1 + String.valueOf(valueOf).length());
-                sb.append(str);
-                sb.append("=");
-                sb.append(valueOf);
-                list.add(sb.toString());
-                return this;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859413, "Lcom/baidu/tieba/in9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return (a) invokeLL.objValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                StringBuilder sb = new StringBuilder(100);
-                sb.append(this.b.getClass().getSimpleName());
-                sb.append('{');
-                int size = this.a.size();
-                for (int i = 0; i < size; i++) {
-                    sb.append(this.a.get(i));
-                    if (i < size - 1) {
-                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    }
-                }
-                sb.append('}');
-                return sb.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947859413, "Lcom/baidu/tieba/in9;");
+                return;
             }
-            return (String) invokeV.objValue;
         }
+        c = new RootTelemetryConfiguration(0, false, false, 0, 0);
     }
 
-    public static boolean a(@Nullable Object obj, @Nullable Object obj2) {
-        InterceptResult invokeLL;
+    public in9() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
-    }
-
-    public static int b(@NonNull Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) ? Arrays.hashCode(objArr) : invokeL.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
     }
 
     @NonNull
-    public static a c(@NonNull Object obj) {
-        InterceptResult invokeL;
+    public static synchronized in9 a() {
+        InterceptResult invokeV;
+        in9 in9Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) ? new a(obj, null) : (a) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (in9.class) {
+                if (b == null) {
+                    b = new in9();
+                }
+                in9Var = b;
+            }
+            return in9Var;
+        }
+        return (in9) invokeV.objValue;
+    }
+
+    public final synchronized void b(@Nullable RootTelemetryConfiguration rootTelemetryConfiguration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rootTelemetryConfiguration) == null) {
+            synchronized (this) {
+                if (rootTelemetryConfiguration == null) {
+                    this.a = c;
+                    return;
+                }
+                RootTelemetryConfiguration rootTelemetryConfiguration2 = this.a;
+                if (rootTelemetryConfiguration2 == null || rootTelemetryConfiguration2.getVersion() < rootTelemetryConfiguration.getVersion()) {
+                    this.a = rootTelemetryConfiguration;
+                }
+            }
+        }
     }
 }

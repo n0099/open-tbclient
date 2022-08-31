@@ -14,17 +14,17 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n25;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.u25;
-import com.baidu.tieba.y25;
+import com.baidu.tieba.l25;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.s25;
+import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class DLauncher extends RelativeLayout implements u25 {
+public class DLauncher extends RelativeLayout implements s25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -32,16 +32,16 @@ public class DLauncher extends RelativeLayout implements u25 {
     public TextView c;
     public int d;
     public String e;
-    public y25 f;
+    public w25 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DLauncher(Context context, y25 y25Var) {
+    public DLauncher(Context context, w25 w25Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, y25Var};
+            Object[] objArr = {context, w25Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,32 +53,32 @@ public class DLauncher extends RelativeLayout implements u25 {
             }
         }
         this.d = 0;
-        if (y25Var == null) {
+        if (w25Var == null) {
             return;
         }
-        this.f = y25Var;
+        this.f = w25Var;
         setLayoutParams(new AbsListView.LayoutParams(-1, -2));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.topMargin = getResources().getDimensionPixelOffset(R.dimen.M_H_X008);
         layoutParams.leftMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         layoutParams.rightMargin = getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
         this.b = new EMTextView(context);
-        setName(y25Var.b);
+        setName(w25Var.b);
         setIcon();
-        setToolId(y25Var.c);
+        setToolId(w25Var.c);
         this.b.setGravity(17);
-        os4 d = os4.d(this.b);
+        ns4 d = ns4.d(this.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0106);
         context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b);
         addView(this.b, layoutParams);
     }
 
-    @Override // com.baidu.tieba.o25
-    public void A(n25 n25Var) {
+    @Override // com.baidu.tieba.m25
+    public void A(l25 l25Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, n25Var) == null) && n25Var != null && n25Var.a == 2) {
-            Object obj = n25Var.c;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, l25Var) == null) && l25Var != null && l25Var.a == 2) {
+            Object obj = l25Var.c;
             if (obj == null) {
                 c();
             } else if (obj instanceof String) {
@@ -131,7 +131,7 @@ public class DLauncher extends RelativeLayout implements u25 {
         }
     }
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.s25
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -145,14 +145,14 @@ public class DLauncher extends RelativeLayout implements u25 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.s25
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.s25
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -160,14 +160,14 @@ public class DLauncher extends RelativeLayout implements u25 {
         }
     }
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.s25
     public void j0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.u25
+    @Override // com.baidu.tieba.s25
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -175,7 +175,7 @@ public class DLauncher extends RelativeLayout implements u25 {
             if (isEnabled()) {
                 SkinManager.setBackgroundResource(this, R.drawable.btn_editor_selector, i);
             }
-            os4.d(this.b).v(R.color.CAM_X0106);
+            ns4.d(this.b).v(R.color.CAM_X0106);
             if (this.f == null) {
                 return;
             }
@@ -234,11 +234,11 @@ public class DLauncher extends RelativeLayout implements u25 {
         Drawable drawable;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            y25 y25Var = this.f;
-            int i = y25Var.h;
-            int i2 = y25Var.r;
+            w25 w25Var = this.f;
+            int i = w25Var.h;
+            int i2 = w25Var.r;
             if (i <= 0) {
-                i = y25Var.d;
+                i = w25Var.d;
             }
             if (this.f.i) {
                 drawable = SvgManager.getInstance().getSeletableDrawableForEditorTools(i, this.f.e, this.d);

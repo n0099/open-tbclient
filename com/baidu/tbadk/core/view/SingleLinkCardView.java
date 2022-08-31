@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o06;
+import com.baidu.tieba.m06;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.wu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,11 +52,11 @@ public class SingleLinkCardView extends RelativeLayout {
         }
     }
 
-    public void a(o06 o06Var) {
+    public void a(m06 m06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, o06Var) == null) {
-            if (o06Var instanceof PbLinkData) {
-                PbLinkData pbLinkData = (PbLinkData) o06Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, m06Var) == null) {
+            if (m06Var instanceof PbLinkData) {
+                PbLinkData pbLinkData = (PbLinkData) m06Var;
                 this.a.K(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
@@ -67,11 +67,11 @@ public class SingleLinkCardView extends RelativeLayout {
                     int f4 = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
                     int f5 = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
                     int f6 = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    yu4 yu4Var = new yu4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    yu4Var.b(f2);
-                    yu4Var.h(f5);
-                    yu4Var.i(f6);
-                    spannableStringBuilder.setSpan(yu4Var, 0, pbLinkData.linkFrom.length(), 17);
+                    wu4 wu4Var = new wu4(f, -1, R.color.CAM_X0305, f3, R.color.CAM_X0305, f4, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    wu4Var.b(f2);
+                    wu4Var.h(f5);
+                    wu4Var.i(f6);
+                    spannableStringBuilder.setSpan(wu4Var, 0, pbLinkData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkUrl);
@@ -93,8 +93,8 @@ public class SingleLinkCardView extends RelativeLayout {
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
                     this.b.setMaxLines(1);
                 }
-            } else if (o06Var instanceof PbGoodsData) {
-                PbGoodsData pbGoodsData = (PbGoodsData) o06Var;
+            } else if (m06Var instanceof PbGoodsData) {
+                PbGoodsData pbGoodsData = (PbGoodsData) m06Var;
                 this.a.K(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
@@ -105,11 +105,11 @@ public class SingleLinkCardView extends RelativeLayout {
                     int f10 = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
                     int f11 = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
                     int f12 = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X003);
-                    yu4 yu4Var2 = new yu4(f7, -1, R.color.CAM_X0305, f9, R.color.CAM_X0305, f10, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
-                    yu4Var2.b(f8);
-                    yu4Var2.h(f11);
-                    yu4Var2.i(f12);
-                    spannableStringBuilder2.setSpan(yu4Var2, 0, pbGoodsData.linkFrom.length(), 17);
+                    wu4 wu4Var2 = new wu4(f7, -1, R.color.CAM_X0305, f9, R.color.CAM_X0305, f10, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds38));
+                    wu4Var2.b(f8);
+                    wu4Var2.h(f11);
+                    wu4Var2.i(f12);
+                    spannableStringBuilder2.setSpan(wu4Var2, 0, pbGoodsData.linkFrom.length(), 17);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkUrl);

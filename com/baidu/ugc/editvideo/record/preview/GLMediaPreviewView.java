@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.tieba.le0;
-import com.baidu.tieba.pc9;
-import com.baidu.tieba.sc9;
+import com.baidu.tieba.nc9;
+import com.baidu.tieba.qc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -516,11 +516,11 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         PointF pointF2 = new PointF(this.mLastDownX1, this.mLastDownY1);
                         PointF pointF3 = new PointF(realX, realY);
                         PointF pointF4 = new PointF(realX2, realY2);
-                        if (pc9.c(pointF, pointF3) + pc9.c(pointF2, pointF4) >= 5.0f) {
-                            PointF d = pc9.d(pointF2, pointF);
-                            PointF d2 = pc9.d(pointF4, pointF3);
-                            float a = pc9.a(d, d2);
-                            float e = pc9.e(d, d2);
+                        if (nc9.c(pointF, pointF3) + nc9.c(pointF2, pointF4) >= 5.0f) {
+                            PointF d = nc9.d(pointF2, pointF);
+                            PointF d2 = nc9.d(pointF4, pointF3);
+                            float a = nc9.a(d, d2);
+                            float e = nc9.e(d, d2);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter != null) {
                                 multiMediaDataSourceViewAdapter.onTouchMove(0.0f, 0.0f, e, a);
@@ -534,10 +534,10 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                         if (stickerCenterPoint != null) {
                             PointF pointF5 = new PointF(this.mLastDownX, this.mLastDownY);
                             PointF pointF6 = new PointF(realX, realY);
-                            PointF d3 = pc9.d(stickerCenterPoint, pointF5);
-                            PointF d4 = pc9.d(stickerCenterPoint, pointF6);
-                            float a2 = pc9.a(d3, d4);
-                            float e2 = pc9.e(d3, d4);
+                            PointF d3 = nc9.d(stickerCenterPoint, pointF5);
+                            PointF d4 = nc9.d(stickerCenterPoint, pointF6);
+                            float a2 = nc9.a(d3, d4);
+                            float e2 = nc9.e(d3, d4);
                             MultiMediaDataSourceViewAdapter multiMediaDataSourceViewAdapter3 = this.multiMediaDataSourceViewAdapter;
                             if (multiMediaDataSourceViewAdapter3 != null) {
                                 multiMediaDataSourceViewAdapter3.onTouchMove(realX - this.mLastDownX, realY - this.mLastDownY, e2, a2);
@@ -626,7 +626,7 @@ public class GLMediaPreviewView extends MediaPreviewView implements EffectChange
                     iEffectProcessor.setPreviewSize(i, i2);
                 }
             }
-            sc9.a().post(new Runnable(this, i, i2, z) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
+            qc9.a().post(new Runnable(this, i, i2, z) { // from class: com.baidu.ugc.editvideo.record.preview.GLMediaPreviewView.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GLMediaPreviewView this$0;

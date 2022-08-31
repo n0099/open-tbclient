@@ -33,13 +33,13 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.tieba.an;
+import com.baidu.tieba.k65;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.m65;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pn;
+import com.baidu.tieba.sx5;
 import com.baidu.tieba.ux5;
-import com.baidu.tieba.wx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,9 +59,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView d;
     public TbImageView e;
     public BdTypeListView f;
-    public wx5 g;
-    public ux5 h;
-    public m65 i;
+    public ux5 g;
+    public sx5 h;
+    public k65 i;
     public AlaNetRefreshView j;
     public TextView k;
     public View l;
@@ -70,7 +70,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     public TextView o;
     public RelativeLayout p;
     public CustomMessageListener q;
-    public ux5.b r;
+    public sx5.b r;
     public CustomMessageListener s;
 
     /* loaded from: classes3.dex */
@@ -151,7 +151,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements ux5.b {
+    public class c implements sx5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaEnterEffectFragment a;
@@ -209,7 +209,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
             this.a = alaEnterEffectFragment;
         }
 
-        @Override // com.baidu.tieba.ux5.b
+        @Override // com.baidu.tieba.sx5.b
         public void a(AlaGetEnterEffectResponsedMessage alaGetEnterEffectResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, alaGetEnterEffectResponsedMessage) == null) {
@@ -358,7 +358,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f0908d6);
         this.l = findViewById;
         this.f.setEmptyView(findViewById);
-        this.g = new wx5(getPageContext(), this.f);
+        this.g = new ux5(getPageContext(), this.f);
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -366,7 +366,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.i == null) {
-                this.i = new m65(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
+                this.i = new k65(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
             }
             this.i.attachView(this.a, false);
         }
@@ -420,12 +420,12 @@ public class AlaEnterEffectFragment extends AbsFragment {
     }
 
     public final void m() {
-        m65 m65Var;
+        k65 k65Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (m65Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (k65Var = this.i) == null) {
             return;
         }
-        m65Var.dettachView(this.a);
+        k65Var.dettachView(this.a);
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -444,9 +444,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             super.onChangeSkinType(i);
-            m65 m65Var = this.i;
-            if (m65Var != null) {
-                m65Var.onChangeSkinType();
+            k65 k65Var = this.i;
+            if (k65Var != null) {
+                k65Var.onChangeSkinType();
             }
             AlaNetRefreshView alaNetRefreshView = this.j;
             if (alaNetRefreshView != null) {
@@ -498,7 +498,7 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
             this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) null);
             B1();
-            this.h = new ux5(getPageContext(), this.r);
+            this.h = new sx5(getPageContext(), this.r);
             C1();
             this.h.d();
             return this.a;
@@ -512,9 +512,9 @@ public class AlaEnterEffectFragment extends AbsFragment {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
             m();
-            ux5 ux5Var = this.h;
-            if (ux5Var != null) {
-                ux5Var.c();
+            sx5 sx5Var = this.h;
+            if (sx5Var != null) {
+                sx5Var.c();
             }
         }
     }

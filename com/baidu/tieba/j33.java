@@ -41,14 +41,14 @@ public class j33 extends x23 implements np1.j {
 
         /* renamed from: com.baidu.tieba.j33$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0299a implements Runnable {
+        public class RunnableC0304a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ShowFavoriteGuideApi.GuideType a;
             public final /* synthetic */ String b;
             public final /* synthetic */ a c;
 
-            public RunnableC0299a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
+            public RunnableC0304a(a aVar, ShowFavoriteGuideApi.GuideType guideType, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class j33 extends x23 implements np1.j {
                 ay1.i("ShowFavoriteGuideAction", "duration=" + this.e.e + ", mIntervalDays=" + this.e.f + ", mMaxTimes=" + this.e.g + " ,storageValue=" + string2);
                 if (i2 < this.e.g && currentTimeMillis - j > this.e.f * 86400000) {
                     o93.a().putString(str2, (i2 + 1) + "#" + currentTimeMillis);
-                    ue3.e0(new RunnableC0299a(this, parse, string));
+                    ue3.e0(new RunnableC0304a(this, parse, string));
                     return;
                 }
                 ay1.i("ShowFavoriteGuideAction", "Not satisfying display conditions");

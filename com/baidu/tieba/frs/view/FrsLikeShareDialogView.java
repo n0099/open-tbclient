@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kr6;
-import com.baidu.tieba.lr6;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ir6;
+import com.baidu.tieba.jr6;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public ImageView r;
     public ImageView s;
     public View t;
-    public kr6 u;
+    public ir6 u;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsLikeShareDialogView(Context context) {
@@ -100,7 +100,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            os4 d = os4.d(this.j);
+            ns4 d = ns4.d(this.j);
             d.n(R.string.J_X17);
             d.g(SkinManager.getColor(0, (int) R.color.CAM_X0204));
             this.l.setImageDrawable(SvgManager.getInstance().getNormalDrawable(R.drawable.obfuscated_res_0x7f08081b, SvgManager.SvgResourceStateType.NORMAL));
@@ -125,7 +125,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.c.setConrers(3);
             this.c.setIsBitmapPic(true);
             SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080bc9, 0);
-            os4 d = os4.d(this.t);
+            ns4 d = ns4.d(this.t);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0501);
         }
@@ -144,20 +144,20 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             if (i2 == -1 || (forumData = this.a) == null) {
                 return;
             }
-            lr6.a(forumData.getId(), i2);
+            jr6.a(forumData.getId(), i2);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int i;
-        kr6 kr6Var;
+        ir6 ir6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (view2 == this.q) {
-                kr6 kr6Var2 = this.u;
-                if (kr6Var2 != null) {
-                    kr6Var2.a();
+                ir6 ir6Var2 = this.u;
+                if (ir6Var2 != null) {
+                    ir6Var2.a();
                 }
                 d(-1);
                 return;
@@ -169,8 +169,8 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             } else {
                 i = view2 == this.o ? 8 : -1;
             }
-            if (i != -1 && (kr6Var = this.u) != null) {
-                kr6Var.b(i);
+            if (i != -1 && (ir6Var = this.u) != null) {
+                ir6Var.b(i);
             }
             d(i);
         }

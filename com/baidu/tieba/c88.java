@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -13,13 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c88 extends jz5<a78> {
+public class c88 extends hz5<a78> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public ImageView j;
-    public TextView k;
-    public String l;
+    public TextView i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public c88(TbPageContext<?> tbPageContext) {
@@ -39,27 +34,25 @@ public class c88 extends jz5<a78> {
                 return;
             }
         }
-        r(h());
+        this.i = (TextView) h();
     }
 
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a6 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01ab : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
-                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
-            }
-            this.a = i;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
+            return;
         }
+        this.a = i;
+        SkinManager.setViewTextColor(this.i, R.color.CAM_X0105, 1);
+        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
     }
 
     @Override // android.view.View.OnClickListener
@@ -69,45 +62,15 @@ public class c88 extends jz5<a78> {
         }
     }
 
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090559);
-            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090558);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09055a);
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jz5
-    /* renamed from: s */
+    @Override // com.baidu.tieba.hz5
+    /* renamed from: r */
     public void i(a78 a78Var) {
-        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, a78Var) == null) {
-            if (a78Var == null) {
-                this.i.setVisibility(8);
-                return;
-            }
-            if (this.i.getVisibility() != 0) {
-                this.i.setVisibility(0);
-            }
-            if (StringUtils.isNull(this.l)) {
-                TextView textView = this.k;
-                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0e63);
-                Object[] objArr = new Object[1];
-                if (a78Var.a) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1606);
-                } else if (a78Var.b == 2) {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f1175);
-                } else {
-                    string = this.c.getString(R.string.obfuscated_res_0x7f0f083e);
-                }
-                objArr[0] = string;
-                textView.setText(String.format(string2, objArr));
-                return;
-            }
-            this.k.setText(this.l);
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, a78Var) == null) || a78Var == null) {
+            return;
         }
+        this.i.setPadding(a78Var.b, a78Var.c, 0, a78Var.d);
+        this.i.setText(this.c.getString(a78Var.a));
     }
 }

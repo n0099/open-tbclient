@@ -7,15 +7,14 @@ import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.widget.dragsort.SimpleDragSortListView;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.gg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,122 +26,15 @@ public class mq7 implements Object<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public SimpleDragSortListView b;
-    public View c;
-    public gq7 d;
-    public kq7 e;
-    public m65 f;
+    public BdListView b;
+    public fq7 c;
+    public iq7 d;
+    public View e;
+    public k65 f;
     public FrameLayout g;
-    public boolean h;
-    public eq7 i;
-    public NoDataView j;
-    public NoNetworkView k;
-
-    /* loaded from: classes5.dex */
-    public class a implements gg5.i {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq7 a;
-
-        public a(mq7 mq7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mq7Var;
-        }
-
-        @Override // com.baidu.tieba.gg5.i
-        public void a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                this.a.d.a(i, i2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ mq7 b;
-
-        public b(mq7 mq7Var, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq7Var, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mq7Var;
-            this.a = list;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.j();
-                if (this.b.d == null || this.a == null) {
-                    return;
-                }
-                this.b.d.update(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq7 a;
-
-        public c(mq7 mq7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mq7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.d == null) {
-                return;
-            }
-            this.a.d.update();
-        }
-    }
+    public NoDataView h;
+    public boolean i;
+    public NoNetworkView j;
 
     public mq7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -159,31 +51,30 @@ public class mq7 implements Object<List<EmotionPackageData>> {
                 return;
             }
         }
-        this.h = false;
+        this.i = false;
         this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02d9, (ViewGroup) null, false);
-        this.c = inflate;
-        this.g = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f09159b);
-        this.k = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f092568);
-        this.e = new kq7(this.c.findViewById(R.id.obfuscated_res_0x7f0908b3), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0556));
-        SimpleDragSortListView simpleDragSortListView = (SimpleDragSortListView) this.c.findViewById(R.id.obfuscated_res_0x7f09159a);
-        this.b = simpleDragSortListView;
-        simpleDragSortListView.setDivider(null);
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e2, (ViewGroup) null, false);
+        this.e = inflate;
+        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f092568);
+        this.j = noNetworkView;
+        noNetworkView.a(this);
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091eac);
+        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0908be);
+        this.d = new iq7(this.e.findViewById(R.id.obfuscated_res_0x7f0908bd), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0557));
+        this.b.setDivider(null);
         this.b.setOverScrollMode(2);
         this.b.setVerticalScrollBarEnabled(false);
-        k();
-        this.d = new gq7(tbPageContext, this.b, this.i);
-        l();
-        this.k.a(this);
+        this.c = new fq7(tbPageContext, this.b);
+        h();
     }
 
-    public View c() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (View) invokeV.objValue;
     }
 
-    public void d() {
+    public void b() {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == null || (frameLayout = this.g) == null) {
@@ -194,116 +85,106 @@ public class mq7 implements Object<List<EmotionPackageData>> {
         this.f = null;
     }
 
-    public final void e() {
+    public final void c() {
         NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.j) != null && noDataView.getParent() == this.g) {
-            this.j.setVisibility(8);
-            this.g.removeView(this.j);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.h) != null && noDataView.getParent() == this.g) {
+            this.h.setVisibility(8);
+            this.g.removeView(this.h);
             this.g.setVisibility(8);
         }
     }
 
-    public void f(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            kq7 kq7Var = this.e;
-            if (kq7Var != null) {
-                kq7Var.b(i);
+            View view2 = this.e;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
+            }
+            BdListView bdListView = this.b;
+            if (bdListView != null) {
+                SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0201, i);
+            }
+            iq7 iq7Var = this.d;
+            if (iq7Var != null) {
+                iq7Var.b(i);
+            }
+            NoNetworkView noNetworkView = this.j;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a, i);
             }
             FrameLayout frameLayout = this.g;
             if (frameLayout != null) {
                 SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i);
             }
-            kq7 kq7Var2 = this.e;
-            if (kq7Var2 != null) {
-                SkinManager.setBackgroundColor(kq7Var2.a(), R.color.CAM_X0201, i);
-            }
-            SimpleDragSortListView simpleDragSortListView = this.b;
-            if (simpleDragSortListView != null) {
-                SkinManager.setBackgroundColor(simpleDragSortListView, R.color.CAM_X0201, i);
-            }
-            NoNetworkView noNetworkView = this.k;
-            if (noNetworkView != null) {
-                noNetworkView.d(this.a, i);
-            }
         }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b();
+            c();
+        }
+    }
+
+    public final void f() {
+        BdListView bdListView;
+        iq7 iq7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bdListView = this.b) == null || this.i || (iq7Var = this.d) == null) {
+            return;
+        }
+        this.i = true;
+        bdListView.setEmptyView(iq7Var.a());
     }
 
     public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && z) {
-            l();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921054));
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && z) {
+            h();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
         }
     }
 
-    public void h() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sg.a().post(new c(this));
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            d();
-            e();
-        }
-    }
-
-    public final void j() {
-        SimpleDragSortListView simpleDragSortListView;
-        kq7 kq7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (simpleDragSortListView = this.b) == null || this.h || (kq7Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.a == null || this.g == null) {
             return;
         }
-        this.h = true;
-        simpleDragSortListView.setEmptyView(kq7Var.a());
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            eq7 eq7Var = new eq7(this.b);
-            this.i = eq7Var;
-            eq7Var.c(new a(this));
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || this.a == null || this.g == null) {
-            return;
-        }
-        i();
+        e();
         this.g.setVisibility(0);
-        m65 m65Var = new m65(this.a.getPageActivity());
-        this.f = m65Var;
-        m65Var.attachView(this.g, true);
+        if (this.f == null) {
+            this.f = new k65(this.a.getPageActivity());
+        }
+        this.f.attachView(this.g, true);
         this.f.onChangeSkinType();
     }
 
-    public void m() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.a == null || this.g == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null || this.g == null) {
             return;
         }
-        i();
+        e();
         this.g.setVisibility(0);
-        NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070236)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0559)), null, true);
-        this.j = b2;
-        b2.setVisibility(0);
-        this.j.d(this.a);
+        NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070236)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0559)), null, true);
+        this.h = b;
+        b.setVisibility(0);
+        this.h.d(this.a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     public void update(List<EmotionPackageData> list) {
+        fq7 fq7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
-            sg.a().post(new b(this, list));
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            f();
+            if (list == null || (fq7Var = this.c) == null) {
+                return;
+            }
+            fq7Var.update(list);
         }
     }
 }

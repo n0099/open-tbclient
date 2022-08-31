@@ -1,26 +1,21 @@
 package com.baidu.tieba;
-
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes3.dex */
 public interface dv8 {
-    String a();
+    void a();
 
-    void b(Intent intent);
+    void b();
 
-    String c();
+    void c();
 
-    String d();
+    void d();
 
-    void e(BdUniqueId bdUniqueId);
+    void e();
 
-    String f();
+    void onClose();
 
-    String g();
+    void onDestroy();
 
-    String getVideoUrl();
+    void onPause();
 
-    String h();
-
-    String i();
+    void onResume();
 }

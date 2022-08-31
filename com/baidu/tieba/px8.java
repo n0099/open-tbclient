@@ -1,165 +1,99 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.hardware.Camera;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.tieba.view.cloudmusic.model.CloudMusicModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class px8 {
+public class px8 implements qx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final CloudMusicModel a;
+    public final rx8 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948077529, "Lcom/baidu/tieba/px8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948077529, "Lcom/baidu/tieba/px8;");
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements xx8<CloudMusicData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ px8 a;
 
-    public static int a(int i, int i2, int i3) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
-    }
-
-    public static int b(TbPageContext tbPageContext, int i) {
-        InterceptResult invokeLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
-            int i3 = 0;
-            try {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                int d = d(tbPageContext);
-                if (cameraInfo.facing == 1) {
-                    i3 = (cameraInfo.orientation + d) % 360;
-                    i2 = (360 - i3) % 360;
-                } else {
-                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
+        public a(px8 px8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {px8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return i2;
-            } catch (RuntimeException e) {
-                ac9.g(e);
-                return i3;
             }
+            this.a = px8Var;
         }
-        return invokeLI.intValue;
-    }
 
-    public static int c(Camera.Parameters parameters) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
-            if (parameters == null) {
-                return -1;
-            }
-            try {
-                if (parameters.isZoomSupported()) {
-                    return Math.min(parameters.getMaxZoom(), 40);
-                }
-                return -1;
-            } catch (Exception e) {
-                ac9.g(e);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
-            if (rotation != 0) {
-                if (rotation != 1) {
-                    if (rotation != 2) {
-                        return rotation != 3 ? 0 : 270;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.xx8
+        /* renamed from: b */
+        public void a(CloudMusicData cloudMusicData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cloudMusicData) == null) {
+                this.a.b.g0(false);
+                if (cloudMusicData != null) {
+                    this.a.b.l(false);
+                    if (cloudMusicData.tag_list.isEmpty()) {
+                        this.a.b.l(true);
+                        return;
+                    } else {
+                        this.a.b.w(cloudMusicData);
+                        return;
                     }
-                    return 180;
                 }
-                return 90;
+                this.a.b.l(true);
             }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) == null) || matrix == null) {
-            return;
-        }
-        matrix.setScale(1 == i ? -1.0f : 1.0f, 1.0f);
-        matrix.postRotate(b(tbPageContext, i));
-        matrix.postScale(tc9.e() / 2000.0f, tc9.d() / 2000.0f);
-        matrix.postTranslate(tc9.e() / 2.0f, tc9.d() / 2.0f);
-    }
-
-    public static void f(RectF rectF, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
-            rect.left = Math.round(rectF.left);
-            rect.top = Math.round(rectF.top);
-            rect.right = Math.round(rectF.right);
-            rect.bottom = Math.round(rectF.bottom);
         }
     }
 
-    public static void g(int i, int i2, Camera camera) {
-        int i3;
+    public px8(CloudMusicModel cloudMusicModel, rx8 rx8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i2, cameraInfo);
-            int i4 = 0;
-            if (i != 0) {
-                if (i == 1) {
-                    i4 = 90;
-                } else if (i == 2) {
-                    i4 = 180;
-                } else if (i == 3) {
-                    i4 = 270;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cloudMusicModel, rx8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (cameraInfo.facing == 1) {
-                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
-            } else {
-                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i3);
+        }
+        this.a = cloudMusicModel;
+        this.b = rx8Var;
+        rx8Var.r0(this);
+    }
+
+    @Override // com.baidu.tieba.qx8
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.cancelLoadData();
         }
     }
 
-    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
-        int i2;
+    @Override // com.baidu.tieba.qx8
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
-            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-            Camera.getCameraInfo(i, cameraInfo);
-            int d = d(tbPageContext);
-            if (cameraInfo.facing == 1) {
-                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
-            } else {
-                i2 = ((cameraInfo.orientation - d) + 360) % 360;
-            }
-            camera.setDisplayOrientation(i2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.g0(true);
+            this.a.A(new a(this));
         }
     }
 }

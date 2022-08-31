@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.o2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +55,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
             if (childAdapterPosition == i2) {
                 rect.left = 0;
                 rect.right = 0;
-                rect.top = z ? q2a.a(2.0f) : 0;
+                rect.top = z ? o2a.a(2.0f) : 0;
             } else if (childAdapterPosition < i2) {
                 int i3 = this.a;
                 int i4 = childAdapterPosition % i3;
@@ -70,7 +70,7 @@ public class PayAmountGridItemDecoration extends RecyclerView.ItemDecoration {
                 int i7 = this.c;
                 rect.left = (i * i7) / i6;
                 rect.right = i7 - (((i + 1) * i7) / i6);
-                rect.top = z ? q2a.a(2.0f) : this.b;
+                rect.top = z ? o2a.a(2.0f) : this.b;
             }
             RLog.debug("PayAmountGridItemDecoration", "position:" + childAdapterPosition + "    columnIndex: " + i + "    left,right ->" + rect.left + "," + rect.right + " isCampaignItemVisible:" + z);
         }

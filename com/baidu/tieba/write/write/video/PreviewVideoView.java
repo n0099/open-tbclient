@@ -23,14 +23,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a65;
 import com.baidu.tieba.an;
-import com.baidu.tieba.n55;
-import com.baidu.tieba.r55;
+import com.baidu.tieba.l55;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sv4;
 import com.baidu.tieba.video.CustomVideoView;
 import com.baidu.tieba.video.EditVideoData;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -47,7 +47,7 @@ public class PreviewVideoView extends FrameLayout {
     public TBSpecificationBtn d;
     public TBSpecificationBtn e;
     public float f;
-    public r55 g;
+    public p55 g;
     public Paint h;
     public Paint i;
     public String j;
@@ -122,7 +122,7 @@ public class PreviewVideoView extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements n55 {
+    public class c implements l55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PreviewVideoView a;
@@ -145,7 +145,7 @@ public class PreviewVideoView extends FrameLayout {
             this.a = previewVideoView;
         }
 
-        @Override // com.baidu.tieba.n55
+        @Override // com.baidu.tieba.l55
         public void a(an anVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, anVar, str, z) == null) || this.a.a == null || anVar == null) {
@@ -223,7 +223,7 @@ public class PreviewVideoView extends FrameLayout {
             m = ri.f(getContext(), R.dimen.tbds866);
             n = ri.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
             e(context);
-            this.g = new r55();
+            this.g = new p55();
             TbImageView tbImageView = new TbImageView(context);
             this.a = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
@@ -235,15 +235,15 @@ public class PreviewVideoView extends FrameLayout {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ri.f(context, R.dimen.tbds94), ri.f(context, R.dimen.tbds94));
             layoutParams.gravity = 53;
             addView(this.c, layoutParams);
-            sv4 sv4Var = new sv4();
-            sv4Var.q();
+            qv4 qv4Var = new qv4();
+            qv4Var.q();
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(ri.f(context, R.dimen.tbds96), ri.f(context, R.dimen.tbds48));
             layoutParams2.gravity = 83;
             layoutParams2.bottomMargin = ri.f(context, R.dimen.M_H_X002);
             layoutParams2.leftMargin = ri.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(context);
             this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setConfig(sv4Var);
+            tBSpecificationBtn.setConfig(qv4Var);
             this.d.setText(context.getString(R.string.obfuscated_res_0x7f0f0528));
             this.d.setTextSize(R.dimen.T_X10);
             addView(this.d, layoutParams2);
@@ -253,7 +253,7 @@ public class PreviewVideoView extends FrameLayout {
             layoutParams3.rightMargin = ri.f(context, R.dimen.M_W_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(context);
             this.e = tBSpecificationBtn2;
-            tBSpecificationBtn2.setConfig(sv4Var);
+            tBSpecificationBtn2.setConfig(qv4Var);
             this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0464));
             this.e.setTextSize(R.dimen.T_X10);
             addView(this.e, layoutParams3);
@@ -292,7 +292,7 @@ public class PreviewVideoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             ImageFileInfo imageFileInfo = new ImageFileInfo();
             imageFileInfo.setFilePath(this.j);
-            ImageOperation g = a65.g(n, m);
+            ImageOperation g = y55.g(n, m);
             imageFileInfo.clearPageActions();
             imageFileInfo.addPageAction(g);
             this.a.setTag(imageFileInfo.toCachedKey(false));

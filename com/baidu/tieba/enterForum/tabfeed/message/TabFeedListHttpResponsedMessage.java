@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.t85;
-import com.baidu.tieba.x86;
+import com.baidu.tieba.r85;
+import com.baidu.tieba.v86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes3.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements t85 {
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x86 enterForumTabFeedData;
+    public v86 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -68,9 +68,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
                 setErrorString(tabfeedlistResIdl.error.usermsg);
             }
             if (getError() == 0 && tabfeedlistResIdl.data != null) {
-                x86 x86Var = new x86();
-                this.enterForumTabFeedData = x86Var;
-                x86Var.g(tabfeedlistResIdl.data);
+                v86 v86Var = new v86();
+                this.enterForumTabFeedData = v86Var;
+                v86Var.g(tabfeedlistResIdl.data);
             }
         }
     }

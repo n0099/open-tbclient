@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y59 implements fc1 {
+public class y59 implements t59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,10 +24,17 @@ public class y59 implements fc1 {
         }
     }
 
-    @Override // com.baidu.tieba.fc1
-    public Object get() {
+    @Override // com.baidu.tieba.t59
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new l59() : invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            v49 a = q59.a();
+            if (a != null) {
+                return a.a();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

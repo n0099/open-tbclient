@@ -1,78 +1,96 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.NoSuchElementException;
 /* loaded from: classes3.dex */
-public final class dp9 {
+public abstract class dp9<E> extends xo9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
-    public static int a(int i, int i2, String str) {
-        InterceptResult invokeIIL;
-        String a;
+    public dp9(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65536, null, i, i2, str)) == null) {
-            if (i < 0 || i >= i2) {
-                if (i < 0) {
-                    a = ep9.a("%s (%s) must not be negative", "index", Integer.valueOf(i));
-                } else if (i2 < 0) {
-                    StringBuilder sb = new StringBuilder(26);
-                    sb.append("negative size: ");
-                    sb.append(i2);
-                    throw new IllegalArgumentException(sb.toString());
-                } else {
-                    a = ep9.a("%s (%s) must be less than size (%s)", "index", Integer.valueOf(i), Integer.valueOf(i2));
-                }
-                throw new IndexOutOfBoundsException(a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i;
         }
-        return invokeIIL.intValue;
+        bp9.b(i2, i, "index");
+        this.a = i;
+        this.b = i2;
     }
 
-    public static int b(int i, int i2, String str) {
-        InterceptResult invokeIIL;
+    public abstract E a(int i);
+
+    @Override // java.util.Iterator, java.util.ListIterator
+    public final boolean hasNext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, null, i, i2, str)) == null) {
-            if (i < 0 || i > i2) {
-                throw new IndexOutOfBoundsException(d(i, i2, "index"));
-            }
-            return i;
-        }
-        return invokeIIL.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b < this.a : invokeV.booleanValue;
     }
 
-    public static void c(int i, int i2, int i3) {
-        String d;
+    @Override // java.util.ListIterator
+    public final boolean hasPrevious() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65538, null, i, i2, i3) == null) {
-            if (i < 0 || i2 < i || i2 > i3) {
-                if (i >= 0 && i <= i3) {
-                    d = (i2 < 0 || i2 > i3) ? d(i2, i3, "end index") : ep9.a("end index (%s) must not be less than start index (%s)", Integer.valueOf(i2), Integer.valueOf(i));
-                } else {
-                    d = d(i, i3, "start index");
-                }
-                throw new IndexOutOfBoundsException(d);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b > 0 : invokeV.booleanValue;
     }
 
-    public static String d(int i, int i2, String str) {
-        InterceptResult invokeIIL;
+    @Override // java.util.Iterator, java.util.ListIterator
+    public final E next() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65539, null, i, i2, str)) == null) {
-            if (i < 0) {
-                return ep9.a("%s (%s) must not be negative", str, Integer.valueOf(i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (hasNext()) {
+                int i = this.b;
+                this.b = i + 1;
+                return a(i);
             }
-            if (i2 >= 0) {
-                return ep9.a("%s (%s) must not be greater than size (%s)", str, Integer.valueOf(i), Integer.valueOf(i2));
-            }
-            StringBuilder sb = new StringBuilder(26);
-            sb.append("negative size: ");
-            sb.append(i2);
-            throw new IllegalArgumentException(sb.toString());
+            throw new NoSuchElementException();
         }
-        return (String) invokeIIL.objValue;
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.ListIterator
+    public final int nextIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @Override // java.util.ListIterator
+    public final E previous() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (hasPrevious()) {
+                int i = this.b - 1;
+                this.b = i;
+                return a(i);
+            }
+            throw new NoSuchElementException();
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.ListIterator
+    public final int previousIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b - 1 : invokeV.intValue;
     }
 }

@@ -46,16 +46,16 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.i09;
+import com.baidu.tieba.j09;
 import com.baidu.tieba.k09;
 import com.baidu.tieba.l09;
 import com.baidu.tieba.m09;
 import com.baidu.tieba.n09;
 import com.baidu.tieba.o09;
-import com.baidu.tieba.p09;
-import com.baidu.tieba.q09;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.v16;
 import com.baidu.tieba.write.share.ShareSdkView;
-import com.baidu.tieba.x16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,7 +78,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public NavigationBar b;
     public View c;
     public TextView d;
-    public q09 e;
+    public o09 e;
     public List<TransmitForumData> f;
     public View g;
     public FrameLayout h;
@@ -94,10 +94,10 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public OriginalThreadInfo.ShareInfo r;
     public String s;
     public String t;
-    public l09 u;
-    public k09 v;
-    public m09 w;
-    public p09 x;
+    public j09 u;
+    public i09 v;
+    public k09 w;
+    public n09 x;
     public String y;
     public String z;
 
@@ -146,7 +146,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements k09 {
+    public class b implements i09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -169,11 +169,11 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.k09
-        public void a(m09 m09Var, int i, String str) {
+        @Override // com.baidu.tieba.i09
+        public void a(k09 k09Var, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, m09Var, i, str) == null) {
-                if (m09Var == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, k09Var, i, str) == null) {
+                if (k09Var == null) {
                     SelectForumActivity selectForumActivity = this.a;
                     selectForumActivity.hideLoadingView(selectForumActivity.h);
                     this.a.showToast(str);
@@ -184,16 +184,16 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                     return;
                 }
                 if (this.a.w != null) {
-                    this.a.w.c = m09Var.c;
-                    this.a.w.d = m09Var.d;
+                    this.a.w.c = k09Var.c;
+                    this.a.w.d = k09Var.d;
                 }
-                x16.c().i();
+                v16.c().i();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements o09 {
+    public class c implements m09 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SelectForumActivity a;
@@ -216,25 +216,25 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             this.a = selectForumActivity;
         }
 
-        @Override // com.baidu.tieba.o09
-        public void a(n09 n09Var) {
+        @Override // com.baidu.tieba.m09
+        public void a(l09 l09Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, n09Var) == null) {
-                if (n09Var == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, l09Var) == null) {
+                if (l09Var == null) {
                     SelectForumActivity selectForumActivity = this.a;
                     selectForumActivity.showToast(selectForumActivity.getString(R.string.obfuscated_res_0x7f0f1159));
                     Intent intent = new Intent();
                     intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                     this.a.setResult(1008, intent);
                 } else {
-                    ErrorData errorData = n09Var.a;
+                    ErrorData errorData = l09Var.a;
                     if (errorData != null && errorData.getError_code() != 0) {
-                        this.a.showToast(n09Var.a.getError_msg());
+                        this.a.showToast(l09Var.a.getError_msg());
                         Intent intent2 = new Intent();
-                        intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, n09Var.a.getError_code());
+                        intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, l09Var.a.getError_code());
                         this.a.setResult(1008, intent2);
                     } else {
-                        TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", n09Var.b).param("tid", n09Var.c));
+                        TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", l09Var.b).param("tid", l09Var.c));
                         this.a.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(this.a.w.f, "")));
                     }
                 }
@@ -501,9 +501,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f0922dd);
             this.a = bdListView;
             bdListView.setOnItemClickListener(this.F);
-            q09 q09Var = new q09(getActivity());
-            this.e = q09Var;
-            this.a.setAdapter((ListAdapter) q09Var);
+            o09 o09Var = new o09(getActivity());
+            this.e = o09Var;
+            this.a.setAdapter((ListAdapter) o09Var);
             this.e.b(this.f);
         }
     }
@@ -573,26 +573,26 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             TiebaStatic.log(new StatisticItem("c13275").param("uid", TbadkCoreApplication.getCurrentAccount()));
             try {
                 Class.forName("com.baidu.tieba.enterForum.home.CoreSearchRequestStatic");
-                Class.forName("com.baidu.tieba.l76");
+                Class.forName("com.baidu.tieba.j76");
             } catch (Exception unused) {
             }
             this.m = 3;
-            m09 m09Var = new m09();
-            this.w = m09Var;
-            m09Var.a = intent.getStringExtra("appkey");
+            k09 k09Var = new k09();
+            this.w = k09Var;
+            k09Var.a = intent.getStringExtra("appkey");
             this.w.b = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
             this.w.i = intent.getStringExtra("image");
             this.w.g = intent.getStringExtra("title");
             this.w.h = intent.getStringExtra("desc");
             this.w.k = intent.getStringExtra("link");
             this.w.l = intent.getStringExtra(SelectForumActivityConfig.KEY_SHARE_APPLETS_LINK);
-            this.u = new l09(getUniqueId());
+            this.u = new j09(getUniqueId());
             b bVar = new b(this);
             this.v = bVar;
             this.u.e(bVar);
-            p09 p09Var = new p09(getUniqueId());
-            this.x = p09Var;
-            p09Var.c(new c(this));
+            n09 n09Var = new n09(getUniqueId());
+            this.x = n09Var;
+            n09Var.c(new c(this));
             return;
         }
         ArrayList parcelableArrayListExtra = intent.getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
@@ -621,9 +621,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 setResult(-1, intent);
                 finish();
             } else if (i2 == -1 && i == 25019) {
-                m09 m09Var = this.w;
-                if (m09Var != null && intent != null) {
-                    m09Var.e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
+                k09 k09Var = this.w;
+                if (k09Var != null && intent != null) {
+                    k09Var.e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
                     this.w.f = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
                     X1("search");
                     return;
@@ -681,9 +681,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             if (this.u != null && TbadkCoreApplication.isLogin() && ListUtils.isEmpty(this.f)) {
-                m09 m09Var = this.w;
-                if (m09Var != null) {
-                    this.u.d(m09Var.a, m09Var.b);
+                k09 k09Var = this.w;
+                if (k09Var != null) {
+                    this.u.d(k09Var.a, k09Var.b);
                     return;
                 }
                 return;

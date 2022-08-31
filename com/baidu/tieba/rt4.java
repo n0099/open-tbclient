@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface rt4 {
-    void a(List<Long> list);
+    void a(tt4 tt4Var, JSONObject jSONObject);
+
+    void b(int i, Throwable th);
 }

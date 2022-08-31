@@ -6,7 +6,6 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.RomTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -481,12 +480,12 @@ public final class a {
             if (i == 0) {
                 a = com.yxcorp.kuaishou.addfp.android.b.a.a(paramContext, split[0], str);
                 if (TextUtils.isEmpty(a)) {
-                    a = ApiReplaceUtil.getString(paramContext.getContentResolver(), str);
+                    a = Settings.System.getString(paramContext.getContentResolver(), str);
                 }
             } else if (i == 1) {
                 a = com.yxcorp.kuaishou.addfp.android.b.a.a(paramContext, split[1], str);
                 if (TextUtils.isEmpty(a)) {
-                    a = ApiReplaceUtil.Overload.getString(paramContext.getContentResolver(), str);
+                    a = Settings.Secure.getString(paramContext.getContentResolver(), str);
                 }
             } else if (i == 2) {
                 a = com.yxcorp.kuaishou.addfp.android.b.a.a(paramContext, split[2], str);
@@ -596,7 +595,7 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
-                return ApiReplaceUtil.getString(context.getContentResolver(), str);
+                return Settings.System.getString(context.getContentResolver(), str);
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "";

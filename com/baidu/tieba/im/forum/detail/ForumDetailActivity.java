@@ -29,11 +29,11 @@ import com.baidu.tieba.im.forum.detail.BarEmotionResponseMessage;
 import com.baidu.tieba.im.forum.detail.ForumDetailModel;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import com.baidu.tieba.n87;
-import com.baidu.tieba.pz4;
+import com.baidu.tieba.l87;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.r97;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.t97;
-import com.baidu.tieba.wr4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ import tbclient.SimpleThreadInfo;
 public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> implements ForumDetailModel.f, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n87 a;
+    public l87 a;
     public ForumDetailModel b;
     public RecommendForumInfo c;
     public List<SimpleThreadInfo> d;
@@ -67,18 +67,18 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public String n;
 
     /* loaded from: classes4.dex */
-    public class a implements wr4.e {
+    public class a implements vr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr4 a;
+        public final /* synthetic */ vr4 a;
         public final /* synthetic */ ForumDetailActivity b;
 
-        public a(ForumDetailActivity forumDetailActivity, wr4 wr4Var) {
+        public a(ForumDetailActivity forumDetailActivity, vr4 vr4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailActivity, wr4Var};
+                Object[] objArr = {forumDetailActivity, vr4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -89,13 +89,13 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 }
             }
             this.b = forumDetailActivity;
-            this.a = wr4Var;
+            this.a = vr4Var;
         }
 
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -235,7 +235,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 if (TextUtils.isEmpty(this.b.l)) {
                     return null;
                 }
-                t97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.l), this.a);
+                r97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.l), this.a);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -528,14 +528,14 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeLL(1048590, this, view2, switchState) == null) {
             if (switchState == BdSwitchView.SwitchState.OFF) {
                 this.b.subscribeBar(false, this.l);
-            } else if (pz4.d().x() && pz4.d().u()) {
+            } else if (nz4.d().x() && nz4.d().u()) {
                 this.b.subscribeBar(true, this.l);
             } else {
-                wr4 wr4Var = new wr4(getActivity());
-                wr4Var.setMessageId(R.string.obfuscated_res_0x7f0f05ae);
-                wr4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f119b), new a(this, wr4Var));
-                wr4Var.create(getPageContext());
-                wr4Var.show();
+                vr4 vr4Var = new vr4(getActivity());
+                vr4Var.setMessageId(R.string.obfuscated_res_0x7f0f05ae);
+                vr4Var.setNegativeButton(getResources().getString(R.string.obfuscated_res_0x7f0f119b), new a(this, vr4Var));
+                vr4Var.create(getPageContext());
+                vr4Var.show();
                 this.mHandler.postDelayed(new b(this), 500L);
             }
         }
@@ -652,9 +652,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d02a1);
-            n87 n87Var = new n87(this);
-            this.a = n87Var;
-            n87Var.m().a(new f(this));
+            l87 l87Var = new l87(this);
+            this.a = l87Var;
+            l87Var.m().a(new f(this));
             this.a.u(new g(this));
             this.b = new ForumDetailModel(this);
             this.l = getIntent().getStringExtra("forum_id");

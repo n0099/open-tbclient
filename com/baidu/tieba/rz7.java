@@ -1,45 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.pb.videopb.fragment.DetailInfoAndReplyFragment;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class rz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public final View b;
+    public final TextView c;
+    public PbFragment d;
+    public View.OnClickListener e;
 
     /* loaded from: classes5.dex */
-    public static class a implements oh5 {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ DetailInfoAndReplyFragment b;
+        public final /* synthetic */ rz7 a;
 
-        public a(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
+        public a(rz7 rz7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, detailInfoAndReplyFragment};
+                Object[] objArr = {rz7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,135 +39,56 @@ public class rz7 {
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = detailInfoAndReplyFragment;
+            this.a = rz7Var;
         }
 
-        @Override // com.baidu.tieba.oh5
-        public void a() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m2(false);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                rz7 rz7Var = this.a;
+                if (view2 != rz7Var.b || rz7Var.d == null || this.a.d.getBaseFragmentActivity() == null) {
+                    return;
+                }
+                this.a.d.getBaseFragmentActivity().finish();
             }
         }
+    }
 
-        @Override // com.baidu.tieba.oh5
-        public void b(List<String> list) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.a.S1() == null) {
+    public rz7(PbFragment pbFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList<PostData> F = this.a.S1().F();
-            if (ListUtils.isEmpty(F) || ListUtils.isEmpty(list)) {
-                return;
-            }
-            Iterator<PostData> it = F.iterator();
-            while (it.hasNext()) {
-                PostData next = it.next();
-                int i = 0;
-                while (true) {
-                    if (i >= list.size()) {
-                        break;
-                    } else if (TextUtils.equals(list.get(i), next.K())) {
-                        it.remove();
-                        if (this.a.S1().O() != null) {
-                            this.a.S1().O().setReply_num(this.a.S1().O().getReply_num() - 1);
-                        }
-                    } else {
-                        i++;
-                    }
-                }
-            }
-            this.b.U1();
+        }
+        this.e = new a(this);
+        this.d = pbFragment;
+        this.b = pbFragment.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f09147d);
+        this.c = (TextView) this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f09147e);
+        this.a = this.d.getBaseFragmentActivity().findViewById(R.id.obfuscated_res_0x7f09147a);
+        this.b.setOnClickListener(this.e);
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.c.setText(str);
         }
     }
 
-    public static void a() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            nh5.b().a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setVisibility(0);
         }
-    }
-
-    public static qh5 b(PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, detailInfoAndReplyFragment)) == null) {
-            if (detailInfoAndReplyFragment == null || pbModel == null) {
-                return null;
-            }
-            qh5 qh5Var = new qh5();
-            if (pbModel.S1() != null && pbModel.S1().l() != null) {
-                if (pbModel.S1().l().getDeletedReasonInfo() != null) {
-                    qh5Var.p(pbModel.S1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                    qh5Var.o(pbModel.S1().l().getDeletedReasonInfo().is_boomgrow.intValue());
-                }
-                qh5Var.l(pbModel.S1().l().getId());
-                qh5Var.m(pbModel.S1().l().getName());
-                qh5Var.k(pbModel.S1().l().getImage_url());
-                qh5Var.t(pbModel.S1().l().getUser_level());
-            }
-            if (pbModel.S1() != null && pbModel.S1().o() != null) {
-                qh5Var.n(pbModel.S1().o().has_forum_rule.intValue());
-            }
-            if (pbModel.S1() != null && pbModel.S1().V() != null) {
-                qh5Var.s(pbModel.S1().V());
-            }
-            qh5Var.q(new a(pbModel, detailInfoAndReplyFragment));
-            if (pbModel.S1() != null) {
-                AntiData d = pbModel.S1().d();
-                SparseArray<String> sparseArray = new SparseArray<>();
-                if (d != null && d.getDelThreadInfoList() != null) {
-                    List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
-                    for (int i = 0; i < delThreadInfoList.size(); i++) {
-                        if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                            sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                        }
-                    }
-                }
-                qh5Var.r(sparseArray);
-            }
-            return qh5Var;
-        }
-        return (qh5) invokeLL.objValue;
-    }
-
-    public static boolean c(mt7 mt7Var, PostData postData) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mt7Var, postData)) == null) {
-            if (mt7Var == null || postData == null) {
-                return false;
-            }
-            sh5 sh5Var = new sh5();
-            sh5Var.d(postData.G() + "");
-            if (mt7Var.O() != null) {
-                sh5Var.f(mt7Var.O().getId());
-            }
-            sh5Var.e(postData.K());
-            return nh5.b().c(sh5Var);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, DetailInfoAndReplyFragment detailInfoAndReplyFragment, View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65539, null, tbPageContext, pbModel, detailInfoAndReplyFragment, view2) == null) || tbPageContext == null || pbModel == null || detailInfoAndReplyFragment == null || detailInfoAndReplyFragment.getView() == null) {
-            return;
-        }
-        nh5.b().e(tbPageContext, (ViewGroup) view2, b(pbModel, detailInfoAndReplyFragment));
-        nh5.b().d(2);
-    }
-
-    public static boolean e(PostData postData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, postData)) == null) {
-            if (postData == null) {
-                return false;
-            }
-            return nh5.b().f(postData.K());
-        }
-        return invokeL.booleanValue;
     }
 }

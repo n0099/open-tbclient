@@ -18,7 +18,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -500,7 +499,7 @@ public class h1 {
                 if (Build.VERSION.SDK_INT < 23) {
                     return z ? f(context) : i1.a;
                 }
-                String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), "bluetooth_address");
+                String string = Settings.Secure.getString(context.getContentResolver(), "bluetooth_address");
                 return !TextUtils.isEmpty(string) ? string : z ? e(context) : i1.a;
             } catch (Throwable unused) {
                 return i1.d;
@@ -560,7 +559,7 @@ public class h1 {
                 if (Settings.Secure.getInt(context.getContentResolver(), "accessibility_enabled", 0) != 1) {
                     return i1.e;
                 }
-                String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), "enabled_accessibility_services");
+                String string = Settings.Secure.getString(context.getContentResolver(), "enabled_accessibility_services");
                 return TextUtils.isEmpty(string) ? i1.c : string;
             } catch (Throwable unused) {
                 return i1.d;
@@ -775,7 +774,7 @@ public class h1 {
             if (context != null) {
                 try {
                     PackageManager packageManager = context.getPackageManager();
-                    String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), "default_input_method");
+                    String string = Settings.Secure.getString(context.getContentResolver(), "default_input_method");
                     if (string == null) {
                         string = StringUtil.NULL_STRING;
                     }

@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hf9;
+import com.baidu.tieba.ff9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ public class SVGImageView extends ImageView {
     public static Method c;
     public transient /* synthetic */ FieldHolder $fh;
     public SVG a;
-    public hf9 b;
+    public ff9 b;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
@@ -210,7 +210,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new hf9();
+        this.b = new ff9();
     }
 
     private void setFromString(String str) {
@@ -372,7 +372,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new hf9();
+        this.b = new ff9();
         d(attributeSet, 0);
     }
 
@@ -409,7 +409,7 @@ public class SVGImageView extends ImageView {
             }
         }
         this.a = null;
-        this.b = new hf9();
+        this.b = new ff9();
         d(attributeSet, i);
     }
 }

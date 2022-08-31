@@ -17,20 +17,20 @@ import com.baidu.tbadk.core.atomData.MentionActivityConfig;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.c95;
-import com.baidu.tieba.cc7;
-import com.baidu.tieba.d95;
-import com.baidu.tieba.yc7;
+import com.baidu.tieba.a95;
+import com.baidu.tieba.ac7;
+import com.baidu.tieba.b95;
+import com.baidu.tieba.wc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ChatAggregationFragment extends BaseFragment implements c95, NoNetworkView.b {
+public class ChatAggregationFragment extends BaseFragment implements a95, NoNetworkView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cc7 a;
+    public ac7 a;
     public ViewEventCenter b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -135,7 +135,7 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
         this.d = new b(this, 2016321);
     }
 
-    @Override // com.baidu.tieba.c95
+    @Override // com.baidu.tieba.a95
     public boolean S0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,12 +147,12 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
 
     @Override // com.baidu.tbadk.core.view.NoNetworkView.b
     public void g(boolean z) {
-        cc7 cc7Var;
+        ac7 ac7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (cc7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (ac7Var = this.a) == null) {
             return;
         }
-        cc7Var.g0(z);
+        ac7Var.g0(z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -160,7 +160,7 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            new yc7(this).c();
+            new wc7(this).c();
         }
     }
 
@@ -189,12 +189,12 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        cc7 cc7Var;
+        ac7 ac7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (cc7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (ac7Var = this.a) == null) {
             return;
         }
-        cc7Var.b0(getPageContext(), i);
+        ac7Var.b0(getPageContext(), i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -202,9 +202,9 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            cc7 cc7Var = new cc7(this);
-            this.a = cc7Var;
-            cc7Var.Y(bundle);
+            ac7 ac7Var = new ac7(this);
+            this.a = ac7Var;
+            ac7Var.Y(bundle);
             View e0 = this.a.e0();
             this.a.b0(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             s1().addEventDelegate(this);
@@ -222,9 +222,9 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.c);
             MessageManager.getInstance().unRegisterListener(this.d);
-            cc7 cc7Var = this.a;
-            if (cc7Var != null) {
-                cc7Var.Z();
+            ac7 ac7Var = this.a;
+            if (ac7Var != null) {
+                ac7Var.Z();
             }
         }
     }
@@ -234,9 +234,9 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPrimary();
-            cc7 cc7Var = this.a;
-            if (cc7Var != null) {
-                cc7Var.S();
+            ac7 ac7Var = this.a;
+            if (ac7Var != null) {
+                ac7Var.S();
                 this.a.N0(isPrimary());
             }
         }
@@ -263,11 +263,11 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
         }
     }
 
-    @Override // com.baidu.tieba.c95
-    public boolean s0(d95 d95Var) {
+    @Override // com.baidu.tieba.a95
+    public boolean s0(b95 b95Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, d95Var)) == null) ? d95Var == null : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, b95Var)) == null) ? b95Var == null : invokeL.booleanValue;
     }
 
     public ViewEventCenter s1() {
@@ -283,12 +283,12 @@ public class ChatAggregationFragment extends BaseFragment implements c95, NoNetw
     }
 
     public void t() {
-        cc7 cc7Var;
+        ac7 ac7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cc7Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (ac7Var = this.a) == null) {
             return;
         }
-        cc7Var.w0();
+        ac7Var.w0();
     }
 
     public final boolean t1(Intent intent) {

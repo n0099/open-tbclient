@@ -1,29 +1,28 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import com.baidu.tieba.ala.alasquare.live_tab.view.StageLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class er5 extends cn<kf6, FrsNoListItemViewHolder> {
+/* loaded from: classes3.dex */
+public class er5 extends cn<kr5, StageLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
+    public TbPageContext a;
+    public ms5 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public er5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), kf6.b);
+        super(tbPageContext.getPageActivity(), kr5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,41 +39,36 @@ public class er5 extends cn<kf6, FrsNoListItemViewHolder> {
                 return;
             }
         }
-        this.a = (ri.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kf6 kf6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
-        t(i, view2, viewGroup, kf6Var, frsNoListItemViewHolder);
-        return view2;
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: s */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public StageLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0339, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.a;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
+            this.b = new ms5(this.a, viewGroup);
+            return new StageLiveViewHolder(this.b);
         }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
+        return (StageLiveViewHolder) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, kf6 kf6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kr5 kr5Var, StageLiveViewHolder stageLiveViewHolder) {
         InterceptResult invokeCommon;
+        ms5 ms5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kf6Var, frsNoListItemViewHolder})) == null) {
-            frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c59);
-            SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
-            SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kr5Var, stageLiveViewHolder})) == null) {
+            if (stageLiveViewHolder == null || (ms5Var = stageLiveViewHolder.a) == null) {
+                return null;
+            }
+            ms5Var.i(kr5Var);
+            stageLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return stageLiveViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

@@ -1,211 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.dv9;
-import com.baidu.tieba.ev9;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.AbstractQueue;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes4.dex */
-public final class kx9<T> extends ev9<T> {
+public abstract class kx9<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T b;
+    public final AtomicReferenceArray<E> a;
+    public final int b;
 
-    /* loaded from: classes4.dex */
-    public class a implements ev9.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object a;
-
-        public a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = obj;
-        }
-
-        @Override // com.baidu.tieba.ev9.c, com.baidu.tieba.ov9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((fv9) ((fv9) obj));
-        }
-
-        public void call(fv9<? super T> fv9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fv9Var) == null) {
-                fv9Var.c((Object) this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b<T> implements ev9.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final vw9 a;
-        public final T b;
-
-        public b(vw9 vw9Var, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vw9Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vw9Var;
-            this.b = t;
-        }
-
-        @Override // com.baidu.tieba.ev9.c, com.baidu.tieba.ov9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((fv9) ((fv9) obj));
-        }
-
-        public void call(fv9<? super T> fv9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fv9Var) == null) {
-                fv9Var.a(this.a.a(new d(fv9Var, this.b)));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class c<T> implements ev9.c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final dv9 a;
-        public final T b;
-
-        public c(dv9 dv9Var, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dv9Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dv9Var;
-            this.b = t;
-        }
-
-        @Override // com.baidu.tieba.ev9.c, com.baidu.tieba.ov9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((fv9) ((fv9) obj));
-        }
-
-        public void call(fv9<? super T> fv9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, fv9Var) == null) {
-                dv9.a createWorker = this.a.createWorker();
-                fv9Var.a(createWorker);
-                createWorker.b(new d(fv9Var, this.b));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class d<T> implements nv9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final fv9<? super T> a;
-        public final T b;
-
-        public d(fv9<? super T> fv9Var, T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fv9Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fv9Var;
-            this.b = t;
-        }
-
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-        @Override // com.baidu.tieba.nv9
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.c((T) this.b);
-                } catch (Throwable th) {
-                    this.a.b(th);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kx9(T t) {
-        super(new a(t));
+    public kx9(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ev9.c) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = t;
+        int b = yx9.b(i);
+        this.b = b - 1;
+        this.a = new AtomicReferenceArray<>(b);
     }
 
-    public static <T> kx9<T> m(T t) {
-        InterceptResult invokeL;
+    public final int a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) ? new kx9<>(t) : (kx9) invokeL.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? this.b & ((int) j) : invokeJ.intValue;
     }
 
-    public ev9<T> n(dv9 dv9Var) {
-        InterceptResult invokeL;
+    public final int b(long j, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dv9Var)) == null) {
-            if (dv9Var instanceof vw9) {
-                return ev9.b(new b((vw9) dv9Var, this.b));
-            }
-            return ev9.b(new c(dv9Var, this.b));
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
+    }
+
+    public final E c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? d(this.a, i) : (E) invokeI.objValue;
+    }
+
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
         }
-        return (ev9) invokeL.objValue;
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
+            }
+        }
+    }
+
+    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) ? atomicReferenceArray.get(i) : (E) invokeLI.objValue;
+    }
+
+    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
+            atomicReferenceArray.lazySet(i, e);
+        }
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<E> iterator() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new UnsupportedOperationException();
+        }
+        return (Iterator) invokeV.objValue;
     }
 }

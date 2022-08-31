@@ -3,9 +3,9 @@ package com.google.ar.core;
 import android.os.Bundle;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rp9;
-import com.baidu.tieba.sp9;
-import com.baidu.tieba.wp9;
+import com.baidu.tieba.pp9;
+import com.baidu.tieba.qp9;
+import com.baidu.tieba.up9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,14 +17,14 @@ public final class x extends com.google.a.b.a.a.a.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ wp9 b;
+    public final /* synthetic */ up9 b;
 
-    public x(wp9 wp9Var, AtomicBoolean atomicBoolean) {
+    public x(up9 up9Var, AtomicBoolean atomicBoolean) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wp9Var, atomicBoolean};
+            Object[] objArr = {up9Var, atomicBoolean};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,7 +34,7 @@ public final class x extends com.google.a.b.a.a.a.e {
                 return;
             }
         }
-        this.b = wp9Var;
+        this.b = up9Var;
         this.a = atomicBoolean;
     }
 
@@ -61,13 +61,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            wp9 wp9Var = this.b;
-            rp9 rp9Var = wp9Var.c;
-            rp9.n(wp9Var.a, wp9Var.b);
+            up9 up9Var = this.b;
+            pp9 pp9Var = up9Var.c;
+            pp9.n(up9Var.a, up9Var.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            wp9 wp9Var2 = this.b;
-            rp9 rp9Var2 = wp9Var2.c;
-            rp9.b(wp9Var2.a, bundle, wp9Var2.b);
+            up9 up9Var2 = this.b;
+            pp9 pp9Var2 = up9Var2.c;
+            pp9.b(up9Var2.a, bundle, up9Var2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -85,11 +85,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.b);
                     return;
                 default:
-                    sp9 sp9Var = this.b.b;
+                    qp9 qp9Var = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    sp9Var.b(new FatalException(sb2.toString()));
+                    qp9Var.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {
