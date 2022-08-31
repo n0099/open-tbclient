@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.bawu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.oc6;
+import com.baidu.tieba.mc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +89,7 @@ public class BawuTeamHttpResponseMessage extends TbHttpResponsedMessage {
             if (bawuTeamRequestMessage != null) {
                 this.cacheKey = "" + bawuTeamRequestMessage.getForumId();
             }
-            new oc6().c(this.cacheKey, bArr);
+            new mc6().c(this.cacheKey, bArr);
         }
     }
 

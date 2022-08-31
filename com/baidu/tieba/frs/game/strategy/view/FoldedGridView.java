@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sl6;
-import com.baidu.tieba.wl6;
+import com.baidu.tieba.ql6;
+import com.baidu.tieba.ul6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnItemClickListener {
+public class FoldedGridView extends BdGridView implements ul6, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
     public int b;
     public int c;
     public boolean d;
-    public sl6 e;
+    public ql6 e;
     public a f;
     public int g;
     public Drawable h;
@@ -86,7 +86,7 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
         c();
     }
 
-    @Override // com.baidu.tieba.wl6
+    @Override // com.baidu.tieba.ul6
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2 instanceof FrameLayout)) {
@@ -103,7 +103,7 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
         }
     }
 
-    @Override // com.baidu.tieba.wl6
+    @Override // com.baidu.tieba.ul6
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -152,16 +152,16 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d = !this.d;
             a(this.a);
-            sl6 sl6Var = this.e;
-            if (sl6Var != null) {
-                sl6Var.k(this.d);
+            ql6 ql6Var = this.e;
+            if (ql6Var != null) {
+                ql6Var.k(this.d);
                 this.e.notifyDataSetChanged();
                 invalidate();
             }
         }
     }
 
-    @Override // com.baidu.tieba.wl6
+    @Override // com.baidu.tieba.ul6
     public int getArrowIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -174,7 +174,7 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.wl6
+    @Override // com.baidu.tieba.ul6
     public View getArrowView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -194,18 +194,18 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
-        sl6 sl6Var;
+        ql6 ql6Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (view2 == this.a) {
-                sl6 sl6Var2 = this.e;
-                if (sl6Var2 == null || !sl6Var2.h()) {
+                ql6 ql6Var2 = this.e;
+                if (ql6Var2 == null || !ql6Var2.h()) {
                     return;
                 }
                 e();
-            } else if (this.f == null || (sl6Var = this.e) == null) {
+            } else if (this.f == null || (ql6Var = this.e) == null) {
             } else {
-                int f = sl6Var.f(i2);
+                int f = ql6Var.f(i2);
                 this.e.j(f);
                 this.f.a(f, this.e.getItem(i2));
             }
@@ -233,14 +233,14 @@ public class FoldedGridView extends BdGridView implements wl6, AdapterView.OnIte
         }
     }
 
-    public void setFoldAdapter(sl6 sl6Var) {
+    public void setFoldAdapter(ql6 ql6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sl6Var) == null) {
-            this.e = sl6Var;
-            if (sl6Var != null) {
-                sl6Var.i(this);
+        if (interceptable == null || interceptable.invokeL(1048587, this, ql6Var) == null) {
+            this.e = ql6Var;
+            if (ql6Var != null) {
+                ql6Var.i(this);
             }
-            setAdapter((ListAdapter) sl6Var);
+            setAdapter((ListAdapter) ql6Var);
         }
     }
 

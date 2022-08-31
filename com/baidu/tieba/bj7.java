@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bj7 extends vc1<LiveLocationService> {
+public class bj7 extends vc1<ExtLiveLogService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class bj7 extends vc1<LiveLocationService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vc1
     /* renamed from: a */
-    public LiveLocationService createService() throws ServiceNotFoundException {
+    public ExtLiveLogService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cj7() : (LiveLocationService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new cj7() : (ExtLiveLogService) invokeV.objValue;
     }
 }

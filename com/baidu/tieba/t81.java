@@ -23,13 +23,13 @@ public class t81 {
 
         /* renamed from: com.baidu.tieba.t81$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0406a extends l91 {
+        public class C0409a extends l91 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ JSONArray a;
             public final /* synthetic */ a b;
 
-            public C0406a(a aVar, JSONArray jSONArray) {
+            public C0409a(a aVar, JSONArray jSONArray) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,7 +88,7 @@ public class t81 {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c = t81.c()) == null) {
                 return;
             }
-            p81.d(c, new C0406a(this, c));
+            p81.d(c, new C0409a(this, c));
         }
     }
 

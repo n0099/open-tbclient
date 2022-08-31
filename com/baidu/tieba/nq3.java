@@ -18,11 +18,11 @@ import rx.subjects.PublishSubject;
 public final class nq3 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile d a;
-    public static final ov9 b;
+    public static final mv9 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements ov9<Pair<Runnable, String>> {
+    public static class a implements mv9<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -41,7 +41,7 @@ public final class nq3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov9
+        @Override // com.baidu.tieba.mv9
         public void call(Pair<Runnable, String> pair) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
@@ -58,7 +58,7 @@ public final class nq3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements sv9<Pair<Runnable, String>, av9<?>> {
+    public static class b implements qv9<Pair<Runnable, String>, yu9<?>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -77,11 +77,11 @@ public final class nq3 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sv9
-        public av9<?> call(Pair<Runnable, String> pair) {
+        @Override // com.baidu.tieba.qv9
+        public yu9<?> call(Pair<Runnable, String> pair) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? ev9.g(pair).h(Schedulers.io()).f(nq3.b).l() : (av9) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) ? cv9.g(pair).h(Schedulers.io()).f(nq3.b).l() : (yu9) invokeL.objValue;
         }
     }
 
@@ -91,23 +91,23 @@ public final class nq3 {
     }
 
     /* loaded from: classes5.dex */
-    public static class d extends rz9<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+    public static class d extends pz9<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(sz9 sz9Var) {
-            super(sz9Var);
+        public d(qz9 qz9Var) {
+            super(qz9Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sz9Var};
+                Object[] objArr = {qz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((sz9) newInitContext.callArgs[0]);
+                    super((qz9) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

@@ -114,7 +114,7 @@ public class qh {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
                 return;
             }
-            this.this$0.o(intent.getStringExtra("intent_data_userid"), intent.getStringExtra("intent_data_username"), intent.getStringExtra("intent_data_bduss"));
+            this.this$0.q(intent.getStringExtra("intent_data_userid"), intent.getStringExtra("intent_data_username"), intent.getStringExtra("intent_data_bduss"));
         }
 
         public /* synthetic */ b(qh qhVar, a aVar) {
@@ -827,9 +827,27 @@ public class qh {
         }
     }
 
-    public void o(String str, String str2, String str3) {
+    public void o(String str) {
+        ah ahVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, str, str2, str3) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (ahVar = this.a) == null) {
+            return;
+        }
+        ahVar.g = str;
+    }
+
+    public void p(String str) {
+        ah ahVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || (ahVar = this.a) == null) {
+            return;
+        }
+        ahVar.h = str;
+    }
+
+    public void q(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, str, str2, str3) == null) {
             if (this.a.l == null && str == null) {
                 return;
             }
@@ -843,16 +861,16 @@ public class qh {
         }
     }
 
-    public void p(gh ghVar, String str) {
+    public void r(gh ghVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, ghVar, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, ghVar, str) == null) {
             new d(this, ghVar, str).execute(new Object[0]);
         }
     }
 
-    public void q(gh ghVar, String str) {
+    public void s(gh ghVar, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, ghVar, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048589, this, ghVar, str) == null) {
             new e(this, ghVar, str).execute(new Object[0]);
         }
     }
@@ -862,10 +880,10 @@ public class qh {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void r(gh ghVar, boolean z, boolean z2, boolean z3) {
+    public void t(gh ghVar, boolean z, boolean z2, boolean z3) {
         ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{ghVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || !BdStatisticsManager.getInstance().isMainProcess() || ghVar == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048590, this, new Object[]{ghVar, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || !BdStatisticsManager.getInstance().isMainProcess() || ghVar == null) {
             return;
         }
         ArrayList<String> n = nh.o().n(ghVar.o());
@@ -918,9 +936,9 @@ public class qh {
         }
     }
 
-    public void s(gh ghVar) {
+    public void u(gh ghVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, ghVar) == null) || ghVar.B()) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, ghVar) == null) || ghVar.B()) {
             return;
         }
         ghVar.J(true);

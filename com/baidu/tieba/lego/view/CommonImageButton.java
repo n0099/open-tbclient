@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ff7;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.df7;
+import com.baidu.tieba.oe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,26 +58,26 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public void b(ff7 ff7Var) {
+    public void b(df7 df7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ff7Var) == null) || ff7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, df7Var) == null) || df7Var == null) {
             return;
         }
-        if (!ff7Var.j()) {
-            qe7.a().d(ff7Var, ff7Var.h());
+        if (!df7Var.j()) {
+            oe7.a().d(df7Var, df7Var.h());
         }
-        if (ff7Var.a()) {
-            c(ff7Var);
+        if (df7Var.a()) {
+            c(df7Var);
         } else {
-            d(ff7Var);
+            d(df7Var);
         }
     }
 
-    public final void c(ff7 ff7Var) {
+    public final void c(df7 df7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ff7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, df7Var) == null) {
             this.d.setVisibility(8);
-            int f = ff7Var.f();
+            int f = df7Var.f();
             if (f != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, f);
@@ -87,12 +87,12 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(ff7 ff7Var) {
+    public final void d(df7 df7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ff7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, df7Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
-            this.d.K(1 == TbadkCoreApplication.getInst().getSkinType() ? ff7Var.e() : ff7Var.d(), 10, false);
+            this.d.K(1 == TbadkCoreApplication.getInst().getSkinType() ? df7Var.e() : df7Var.d(), 10, false);
         }
     }
 

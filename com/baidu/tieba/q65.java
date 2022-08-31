@@ -1,100 +1,57 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q65 extends g65 {
+public abstract class q65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public EMTextView b;
-    public EMTextView c;
-    public TBSpecificationBtn d;
+    public r65 a;
+    public TbFragmentTabIndicator b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q65(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d054c, (ViewGroup) null));
+    public q65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(context);
+        this.a = a();
     }
 
-    public final void a(Context context) {
-        View view2;
+    public abstract r65 a();
+
+    public r65 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.attachedView) == null) {
-            return;
-        }
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091417);
-        EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091418);
-        this.b = eMTextView;
-        eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a5b));
-        EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091416);
-        this.c = eMTextView2;
-        eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a5a));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09140d);
-        this.d = tBSpecificationBtn;
-        tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0984));
-        this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(new rv4());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (r65) invokeV.objValue;
     }
 
-    public void b(View.OnClickListener onClickListener) {
-        TBSpecificationBtn tBSpecificationBtn;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (tBSpecificationBtn = this.d) == null) {
-            return;
-        }
-        tBSpecificationBtn.setOnClickListener(onClickListener);
-    }
+    public abstract TbFragmentTabIndicator c(Context context);
 
-    public void onChangeSkinType() {
+    public abstract boolean d();
+
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            os4 d = os4.d(this.b);
-            d.z(R.dimen.T_X06);
-            d.v(R.color.CAM_X0107);
-            os4 d2 = os4.d(this.c);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e30, null);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.g65
-    public void onViewAttached() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 }

@@ -12,8 +12,8 @@ import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.no5;
-import com.baidu.tieba.oo5;
+import com.baidu.tieba.lo5;
+import com.baidu.tieba.mo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -100,7 +100,7 @@ public class ScalableVideoView extends TextureView implements TextureView.Surfac
     public final void f(int i, int i2) {
         Matrix m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new no5(new oo5(getWidth(), getHeight()), new oo5(i, i2)).m(this.a)) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || i == 0 || i2 == 0 || (m = new lo5(new mo5(getWidth(), getHeight()), new mo5(i, i2)).m(this.a)) == null) {
             return;
         }
         setTransform(m);

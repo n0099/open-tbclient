@@ -1,51 +1,49 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.viewpager.widget.PagerAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+import com.baidu.tieba.personCenter.view.PersonCenterSmartAppPageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class n48 {
+public class n48 extends hz5<f48> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TbPageContext b;
-    public NoNetworkView c;
-    public NavigationBar d;
-    public BdTypeListView e;
-    public u38 f;
-    public ww8 g;
-    public View h;
-    public FrameLayout i;
-    public n65 j;
-    public c k;
-    public AbsListView.OnScrollListener l;
+    public List<v38> i;
+    public List<PersonCenterSmartAppPageView> j;
+    public BdBaseViewPager k;
+    public View l;
+    public a m;
+    public PersonCenterSmartAppPageView n;
+    public LinearLayout o;
+    public TextView p;
+    public LinearLayout q;
 
     /* loaded from: classes5.dex */
-    public class a implements AbsListView.OnScrollListener {
+    public class a extends PagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n48 a;
+        public List<PersonCenterSmartAppPageView> a;
 
-        public a(n48 n48Var) {
+        public a(n48 n48Var, List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n48Var};
+                Object[] objArr = {n48Var, list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,227 +53,173 @@ public class n48 {
                     return;
                 }
             }
-            this.a = n48Var;
+            this.a = list;
         }
 
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        public void b(List<PersonCenterSmartAppPageView> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048576, this, absListView, i, i2, i3) == null) {
-                if (i == 0) {
-                    absListView.getChildAt(0);
-                }
-                if (i == 0 || i == 1) {
-                    SkinManager.setBackgroundColor(this.a.d, R.color.CAM_X0204, this.a.a);
-                } else {
-                    SkinManager.setBackgroundColor(this.a.d, R.color.CAM_X0205, this.a.a);
-                }
-                if (this.a.f != null) {
-                    this.a.f.d();
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+                this.a = list;
+                notifyDataSetChanged();
             }
         }
 
-        @Override // android.widget.AbsListView.OnScrollListener
-        public void onScrollStateChanged(AbsListView absListView, int i) {
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i) == null) {
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i, obj) == null) {
+                viewGroup.removeView((View) obj);
             }
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getCount() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.size() : invokeV.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public int getItemPosition(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+                int indexOf = this.a.indexOf(obj);
+                if (indexOf == -1) {
+                    return -2;
+                }
+                return indexOf;
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public Object instantiateItem(ViewGroup viewGroup, int i) {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = this.a.get(i);
+                viewGroup.addView(personCenterSmartAppPageView);
+                return personCenterSmartAppPageView;
+            }
+            return invokeLI.objValue;
+        }
+
+        @Override // androidx.viewpager.widget.PagerAdapter
+        public boolean isViewFromObject(View view2, Object obj) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n48 a;
-
-        public b(n48 n48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n48Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && pi.A()) {
-                this.a.f();
-                if (this.a.k != null) {
-                    this.a.k.a(view2);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(View view2);
-    }
-
-    public n48(View view2, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n48(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, tbPageContext, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-        this.l = new a(this);
-        if (view2 == null) {
-            return;
-        }
-        this.b = tbPageContext;
-        this.c = (NoNetworkView) view2.findViewById(R.id.obfuscated_res_0x7f0918c5);
-        this.d = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0918c4);
-        this.i = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091265);
-        this.e = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0918b4);
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f07026c));
-        View view3 = new View(tbPageContext.getPageActivity());
-        this.h = view3;
-        view3.setLayoutParams(layoutParams);
-        this.e.addFooterView(this.h);
-        this.e.setOnScrollListener(this.l);
-        this.f = new u38(this.e, tbPageContext, bdUniqueId);
-        this.g = new ww8(1);
+        View h = h();
+        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09144d);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091eba);
+        this.k = (BdBaseViewPager) h.findViewById(R.id.obfuscated_res_0x7f0925f0);
+        this.o = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091ebb);
+        this.l = h.findViewById(R.id.obfuscated_res_0x7f09039f);
+        ArrayList arrayList = new ArrayList();
+        this.j = arrayList;
+        a aVar = new a(this, arrayList);
+        this.m = aVar;
+        this.k.setAdapter(aVar);
+        j(g(), this.a);
     }
 
-    public void e() {
-        u38 u38Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (u38Var = this.f) == null) {
-            return;
-        }
-        u38Var.a();
-    }
-
-    public void f() {
-        n65 n65Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (n65Var = this.j) == null) {
-            return;
-        }
-        n65Var.dettachView(this.i);
-        this.j = null;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.g.n(this.b.getPageActivity(), this.d);
-            this.g.k();
-            this.g.o(null);
-            j(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public boolean h() {
+    @Override // com.baidu.tieba.hz5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            n65 n65Var = this.j;
-            if (n65Var != null) {
-                return n65Var.isViewAttached();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06ea : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.hz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            for (PersonCenterSmartAppPageView personCenterSmartAppPageView : this.j) {
+                if (personCenterSmartAppPageView != null) {
+                    personCenterSmartAppPageView.c();
+                }
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f.b();
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || this.a == i) {
-            return;
-        }
-        SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-        this.d.onChangeSkinType(this.b, i);
-        SkinManager.setBackgroundColor(this.d.getBarBgView(), R.color.CAM_X0204, i);
-        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0204, i);
-        this.f.c();
-        this.c.d(this.b, i);
-        this.g.m(i);
-        n65 n65Var = this.j;
-        if (n65Var != null) {
-            n65Var.onChangeSkinType();
-        }
-        this.a = i;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);
+            ns4 d = ns4.d(this.k);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            ns4 d2 = ns4.d(this.o);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0205);
         }
     }
 
-    public void l(z38 z38Var) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, z38Var) == null) || z38Var == null) {
-            return;
-        }
-        this.f.e(z38Var.q());
-    }
-
-    public void m(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.k = cVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    public void n() {
+    public final void r(v38 v38Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || h()) {
-            return;
-        }
-        if (this.j == null) {
-            this.j = new n65(this.b.getPageActivity(), new b(this));
-        }
-        this.j.attachView(this.i, false);
-        this.j.p();
-        this.j.onChangeSkinType();
-    }
-
-    public void o(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.g.p(i, z);
+        if (interceptable == null || interceptable.invokeL(1048580, this, v38Var) == null) {
+            if (this.n.b()) {
+                this.n.a(v38Var);
+                return;
+            }
+            PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(getContext());
+            this.n = personCenterSmartAppPageView;
+            this.j.add(personCenterSmartAppPageView);
+            this.n.a(v38Var);
         }
     }
 
-    public void p() {
-        u38 u38Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hz5
+    /* renamed from: s */
+    public void i(f48 f48Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (u38Var = this.f) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f48Var) == null) {
+            if (f48Var != null && f48Var.c() != null && !ListUtils.isEmpty(f48Var.c())) {
+                q(0);
+                this.j.clear();
+                this.i = f48Var.c();
+                PersonCenterSmartAppPageView personCenterSmartAppPageView = new PersonCenterSmartAppPageView(getContext());
+                this.n = personCenterSmartAppPageView;
+                this.j.add(personCenterSmartAppPageView);
+                int min = Math.min(7, this.i.size());
+                for (int i = 0; i < min; i++) {
+                    r((v38) ListUtils.getItem(this.i, i));
+                }
+                if (this.i.isEmpty()) {
+                    q(8);
+                } else {
+                    r(new g48());
+                }
+                this.m.b(this.j);
+                j(g(), this.a);
+                return;
+            }
+            q(8);
         }
-        u38Var.f();
     }
 }

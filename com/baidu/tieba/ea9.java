@@ -1,36 +1,34 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class ea9 extends ba9 {
+public class ea9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public long b;
+    public long c;
+    public long d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ea9(y99 y99Var, ga9 ga9Var, v99.a aVar) {
-        super(y99Var, ga9Var, aVar);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public ea9(int i, String str, String str2, long j) {
+        this(i, str, str2, 0L, 0L, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y99Var, ga9Var, aVar};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((y99) objArr2[0], (ga9) objArr2[1], (v99.a) objArr2[2]);
+                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2], ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,60 +36,55 @@ public class ea9 extends ba9 {
         }
     }
 
-    @Override // com.baidu.tieba.ba9
-    public RandomAccessFile e(File file, String str, long j) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
-            RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
-            randomAccessFile.seek(j);
-            return randomAccessFile;
-        }
-        return (RandomAccessFile) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.ba9
-    public Map<String, String> f(ga9 ga9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ga9Var)) == null) {
-            HashMap hashMap = new HashMap();
-            long c = ga9Var.c() + ga9Var.b();
-            long a = ga9Var.a();
-            hashMap.put("Range", "bytes=" + c + "-" + a);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ba9
-    public int g() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 206;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.ba9
-    public String h() {
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ea9.class.getSimpleName() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.ba9
-    public void j(ga9 ga9Var) {
+    public long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ga9Var) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.d = j;
         }
     }
 
-    @Override // com.baidu.tieba.ba9
-    public void n(ga9 ga9Var) {
+    public ea9(int i, String str, String str2, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ga9Var) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = str2;
+        this.b = j;
+        this.c = j2;
+        this.d = j3;
     }
 }

@@ -1,85 +1,95 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.friendList;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
 /* loaded from: classes4.dex */
-public class ln5 {
+public class ln5 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<b05> b;
 
-    public ln5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ln5(Context context) {
+        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public List<b05> a() {
-        InterceptResult invokeV;
+    public final void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                this.b = new ArrayList();
-            }
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(listData listdata) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) || listdata == null) {
-            return;
-        }
-        this.a = listdata.key;
-        if (listdata.friend_list != null) {
-            this.b = new ArrayList();
-            for (friendList friendlist : listdata.friend_list) {
-                b05 b05Var = new b05();
-                b05Var.i(friendlist);
-                b05Var.j(this.a);
-                this.b.add(b05Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            try {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (TextUtils.isEmpty(currentAccount)) {
+                    return;
+                }
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);
+                BdLog.e("create table wrong " + e.toString());
             }
         }
     }
 
-    public void d(robotsList robotslist) {
+    public final void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) || robotslist == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+            try {
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (TextUtils.isEmpty(currentAccount)) {
+                    return;
+                }
+                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+            } catch (Exception e) {
+                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.dropTables", new Object[0]);
+                BdLog.e("drop table wrong " + e.toString());
+            }
         }
-        this.a = robotslist.key;
-        if (robotslist.friend_list != null) {
-            this.b = new ArrayList();
-            for (friendList friendlist : robotslist.friend_list) {
-                b05 b05Var = new b05();
-                b05Var.i(friendlist);
-                b05Var.j(this.a);
-                this.b.add(b05Var);
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            a(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            b(sQLiteDatabase);
+            a(sQLiteDatabase);
+            try {
+                MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
     }

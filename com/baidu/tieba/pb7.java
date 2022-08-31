@@ -11,7 +11,7 @@ public class pb7 extends ea7 {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pb7() {
-        super(u97.j(), 2001143);
+        super(d87.w(), 2001146);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,7 +20,7 @@ public class pb7 extends ea7 {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
-                super((q97) objArr[0], ((Integer) objArr[1]).intValue());
+                super((r77) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -1,57 +1,168 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.os.Build;
+import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
 /* loaded from: classes6.dex */
 public final class v79 {
     public static /* synthetic */ Interceptable $ic;
+    public static String[] a;
+    public static File b;
+    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            d().edit().putBoolean(str, true).apply();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193841, "Lcom/baidu/tieba/v79;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948193841, "Lcom/baidu/tieba/v79;");
+                return;
+            }
         }
+        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
+    }
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            return file.exists();
+        }
+        return invokeL.booleanValue;
     }
 
     public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? d().getBoolean(str, false) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            File file = new File(str);
+            b = file;
+            return file.delete();
+        }
+        return invokeL.booleanValue;
     }
 
-    public static long c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? d().getLong(str, 0L) : invokeL.longValue;
-    }
-
-    public static SharedPreferences d() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? r69.h().getContext().getSharedPreferences("baidu_ab_general_config", 0) : (SharedPreferences) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (Build.VERSION.SDK_INT >= 23) {
+                return p69.h().getContext().checkCallingOrSelfPermission(a[0]) == 0 && externalStorageState.equals("mounted");
+            }
+            return externalStorageState.equals("mounted");
+        }
+        return invokeV.booleanValue;
     }
 
-    public static String e(String str, String str2) {
+    public static synchronized boolean d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
+            synchronized (v79.class) {
+                if (c() && f(str2, str3)) {
+                    try {
+                        b = new File(str2 + str3);
+                        RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
+                        c = randomAccessFile;
+                        randomAccessFile.seek(b.length());
+                        c.write((str + "\r\n").getBytes("UTF-8"));
+                        c.close();
+                        return true;
+                    } catch (Exception e) {
+                        y79.e(e);
+                        return false;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static synchronized String e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? d().getString(str, str2) : (String) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            synchronized (v79.class) {
+                if (c()) {
+                    if (a(str + str2)) {
+                        try {
+                            b = new File(str + str2);
+                            c = new RandomAccessFile(b, "r");
+                            StringBuffer stringBuffer = new StringBuffer();
+                            while (true) {
+                                String readLine = c.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), IMAudioTransRequest.CHARSET));
+                                stringBuffer.append(",");
+                            }
+                            String stringBuffer2 = stringBuffer.toString();
+                            try {
+                                c.close();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return stringBuffer2;
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                            try {
+                                c.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                    }
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 
-    public static void f(String str, String str2) {
+    public static boolean f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            d().edit().putString(str, str2).apply();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
+            try {
+                b = new File(str);
+                if (!a(str)) {
+                    b.mkdirs();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                File file = new File(str + str2);
+                b = file;
+                if (file.exists()) {
+                    return true;
+                }
+                return b.createNewFile();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return false;
+            }
         }
-    }
-
-    public static void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65542, null, str, j) == null) {
-            d().edit().putLong(str, j).apply();
-        }
+        return invokeLL.booleanValue;
     }
 }

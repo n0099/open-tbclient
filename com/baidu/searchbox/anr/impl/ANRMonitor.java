@@ -17,8 +17,8 @@ import com.baidu.searchbox.anr.utils.Utils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
+import com.baidu.tieba.cm9;
 import com.baidu.tieba.d81;
-import com.baidu.tieba.em9;
 import com.baidu.tieba.f81;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,14 +47,14 @@ public class ANRMonitor implements IANRMonitor {
     public static String sANRTimeStamp;
     public static long sLastTimes;
     public transient /* synthetic */ FieldHolder $fh;
-    public em9 mANRWatchDog;
+    public cm9 mANRWatchDog;
     public int mAnrWatchTimeOut;
     public FileObserver mFileObserver;
     public boolean mMonitorStarted;
     public d81 nativeANRListener;
 
     /* loaded from: classes2.dex */
-    public static class ANRListenerImpl implements em9.f {
+    public static class ANRListenerImpl implements cm9.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -72,7 +72,7 @@ public class ANRMonitor implements IANRMonitor {
             }
         }
 
-        @Override // com.baidu.tieba.em9.f
+        @Override // com.baidu.tieba.cm9.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
@@ -361,9 +361,9 @@ public class ANRMonitor implements IANRMonitor {
             } else {
                 this.mAnrWatchTimeOut = i;
             }
-            em9 em9Var = new em9(this.mAnrWatchTimeOut);
-            this.mANRWatchDog = em9Var;
-            em9Var.e();
+            cm9 cm9Var = new cm9(this.mAnrWatchTimeOut);
+            this.mANRWatchDog = cm9Var;
+            cm9Var.e();
             this.mANRWatchDog.c(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 String str = TAG;
@@ -377,9 +377,9 @@ public class ANRMonitor implements IANRMonitor {
     public void stopANRMonitor() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mMonitorStarted) {
-            em9 em9Var = this.mANRWatchDog;
-            if (em9Var != null) {
-                em9Var.interrupt();
+            cm9 cm9Var = this.mANRWatchDog;
+            if (cm9Var != null) {
+                cm9Var.interrupt();
                 this.mMonitorStarted = false;
             }
             FileObserver fileObserver = this.mFileObserver;

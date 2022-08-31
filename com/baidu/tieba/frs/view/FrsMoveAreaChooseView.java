@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.js6;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.hs6;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.qe6;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.se6;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,7 +99,7 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0605);
-            os4 d = os4.d(this.b);
+            ns4 d = ns4.d(this.b);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0204);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
@@ -120,17 +120,17 @@ public class FrsMoveAreaChooseView extends LinearLayout implements View.OnClickL
                 if (this.a == null || getParent() == null || this.f.e() < 0) {
                     return;
                 }
-                boolean h = tu4.k().h("key_frs_move_area_tip", true);
-                List<FrsTabInfo> g = se6.h().g();
+                boolean h = su4.k().h("key_frs_move_area_tip", true);
+                List<FrsTabInfo> g = qe6.h().g();
                 FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(g, this.f.d());
                 FrsTabInfo frsTabInfo2 = (FrsTabInfo) ListUtils.getItem(g, this.f.e());
                 if (frsTabInfo == null || frsTabInfo2 == null) {
                     return;
                 }
                 if (h) {
-                    js6.a(this.a, frsTabInfo, frsTabInfo2);
+                    hs6.a(this.a, frsTabInfo, frsTabInfo2);
                 } else {
-                    se6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                    qe6.h().m(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                 }
                 if (this.h != null) {
                     view2.setTag("choose_done");

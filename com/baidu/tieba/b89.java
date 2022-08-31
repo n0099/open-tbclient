@@ -1,77 +1,149 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes3.dex */
-public final class b89 {
+public class b89 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile b89 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public e89 a;
+    public Context b;
+    public String c;
+    public c89 d;
+    public d89 e;
 
-    /* loaded from: classes3.dex */
-    public static class a extends u79 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947598982, "Lcom/baidu/tieba/b89;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.u79
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (x79.a(com.baidu.ubs.analytics.d.a.b)) {
-                    for (File file : b89.a(com.baidu.ubs.analytics.d.a.b)) {
-                        if (e79.c(e79.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
-                            x79.b(file.getPath());
-                        }
-                    }
-                }
-                if (x79.a(com.baidu.ubs.analytics.d.a.c)) {
-                    for (File file2 : b89.a(com.baidu.ubs.analytics.d.a.c)) {
-                        if (!file2.getName().equals(s79.e()) && e79.c(e79.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
-                            x79.b(file2.getPath());
-                        }
-                    }
-                }
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947598982, "Lcom/baidu/tieba/b89;");
         }
     }
 
-    public static /* synthetic */ List a(String str) {
-        ArrayList arrayList = new ArrayList();
-        File[] listFiles = new File(str).listFiles();
-        if (listFiles != null) {
-            for (int i = 0; i < listFiles.length; i++) {
-                String name = listFiles[i].getName();
-                if (name.endsWith("txt") || name.endsWith(TbConfig.TMP_LOG_DIR_NAME)) {
-                    arrayList.add(listFiles[i]);
-                }
-            }
-        }
-        return arrayList;
-    }
-
-    public static void b() {
+    public b89() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            t79.a(new a());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static b89 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (b89.class) {
+                    if (f == null) {
+                        f = new b89();
+                    }
+                }
+            }
+            return f;
+        }
+        return (b89) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            c89 c89Var = this.d;
+            return c89Var != null ? c89Var.e() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public c89 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (c89) invokeV.objValue;
+    }
+
+    public d89 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (d89) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            c89 c89Var = this.d;
+            return c89Var != null ? c89Var.b() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public e89 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (e89) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
+    }
+
+    public void h(Context context) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, context) == null) || context == null) {
+            return;
+        }
+        this.b = context.getApplicationContext();
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(c89 c89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, c89Var) == null) {
+            this.d = c89Var;
         }
     }
 }

@@ -1,320 +1,192 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.provider.MediaStore;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.down.statistic.ConfigSpeedStat;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.text.TextUtils;
+import android.view.Surface;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.eu8;
+import com.baidu.tieba.iu8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.io.FileOutputStream;
+import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
-public class du8 {
+public class du8 extends eu8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static final class a implements Comparator<cu8> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public du8(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(cu8 cu8Var, cu8 cu8Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cu8Var, cu8Var2)) == null) {
-                int i = cu8Var.b() < cu8Var2.b() ? 1 : 0;
-                if (cu8Var.b() > cu8Var2.b()) {
-                    return -1;
-                }
-                return i;
-            }
-            return invokeLL.intValue;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
-        r2.close();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
-        if (r2 != null) goto L21;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
-        r15.moveToNext();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
-        if (r8.d() == null) goto L47;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
-        if (r8.a() == 0) goto L46;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
-        if (c(r8.c()) == false) goto L45;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
-        if (r8.a() < 1000) goto L44;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
-        r0 = r8.d();
-        r2 = r0.substring(r9, r0.lastIndexOf("/"));
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
-        if (r0.contains("/DCIM/") != false) goto L43;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
-        if (r2 == null) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
-        if (r2.equals("/sdcard") == false) goto L38;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
-        if (new java.io.File(r0).exists() == false) goto L42;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
-        r1.add(r8);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
-        r5 = r21 + 1;
-        r7 = r17;
-        r9 = r18;
-        r8 = r22;
-        r6 = 0;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
+    /* JADX WARN: Removed duplicated region for block: B:33:0x00f9 A[Catch: all -> 0x020d, TryCatch #0 {all -> 0x020d, blocks: (B:24:0x00ac, B:26:0x00b2, B:28:0x00ba, B:31:0x00f3, B:33:0x00f9, B:35:0x00ff, B:36:0x0109, B:38:0x010d, B:40:0x0125, B:42:0x012b, B:44:0x0139, B:46:0x013f, B:50:0x014c, B:57:0x015c, B:59:0x0163, B:60:0x016d, B:61:0x0189, B:63:0x0192, B:66:0x019d, B:69:0x01ac, B:29:0x00d8, B:71:0x01cb, B:73:0x01d1, B:74:0x01d9), top: B:86:0x00ac }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x019a  */
+    @TargetApi(16)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static List<cu8> a(Context context) {
-        InterceptResult invokeL;
-        Cursor cursor;
-        Cursor cursor2;
-        int i;
-        ContentResolver contentResolver;
-        String str;
-        int i2;
-        cu8 cu8Var;
-        Cursor cursor3;
-        ContentResolver contentResolver2;
-        String string;
+    public eu8.b a(String str, boolean z, iu8.a aVar, iu8.a aVar2) throws Exception {
+        InterceptResult invokeCommon;
+        MediaFormat mediaFormat;
+        double d;
+        int dequeueOutputBuffer;
+        byte[] bArr;
+        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ContentResolver contentResolver3 = context.getContentResolver();
-            String str2 = "_id";
-            try {
-                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
-                try {
-                    String[] strArr = {"video_id", "_data"};
-                    query.moveToFirst();
-                    int count = query.getCount();
-                    int i3 = 0;
-                    int i4 = 0;
-                    while (i4 < count) {
-                        cu8 cu8Var2 = new cu8();
-                        String string2 = query.getString(query.getColumnIndex(str2));
-                        cu8Var2.i(string2);
-                        String string3 = query.getString(query.getColumnIndex("_data"));
-                        if (string3 != null) {
-                            cu8Var2.j(string3.replace("/storage/emulated/0", "/sdcard"));
-                        }
-                        int i5 = count;
-                        cu8Var2.e(pg.e(query.getString(query.getColumnIndex("duration")), i3));
-                        cu8Var2.g(query.getString(query.getColumnIndex("mime_type")));
-                        cu8Var2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
-                        try {
-                            try {
-                                contentResolver2 = contentResolver3;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                cu8Var = cu8Var2;
-                            } catch (Exception e) {
-                                e = e;
-                                i = i4;
-                                contentResolver = contentResolver3;
-                                str = str2;
-                                i2 = 0;
-                                cu8Var = cu8Var2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), aVar, aVar2})) == null) {
+            if (TextUtils.isEmpty(str) || aVar == null || aVar2 == null) {
+                return null;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = this.a;
+            MediaExtractor mediaExtractor = new MediaExtractor();
+            mediaExtractor.setDataSource(str2);
+            boolean z2 = false;
+            int i = 0;
+            while (true) {
+                if (i >= mediaExtractor.getTrackCount()) {
+                    mediaFormat = null;
+                    break;
+                }
+                mediaFormat = mediaExtractor.getTrackFormat(i);
+                if (mediaFormat.getString("mime").startsWith("audio/")) {
+                    mediaExtractor.selectTrack(i);
+                    break;
+                }
+                i++;
+            }
+            if (mediaFormat == null) {
+                BdLog.e("not a valid file with audio track..");
+                mediaExtractor.release();
+                return null;
+            }
+            BdLog.e("mediaFormat " + mediaFormat);
+            eu8.b bVar = new eu8.b();
+            int i2 = aVar2.b;
+            int i3 = aVar2.a;
+            int i4 = aVar2.c;
+            bVar.a = str;
+            FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
+            MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
+            createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
+            createDecoderByType.start();
+            ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
+            ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
+            double d2 = mediaFormat.getLong("durationUs");
+            MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+            ByteBuffer[] byteBufferArr = outputBuffers;
+            boolean z3 = false;
+            boolean z4 = false;
+            while (!z3) {
+                long j = currentTimeMillis;
+                if (!z4) {
+                    try {
+                        int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
+                        if (dequeueInputBuffer >= 0) {
+                            int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], z2 ? 1 : 0);
+                            if (readSampleData < 0) {
+                                BdLog.i("saw input EOS.");
+                                d = d2;
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                                z4 = true;
+                            } else {
+                                d = d2;
+                                createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
+                                mediaExtractor.advance();
                             }
-                            try {
-                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
-                                if (cursor3 != null) {
-                                    try {
-                                        try {
-                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
-                                                cu8Var.h(string.replace("/storage/emulated/0", "/sdcard"));
+                            dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
+                            if (dequeueOutputBuffer < 0) {
+                                if ((bufferInfo.flags & 2) != 0) {
+                                    BdLog.i("audio encoder: codec config buffer");
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
+                                } else {
+                                    if (bufferInfo.size != 0) {
+                                        ByteBuffer byteBuffer = byteBufferArr[dequeueOutputBuffer];
+                                        byteBuffer.position(bufferInfo.offset);
+                                        byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
+                                        byte[] bArr3 = new byte[bufferInfo.size];
+                                        byteBuffer.get(bArr3);
+                                        if (z) {
+                                            bArr = null;
+                                            bArr2 = null;
+                                        } else {
+                                            bArr2 = aVar2.a() ? iu8.b(aVar2.c / 8, aVar.c / 8, bArr3) : null;
+                                            if (aVar2.b()) {
+                                                bArr = iu8.c(aVar2.b, aVar.b, aVar.c / 8, bArr2 == null ? bArr3 : bArr2);
+                                            } else {
+                                                bArr = null;
                                             }
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            cursor2 = cursor3;
-                                            if (cursor2 != null) {
-                                                cursor2.close();
-                                            }
-                                            throw th;
                                         }
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        e.printStackTrace();
+                                        if (bArr == null) {
+                                            bArr = bArr2 == null ? bArr3 : bArr2;
+                                        }
+                                        fileOutputStream.write(bArr);
+                                        if (this.b != null) {
+                                            this.b.a(bArr3, bufferInfo.presentationTimeUs / d);
+                                        }
+                                        BdLog.i(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
+                                        z2 = false;
+                                    }
+                                    createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, z2);
+                                    if ((bufferInfo.flags & 4) != 0) {
+                                        BdLog.i("saw output EOS.");
+                                        z3 = true;
                                     }
                                 }
-                            } catch (Exception e3) {
-                                e = e3;
-                                cursor3 = null;
-                                e.printStackTrace();
+                            } else if (dequeueOutputBuffer == -3) {
+                                ByteBuffer[] outputBuffers2 = createDecoderByType.getOutputBuffers();
+                                BdLog.i("output buffers have changed.");
+                                byteBufferArr = outputBuffers2;
+                            } else if (dequeueOutputBuffer == -2) {
+                                BdLog.e("output format has changed to " + createDecoderByType.getOutputFormat());
                             }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            cursor2 = null;
+                            currentTimeMillis = j;
+                            d2 = d;
                         }
+                    } finally {
+                        fileOutputStream.close();
+                        createDecoderByType.stop();
+                        createDecoderByType.release();
+                        mediaExtractor.release();
                     }
-                    if (query != null) {
-                        query.close();
-                    }
-                } catch (Exception e4) {
-                    e = e4;
-                    cursor = query;
-                    try {
-                        e.printStackTrace();
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        return arrayList;
-                    } catch (Throwable th3) {
-                        th = th3;
-                        if (cursor != null) {
-                            cursor.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th4) {
-                    th = th4;
-                    cursor = query;
-                    if (cursor != null) {
-                    }
-                    throw th;
                 }
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th5) {
-                th = th5;
-                cursor = null;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static cu8 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                cu8 cu8Var = new cu8();
-                cu8Var.j(str);
-                cu8Var.f(file.lastModified());
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
-                            if (extractMetadata != null) {
-                                cu8Var.e(Integer.parseInt(extractMetadata));
-                            }
-                            cu8Var.g(mediaMetadataRetriever.extractMetadata(12));
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                d = d2;
+                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, 5000L);
+                if (dequeueOutputBuffer < 0) {
                 }
-                return cu8Var;
+                currentTimeMillis = j;
+                d2 = d;
             }
-            return null;
-        }
-        return (cu8) invokeL.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? MimeTypes.VIDEO_MP4.equals(str) || "video/ext-mp4".equals(str) : invokeL.booleanValue;
-    }
-
-    public static void d(String str, List<cu8> list, boolean z) {
-        File[] listFiles;
-        cu8 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) || list == null || StringUtils.isNull(str) || (listFiles = new File(str).listFiles()) == null || listFiles.length == 0) {
-            return;
-        }
-        for (File file : listFiles) {
-            if (file != null && !StringUtils.isNull(file.getPath())) {
-                String path = file.getPath();
-                if (file.isFile()) {
-                    if (path.contains("_tiebaconverting.mp4")) {
-                        if (file.exists()) {
-                            file.delete();
-                        }
-                    } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
-                        list.add(b);
-                    }
-                } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
-                    d(path, list, z);
-                }
+            long j2 = currentTimeMillis;
+            if (this.b != null) {
+                this.b.a(null, 1.0d);
             }
+            BdLog.i("decode " + str + " cost " + (System.currentTimeMillis() - j2) + " milliseconds !");
+            return bVar;
         }
-    }
-
-    public static void e(List<cu8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            Collections.sort(list, new a());
-        }
+        return (eu8.b) invokeCommon.objValue;
     }
 }

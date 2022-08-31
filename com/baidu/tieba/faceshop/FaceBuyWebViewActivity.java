@@ -25,8 +25,8 @@ import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.un4;
-import com.baidu.tieba.wr4;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     public String d;
     public String e;
     public int f;
-    public wr4 g;
+    public vr4 g;
     public final Handler h;
     public final Runnable i;
 
@@ -121,7 +121,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
     }
 
     /* loaded from: classes4.dex */
-    public class c implements wr4.e {
+    public class c implements vr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -144,18 +144,18 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                wr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
                 this.a.closeActivity();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements wr4.e {
+    public class d implements vr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceBuyWebViewActivity a;
@@ -178,11 +178,11 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
             this.a = faceBuyWebViewActivity;
         }
 
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                wr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
             }
         }
     }
@@ -268,9 +268,9 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.g == null) {
-                wr4 wr4Var = new wr4(getPageContext().getPageActivity());
-                this.g = wr4Var;
-                wr4Var.setTitle(R.string.obfuscated_res_0x7f0f08f4);
+                vr4 vr4Var = new vr4(getPageContext().getPageActivity());
+                this.g = vr4Var;
+                vr4Var.setTitle(R.string.obfuscated_res_0x7f0f08f4);
                 this.g.setCancelable(false);
                 this.g.setMessageId(R.string.obfuscated_res_0x7f0f0f7a);
                 this.g.setPositiveButton(R.string.obfuscated_res_0x7f0f0266, new c(this));
@@ -285,7 +285,7 @@ public class FaceBuyWebViewActivity extends BaseActivity<FaceBuyWebViewActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                un4.b().c(TbadkCoreApplication.getCurrentBduss());
+                tn4.b().c(TbadkCoreApplication.getCurrentBduss());
                 CookieSyncManager.createInstance(getPageContext().getContext());
                 CookieManager.getInstance().setAcceptCookie(true);
                 CookieSyncManager.getInstance().sync();

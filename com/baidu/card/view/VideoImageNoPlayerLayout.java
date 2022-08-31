@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
+import com.baidu.tieba.h06;
 import com.baidu.tieba.ix;
-import com.baidu.tieba.j06;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 /* loaded from: classes.dex */
-public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> {
+public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -44,8 +44,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> 
     public RelativeLayout j;
     public RelativeLayout k;
     public boolean l;
-    public j06<ho4> m;
-    public ho4 n;
+    public h06<go4> m;
+    public go4 n;
     public View.OnClickListener o;
     public qy p;
 
@@ -78,9 +78,9 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> 
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.m != null) {
-                    j06 j06Var = this.a.m;
+                    h06 h06Var = this.a.m;
                     VideoImageNoPlayerLayout videoImageNoPlayerLayout = this.a;
-                    j06Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
+                    h06Var.a(videoImageNoPlayerLayout.c, videoImageNoPlayerLayout.n);
                 }
                 if (this.a.o != null) {
                     this.a.o.onClick(this.a.c);
@@ -173,12 +173,12 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: g */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho4Var) == null) || ho4Var == null || ho4Var.getThreadData() == null || ho4Var.getThreadData().originalThreadData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go4Var) == null) || go4Var == null || go4Var.getThreadData() == null || go4Var.getThreadData().originalThreadData == null) {
             return;
         }
-        OriginalThreadInfo originalThreadInfo = ho4Var.getThreadData().originalThreadData;
+        OriginalThreadInfo originalThreadInfo = go4Var.getThreadData().originalThreadData;
         originalThreadInfo.r.is_vertical.intValue();
         String str = originalThreadInfo.f;
         originalThreadInfo.r.video_length.intValue();
@@ -201,8 +201,8 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             if (this.b != i) {
-                os4.d(this.d).s(R.array.Mask_X003);
-                os4.d(this.d).n(R.string.J_X05);
+                ns4.d(this.d).s(R.array.Mask_X003);
+                ns4.d(this.d).n(R.string.J_X05);
                 SkinManager.setBackgroundColor(this.j, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this.k, R.color.CAM_X0206);
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0206);
@@ -229,10 +229,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> 
         }
     }
 
-    public void setData(ho4 ho4Var) {
+    public void setData(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ho4Var) == null) {
-            this.n = ho4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, go4Var) == null) {
+            this.n = go4Var;
         }
     }
 
@@ -243,10 +243,10 @@ public class VideoImageNoPlayerLayout extends RelativeLayout implements ix<ho4> 
         }
     }
 
-    public void setOnCardSubClickListener(j06<ho4> j06Var) {
+    public void setOnCardSubClickListener(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, j06Var) == null) {
-            this.m = j06Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, h06Var) == null) {
+            this.m = h06Var;
         }
     }
 

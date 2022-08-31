@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j55;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ public class ChatImageWithTailView extends LinearLayout {
     public TextView g;
 
     /* loaded from: classes4.dex */
-    public class a implements j55 {
+    public class a implements h55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatImageWithTailView a;
@@ -57,14 +57,14 @@ public class ChatImageWithTailView extends LinearLayout {
             this.a = chatImageWithTailView;
         }
 
-        @Override // com.baidu.tieba.j55
+        @Override // com.baidu.tieba.h55
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.j55
+        @Override // com.baidu.tieba.h55
         public void onLoadFail() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -73,7 +73,7 @@ public class ChatImageWithTailView extends LinearLayout {
             }
         }
 
-        @Override // com.baidu.tieba.j55
+        @Override // com.baidu.tieba.h55
         public void onLoadSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -129,7 +129,7 @@ public class ChatImageWithTailView extends LinearLayout {
             this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0905f2);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e01);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092320);
-            os4 d = os4.d(this.e);
+            ns4 d = ns4.d(this.e);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0205);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080945, R.color.CAM_X0203, null);

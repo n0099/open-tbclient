@@ -4,9 +4,9 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -198,7 +198,7 @@ public class t1 {
                         e.printStackTrace();
                         if (!TextUtils.isEmpty(str2)) {
                         }
-                        str3 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+                        str3 = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                     }
                 } catch (Exception e2) {
                     e = e2;
@@ -213,7 +213,7 @@ public class t1 {
                     hashMap4.put("serial", str2);
                 }
                 try {
-                    str3 = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+                    str3 = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 } catch (Exception e3) {
                     e3.printStackTrace();
                 }
@@ -229,7 +229,7 @@ public class t1 {
                 if (TextUtils.isEmpty(f)) {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                     if (Build.VERSION.SDK_INT < 23) {
-                        deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                        deviceId = telephonyManager.getDeviceId();
                         str7 = "";
                     } else if (context.checkSelfPermission(com.kuaishou.weapon.p0.h.c) == 0) {
                         deviceId = telephonyManager.getDeviceId(1);
@@ -267,7 +267,7 @@ public class t1 {
                 hashMap5.put("opcode", str4);
             }
             try {
-                str5 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                str5 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
             } catch (Exception unused8) {
                 str5 = HlsPlaylistParser.BOOLEAN_FALSE;
             }
@@ -432,7 +432,7 @@ public class t1 {
         str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str4)) {
         }
-        str5 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        str5 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
         if (!TextUtils.isEmpty(str5)) {
         }
         a2 = Q1.a(context);
@@ -508,7 +508,7 @@ public class t1 {
         str4 = ((TelephonyManager) context.getSystemService("phone")).getNetworkOperator();
         if (!TextUtils.isEmpty(str4)) {
         }
-        str5 = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        str5 = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
         if (!TextUtils.isEmpty(str5)) {
         }
         a2 = Q1.a(context);

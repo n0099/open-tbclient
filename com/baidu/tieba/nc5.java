@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.adapter.stats.StatsType;
+import com.baidu.tbadk.template.model.LoadType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,16 +10,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class nc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public StatsType a;
-    public View b;
-    public BdUniqueId c;
+    public boolean a;
+    public LoadType b;
+    public int c;
+    public Object d;
 
-    public nc5(StatsType statsType, ho4 ho4Var, View view2, BdUniqueId bdUniqueId) {
+    public nc5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {statsType, ho4Var, view2, bdUniqueId};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,26 +30,12 @@ public class nc5 {
                 return;
             }
         }
-        this.a = statsType;
-        this.b = view2;
-        this.c = bdUniqueId;
+        this.a = z;
     }
 
-    public BdUniqueId a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a == StatsType.CLICK : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a == StatsType.SHOW : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

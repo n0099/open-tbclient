@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.GridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.o2a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -136,7 +136,7 @@ public final class MaxHeightGridView extends GridView {
         int integer = obtainStyledAttributes.getInteger(0, 536870911);
         this.a = integer;
         if (integer != 536870911) {
-            this.a = q2a.a(integer);
+            this.a = o2a.a(integer);
         }
         obtainStyledAttributes.recycle();
     }

@@ -1,7 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.data.UserData;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,13 +21,13 @@ public class lp8 extends CustomMessageListener {
     public final MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2921414);
+    public lp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2001247);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,11 +44,20 @@ public class lp8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        oz8 oz8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || (oz8Var = this.a.r) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
             return;
         }
-        oz8Var.z();
+        UserData e = g55.d().e();
+        if (TbadkCoreApplication.isLogin() && e != null && e.getUserId() != null && !e.getUserId().equals(this.a.t) && e.getIsGodInvited()) {
+            this.a.t = e.getUserId();
+            this.a.sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.getPageContext().getPageActivity(), "", TbWebViewActivityConfig.GOD_INVITE_JUMP_URL + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, true)));
+        }
+        if (su4.k().h("key_new_god_invited_my_tab_red_tip_showed", false) || !TbadkCoreApplication.isLogin() || e == null || e.getUserId() == null || e.getUserId().equals(this.a.t) || e.getNewGodData() == null || !e.getNewGodData().isNewGodInvited()) {
+            return;
+        }
+        PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+        TiebaStatic.log(new StatisticItem("c13688").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 0));
+        su4.k().u("key_new_god_invited_my_tab_red_tip_showed", true);
     }
 }

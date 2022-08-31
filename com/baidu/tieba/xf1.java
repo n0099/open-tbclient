@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
@@ -9,7 +10,6 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.searchbox.account.contants.AccountConstants;
 import com.baidu.searchbox.common.security.DeviceIdBag;
 import com.baidu.searchbox.common.security.DeviceInfoManager;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class xf1 {
                 return d;
             }
             if (lg1.n(context)) {
-                String string = ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+                String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
                 d = string;
                 if (TextUtils.isEmpty(string)) {
                     d = "";

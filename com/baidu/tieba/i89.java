@@ -1,55 +1,281 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.Vector;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i89 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public k89 a;
+    public Timer b;
+    public TimerTask c;
+    public int d;
+    public Vector<Integer> e;
+    public long f;
+    public boolean g;
+    public boolean h;
+    public j89 i;
+    public int j;
+    public float k;
+    public long l;
+    public Vector<Integer> m;
 
-    public static void a(String str, m89 m89Var, l89 l89Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, m89Var, l89Var) == null) {
-            if (ac9.a) {
-                ac9.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + l89Var.toString());
-            }
-            g89 g = d89.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (l89Var != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", l89Var.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", l89Var.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", l89Var.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", l89Var.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", l89Var.d + ""));
+    /* loaded from: classes4.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i89 a;
+
+        public a(i89 i89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                g.a("perf_record_arperf", str, m89Var.a, m89Var.b, m89Var.c, m89Var.d, m89Var.e, null, arrayList);
+            }
+            this.a = i89Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h) {
+                    this.a.j();
+                } else {
+                    this.a.q();
+                }
+                i89 i89Var = this.a;
+                i89Var.h = i89Var.l(i89Var.j);
             }
         }
     }
 
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (ac9.a) {
-                ac9.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            }
-            g89 g = d89.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", yb9.a(d89.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(yb9.b(d89.c().getContext()))));
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i89 a;
+
+        public b(i89 i89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
+            this.a = i89Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g = false;
+                if (this.a.c != null) {
+                    this.a.c.cancel();
+                }
+                if (this.a.b != null) {
+                    this.a.b.purge();
+                }
+            }
+        }
+    }
+
+    public i89() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = 0;
+        this.e = new Vector<>();
+        this.g = false;
+        this.h = false;
+        this.i = new j89();
+        this.j = 0;
+        this.k = 0.0f;
+        this.l = 0L;
+        this.m = new Vector<>();
+        this.b = new Timer();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d++;
+            this.i.a = k(this.m);
+            this.i.b = k(this.e);
+            this.i.c = this.m.size() + "";
+            this.i.f = Float.toString(kc9.a());
+            this.i.d = this.k;
+            yb9.b("report ar frame data");
+            g89.a(String.valueOf(this.d), this.a, this.i);
+            q();
+        }
+    }
+
+    public final String k(List<Integer> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (dc9.e(list)) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            float f = 0.0f;
+            float f2 = 0.0f;
+            for (int i = 0; i < list.size(); i++) {
+                Integer num = list.get(i);
+                if (num != null) {
+                    f2 += num.intValue();
+                    jSONArray.put(num);
+                }
+            }
+            float size = f2 / list.size();
+            for (int i2 = 0; i2 < list.size(); i2++) {
+                Integer num2 = list.get(i2);
+                if (num2 != null) {
+                    f = (float) (f + Math.pow(num2.intValue() - size, 2.0d));
+                }
+            }
+            float size2 = f / list.size();
+            try {
+                jSONObject.put("avg", size);
+                jSONObject.put("vari", size2);
+                jSONObject.put("val", jSONArray.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return i > 0 && i <= 100 && new Random().nextInt(100) <= i;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = false;
+            Timer timer = this.b;
+            if (timer != null) {
+                timer.cancel();
+                this.b = null;
+            }
+            TimerTask timerTask = this.c;
+            if (timerTask != null) {
+                timerTask.cancel();
+                this.c = null;
+            }
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && this.g) {
+            if (this.f <= 0) {
+                this.f = System.currentTimeMillis();
+                return;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            int i = (int) (currentTimeMillis - this.f);
+            if (i < 0) {
+                return;
+            }
+            this.e.add(Integer.valueOf(i));
+            this.f = currentTimeMillis;
+        }
+    }
+
+    public void o() {
+        int currentTimeMillis;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.h && this.g && this.l > 0 && (currentTimeMillis = (int) (System.currentTimeMillis() - this.l)) >= 0) {
+            this.m.add(Integer.valueOf(currentTimeMillis));
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.l = System.currentTimeMillis();
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f = 0L;
+            this.l = 0L;
+            this.e.clear();
+            this.m.clear();
+            this.i.a();
+            this.k = 0.0f;
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.g || this.b == null) {
+            return;
+        }
+        yb9.b("startTimer");
+        this.g = true;
+        this.c = new a(this);
+        this.b.purge();
+        this.b.schedule(this.c, 0L, 1000L);
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            yb9.b("stopTimer");
+            qc9.a().postDelayed(new b(this), 1000L);
         }
     }
 }

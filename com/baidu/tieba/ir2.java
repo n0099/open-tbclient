@@ -51,13 +51,13 @@ public class ir2 extends HandlerThread implements hr2 {
 
         /* renamed from: com.baidu.tieba.ir2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0293a implements Runnable {
+        public class RunnableC0297a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ kr2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0293a(a aVar, kr2 kr2Var) {
+            public RunnableC0297a(a aVar, kr2 kr2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,7 +98,7 @@ public class ir2 extends HandlerThread implements hr2 {
 
             /* renamed from: com.baidu.tieba.ir2$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class RunnableC0294a implements Runnable {
+            public class RunnableC0298a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Bitmap a;
@@ -107,17 +107,17 @@ public class ir2 extends HandlerThread implements hr2 {
 
                 /* renamed from: com.baidu.tieba.ir2$a$b$a$a  reason: collision with other inner class name */
                 /* loaded from: classes4.dex */
-                public class RunnableC0295a implements Runnable {
+                public class RunnableC0299a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SwanAppActivity a;
 
-                    public RunnableC0295a(RunnableC0294a runnableC0294a, SwanAppActivity swanAppActivity) {
+                    public RunnableC0299a(RunnableC0298a runnableC0298a, SwanAppActivity swanAppActivity) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {runnableC0294a, swanAppActivity};
+                            Object[] objArr = {runnableC0298a, swanAppActivity};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -142,7 +142,7 @@ public class ir2 extends HandlerThread implements hr2 {
                     }
                 }
 
-                public RunnableC0294a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
+                public RunnableC0298a(b bVar, Bitmap bitmap, SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -165,7 +165,7 @@ public class ir2 extends HandlerThread implements hr2 {
                 public final void a(SwanAppActivity swanAppActivity) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeL(1048576, this, swanAppActivity) == null) {
-                        ue3.a0(new RunnableC0295a(this, swanAppActivity));
+                        ue3.a0(new RunnableC0299a(this, swanAppActivity));
                     }
                 }
 
@@ -217,7 +217,7 @@ public class ir2 extends HandlerThread implements hr2 {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (activity = nm2.U().getActivity()) == null || activity.isFinishing() || activity.isDestroyed() || this.a.a == null) {
                     return;
                 }
-                ud3.f().execute(new RunnableC0294a(this, re3.p(), activity), "SwanPageMonitorRecheck");
+                ud3.f().execute(new RunnableC0298a(this, re3.p(), activity), "SwanPageMonitorRecheck");
             }
         }
 
@@ -250,7 +250,7 @@ public class ir2 extends HandlerThread implements hr2 {
         public final void g(kr2 kr2Var) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, kr2Var) == null) && kr2Var != null && i(kr2Var.a)) {
-                ue3.e0(new RunnableC0293a(this, kr2Var));
+                ue3.e0(new RunnableC0297a(this, kr2Var));
             }
         }
 

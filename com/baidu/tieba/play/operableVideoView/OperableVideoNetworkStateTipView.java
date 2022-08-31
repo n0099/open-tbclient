@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.bt8;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.pv4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rv4;
-import com.baidu.tieba.tv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,17 +86,17 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
             LinearLayout.inflate(getContext(), getLayoutR(), this);
             this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f0919aa);
             this.b = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f090abb);
-            tv4 tv4Var = new tv4();
-            tv4Var.s();
-            tv4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            tv4Var.g(ri.f(getContext(), R.dimen.tbds32));
+            rv4 rv4Var = new rv4();
+            rv4Var.s();
+            rv4Var.i(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            rv4Var.g(ri.f(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1514));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(tv4Var);
-            rv4 rv4Var = new rv4();
+            this.a.setConfig(rv4Var);
+            pv4 pv4Var = new pv4();
             this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f1527));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(rv4Var);
+            this.b.setConfig(pv4Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -107,7 +107,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || dt8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || pi.x()) {
+            if (b() || bt8.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || pi.x()) {
             }
             return false;
         }

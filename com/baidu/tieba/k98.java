@@ -1,190 +1,200 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Environment;
+import android.graphics.Rect;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.net.OkHttp3Interceptor;
-import com.baidu.turbonet.net.TurbonetConfig;
-import com.baidu.turbonet.net.TurbonetContext;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class k98 {
+public class k98 extends m98 {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static TurbonetContext b;
-    public static long c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public VideoItemData N0;
+    public VideoSerializeVideoThreadInfo O0;
+    public ThreadData P0;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947868031, "Lcom/baidu/tieba/k98;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k98(Context context, View view2) {
+        super(context, view2);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947868031, "Lcom/baidu/tieba/k98;");
-        }
-    }
-
-    public static OkHttpClient a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
-            return builder.build();
-        }
-        return (OkHttpClient) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65538, null)) != null) {
-            return (String) invokeV.objValue;
-        }
-        Context context = TbadkCoreApplication.getInst().getContext();
-        try {
-            String externalStorageState = Environment.getExternalStorageState();
-            equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-            z = (equalsIgnoreCase || Environment.isExternalStorageRemovable() || externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) ? false : true;
-        } catch (Exception unused) {
-            File cacheDir = context.getCacheDir();
-            if (cacheDir == null) {
-                return null;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            path = cacheDir.getPath();
         }
-        if (!equalsIgnoreCase && !z) {
-            path = context.getCacheDir().getPath();
-            return !path.endsWith(File.separator) ? path.substring(0, path.length() - 1) : path;
-        }
-        path = context.getExternalCacheDir().getPath();
-        if (!path.endsWith(File.separator)) {
+        this.a = 5000;
+    }
+
+    @Override // com.baidu.tieba.m98
+    public void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int i = this.p;
+            if (i == this.e || i == this.n) {
+                x0();
+            }
         }
     }
 
-    public static OkHttpClient c() {
+    @Override // com.baidu.tieba.m98
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f = 32;
+        }
+    }
+
+    @Override // com.baidu.tieba.m98
+    public void Q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.m98
+    public void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.d0();
+            this.Q.setOnTouchListener(null);
+            this.Q.setOnClickListener(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.m98, com.baidu.tieba.j98
+    public boolean onBackPress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
         }
-        return (OkHttpClient) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static TurbonetConfig d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m98, android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TurbonetConfig turbonetConfig = new TurbonetConfig();
-            turbonetConfig.j(15);
-            turbonetConfig.c(true);
-            turbonetConfig.b(true);
-            turbonetConfig.e(true);
-            turbonetConfig.a("http://tb-video.bdstatic.com|2");
-            turbonetConfig.f(true);
-            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
-            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
-            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
-                }
-            } else {
-                file.mkdirs();
-            }
-            turbonetConfig.k(file.getAbsolutePath());
-            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            turbonetConfig.i(TbConfig.TMP_LOG_DIR_NAME, "lite_log_in_response_header", Boolean.TRUE);
-            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
-            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
-            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
-            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
-            turbonetConfig.i("nq", "weak_window_sec", 30);
-            turbonetConfig.i("nq", "weak_min_cnt", 10);
-            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return turbonetConfig;
-        }
-        return (TurbonetConfig) invokeV.objValue;
-    }
-
-    public static long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            TurbonetContext turbonetContext = b;
-            if (turbonetContext != null && c == 0) {
-                c = turbonetContext.c();
-            }
-            return c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65542, null) == null) || d) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, view2) == null) || view2 == null) {
             return;
         }
-        d = true;
-        try {
-            c();
-        } catch (Throwable th) {
-            th.printStackTrace();
+        int id = view2.getId();
+        if (id == R.id.obfuscated_res_0x7f0924e7) {
+            W();
+        } else if (id == R.id.obfuscated_res_0x7f091bc1) {
+            o0(this.b);
+            startPlay();
+        } else {
+            if (!pi.z()) {
+                ri.M(this.O, R.string.obfuscated_res_0x7f0f0c79);
+            } else {
+                w0(ThreadCardUtils.computeViewArea(this.Q));
+            }
+            View.OnClickListener onClickListener = this.A0;
+            if (onClickListener != null) {
+                onClickListener.onClick(getMainView());
+            }
         }
     }
 
-    public static TurbonetContext g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m98, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = turbonetContext;
-            return turbonetContext;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            startPlay();
         }
-        return (TurbonetContext) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m98, com.baidu.tieba.j98
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, threadData) == null) {
+            super.setData(threadData);
+            this.P0 = threadData;
+            if (this.T) {
+                VideoItemData videoItemData = new VideoItemData();
+                this.N0 = videoItemData;
+                videoItemData.buildWithThreadData(threadData);
+                return;
+            }
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
+            this.O0 = videoSerializeVideoThreadInfo;
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.O0;
+            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
+            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
+            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
+            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
+        }
+    }
+
+    public final void w0(Rect rect) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) || this.P0 == null) {
+            return;
+        }
+        if (this.N0 == null) {
+            this.N0 = new VideoItemData();
+        }
+        ArrayList arrayList = new ArrayList();
+        this.N0.buildWithThreadData(this.P0);
+        arrayList.add(this.N0);
+        String str = null;
+        ThreadData threadData = this.P0;
+        if (threadData != null && threadData.getBaijiahaoData() != null) {
+            str = this.P0.getBaijiahaoData().oriUgcNid;
+        }
+        Context context = this.O;
+        boolean z = this.T;
+        String str2 = this.b0;
+        ue5.e(context, arrayList, str, z, 0, rect, "from_nani_video", "personalize_page", "", str2, str2, false, this.P0.isJumpToFrsVideoTabPlay, true);
+    }
+
+    public void x0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            o0(this.f);
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public k98(Context context, View view2, boolean z) {
+        this(context, view2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], (View) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        m0(z);
     }
 }

@@ -1,206 +1,140 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.os.Process;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r75 implements q75 {
+public class r75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public p75 b;
-    public Application c;
-    public String d;
-    public final w75 e;
-    public final x75 f;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r75 this$0;
-
-        public b(r75 r75Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r75Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = r75Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            n75 a;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || intent == null) {
-                return;
-            }
-            if (!s75.i()) {
-                String c = s75.c();
-                s75.m(c + " Process Not In WhiteList，No Receive");
-            } else if ("intent.action.ACTION.TB.MUTI_PROCESS".equals(intent.getAction()) && (a = this.this$0.e.a(intent)) != null) {
-                int myPid = Process.myPid();
-                int pid = a.getPid();
-                if (a == null || a.getType() != 1) {
-                    if (a.getType() == 2) {
-                        if (myPid != pid) {
-                            return;
-                        }
-                    } else if (a.getType() == 3 && !s75.l()) {
-                        return;
-                    }
-                } else if (myPid == pid) {
-                    return;
-                }
-                if (this.this$0.b != null) {
-                    this.this$0.b.a(a);
-                }
-            }
-        }
-
-        public /* synthetic */ b(r75 r75Var, a aVar) {
-            this(r75Var);
-        }
-    }
-
-    public r75(Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = null;
-        this.e = new w75();
-        this.f = new x75();
-        this.c = application;
-    }
-
-    private void registerReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            try {
-                unregisterReceiver();
-                this.a = new b(this, null);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.setPriority(1000);
-                intentFilter.addAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                this.c.registerReceiver(this.a, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void unregisterReceiver() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            try {
-                if (this.a == null || this.c == null) {
-                    return;
-                }
-                this.c.unregisterReceiver(this.a);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.q75
-    public void a(n75 n75Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, n75Var) == null) {
-            f(n75Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.q75
-    public void b(p75 p75Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p75Var) == null) {
-            this.b = p75Var;
-        }
-    }
-
-    public final String e() {
+    public static String a() {
         InterceptResult invokeV;
-        Application application;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null && (application = this.c) != null) {
-                this.d = application.getPackageName();
-            }
-            return this.d;
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? su4.k().i() : (String) invokeV.objValue;
     }
 
-    public final void f(n75 n75Var) {
+    public static ContentResolver b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n75Var) == null) {
-            if (n75Var != null) {
-                try {
-                    Intent intent = new Intent();
-                    intent.setPackage(e());
-                    intent.setAction("intent.action.ACTION.TB.MUTI_PROCESS");
-                    this.f.a(intent, n75Var);
-                    this.c.sendBroadcast(intent);
-                    return;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? su4.k().j() : (ContentResolver) invokeV.objValue;
+    }
+
+    public static OrmObject c(String str, Class<?> cls) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, cls)) == null) {
+            if (str == null || cls == null) {
+                return null;
+            }
+            return OrmObject.objectWithJsonStr(e(str), cls);
+        }
+        return (OrmObject) invokeLL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            String e = e(str);
+            return e != null ? e : str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return f(Uri.parse(a() + str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f(Uri uri) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                str = b().getType(uri);
+            } catch (SecurityException e) {
+                BdLog.detailException(e);
+                str = null;
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            q75.m("getValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static ContentValues g(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, obj)) == null) {
+            ContentValues contentValues = new ContentValues();
+            String str2 = null;
+            if (obj != null) {
+                if (obj instanceof String) {
+                    str2 = (String) obj;
+                } else if (obj instanceof Boolean) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Integer) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Long) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Float) {
+                    str2 = String.valueOf(obj);
+                } else if (obj instanceof Double) {
+                    str2 = String.valueOf(obj);
                 }
             }
-            throw new NullPointerException("send multi-process message is null");
+            contentValues.put(str, str2);
+            return contentValues;
+        }
+        return (ContentValues) invokeLL.objValue;
+    }
+
+    public static void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            i(str, str2);
         }
     }
 
-    @Override // com.baidu.tieba.q75
-    public void startService() {
+    public static void i(String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            registerReceiver();
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
+            j(Uri.parse(a() + str), g(str, obj));
         }
     }
 
-    public void stopService() {
+    public static void j(Uri uri, ContentValues contentValues) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            unregisterReceiver();
+        if (interceptable == null || interceptable.invokeLL(65545, null, uri, contentValues) == null) {
+            k(uri, contentValues);
+        }
+    }
+
+    public static void k(Uri uri, ContentValues contentValues) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, uri, contentValues) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                b().insert(uri, contentValues);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+            long currentTimeMillis2 = System.currentTimeMillis();
+            q75.m("setValue uri=" + uri + " Time:" + (currentTimeMillis2 - currentTimeMillis));
         }
     }
 }

@@ -1,190 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hf8;
-import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 /* loaded from: classes4.dex */
 public class gf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hf8 a;
-    public String b;
-    public boolean c;
-    public Context d;
-    public hf8.a e;
 
-    /* loaded from: classes4.dex */
-    public class a implements hf8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gf8 a;
-
-        public a(gf8 gf8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gf8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gf8Var;
-        }
-
-        @Override // com.baidu.tieba.hf8.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c) {
-                this.a.c = false;
-            }
-        }
-    }
-
-    public gf8(Context context) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);
         }
-        this.b = null;
-        this.c = false;
-        this.e = new a(this);
-        this.d = context;
+        return (String) invokeL.objValue;
     }
 
-    public final String c() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.b)) {
-                return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
             }
-            String b = if8.b();
-            this.b = b;
-            if (TextUtils.isEmpty(b)) {
-                this.b = if8.c();
-            } else if (!this.b.endsWith(File.separator)) {
-                this.b += File.separator;
-            }
-            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean d() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final void e(String str) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                if (file.mkdirs()) {
-                    BdLog.d("folder mkdir success: " + str);
-                } else if (!file.exists()) {
-                    BdLog.d("folder mkdir failed");
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length <= 0 || path.substring(length).equals(File.separator)) {
+                return path;
             }
-            if (file.isDirectory()) {
-                return;
-            }
-            throw new IllegalArgumentException("The logcat folder path is not a directory: " + str);
+            return path + File.separator;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final boolean f(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, str, str2, z)) == null) {
-            if (this.a == null) {
-                e(str);
-                hf8 hf8Var = new hf8(str, str2, z);
-                this.a = hf8Var;
-                hf8Var.b(this.e);
-                try {
-                    this.a.start();
-                    return true;
-                } catch (IllegalThreadStateException unused) {
-                    return true;
-                } catch (Exception e) {
-                    this.a = null;
-                    BdLog.e(e);
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
             }
-            return true;
+            File file = new File(a);
+            return (file.exists() && file.isDirectory()) || file.mkdirs();
         }
-        return invokeLLZ.booleanValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String c = c();
-            if (TextUtils.isEmpty(c)) {
-                return;
-            }
-            h();
-            if (if8.e(c) && f(c, TitanConstant.KEY_INSTANT_INIT_CLASS, true)) {
-                this.c = true;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.hf8 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.hf8, com.baidu.tieba.hf8$a] */
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            hf8 hf8Var = this.a;
-            if (hf8Var != null) {
-                try {
-                    try {
-                        hf8Var.c();
-                    } catch (Exception e) {
-                        BdLog.e(e);
-                    }
-                } finally {
-                    this.a.b(null);
-                    this.a = null;
-                }
-            }
-            this.c = false;
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            h();
-        }
+        return invokeL.booleanValue;
     }
 }

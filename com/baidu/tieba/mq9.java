@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
+import android.graphics.Path;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
-import kotlin.collections.SetsKt__SetsKt;
 /* loaded from: classes5.dex */
 public final class mq9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
+    public static final Path a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,6 +25,12 @@ public final class mq9 {
                 return;
             }
         }
-        a = SetsKt__SetsKt.setOf((Object[]) new String[]{"M", "L", "H", "V", "C", "S", "Q", "R", "A", "Z", "m", "l", "h", "v", "c", "s", "q", "r", "a", "z"});
+        a = new Path();
+    }
+
+    public static final Path a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : (Path) invokeV.objValue;
     }
 }

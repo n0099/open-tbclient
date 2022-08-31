@@ -48,12 +48,12 @@ public class hu3 extends EventTargetImpl implements eu3 {
 
         /* renamed from: com.baidu.tieba.hu3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0281a implements zf3 {
+        public class C0284a implements zf3 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0281a(a aVar) {
+            public C0284a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -154,7 +154,7 @@ public class hu3 extends EventTargetImpl implements eu3 {
                         AppRuntime.getAppContext().registerReceiver(this.a.h, intentFilter);
                     }
                     if (this.a.k == null) {
-                        this.a.k = new C0281a(this);
+                        this.a.k = new C0284a(this);
                         hu3.L(this.a.k);
                     }
                 } else if (this.a.e != null) {

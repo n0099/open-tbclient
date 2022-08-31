@@ -19,6 +19,7 @@ public class sm7 {
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
     public TextView b;
+    public TextView c;
 
     public sm7() {
         Interceptable interceptable = $ic;
@@ -38,10 +39,11 @@ public class sm7 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0846, (ViewGroup) null);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0848, (ViewGroup) null);
             this.a = inflate;
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09206e);
-            this.a.setTag(this);
+            inflate.setTag(this);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092073);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092074);
             return this.a;
         }
         return (View) invokeL.objValue;
@@ -51,15 +53,16 @@ public class sm7 {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0302, 1);
+            SkinManager.setBackgroundResource(this.b, R.drawable.member_privilege_button_new_selector);
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0101, 1);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
         }
     }
 
     public void c(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.a.setOnClickListener(onClickListener);
+            this.b.setOnClickListener(onClickListener);
         }
     }
 }

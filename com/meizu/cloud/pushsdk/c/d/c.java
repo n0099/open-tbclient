@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements d {
     public int a;
     public AtomicLong b = new AtomicLong(0);

@@ -1,12 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes3.dex */
 public interface eg7 {
-    wf7 a(ag7 ag7Var);
+    void a(long j, String str);
 
-    af7 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
+    void b(fg7 fg7Var);
 
-    gg7 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
+    void c(int i, long j, String str, int i2, String str2);
 }

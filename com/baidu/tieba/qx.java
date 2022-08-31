@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qx extends sw<ho4> {
+public class qx extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgSingleHorizontalLayout f;
@@ -54,10 +54,10 @@ public class qx extends sw<ho4> {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j06Var) == null) {
-            this.f.setSubClickListener(j06Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h06Var) == null) {
+            this.f.setSubClickListener(h06Var);
         }
     }
 
@@ -72,10 +72,10 @@ public class qx extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: p */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ho4Var) == null) {
-            this.f.a(ho4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
+            this.f.a(go4Var);
         }
     }
 

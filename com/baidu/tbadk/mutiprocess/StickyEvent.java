@@ -4,7 +4,7 @@ import android.os.Process;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n75;
+import com.baidu.tieba.l75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
-public abstract class StickyEvent extends OrmObject implements Serializable, n75 {
+public abstract class StickyEvent extends OrmObject implements Serializable, l75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int mPid;
@@ -37,21 +37,21 @@ public abstract class StickyEvent extends OrmObject implements Serializable, n75
         this.mPid = Process.myPid();
     }
 
-    @Override // com.baidu.tieba.n75
+    @Override // com.baidu.tieba.l75
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPid : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.n75
+    @Override // com.baidu.tieba.l75
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.n75
+    @Override // com.baidu.tieba.l75
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public abstract class StickyEvent extends OrmObject implements Serializable, n75
         }
     }
 
-    @Override // com.baidu.tieba.n75
+    @Override // com.baidu.tieba.l75
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || bdUniqueId == null) {

@@ -1,54 +1,154 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class br5 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<Integer, Integer> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654596, "Lcom/baidu/tieba/br5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(SdkLiveInfoData.AlaLiveInfo alaLiveInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, alaLiveInfo)) == null) {
+            SdkLiveInfoData.YYExt yYExt = alaLiveInfo.yyExt;
+            if (yYExt != null) {
+                return yYExt.isYYGame == 1 ? 3 : 2;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947654596, "Lcom/baidu/tieba/br5;");
-                return;
-            }
+            return alaLiveInfo.liveType != 1 ? 5 : 1;
         }
-        a = new HashMap<>();
+        return invokeL.intValue;
     }
 
-    public static void a(int i) {
+    public static int[] b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                a.put(Integer.valueOf(i), Integer.valueOf(a.get(Integer.valueOf(i)).intValue() + 1));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            int dimensionPixelSize = ri.q(context)[0] - (context.getResources().getDimensionPixelSize(R.dimen.tbds44) * 2);
+            return new int[]{dimensionPixelSize, (int) ((dimensionPixelSize * 9.0d) / 16.0d)};
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static boolean c(SdkLiveInfoData sdkLiveInfoData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, sdkLiveInfoData)) == null) ? (sdkLiveInfoData == null || sdkLiveInfoData.liveInfo == null || qi.isEmpty(sdkLiveInfoData.liveId) || qi.isEmpty(sdkLiveInfoData.roomId) || !StringHelper.equals(sdkLiveInfoData.source, "jiaoyoufang") || sdkLiveInfoData.liveInfo.roomStatus != 2) ? false : true : invokeL.booleanValue;
+    }
+
+    public static boolean d(SdkLiveInfoData sdkLiveInfoData) {
+        InterceptResult invokeL;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, sdkLiveInfoData)) == null) ? (sdkLiveInfoData == null || (alaLiveInfo = sdkLiveInfoData.liveInfo) == null || alaLiveInfo.yyExt == null || qi.isEmpty(sdkLiveInfoData.roomId) || qi.isEmpty(sdkLiveInfoData.liveInfo.yyExt.sid) || qi.isEmpty(sdkLiveInfoData.liveInfo.yyExt.ssid) || qi.isEmpty(sdkLiveInfoData.liveInfo.yyExt.templateId)) ? false : true : invokeL.booleanValue;
+    }
+
+    public static void e(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, sdkLiveInfoData, str) == null) || tbPageContext == null || sdkLiveInfoData == null) {
+            return;
+        }
+        UrlManager urlManager = UrlManager.getInstance();
+        urlManager.dealOneLink(tbPageContext, new String[]{"bdtiebalive://video/live?room_id=" + sdkLiveInfoData.roomId + "&live_id=" + sdkLiveInfoData.liveId + "&enterroom_type=1&from=" + str});
+    }
+
+    public static void f(Context context, ThreadData threadData, String str) {
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, threadData, str) == null) {
+            if (!pi.z()) {
+                ri.K(context, context.getString(R.string.obfuscated_res_0x7f0f0c79));
+            } else if (context == null || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
             } else {
-                a.put(Integer.valueOf(i), 2);
+                if (TbadkCoreApplication.getCurrentAccount() != null) {
+                    String userId = threadData.getAuthor().getUserId();
+                    String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                    z = TextUtils.equals(userId, currentAccount);
+                    str2 = currentAccount;
+                } else {
+                    str2 = "";
+                    z = false;
+                }
+                AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+                alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, str, str2, z, null, null)));
             }
         }
     }
 
-    public static int b(int i) {
-        InterceptResult invokeI;
+    public static void g(Context context, SdkLiveInfoData sdkLiveInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (a.containsKey(Integer.valueOf(i))) {
-                return a.get(Integer.valueOf(i)).intValue();
-            }
-            a.put(Integer.valueOf(i), 1);
-            return 1;
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, context, sdkLiveInfoData) == null) || sdkLiveInfoData == null) {
+            return;
         }
-        return invokeI.intValue;
+        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+        alaLiveInfoCoreData.liveID = pg.g(sdkLiveInfoData.liveId, 0L);
+        alaLiveInfoCoreData.threadId = pg.g(sdkLiveInfoData.tid, 0L);
+        SdkLiveInfoData.LiveAuthor liveAuthor = sdkLiveInfoData.liveAuthor;
+        if (liveAuthor != null) {
+            alaLiveInfoCoreData.userName = liveAuthor.name;
+        }
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
+        if (alaLiveInfo != null) {
+            alaLiveInfoCoreData.sessionID = alaLiveInfo.sessionId;
+            alaLiveInfoCoreData.liveType = alaLiveInfo.liveType;
+            alaLiveInfoCoreData.screenDirection = alaLiveInfo.screenDirection;
+            alaLiveInfoCoreData.hslUrl = alaLiveInfo.hlsUrl;
+            alaLiveInfoCoreData.liveCover = alaLiveInfo.cover;
+            alaLiveInfoCoreData.rtmpUrl = alaLiveInfo.rtmpUrl;
+            alaLiveInfoCoreData.liveTitle = sdkLiveInfoData.title;
+            alaLiveInfoCoreData.audienceCount = alaLiveInfo.audienceCount;
+        }
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(context, alaLiveInfoCoreData, null, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MAIN, TbadkCoreApplication.getCurrentAccount(), false, "", null)));
+    }
+
+    public static void h(Context context, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, threadData) == null) {
+            f(context, threadData, AlaLiveRoomActivityConfig.FROM_TYPE_HOME_LIVE_TAB_MY_CONCERN);
+        }
+    }
+
+    public static void i(TbPageContext tbPageContext, SdkLiveInfoData sdkLiveInfoData, String str) {
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        SdkLiveInfoData.YYExt yYExt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65544, null, tbPageContext, sdkLiveInfoData, str) == null) || sdkLiveInfoData == null || (alaLiveInfo = sdkLiveInfoData.liveInfo) == null || (yYExt = alaLiveInfo.yyExt) == null || qi.isEmpty(yYExt.sid) || qi.isEmpty(sdkLiveInfoData.liveInfo.yyExt.ssid)) {
+            return;
+        }
+        SdkLiveInfoData.YYExt yYExt2 = sdkLiveInfoData.liveInfo.yyExt;
+        YYLiveUtil.jumpToYYLiveRoom(tbPageContext, yYExt2.sid, yYExt2.ssid, yYExt2.templateId, sdkLiveInfoData.roomId, yYExt2.streamInfo, str);
+    }
+
+    public static YyExtData j(SdkLiveInfoData.YYExt yYExt, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, yYExt, str)) == null) {
+            YyExtData yyExtData = new YyExtData();
+            yyExtData.mSid = yYExt.sid;
+            yyExtData.mSsid = yYExt.ssid;
+            yyExtData.mYyUid = yYExt.yyUid;
+            yyExtData.mTemplateId = yYExt.templateId;
+            yyExtData.liveId = str;
+            return yyExtData;
+        }
+        return (YyExtData) invokeLL.objValue;
     }
 }

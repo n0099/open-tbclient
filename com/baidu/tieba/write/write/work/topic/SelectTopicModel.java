@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.k39;
-import com.baidu.tieba.w57;
+import com.baidu.tieba.i39;
+import com.baidu.tieba.u57;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +28,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final bb a;
     public b b;
     public boolean c;
-    public List<w57> d;
+    public List<u57> d;
 
     /* loaded from: classes6.dex */
     public class a extends bb {
@@ -63,8 +63,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof k39)) {
-                    this.a.D(((k39) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof i39)) {
+                    this.a.D(((i39) responsedMessage).getTopicList());
                 }
             }
         }
@@ -72,7 +72,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull List<w57> list);
+        void a(@NonNull List<u57> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -119,7 +119,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.d = new ArrayList();
         for (TopicList topicList : list) {
-            this.d.add(new w57(topicList));
+            this.d.add(new u57(topicList));
         }
         b bVar = this.b;
         if (bVar != null) {

@@ -20,20 +20,20 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa5;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.hn8;
-import com.baidu.tieba.ot7;
-import com.baidu.tieba.pz7;
+import com.baidu.tieba.fn8;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.nz7;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForumViewHolder> {
+public class PbFirstFloorEnterForumAdapter extends cn<mt7, PbFirstFloorEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseFragment a;
@@ -49,7 +49,7 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
         public View b;
         public View c;
         public ImageView d;
-        public ot7 e;
+        public mt7 e;
         public TBSpecificationBtn f;
         public String g;
         public String h;
@@ -96,21 +96,21 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
             }
         }
 
-        public void c(ot7 ot7Var) {
+        public void c(mt7 mt7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ot7Var) == null) {
-                if (ot7Var != null) {
-                    this.e = ot7Var;
-                    this.g = ot7Var.f;
-                    this.h = ot7Var.a;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mt7Var) == null) {
+                if (mt7Var != null) {
+                    this.e = mt7Var;
+                    this.g = mt7Var.f;
+                    this.h = mt7Var.a;
                     if (!this.i.c) {
-                        this.i.c = ot7Var.h;
+                        this.i.c = mt7Var.h;
                     }
-                    this.c.setVisibility(ot7Var.e ? 0 : 8);
+                    this.c.setVisibility(mt7Var.e ? 0 : 8);
                     if (getView() != null) {
-                        getView().setPadding(0, 0, 0, ot7Var.e ? ri.f(this.i.mContext, R.dimen.tbds42) : 0);
+                        getView().setPadding(0, 0, 0, mt7Var.e ? ri.f(this.i.mContext, R.dimen.tbds42) : 0);
                     }
-                    this.a.setData(ot7Var.a, ot7Var.b, ot7Var.c, ot7Var.d);
+                    this.a.setData(mt7Var.a, mt7Var.b, mt7Var.c, mt7Var.d);
                 }
                 if (this.f == null || this.i.c) {
                     return;
@@ -124,12 +124,12 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
 
         public final void d(String str) {
             TbPageTag l;
-            ot7 ot7Var;
+            mt7 mt7Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = aa5.l(this.i.a.getContext())) == null || (ot7Var = this.e) == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (l = y95.l(this.i.a.getContext())) == null || (mt7Var = this.e) == null) {
                 return;
             }
-            pz7.a(str, ot7Var.f, ot7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
+            nz7.a(str, mt7Var.f, mt7Var.g, TbadkCoreApplication.getCurrentAccount(), l.locatePage);
         }
 
         public final void e() {
@@ -140,7 +140,7 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
             if (this.i.c) {
                 this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0646));
                 this.f.setClickable(false);
-                ((sv4) this.f.getStyleConfig()).t(R.color.CAM_X0109);
+                ((qv4) this.f.getStyleConfig()).t(R.color.CAM_X0109);
                 return;
             }
             this.f.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f02ac));
@@ -186,7 +186,7 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hn8) && ((hn8) customResponsedMessage.getData()).b) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof fn8) && ((fn8) customResponsedMessage.getData()).b) {
                 this.a.c = true;
                 this.a.b.e();
             }
@@ -220,8 +220,8 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ot7 ot7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
-        y(i, view2, viewGroup, ot7Var, pbFirstFloorEnterForumViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mt7 mt7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+        y(i, view2, viewGroup, mt7Var, pbFirstFloorEnterForumViewHolder);
         return view2;
     }
 
@@ -263,12 +263,12 @@ public class PbFirstFloorEnterForumAdapter extends cn<ot7, PbFirstFloorEnterForu
         return (PbFirstFloorEnterForumViewHolder) invokeL.objValue;
     }
 
-    public View y(int i, View view2, ViewGroup viewGroup, ot7 ot7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
+    public View y(int i, View view2, ViewGroup viewGroup, mt7 mt7Var, PbFirstFloorEnterForumViewHolder pbFirstFloorEnterForumViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ot7Var, pbFirstFloorEnterForumViewHolder})) == null) {
-            if (ot7Var != null) {
-                pbFirstFloorEnterForumViewHolder.c(ot7Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mt7Var, pbFirstFloorEnterForumViewHolder})) == null) {
+            if (mt7Var != null) {
+                pbFirstFloorEnterForumViewHolder.c(mt7Var);
             }
             pbFirstFloorEnterForumViewHolder.b();
             return view2;

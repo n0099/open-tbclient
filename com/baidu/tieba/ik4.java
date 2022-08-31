@@ -23,7 +23,7 @@ public class ik4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public hk4 a;
-    public es4 b;
+    public ds4 b;
 
     public ik4() {
         Interceptable interceptable = $ic;
@@ -40,12 +40,12 @@ public class ik4 {
     }
 
     public void a() {
-        es4 es4Var;
+        ds4 ds4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (es4Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ds4Var = this.b) == null) {
             return;
         }
-        es4Var.f();
+        ds4Var.f();
         this.b = null;
     }
 
@@ -89,17 +89,17 @@ public class ik4 {
         }
         int i = hk4Var.c;
         if (i == hk4.y) {
-            es4 h = es4.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
+            ds4 h = ds4.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
             h.j();
             this.b = h;
         } else if (i == hk4.z) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            fo4 fo4Var = new fo4(currentActivity);
-            fo4Var.d(currentActivity, this.a);
-            fo4Var.i();
+            eo4 eo4Var = new eo4(currentActivity);
+            eo4Var.d(currentActivity, this.a);
+            eo4Var.i();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            eo4 b = eo4.b();
-            eo4 b2 = eo4.b();
+            do4 b = do4.b();
+            do4 b2 = do4.b();
             b2.i("business_count_hint" + currentAccount + this.a.a, b.c("business_count_hint" + currentAccount + this.a.a) - 1);
         } else if (i == hk4.A) {
             int i2 = hk4Var.d;
@@ -124,7 +124,7 @@ public class ik4 {
             completeTaskToastData.pageId = ej4.w().v();
             CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
             competeTaskEvent.taskToastData = completeTaskToastData;
-            u75.i(competeTaskEvent);
+            s75.i(competeTaskEvent);
             hk4 hk4Var3 = this.a;
             jk4.c(hk4Var3.a, hk4Var3.b);
         }

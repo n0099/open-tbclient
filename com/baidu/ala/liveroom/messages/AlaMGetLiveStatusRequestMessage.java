@@ -8,7 +8,7 @@ import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.af5;
+import com.baidu.tieba.ye5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class AlaMGetLiveStatusRequestMessage extends NetMessage {
             builder.live_ids = this.mIds;
             builder.audience_count = Long.valueOf(this.mAudienceCount);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                af5.a(builder, true);
+                ye5.a(builder, true);
             }
             AlaMgetLiveStatusReqIdl.Builder builder2 = new AlaMgetLiveStatusReqIdl.Builder();
             builder2.data = builder.build(false);

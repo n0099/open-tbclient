@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i55;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.g55;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -153,10 +153,10 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             if (z) {
                 str = str + "_" + TbadkCoreApplication.getCurrentAccount();
             }
-            if (tu4.k().h(str, false)) {
+            if (su4.k().h(str, false)) {
                 return true;
             }
-            tu4.k().u(str, true);
+            su4.k().u(str, true);
             return false;
         }
         return invokeLZ.booleanValue;
@@ -181,18 +181,18 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
             this.i = findViewById(R.id.obfuscated_res_0x7f090d2c);
             this.j = findViewById(R.id.obfuscated_res_0x7f091a4d);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0108);
-            os4 d = os4.d(this.g);
+            ns4 d = ns4.d(this.g);
             d.l(R.dimen.tbds1);
             d.n(R.string.J_X07);
             d.k(R.color.CAM_X0304);
             d.v(R.color.CAM_X0304);
-            os4 d2 = os4.d(this.e);
+            ns4 d2 = ns4.d(this.e);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            os4 d3 = os4.d(this.i);
+            ns4 d3 = ns4.d(this.i);
             d3.n(R.string.J_X14);
             d3.f(R.color.CAM_X0201);
-            os4 d4 = os4.d(this.j);
+            ns4 d4 = ns4.d(this.j);
             d4.n(R.string.J_X17);
             d4.f(R.color.CAM_X0201);
         }
@@ -209,7 +209,7 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.c.setVisibility(0);
             this.d.setVisibility(0);
-            String avater = i55.d().e().getAvater();
+            String avater = g55.d().e().getAvater();
             if (avater.startsWith("http")) {
                 this.c.K(avater, 10, false);
             } else {

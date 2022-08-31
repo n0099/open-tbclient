@@ -26,13 +26,13 @@ public class kf1 {
 
         /* renamed from: com.baidu.tieba.kf1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0308a extends gg1 {
+        public class C0310a extends gg1 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ye1.a b;
             public final /* synthetic */ a c;
 
-            public C0308a(a aVar, ye1.a aVar2) {
+            public C0310a(a aVar, ye1.a aVar2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class kf1 {
                 for (int i = 0; i < this.d.size(); i++) {
                     ye1.a aVar2 = (ye1.a) this.d.get(i);
                     if (aVar2 != null) {
-                        ig1.c().b(new C0308a(this, aVar2));
+                        ig1.c().b(new C0310a(this, aVar2));
                     }
                 }
             }

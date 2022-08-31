@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c9;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.rk8;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,10 +32,10 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public boolean A;
     public int B;
     public boolean C;
-    public sv4 D;
-    public sv4 E;
+    public qv4 D;
+    public qv4 E;
     public LikeModel F;
-    public tk8 G;
+    public rk8 G;
     public b H;
     public boolean I;
     public Animation J;
@@ -45,7 +45,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     public TBSpecificationButtonConfig r;
     public TBSpecificationButtonConfig s;
     public c9 t;
-    public tk8.a u;
+    public rk8.a u;
     public boolean v;
     public int w;
     public int x;
@@ -102,7 +102,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
     }
 
     /* loaded from: classes6.dex */
-    public class b extends c9 implements tk8.a {
+    public class b extends c9 implements rk8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFollowButton a;
@@ -125,7 +125,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             this.a = newFollowButton;
         }
 
-        @Override // com.baidu.tieba.tk8.a
+        @Override // com.baidu.tieba.rk8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
@@ -136,7 +136,7 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.tk8.a
+        @Override // com.baidu.tieba.rk8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -211,9 +211,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 this.H = new b(this, null);
             }
             if (this.G == null) {
-                tk8 tk8Var = new tk8();
-                this.G = tk8Var;
-                tk8Var.b(this.H);
+                rk8 rk8Var = new rk8();
+                this.G = rk8Var;
+                rk8Var.b(this.H);
             }
             this.I = true;
             this.G.c(this.o, this.p);
@@ -227,9 +227,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig = this.s;
                 if (tBSpecificationButtonConfig == null) {
                     if (this.E == null) {
-                        sv4 sv4Var = new sv4();
-                        this.E = sv4Var;
-                        sv4Var.t(R.color.CAM_X0109);
+                        qv4 qv4Var = new qv4();
+                        this.E = qv4Var;
+                        qv4Var.t(R.color.CAM_X0109);
                         this.E.i(0, 0, TBSpecificationButtonConfig.IconType.SVG);
                     }
                     setConfig(this.E);
@@ -242,9 +242,9 @@ public class NewFollowButton extends TBSpecificationBtn implements View.OnClickL
                 TBSpecificationButtonConfig tBSpecificationButtonConfig2 = this.r;
                 if (tBSpecificationButtonConfig2 == null) {
                     if (this.D == null) {
-                        sv4 sv4Var2 = new sv4();
-                        this.D = sv4Var2;
-                        sv4Var2.r(R.color.CAM_X0302);
+                        qv4 qv4Var2 = new qv4();
+                        this.D = qv4Var2;
+                        qv4Var2.r(R.color.CAM_X0302);
                         if (this.y) {
                             this.D.g(this.x);
                             this.D.i(this.z, 0, TBSpecificationButtonConfig.IconType.SVG);

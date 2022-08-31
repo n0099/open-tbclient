@@ -60,26 +60,26 @@ public class tx extends zw {
         }
     }
 
-    public final boolean t(ho4 ho4Var) {
+    public final boolean t(go4 go4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, ho4Var)) == null) ? (ho4Var == null || ho4Var.getThreadData() == null || !ho4Var.getThreadData().isVideoThreadType() || ho4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, go4Var)) == null) ? (go4Var == null || go4Var.getThreadData() == null || !go4Var.getThreadData().isVideoThreadType() || go4Var.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean u(ho4 ho4Var) {
+    public final boolean u(go4 go4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ho4Var)) == null) ? (ho4Var == null || ho4Var.getThreadData() == null || ho4Var.getThreadData().getPollData() == null || ho4Var.getThreadData().getPollData().getOptions() == null || ho4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, go4Var)) == null) ? (go4Var == null || go4Var.getThreadData() == null || go4Var.getThreadData().getPollData() == null || go4Var.getThreadData().getPollData().getOptions() == null || go4Var.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: v */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ho4Var) == null) {
-            if (!u(ho4Var) && !t(ho4Var) && ho4Var != null && ho4Var.getThreadData() != null && ((!ListUtils.isEmpty(ho4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(ho4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(ho4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(ho4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(ho4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(ho4Var.getThreadData().getGoodsDataList()) > 1))) {
-                this.h.a(ho4Var.getThreadData().getLinkDataList(), ho4Var.getThreadData().getGoodsDataList());
+        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
+            if (!u(go4Var) && !t(go4Var) && go4Var != null && go4Var.getThreadData() != null && ((!ListUtils.isEmpty(go4Var.getThreadData().getLinkDataList()) || ListUtils.getCount(go4Var.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(go4Var.getThreadData().getGoodsDataList()) || ListUtils.getCount(go4Var.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(go4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(go4Var.getThreadData().getGoodsDataList()) > 1))) {
+                this.h.a(go4Var.getThreadData().getLinkDataList(), go4Var.getThreadData().getGoodsDataList());
                 this.h.setVisibility(0);
                 return;
             }

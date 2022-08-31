@@ -34,8 +34,8 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
-import com.baidu.tieba.hs4;
-import com.baidu.tieba.tw8;
+import com.baidu.tieba.gs4;
+import com.baidu.tieba.rw8;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -70,8 +70,8 @@ public class rm4 {
     public boolean t;
     public boolean u;
     public boolean v;
-    public q28 w;
-    public fs4 x;
+    public o28 w;
+    public es4 x;
     public boolean y;
     public View z;
 
@@ -222,7 +222,7 @@ public class rm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements hs4.c {
+    public class e implements gs4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm4 a;
@@ -245,7 +245,7 @@ public class rm4 {
             this.a = rm4Var;
         }
 
-        @Override // com.baidu.tieba.hs4.c
+        @Override // com.baidu.tieba.gs4.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.x == null) {
@@ -256,7 +256,7 @@ public class rm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements hs4.d {
+    public class f implements gs4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm4 a;
@@ -279,7 +279,7 @@ public class rm4 {
             this.a = rm4Var;
         }
 
-        @Override // com.baidu.tieba.hs4.d
+        @Override // com.baidu.tieba.gs4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.x == null || this.a.a == null) {
@@ -291,7 +291,7 @@ public class rm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class g implements hs4.d {
+    public class g implements gs4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm4 a;
@@ -314,7 +314,7 @@ public class rm4 {
             this.a = rm4Var;
         }
 
-        @Override // com.baidu.tieba.hs4.d
+        @Override // com.baidu.tieba.gs4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.x == null || this.a.a == null) {
@@ -326,7 +326,7 @@ public class rm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class h implements hs4.d {
+    public class h implements gs4.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm4 a;
@@ -349,7 +349,7 @@ public class rm4 {
             this.a = rm4Var;
         }
 
-        @Override // com.baidu.tieba.hs4.d
+        @Override // com.baidu.tieba.gs4.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.x == null || this.a.a == null) {
@@ -361,7 +361,7 @@ public class rm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class i implements tw8.d {
+    public class i implements rw8.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm4 a;
@@ -384,7 +384,7 @@ public class rm4 {
             this.a = rm4Var;
         }
 
-        @Override // com.baidu.tieba.tw8.d
+        @Override // com.baidu.tieba.rw8.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.w == null || this.a.a == null) {
@@ -398,7 +398,7 @@ public class rm4 {
     }
 
     /* loaded from: classes5.dex */
-    public class j implements tw8.c {
+    public class j implements rw8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rm4 a;
@@ -421,7 +421,7 @@ public class rm4 {
             this.a = rm4Var;
         }
 
-        @Override // com.baidu.tieba.tw8.c
+        @Override // com.baidu.tieba.rw8.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.w == null) {
@@ -610,16 +610,16 @@ public class rm4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (this.w == null) {
-                tw8 tw8Var = new tw8(this.a);
+                rw8 rw8Var = new rw8(this.a);
                 ArrayList arrayList = new ArrayList();
-                tw8.b bVar = new tw8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0ffa), tw8Var);
+                rw8.b bVar = new rw8.b(this.a.getString(R.string.obfuscated_res_0x7f0f0ffa), rw8Var);
                 bVar.h(new i(this));
                 arrayList.add(bVar);
-                tw8Var.g(new j(this));
-                tw8Var.f(arrayList);
-                q28 q28Var = new q28(this.a, tw8Var.b());
-                this.w = q28Var;
-                q28Var.a(0.7f);
+                rw8Var.g(new j(this));
+                rw8Var.f(arrayList);
+                o28 o28Var = new o28(this.a, rw8Var.b());
+                this.w = o28Var;
+                o28Var.a(0.7f);
             }
             this.w.show();
         }
@@ -656,25 +656,25 @@ public class rm4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             if (this.x == null) {
-                hs4 hs4Var = new hs4(this.a);
-                hs4Var.m(new e(this));
+                gs4 gs4Var = new gs4(this.a);
+                gs4Var.m(new e(this));
                 ArrayList arrayList = new ArrayList();
                 if (this.r) {
-                    ds4 ds4Var = new ds4(hs4Var);
-                    ds4Var.n(this.a.getString(R.string.obfuscated_res_0x7f0f1163));
-                    ds4Var.m(new f(this));
-                    arrayList.add(ds4Var);
+                    cs4 cs4Var = new cs4(gs4Var);
+                    cs4Var.n(this.a.getString(R.string.obfuscated_res_0x7f0f1163));
+                    cs4Var.m(new f(this));
+                    arrayList.add(cs4Var);
                 }
-                ds4 ds4Var2 = new ds4(hs4Var);
-                ds4Var2.n(this.a.getString(R.string.obfuscated_res_0x7f0f0450));
-                ds4Var2.m(new g(this));
-                arrayList.add(ds4Var2);
-                ds4 ds4Var3 = new ds4(hs4Var);
-                ds4Var3.n(this.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
-                ds4Var3.m(new h(this));
-                arrayList.add(ds4Var3);
-                hs4Var.j(arrayList);
-                this.x = new fs4(this.a.getPageContext(), hs4Var);
+                cs4 cs4Var2 = new cs4(gs4Var);
+                cs4Var2.n(this.a.getString(R.string.obfuscated_res_0x7f0f0450));
+                cs4Var2.m(new g(this));
+                arrayList.add(cs4Var2);
+                cs4 cs4Var3 = new cs4(gs4Var);
+                cs4Var3.n(this.a.getString(R.string.obfuscated_res_0x7f0f0cfe));
+                cs4Var3.m(new h(this));
+                arrayList.add(cs4Var3);
+                gs4Var.j(arrayList);
+                this.x = new es4(this.a.getPageContext(), gs4Var);
             }
             this.x.show();
         }
@@ -701,7 +701,7 @@ public class rm4 {
         if (shareItem.p) {
             ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a, shareItem, true, (SparseArray<String>) null);
             shareDialogConfig.mShowMoreForumShare = true;
-            x16.c().l(shareDialogConfig);
+            v16.c().l(shareDialogConfig);
             return;
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, new ShareDialogConfig((Context) this.a, shareItem, true, j())));
@@ -718,12 +718,12 @@ public class rm4 {
     }
 
     public void h() {
-        fs4 fs4Var;
+        es4 es4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (fs4Var = this.x) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (es4Var = this.x) == null) {
             return;
         }
-        fs4Var.cancel();
+        es4Var.cancel();
     }
 
     public boolean i() {

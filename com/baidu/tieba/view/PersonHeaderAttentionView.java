@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q96;
+import com.baidu.tieba.o96;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.xw8;
+import com.baidu.tieba.vw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -41,7 +41,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public TextView i;
     public TextView j;
     public int k;
-    public xw8 l;
+    public vw8 l;
     public UserData m;
     public View n;
     public View o;
@@ -52,7 +52,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public q96 a;
+        public o96 a;
         public final /* synthetic */ PersonHeaderAttentionView b;
 
         public a(PersonHeaderAttentionView personHeaderAttentionView) {
@@ -71,7 +71,7 @@ public class PersonHeaderAttentionView extends LinearLayout {
                 }
             }
             this.b = personHeaderAttentionView;
-            this.a = new q96();
+            this.a = new o96();
         }
 
         @Override // android.view.View.OnClickListener
@@ -244,10 +244,10 @@ public class PersonHeaderAttentionView extends LinearLayout {
         }
     }
 
-    public void setOnViewResponseListener(xw8 xw8Var) {
+    public void setOnViewResponseListener(vw8 vw8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xw8Var) == null) {
-            this.l = xw8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, vw8Var) == null) {
+            this.l = vw8Var;
         }
     }
 

@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class r06 extends v06 {
+public class r06 extends k06 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId N0;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<s47> a;
+    public String b;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -29,15 +33,13 @@ public class r06 extends v06 {
                 return;
             }
         }
-        N0 = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
-    public r06(ThreadData threadData) {
+    public r06() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,32 +49,52 @@ public class r06 extends v06 {
                 return;
             }
         }
-        this.a = threadData;
+        this.a = new ArrayList();
     }
 
-    public static boolean Z(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void c(s47 s47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isBJHNormalThreadType();
+        if (interceptable == null || interceptable.invokeL(1048576, this, s47Var) == null) {
+            this.a.add(s47Var);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.v06, com.baidu.tieba.n06, com.baidu.tieba.ho4
-    public ThreadData getThreadData() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v06, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    public List<s47> getDataList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? N0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kr7;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.ir7;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kr7 a;
+    public ir7 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -55,14 +55,14 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
-            String q = tu4.k().q("key_interest_guide_show", "");
+            String q = su4.k().q("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(q);
             sb.append(StringUtils.isNull(q) ? "" : ",");
             String sb2 = sb.toString();
-            tu4 k = tu4.k();
+            su4 k = su4.k();
             k.y("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            tu4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
+            su4.k().x("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 
@@ -91,9 +91,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             D0();
-            kr7 kr7Var = new kr7(this, this.b, this.c, this.d, this.e);
-            this.a = kr7Var;
-            setContentView(kr7Var.d());
+            ir7 ir7Var = new ir7(this, this.b, this.c, this.d, this.e);
+            this.a = ir7Var;
+            setContentView(ir7Var.d());
             E0();
         }
     }

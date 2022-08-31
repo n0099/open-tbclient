@@ -1,17 +1,75 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.live.LiveRemindDataEvent;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mutiprocess.location.LocationEvent;
+import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.tbadkCore.location.LocationModel;
+import com.baidu.tieba.tbadkCore.location.LocationSocketRequestMessage;
+import com.baidu.tieba.tbadkCore.location.LocationSocketResponsedMessage;
+import com.baidu.tieba.tbadkCore.location.ResponsedSelectLocation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g85 implements o75<LiveRemindDataEvent> {
+public class g85 implements m75<LocationEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public db a;
+
+    /* loaded from: classes4.dex */
+    public class a extends db {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(g85 g85Var, int i, boolean z) {
+            super(i, z);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g85Var, Integer.valueOf(i), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            LocationData locationData;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) || socketResponsedMessage == null) {
+                return;
+            }
+            LocationEvent locationEvent = new LocationEvent();
+            locationEvent.setType(1);
+            locationEvent.eventType = 1;
+            locationEvent.errorCode = socketResponsedMessage.getError();
+            locationEvent.errorMsg = socketResponsedMessage.getErrorString();
+            if (socketResponsedMessage instanceof LocationSocketResponsedMessage) {
+                locationEvent.locationData = ((LocationSocketResponsedMessage) socketResponsedMessage).getLocationData();
+            }
+            if (socketResponsedMessage.getError() == 0 && (locationData = locationEvent.locationData) != null) {
+                LocationModel.D(locationData);
+                em8.a().g(System.currentTimeMillis());
+                em8.a().e(locationEvent.locationData);
+            }
+            s75.i(locationEvent);
+        }
+    }
 
     public g85() {
         Interceptable interceptable = $ic;
@@ -23,23 +81,41 @@ public class g85 implements o75<LiveRemindDataEvent> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new a(this, 303017, true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o75
+    @Override // com.baidu.tieba.m75
     /* renamed from: a */
-    public boolean onEvent(LiveRemindDataEvent liveRemindDataEvent) {
+    public boolean onEvent(LocationEvent locationEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveRemindDataEvent)) == null) {
-            if (liveRemindDataEvent == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationEvent)) == null) {
+            if (locationEvent == null) {
                 return false;
             }
-            gu4.a().d(liveRemindDataEvent.liveRemindData);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921733));
-            return true;
+            if (locationEvent.getType() == 3) {
+                MessageManager.getInstance().unRegisterListener(this.a);
+                MessageManager.getInstance().registerListener(this.a);
+                LocationSocketRequestMessage locationSocketRequestMessage = new LocationSocketRequestMessage();
+                locationSocketRequestMessage.setLat(locationEvent.lat);
+                locationSocketRequestMessage.setLng(locationEvent.lng);
+                MessageManager.getInstance().sendMessage(locationSocketRequestMessage);
+            } else if (locationEvent.eventType == 1) {
+                LocationSocketResponsedMessage locationSocketResponsedMessage = new LocationSocketResponsedMessage();
+                locationSocketResponsedMessage.setError(locationEvent.errorCode);
+                locationSocketResponsedMessage.setErrorString(locationEvent.errorMsg);
+                locationSocketResponsedMessage.setLocationData(locationEvent.locationData);
+                MessageManager.getInstance().dispatchResponsedMessage(locationSocketResponsedMessage);
+            } else if (locationEvent.locationData != null && locationEvent.needRefresh) {
+                em8.a().e(locationEvent.locationData);
+            } else {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponsedSelectLocation(locationEvent.isShowLocation, locationEvent.locName, locationEvent.locAddr, locationEvent.locSn));
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

@@ -1,36 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class gn7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gn7 {
+    public static final String a = File.separator;
+    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
+    public static final String c = b + a + ".tieba_video_monitor";
+    public static final String d = c + a + "v1";
+    public static final String e;
+    public static final String f;
+    public static final String g;
 
-    public static String a(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
-            if (th == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder(th.toString());
-            StackTraceElement[] stackTrace = th.getStackTrace();
-            if (stackTrace != null) {
-                for (int i = 0; i < stackTrace.length; i++) {
-                    StackTraceElement stackTraceElement = stackTrace[i];
-                    if (stackTraceElement != null && i < 7) {
-                        sb.append(" ----> ");
-                        sb.append(stackTraceElement.getClassName());
-                        sb.append(".");
-                        sb.append(stackTraceElement.getMethodName());
-                        sb.append("()");
-                    }
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+    static {
+        StringBuilder sb = new StringBuilder();
+        sb.append(d);
+        sb.append(a);
+        e = sb.toString();
+        f = b + a + ".tieba_video_monitor_log";
+        g = f + a + "v1";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(g);
+        sb2.append(a);
+        sb2.toString();
     }
 }

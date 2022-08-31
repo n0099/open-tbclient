@@ -2,8 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.VideoClickTabData;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,15 +14,16 @@ public class zp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
+    public final sn8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2016493);
+    public zp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2921610);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,21 +35,25 @@ public class zp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = sn8Var;
+        setPriority(2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        y15 y15Var;
+        sn8 sn8Var;
+        VideoClickTabData videoClickTabData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof y15) || (y15Var = (y15) customResponsedMessage.getData()) == null || StringUtils.isNull(y15Var.a)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921610 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof VideoClickTabData) || (sn8Var = this.b) == null || sn8Var.B() == null || (videoClickTabData = (VideoClickTabData) customResponsedMessage.getData()) == null) {
             return;
         }
-        pe5.h(y15Var);
-        if (StringUtils.isNull(y15Var.c)) {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{y15Var.a});
-        } else {
-            UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{y15Var.a, y15Var.c});
+        MainTabActivity mainTabActivity = this.a;
+        if (mainTabActivity.F || mainTabActivity.b == 23) {
+            TbSingleton.getInstance().setFromFeedVideoClick(true);
+            this.b.B().t(true, videoClickTabData.getMiddleFragment());
+            TbSingleton.getInstance().setVideoChannelAttentionRedIcon(TbSingleton.getInstance().getVideoChannelAttentionRedIcon());
+            this.b.B().setCurrentTabByType(22);
         }
     }
 }

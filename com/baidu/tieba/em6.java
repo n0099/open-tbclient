@@ -1,78 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardHot;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.tieba.frs.gamerecommend.data.ScoreCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class em6 extends cn<c56, CardViewHolder<oz5>> {
+public class em6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public oz5 b;
-    public String c;
+    public boolean a;
+    public int b;
+    public List<ThreadData> c;
+    public ScoreCardInfo d;
+    public List<FeatureCardHot> e;
+    public List<FeatureCardTopic> f;
+    public List<fm6> g;
+    public List<FeatureCardCompetition> h;
+    public List<FeatureCardGod> i;
+    public List<FeatureCardGame> j;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public em6(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), c56.b);
+    public em6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = str;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public CardViewHolder<oz5> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            oz5 oz5Var = new oz5(this.a);
-            this.b = oz5Var;
-            oz5Var.t(this.c);
-            return new CardViewHolder<>(this.b);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c56 c56Var, CardViewHolder<oz5> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c56Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
-            }
-            cardViewHolder.a().i(c56Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.a().h();
-        }
-        return (View) invokeCommon.objValue;
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        this.f = new ArrayList();
+        this.g = new ArrayList();
+        this.h = new ArrayList();
+        this.i = new ArrayList();
+        this.j = new ArrayList();
     }
 }

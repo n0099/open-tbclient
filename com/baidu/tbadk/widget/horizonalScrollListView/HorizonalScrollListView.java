@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c9;
-import com.baidu.tieba.jk8;
+import com.baidu.tieba.hk8;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.wg5;
+import com.baidu.tieba.ug5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -213,10 +213,10 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
             public void c(Object obj) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                    if ((obj instanceof jk8) && this.a.getErrorCode() == 0) {
-                        jk8 jk8Var = (jk8) obj;
-                        jk8Var.x(1);
-                        this.c.a.o(this.b, jk8Var.m() == 1);
+                    if ((obj instanceof hk8) && this.a.getErrorCode() == 0) {
+                        hk8 hk8Var = (hk8) obj;
+                        hk8Var.x(1);
+                        this.c.a.o(this.b, hk8Var.m() == 1);
                     } else if (AntiHelper.m(this.a.getErrorCode(), this.a.getErrorString())) {
                         AntiHelper.u(this.c.a.d.getPageActivity(), this.a.getErrorString());
                     } else {
@@ -367,24 +367,24 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         this.f.setOnClickListener(this.e);
     }
 
-    public final void j(View view2, wg5 wg5Var) {
+    public final void j(View view2, ug5 ug5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, view2, wg5Var) == null) || wg5Var == null || view2 == null || view2.getTag() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, view2, ug5Var) == null) || ug5Var == null || view2 == null || view2.getTag() == null) {
             return;
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
-        itemViewHolder.a.setTag(wg5Var.b);
-        itemViewHolder.a.K(wg5Var.b, 10, false);
-        itemViewHolder.b.setText(wg5Var.c);
-        itemViewHolder.b.setTag(R.id.obfuscated_res_0x7f091ffb, Long.valueOf(wg5Var.d));
+        itemViewHolder.a.setTag(ug5Var.b);
+        itemViewHolder.a.K(ug5Var.b, 10, false);
+        itemViewHolder.b.setText(ug5Var.c);
+        itemViewHolder.b.setTag(R.id.obfuscated_res_0x7f091ffb, Long.valueOf(ug5Var.d));
         itemViewHolder.c.setDefaultBgResource(0);
         itemViewHolder.c.setDefaultResource(0);
-        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f091ffb, Long.valueOf(wg5Var.d));
-        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f091ffc, wg5Var.c);
-        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f091ffb, Long.valueOf(wg5Var.d));
-        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f091ffc, wg5Var.c);
-        o(itemViewHolder.d, wg5Var.e);
-        int i = wg5Var.a;
+        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f091ffb, Long.valueOf(ug5Var.d));
+        itemViewHolder.d.setTag(R.id.obfuscated_res_0x7f091ffc, ug5Var.c);
+        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f091ffb, Long.valueOf(ug5Var.d));
+        itemViewHolder.getView().setTag(R.id.obfuscated_res_0x7f091ffc, ug5Var.c);
+        o(itemViewHolder.d, ug5Var.e);
+        int i = ug5Var.a;
         if (i == 1) {
             itemViewHolder.c.setVisibility(0);
             SkinManager.setImageResource(itemViewHolder.c, R.drawable.icon_grade_shaitu1);
@@ -397,7 +397,7 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
             itemViewHolder.c.setVisibility(0);
             SkinManager.setImageResource(itemViewHolder.c, R.drawable.icon_grade_shaitu3);
         }
-        n(view2, wg5Var);
+        n(view2, ug5Var);
     }
 
     @SuppressLint({"ResourceAsColor"})
@@ -463,9 +463,9 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         this.c = i;
     }
 
-    public final void n(View view2, wg5 wg5Var) {
+    public final void n(View view2, ug5 ug5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, view2, wg5Var) == null) || view2 == null || view2.getTag() == null || wg5Var == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048586, this, view2, ug5Var) == null) || view2 == null || view2.getTag() == null || ug5Var == null) {
             return;
         }
         ItemViewHolder itemViewHolder = (ItemViewHolder) view2.getTag();
@@ -502,13 +502,13 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
         }
     }
 
-    public void setData(List<wg5> list, TbPageContext<?> tbPageContext) {
+    public void setData(List<ug5> list, TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048589, this, list, tbPageContext) == null) || ListUtils.getCount(list) <= 0 || tbPageContext == null) {
             return;
         }
         this.d = tbPageContext;
-        list.add(new wg5());
+        list.add(new ug5());
         int count = ListUtils.getCount(this.b);
         int count2 = ListUtils.getCount(list);
         if (count > count2) {
@@ -521,16 +521,16 @@ public class HorizonalScrollListView extends MyHorizontalScrollView {
             }
         }
         for (int i2 = 0; i2 < count2; i2++) {
-            wg5 wg5Var = (wg5) ListUtils.getItem(list, i2);
+            ug5 ug5Var = (ug5) ListUtils.getItem(list, i2);
             ItemViewHolder itemViewHolder = (ItemViewHolder) ListUtils.getItem(this.b, i2);
             if (itemViewHolder != null) {
-                j(itemViewHolder.getView(), wg5Var);
+                j(itemViewHolder.getView(), ug5Var);
             } else {
                 View h = h();
                 if (h != null) {
                     ItemViewHolder itemViewHolder2 = new ItemViewHolder(h);
                     this.b.add(itemViewHolder2);
-                    j(itemViewHolder2.getView(), wg5Var);
+                    j(itemViewHolder2.getView(), ug5Var);
                     this.a.addView(h);
                 }
             }

@@ -1,73 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.emotiontool.EmotionNoLaunchView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d35 extends y25 {
+public abstract class d35 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int t;
-    public static final int u;
-    public static final int v;
     public transient /* synthetic */ FieldHolder $fh;
+    public an a;
+    public an b;
+    public int c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653635, "Lcom/baidu/tieba/d35;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947653635, "Lcom/baidu/tieba/d35;");
-                return;
-            }
-        }
-        t = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        u = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds46);
-        v = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds68);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d35(Context context) {
-        super(context, (String) null, 37);
+    public d35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.o = true;
-        this.n = 8;
-        this.m = new EmotionNoLaunchView(context);
-        int i3 = v;
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(t + i3, i3 + (u * 2));
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.m).setLayoutParams(layoutParams);
-        int i4 = t;
-        int i5 = u;
-        ((View) this.m).setPadding(i4, i5, 0, i5);
-        this.p = new int[]{1, 5};
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public abstract String b(int i);
+
+    public abstract int c();
+
+    public an d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (an) invokeV.objValue;
+    }
+
+    public an e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (an) invokeV.objValue;
+    }
+
+    public abstract String f();
+
+    public abstract String g();
+
+    public abstract EmotionGroupType h();
+
+    public abstract int i();
+
+    public abstract boolean j();
+
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public abstract int l();
+
+    public abstract boolean m(String str);
+
+    public abstract an n(String str);
+
+    public abstract an o(String str);
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void r(an anVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, anVar) == null) {
+            if (anVar != null) {
+                anVar.p();
+            }
+            this.a = anVar;
+        }
+    }
+
+    public void s(an anVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, anVar) == null) {
+            if (anVar != null) {
+                anVar.p();
+            }
+            this.b = anVar;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.c = i;
+        }
     }
 }

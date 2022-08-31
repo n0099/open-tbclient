@@ -10,13 +10,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.wv4;
+import com.baidu.tieba.uv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class CommonLikeButton extends AppCompatTextView implements wv4 {
+public class CommonLikeButton extends AppCompatTextView implements uv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -50,7 +50,7 @@ public class CommonLikeButton extends AppCompatTextView implements wv4 {
         d();
     }
 
-    @Override // com.baidu.tieba.wv4
+    @Override // com.baidu.tieba.uv4
     public void a(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class CommonLikeButton extends AppCompatTextView implements wv4 {
         onClickListener.onClick(view2);
     }
 
-    @Override // com.baidu.tieba.wv4
+    @Override // com.baidu.tieba.uv4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -68,7 +68,7 @@ public class CommonLikeButton extends AppCompatTextView implements wv4 {
         }
     }
 
-    @Override // com.baidu.tieba.wv4
+    @Override // com.baidu.tieba.uv4
     public void c(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {

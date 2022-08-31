@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.forbiddenforum;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.te8;
+import com.baidu.tieba.re8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetDislikeList.GetDislikeListResIdl;
 public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public te8 pageData;
+    public re8 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForbiddenForumSocketResMsg() {
@@ -54,17 +54,17 @@ public class ForbiddenForumSocketResMsg extends SocketResponsedMessage {
                 }
                 setErrorString(getDislikeListResIdl.error.usermsg);
             }
-            te8 te8Var = new te8();
-            this.pageData = te8Var;
-            te8Var.a(getDislikeListResIdl.data);
+            re8 re8Var = new re8();
+            this.pageData = re8Var;
+            re8Var.a(getDislikeListResIdl.data);
             return getDislikeListResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public te8 getPageData() {
+    public re8 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (te8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pageData : (re8) invokeV.objValue;
     }
 }

@@ -1,148 +1,219 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.memberCenter.bubble.BubbleView;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class mk7 extends BaseAdapter {
+public class mk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BubbleListData.BubbleData> a;
-    public TbPageContext<BubbleChooseActivity> b;
-    public int c;
-    public int d;
-    public boolean e;
 
-    public mk7(TbPageContext<BubbleChooseActivity> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.b = tbPageContext;
-        this.c = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
-        this.d = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ BubbleListData.BubbleData b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public BubbleListData.BubbleData getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<BubbleListData.BubbleData> list = this.a;
-            if (list != null) {
-                if (i >= 0 || i < list.size()) {
-                    return this.a.get(i);
+        public a(e eVar, BubbleListData.BubbleData bubbleData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bubbleData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return null;
             }
-            return null;
+            this.a = eVar;
+            this.b = bubbleData;
         }
-        return (BubbleListData.BubbleData) invokeI.objValue;
-    }
 
-    public List<BubbleListData.BubbleData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void c(List<BubbleListData.BubbleData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
-            bubbleData.setBcode(0);
-            this.a.add(bubbleData);
-            this.a.addAll(list);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<BubbleListData.BubbleData> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        BubbleView bubbleView;
-        BubbleView bubbleView2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bubbleView2 = new BubbleView(this.b.getPageActivity());
-                bubbleView = bubbleView2;
-            } else {
-                bubbleView = view2;
-                bubbleView2 = (BubbleView) view2;
-            }
-            if (i == 0 || i == 1) {
-                bubbleView2.setPadding(0, this.d, 0, 0);
-            }
-            if (getCount() % 2 == 0) {
-                if (i == getCount() - 1 || i == getCount() - 2) {
-                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(this.b.getBcode());
                 }
-            } else if (i == getCount() - 1) {
-                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
             }
-            BubbleListData.BubbleData item = getItem(i);
-            if (item != null) {
-                bubbleView2.setShowName(true);
-                bubbleView2.setData(item, this.e);
-            }
-            bubbleView2.a(this.b);
-            return bubbleView;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+
+        public b(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ BubbleListData.BubbleData b;
+
+        public c(e eVar, BubbleListData.BubbleData bubbleData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar, bubbleData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+            this.b = bubbleData;
+        }
+
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(this.b.getBcode());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+
+        public d(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eVar;
+        }
+
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
+                e eVar = this.a;
+                if (eVar != null) {
+                    eVar.b();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a(int i);
+
+        void b();
+    }
+
+    public static void a(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
+            return;
+        }
+        vr4 vr4Var = new vr4(tbPageContext.getPageActivity());
+        vr4Var.setCanceledOnTouchOutside(false);
+        Date date = new Date();
+        Date date2 = new Date(date.getTime() + (bubbleData.getTime_interval() * 1000));
+        String dateStringDay = qi.getDateStringDay(date);
+        String dateStringDay2 = qi.getDateStringDay(date2);
+        String format = String.format(tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0352), bubbleData.getBname(), Integer.valueOf(bubbleData.getTime_interval() / 86400));
+        View inflate = LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0163, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09219a);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09219b);
+        SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(textView2, R.color.CAM_X0108, 1);
+        textView.setText(format);
+        textView2.setText(dateStringDay + tbPageContext.getString(R.string.obfuscated_res_0x7f0f1426) + dateStringDay2);
+        vr4Var.setContentView(inflate);
+        vr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f14db, new a(eVar, bubbleData));
+        vr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new b(eVar));
+        vr4Var.create(tbPageContext);
+        vr4Var.show();
+    }
+
+    public static void b(TbPageContext<?> tbPageContext, BubbleListData.BubbleData bubbleData, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, bubbleData, eVar) == null) || bubbleData == null) {
+            return;
+        }
+        vr4 vr4Var = new vr4(tbPageContext.getPageActivity());
+        vr4Var.setCanceledOnTouchOutside(false);
+        vr4Var.setMessage(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0354), bubbleData.getLevel_name()));
+        vr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0cf9, new c(eVar, bubbleData));
+        vr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new d(eVar));
+        vr4Var.create(tbPageContext);
+        vr4Var.show();
     }
 }

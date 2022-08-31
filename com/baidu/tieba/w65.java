@@ -1,86 +1,56 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
+import com.baidu.searchbox.launch.SmartLaunchStats;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class w65 {
+public class w65 implements v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public String b;
-    public boolean c;
-    public String d;
-    public boolean e;
-    public boolean f;
-    public x65 g;
-    public kg<an> h;
+    public long a;
+    public long b;
+    public Map<String, u65> c;
+    public boolean d;
 
     /* loaded from: classes6.dex */
-    public class a extends kg<an> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final w65 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w65 a;
 
-        public a(w65 w65Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w65Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-363892426, "Lcom/baidu/tieba/w65$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-363892426, "Lcom/baidu/tieba/w65$a;");
                     return;
                 }
             }
-            this.a = w65Var;
-        }
-
-        @Override // com.baidu.tieba.kg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                super.onCancelled(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.kg
-        public void onProgressUpdate(Object... objArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, objArr) == null) {
-                super.onProgressUpdate(objArr);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, anVar, str, i) == null) {
-                if (anVar != null && str != null) {
-                    if (str.equals(this.a.b)) {
-                        this.a.c = true;
-                    } else if (str.equals(this.a.d)) {
-                        this.a.e = true;
-                    }
-                }
-                if (this.a.c && this.a.e) {
-                    this.a.f = true;
-                }
-                if (this.a.g == null || !this.a.f) {
-                    return;
-                }
-                this.a.g.a();
-            }
+            a = new w65();
         }
     }
 
@@ -97,70 +67,128 @@ public class w65 {
                 return;
             }
         }
-        this.h = new a(this);
+        this.c = new HashMap();
     }
 
-    public int j() {
+    public static final w65 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 45;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (w65) invokeV.objValue;
     }
 
-    public String k() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.v65
+    public void a() {
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String str = this.b;
-            if (str != null && !qi.isEmpty(str)) {
-                lg.h().k(this.b, j(), this.h, 0, 0, this.a, new Object[0]);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<Map.Entry<String, u65>> it = this.c.entrySet().iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    z = true;
+                    break;
+                }
+                Map.Entry<String, u65> next = it.next();
+                if (next.getValue() != null && !next.getValue().m()) {
+                    z = false;
+                    break;
+                }
             }
-            String str2 = this.d;
-            if (str2 == null || qi.isEmpty(str2)) {
-                return;
+            this.d = z;
+            if (z) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921551, Boolean.TRUE));
             }
-            lg.h().k(this.d, j(), this.h, 0, 0, this.a, new Object[0]);
         }
     }
 
-    public void o(JSONObject jSONObject) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            this.b = jSONObject.optString("pic_before");
-            this.d = jSONObject.optString("pic_after");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            return this.d && currentTimeMillis > f() && currentTimeMillis < e();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public u65 c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.get(str) : (u65) invokeL.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public void g() {
+        BdUniqueId uniqueId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity instanceof BaseActivity) {
+                uniqueId = ((BaseActivity) currentActivity).getUniqueId();
+            } else {
+                uniqueId = currentActivity instanceof BaseFragmentActivity ? ((BaseFragmentActivity) currentActivity).getUniqueId() : null;
+            }
+            for (Map.Entry<String, u65> entry : this.c.entrySet()) {
+                if (entry.getValue() != null) {
+                    entry.getValue().q(uniqueId);
+                    entry.getValue().p(this);
+                    entry.getValue().n();
+                }
+            }
         }
     }
 
-    public void p(x65 x65Var) {
+    public void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, x65Var) == null) {
-            this.g = x65Var;
-        }
-    }
-
-    public void q(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY);
+            this.b = jSONObject.optLong("end_time");
+            JSONObject optJSONObject = jSONObject.optJSONObject(ExternalTransferSpeedStats.FEED_PAGE);
+            if (optJSONObject != null) {
+                u65 u65Var = new u65();
+                u65Var.o(optJSONObject);
+                this.c.put("homePage", u65Var);
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("forum");
+            if (optJSONObject2 != null) {
+                u65 u65Var2 = new u65();
+                u65Var2.o(optJSONObject2);
+                this.c.put("enterForum", u65Var2);
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("channel");
+            if (optJSONObject3 != null) {
+                u65 u65Var3 = new u65();
+                u65Var3.o(optJSONObject3);
+                this.c.put("channel", u65Var3);
+            }
+            JSONObject optJSONObject4 = jSONObject.optJSONObject("news");
+            if (optJSONObject4 != null) {
+                u65 u65Var4 = new u65();
+                u65Var4.o(optJSONObject4);
+                this.c.put("message", u65Var4);
+            }
+            JSONObject optJSONObject5 = jSONObject.optJSONObject("personal");
+            if (optJSONObject5 != null) {
+                u65 u65Var5 = new u65();
+                u65Var5.o(optJSONObject5);
+                this.c.put("person", u65Var5);
+            }
+            JSONObject optJSONObject6 = jSONObject.optJSONObject(AlbumActivityConfig.FROM_WRITE);
+            if (optJSONObject6 != null) {
+                u65 u65Var6 = new u65();
+                u65Var6.o(optJSONObject6);
+                this.c.put(AlbumActivityConfig.FROM_WRITE, u65Var6);
+            }
         }
     }
 }

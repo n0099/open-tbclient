@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ql5;
+import com.baidu.tieba.ol5;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -140,7 +140,7 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!ql5.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
+                    if (!ol5.a(this.c.mMainApkMd5RSA, FileHelper.GetFile(this.c.mMainApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
                         FileHelper.DelFile(this.c.mMainApkFileName + ".tmp");
                         FileHelper.DelFile(this.c.mMainApkFileName);
@@ -255,7 +255,7 @@ public class TiebaUpdateService extends BdBaseService {
                     }
                 }
                 if (bool.booleanValue()) {
-                    if (!ql5.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
+                    if (!ol5.a(this.c.mOtherApkMd5RSA, FileHelper.GetFile(this.c.mOtherApkFileName + ".tmp"))) {
                         bool = Boolean.FALSE;
                         FileHelper.DelFile(this.c.mOtherApkFileName + ".tmp");
                         FileHelper.DelFile(this.c.mOtherApkFileName);

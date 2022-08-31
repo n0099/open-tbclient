@@ -27,7 +27,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qr9;
+import com.baidu.tieba.or9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,7 +188,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(qr9.g(false))) {
+                if (str.startsWith(or9.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -231,7 +231,7 @@ public final class AssistActivity extends Activity {
                         e.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(qr9.g(true))) {
+                } else if (str.startsWith(or9.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");

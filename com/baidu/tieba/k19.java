@@ -1,23 +1,46 @@
 package com.baidu.tieba;
 
 import android.view.View;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.j19;
+import com.baidu.tieba.write.write.WriteActivity;
+import com.baidu.tieba.write.write.WriteImageGridView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class k19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public w16 b;
+    public TbPageContext<WriteActivity> a;
+    public WriteImageGridView b;
+    public WriteImagesInfo c;
+    public j19 d;
+    public p55 e;
+    public String f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public j19.f j;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements j19.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ k19 a;
@@ -40,21 +63,74 @@ public class k19 {
             this.a = k19Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.j19.f
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.N();
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null) {
+                return;
+            }
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
+            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            if (this.a.a.getPageActivity() instanceof WriteActivity) {
+                albumFloatActivityConfig.setCanSelectVideo(false);
+                albumFloatActivityConfig.setCanSelectOnlyVideo(false);
+                albumFloatActivityConfig.setCanEditImage(false);
+                AntiData antiData = new AntiData();
+                antiData.voice_message = ((WriteActivity) this.a.a.getPageActivity()).e;
+                antiData.setIfVoice(((WriteActivity) this.a.a.getPageActivity()).Z0);
+                albumFloatActivityConfig.setStatisticFrom(((WriteActivity) this.a.a.getPageActivity()).r.getStatisticFrom());
+                albumFloatActivityConfig.setExtraData(antiData, ((WriteActivity) this.a.a.getPageActivity()).d, ((WriteActivity) this.a.a.getPageActivity()).r.getFirstDir(), ((WriteActivity) this.a.a.getPageActivity()).r.getSecondDir());
+            }
+            albumFloatActivityConfig.setFromWrite(3);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
+        }
+
+        @Override // com.baidu.tieba.j19.f
+        public void b(int i) {
+            int count;
+            ImageFileInfo imageInfoAt;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a.c == null || (count = ListUtils.getCount(this.a.c.getChosedFiles())) == 0 || i < 0 || i >= count || (imageInfoAt = this.a.c.getImageInfoAt(i)) == null || imageInfoAt.getImageType() == 1) {
+                return;
+            }
+            this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
+        }
+
+        @Override // com.baidu.tieba.j19.f
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a.c == null || this.a.c.getChosedFiles() == null || i < 0 || i >= this.a.c.getChosedFiles().size()) {
+                return;
+            }
+            ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
+            if (remove.isTempFile()) {
+                wb.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
+            }
+            k19 k19Var = this.a;
+            k19Var.d.g(k19Var.c);
+            this.a.d.notifyDataSetChanged();
+            if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
+                ((WriteActivity) this.a.a.getOrignalPage()).C2();
+                ((WriteActivity) this.a.a.getOrignalPage()).F4(false);
+                if (!this.a.h) {
+                    this.a.b.setVisibility(8);
+                }
+            }
+            if (this.a.a.getPageActivity() instanceof WriteActivity) {
+                ((WriteActivity) this.a.a.getPageActivity()).C6();
+                ((WriteActivity) this.a.a.getPageActivity()).H6();
             }
         }
     }
 
-    public k19(TbPageContext tbPageContext) {
+    public k19(TbPageContext<WriteActivity> tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,40 +140,84 @@ public class k19 {
                 return;
             }
         }
+        this.e = new p55();
+        this.f = AlbumActivityConfig.FROM_WRITE;
+        this.g = "";
+        this.h = false;
+        this.j = new a(this);
         this.a = tbPageContext;
+        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f092654);
+        j19 j19Var = new j19(view2.getContext(), this.e, null, this.j);
+        this.d = j19Var;
+        this.b.setAdapter((ListAdapter) j19Var);
     }
 
-    public void b() {
-        w16 w16Var;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (w16Var = this.b) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.b();
         }
-        w16Var.N();
     }
 
-    public void c(EditorTools editorTools) {
-        EditorBar editorBar;
-        View s;
+    public GridView h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) || editorTools == null || (editorBar = editorTools.a) == null || this.a == null || (s = editorBar.s(26)) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (GridView) invokeV.objValue;
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.h = z;
+            this.d.f(z);
         }
-        if (this.b == null) {
-            w16 w16Var = new w16(this.a, s);
-            this.b = w16Var;
-            w16Var.q0(R.drawable.obfuscated_res_0x7f0802ea);
-            this.b.T(32);
-            this.b.Q(2);
-            this.b.R(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070230);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.b.j0(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.b.u0(0);
-            this.b.v0(-dimensionPixelSize3);
-            this.b.S(3000);
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.i = z;
+            n();
         }
-        this.b.x0(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f089b), "key_show_hottopic_tip");
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d.h(z);
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d.i(z);
+        }
+    }
+
+    public void m(WriteImagesInfo writeImagesInfo, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, writeImagesInfo, str, str2) == null) {
+            this.f = str;
+            this.g = str2;
+            this.c = writeImagesInfo;
+            this.d.g(writeImagesInfo);
+            this.d.notifyDataSetChanged();
+            n();
+        }
+    }
+
+    public final void n() {
+        WriteImagesInfo writeImagesInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.h) {
+                this.b.setVisibility(0);
+            } else if (!this.i && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
+                this.b.setVisibility(0);
+            } else {
+                this.b.setVisibility(8);
+            }
+        }
     }
 }

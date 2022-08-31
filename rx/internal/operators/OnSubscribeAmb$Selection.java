@@ -1,7 +1,7 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xv9;
+import com.baidu.tieba.vv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,10 +10,10 @@ import java.util.Collection;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class OnSubscribeAmb$Selection<T> extends AtomicReference<xv9<T>> {
+public final class OnSubscribeAmb$Selection<T> extends AtomicReference<vv9<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Collection<xv9<T>> ambSubscribers;
+    public final Collection<vv9<T>> ambSubscribers;
 
     public OnSubscribeAmb$Selection() {
         Interceptable interceptable = $ic;
@@ -32,20 +32,20 @@ public final class OnSubscribeAmb$Selection<T> extends AtomicReference<xv9<T>> {
     }
 
     public void unsubscribeLosers() {
-        xv9<T> xv9Var;
+        vv9<T> vv9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (xv9Var = get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (vv9Var = get()) == null) {
             return;
         }
-        unsubscribeOthers(xv9Var);
+        unsubscribeOthers(vv9Var);
     }
 
-    public void unsubscribeOthers(xv9<T> xv9Var) {
+    public void unsubscribeOthers(vv9<T> vv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xv9Var) == null) {
-            for (xv9<T> xv9Var2 : this.ambSubscribers) {
-                if (xv9Var2 != xv9Var) {
-                    xv9Var2.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vv9Var) == null) {
+            for (vv9<T> vv9Var2 : this.ambSubscribers) {
+                if (vv9Var2 != vv9Var) {
+                    vv9Var2.unsubscribe();
                 }
             }
             this.ambSubscribers.clear();

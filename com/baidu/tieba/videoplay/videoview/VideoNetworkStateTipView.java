@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.bt8;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
@@ -63,7 +63,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (b() || dt8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !pi.x()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (b() || bt8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !pi.x()) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView

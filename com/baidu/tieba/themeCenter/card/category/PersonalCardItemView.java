@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kq8;
+import com.baidu.tieba.iq8;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class PersonalCardItemView extends LinearLayout {
     public ImageView g;
     public TextView h;
     public View i;
-    public kq8 j;
+    public iq8 j;
     public b k;
     public int l;
     public int m;
@@ -73,7 +73,7 @@ public class PersonalCardItemView extends LinearLayout {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(kq8 kq8Var);
+        void a(iq8 iq8Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -98,13 +98,13 @@ public class PersonalCardItemView extends LinearLayout {
         d();
     }
 
-    public void c(kq8 kq8Var) {
+    public void c(iq8 iq8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, kq8Var) == null) || kq8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, iq8Var) == null) || iq8Var == null) {
             return;
         }
-        this.j = kq8Var;
-        if (kq8Var.a() == kq8.k) {
+        this.j = iq8Var;
+        if (iq8Var.a() == iq8.k) {
             this.c.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
             SkinManager.setImageResource(this.c, R.drawable.icon_bubble_choose_no);
@@ -118,17 +118,17 @@ public class PersonalCardItemView extends LinearLayout {
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setImageBitmap(null);
             this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f080bc3);
-            this.c.K(kq8Var.e(), 10, false);
+            this.c.K(iq8Var.e(), 10, false);
         }
-        if (kq8Var.g() == 1) {
+        if (iq8Var.g() == 1) {
             this.g.setVisibility(0);
             SkinManager.setImageResource(this.g, R.drawable.icon_choose_photo);
         } else {
             this.g.setVisibility(8);
         }
-        this.e.K(kq8Var.i(), 10, false);
-        this.f.K(kq8Var.b(), 10, false);
-        this.h.setText(kq8Var.j());
+        this.e.K(iq8Var.i(), 10, false);
+        this.f.K(iq8Var.b(), 10, false);
+        this.h.setText(iq8Var.j());
         setVisibility(0);
     }
 

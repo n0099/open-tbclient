@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.lf;
-import com.baidu.tieba.pd8;
+import com.baidu.tieba.nd8;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -250,9 +250,9 @@ public class MercatorModel {
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    pd8.e().i(valueOf);
-                    pd8.e().j(valueOf2);
-                    pd8.e().k(System.currentTimeMillis());
+                    nd8.e().i(valueOf);
+                    nd8.e().j(valueOf2);
+                    nd8.e().k(System.currentTimeMillis());
                     MercatorRequestHttpMessage mercatorRequestHttpMessage = new MercatorRequestHttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     mercatorRequestHttpMessage.addParam("cuid", cuid);
                     mercatorRequestHttpMessage.addParam("cip", clientIP);
@@ -326,7 +326,7 @@ public class MercatorModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, mercatorData) == null) {
             TbSingleton.getInstance().setMercatorData(mercatorData);
-            tu4.k().y("key_mercator_location", OrmObject.jsonStrWithObject(mercatorData));
+            su4.k().y("key_mercator_location", OrmObject.jsonStrWithObject(mercatorData));
         }
     }
 
@@ -335,7 +335,7 @@ public class MercatorModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MercatorData mercatorData = TbSingleton.getInstance().getMercatorData();
-            return mercatorData == null ? (MercatorData) OrmObject.objectWithJsonStr(tu4.k().q("key_mercator_location", null), MercatorData.class) : mercatorData;
+            return mercatorData == null ? (MercatorData) OrmObject.objectWithJsonStr(su4.k().q("key_mercator_location", null), MercatorData.class) : mercatorData;
         }
         return (MercatorData) invokeV.objValue;
     }

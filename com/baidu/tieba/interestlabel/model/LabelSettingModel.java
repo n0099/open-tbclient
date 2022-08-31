@@ -16,8 +16,8 @@ import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.wd7;
-import com.baidu.tieba.xd7;
+import com.baidu.tieba.ud7;
+import com.baidu.tieba.vd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public xd7 b;
-    public wd7 c;
+    public vd7 b;
+    public ud7 c;
     public bb d;
     public bb e;
 
@@ -141,7 +141,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new wd7();
+        this.c = new ud7();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -150,9 +150,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!pi.A()) {
-                xd7 xd7Var = this.b;
-                if (xd7Var != null) {
-                    xd7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                vd7 vd7Var = this.b;
+                if (vd7Var != null) {
+                    vd7Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;
@@ -179,10 +179,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void G(xd7 xd7Var) {
+    public void G(vd7 vd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xd7Var) == null) {
-            this.b = xd7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vd7Var) == null) {
+            this.b = vd7Var;
         }
     }
 

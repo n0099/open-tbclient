@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.sdk.PermissionRequest;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class ew {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "ew";

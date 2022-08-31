@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.ze5;
+import com.baidu.tieba.xe5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class FrsPraiseView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ze5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
+                xe5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
             }
         }
     }

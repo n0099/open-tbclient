@@ -1,323 +1,60 @@
 package com.baidu.tieba;
 
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.http.ContentType;
 import com.fun.ad.sdk.internal.api.http.PostRequest;
 import com.fun.ad.sdk.internal.api.http.RequestParams;
 import com.fun.ad.sdk.internal.api.http.Response;
 import com.fun.ad.sdk.internal.api.reporter.Reporter;
 import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.n0;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class pl9 implements Reporter {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final String b;
+    public final String a;
+    public final boolean b;
+    public final Handler c;
+    public final LinkedList<d> d;
+    public boolean e;
 
     /* loaded from: classes5.dex */
-    public class a extends e {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pl9 h;
+        public final /* synthetic */ pl9 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(pl9 pl9Var, String str, JSONObject jSONObject) {
-            super(pl9Var, str, jSONObject);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl9Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((pl9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = pl9Var;
-            ug9.n();
-        }
-
-        @Override // com.baidu.tieba.pl9.b
-        public void c() {
-            d dVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ug9.f("key_rpt_suc_c", ug9.k() + 1);
-                pl9 pl9Var = this.h;
-                pl9Var.getClass();
-                int g = ug9.g();
-                int i = ug9.i();
-                if (g > 0 || i > 0) {
-                    int k = ug9.k();
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("fai", g);
-                        jSONObject.put("suc", k);
-                        jSONObject.put("mis", i);
-                    } catch (JSONException unused) {
-                    }
-                    dVar = new d(pl9Var, "k_rpt", jSONObject, g, k, i);
-                } else {
-                    dVar = null;
-                }
-                if (dVar != null) {
-                    dVar.d();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.pl9.e
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                ug9.f("key_rpt_fai_c", ug9.g() + 1);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final JSONObject b;
-        public final long c;
-        public JSONObject d;
-        public final /* synthetic */ pl9 e;
-
-        public b(pl9 pl9Var, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl9Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = pl9Var;
-            this.a = str;
-            this.b = jSONObject;
-            this.c = System.currentTimeMillis();
-            if (FunAdSdk.isLogEnabled()) {
-                LogPrinter.v("report Event:" + this, new Object[0]);
-            }
-        }
-
-        @Override // com.baidu.tieba.pl9.c
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:17:0x003b  */
-        /* JADX WARN: Removed duplicated region for block: B:18:0x003f  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final boolean d() {
-            boolean z;
-            Response perform;
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                try {
-                    if (this.d == null) {
-                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
-                    }
-                    perform = new PostRequest(this.e.b, new RequestParams(this.d)).perform();
-                } catch (IOException e) {
-                    LogPrinter.e(e);
-                }
-                if (perform != null) {
-                    if (perform.getResponseCode() == 200) {
-                        z = true;
-                        if (z) {
-                            b();
-                        } else {
-                            c();
-                        }
-                        return z;
-                    }
-                }
-                z = false;
-                if (z) {
-                }
-                return z;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @NonNull
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Event{key=" + this.a + ", content=" + this.b + '}';
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        boolean a();
-    }
-
-    /* loaded from: classes5.dex */
-    public class d extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int f;
-        public final int g;
-        public final int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(pl9 pl9Var, String str, JSONObject jSONObject, int i, int i2, int i3) {
-            super(pl9Var, str, jSONObject);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl9Var, str, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((pl9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = i;
-            this.g = i2;
-            this.h = i3;
-        }
-
-        @Override // com.baidu.tieba.pl9.b
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ug9.e(this.f, this.g, this.h);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e extends b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int f;
-        public final /* synthetic */ pl9 g;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(pl9 pl9Var, String str, JSONObject jSONObject) {
-            super(pl9Var, str, jSONObject);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pl9Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((pl9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.g = pl9Var;
-            this.f = 0;
-        }
-
-        @Override // com.baidu.tieba.pl9.b
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.f;
-                this.f = i + 1;
-                if (i >= 3) {
-                    LogPrinter.e("Give up report event:" + this, new Object[0]);
-                    e();
-                    return;
-                }
-                try {
-                    if (this.d == null) {
-                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
-                    }
-                    this.d.put(HostAppInfo.RETRY_I, this.f);
-                } catch (JSONException unused) {
-                }
-                pl9 pl9Var = this.g;
-                pl9Var.a.sendMessageDelayed(pl9Var.a.obtainMessage(102, this), 2000L);
-            }
-        }
-
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class f extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(@NonNull Looper looper) {
+        public a(pl9 pl9Var, Looper looper) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
+                Object[] objArr = {pl9Var, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -328,6 +65,7 @@ public class pl9 implements Reporter {
                     return;
                 }
             }
+            this.a = pl9Var;
         }
 
         @Override // android.os.Handler
@@ -335,52 +73,525 @@ public class pl9 implements Reporter {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 int i = message.what;
-                if (i != 101) {
-                    if (i != 102) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return;
+                        }
+                        int i2 = message.arg1;
+                        int k = sg9.k();
+                        int g = sg9.g();
+                        int i3 = (i2 - k) - g;
+                        LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(k), Integer.valueOf(g), Integer.valueOf(i3));
+                        if (i3 > 0) {
+                            sg9.f("key_rpt_mis_c", i3);
+                            return;
+                        }
                         return;
                     }
-                    ((c) message.obj).a();
+                    LogPrinter.v("turn on report switch", new Object[0]);
+                    this.a.e = true;
+                }
+                pl9.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements n0.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pl9 a;
+
+        public b(pl9 pl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                int i2 = message.arg1;
-                int k = ug9.k();
-                int g = ug9.g();
-                int i3 = (i2 - k) - g;
-                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(k), Integer.valueOf(g), Integer.valueOf(i3));
-                if (i3 > 0) {
-                    ug9.f("key_rpt_mis_c", i3);
+            }
+            this.a = pl9Var;
+        }
+
+        @Override // com.fun.n0.b
+        public void a(@Nullable NetworkInfo networkInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, networkInfo) == null) {
+                if (networkInfo != null && networkInfo.isConnected()) {
+                    this.a.c.removeMessages(1);
+                    this.a.c.sendEmptyMessage(1);
+                    return;
+                }
+                this.a.c.removeMessages(1);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final JSONArray b;
+        public final /* synthetic */ pl9 c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(pl9 pl9Var, e eVar) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl9Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = pl9Var;
+            this.b = new JSONArray();
+            a(eVar);
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public d a(d dVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
+                if (a()) {
+                    return this;
+                }
+                if (dVar instanceof e) {
+                    e eVar = (e) dVar;
+                    this.b.put(eVar.f());
+                    eVar.f = true;
+                    eVar.e = null;
+                    return this;
+                } else if (!(dVar instanceof c)) {
+                    throw new IllegalArgumentException("Unknown Event type:" + dVar);
+                } else {
+                    c cVar = (c) dVar;
+                    while (!a() && cVar.b.length() > 0) {
+                        this.b.put(cVar.b.remove(0));
+                    }
+                    return this;
+                }
+            }
+            return (d) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.length() >= 10 : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.v("ArrayEvent reported succeed with len:%d", Integer.valueOf(this.b.length()));
+                if (this.c.b) {
+                    sg9.f("key_rpt_suc_c", sg9.k() + this.b.length());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public JSONArray d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                for (int i = 0; i < this.b.length(); i++) {
+                    try {
+                        HostAppInfo.fillHostAppInfo(this.b.optJSONObject(i));
+                    } catch (JSONException unused) {
+                    }
+                }
+                return this.b;
+            }
+            return (JSONArray) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.f
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                int i = 0;
+                while (this.b.length() > 0 && i < 1) {
+                    this.b.remove(0);
+                    i++;
+                }
+                if (this.c.b) {
+                    sg9.f("key_rpt_fai_c", sg9.g() + i);
+                }
+                LogPrinter.v("cut %d datas from ArrayEvent", Integer.valueOf(i));
+            }
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.length() <= 0 : invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        d a(d dVar);
+
+        boolean a();
+
+        void b();
+
+        long c();
+
+        JSONArray d();
+
+        boolean isEmpty();
+    }
+
+    /* loaded from: classes5.dex */
+    public class e extends f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String b;
+        public final JSONObject c;
+        public long d;
+        public JSONObject e;
+        public boolean f;
+        public final /* synthetic */ pl9 g;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(pl9 pl9Var, String str, JSONObject jSONObject) {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pl9Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = pl9Var;
+            this.b = str;
+            this.c = jSONObject;
+            this.d = System.currentTimeMillis();
+            if (FunAdSdk.isLogEnabled()) {
+                LogPrinter.v("report Event:" + this, new Object[0]);
+            }
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public d a(d dVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dVar)) == null) {
+                if (dVar instanceof e) {
+                    c cVar = new c(this.g, this);
+                    cVar.a(dVar);
+                    return cVar;
+                } else if (dVar instanceof c) {
+                    c cVar2 = (c) dVar;
+                    cVar2.a(this);
+                    return cVar2;
+                } else {
+                    throw new IllegalArgumentException("Unknown Event type:" + dVar);
+                }
+            }
+            return (d) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.v("JSONEvent reported succeed", new Object[0]);
+                if (f() == null || !this.g.b) {
+                    return;
+                }
+                sg9.f("key_rpt_suc_c", sg9.k() + 1);
+            }
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public JSONArray d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                JSONObject f = f();
+                if (f == null) {
+                    return null;
+                }
+                try {
+                    HostAppInfo.fillHostAppInfo(f);
+                } catch (JSONException unused) {
+                }
+                JSONArray jSONArray = new JSONArray();
+                jSONArray.put(f);
+                return jSONArray;
+            }
+            return (JSONArray) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.f
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.v("give up report JSONEvent", new Object[0]);
+                this.f = true;
+                this.e = null;
+                if (this.g.b) {
+                    sg9.f("key_rpt_fai_c", sg9.g() + 1);
+                }
+            }
+        }
+
+        public JSONObject f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                if (this.f) {
+                    return null;
+                }
+                if (this.e == null) {
+                    this.e = HostAppInfo.buildBaseJson(this.b, this.c, this.d);
+                }
+                return this.e;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public boolean isEmpty() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? f() == null : invokeV.booleanValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                return "{key='" + this.b + "', content=" + this.c + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class f implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ f(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.pl9.d
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                LogPrinter.v("RetryEvent reported failed with retryCount:%d", Integer.valueOf(this.a));
+                int i = this.a;
+                int i2 = i + 1;
+                this.a = i2;
+                if (i >= 2) {
+                    e();
+                    this.a = 0;
+                    return 0L;
+                }
+                return i2 * 1000;
+            }
+            return invokeV.longValue;
+        }
+
+        public abstract void e();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066028, "Lcom/baidu/tieba/pl9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948066028, "Lcom/baidu/tieba/pl9;");
+                return;
+            }
+        }
+        f = !pl9.class.desiredAssertionStatus();
+    }
+
+    public pl9(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = new LinkedList<>();
+        this.e = true;
+        this.a = str;
+        this.b = z;
+        HandlerThread handlerThread = new HandlerThread("reporter2");
+        handlerThread.start();
+        a aVar = new a(this, handlerThread.getLooper());
+        this.c = aVar;
+        if (z) {
+            aVar.obtainMessage(3, sg9.j(), 0).sendToTarget();
+        }
+        com.fun.n0.b(new b(this));
+    }
+
+    public static void a(pl9 pl9Var) {
+        d pollFirst;
+        JSONArray jSONArray;
+        d peekFirst;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, pl9Var) == null) {
+            while (pl9Var.e) {
+                synchronized (pl9Var.d) {
+                    pollFirst = pl9Var.d.pollFirst();
+                    if (pollFirst == null) {
+                        return;
+                    }
+                    while (!pollFirst.a() && !pl9Var.d.isEmpty() && (peekFirst = pl9Var.d.peekFirst()) != null) {
+                        pollFirst = pollFirst.a(peekFirst);
+                        if (peekFirst.isEmpty()) {
+                            pl9Var.d.removeFirst();
+                        } else if (!f && !pollFirst.a()) {
+                            throw new AssertionError();
+                        }
+                    }
+                }
+                if (pl9Var.c(pollFirst.d())) {
+                    pollFirst.b();
+                    if (pl9Var.b) {
+                        int g = sg9.g();
+                        int i = sg9.i();
+                        if (g > 0 || i > 0) {
+                            int k = sg9.k();
+                            JSONObject jSONObject = new JSONObject();
+                            try {
+                                jSONObject.put("fai", g);
+                                jSONObject.put("suc", k);
+                                jSONObject.put("mis", i);
+                            } catch (JSONException unused) {
+                            }
+                            JSONObject f2 = new e(pl9Var, "k_rpt", jSONObject).f();
+                            if (f2 == null) {
+                                jSONArray = null;
+                            } else {
+                                try {
+                                    HostAppInfo.fillHostAppInfo(f2);
+                                } catch (JSONException unused2) {
+                                }
+                                JSONArray jSONArray2 = new JSONArray();
+                                jSONArray2.put(f2);
+                                jSONArray = jSONArray2;
+                            }
+                            if (pl9Var.c(jSONArray)) {
+                                sg9.e(g, k, i);
+                            }
+                        }
+                    }
+                } else {
+                    long c2 = pollFirst.c();
+                    if (!pollFirst.isEmpty()) {
+                        synchronized (pl9Var.d) {
+                            pl9Var.d.addFirst(pollFirst);
+                        }
+                    }
+                    if (c2 > 0) {
+                        LogPrinter.v("turn off report switch, reScheduleReport delay:%dms", Long.valueOf(c2));
+                        pl9Var.e = false;
+                        if (!pl9Var.c.hasMessages(2)) {
+                            pl9Var.c.sendEmptyMessageDelayed(2, c2);
+                        }
+                    }
                 }
             }
         }
     }
 
-    public pl9(String str) {
+    public final boolean c(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Response response;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
+            try {
+                response = new PostRequest(this.a, new RequestParams(jSONArray.toString(), ContentType.JSON), true).perform();
+            } catch (IOException e2) {
+                LogPrinter.e(e2);
+                response = null;
             }
+            return response != null && response.getResponseCode() == 200;
         }
-        HandlerThread handlerThread = new HandlerThread("rep");
-        handlerThread.start();
-        f fVar = new f(handlerThread.getLooper());
-        this.a = fVar;
-        this.b = str;
-        fVar.obtainMessage(101, ug9.j(), 0).sendToTarget();
+        return invokeL.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
     public void logEvent(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, obj) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(str2, obj);
@@ -393,7 +604,7 @@ public class pl9 implements Reporter {
     @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
     public void logEvent(String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
             logEvent(str, new JSONObject(map));
         }
     }
@@ -401,12 +612,29 @@ public class pl9 implements Reporter {
     @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
     public void logEvent(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
-            if (dg9.g(str, jSONObject)) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jSONObject) == null) {
+            boolean z = false;
+            if (bg9.g(str, jSONObject)) {
                 LogPrinter.d("filter key:%s content:%s", str, jSONObject);
-            } else {
-                this.a.sendMessageDelayed(this.a.obtainMessage(102, LaunchStatsUtils.AD.equals(str) ? new a(this, str, jSONObject) : new e(this, str, jSONObject)), 0L);
+                return;
             }
+            e eVar = new e(this, str, jSONObject);
+            if (this.b) {
+                sg9.n();
+            }
+            synchronized (this.d) {
+                this.d.add(eVar);
+            }
+            NetworkInfo networkInfo = com.fun.n0.a;
+            if (!(networkInfo != null && networkInfo.isConnected()) || this.c.hasMessages(1)) {
+                return;
+            }
+            Handler handler = this.c;
+            long j = sg9.b.getLong("key_flt", 0L);
+            if (j > 0 && System.currentTimeMillis() - j >= 86400000) {
+                z = true;
+            }
+            handler.sendEmptyMessageDelayed(1, z ? 5000L : 0L);
         }
     }
 }

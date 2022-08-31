@@ -20,14 +20,14 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.an;
-import com.baidu.tieba.aq7;
 import com.baidu.tieba.face.data.FaceData;
-import com.baidu.tieba.n55;
+import com.baidu.tieba.l55;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rl4;
 import com.baidu.tieba.sl4;
 import com.baidu.tieba.ul4;
-import com.baidu.tieba.zp7;
+import com.baidu.tieba.xp7;
+import com.baidu.tieba.yp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,9 +44,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     public transient /* synthetic */ FieldHolder $fh;
     public sl4 a;
     public GridView b;
-    public aq7 c;
+    public yp7 c;
     public List<ImageFileInfo> d;
-    public zp7 e;
+    public xp7 e;
     public NoDataView f;
     public BaseFragmentActivity g;
 
@@ -97,7 +97,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     /* loaded from: classes5.dex */
-    public class b implements n55 {
+    public class b implements l55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FaceAlbumFragment a;
@@ -120,7 +120,7 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
             this.a = faceAlbumFragment;
         }
 
-        @Override // com.baidu.tieba.n55
+        @Override // com.baidu.tieba.l55
         public void a(an anVar, String str, boolean z) {
             TbImageView tbImageView;
             Interceptable interceptable = $ic;
@@ -145,13 +145,13 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         }
     }
 
-    public void A1(zp7 zp7Var) {
+    public void A1(xp7 xp7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zp7Var) == null) {
-            this.e = zp7Var;
-            aq7 aq7Var = this.c;
-            if (aq7Var != null) {
-                aq7Var.j(zp7Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, xp7Var) == null) {
+            this.e = xp7Var;
+            yp7 yp7Var = this.c;
+            if (yp7Var != null) {
+                yp7Var.j(xp7Var);
             }
         }
     }
@@ -206,9 +206,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            aq7 aq7Var = this.c;
-            if (aq7Var != null) {
-                return aq7Var.f();
+            yp7 yp7Var = this.c;
+            if (yp7Var != null) {
+                return yp7Var.f();
             }
             return null;
         }
@@ -222,9 +222,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d = new ArrayList();
             this.a = new sl4(getActivity());
-            aq7 aq7Var = new aq7(this.g, this.d);
-            this.c = aq7Var;
-            aq7Var.j(this.e);
+            yp7 yp7Var = new yp7(this.g, this.d);
+            this.c = yp7Var;
+            yp7Var.j(this.e);
             this.b.setAdapter((ListAdapter) this.c);
             this.b.setOnScrollListener(this);
             if (getArguments() == null || (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) == null || !(serializable instanceof ArrayList)) {
@@ -250,9 +250,9 @@ public class FaceAlbumFragment extends BaseFragment implements AbsListView.OnScr
     }
 
     public final void z1() {
-        aq7 aq7Var;
+        yp7 yp7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aq7Var = this.c) == null || aq7Var.g() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (yp7Var = this.c) == null || yp7Var.g() == null) {
             return;
         }
         int childCount = this.b.getChildCount();

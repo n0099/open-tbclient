@@ -4,19 +4,19 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestItemViewHolder;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.vh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class qh7 extends cn<vh7, SearchSuggestItemViewHolder> {
+public class qh7 extends cn<vh7, SearchSuggestRankingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -57,15 +57,16 @@ public class qh7 extends cn<vh7, SearchSuggestItemViewHolder> {
 
         @Override // com.baidu.tieba.zn
         public void b(View view2, pn pnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            vh7 vh7Var;
+            vh7.a b;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof vh7)) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, pnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (pnVar instanceof vh7) && (b = (vh7Var = (vh7) pnVar).b()) != null) {
                 HashMap hashMap = new HashMap();
-                StringBuilder sb = new StringBuilder();
-                vh7 vh7Var = (vh7) pnVar;
-                sb.append(vh7Var.b());
-                sb.append("");
-                hashMap.put("itemID", sb.toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "GameItemDetailsPage", hashMap)));
+                hashMap.put("tab_id", b.d() + "");
+                hashMap.put("sort_type", b.c() + "");
+                hashMap.put("rank_type", b.b() + "");
+                hashMap.put("rank_code", b.a() + "");
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
                 this.b.u(vh7Var);
             }
         }
@@ -97,8 +98,8 @@ public class qh7 extends cn<vh7, SearchSuggestItemViewHolder> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vh7 vh7Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
-        w(i, view2, viewGroup, vh7Var, searchSuggestItemViewHolder);
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vh7 vh7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        w(i, view2, viewGroup, vh7Var, searchSuggestRankingViewHolder);
         return view2;
     }
 
@@ -106,14 +107,14 @@ public class qh7 extends cn<vh7, SearchSuggestItemViewHolder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, vh7Var) == null) {
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("item_id", vh7Var.b().longValue());
+            statisticItem.param("obj_name", vh7Var.c());
         }
     }
 
     public final void u(vh7 vh7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, vh7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_ITEM_CLICK);
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
             t(statisticItem, vh7Var);
             TiebaStatic.log(statisticItem);
         }
@@ -122,71 +123,43 @@ public class qh7 extends cn<vh7, SearchSuggestItemViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: v */
-    public SearchSuggestItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0788, viewGroup, false)) : (SearchSuggestItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d078a, viewGroup, false)) : (SearchSuggestRankingViewHolder) invokeL.objValue;
     }
 
-    public View w(int i, View view2, ViewGroup viewGroup, vh7 vh7Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
+    public View w(int i, View view2, ViewGroup viewGroup, vh7 vh7Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vh7Var, searchSuggestItemViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vh7Var, searchSuggestRankingViewHolder})) == null) {
             if (vh7Var == null) {
                 return view2;
             }
-            x(searchSuggestItemViewHolder);
-            searchSuggestItemViewHolder.b.setConrers(15);
-            searchSuggestItemViewHolder.b.setRadiusById(R.string.J_X06);
-            searchSuggestItemViewHolder.b.K(vh7Var.a(), 10, false);
-            searchSuggestItemViewHolder.c.setText(vh7Var.c());
-            searchSuggestItemViewHolder.f.setStarSpacing(ri.f(this.a, R.dimen.M_W_X002));
-            searchSuggestItemViewHolder.f.setStarCount(vh7Var.g().intValue());
-            TextView textView = searchSuggestItemViewHolder.d;
-            StringBuilder sb = new StringBuilder();
-            sb.append(vh7Var.f());
-            String str = "";
-            sb.append("");
-            textView.setText(sb.toString());
-            if (vh7Var.h() != null) {
-                for (String str2 : vh7Var.h()) {
-                    if (!StringUtils.isNull(str2)) {
-                        if (!StringUtils.isNull(str)) {
-                            str2 = str + " " + str2;
-                        }
-                        str = str2;
-                    }
-                }
-            }
-            searchSuggestItemViewHolder.e.setText(str);
+            x(searchSuggestRankingViewHolder);
+            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080a48, null);
+            lh7.a(searchSuggestRankingViewHolder.b, vh7Var.f(), vh7Var.a());
             y(vh7Var);
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void x(SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
+    public final void x(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestItemViewHolder) == null) {
-            os4 d = os4.d(searchSuggestItemViewHolder.c);
-            d.A(R.string.F_X02);
+        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestRankingViewHolder) == null) {
+            ns4 d = ns4.d(searchSuggestRankingViewHolder.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X06);
-            os4 d2 = os4.d(searchSuggestItemViewHolder.d);
-            d2.v(R.color.CAM_X0108);
-            d2.z(R.dimen.T_X09);
-            os4 d3 = os4.d(searchSuggestItemViewHolder.e);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.T_X09);
-            SkinManager.setBackgroundResource(searchSuggestItemViewHolder.a, R.drawable.addresslist_item_bg);
-            os4.d(searchSuggestItemViewHolder.g).f(R.color.CAM_X0203);
+            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
+            ns4.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
         }
     }
 
     public final void y(vh7 vh7Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, vh7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_ITEM_SHOW);
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
             t(statisticItem, vh7Var);
             TiebaStatic.log(statisticItem);
         }

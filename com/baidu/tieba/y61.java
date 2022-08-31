@@ -178,13 +178,13 @@ public class y61 {
 
         /* renamed from: com.baidu.tieba.y61$b$b  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0458b implements Runnable {
+        public class RunnableC0464b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ b b;
 
-            public RunnableC0458b(b bVar, int i) {
+            public RunnableC0464b(b bVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -280,7 +280,7 @@ public class y61 {
         public void onPackageDownloadFail(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                o61.a().b().run(new RunnableC0458b(this, i));
+                o61.a().b().run(new RunnableC0464b(this, i));
             }
         }
 

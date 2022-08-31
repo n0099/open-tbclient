@@ -1,25 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TimerTask;
 /* loaded from: classes5.dex */
-public final class qj5 extends GestureDetector.SimpleOnGestureListener {
+public final class qj5 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+    public float a;
+    public final float b;
+    public final WheelView c;
 
-    public qj5(WheelView wheelView) {
+    public qj5(WheelView wheelView, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
+            Object[] objArr = {wheelView, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,17 +29,55 @@ public final class qj5 extends GestureDetector.SimpleOnGestureListener {
                 return;
             }
         }
-        this.a = wheelView;
+        this.c = wheelView;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
-    @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-    public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            this.a.q(f2);
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == 2.1474836E9f) {
+                if (Math.abs(this.b) > 2000.0f) {
+                    this.a = this.b <= 0.0f ? -2000.0f : 2000.0f;
+                } else {
+                    this.a = this.b;
+                }
+            }
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
+                return;
+            }
+            WheelView wheelView = this.c;
+            float f = (int) (this.a / 100.0f);
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f2 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f2) {
+                    f2 = this.c.getTotalScrollY() + f;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f;
+                }
+                if (this.c.getTotalScrollY() <= f2) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f2);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
+                }
+            }
+            float f3 = this.a;
+            if (f3 < 0.0f) {
+                this.a = f3 + 20.0f;
+            } else {
+                this.a = f3 - 20.0f;
+            }
+            this.c.getHandler().sendEmptyMessage(1000);
         }
-        return invokeCommon.booleanValue;
     }
 }

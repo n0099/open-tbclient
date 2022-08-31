@@ -1,185 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.LocalViewSize;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class o55 {
+public class o55<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static o55 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public fg<String, an> a;
-    public fg<String, an> b;
-    public fg<String, Bitmap> c;
-    public fg<String, an> d;
-    public gg<yg5> e;
-    public dh5 f;
+    public WeakReference<b<T>> a;
+    public d b;
+    public String c;
+    public o55<T>.c d;
+    public T e;
+    public final ImageUploader f;
+    public int g;
 
     /* loaded from: classes5.dex */
-    public class a extends fg<String, an> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(o55 o55Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o55Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fg
-        /* renamed from: o */
-        public void b(boolean z, String str, an anVar, an anVar2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, anVar, anVar2}) == null) || anVar == null) {
-                return;
-            }
-            anVar.x();
-        }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends fg<String, an> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(o55 o55Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o55Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fg
-        /* renamed from: o */
-        public void b(boolean z, String str, an anVar, an anVar2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), str, anVar, anVar2}) == null) || anVar == null) {
-                return;
-            }
-            BdLog.isDebugMode();
-            anVar.x();
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016308, str));
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fg
-        /* renamed from: p */
-        public int m(String str, an anVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, anVar)) == null) {
-                if (anVar != null) {
-                    return anVar.B();
-                }
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
+    public interface b<T> {
+        void a(int i, T t);
     }
 
     /* loaded from: classes5.dex */
-    public class c extends fg<String, Bitmap> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(o55 o55Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o55Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fg
-        /* renamed from: o */
-        public void b(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) || bitmap == null) {
-                return;
-            }
-            bitmap.recycle();
-        }
+    public interface d {
+        void a(String str, ImageUploadResult imageUploadResult);
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983258, "Lcom/baidu/tieba/o55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947983258, "Lcom/baidu/tieba/o55;");
-                return;
-            }
-        }
-        g = new o55();
-    }
-
-    public o55() {
+    public o55(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -187,209 +60,214 @@ public class o55 {
         this.b = null;
         this.c = null;
         this.d = null;
-        this.a = new a(this, 0);
-        this.b = new b(this, 0);
-        this.c = new c(this, 0);
-        this.d = new fg<>(Integer.MAX_VALUE);
+        this.c = str;
+        this.f = new ImageUploader(str2);
     }
 
-    public static o55 k() {
+    public T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? g : (o55) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (T) invokeV.objValue;
     }
 
-    public void a(String str, Bitmap bitmap) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) || StringUtils.isNull(str) || bitmap == null) {
-            return;
-        }
-        this.c.h(str, bitmap);
-    }
-
-    public void b(String str, an anVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, anVar) == null) {
-            c(str, anVar, false);
-        }
-    }
-
-    public void c(String str, an anVar, boolean z) {
-        fg<String, an> fgVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, anVar, z) == null) || anVar == null || (fgVar = this.a) == null) {
-            return;
-        }
-        fgVar.h(str, anVar);
-    }
-
-    public void d(String str, an anVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, anVar) == null) {
-            e(str, anVar, false);
-        }
-    }
-
-    public void e(String str, an anVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048580, this, str, anVar, z) == null) || anVar == null || this.b == null) {
-            return;
-        }
-        BdLog.isDebugMode();
-        this.b.h(str, anVar);
-    }
-
-    public void f(String str, an anVar) {
-        fg<String, an> fgVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048581, this, str, anVar) == null) || anVar == null || (fgVar = this.d) == null) {
-            return;
-        }
-        fgVar.h(str, anVar);
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a.i(str);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.d == null) {
+            o55<T>.c cVar = new c(this, null);
+            this.d = cVar;
+            cVar.e(z);
+            this.d.f(this.g);
+            this.d.execute(new String[0]);
         }
     }
 
     public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.b.i(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f.setGroupId(str);
         }
     }
 
-    public boolean i(int i) {
-        InterceptResult invokeI;
+    public void i(T t) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.b.e(i) : invokeI.booleanValue;
-    }
-
-    public Bitmap j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.c.f(str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            this.e = t;
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public an l(String str) {
-        InterceptResult invokeL;
+    public void j() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? this.a.f(str) : (an) invokeL.objValue;
-    }
-
-    public an m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) ? this.b.f(str) : (an) invokeL.objValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b.g() : invokeV.intValue;
-    }
-
-    public an o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return this.d.f(str);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LocalViewSize.ImageSize msgSPicMaxSize = LocalViewSize.getInstance().getMsgSPicMaxSize();
+            LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
+            k(msgBPicMaxSize.width, msgBPicMaxSize.height, msgSPicMaxSize.width, msgSPicMaxSize.height);
         }
-        return (an) invokeL.objValue;
     }
 
-    public gg<yg5> p(int i) {
-        InterceptResult invokeI;
-        dh5 dh5Var;
+    public void k(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            if (this.e != null && (dh5Var = this.f) != null) {
-                if (dh5Var.g() == i) {
-                    return this.e;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            this.f.setServersideResize(i, i2, i3, i4);
+        }
+    }
+
+    public void l(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
+            this.b = dVar;
+        }
+    }
+
+    public void m(b<T> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.a = new WeakReference<>(bVar);
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends BdAsyncTask<String, Integer, ImageUploadResult> implements ImageUploader.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public int b;
+        public final /* synthetic */ o55 c;
+
+        public c(o55 o55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.f.j(i);
-                this.e.c();
             }
-            if (this.f == null) {
-                this.f = new dh5(i);
+            this.c = o55Var;
+            this.a = false;
+        }
+
+        @Override // com.baidu.tbadk.img.ImageUploader.a
+        public void a(String str, Object obj, long j, long j2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, obj, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                if (j2 == 0) {
+                    i = 0;
+                } else {
+                    i = (int) ((((float) j) * 100.0f) / ((float) j2));
+                    if (i > 100) {
+                        i = 90;
+                    }
+                }
+                publishProgress(Integer.valueOf(i));
             }
-            if (this.e == null) {
-                this.e = new gg<>(this.f, 6, 0);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) ? g() : (ImageUploadResult) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                this.c.d = null;
+                if (this.c.b != null) {
+                    if (imageUploadResult == null) {
+                        imageUploadResult = new ImageUploadResult();
+                        imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_ERROR;
+                        imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1107);
+                    }
+                    this.c.b.a(this.c.c, imageUploadResult);
+                }
             }
-            return this.e;
         }
-        return (gg) invokeI.objValue;
-    }
 
-    public void q(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
-            t(i);
-            u(i2);
-            s(60);
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.cancel();
+                this.c.d = null;
+                this.c.f.cancel();
+            }
         }
-    }
 
-    public void r() {
-        gg<yg5> ggVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (ggVar = this.e) == null) {
-            return;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onProgressUpdate(Integer... numArr) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048580, this, numArr) == null) || numArr == null || numArr.length == 0 || this.c.a == null || this.c.a.get() == null) {
+                return;
+            }
+            ((b) this.c.a.get()).a(numArr[0].intValue(), this.c.e);
         }
-        ggVar.g(0);
-        this.e.f(0);
-        this.e.c();
-        this.e = null;
-    }
 
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.c.k(i);
+        public void e(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+                this.a = z;
+            }
         }
-    }
 
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.a.k(i);
+        public void f(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.b = i;
+            }
         }
-    }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "pic:" + this.b.toString() + "  photo:" + this.a.toString();
+        public final ImageUploadResult g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                this.c.f.setImageUploadProgressCallback(this, null);
+                this.c.f.setWaterMaskType(this.b);
+                ImageUploadResult uploadInBackground = this.c.f.uploadInBackground(this.c.c, this.a);
+                publishProgress(100);
+                return uploadInBackground;
+            }
+            return (ImageUploadResult) invokeV.objValue;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.b.k(i);
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreCancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+                super.onPreCancel();
+                if (this.c.b != null) {
+                    ImageUploadResult imageUploadResult = new ImageUploadResult();
+                    imageUploadResult.error_code = ImageUploadResult.INTER_ERROR_SEND_CALCELLED;
+                    imageUploadResult.error_msg = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f1107);
+                    this.c.b.a(this.c.c, imageUploadResult);
+                }
+            }
         }
-    }
 
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.b.l() + "/" + this.b.g() + "/" + this.b.d() + "_" + this.a.l() + "/" + this.a.g() + "/" + this.a.d();
+        public /* synthetic */ c(o55 o55Var, a aVar) {
+            this(o55Var);
         }
-        return (String) invokeV.objValue;
     }
 }

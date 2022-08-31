@@ -1,106 +1,129 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
+import android.hardware.Camera;
+import android.os.AsyncTask;
 import android.os.Build;
-import android.util.TypedValue;
-import android.view.Display;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ya8 {
+public class ya8 extends AsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Camera a;
+    public byte[] b;
+    public a c;
+    public int d;
 
-    public static Bitmap a(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        float height;
-        float width;
+    /* loaded from: classes6.dex */
+    public interface a {
+        String a(byte[] bArr, int i, int i2, boolean z);
+    }
+
+    public ya8(Camera camera, byte[] bArr, a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
-            if (bitmap == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {camera, bArr, aVar, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = camera;
+        this.b = bArr;
+        this.c = aVar;
+        this.d = i;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getStatus() == AsyncTask.Status.FINISHED) {
+            return;
+        }
+        cancel(true);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.os.AsyncTask
+    /* renamed from: b */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        Camera.Parameters parameters;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            Camera camera = this.a;
+            if (camera == null) {
                 return null;
             }
-            Matrix matrix = new Matrix();
-            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
-            if (i == 90) {
-                height = bitmap.getHeight();
-                width = 0.0f;
-            } else {
-                height = bitmap.getHeight();
-                width = bitmap.getWidth();
+            try {
+                parameters = camera.getParameters();
+            } catch (RuntimeException e) {
+                BdLog.e(e);
+                parameters = null;
             }
-            float[] fArr = new float[9];
-            matrix.getValues(fArr);
-            matrix.postTranslate(height - fArr[2], width - fArr[5]);
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
-            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
-            return createBitmap;
-        }
-        return (Bitmap) invokeLI.objValue;
-    }
-
-    public static int b(Context context, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) ? (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
-    }
-
-    public static final int c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Point d = d(context);
-            return d.x > d.y ? 1 : 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static Point d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
-            Point point = new Point();
-            if (Build.VERSION.SDK_INT >= 13) {
-                defaultDisplay.getSize(point);
-            } else {
-                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
-            }
-            return point;
-        }
-        return (Point) invokeL.objValue;
-    }
-
-    public static Bitmap e(Bitmap bitmap, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
-            if (bitmap == null) {
+            if (parameters == null) {
                 return null;
             }
-            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-            Canvas canvas = new Canvas(createBitmap);
-            Paint paint = new Paint();
-            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
-            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
-            return createBitmap;
+            Camera.Size previewSize = parameters.getPreviewSize();
+            int i = previewSize.width;
+            int i2 = previewSize.height;
+            byte[] bArr = this.b;
+            if (this.d == 0) {
+                bArr = new byte[bArr.length];
+                for (int i3 = 0; i3 < i2; i3++) {
+                    for (int i4 = 0; i4 < i; i4++) {
+                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.b[(i3 * i) + i4];
+                    }
+                }
+                i = i2;
+                i2 = i;
+            }
+            try {
+                try {
+                    if (this.c == null) {
+                        return null;
+                    }
+                    return this.c.a(bArr, i, i2, false);
+                } catch (Exception unused) {
+                    return null;
+                }
+            } catch (Exception unused2) {
+                return this.c.a(bArr, i, i2, true);
+            }
         }
-        return (Bitmap) invokeLI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static int f(Context context, float f) {
-        InterceptResult invokeLF;
+    public ya8 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) ? (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics()) : invokeLF.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (Build.VERSION.SDK_INT >= 11) {
+                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
+            } else {
+                execute(new Void[0]);
+            }
+            return this;
+        }
+        return (ya8) invokeV.objValue;
+    }
+
+    @Override // android.os.AsyncTask
+    public void onCancelled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onCancelled();
+            this.c = null;
+        }
     }
 }

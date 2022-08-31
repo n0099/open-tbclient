@@ -11,16 +11,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class hp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
+    public final MainTabActivity a;
+    public final sn8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hp8(MainTabActivity mainTabActivity) {
-        super(2921654);
+    public hp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2007009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,20 +33,22 @@ public class hp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
+        this.b = sn8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                this.b.v(true);
+            } else if (num.intValue() == 1) {
+                this.b.v(false);
+            } else {
+                this.b.v(false);
+            }
         }
-        s35 s35Var = customResponsedMessage.getData() instanceof s35 ? (s35) customResponsedMessage.getData() : null;
-        if (s35Var == null || s35Var.b() != 0) {
-            return;
-        }
-        MainTabActivity mainTabActivity = this.a;
-        new r35(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f091fc3), s35Var).m();
     }
 }

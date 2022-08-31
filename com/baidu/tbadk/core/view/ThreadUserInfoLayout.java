@@ -38,9 +38,9 @@ import com.baidu.tbadk.switchs.NickNameActivitySwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.km4;
+import com.baidu.tieba.ls7;
 import com.baidu.tieba.ml4;
 import com.baidu.tieba.nl4;
-import com.baidu.tieba.ns7;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -688,9 +688,9 @@ public class ThreadUserInfoLayout extends LinearLayout {
             if (!NickNameActivitySwitch.isOn() || name_show == null || name_show.equals(userName)) {
                 return;
             }
-            this.c.setText(ns7.b(this.q, this.c.getText().toString()));
+            this.c.setText(ls7.b(this.q, this.c.getText().toString()));
             this.c.setGravity(16);
-            this.c.setTag(R.id.obfuscated_res_0x7f092014, ns7.a());
+            this.c.setTag(R.id.obfuscated_res_0x7f092014, ls7.a());
             SkinManager.setViewTextColor(this.c, R.color.CAM_X0312, 1);
         }
     }

@@ -1,69 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Date;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class yh8 {
+public abstract class yh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdTypeRecyclerView b;
-    public zh8 c;
-    public xn d;
-    public List<cn> e;
+    public String a;
+    public int b;
 
-    public yh8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public yh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new LinkedList();
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        a();
     }
 
-    public final void a() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zh8 zh8Var = new zh8(this.a);
-            this.c = zh8Var;
-            this.e.add(zh8Var);
-            xn xnVar = new xn(this.a);
-            this.d = xnVar;
-            this.e.add(xnVar);
-            this.b.a(this.e);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    public abstract void d(JSONObject jSONObject) throws Exception;
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            try {
+                f(new JSONObject(str));
+            } catch (Exception e) {
+                g("网络不给力呀");
+                e.printStackTrace();
+            }
         }
     }
 
-    public void b() {
+    public void f(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
+            try {
+                int optInt = jSONObject.optInt("error_code", 0);
+                this.b = optInt;
+                if (optInt != 0) {
+                    g(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络不给力呀"));
+                    return;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("error");
+                if (optJSONObject != null) {
+                    int optInt2 = optJSONObject.optInt("errno", 0);
+                    this.b = optInt2;
+                    if (optInt2 != 0) {
+                        g(optJSONObject.optString(VideoFinishResult.KEY_ERROR_USER_MSG, "网络不给力呀"));
+                        return;
+                    }
+                }
+                long optLong = jSONObject.optLong("ctime", 0L);
+                if (optLong > 0) {
+                    new Date(optLong * 1000);
+                }
+                d(jSONObject);
+            } catch (Exception e) {
+                g("网络不给力呀");
+                e.printStackTrace();
+            }
         }
     }
 
-    public void c(List<pn> list) {
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setData(list);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
         }
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.ThreadRecommendTagData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lw4;
-import com.baidu.tieba.nj8;
+import com.baidu.tieba.jw4;
+import com.baidu.tieba.lj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,16 +46,16 @@ public class ThreadRecommendTagUtil {
             }
             if (TbadkApplication.getInst().getSkinType() == 1) {
                 if (isElementValid(themeColorInfo.night)) {
-                    return nj8.f(themeColorInfo.night.common_color);
+                    return lj8.f(themeColorInfo.night.common_color);
                 }
                 return -1;
             } else if (TbadkApplication.getInst().getSkinType() == 4) {
                 if (isElementValid(themeColorInfo.dark)) {
-                    return nj8.f(themeColorInfo.dark.common_color);
+                    return lj8.f(themeColorInfo.dark.common_color);
                 }
                 return -1;
             } else if (isElementValid(themeColorInfo.day)) {
-                return nj8.f(themeColorInfo.day.common_color);
+                return lj8.f(themeColorInfo.day.common_color);
             } else {
                 return -1;
             }
@@ -87,7 +87,7 @@ public class ThreadRecommendTagUtil {
         int color2 = getColor(threadRecommendTagData.getBackgroundColor());
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        lw4.b bVar = new lw4.b();
+        jw4.b bVar = new jw4.b();
         bVar.n(UtilHelper.getDimenPixelSize(R.dimen.tbds10));
         bVar.q(R.dimen.T_X10);
         bVar.o(dimenPixelSize);

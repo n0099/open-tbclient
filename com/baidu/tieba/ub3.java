@@ -221,13 +221,13 @@ public abstract class ub3 implements vb3, wb3 {
 
         /* renamed from: com.baidu.tieba.ub3$c$c  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0413c implements Runnable {
+        public class RunnableC0420c implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ tf3 a;
             public final /* synthetic */ c b;
 
-            public RunnableC0413c(c cVar, tf3 tf3Var) {
+            public RunnableC0420c(c cVar, tf3 tf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -328,7 +328,7 @@ public abstract class ub3 implements vb3, wb3 {
             if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tf3Var) == null) || tf3Var == null) {
                 return;
             }
-            ud3.k(new RunnableC0413c(this, tf3Var), "wifiScan");
+            ud3.k(new RunnableC0420c(this, tf3Var), "wifiScan");
         }
 
         @Override // com.baidu.tieba.wb3

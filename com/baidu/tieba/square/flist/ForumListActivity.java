@@ -29,13 +29,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bv4;
 import com.baidu.tieba.c9;
-import com.baidu.tieba.dv4;
+import com.baidu.tieba.di8;
+import com.baidu.tieba.ei8;
 import com.baidu.tieba.fi8;
-import com.baidu.tieba.gi8;
-import com.baidu.tieba.hi8;
-import com.baidu.tieba.jk8;
-import com.baidu.tieba.mi8;
+import com.baidu.tieba.hk8;
+import com.baidu.tieba.ki8;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
@@ -62,13 +62,13 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
     public static String K = "";
     public static String L = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public gi8 A;
+    public ei8 A;
     public DirMenuModel B;
     public ForumListDetailModel C;
     public final ForumListDetailModel.b D;
     public final DirMenuModel.c E;
     public final AdapterView.OnItemClickListener F;
-    public final dv4.g G;
+    public final bv4.g G;
     public int a;
     public int b;
     public Drawable c;
@@ -90,11 +90,11 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
     public int s;
     public boolean t;
     public boolean u;
-    public hi8 v;
+    public fi8 v;
     public ForumListModel.RequestParams w;
     public boolean x;
     public boolean y;
-    public gi8 z;
+    public ei8 z;
 
     /* loaded from: classes5.dex */
     public class a implements ForumListDetailModel.b {
@@ -224,9 +224,9 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
         }
 
         @Override // com.baidu.tieba.square.flist.DirMenuModel.c
-        public void a(boolean z, int i, mi8 mi8Var, String str, boolean z2) {
+        public void a(boolean z, int i, ki8 ki8Var, String str, boolean z2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), mi8Var, str, Boolean.valueOf(z2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), ki8Var, str, Boolean.valueOf(z2)}) == null) {
                 if (!z || i != 0) {
                     if (z2) {
                         return;
@@ -234,10 +234,10 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                     this.a.v.e();
                     return;
                 }
-                mi8Var.e.add(0, mi8Var);
-                fi8 fi8Var = this.a.v.y;
-                if (fi8Var != null) {
-                    fi8Var.e(mi8Var);
+                ki8Var.e.add(0, ki8Var);
+                di8 di8Var = this.a.v.y;
+                if (di8Var != null) {
+                    di8Var.e(ki8Var);
                     ForumListActivity forumListActivity = this.a;
                     forumListActivity.k2(String.valueOf(forumListActivity.v.g.getText()));
                     ForumListActivity forumListActivity2 = this.a;
@@ -285,14 +285,14 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                 this.a.p = i;
                 this.a.v.e();
                 this.a.v.h();
-                ArrayList<mi8> arrayList = this.a.v.y.c().e;
+                ArrayList<ki8> arrayList = this.a.v.y.c().e;
                 this.a.g2(arrayList.get(i).b, arrayList.get(i).c, arrayList.get(i).a);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements dv4.g {
+    public class d implements bv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumListActivity a;
@@ -315,7 +315,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             this.a = forumListActivity;
         }
 
-        @Override // com.baidu.tieba.dv4.g
+        @Override // com.baidu.tieba.bv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.z.c() || this.a.A.c()) {
@@ -449,7 +449,7 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
                     if (this.b.n.getErrorCode() != 0) {
                         ForumListActivity forumListActivity2 = this.b;
                         forumListActivity2.showToast(forumListActivity2.n.getErrorString());
-                    } else if (((jk8) obj).m() == 1) {
+                    } else if (((hk8) obj).m() == 1) {
                         if (this.b.m == 0) {
                             this.b.z.notifyDataSetChanged();
                             TbadkCoreApplication.getInst().addLikeForum(this.a[this.b.z.b].forum_name);
@@ -730,12 +730,12 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
     }
 
     public final void k2(String str) {
-        mi8 c2;
+        ki8 c2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (c2 = this.v.y.c()) == null) {
             return;
         }
-        ArrayList<mi8> arrayList = c2.e;
+        ArrayList<ki8> arrayList = c2.e;
         int size = arrayList.size();
         for (int i2 = 0; i2 < size; i2++) {
             if (arrayList.get(i2).b.equals(str)) {
@@ -860,18 +860,18 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             String stringExtra2 = getIntent().getStringExtra("level_2_menu_name");
             String stringExtra3 = getIntent().getStringExtra(ForumListActivityConfig.KEY_PARENT_MENU_ID);
             String stringExtra4 = getIntent().getStringExtra(ForumListActivityConfig.KEY_MENU_TYPE);
-            hi8 hi8Var = new hi8(this);
-            this.v = hi8Var;
-            hi8Var.i = (BdListView) i2();
+            fi8 fi8Var = new fi8(this);
+            this.v = fi8Var;
+            fi8Var.i = (BdListView) i2();
             this.v.j = (BdListView) h2();
             this.v.A.setVisibility(0);
             this.v.z.setOnClickListener(null);
             this.v.z.setClickable(false);
             this.v.d.setAdapter(new h(this));
-            hi8 hi8Var2 = this.v;
-            hi8Var2.i.setPullRefresh(hi8Var2.s);
-            hi8 hi8Var3 = this.v;
-            hi8Var3.j.setPullRefresh(hi8Var3.t);
+            fi8 fi8Var2 = this.v;
+            fi8Var2.i.setPullRefresh(fi8Var2.s);
+            fi8 fi8Var3 = this.v;
+            fi8Var3.j.setPullRefresh(fi8Var3.t);
             if (pg.e(stringExtra3, 0) != 0) {
                 f2 = ri.f(getActivity(), R.dimen.obfuscated_res_0x7f070282);
             } else {
@@ -883,12 +883,12 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + f2));
             this.v.j.x(textView2, 0);
-            gi8 gi8Var = new gi8(getPageContext(), 0);
-            this.z = gi8Var;
-            this.v.i.setAdapter((ListAdapter) gi8Var);
-            gi8 gi8Var2 = new gi8(getPageContext(), 1);
-            this.A = gi8Var2;
-            this.v.j.setAdapter((ListAdapter) gi8Var2);
+            ei8 ei8Var = new ei8(getPageContext(), 0);
+            this.z = ei8Var;
+            this.v.i.setAdapter((ListAdapter) ei8Var);
+            ei8 ei8Var2 = new ei8(getPageContext(), 1);
+            this.A = ei8Var2;
+            this.v.j.setAdapter((ListAdapter) ei8Var2);
             f2(stringExtra, stringExtra3, stringExtra4, stringExtra2);
         }
     }
@@ -972,14 +972,14 @@ public class ForumListActivity extends BaseActivity<ForumListActivity> implement
             if (currentAccount == null || currentAccount.length() <= 0) {
                 return;
             }
-            gi8 gi8Var = this.z;
-            if (gi8Var != null) {
-                gi8Var.k();
+            ei8 ei8Var = this.z;
+            if (ei8Var != null) {
+                ei8Var.k();
                 this.z.notifyDataSetChanged();
             }
-            gi8 gi8Var2 = this.A;
-            if (gi8Var2 != null) {
-                gi8Var2.k();
+            ei8 ei8Var2 = this.A;
+            if (ei8Var2 != null) {
+                ei8Var2.k();
                 this.A.notifyDataSetChanged();
             }
         }

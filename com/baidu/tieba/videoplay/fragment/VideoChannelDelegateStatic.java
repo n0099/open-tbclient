@@ -23,12 +23,12 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
+import com.baidu.tieba.q65;
+import com.baidu.tieba.r65;
 import com.baidu.tieba.s65;
 import com.baidu.tieba.t65;
-import com.baidu.tieba.u65;
-import com.baidu.tieba.v65;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.z65;
+import com.baidu.tieba.w65;
+import com.baidu.tieba.x65;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.VideoRedIcon.RedIcon;
 /* loaded from: classes6.dex */
-public class VideoChannelDelegateStatic extends s65 {
+public class VideoChannelDelegateStatic extends q65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
@@ -76,7 +76,7 @@ public class VideoChannelDelegateStatic extends s65 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2007002 && customResponsedMessage.getData() != null) {
-                ((u65) customResponsedMessage.getData()).a(new VideoChannelDelegateStatic());
+                ((s65) customResponsedMessage.getData()).a(new VideoChannelDelegateStatic());
             }
         }
     }
@@ -158,7 +158,7 @@ public class VideoChannelDelegateStatic extends s65 {
     }
 
     /* loaded from: classes6.dex */
-    public class d implements v65.a {
+    public class d implements t65.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -181,7 +181,7 @@ public class VideoChannelDelegateStatic extends s65 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.v65.a
+        @Override // com.baidu.tieba.t65.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -258,12 +258,12 @@ public class VideoChannelDelegateStatic extends s65 {
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             RedIcon redIcon;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof z65)) {
-                z65 z65Var = (z65) responsedMessage;
-                if (z65Var.getResData() == null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && (responsedMessage instanceof x65)) {
+                x65 x65Var = (x65) responsedMessage;
+                if (x65Var.getResData() == null) {
                     return;
                 }
-                List<RedIcon> dataList = z65Var.getDataList();
+                List<RedIcon> dataList = x65Var.getDataList();
                 if (ListUtils.isEmpty(dataList) || (redIcon = dataList.get(0)) == null || redIcon.type.intValue() != 1) {
                     return;
                 }
@@ -316,33 +316,33 @@ public class VideoChannelDelegateStatic extends s65 {
         return i;
     }
 
-    @Override // com.baidu.tieba.s65
-    public t65 a() {
+    @Override // com.baidu.tieba.q65
+    public r65 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            t65 t65Var = new t65();
+            r65 r65Var = new r65();
             Bundle bundle = new Bundle();
             VideoChannelFragment videoChannelFragment = new VideoChannelFragment();
             videoChannelFragment.T1(BdUniqueId.gen());
-            t65Var.a = videoChannelFragment;
+            r65Var.a = videoChannelFragment;
             videoChannelFragment.setArguments(bundle);
-            t65Var.e = 22;
-            t65Var.b = R.string.obfuscated_res_0x7f0f150f;
-            t65Var.i = t65.l;
-            t65Var.f = R.raw.lottie_tab_video_channel;
-            t65Var.h = y65.d().c("channel");
-            return t65Var;
+            r65Var.e = 22;
+            r65Var.b = R.string.obfuscated_res_0x7f0f150f;
+            r65Var.i = r65.l;
+            r65Var.f = R.raw.lottie_tab_video_channel;
+            r65Var.h = w65.d().c("channel");
+            return r65Var;
         }
-        return (t65) invokeV.objValue;
+        return (r65) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s65
+    @Override // com.baidu.tieba.q65
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) v65.e().d(1003, new d(this, context));
+            this.b = (MaintabBottomIndicator) t65.e().d(1003, new d(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             TbFragmentTabIndicator tbFragmentTabIndicator = this.b;
@@ -355,14 +355,14 @@ public class VideoChannelDelegateStatic extends s65 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s65
+    @Override // com.baidu.tieba.q65
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.VIDEO_CHANNEL_TAB_AVAILABLE : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.s65
+    @Override // com.baidu.tieba.q65
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -373,7 +373,7 @@ public class VideoChannelDelegateStatic extends s65 {
         }
     }
 
-    @Override // com.baidu.tieba.s65
+    @Override // com.baidu.tieba.q65
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -390,10 +390,10 @@ public class VideoChannelDelegateStatic extends s65 {
     public final void j(@NonNull RedIcon redIcon) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, redIcon) == null) {
-            t65 t65Var = new t65();
-            t65Var.g = redIcon.image;
-            t65Var.e = 22;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, t65Var));
+            r65 r65Var = new r65();
+            r65Var.g = redIcon.image;
+            r65Var.e = 22;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921492, r65Var));
         }
     }
 

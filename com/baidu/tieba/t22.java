@@ -33,11 +33,11 @@ public class t22 extends i82 {
 
         /* renamed from: com.baidu.tieba.t22$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0403a implements Runnable {
+        public class RunnableC0407a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0403a(a aVar) {
+            public RunnableC0407a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -161,7 +161,7 @@ public class t22 extends i82 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 ay1.k("SwanAppV8DaemonEngine", "reload");
-                ue3.a0(new RunnableC0403a(this));
+                ue3.a0(new RunnableC0407a(this));
             }
         }
 

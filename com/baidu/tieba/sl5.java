@@ -1,27 +1,28 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.o69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.SampleResult;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class sl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, tl5> a;
-    public ArrayList<Integer> b;
-    public ul5 c;
+    public int a;
+    public boolean b;
 
-    public sl5(ul5 ul5Var, ArrayList<Integer> arrayList) {
+    public sl5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ul5Var, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,44 +32,152 @@ public class sl5 {
                 return;
             }
         }
-        this.b = arrayList;
-        this.c = ul5Var;
-        this.a = new HashMap<>();
+        this.b = false;
+        i();
     }
 
-    public int a(String str, int i) {
-        InterceptResult invokeLI;
-        ArrayList<Integer> arrayList;
+    public final int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (this.a == null || qi.isEmpty(str) || (arrayList = this.b) == null || !arrayList.contains(Integer.valueOf(i))) {
-                return 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 1) {
+                return d(i);
             }
-            if (!this.a.containsKey(str)) {
-                b(str);
+            int i2 = this.a;
+            if (i2 == 1) {
+                return c(i);
             }
-            tl5 tl5Var = this.a.get(str);
-            if (tl5Var == null) {
-                return 0;
+            if (i2 == 0) {
+                return d(i);
             }
-            return tl5Var.a(i);
+            return 0;
         }
-        return invokeLI.intValue;
+        return invokeI.intValue;
     }
 
-    public void b(String str) {
+    public void b(ArrayList<Integer> arrayList, rl5 rl5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a == null || qi.isEmpty(str) || this.c == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, rl5Var) == null) || arrayList == null || rl5Var == null) {
             return;
         }
-        if (this.a.containsKey(str)) {
-            tl5 tl5Var = this.a.get(str);
-            this.c.b(this.b, tl5Var);
-            this.a.put(str, tl5Var);
-            return;
+        Iterator<Integer> it = arrayList.iterator();
+        while (it.hasNext()) {
+            int intValue = it.next().intValue();
+            rl5Var.b(intValue, a(intValue));
         }
-        tl5 tl5Var2 = new tl5();
-        this.c.b(this.b, tl5Var2);
-        this.a.put(str, tl5Var2);
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            String e = e(i);
+            if (qi.isEmpty(e)) {
+                return 0;
+            }
+            SampleResult a = n69.a(e);
+            return (a == SampleResult.T1 || a == SampleResult.T2 || a == SampleResult.T3 || a == SampleResult.T4 || a == SampleResult.T5) ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            String f = f(i);
+            return (!qi.isEmpty(f) && su4.k().l(f, 0) == 1) ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final String e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i == 2) {
+                return "46";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i == 1) {
+                return "key_card_show_type";
+            }
+            if (i == 2) {
+                return "key_card_abstract_switch";
+            }
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                try {
+                    o69.a aVar = new o69.a();
+                    aVar.e(TbadkCoreApplication.getInst());
+                    aVar.j(false);
+                    aVar.n(30L);
+                    aVar.m(1);
+                    aVar.l(false);
+                    aVar.o(15L);
+                    aVar.k(1000);
+                    n69.b(aVar.c());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a = su4.k().l("key_abtest_channel", 0);
+            j();
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.b && this.a == 1) {
+            boolean h = h();
+            this.b = h;
+            if (h) {
+                return;
+            }
+            this.a = 0;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (i == 1 || i == 0) {
+                this.a = i;
+                su4.k().w("key_abtest_channel", this.a);
+                j();
+            }
+        }
     }
 }

@@ -3,7 +3,6 @@ package com.baidu.tieba;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -18,10 +17,45 @@ public class lq7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
-    public TextView b;
-    public View c;
-    public View d;
-    public LinearLayout e;
+    public View b;
+    public TextView c;
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Integer a;
+        public final /* synthetic */ lq7 b;
+
+        public a(lq7 lq7Var, Integer num) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lq7Var, num};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lq7Var;
+            this.a = num;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Integer num;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (num = this.a) == null || num.intValue() == 0) {
+                return;
+            }
+            this.b.a.setVisibility(0);
+        }
+    }
 
     public lq7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
@@ -38,55 +72,34 @@ public class lq7 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0254, (ViewGroup) null, false);
-        this.d = inflate;
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0908a0);
-        this.e = linearLayout;
-        linearLayout.setVisibility(8);
-        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f0908a3);
-        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0908a9);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f09089d);
-        this.c = findViewById;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0260, (ViewGroup) null);
+        this.b = inflate;
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0908a3);
+        this.a = findViewById;
         findViewById.setVisibility(8);
+        this.c = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0908a9);
     }
 
-    public View a() {
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            View view2 = this.a;
+            View view2 = this.b;
             if (view2 != null) {
-                SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i);
+                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
             }
-            LinearLayout linearLayout = this.e;
-            if (linearLayout != null) {
-                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0204, i);
+            View view3 = this.a;
+            if (view3 != null) {
+                SkinManager.setBackgroundColor(view3, R.color.CAM_X0204, i);
             }
-            TextView textView = this.b;
+            TextView textView = this.c;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
-                SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204, i);
-            }
-            View view3 = this.c;
-            if (view3 != null) {
-                SkinManager.setViewTextColor(view3, R.color.CAM_X0107, i);
-                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204, i);
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (dq7.b().a()) {
-                this.c.setVisibility(0);
-            } else {
-                this.c.setVisibility(8);
             }
         }
     }
@@ -94,19 +107,8 @@ public class lq7 {
     /* JADX DEBUG: Method merged with bridge method */
     public void update(Integer num) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, num) == null) || num == null) {
-            return;
-        }
-        if (num.intValue() == 0) {
-            this.e.setVisibility(8);
-        } else {
-            this.b.setText(String.format(ij.a(R.string.obfuscated_res_0x7f0f0563), num));
-            this.e.setVisibility(0);
-        }
-        if (dq7.b().a()) {
-            this.c.setVisibility(0);
-        } else {
-            this.c.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+            sg.a().post(new a(this, num));
         }
     }
 }

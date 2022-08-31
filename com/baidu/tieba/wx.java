@@ -160,9 +160,9 @@ public class wx extends uw implements ix<ThreadData>, jx {
         this.m = align;
     }
 
-    public void n(ho4 ho4Var) {
+    public void n(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go4Var) == null) {
             m(Align.ALIGN_RIGHT_TOP);
         }
     }

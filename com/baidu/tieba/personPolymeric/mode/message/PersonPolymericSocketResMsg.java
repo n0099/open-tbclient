@@ -2,7 +2,7 @@ package com.baidu.tieba.personPolymeric.mode.message;
 
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.tieba.n28;
+import com.baidu.tieba.l28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class PersonPolymericSocketResMsg extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return personalResIdl;
                 }
-                n28 personCenterData = personPolymericReqMsg.getPersonCenterData();
+                l28 personCenterData = personPolymericReqMsg.getPersonCenterData();
                 if (personalResIdl.data != null && personCenterData != null) {
                     personCenterData.a(personalResIdl);
                 }

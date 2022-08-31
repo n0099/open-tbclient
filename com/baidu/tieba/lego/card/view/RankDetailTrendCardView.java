@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.kb5;
 import com.baidu.tieba.lego.card.model.RankDetailTrendCard;
-import com.baidu.tieba.mb5;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.oe7;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,7 +69,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ViewHelper.checkUpIsLogin(this.b.getContext())) {
-                qe7 a = qe7.a();
+                oe7 a = oe7.a();
                 RankDetailTrendCard rankDetailTrendCard = this.a;
                 a.e(rankDetailTrendCard, rankDetailTrendCard.getPostUrl(), null, null);
             }
@@ -147,7 +147,7 @@ public class RankDetailTrendCardView extends BaseCardView<RankDetailTrendCard> {
     public void t(RankDetailTrendCard rankDetailTrendCard, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, rankDetailTrendCard, i) == null) {
-            mb5.a(this.i, getRootView());
+            kb5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0108);
             SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0105);

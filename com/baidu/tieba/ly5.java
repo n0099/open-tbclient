@@ -1,30 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
-import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import tbclient.ElectionInfo.Basic;
+import tbclient.ElectionInfo.NoticeContent;
+/* loaded from: classes4.dex */
 public class ly5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public int e;
+    public long f;
+    public int g;
+    public boolean h;
+    public NoticeContent i;
 
-    public ly5(TbPageContext tbPageContext) {
+    public ly5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,24 +36,159 @@ public class ly5 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
-        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, rk8.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
-        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.e = 0;
     }
 
-    public void a(String str, int i, String str2) {
+    public static ly5 j(Basic basic) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
-            commitCardInfoReqMsg.resource_id = str;
-            commitCardInfoReqMsg.card_type = i;
-            commitCardInfoReqMsg.image_info = str2;
-            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, basic)) == null) {
+            if (basic == null) {
+                return null;
+            }
+            ly5 ly5Var = new ly5();
+            ly5Var.r(k(basic.remind_time));
+            ly5Var.s(basic.status.intValue());
+            ly5Var.n(basic.candidate_num.intValue());
+            ly5Var.o(k(basic.begin_apply_time));
+            ly5Var.l(k(basic.begin_audit_time));
+            ly5Var.t(k(basic.begin_vote_time));
+            ly5Var.p(k(basic.begin_public_time));
+            ly5Var.m(basic.is_voted.booleanValue());
+            ly5Var.q(basic.notice);
+            return ly5Var;
+        }
+        return (ly5) invokeL.objValue;
+    }
+
+    public static long k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                return Long.parseLong(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
+    }
+
+    public long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public NoticeContent f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.i : (NoticeContent) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : invokeV.longValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void o(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.a = j;
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.d = j;
+        }
+    }
+
+    public void q(NoticeContent noticeContent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, noticeContent) == null) {
+            this.i = noticeContent;
+        }
+    }
+
+    public void r(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.f = j;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void t(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.c = j;
         }
     }
 }

@@ -42,11 +42,11 @@ public class x40 implements CallFactory.CallFactoryProducer {
 
         /* renamed from: com.baidu.tieba.x40$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0450a implements e50 {
+        public class C0455a implements e50 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0450a(a aVar, Request request) {
+            public C0455a(a aVar, Request request) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -111,7 +111,7 @@ public class x40 implements CallFactory.CallFactoryProducer {
                     }
                     newBuilder.eventListener(new z40(this.c.c));
                     if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0450a(this, e));
+                        Dns a = this.c.d.a(e, new C0455a(this, e));
                         newBuilder.dns(a);
                         newBuilder.addNetworkInterceptor(new b50(a));
                     }

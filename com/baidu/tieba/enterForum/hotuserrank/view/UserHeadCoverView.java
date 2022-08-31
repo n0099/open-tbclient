@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.r76;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.t76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,26 +68,26 @@ public class UserHeadCoverView extends FrameLayout {
         }
     }
 
-    public void setData(t76 t76Var) {
+    public void setData(r76 r76Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t76Var) == null) || t76Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r76Var) == null) || r76Var == null) {
             return;
         }
-        String str = t76Var.a;
+        String str = r76Var.a;
         if (str != null) {
-            if (!str.equals("1") && !t76Var.a.equals("2") && !t76Var.a.equals("3")) {
+            if (!str.equals("1") && !r76Var.a.equals("2") && !r76Var.a.equals("3")) {
                 this.a.setVisibility(8);
                 this.b.setVisibility(8);
             } else {
                 this.a.setVisibility(0);
                 this.b.setVisibility(0);
-                if (t76Var.a.equals("1")) {
+                if (r76Var.a.equals("1")) {
                     SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f1, null);
                     this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810cb));
-                } else if (t76Var.a.equals("2")) {
+                } else if (r76Var.a.equals("2")) {
                     SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f2, null);
                     this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810ca));
-                } else if (t76Var.a.equals("3")) {
+                } else if (r76Var.a.equals("3")) {
                     SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.a, R.drawable.obfuscated_res_0x7f0810f3, null);
                     this.b.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0810c9));
                 }
@@ -96,14 +96,14 @@ public class UserHeadCoverView extends FrameLayout {
             this.a.setVisibility(8);
             this.b.setVisibility(8);
         }
-        if (t76Var.g) {
+        if (r76Var.g) {
             int f = ri.f(TbadkApplication.getInst(), R.dimen.tbds36);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, f);
             layoutParams.gravity = 85;
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(0);
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f0805e5, null);
-        } else if (t76Var.h) {
+        } else if (r76Var.h) {
             int f2 = ri.f(TbadkApplication.getInst(), R.dimen.tbds40);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(f2, f2);
             layoutParams2.gravity = 85;

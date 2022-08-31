@@ -1,20 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class m06 extends BaseCardInfo {
+public abstract class m06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String mBottomLink;
-    public String mBottomText;
-    public String mGroupTitle;
-    public int mRightIconResId;
-    public boolean showBottomDivider;
-    public boolean showTopDivider;
 
     public m06() {
         Interceptable interceptable = $ic;
@@ -26,9 +19,9 @@ public abstract class m06 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.showBottomDivider = true;
     }
+
+    public abstract int sort();
 }

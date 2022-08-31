@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.record.processor;
 import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.fc9;
+import com.baidu.tieba.dc9;
 import com.baidu.tieba.le0;
 import com.baidu.tieba.te0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,10 +38,10 @@ public class ThemeProcessor extends BaseEffectProcessor {
             if (le0Var == null) {
                 return i;
             }
-            int b = fc9.b(le0Var.l());
+            int b = dc9.b(le0Var.l());
             int i2 = i;
             for (int i3 = 1; i3 < b; i3++) {
-                MediaTrack mediaTrack = (MediaTrack) fc9.c(le0Var.l(), i3);
+                MediaTrack mediaTrack = (MediaTrack) dc9.c(le0Var.l(), i3);
                 if (!te0.m(mediaTrack, "effect") && !te0.m(mediaTrack, "template_effect") && !te0.m(mediaTrack, "edit_sticker") && !te0.m(mediaTrack, "multi_input") && !te0.m(mediaTrack, "only_background") && !te0.m(mediaTrack, "watermark") && !te0.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !te0.m(mediaTrack, "user_background")) {
                     i2 = le0Var.i(mediaTrack, i2, null);
                 }

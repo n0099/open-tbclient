@@ -1,179 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.AlaLiveInfo;
-import tbclient.AlaUserInfo;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Item;
+import tbclient.RecommendForumInfo;
+import tbclient.SearchSug.DataRes;
 import tbclient.SugLiveInfo;
-import tbclient.YyExt;
+import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
-public class wh7 implements pn {
+public class wh7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public int d;
-    public int e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
-    public long k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948270659, "Lcom/baidu/tieba/wh7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static List<pn> a(DataRes dataRes, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
+            if (dataRes == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948270659, "Lcom/baidu/tieba/wh7;");
-                return;
+            ArrayList arrayList = new ArrayList();
+            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
+            if (recommendForumInfo != null) {
+                sh7 sh7Var = new sh7();
+                sh7Var.j(recommendForumInfo);
+                arrayList.add(sh7Var);
             }
+            Item item = dataRes.item_card;
+            if (item != null) {
+                th7 th7Var = new th7();
+                th7Var.j(item);
+                arrayList.add(th7Var);
+            }
+            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
+                uh7 uh7Var = new uh7();
+                uh7Var.o(str);
+                uh7Var.n(sugLiveInfo);
+                arrayList.add(uh7Var);
+            }
+            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
+            if (sugRankingInfo != null) {
+                vh7 vh7Var = new vh7();
+                vh7Var.h(str);
+                vh7Var.g(sugRankingInfo);
+                arrayList.add(vh7Var);
+            }
+            int size = arrayList.size();
+            for (String str2 : dataRes.list) {
+                rh7 rh7Var = new rh7();
+                rh7Var.c(str);
+                rh7Var.f(str2);
+                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
+                    arrayList.add(size, rh7Var);
+                } else {
+                    arrayList.add(rh7Var);
+                }
+            }
+            return arrayList;
         }
-        l = BdUniqueId.gen();
-    }
-
-    public wh7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = "";
-        this.b = "";
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.k : invokeV.longValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public long j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public void n(SugLiveInfo sugLiveInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, sugLiveInfo) == null) || sugLiveInfo == null) {
-            return;
-        }
-        this.a = sugLiveInfo.word;
-        AlaLiveInfo alaLiveInfo = sugLiveInfo.ala_info;
-        if (alaLiveInfo != null) {
-            this.k = alaLiveInfo.room_id.longValue();
-            this.d = sugLiveInfo.ala_info.live_type.intValue();
-            AlaUserInfo alaUserInfo = sugLiveInfo.ala_info.user_info;
-            if (alaUserInfo != null) {
-                this.c = alaUserInfo.user_id.longValue();
-            }
-            YyExt yyExt = sugLiveInfo.ala_info.yy_ext;
-            if (yyExt != null) {
-                this.f = yyExt.sid;
-                this.g = yyExt.ssid;
-                this.h = yyExt.template_id;
-                this.i = yyExt.yy_uid;
-                int intValue = yyExt.is_yy_game.intValue();
-                this.e = intValue;
-                this.j = q(this.d, intValue);
-            }
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public final int q(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i, i2)) == null) {
-            if (i == 1) {
-                return 1;
-            }
-            if (i == 0) {
-                return 4;
-            }
-            if (i == 3 && i2 == 0) {
-                return 2;
-            }
-            return (i == 3 && i2 == 1) ? 3 : 5;
-        }
-        return invokeII.intValue;
+        return (List) invokeLL.objValue;
     }
 }

@@ -35,15 +35,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br4;
+import com.baidu.tieba.ar4;
 import com.baidu.tieba.cn4;
 import com.baidu.tieba.ln;
 import com.baidu.tieba.nn;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.uf5;
+import com.baidu.tieba.sf5;
+import com.baidu.tieba.uw4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -87,7 +87,7 @@ public class GodRecommendLayout extends LinearLayout {
             public TextView c;
             public HeadPendantClickableView d;
             public DynamicUserLikeButton e;
-            public ww4 f;
+            public uw4 f;
             public boolean g;
             public final /* synthetic */ GodRecommendListAdapter h;
 
@@ -117,9 +117,9 @@ public class GodRecommendLayout extends LinearLayout {
 
                 @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
                 public void a(View view2) {
-                    ww4 ww4Var;
+                    uw4 uw4Var;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ww4Var = this.a.f) == null || ww4Var.j() == null || this.a.f.j().getIsLike()) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (uw4Var = this.a.f) == null || uw4Var.j() == null || this.a.f.j().getIsLike()) {
                         return;
                     }
                     TiebaStatic.log(new StatisticItem("c13903").param(TiebaStatic.Params.FRIEND_UID, this.a.f.j().getUserId()).param("obj_name", this.a.c.getText().toString()));
@@ -161,9 +161,9 @@ public class GodRecommendLayout extends LinearLayout {
                 this.e = dynamicUserLikeButton;
                 dynamicUserLikeButton.setGodRecommendStyle(true);
                 this.e.setOnClickEvent(new a(this, godRecommendListAdapter));
-                ww4 ww4Var = new ww4(godRecommendListAdapter.b, this.e);
-                this.f = ww4Var;
-                ww4Var.k(true);
+                uw4 uw4Var = new uw4(godRecommendListAdapter.b, this.e);
+                this.f = uw4Var;
+                uw4Var.k(true);
             }
 
             public void b() {
@@ -371,21 +371,21 @@ public class GodRecommendLayout extends LinearLayout {
             }
             String fieldName = metaData.isNewGod() ? metaData.getNewGodData().getFieldName() : null;
             if (!qi.isEmpty(fieldName)) {
-                c = fieldName + uf5.c(metaData.isVideoGod());
+                c = fieldName + sf5.c(metaData.isVideoGod());
             } else {
-                c = uf5.c(metaData.isVideoGod());
+                c = sf5.c(metaData.isVideoGod());
             }
             godViewHolder.c.setText(c);
         }
 
         public final void q(MetaData metaData, GodViewHolder godViewHolder) {
-            ww4 ww4Var;
+            uw4 uw4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048591, this, metaData, godViewHolder) == null) || (ww4Var = godViewHolder.f) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048591, this, metaData, godViewHolder) == null) || (uw4Var = godViewHolder.f) == null) {
                 return;
             }
-            ww4Var.l(this.c);
-            ww4Var.n(metaData);
+            uw4Var.l(this.c);
+            uw4Var.n(metaData);
         }
 
         public final void r(MetaData metaData, GodViewHolder godViewHolder) {
@@ -622,12 +622,12 @@ public class GodRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(br4 br4Var) {
+    public void setData(ar4 ar4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, br4Var) == null) || br4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, ar4Var) == null) || ar4Var == null) {
             return;
         }
-        this.e.setData(br4Var.c());
+        this.e.setData(ar4Var.c());
         this.e.notifyDataSetChanged();
         this.d.scrollToPosition(0);
         this.g.clear();

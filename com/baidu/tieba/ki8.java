@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ki8 extends ai8 {
+public class ki8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<mi8> c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<ki8> e;
 
     public ki8() {
         Interceptable interceptable = $ic;
@@ -25,40 +29,29 @@ public class ki8 extends ai8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.ai8
-    public void d(JSONObject jSONObject) throws Exception {
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<mi8> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            this.d = optString != null ? this.d + "?v=2" : null;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<ki8> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
                 for (int i = 0; i < optJSONArray.length(); i++) {
-                    mi8 mi8Var = new mi8();
-                    mi8Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(mi8Var);
+                    ki8 ki8Var = new ki8();
+                    ki8Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(ki8Var);
                 }
+                this.e = arrayList;
             }
-            i(arrayList);
-        }
-    }
-
-    public ArrayList<mi8> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public void i(ArrayList<mi8> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
-            g(null);
         }
     }
 }

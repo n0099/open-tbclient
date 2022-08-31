@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ei7;
+import com.baidu.tieba.ci7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -115,10 +115,10 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
-            if (!ei7.j().m()) {
+            if (!ci7.j().m()) {
                 finish();
             } else {
-                ei7.j().o(this);
+                ci7.j().o(this);
             }
         }
     }
@@ -126,7 +126,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     public final void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            ei7.j().n();
+            ci7.j().n();
         }
     }
 }

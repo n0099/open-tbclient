@@ -1,24 +1,30 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.bean.LocalAlbumInfo;
-/* loaded from: classes4.dex */
+import com.baidu.ugc.utils.FileUtils;
+/* loaded from: classes3.dex */
 public class ey8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocalAlbumInfo a;
-    public boolean b;
-    public int c;
+    public String a;
+    public Handler b;
+    public final HandlerThread c;
 
-    public ey8() {
+    public ey8(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,31 +34,52 @@ public class ey8 {
                 return;
             }
         }
-        this.c = -1;
+        this.a = str;
+        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
+        this.c = handlerThread;
+        handlerThread.start();
     }
 
-    public LocalAlbumInfo a() {
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String c = dy8.c(this.a, str);
+            if (FileUtils.isExists(c)) {
+                Bitmap f = zb9.f(c);
+                if (f != null) {
+                    ly8.f().g().b(str, f);
+                }
+                return f;
+            }
+            return null;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (LocalAlbumInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void c(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
+            if (this.b == null) {
+                this.b = new Handler(this.c.getLooper());
+            }
+            this.b.post(new my8(this.a, str, bitmap));
         }
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
     }
 }

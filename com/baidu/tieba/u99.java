@@ -1,5 +1,17 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface u99 {
-    void a(t99 t99Var);
+
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(String str, u99 u99Var);
+    }
+
+    void cancel();
+
+    boolean isRunning();
+
+    void pause();
+
+    void start();
 }

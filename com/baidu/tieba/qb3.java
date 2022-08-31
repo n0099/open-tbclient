@@ -40,12 +40,12 @@ public class qb3 extends dp1 {
 
         /* renamed from: com.baidu.tieba.qb3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0384a implements tf3<ac3<zb3>> {
+        public class C0386a implements tf3<ac3<zb3>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0384a(a aVar) {
+            public C0386a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class qb3 extends dp1 {
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                xb3.s(this.a).a(this.b, new C0384a(this));
+                xb3.s(this.a).a(this.b, new C0386a(this));
             }
         }
 

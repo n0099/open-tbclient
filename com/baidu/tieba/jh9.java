@@ -1,114 +1,260 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.widget.Button;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAppDownloadListener;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class jh9 implements TTAppDownloadListener {
+public class jh9 extends ph9<wh9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Button a;
+    public final FunNativeAdListenerHelper<wh9, TTNativeAd.AdInteractionListener> f;
 
-    public jh9(Button button) {
+    /* loaded from: classes4.dex */
+    public class a implements TTAdNative.NativeAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jh9 a;
+
+        public a(jh9 jh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jh9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
+        public void onNativeAdLoad(List<TTNativeAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d("onNativeAdLoad", new Object[0]);
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onNativeAdLoad error: list is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTNativeAd tTNativeAd : list) {
+                    arrayList.add(new wh9(tTNativeAd));
+                }
+                this.a.onAdLoaded((List) arrayList);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements TTNativeAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final wh9 a;
+        public final /* synthetic */ jh9 b;
+
+        public b(jh9 jh9Var, wh9 wh9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jh9Var, wh9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jh9Var;
+            this.a = wh9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdShow(TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdShow(this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jh9(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {button};
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = button;
+        this.f = new FunNativeAdListenerHelper<>(this);
     }
 
-    public final String a(Context context, long j, long j2) {
-        InterceptResult invokeCommon;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) ? j != 0 ? context.getString(R.string.obfuscated_res_0x7f0f077a, String.format("%s/100", Long.valueOf((j2 * 100) / j))) : context.getString(R.string.obfuscated_res_0x7f0f077b) : (String) invokeCommon.objValue;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadActive(long j, long j2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            LogPrinter.d("CSJAppDownloadListener 下载中，点击图片暂停", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(a(button.getContext(), j, j2));
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.f.destroy((wh9) obj);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFailed(long j, long j2, String str, String str2) {
+    public void f(Activity activity, wh9 wh9Var, ViewGroup viewGroup, com.fun.module.csj.g0 g0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            LogPrinter.e("CSJAppDownloadListener 下载失败，点击图片重新下载", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f0779);
-            }
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, wh9Var, viewGroup, g0Var, adInteractionListener) == null) {
+            ((TTNativeAd) wh9Var.a).setActivityForDownloadApp(activity);
+            ((TTNativeAd) wh9Var.a).registerViewForInteraction(viewGroup, g0Var.getClickViews(), g0Var.getCreativeViews(), adInteractionListener);
+            ((TTNativeAd) wh9Var.a).setDownloadListener(g0Var.getDownloadListener());
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadFinished(long j, String str, String str2) {
+    public final void g(Context context, wh9 wh9Var, String str, ViewGroup viewGroup, List<View> list, List<View> list2, TTNativeAd.AdInteractionListener adInteractionListener, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
-            LogPrinter.d("CSJAppDownloadListener 点击图片安装", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f077c);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, wh9Var, str, viewGroup, list, list2, adInteractionListener, funAdInteractionListener}) == null) {
+            if (viewGroup instanceof FunNativeView) {
+                viewGroup = ((FunNativeView) viewGroup).getRoot();
             }
+            this.f.startShow(wh9Var, str, this.mPid, adInteractionListener, funAdInteractionListener);
+            if (context instanceof Activity) {
+                ((TTNativeAd) wh9Var.a).setActivityForDownloadApp((Activity) context);
+            }
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (list2 == null) {
+                list2 = new ArrayList<>();
+            }
+            ((TTNativeAd) wh9Var.a).registerViewForInteraction(viewGroup, list, list2, adInteractionListener);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onDownloadPaused(long j, long j2, String str, String str2) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
-            LogPrinter.d("CSJAppDownloadListener 下载暂停，点击图片继续", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(a(button.getContext(), j, j2));
-            }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) ? new mh9((wh9) obj, str, this.mPid, this) : (FunNativeAd) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
+            wh9 wh9Var = (wh9) obj;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, wh9Var, new mh9(wh9Var, str, this.mPid, this), new nh9(this, this, wh9Var));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    public void h(FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, funAdSlot) == null) {
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
+            Ssp.Pid pid = this.mPid;
+            this.e.loadNativeAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onIdle() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    /* renamed from: l */
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, wh9 wh9Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.e("CSJAppDownloadListener 点击图片开始下载", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f0779);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, wh9Var)) == null) {
+            onShowStart(wh9Var);
+            com.fun.module.csj.g0 a2 = kh9.a((TTNativeAd) wh9Var.a);
+            if (a2 == null) {
+                onAdError(wh9Var, 0, "AdView present failed");
+                return false;
             }
+            viewGroup.removeAllViews();
+            viewGroup.addView(a2);
+            f(activity, wh9Var, viewGroup, a2, new lh9(this, wh9Var, null, str));
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
-    public void onInstalled(String str, String str2) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            LogPrinter.d("CSJAppDownloadListener 安装完成，点击图片打开", new Object[0]);
-            Button button = this.a;
-            if (button != null) {
-                button.setText(R.string.obfuscated_res_0x7f0f077d);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
             }
+            onLoadStart(funAdSlot);
+            h(funAdSlot);
         }
     }
 }

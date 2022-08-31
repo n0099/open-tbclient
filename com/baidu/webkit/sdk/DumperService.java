@@ -8,7 +8,6 @@ import android.net.NetworkInfo;
 import android.os.IBinder;
 import android.telephony.TelephonyManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,7 +150,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             }
             ZwDebug.init(this);
             try {
-                this.mCrashImei = ApiReplaceUtil.getDeviceId((TelephonyManager) getSystemService("phone"));
+                this.mCrashImei = ((TelephonyManager) getSystemService("phone")).getDeviceId();
             } catch (Exception e) {
                 e.printStackTrace();
             }

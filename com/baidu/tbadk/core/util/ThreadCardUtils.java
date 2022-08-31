@@ -34,20 +34,20 @@ import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ax8;
-import com.baidu.tieba.df6;
-import com.baidu.tieba.ho4;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.bf6;
+import com.baidu.tieba.go4;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.tq4;
-import com.baidu.tieba.uz5;
+import com.baidu.tieba.sq4;
+import com.baidu.tieba.sz5;
+import com.baidu.tieba.ue5;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.we5;
-import com.baidu.tieba.yu4;
+import com.baidu.tieba.wu4;
+import com.baidu.tieba.yw8;
 import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -188,7 +188,7 @@ public final class ThreadCardUtils {
         String str = i == 3 ? "frs" : i == 2 ? "index" : "";
         videoItemData.buildWithThreadData(threadData);
         arrayList.add(videoItemData);
-        we5.e(context, arrayList, threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, rect, "from_nani_video", "personalize_page", "", str, str, false, threadData.isJumpToFrsVideoTabPlay, true);
+        ue5.e(context, arrayList, threadData.getBaijiahaoData() != null ? threadData.getBaijiahaoData().oriUgcNid : null, videoItemData.isVerticalVideo == 1, 0, rect, "from_nani_video", "personalize_page", "", str, str, false, threadData.isJumpToFrsVideoTabPlay, true);
     }
 
     public static boolean isNoThreadAbstract(ThreadData threadData) {
@@ -247,12 +247,12 @@ public final class ThreadCardUtils {
         return invokeL.booleanValue;
     }
 
-    public static void jumpToPB(ho4 ho4Var, Context context, int i, boolean z, boolean z2, boolean z3, Rect rect, boolean z4, String str, String str2) {
+    public static void jumpToPB(go4 go4Var, Context context, int i, boolean z, boolean z2, boolean z3, Rect rect, boolean z4, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{ho4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rect, Boolean.valueOf(z4), str, str2}) == null) || ho4Var == null || ho4Var.getThreadData() == null || context == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), rect, Boolean.valueOf(z4), str, str2}) == null) || go4Var == null || go4Var.getThreadData() == null || context == null) {
             return;
         }
-        ThreadData threadData = ho4Var.getThreadData();
+        ThreadData threadData = go4Var.getThreadData();
         if (threadData.getType() == ThreadData.TYPE_FAKE_VIDEO) {
             BdToast b = BdToast.b(context, context.getString(R.string.obfuscated_res_0x7f0f1517));
             b.f(BdToast.ToastIcon.FAILURE);
@@ -264,9 +264,9 @@ public final class ThreadCardUtils {
             gotoNainiPage(context, i, threadData, rect);
             return;
         }
-        String g = uz5.g();
+        String g = sz5.g();
         if (i == 3) {
-            g = uz5.f();
+            g = sz5.f();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(threadData.getFid())));
         }
         PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, g, 18003, true, false, false);
@@ -284,16 +284,16 @@ public final class ThreadCardUtils {
         }
         createFromThreadCfg.setForumName(threadData.getForum_name());
         createFromThreadCfg.setStartFrom(i);
-        if (ho4Var.getPbInputLocate() != null) {
-            createFromThreadCfg.addLocateParam(ho4Var.getPbInputLocate());
+        if (go4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(go4Var.getPbInputLocate());
         }
         if (i == 3) {
             createFromThreadCfg.setVideo_source("frs");
         } else if (i == 2) {
             createFromThreadCfg.setVideo_source("index");
-            tq4 tq4Var = new tq4();
-            tq4Var.b(threadData);
-            createFromThreadCfg.setRecomData(tq4Var);
+            sq4 sq4Var = new sq4();
+            sq4Var.b(threadData);
+            createFromThreadCfg.setRecomData(sq4Var);
         }
         createFromThreadCfg.setJumpGodReply(z);
         if (!z) {
@@ -302,24 +302,24 @@ public final class ThreadCardUtils {
         createFromThreadCfg.setFromHomePageQuality(z3);
         if (TbSingleton.getInstance().isPbPreloadSwitchOn() && isPreloadType(threadData) && !z2 && !z4) {
             createFromThreadCfg.setNeedPreLoad(true);
-            df6.update(threadData);
+            bf6.update(threadData);
         }
         createFromThreadCfg.setThreadData(threadData);
         createFromThreadCfg.setVideoOriginArea(rect);
         createFromThreadCfg.setIsPrivacy(threadData.isPrivacy);
-        uz5.a(threadData.getTid());
+        sz5.a(threadData.getTid());
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
     }
 
-    public static void jumpToPBCommentArea(ho4 ho4Var, Context context, int i, int i2) {
+    public static void jumpToPBCommentArea(go4 go4Var, Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(65563, null, ho4Var, context, i, i2) == null) || ho4Var == null || context == null || ho4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(65563, null, go4Var, context, i, i2) == null) || go4Var == null || context == null || go4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = ho4Var.getThreadData();
-        String g = uz5.g();
+        ThreadData threadData = go4Var.getThreadData();
+        String g = sz5.g();
         if (i == 3) {
-            g = uz5.f();
+            g = sz5.f();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, Long.valueOf(threadData.getFid())));
         }
         PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, g, 18003, true, false, false);
@@ -333,16 +333,16 @@ public final class ThreadCardUtils {
         } else {
             createFromThreadCfg.setFrom("from_personalize");
         }
-        if (ho4Var.getPbInputLocate() != null) {
-            createFromThreadCfg.addLocateParam(ho4Var.getPbInputLocate());
+        if (go4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(go4Var.getPbInputLocate());
         }
         if (i == 3) {
             createFromThreadCfg.setVideo_source("frs");
         } else if (i == 2) {
             createFromThreadCfg.setVideo_source("index");
-            tq4 tq4Var = new tq4();
-            tq4Var.b(threadData);
-            createFromThreadCfg.setRecomData(tq4Var);
+            sq4 sq4Var = new sq4();
+            sq4Var.b(threadData);
+            createFromThreadCfg.setRecomData(sq4Var);
         }
         if (threadData.isQualityReplyThread) {
             createFromThreadCfg.setFromHomePageQuality(true);
@@ -350,7 +350,7 @@ public final class ThreadCardUtils {
         if (threadData.isInterviewLiveStyle() && createFromThreadCfg.getIntent() != null) {
             createFromThreadCfg.getIntent().putExtra("KEY_IS_INTERVIEW_LIVE", true);
         }
-        uz5.a(threadData.getTid());
+        sz5.a(threadData.getTid());
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         cancelHighLight(threadData);
     }
@@ -367,7 +367,7 @@ public final class ThreadCardUtils {
         if (!(interceptable == null || interceptable.invokeL(65569, null, textView) == null) || textView == null) {
             return;
         }
-        os4.d(textView).z(R.dimen.T_X05);
+        ns4.d(textView).z(R.dimen.T_X05);
     }
 
     public static void setOfficialPrefix(SpannableStringBuilder spannableStringBuilder) {
@@ -398,9 +398,9 @@ public final class ThreadCardUtils {
         }
         setAbstractStyleAb(textView);
         if (threadData.threadType != 40) {
-            os4.d(textView).A(R.string.F_X02);
+            ns4.d(textView).A(R.string.F_X02);
         } else {
-            os4.d(textView).A(R.string.F_X01);
+            ns4.d(textView).A(R.string.F_X01);
         }
     }
 
@@ -416,13 +416,13 @@ public final class ThreadCardUtils {
         int f4 = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
         ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds2);
         int f5 = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        yu4 yu4Var = new yu4(f, -1, i, f3, i2, f4, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-        yu4Var.b(f2);
-        yu4Var.i(f5);
-        yu4Var.f(true);
-        yu4Var.g(true);
-        yu4Var.d(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
-        spannableStringBuilder.setSpan(yu4Var, 0, str.length(), 17);
+        wu4 wu4Var = new wu4(f, -1, i, f3, i2, f4, ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+        wu4Var.b(f2);
+        wu4Var.i(f5);
+        wu4Var.f(true);
+        wu4Var.g(true);
+        wu4Var.d(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds7));
+        spannableStringBuilder.setSpan(wu4Var, 0, str.length(), 17);
     }
 
     @Deprecated
@@ -577,7 +577,7 @@ public final class ThreadCardUtils {
                         setSendHelpPrefix(spannableStringBuilder);
                     }
                     setAbstractStyleAb(textView);
-                    textView.setOnTouchListener(new ax8(spannableStringBuilder));
+                    textView.setOnTouchListener(new yw8(spannableStringBuilder));
                     textView.setVisibility(0);
                     int i2 = z2 ? 2 : 5;
                     if (textView2.getVisibility() != 8) {
@@ -596,7 +596,7 @@ public final class ThreadCardUtils {
                 } else {
                     textView.setVisibility(8);
                 }
-                uz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                sz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return;
             }
             textView.setVisibility(8);
@@ -631,13 +631,13 @@ public final class ThreadCardUtils {
                 ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
             }
             textView.setVisibility(0);
-            textView.setOnTouchListener(new ax8(spannableStringBuilder));
+            textView.setOnTouchListener(new yw8(spannableStringBuilder));
             if (i > 0) {
                 cutAndSetTextByMaxLine(textView, spannableStringBuilder, 5, i);
             } else {
                 textView.setText(spannableStringBuilder);
             }
-            uz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            sz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -656,13 +656,13 @@ public final class ThreadCardUtils {
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(" ");
-            spannableStringBuilder2.setSpan(new kw4(ri.f(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
+            spannableStringBuilder2.setSpan(new iw4(ri.f(textView.getContext(), i2)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder(TbadkCoreApplication.getInst().getString(i));
             if (z) {
-                spannableStringBuilder3.setSpan(new ni5(2, null), 0, spannableStringBuilder3.length(), 33);
+                spannableStringBuilder3.setSpan(new li5(2, null), 0, spannableStringBuilder3.length(), 33);
             }
             SpannableStringBuilder spannableStringBuilder4 = new SpannableStringBuilder(" ");
-            spannableStringBuilder4.setSpan(new kw4(ri.f(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
+            spannableStringBuilder4.setSpan(new iw4(ri.f(textView.getContext(), R.dimen.tbds1)), 0, spannableStringBuilder2.length(), 17);
             SpannableStringBuilder spannableStringBuilder5 = new SpannableStringBuilder(str);
             spannableStringBuilder5.append((CharSequence) spannableStringBuilder2);
             if (z2) {
@@ -711,13 +711,13 @@ public final class ThreadCardUtils {
                 ThreadRecommendTagUtil.setTag(spannableStringBuilder, threadData);
             }
             textView.setVisibility(0);
-            textView.setOnTouchListener(new ax8(spannableStringBuilder));
+            textView.setOnTouchListener(new yw8(spannableStringBuilder));
             if (i > 0) {
                 cutAndSetTextByMaxLineForDot(textView, spannableStringBuilder, i2, i);
             } else {
                 textView.setText(spannableStringBuilder);
             }
-            uz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            sz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -778,7 +778,7 @@ public final class ThreadCardUtils {
                         spannableStringBuilder.insert(threadData.getTabName().length(), (CharSequence) TAB_NAME_SPLIT_STRING);
                         spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0203)), threadData.getTabName().length(), threadData.getTabName().length() + 5, 33);
                     }
-                    textView.setOnTouchListener(new ax8(spannableStringBuilder));
+                    textView.setOnTouchListener(new yw8(spannableStringBuilder));
                     setAbstractStyleAb(textView);
                     int a = textView2.getVisibility() != 8 ? 5 - zi.a(i, textView2.getPaint(), textView2.getText().toString(), 2) : 5;
                     if (textView2.getVisibility() != 0) {
@@ -795,7 +795,7 @@ public final class ThreadCardUtils {
                     textView.setVisibility(8);
                 }
                 if (!z) {
-                    uz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return;
                 } else if (textView instanceof TextView) {
                     SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
@@ -808,38 +808,38 @@ public final class ThreadCardUtils {
         }
     }
 
-    public static void jumpToPB(ho4 ho4Var, Context context, int i, boolean z) {
+    public static void jumpToPB(go4 go4Var, Context context, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{ho4Var, context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            jumpToPB(ho4Var, context, i, z, false, false, null, false, "", "");
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            jumpToPB(go4Var, context, i, z, false, false, null, false, "", "");
         }
     }
 
-    public static void jumpToPB(ho4 ho4Var, Context context, int i, boolean z, String str, String str2) {
+    public static void jumpToPB(go4 go4Var, Context context, int i, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{ho4Var, context, Integer.valueOf(i), Boolean.valueOf(z), str, str2}) == null) {
-            jumpToPB(ho4Var, context, i, z, null, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(65560, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z), str, str2}) == null) {
+            jumpToPB(go4Var, context, i, z, null, str, str2);
         }
     }
 
-    public static void jumpToPB(ho4 ho4Var, Context context, int i, boolean z, Rect rect, String str, String str2) {
+    public static void jumpToPB(go4 go4Var, Context context, int i, boolean z, Rect rect, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{ho4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect, str, str2}) == null) {
-            jumpToPB(ho4Var, context, i, z, false, false, rect, false, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect, str, str2}) == null) {
+            jumpToPB(go4Var, context, i, z, false, false, rect, false, str, str2);
         }
     }
 
-    public static void jumpToPB(ho4 ho4Var, Context context, int i, boolean z, Rect rect) {
+    public static void jumpToPB(go4 go4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{ho4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) {
-            jumpToPB(ho4Var, context, i, z, false, false, rect, false, "", "");
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) {
+            jumpToPB(go4Var, context, i, z, false, false, rect, false, "", "");
         }
     }
 
-    public static void jumpToPB(ho4 ho4Var, Context context, int i, boolean z, boolean z2) {
+    public static void jumpToPB(go4 go4Var, Context context, int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{ho4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            jumpToPB(ho4Var, context, i, z, false, false, null, z2, "", "");
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{go4Var, context, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            jumpToPB(go4Var, context, i, z, false, false, null, z2, "", "");
         }
     }
 
@@ -851,9 +851,9 @@ public final class ThreadCardUtils {
         if (threadData != null && spannableString != null && !qi.isEmptyStringAfterTrim(spannableString.toString())) {
             textView.setVisibility(0);
             threadData.setShowFullThread(false);
-            textView.setOnTouchListener(new ax8(spannableString));
+            textView.setOnTouchListener(new yw8(spannableString));
             threadData.setShowFullThread(cutAndSetTextByMaxLine(textView, new SpannableStringBuilder(spannableString), 5, (int) f));
-            uz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            sz5.l(textView, threadData.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
             return;
         }
         textView.setVisibility(8);

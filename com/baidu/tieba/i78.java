@@ -1,20 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetRecommendGodList.DataRes;
-import tbclient.User;
 /* loaded from: classes4.dex */
-public class i78 {
+public class i78 extends o96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<User> b;
 
     public i78() {
         Interceptable interceptable = $ic;
@@ -28,27 +21,5 @@ public class i78 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public br4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            br4 br4Var = new br4();
-            br4Var.d = false;
-            br4Var.f(this.b);
-            return br4Var;
-        }
-        return (br4) invokeV.objValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        this.b = dataRes.recom_user_list;
-        dataRes.has_more.intValue();
-        this.a = dataRes.current_page.intValue();
     }
 }

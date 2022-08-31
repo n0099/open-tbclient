@@ -32,7 +32,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.wr4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -152,7 +152,7 @@ public class pm4 {
                 if (str2.startsWith("tel:")) {
                     UtilHelper.callPhone(tbPageContext.getPageActivity(), str2.substring(4));
                     return 0;
-                } else if (yf5.h(str2) && str2.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
+                } else if (wf5.h(str2) && str2.toLowerCase().endsWith(Constant.FILE.SUFFIX.BUNDLE_SUFFIX)) {
                     pm4.m(tbPageContext.getPageActivity(), str2);
                     return 0;
                 } else {
@@ -173,7 +173,7 @@ public class pm4 {
                     } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
                         String substring = str2.substring(4);
                         if (str2.contains("body=")) {
-                            str = yf5.c(str2, "body=");
+                            str = wf5.c(str2, "body=");
                             int indexOf = substring.indexOf("?");
                             if (indexOf >= 1 && indexOf <= substring.length()) {
                                 str5 = substring.substring(0, indexOf);
@@ -188,7 +188,7 @@ public class pm4 {
                         km4.l(tbPageContext.getPageActivity(), str2);
                         return 1;
                     } else if (UtilHelper.isNativeAdURL(str2)) {
-                        hc8.a(tbPageContext.getPageActivity(), str2, null, null, null);
+                        fc8.a(tbPageContext.getPageActivity(), str2, null, null, null);
                         return 1;
                     } else if (!str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
                         if ((str2.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
@@ -213,10 +213,10 @@ public class pm4 {
                             tbPageContext.getPageActivity().finish();
                             return 1;
                         } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, yf5.c(str2, "bindid=")));
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, wf5.c(str2, "bindid=")));
                             tbPageContext.getPageActivity().finish();
                             return 1;
-                        } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i = yf5.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i.getString("path"))) {
+                        } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i = wf5.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i.getString("path"))) {
                             MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
                             return 0;
                         } else if (str2.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
@@ -266,7 +266,7 @@ public class pm4 {
     }
 
     /* loaded from: classes5.dex */
-    public static class d implements wr4.e {
+    public static class d implements vr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -295,18 +295,18 @@ public class pm4 {
             this.d = bundle;
         }
 
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                wr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
                 km4.q(this.a.getPageActivity(), this.b, this.c, this.d);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements wr4.e {
+    public static class e implements vr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -324,11 +324,11 @@ public class pm4 {
             }
         }
 
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                wr4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
             }
         }
     }
@@ -644,7 +644,7 @@ public class pm4 {
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{tbPageContext, str, str2, Boolean.valueOf(z), bundle}) == null) {
             String i = i(str);
             if (z) {
-                l05.f(tbPageContext, new d(tbPageContext, str2, i, bundle), new e(), i);
+                j05.f(tbPageContext, new d(tbPageContext, str2, i, bundle), new e(), i);
             } else {
                 km4.q(tbPageContext.getPageActivity(), str2, i, bundle);
             }

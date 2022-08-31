@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.dv9;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cx9 implements nv9 {
+public final class cx9<T> implements zu9<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nv9 a;
-    public final dv9.a b;
-    public final long c;
+    public final mv9<? super T> a;
+    public final mv9<? super Throwable> b;
+    public final lv9 c;
 
-    public cx9(nv9 nv9Var, dv9.a aVar, long j) {
+    public cx9(mv9<? super T> mv9Var, mv9<? super Throwable> mv9Var2, lv9 lv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nv9Var, aVar, Long.valueOf(j)};
+            Object[] objArr = {mv9Var, mv9Var2, lv9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,30 +28,32 @@ public class cx9 implements nv9 {
                 return;
             }
         }
-        this.a = nv9Var;
-        this.b = aVar;
-        this.c = j;
+        this.a = mv9Var;
+        this.b = mv9Var2;
+        this.c = lv9Var;
     }
 
-    @Override // com.baidu.tieba.nv9
-    public void call() {
+    @Override // com.baidu.tieba.zu9
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.call();
         }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                mv9.c(e);
-                throw null;
-            }
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.b.call(th);
         }
-        if (this.b.isUnsubscribed()) {
-            return;
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.a.call(t);
         }
-        this.a.call();
     }
 }

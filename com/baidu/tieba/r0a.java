@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import tv.athena.revenue.payui.model.PayFlowModel;
+import tv.athena.revenue.payui.model.PayFlowType;
 /* loaded from: classes5.dex */
 public interface r0a {
-    void a(int i, String str, PayCallBackBean payCallBackBean);
+    PayFlowModel a(PayFlowType payFlowType);
 }

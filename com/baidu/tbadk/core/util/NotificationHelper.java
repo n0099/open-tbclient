@@ -19,8 +19,8 @@ import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ij;
+import com.baidu.tieba.lz4;
 import com.baidu.tieba.nz4;
-import com.baidu.tieba.pz4;
 import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -215,19 +215,19 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!nz4.L() && nz4.R()) {
+            if (!lz4.L() && lz4.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                     boolean z = audioManager.getRingerMode() == 0;
                     boolean z2 = audioManager.getRingerMode() == 1;
-                    if (pz4.d().z()) {
+                    if (nz4.d().z()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (pz4.d().A()) {
+                    if (nz4.d().A()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -239,7 +239,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (pz4.d().v()) {
+            if (nz4.d().v()) {
                 switchData.isLight = true;
             }
             return switchData;

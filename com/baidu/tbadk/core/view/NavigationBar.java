@@ -34,7 +34,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -813,7 +813,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048611, this, d9Var, i) == null) {
             if (this.mIsCorner) {
-                os4 d2 = os4.d(this);
+                ns4 d2 = ns4.d(this);
                 d2.m(1);
                 d2.n(R.string.J_X14);
                 d2.f(this.mBackGroundColor);

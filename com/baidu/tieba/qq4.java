@@ -1,33 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes5.dex */
 public class qq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public View b;
-    public View c;
-    public View d;
-    public View e;
-    public View f;
-    public View g;
-    public View h;
-    public View i;
-    public View j;
-    public View k;
-    public View l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public View r;
-    public View s;
+    public PrivatePopInfo a;
+    public PrivateForumInfo b;
+    public Integer c;
 
     public qq4() {
         Interceptable interceptable = $ic;
@@ -39,31 +29,44 @@ public class qq4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
-    public void a() {
+    public PrivateForumInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-            this.f = null;
-            this.g = null;
-            this.h = null;
-            this.i = null;
-            this.k = null;
-            this.l = null;
-            this.m = null;
-            this.n = null;
-            this.o = null;
-            this.p = null;
-            this.q = null;
-            this.r = null;
-            this.s = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (PrivateForumInfo) invokeV.objValue;
+    }
+
+    public Integer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Integer) invokeV.objValue;
+    }
+
+    public PrivatePopInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (PrivatePopInfo) invokeV.objValue;
+    }
+
+    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, privateForumTotalInfo) == null) || privateForumTotalInfo == null) {
+            return;
+        }
+        try {
+            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
+            this.b = privateForumTotalInfo.private_forum_info;
+            this.c = privateForumTotalInfo.private_forum_taskpercent;
+            this.a = privateForumTotalInfo.private_forum_popinfo;
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

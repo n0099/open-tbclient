@@ -1,133 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.res.AssetManager;
-import android.graphics.BitmapFactory;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.graphics.Rect;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.WebpForceSwitch;
-import com.baidu.tbadk.switchs.WebpSwitch;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ue5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(int i, boolean z, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TbadkCoreApplication.getInst().getCapabilityOfWebp() : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) == null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
     }
 
-    public static void b(@Nullable String str) {
+    public static void b(int i, Context context, ThreadData threadData, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
-            if (loadInt > 5) {
-                TbadkCoreApplication.getInst().setCapableOfWebp(false);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
-                return;
-            }
-            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), context, threadData, Integer.valueOf(i2), rect, str, str2, str3, str4, str5}) == null) || threadData == null) {
+            return;
+        }
+        c(true, context, threadData.getThreadData(), i2, rect, str, str2, str3, str4, str5, threadData.isJumpToFrsVideoTabPlay);
+    }
+
+    public static void c(boolean z, Context context, ThreadData threadData, int i, Rect rect, String str, String str2, String str3, String str4, String str5, boolean z2) {
+        BaijiahaoData baijiahaoData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), context, threadData, Integer.valueOf(i), rect, str, str2, str3, str4, str5, Boolean.valueOf(z2)}) == null) || threadData == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        VideoItemData videoItemData = new VideoItemData();
+        if (z) {
+            videoItemData.buildWithOriginThreadData(threadData.originalThreadData);
+        } else {
+            videoItemData.buildWithThreadData(threadData);
+        }
+        arrayList.add(videoItemData);
+        OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+        boolean z3 = true;
+        if (originalThreadInfo != null && originalThreadInfo.r != null && threadData.getThreadData().originalThreadData.r.is_vertical.intValue() != 1) {
+            z3 = false;
+        }
+        String str6 = null;
+        OriginalThreadInfo originalThreadInfo2 = threadData.originalThreadData;
+        if (originalThreadInfo2 != null && (baijiahaoData = originalThreadInfo2.p) != null) {
+            str6 = baijiahaoData.oriUgcNid;
+        }
+        e(context, arrayList, str6, z3, i, rect, str, str2, str3, str4, str5, false, z2, true);
+    }
+
+    public static void d(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            e(context, list, str, z, i, rect, str2, str3, str4, str5, str6, z2, z3, false);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c() {
-        boolean z;
+    public static void e(Context context, List<VideoItemData> list, String str, boolean z, int i, Rect rect, String str2, String str3, String str4, String str5, String str6, boolean z2, boolean z3, boolean z4) {
+        String str7;
+        String str8;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            int i = 0;
-            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
-                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
-                if (assets != null) {
-                    InputStream inputStream = null;
-                    try {
-                        inputStream = assets.open("webp_test/test.webp");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
-                        z = true;
-                        if (!z) {
-                            TiebaStatic.log("LocalWebpUnSupport");
-                            i = 6;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, list, str, Boolean.valueOf(z), Integer.valueOf(i), rect, str2, str3, str4, str5, str6, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)}) == null) {
+            VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(context, list, i, rect, str2, str3, str4, str5, str6);
+            if (z4) {
+                videoPlayActivityConfig.setForceUseBigDataList(list);
+            }
+            videoPlayActivityConfig.setParamIsVertail(z);
+            TbSingleton.getInstance().setIsNeedShowPbCommentFloat(z2);
+            if (str != null) {
+                videoPlayActivityConfig.setNid(str);
+            }
+            if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
+                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(true);
+            }
+            if (z3) {
+                if (ListUtils.getCount(list) <= 0 || list.get(0) == null || TextUtils.isEmpty(list.get(0).thread_id)) {
+                    str7 = "";
+                } else {
+                    String str9 = list.get(0).thread_id;
+                    str7 = list.get(0).forum_id;
+                    List<VideoItemData> videoTabListByFid = FrsVideoTabPlayActivityConfig.getVideoTabListByFid(str7);
+                    int size = videoTabListByFid.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        if (videoTabListByFid.get(i3) != null && str9.equals(videoTabListByFid.get(i3).thread_id)) {
+                            str8 = str7;
+                            i2 = i3;
+                            break;
                         }
-                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
-                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
-                        return;
                     }
                 }
-                z = false;
-                if (!z) {
+                str8 = str7;
+                i2 = 0;
+                FrsVideoTabPlayActivityConfig frsVideoTabPlayActivityConfig = new FrsVideoTabPlayActivityConfig(context, null, i2, rect, str2, str3, str4, str5, str6);
+                frsVideoTabPlayActivityConfig.setIsShowPbCommentFloat(z2);
+                frsVideoTabPlayActivityConfig.setFid(str8);
+                if ("frs".equals(str5)) {
+                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_FROM, FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE, "tran");
                 }
-                TbadkCoreApplication.getInst().setCapableOfWebp(z);
-                TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, frsVideoTabPlayActivityConfig));
                 return;
             }
-            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
-        }
-    }
-
-    @NonNull
-    public static Pair<Boolean, String> d(@Nullable String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!f()) {
-                return new Pair<>(Boolean.FALSE, str);
+            if ("frs".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_FRS, "video", "tran");
+            } else if ("index".equals(str5)) {
+                BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FROM_HOME, "video", "tran");
             }
-            if (str != null && str.length() != 0) {
-                int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0) {
-                    indexOf = str.indexOf("tiebapic.baidu.com");
-                }
-                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
-                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
-                }
-                return new Pair<>(Boolean.FALSE, str);
-            }
-            return new Pair<>(Boolean.FALSE, str);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
         }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-        }
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? WebpForceSwitch.isOn() || (a() && h()) : invokeV.booleanValue;
-    }
-
-    public static void g(@NonNull String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-        }
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1 : invokeV.booleanValue;
     }
 }

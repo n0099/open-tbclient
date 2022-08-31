@@ -26,11 +26,11 @@ import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nw4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.lw4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.qz8;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.sz8;
 import com.baidu.tieba.wb;
 import com.baidu.tieba.write.view.xrichtext.RichImageItem;
 import com.baidu.tieba.write.write.WriteActivity;
@@ -51,7 +51,7 @@ public class RichTextEditor extends LinearLayout {
     public int c;
     public WriteImagesInfo d;
     public View.OnClickListener e;
-    public nw4.a f;
+    public lw4.a f;
     public long g;
     public View.OnFocusChangeListener h;
     public TextWatcher i;
@@ -348,9 +348,9 @@ public class RichTextEditor extends LinearLayout {
             spanGroupEditText.setBackgroundResource(0);
             spanGroupEditText.setPadding(0, 0, 0, 0);
             spanGroupEditText.setLineSpacing(ri.f(getContext(), R.dimen.M_T_X002), 1.0f);
-            sz8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804ae);
+            qz8.l(spanGroupEditText, R.drawable.obfuscated_res_0x7f0804ae);
             spanGroupEditText.setTextSize(0, getResources().getDimension(R.dimen.T_X06));
-            os4.d(spanGroupEditText).v(R.color.CAM_X0105);
+            ns4.d(spanGroupEditText).v(R.color.CAM_X0105);
             spanGroupEditText.setDrawingCacheEnabled(false);
             spanGroupEditText.setGravity(51);
             spanGroupEditText.setHint(str);
@@ -517,7 +517,7 @@ public class RichTextEditor extends LinearLayout {
         }
     }
 
-    public void setOnSpanGroupChangedListener(nw4.a aVar) {
+    public void setOnSpanGroupChangedListener(lw4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, aVar) == null) {
             this.f = aVar;
@@ -581,7 +581,7 @@ public class RichTextEditor extends LinearLayout {
                 if (childAt instanceof RichImageItem) {
                     ((RichImageItem) childAt).f();
                 } else if (childAt instanceof SpanGroupEditText) {
-                    os4.d(childAt).v(R.color.CAM_X0105);
+                    ns4.d(childAt).v(R.color.CAM_X0105);
                     ((SpanGroupEditText) childAt).setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
                 }
             }

@@ -149,12 +149,12 @@ public class bv {
 
             /* renamed from: com.baidu.tieba.bv$d$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class RunnableC0213a implements Runnable {
+            public class RunnableC0217a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public RunnableC0213a(a aVar) {
+                public RunnableC0217a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -207,7 +207,7 @@ public class bv {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    dt.c(new RunnableC0213a(this));
+                    dt.c(new RunnableC0217a(this));
                     return Unit.INSTANCE;
                 }
                 return (Unit) invokeV.objValue;

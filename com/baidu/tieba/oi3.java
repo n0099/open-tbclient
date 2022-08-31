@@ -49,12 +49,12 @@ public class oi3 extends cs2 {
 
         /* renamed from: com.baidu.tieba.oi3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0342a implements tf3<String> {
+        public class C0351a implements tf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0342a(a aVar) {
+            public C0351a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -115,7 +115,7 @@ public class oi3 extends cs2 {
                 if (!y53.h(d63Var)) {
                     y53.q(d63Var, this.a, this.b);
                 } else {
-                    oi3.z(this.c, new C0342a(this));
+                    oi3.z(this.c, new C0351a(this));
                 }
             }
         }

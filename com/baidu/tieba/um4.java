@@ -31,7 +31,7 @@ public class um4 {
     public final View b;
     public final ThreadAchievementShareInfo.ParamBean c;
     public TbRichTextView d;
-    public ii5 e;
+    public gi5 e;
     public TbImageView f;
     public TextView g;
     public TextView h;
@@ -133,9 +133,9 @@ public class um4 {
             this.j.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            ii5 ii5Var = new ii5();
-            this.e = ii5Var;
-            ii5Var.s(ri.f(this.a, R.dimen.tbds38));
+            gi5 gi5Var = new gi5();
+            this.e = gi5Var;
+            gi5Var.s(ri.f(this.a, R.dimen.tbds38));
             this.e.v(ri.f(this.a, R.dimen.tbds42));
             this.e.j(ri.f(this.a, R.dimen.tbds23));
             this.e.o(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12), 1.0f);

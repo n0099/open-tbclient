@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,23 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.FrsTabInfo;
+import tbclient.BawuThrones;
 /* loaded from: classes5.dex */
 public class se6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ThreadData> a;
-    public boolean b;
-    public String c;
-    public int d;
-    public List<FrsTabInfo> e;
-    public SparseArray<FrsTabInfo> f;
-    public pg6 g;
+    public lf6 a;
+    public BawuThrones b;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -66,202 +53,54 @@ public class se6 {
         this();
     }
 
-    public static se6 h() {
+    public static se6 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (se6) invokeV.objValue;
     }
 
-    public boolean a(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, threadData)) == null) {
-            if (threadData == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            lf6 lf6Var = this.a;
+            if (lf6Var != null) {
+                lf6Var.g();
             }
-            if (this.a.size() > 29) {
-                pg6 pg6Var = this.g;
-                if (pg6Var != null) {
-                    pg6Var.b(2);
-                }
-                return false;
-            }
-            this.a.add(threadData);
-            pg6 pg6Var2 = this.g;
-            if (pg6Var2 != null) {
-                pg6Var2.c(this.a.size(), 2);
-                return true;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (ThreadData threadData : this.a) {
-                if (threadData != null) {
-                    threadData.setMarkToMove(false);
-                }
-            }
-            this.a.clear();
-            pg6 pg6Var = this.g;
-            if (pg6Var != null) {
-                pg6Var.c(0, 2);
-            }
+            this.a = null;
         }
     }
 
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = null;
-            this.d = -1;
-            List<FrsTabInfo> list = this.e;
-            if (list != null) {
-                list.clear();
-            }
-            SparseArray<FrsTabInfo> sparseArray = this.f;
-            if (sparseArray != null) {
-                sparseArray.clear();
-            }
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        this.a.clear();
-        pg6 pg6Var = this.g;
-        if (pg6Var != null) {
-            pg6Var.c(this.a.size(), 2);
-        }
-    }
-
-    public int e() {
+    public BawuThrones b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (BawuThrones) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_RECOMMEND);
+            httpMessage.addParam("forum_id", str);
+            httpMessage.addParam("thread_id", str2);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 
-    public List<FrsTabInfo> g() {
-        InterceptResult invokeV;
+    public void e(BawuThrones bawuThrones) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : (List) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bawuThrones) == null) {
+            this.b = bawuThrones;
+        }
     }
 
-    public List<ThreadData> i() {
-        InterceptResult invokeV;
+    public void f(TbPageContext tbPageContext, String str, String str2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.f.get(i) != null && this.f.get(i).is_general_tab.intValue() == 1 : invokeI.booleanValue;
-    }
-
-    public void l(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
-            this.a.remove(threadData);
-            pg6 pg6Var = this.g;
-            if (pg6Var != null) {
-                pg6Var.c(this.a.size(), 2);
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, tbPageContext, str, str2) == null) {
+            if (this.a == null) {
+                this.a = new lf6();
             }
-        }
-    }
-
-    public void m(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            try {
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
-                JSONArray jSONArray = new JSONArray();
-                for (ThreadData threadData : h().i()) {
-                    if (threadData != null) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("thread_id", threadData.getId());
-                        jSONObject.put("from_tab_id", threadData.getTabId());
-                        jSONObject.put("to_tab_id", i2);
-                        jSONArray.put(jSONObject);
-                    }
-                }
-                httpMessage.addParam("threads", jSONArray.toString());
-                httpMessage.addParam("forum_id", h().f());
-                MessageManager.getInstance().sendMessage(httpMessage);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            p(false, false);
-            b();
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void p(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.b = z;
-            pg6 pg6Var = this.g;
-            if (pg6Var != null) {
-                pg6Var.a(z, z2, 2);
-            }
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void r(List<FrsTabInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.e = new ArrayList(list);
-            this.f = new SparseArray<>();
-            for (FrsTabInfo frsTabInfo : this.e) {
-                if (frsTabInfo != null) {
-                    this.f.append(frsTabInfo.tab_id.intValue(), frsTabInfo);
-                }
-            }
-        }
-    }
-
-    public void s(pg6 pg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, pg6Var) == null) {
-            this.g = pg6Var;
+            this.a.i(tbPageContext, str, str2);
         }
     }
 
@@ -275,10 +114,7 @@ public class se6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = -1;
-        this.a = new ArrayList();
     }
 }

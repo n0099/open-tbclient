@@ -12,16 +12,16 @@ public class vp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public ho8 b;
+    public final fo8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vp8(MainTabActivity mainTabActivity) {
-        super(2921636);
+    public vp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2921579);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,34 +39,13 @@ public class vp8 extends CustomMessageListener {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ho8 ho8Var;
+        fo8 fo8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (fo8Var = this.b) == null || fo8Var.h() == null) {
             return;
         }
-        MainTabActivity mainTabActivity = this.a;
-        this.b = mainTabActivity.f;
-        mainTabActivity.c1(true);
-        if (MainTabActivity.X && (ho8Var = this.b) != null && ho8Var.i() != null) {
-            this.b.i().a();
-        }
-        ho8 ho8Var2 = this.b;
-        if (ho8Var2 != null && ho8Var2.d() != null) {
-            this.b.d().b();
-        }
-        ho8 ho8Var3 = this.b;
-        if (ho8Var3 != null && ho8Var3.a() != null) {
-            this.b.a().l();
-            this.b.a().m();
-        }
-        if (gt4.a().f()) {
-            gt4.a().g(this.a.getClass().getName());
-            gt4.a().l(false);
-        }
-        if (gt4.a().e()) {
-            gt4.a().b();
-            gt4.a().h(this.a.getClass().getName());
-            gt4.a().k(false);
-        }
+        Runnable runnable = this.b.h().c;
+        sg.a().removeCallbacks(runnable);
+        sg.a().postDelayed(runnable, (customResponsedMessage.getData() instanceof Integer ? ((Integer) customResponsedMessage.getData()).intValue() : 0) * 1000);
     }
 }

@@ -1,297 +1,204 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.ForegroundColorSpan;
+import android.widget.EditText;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.HeadImageView;
-import com.baidu.tbadk.core.view.TbCheckBox;
-import com.baidu.tieba.write.write.AtListActivity;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class e19 extends BaseAdapter {
+public class e19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public AtListActivity b;
-    public ArrayList<MetaData> c;
-    public TbCheckBox.b d;
-    public c e;
-    public ViewGroup f;
-    public boolean g;
+    public ArrayList<String> a;
+    public String b;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MetaData a;
-        public final /* synthetic */ e19 b;
-
-        public a(e19 e19Var, MetaData metaData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e19Var, metaData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = e19Var;
-            this.a = metaData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.b.b.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.b.b.getPageContext().getPageActivity(), this.a.getUserId(), this.a.getUserName())));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-        public LinearLayout b;
-        public HeadImageView c;
-        public TextView d;
-        public TbCheckBox e;
-        public TextView f;
-
-        public b(e19 e19Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e19Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(e19 e19Var, a aVar) {
-            this(e19Var);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        void l0(View view2, MetaData metaData);
-    }
-
-    public e19(AtListActivity atListActivity, boolean z) {
+    public e19() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {atListActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = null;
-        this.f = null;
-        this.g = true;
-        this.b = atListActivity;
-        this.a = atListActivity.getPageContext().getContext();
-        this.g = z;
     }
 
-    public final b b(Object obj, MetaData metaData) {
-        InterceptResult invokeLL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, metaData)) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            if (obj == null) {
-                bVar = c(metaData);
-            } else {
-                bVar = (b) obj;
-            }
-            bVar.b.setOnClickListener(new a(this, metaData));
-            c cVar = this.e;
-            if (cVar != null) {
-                cVar.l0(bVar.a, metaData);
-            }
-            String avater = metaData.getAvater();
-            bVar.d.setText(metaData.getName_show());
-            if (metaData.getIsNearlyAt() == 1) {
-                bVar.f.setVisibility(0);
-                bVar.f.setText("最近@过");
-            } else if (metaData.getIsFollower() == 1) {
-                bVar.f.setVisibility(0);
-                bVar.f.setText("互相关注");
-            } else if (metaData.getIsMyFollower() == 1) {
-                bVar.f.setVisibility(0);
-                bVar.f.setText("我的关注");
-            } else {
-                bVar.f.setVisibility(8);
-            }
-            bVar.e.setTagData(metaData);
-            bVar.c.setTag(avater);
-            if (this.g) {
-                bVar.e.setVisibility(0);
-            } else {
-                bVar.e.setVisibility(8);
-            }
-            bVar.c.K(avater, 12, false);
-            UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
-            this.b.getPageContext().getLayoutMode().l(skinType == 1);
-            this.b.getPageContext().getLayoutMode().k(bVar.a);
-            return bVar;
-        }
-        return (b) invokeLL.objValue;
-    }
-
-    public final b c(MetaData metaData) {
+    public boolean a(EditText editText) {
         InterceptResult invokeL;
+        Editable text;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData)) == null) {
-            b bVar = new b(this, null);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e2, (ViewGroup) null);
-            bVar.a = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09197f);
-            bVar.c = headImageView;
-            headImageView.setIsRound(true);
-            UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
-            bVar.b = (LinearLayout) bVar.a.findViewById(R.id.obfuscated_res_0x7f091980);
-            bVar.d = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f0923e9);
-            TextView textView = (TextView) bVar.a.findViewById(R.id.obfuscated_res_0x7f091234);
-            bVar.f = textView;
-            os4 d = os4.d(textView);
-            d.v(R.color.CAM_X0108);
-            d.z(R.dimen.T_X10);
-            d.n(R.string.J_X04);
-            d.l(R.dimen.L_X01);
-            d.k(R.color.CAM_X0111);
-            TbCheckBox tbCheckBox = (TbCheckBox) bVar.a.findViewById(R.id.obfuscated_res_0x7f09062e);
-            bVar.e = tbCheckBox;
-            tbCheckBox.setBackgroundDrawableIdIsWebP(true);
-            bVar.e.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0809db, R.drawable.obfuscated_res_0x7f0809da);
-            TbCheckBox.b bVar2 = this.d;
-            if (bVar2 != null) {
-                bVar.e.setStatedChangedListener(bVar2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
+            if (editText == null || (text = editText.getText()) == null) {
+                return false;
             }
-            bVar.a.setTag(bVar);
-            return bVar;
-        }
-        return (b) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: d */
-    public MetaData getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList<MetaData> arrayList = this.c;
-            if (arrayList != null && i < arrayList.size()) {
-                return this.c.get(i);
+            int d = d(text);
+            if (d > 0) {
+                editText.requestFocus();
+                editText.setSelection(d);
+                return true;
             }
-            return null;
+            editText.setSelection(editText.getSelectionEnd());
+            return false;
         }
-        return (MetaData) invokeI.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void e(TbCheckBox.b bVar) {
+    public boolean b(EditText editText, EditText editText2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
+            if (ListUtils.isEmpty(c())) {
+                return false;
+            }
+            return a(editText) || a(editText2);
         }
+        return invokeLL.booleanValue;
     }
 
-    public void f(ArrayList<MetaData> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.c = arrayList;
-        }
-    }
-
-    public void g(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.e = cVar;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<MetaData> arrayList = this.c;
-            if (arrayList == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
+    }
+
+    public int d(Spanned spanned) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
+            if (spanned == null) {
                 return 0;
             }
-            return arrayList.size();
+            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
+            int length = spanned.length();
+            return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? length : spanned.getSpanEnd(backgroundColorSpanArr[0]);
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    public void f(EditText editText, boolean z) {
+        Editable text;
+        Object[] spans;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            if (this.f == null) {
-                this.f = viewGroup;
-            }
-            MetaData item = getItem(i);
-            if (item != null) {
-                bVar = b(view2 != null ? view2.getTag() : null, item);
-            } else {
-                bVar = null;
-            }
-            if (bVar != null) {
-                return bVar.a;
-            }
-            return null;
+        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, editText, z) == null) || editText == null || (text = editText.getText()) == null) {
+            return;
         }
-        return (View) invokeILL.objValue;
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        ne5.j(text);
+        j(text);
+    }
+
+    public void g(SpanGroupEditText spanGroupEditText) {
+        Editable text;
+        Object[] spans;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, spanGroupEditText) == null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
+            return;
+        }
+        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
+            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
+                text.removeSpan(obj);
+            }
+        }
+        ne5.k(spanGroupEditText);
+    }
+
+    public void h(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
+            i(editText, true);
+            i(editText2, false);
+            b(editText, editText2);
+        }
+    }
+
+    public void i(EditText editText, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) == null) || editText == null) {
+            return;
+        }
+        f(editText, z);
+    }
+
+    public final void j(Spannable spannable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) || spannable == null || ListUtils.isEmpty(this.a)) {
+            return;
+        }
+        String obj = spannable.toString();
+        if (TextUtils.isEmpty(obj)) {
+            return;
+        }
+        Iterator<String> it = this.a.iterator();
+        while (it.hasNext()) {
+            k(spannable, obj, it.next());
+        }
+    }
+
+    public final void k(Spannable spannable, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) || spannable == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+            return;
+        }
+        int indexOf = str.indexOf(str2);
+        int length = str2.length();
+        while (indexOf >= 0) {
+            int i = indexOf + length;
+            int color = SkinManager.getColor(R.color.CAM_X0101);
+            int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
+            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
+            BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
+            spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
+            spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
+            indexOf = str.indexOf(str2, i);
+        }
+    }
+
+    public void l(EditText editText, EditText editText2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
+            h(editText, editText2);
+        }
+    }
+
+    public void m(ArrayList<String> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
+            this.a = arrayList;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.b = str;
+        }
     }
 }

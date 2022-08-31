@@ -1,26 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.LruCache;
+import android.content.Context;
+import android.content.Intent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ve;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tieba.qq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class uq6 {
     public static /* synthetic */ Interceptable $ic;
-    public static uq6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, String> a;
-    public ve<String> b;
+    public Context a;
+    public ViewGroup b;
+    public vq6 c;
+    public qq6 d;
+    public za5 e;
+    public qq6.a f;
+    public Runnable g;
 
     /* loaded from: classes6.dex */
-    public class a extends dn4 {
+    public class a implements qq6.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uq6 a;
@@ -43,28 +52,36 @@ public class uq6 {
             this.a = uq6Var;
         }
 
-        @Override // com.baidu.tieba.dn4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
+        @Override // com.baidu.tieba.qq6.a
+        public void onStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : this.a.a.snapshot().entrySet()) {
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                    sb.append(",");
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    if (!TbSingleton.getInstance().isEnableBenchmark() || TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        return;
+                    }
+                    if (this.a.e == null) {
+                        this.a.e = new za5("anim_switch_trans_frs");
+                    }
+                    this.a.e.b();
+                    BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(FrsActivityConfig.KEY_FPS_FRS_FROM, "frs", "tran");
+                } else if (i != 2) {
+                    if (i == 0) {
+                        this.a.j();
+                    }
+                } else {
+                    this.a.k();
+                    if (this.a.e != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
+                        this.a.e.c();
+                    }
+                    BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsActivityConfig.KEY_FPS_FRS);
                 }
-                if (sb.length() <= 1) {
-                    return;
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                this.a.b.a("transition_cache_key", sb.toString());
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements ve.a<String> {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uq6 a;
@@ -87,27 +104,21 @@ public class uq6 {
             this.a = uq6Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ve.a
-        /* renamed from: b */
-        public void a(String str, String str2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || str2 == null || str2.isEmpty()) {
-                return;
-            }
-            for (String str3 : str2.split(",")) {
-                String[] split = str3.split("=");
-                if (split != null && split.length == 2) {
-                    this.a.a.put(split[0], split[1]);
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f();
             }
         }
     }
 
-    public uq6() {
+    public uq6(Context context, ViewGroup viewGroup, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewGroup, intent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,45 +128,94 @@ public class uq6 {
                 return;
             }
         }
-        this.a = new LruCache<>(10);
-        vr4.f();
-        this.b = vr4.g("tb.recently_vistited_forum_animation");
-        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
-        this.b.f("transition_cache_key", new b(this));
+        this.f = new a(this);
+        this.g = new b(this);
+        this.a = context;
+        this.b = viewGroup;
+        vq6 vq6Var = new vq6(context);
+        this.c = vq6Var;
+        qq6 a2 = rq6.a(vq6Var, intent);
+        this.d = a2;
+        a2.b(this.f);
     }
 
-    public static uq6 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (uq6.class) {
-                    if (c == null) {
-                        c = new uq6();
-                    }
-                }
-            }
-            return c;
-        }
-        return (uq6) invokeV.objValue;
-    }
-
-    public vq6 c(String str) {
+    public static boolean i(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return new vq6(null);
-            }
-            return new vq6(this.a.get(str));
-        }
-        return (vq6) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, intent)) == null) ? (intent == null || intent.getIntExtra("transition_type", 0) == 0) ? false : true : invokeL.booleanValue;
     }
 
-    public void e(String str, vq6 vq6Var) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, vq6Var) == null) {
-            this.a.put(str, vq6Var.toString());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            sg.a().removeCallbacks(this.g);
+            if (this.d.a() == 1) {
+                sg.a().postDelayed(this.g, 10L);
+                return;
+            }
+            k();
+            this.d.c();
         }
+    }
+
+    public final void g() {
+        View findViewById;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(8);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 == null || (findViewById = viewGroup2.findViewById(16908290)) == null) {
+                return;
+            }
+            findViewById.setVisibility(8);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == null) {
+            return;
+        }
+        f();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ViewParent parent = this.c.a.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(this.c.a);
+            }
+            sg.a().removeCallbacks(this.g);
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ViewGroup viewGroup = this.b;
+            if (viewGroup != null && (viewGroup.getChildAt(0) instanceof SwipeBackLayout)) {
+                this.b.getChildAt(0).setVisibility(0);
+            }
+            ViewGroup viewGroup2 = this.b;
+            if (viewGroup2 == null || viewGroup2.findViewById(16908290) == null) {
+                return;
+            }
+            this.b.findViewById(16908290).setVisibility(0);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.b == null) {
+            return;
+        }
+        j();
+        this.b.addView(this.c.a);
+        g();
+        this.d.d();
     }
 }

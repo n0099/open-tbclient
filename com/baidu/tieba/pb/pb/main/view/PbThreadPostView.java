@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mt7;
+import com.baidu.tieba.kt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -86,9 +86,9 @@ public class PbThreadPostView extends LinearLayout {
         }
     }
 
-    public void setData(mt7 mt7Var) {
+    public void setData(kt7 kt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, mt7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, kt7Var) == null) {
             c(TbadkCoreApplication.getInst().getSkinType());
         }
     }

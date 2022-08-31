@@ -1,35 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public abstract class vm8 {
+public class vm8 extends tm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public um8 a;
-    public final String b;
-    public final int c;
-    public final long d;
-    public final String e;
-    public final int f;
+    public boolean g;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vm8(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,133 +30,58 @@ public abstract class vm8 {
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
                 int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = str;
-        this.c = i2;
-        this.d = j;
-        this.e = str2;
-        this.f = i;
     }
 
-    public abstract void a();
-
-    public byte[] b(RandomAccessFile randomAccessFile, int i) {
-        InterceptResult invokeLI;
-        int i2;
+    @Override // com.baidu.tieba.tm8
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
-            if (randomAccessFile != null && i >= 0) {
-                if (i == this.c) {
-                    i2 = (int) (this.d - ((i - 1) * this.f));
-                } else {
-                    i2 = this.f;
-                }
-                byte[] bArr = new byte[i2];
-                try {
-                    synchronized (randomAccessFile) {
-                        randomAccessFile.seek((i - 1) * this.f);
-                        r3 = randomAccessFile.read(bArr, 0, i2) != -1;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                if (r3) {
-                    return bArr;
-                }
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = true;
         }
-        return (byte[]) invokeLI.objValue;
     }
 
-    public abstract boolean c();
-
-    public void d(int i) {
-        um8 um8Var;
+    @Override // com.baidu.tieba.tm8
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (um8Var = this.a) == null) {
-            return;
-        }
-        um8Var.onProgressUpdate(i / 100.0f);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
-    public final String e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.tm8
+    public wm8 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            wm8 wm8Var = new wm8();
             try {
-                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
-                if (optJSONObject != null) {
-                    return optJSONObject.optString("video_url");
-                }
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void f(um8 um8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, um8Var) == null) {
-            this.a = um8Var;
-        }
-    }
-
-    public abstract ym8 g(ArrayList<Integer> arrayList, String str, int i);
-
-    public ym8 h(RandomAccessFile randomAccessFile, int i, long j, String str) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
-            byte[] b = b(randomAccessFile, i);
-            if (b == null) {
-                ym8 ym8Var = new ym8();
-                ym8Var.b = -1;
-                ym8Var.c = "上传文件不存在";
-                return ym8Var;
-            } else if (c()) {
-                return null;
-            } else {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
-                netWork.addPostData("chunk_no", String.valueOf(i));
-                netWork.addPostData("chunk_sum", String.valueOf(this.c));
-                netWork.addPostData("chunk_size", String.valueOf(b.length));
-                netWork.addPostData("video_size", String.valueOf(this.d));
-                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
-                netWork.addPostData("video_len", String.valueOf(j));
-                netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
-                netWork.addPostData("video_chunk", b);
-                netWork.addPostData("upload_id", str);
-                if (c()) {
-                    return null;
-                }
-                String postMultiNetData = netWork.postMultiNetData();
-                if (c()) {
-                    return null;
-                }
-                ym8 ym8Var2 = new ym8();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    ym8Var2.a = e(postMultiNetData);
-                } else {
-                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
-                        ym8Var2.b = netWork.getNetContext().getResponse().mServerErrorCode;
-                    } else {
-                        ym8Var2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                int i2 = 0;
+                int size = arrayList.size();
+                Iterator<Integer> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    int i3 = i2 + 1;
+                    wm8 h = h(randomAccessFile, it.next().intValue(), i, str);
+                    if (h == null) {
+                        return null;
                     }
-                    ym8Var2.c = netWork.getNetContext().getResponse().mErrorString;
+                    d((int) (((i3 * 50.0f) / size) + 30.0f));
+                    if (!StringUtils.isNull(h.a) || h.b != 0) {
+                        return h;
+                    }
+                    i2 = i3;
+                    wm8Var = h;
                 }
-                return ym8Var2;
+            } catch (FileNotFoundException unused) {
             }
+            return wm8Var;
         }
-        return (ym8) invokeCommon.objValue;
+        return (wm8) invokeLLI.objValue;
     }
 }

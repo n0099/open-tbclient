@@ -1,90 +1,129 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.person.PersonMoreData;
-import com.baidu.tieba.person.PersonMoreItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class g38 {
     public static /* synthetic */ Interceptable $ic;
+    public static g38 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public h38 a;
-    public TbPageContext b;
-    public List<pn> c;
-    public PersonMoreData d;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
 
-    public g38(TbPageContext tbPageContext, Bundle bundle, j06<d48> j06Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743101, "Lcom/baidu/tieba/g38;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947743101, "Lcom/baidu/tieba/g38;");
+                return;
+            }
+        }
+        f = new g38();
+    }
+
+    public g38() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bundle, j06Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        h38 h38Var = new h38(tbPageContext);
-        this.a = h38Var;
-        h38Var.f(j06Var);
-        if (bundle == null || !(OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            return;
-        }
-        this.d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
     }
 
-    public final void a() {
+    public static g38 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new ArrayList();
-            PersonMoreData personMoreData = this.d;
-            if (personMoreData == null || ListUtils.isEmpty(personMoreData.mUrlMaps)) {
-                return;
-            }
-            for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
-                if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
-                    d48 d48Var = new d48();
-                    d48Var.e = personMoreItemData.mName;
-                    d48Var.a = 36;
-                    d48Var.g = personMoreItemData.mUrl;
-                    d48Var.k = personMoreItemData.mId;
-                    this.c.add(d48Var);
-                }
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (g38) invokeV.objValue;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.longValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.longValue;
+    }
+
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.longValue;
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.c = j;
         }
     }
 
-    public void b() {
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d06e4);
-            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091944));
-            a();
-            this.a.e(this.c);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void c() {
-        h38 h38Var;
+    public void i(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (h38Var = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.b = j;
         }
-        h38Var.d();
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.e = j;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.d = j;
+        }
     }
 }

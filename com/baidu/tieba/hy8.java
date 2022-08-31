@@ -1,76 +1,600 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.os.Handler;
+import android.graphics.Bitmap;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
+import android.media.MediaMetadataRetriever;
+import android.media.ThumbnailUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
 import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.record.processor.MultiMediaPreProcessor;
+import com.baidu.ugc.editvideo.faceunity.encoder.MediaCodecHelper;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hy8 extends BaseOutputSurface {
+public class hy8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hy8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public float[] a;
-    public MultiMediaData b;
+    public List<b> a;
 
-    public hy8(int i, int i2, boolean z, Handler handler) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends MediaMetadataRetriever implements Closeable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile boolean a;
+        public String b;
+        public boolean c;
+        public volatile boolean d;
+
+        /* loaded from: classes4.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ qy8 a;
+            public final /* synthetic */ py8 b;
+            public final /* synthetic */ b c;
+
+            public a(b bVar, qy8 qy8Var, py8 py8Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, qy8Var, py8Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.c = bVar;
+                this.a = qy8Var;
+                this.b = py8Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    ArrayList<ky8> arrayList = new ArrayList();
+                    ArrayList<ky8> arrayList2 = new ArrayList();
+                    ArrayList arrayList3 = new ArrayList();
+                    for (ky8 ky8Var : this.a.e) {
+                        int i = ky8Var.g;
+                        if (i == 0) {
+                            arrayList.add(ky8Var);
+                        } else if (i == 1) {
+                            arrayList2.add(ky8Var);
+                        }
+                    }
+                    if (!dc9.e(arrayList)) {
+                        for (ky8 ky8Var2 : arrayList) {
+                            Bitmap d = ly8.f().d(ky8Var2.a);
+                            if (d == null || d.isRecycled()) {
+                                d = zb9.e(ky8Var2.b, ky8Var2.h, ky8Var2.i, ky8Var2.c);
+                                ly8.f().g().b(ky8Var2.a, d);
+                                ly8.f().e().c(ky8Var2.a, d);
+                            }
+                            ky8Var2.e = d;
+                            ky8Var2.a();
+                        }
+                    }
+                    if (!dc9.e(arrayList2)) {
+                        for (ky8 ky8Var3 : arrayList2) {
+                            Bitmap d2 = ly8.f().d(ky8Var3.a);
+                            if (d2 != null && !d2.isRecycled()) {
+                                ky8Var3.e = d2;
+                                ky8Var3.a();
+                            } else {
+                                arrayList3.add(ky8Var3);
+                            }
+                        }
+                    }
+                    if (dc9.e(arrayList3)) {
+                        this.c.k(this.b);
+                        return;
+                    }
+                    this.a.e = arrayList3;
+                    if (!this.c.g()) {
+                        this.c.j(this.a);
+                    } else {
+                        this.c.i(this.a);
+                    }
+                    this.c.k(this.b);
+                }
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.hy8$b$b  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0286b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ py8 a;
+            public final /* synthetic */ b b;
+
+            public RunnableC0286b(b bVar, py8 py8Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, py8Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = py8Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                py8 py8Var;
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (py8Var = this.a) == null) {
+                    return;
+                }
+                py8Var.a(this.b);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
+        public void close() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                release();
+            }
+        }
+
+        public final void d(MediaExtractor mediaExtractor, int i, MediaCodec mediaCodec, BaseOutputSurface baseOutputSurface, List<ky8> list) throws IOException {
+            String str;
+            int i2;
+            long j;
+            int i3;
+            int dequeueInputBuffer;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaExtractor, Integer.valueOf(i), mediaCodec, baseOutputSurface, list}) == null) {
+                ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
+                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
+                long j2 = 0;
+                int i4 = 0;
+                if (dc9.b(list) == 1) {
+                    ky8 ky8Var = (ky8) dc9.c(list, 0);
+                    long j3 = ky8Var != null ? ky8Var.d : 0L;
+                    if (j3 <= 0) {
+                        j3 = 1;
+                    }
+                    mediaExtractor.getSampleTime();
+                    mediaExtractor.seekTo(j3, 0);
+                    if (mediaExtractor.getSampleTime() > j3) {
+                        mediaExtractor.seekTo(0L, 2);
+                    }
+                }
+                int i5 = 0;
+                boolean z = false;
+                boolean z2 = false;
+                while (!z && !this.a) {
+                    if (z2 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
+                        str = "VideoFrameMetadataRetriever";
+                        i2 = i5;
+                        j = j2;
+                    } else {
+                        int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], i4);
+                        if (readSampleData < 0) {
+                            str = "VideoFrameMetadataRetriever";
+                            i2 = i5;
+                            j = j2;
+                            mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
+                            z2 = true;
+                        } else {
+                            str = "VideoFrameMetadataRetriever";
+                            i2 = i5;
+                            j = j2;
+                            if (mediaExtractor.getSampleTrackIndex() != i) {
+                                yb9.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
+                            }
+                            mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
+                            mediaExtractor.advance();
+                        }
+                    }
+                    if (z) {
+                        i3 = i2;
+                    } else {
+                        int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
+                        if (dequeueOutputBuffer != -1 && dequeueOutputBuffer != -3) {
+                            if (dequeueOutputBuffer == -2) {
+                                mediaCodec.getOutputFormat();
+                            } else if (dequeueOutputBuffer < 0) {
+                                yb9.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                            } else {
+                                boolean z3 = (bufferInfo.flags & 4) != 0 ? true : z;
+                                boolean z4 = bufferInfo.size != 0;
+                                mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z4);
+                                if (z4) {
+                                    i3 = i2;
+                                    ky8 ky8Var2 = (ky8) dc9.c(list, i3);
+                                    baseOutputSurface.awaitNewImage();
+                                    baseOutputSurface.drawImage((int) (((float) bufferInfo.presentationTimeUs) / 1000.0f));
+                                    if (ky8Var2 != null) {
+                                        long j4 = ky8Var2.d;
+                                        if (j4 <= j) {
+                                            j4 = 1;
+                                        } else if (i3 == list.size() - 1) {
+                                            j4 -= 800000;
+                                        }
+                                        if (bufferInfo.presentationTimeUs >= j4) {
+                                            ky8Var2.e = baseOutputSurface.getFrameBitmap();
+                                            ly8.f().g().b(ky8Var2.a, ky8Var2.e);
+                                            ky8Var2.a();
+                                            ly8.f().e().c(ky8Var2.a, ky8Var2.e);
+                                            if (i3 == list.size() - 1) {
+                                                z3 = true;
+                                            }
+                                            i5 = i3 + 1;
+                                            z = z3;
+                                            j2 = j;
+                                            i4 = 0;
+                                        }
+                                    }
+                                } else {
+                                    i3 = i2;
+                                }
+                                z = z3;
+                            }
+                        }
+                        i5 = i2;
+                        j2 = j;
+                        i4 = 0;
+                    }
+                    i5 = i3;
+                    j2 = j;
+                    i4 = 0;
+                }
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:58:0x00df  */
+        /* JADX WARN: Removed duplicated region for block: B:60:0x00e4  */
+        /* JADX WARN: Removed duplicated region for block: B:62:0x00ec  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final void e(String str, List<ky8> list, int i, int i2, float f) throws IOException {
+            MediaExtractor mediaExtractor;
+            MediaCodec mediaCodec;
+            File file;
+            int andSelectVideoTrackIndex;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, list, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
+                fy8 fy8Var = null;
+                try {
+                    file = new File(str);
+                } catch (Exception e) {
+                    e = e;
+                    mediaExtractor = null;
+                    mediaCodec = null;
+                } catch (Throwable th) {
+                    th = th;
+                    mediaExtractor = null;
+                    mediaCodec = null;
+                }
+                if (file.canRead()) {
+                    mediaExtractor = new MediaExtractor();
+                    try {
+                        mediaExtractor.setDataSource(file.toString());
+                        andSelectVideoTrackIndex = MediaCodecHelper.getAndSelectVideoTrackIndex(mediaExtractor);
+                    } catch (Exception e2) {
+                        e = e2;
+                        mediaCodec = null;
+                    } catch (Throwable th2) {
+                        th = th2;
+                        mediaCodec = null;
+                    }
+                    if (andSelectVideoTrackIndex >= 0) {
+                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(andSelectVideoTrackIndex);
+                        int integer = trackFormat.getInteger("width");
+                        int integer2 = trackFormat.getInteger("height");
+                        if (i == 0 || i2 == 0) {
+                            float f2 = f % 360.0f;
+                            if (f2 != 90.0f && f2 != 270.0f) {
+                                i = integer;
+                                i2 = integer2;
+                            }
+                            i2 = integer;
+                            i = integer2;
+                        }
+                        fy8 fy8Var2 = new fy8(i, i2, true, null);
+                        try {
+                            fy8Var2.a(integer, integer2, f);
+                            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
+                        } catch (Exception e3) {
+                            e = e3;
+                            mediaCodec = null;
+                        } catch (Throwable th3) {
+                            th = th3;
+                            mediaCodec = null;
+                        }
+                        try {
+                            mediaCodec.configure(trackFormat, fy8Var2.getSurface(), (MediaCrypto) null, 0);
+                            mediaCodec.start();
+                            d(mediaExtractor, andSelectVideoTrackIndex, mediaCodec, fy8Var2, list);
+                            fy8Var2.release();
+                            if (mediaCodec != null) {
+                                mediaCodec.stop();
+                                mediaCodec.release();
+                            }
+                        } catch (Exception e4) {
+                            e = e4;
+                            fy8Var = fy8Var2;
+                            try {
+                                yb9.g(e);
+                                if (fy8Var != null) {
+                                    fy8Var.release();
+                                }
+                                if (mediaCodec != null) {
+                                    mediaCodec.stop();
+                                    mediaCodec.release();
+                                }
+                                if (mediaExtractor == null) {
+                                    return;
+                                }
+                                mediaExtractor.release();
+                                return;
+                            } catch (Throwable th4) {
+                                th = th4;
+                                if (fy8Var != null) {
+                                    fy8Var.release();
+                                }
+                                if (mediaCodec != null) {
+                                    mediaCodec.stop();
+                                    mediaCodec.release();
+                                }
+                                if (mediaExtractor != null) {
+                                    mediaExtractor.release();
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
+                            fy8Var = fy8Var2;
+                            if (fy8Var != null) {
+                            }
+                            if (mediaCodec != null) {
+                            }
+                            if (mediaExtractor != null) {
+                            }
+                            throw th;
+                        }
+                        mediaExtractor.release();
+                        return;
+                    }
+                    throw new RuntimeException("No video track found in " + file);
+                }
+                throw new FileNotFoundException("Unable to read " + file);
+            }
+        }
+
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
+        }
+
+        public boolean g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c && !sc9.a(this.b) : invokeV.booleanValue;
+        }
+
+        public void h(qy8 qy8Var, py8 py8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, qy8Var, py8Var) == null) {
+                if (qy8Var != null && !dc9.e(qy8Var.e)) {
+                    this.d = true;
+                    ThreadPool.b().e(new a(this, qy8Var, py8Var));
+                    return;
+                }
+                k(py8Var);
+            }
+        }
+
+        public final void i(qy8 qy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, qy8Var) == null) {
+                try {
+                    e(qy8Var.a, qy8Var.e, qy8Var.c, qy8Var.d, qy8Var.b);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    j(qy8Var);
+                }
+            }
+        }
+
+        public final void j(qy8 qy8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, qy8Var) == null) {
+                try {
+                    for (ky8 ky8Var : qy8Var.e) {
+                        Bitmap frameAtTime = getFrameAtTime(ky8Var.d, 2);
+                        if (frameAtTime != null) {
+                            if (qy8Var.c != 0 && qy8Var.d != 0) {
+                                ky8Var.e = ThumbnailUtils.extractThumbnail(frameAtTime, qy8Var.c, qy8Var.d, 2);
+                            }
+                            ky8Var.a();
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public final void k(py8 py8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, py8Var) == null) {
+                this.d = false;
+                qc9.a().post(new RunnableC0286b(this, py8Var));
+            }
+        }
+
+        public void l(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+                this.d = z;
+            }
+        }
+
+        public void m(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+                this.c = z;
+            }
+        }
+
+        @Override // android.media.MediaMetadataRetriever
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+                super.release();
+                this.a = true;
+                this.d = false;
+            }
+        }
+
+        @Override // android.media.MediaMetadataRetriever
+        public void setDataSource(String str) throws IllegalArgumentException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+                try {
+                    super.setDataSource(str);
+                    this.b = str;
+                } catch (Exception e) {
+                    yb9.g(e);
+                }
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = true;
+        }
+    }
+
+    public hy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new float[16];
-        this.b = new MultiMediaData();
-        init(i, i2, z, handler);
-        this.mFullScreenEXT.setMirror(true);
-        Matrix.orthoM(this.a, 0, 0.0f, i, 0.0f, i2, -1.0f, 1.0f);
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add(new b(null));
+        this.a.add(new b(null));
     }
 
-    public void a(int i, int i2, float f) {
+    public static hy8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-            MultiMediaData multiMediaData = this.b;
-            multiMediaData.type = 1;
-            multiMediaData.width = i;
-            multiMediaData.height = i2;
-            multiMediaData.rotation = f;
-            if (((f == 90.0f || f == 270.0f) ? (i2 * 1.0f) / i : (i * 1.0f) / i2) <= (this.mVideoWidth * 1.0f) / this.mVideoHeight) {
-                this.b.scaleType = "center_crop";
-            } else {
-                this.b.scaleType = "center_inside";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (hy8.class) {
+                    if (b == null) {
+                        b = new hy8();
+                    }
+                }
             }
+            return b;
         }
+        return (hy8) invokeV.objValue;
     }
 
-    @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
-    public void drawImage(int i) {
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0020, code lost:
+        r2.l(true);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0024, code lost:
+        r0 = r2;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized b b() {
+        InterceptResult invokeV;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            super.drawImage(i);
-            if (this.mFullScreenEXT == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                bVar = null;
+                Iterator<b> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    b next = it.next();
+                    if (next != null && !next.f()) {
+                        break;
+                    }
+                }
             }
-            float[] fArr = new float[16];
-            Matrix.setIdentityM(fArr, 0);
-            Matrix.multiplyMM(fArr, 0, this.a, 0, MultiMediaPreProcessor.calculateModelView(this.b, this.mVideoWidth, this.mVideoHeight, 0, 0), 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
-            this.mFullScreenEXT.setAngle(180.0f);
-            this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
-            Matrix.setIdentityM(fArr, 0);
-            this.mFullScreenEXT.setVertexPoint(fArr);
+            return bVar;
         }
+        return (b) invokeV.objValue;
+    }
+
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) || bVar == null) {
+            return;
+        }
+        bVar.l(false);
     }
 }

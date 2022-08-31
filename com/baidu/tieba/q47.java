@@ -1,111 +1,116 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.ExpandableListView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class q47 implements p47 {
+public class q47 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<q47> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public p47 a;
-    public AbsHListView b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
-    public q47(AbsHListView absHListView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041941, "Lcom/baidu/tieba/q47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041941, "Lcom/baidu/tieba/q47;");
+                return;
+            }
+        }
+        e = new ArrayList<>(5);
+    }
+
+    public q47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {absHListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = absHListView;
-    }
-
-    @Override // com.baidu.tieba.p47
-    @TargetApi(11)
-    public void a(ActionMode actionMode, int i, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.a.a(actionMode, i, j, z);
-            if (this.b.getCheckedItemCount() == 0) {
-                actionMode.finish();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public boolean b() {
+    public static q47 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public void c(p47 p47Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p47Var) == null) {
-            this.a = p47Var;
-        }
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-            if (this.a.onCreateActionMode(actionMode, menu)) {
-                this.b.setLongClickable(false);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (e) {
+                if (e.size() > 0) {
+                    q47 remove = e.remove(0);
+                    remove.f();
+                    return remove;
+                }
+                return new q47();
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return (q47) invokeV.objValue;
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public void onDestroyActionMode(ActionMode actionMode) {
+    public static q47 c(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
-            this.a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.b;
-            absHListView.mChoiceActionMode = null;
-            absHListView.clearChoices();
-            AbsHListView absHListView2 = this.b;
-            absHListView2.mDataChanged = true;
-            absHListView2.rememberSyncState();
-            this.b.requestLayout();
-            this.b.setLongClickable(true);
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
+            q47 b = b();
+            b.d = i;
+            b.a = i2;
+            b.b = i3;
+            b.c = i4;
+            return b;
+        }
+        return (q47) invokeIIII.objValue;
+    }
+
+    public static q47 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? c(2, i, 0, 0) : (q47) invokeI.objValue;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d == 1 ? ExpandableListView.getPackedPositionForChild(this.a, this.b) : ExpandableListView.getPackedPositionForGroup(this.a) : invokeV.longValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (e) {
+                if (e.size() < 5) {
+                    e.add(this);
+                }
+            }
         }
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
+    public final void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = 0;
+            this.b = 0;
+            this.c = 0;
+            this.d = 0;
+        }
     }
 }

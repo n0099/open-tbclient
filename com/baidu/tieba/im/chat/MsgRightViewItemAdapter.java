@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.vz7;
+import com.baidu.tieba.tz7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public vz7 n;
+    public tz7 n;
     public TbPageContext<MsglistActivity<?>> o;
 
     /* loaded from: classes4.dex */
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            vz7 vz7Var = new vz7(this.mContext);
-            this.n = vz7Var;
-            vz7Var.b(this.o.getUniqueId());
+            tz7 tz7Var = new tz7(this.mContext);
+            this.n = tz7Var;
+            tz7Var.b(this.o.getUniqueId());
         }
     }
 

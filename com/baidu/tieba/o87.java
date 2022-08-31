@@ -1,62 +1,88 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import tbclient.Anti;
 /* loaded from: classes5.dex */
 public class o87 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
-        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(int i, String str) {
-        InterceptResult invokeIL;
+    public static boolean a(@Nullable Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
-            short b = b(i);
-            int i2 = R.string.obfuscated_res_0x7f0f0ad2;
-            if (b != 2) {
-                if (b != 9) {
-                    if (b == 4) {
-                        i2 = R.string.obfuscated_res_0x7f0f0ad4;
-                    } else if (b != 5) {
-                        if (b == 6) {
-                            i2 = R.string.obfuscated_res_0x7f0f0ad3;
-                        }
-                        i2 = -1;
-                    } else {
-                        i2 = R.string.obfuscated_res_0x7f0f0ad5;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (c()) {
+                if (le5.a()) {
+                    return true;
                 }
+                d(context);
+                return true;
             }
-            return i2 != -1 ? TbadkCoreApplication.getInst().getResources().getString(i2) : str;
+            return false;
         }
-        return (String) invokeIL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static short b(int i) {
-        InterceptResult invokeI;
+    public static void b(boolean z, Anti anti) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            switch (i) {
-                case -100000306:
-                    return (short) 6;
-                case -100000303:
-                    return (short) 2;
-                case 3160010:
-                    return (short) 5;
-                case 3160011:
-                    return (short) 4;
-                default:
-                    return (short) 9;
+        if ((interceptable == null || interceptable.invokeZL(65537, null, z, anti) == null) && z && anti != null) {
+            if (anti.user_chat_block.intValue() == 1) {
+                e();
+            } else {
+                f();
             }
         }
-        return invokeI.shortValue;
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : invokeV.booleanValue;
+    }
+
+    public static void d(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && (context instanceof Activity)) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_MESSAGE_BLOCK_DIALOG_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder((Activity) context);
+            tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f03a9);
+            tBAlertBuilder.k(R.string.obfuscated_res_0x7f0f03a8);
+            tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f03a7, TBAlertConfig.OperateBtnStyle.MAIN));
+            tBAlertBuilder.h(false);
+            tBAlertBuilder.g();
+            tBAlertBuilder.w();
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || c()) {
+            return;
+        }
+        a = true;
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.TRUE));
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && c()) {
+            a = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.FALSE));
+        }
     }
 }

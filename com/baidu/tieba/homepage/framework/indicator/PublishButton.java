@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.tv4;
+import com.baidu.tieba.rv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,19 +65,19 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                tv4 tv4Var = new tv4();
-                tv4Var.p(R.color.CAM_X0101);
-                tv4Var.v(R.dimen.tbds6);
-                tv4Var.u(R.string.A_X01);
-                tv4Var.i(R.drawable.obfuscated_res_0x7f08094c, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                tv4Var.g(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                setConfig(tv4Var);
+                rv4 rv4Var = new rv4();
+                rv4Var.p(R.color.CAM_X0101);
+                rv4Var.v(R.dimen.tbds6);
+                rv4Var.u(R.string.A_X01);
+                rv4Var.i(R.drawable.obfuscated_res_0x7f08094c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                rv4Var.g(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                setConfig(rv4Var);
             } else {
-                sv4 sv4Var = new sv4();
-                sv4Var.i(R.drawable.obfuscated_res_0x7f08094c, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                sv4Var.g(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                sv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(sv4Var);
+                qv4 qv4Var = new qv4();
+                qv4Var.i(R.drawable.obfuscated_res_0x7f08094c, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                qv4Var.g(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                qv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(qv4Var);
             }
             k();
         }

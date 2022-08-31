@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jy extends sw<ho4> {
+public class jy extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class jy extends sw<ho4> {
     public TextView g;
     public TextView h;
     public OriginalThreadCardView i;
-    public ho4 j;
+    public go4 j;
     public boolean k;
     public OriginalThreadCardView.b l;
 
@@ -66,7 +66,7 @@ public class jy extends sw<ho4> {
                 this.a.e().a(this.a.i, this.a.j);
             }
             String id = this.a.j.getThreadData().getId();
-            uz5.a(id);
+            sz5.a(id);
             this.a.t(id);
             this.a.a.o(new py.a(1));
         }
@@ -128,10 +128,10 @@ public class jy extends sw<ho4> {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j06Var) == null) {
-            super.m(j06Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h06Var) == null) {
+            super.m(h06Var);
         }
     }
 
@@ -146,23 +146,23 @@ public class jy extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: s */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) || ho4Var == null || ho4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) || go4Var == null || go4Var.getThreadData() == null) {
             return;
         }
-        this.j = ho4Var;
-        ThreadCardUtils.setTitle(this.g, ho4Var.getThreadData(), this.k);
-        ThreadCardUtils.setAbstract(this.h, this.g, ho4Var.getThreadData(), m, this.k);
-        this.i.i(ho4Var.getThreadData().originalThreadData);
+        this.j = go4Var;
+        ThreadCardUtils.setTitle(this.g, go4Var.getThreadData(), this.k);
+        ThreadCardUtils.setAbstract(this.h, this.g, go4Var.getThreadData(), m, this.k);
+        this.i.i(go4Var.getThreadData().originalThreadData);
     }
 
     public final void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            uz5.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            uz5.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
-            this.i.setReadState(uz5.k(str));
+            sz5.l(this.g, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            sz5.l(this.h, str, R.color.CAM_X0105, R.color.CAM_X0109);
+            this.i.setReadState(sz5.k(str));
         }
     }
 

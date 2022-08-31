@@ -1,38 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.CardHListViewData;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: TopViewLogic.java */
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class yp6 {
+public class yp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull View view2) {
+    public static boolean a(ArrayList<pn> arrayList, String str, CardHListViewData cardHListViewData, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
-            SkinManager.setBackgroundColor(view2, R.color.CAM_X0204);
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65536, null, arrayList, str, cardHListViewData, i)) == null) {
+            if (cardHListViewData != null && !ListUtils.isEmpty(arrayList) && !StringUtils.isNull(str) && i >= 0) {
+                int size = arrayList.size();
+                for (int i2 = 0; i2 < size; i2++) {
+                    pn pnVar = arrayList.get(i2);
+                    if ((pnVar instanceof CardHListViewData) && str.equals(((CardHListViewData) pnVar).threadId)) {
+                        return false;
+                    }
+                }
+                int i3 = i + 1;
+                if (i3 > 0) {
+                    ListUtils.add(arrayList, i3, cardHListViewData);
+                    return true;
+                }
+            }
+            return false;
         }
+        return invokeLLLI.booleanValue;
     }
 
-    public static void b(@NonNull TextView textView, @ColorInt int i) {
+    public static boolean b(FrsRequestData frsRequestData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, textView, i) == null) {
-            Context context = textView.getContext();
-            TBSelector.makeDrawableSelector().setShape(0).cornerRadius(ri.f(context, R.dimen.tbds10)).defaultColorValueNotAutoChangeSkinType(i).into(textView);
-            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-            textView.setTextSize(0, ri.f(context, R.dimen.T_X10));
-            ViewGroup.LayoutParams layoutParams = textView.getLayoutParams();
-            layoutParams.width = ri.f(context, R.dimen.tbds74);
-            layoutParams.height = ri.f(context, R.dimen.tbds40);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsRequestData)) == null) ? frsRequestData != null && frsRequestData.E() == 1 : invokeL.booleanValue;
     }
 }

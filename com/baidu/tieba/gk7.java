@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gk7 extends vc1<ThirdPartAliRechargeService> {
+public class gk7 extends vc1<ThirdPartWxRechargeService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class gk7 extends vc1<ThirdPartAliRechargeService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vc1
     /* renamed from: a */
-    public ThirdPartAliRechargeService createService() throws ServiceNotFoundException {
+    public ThirdPartWxRechargeService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hk7() : (ThirdPartAliRechargeService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new hk7() : (ThirdPartWxRechargeService) invokeV.objValue;
     }
 }

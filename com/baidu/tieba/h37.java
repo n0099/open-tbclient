@@ -1,141 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.NewHottopic.DataRes;
-import tbclient.NewHottopic.RelateThread;
-import tbclient.NewHottopic.SpecialTopic;
-import tbclient.NewHottopic.TopicDetail;
 import tbclient.NewHottopic.TopicThread;
-import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class h37 {
+public class h37 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public String b;
-    public String c;
-    public String d;
-    public i37 e;
-    public List<pn> f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public ThreadData b;
+    public long c;
+    public int d;
+    public int e;
+    public boolean f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772861, "Lcom/baidu/tieba/h37;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947772861, "Lcom/baidu/tieba/h37;");
+                return;
+            }
+        }
+        g = BdUniqueId.gen();
+    }
 
     public h37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.i = false;
     }
 
-    public boolean a() {
+    public void c(TopicThread topicThread) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicThread) == null) || topicThread == null) {
+            return;
+        }
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = topicThread.user_agree.intValue();
+        this.e = topicThread.source.intValue();
+    }
+
+    public void f(tbclient.NewTopicThread.TopicThread topicThread) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicThread) == null) || topicThread == null) {
+            return;
+        }
+        this.a = topicThread.feed_id.longValue();
+        if (topicThread.thread_info != null) {
+            ThreadData threadData = new ThreadData();
+            this.b = threadData;
+            threadData.parserProtobuf(topicThread.thread_info);
+            this.b.parser_title();
+        }
+        this.d = Integer.parseInt(topicThread.user_agree);
+        this.e = topicThread.source.intValue();
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : invokeV.booleanValue;
-    }
-
-    public void b(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
-            return;
-        }
-        this.h = false;
-        TopicDetail topicDetail = dataRes.topic_info;
-        if (topicDetail != null) {
-            this.a = topicDetail.topic_id.longValue();
-            TopicDetail topicDetail2 = dataRes.topic_info;
-            this.b = topicDetail2.topic_name;
-            this.c = topicDetail2.share_title;
-            this.d = topicDetail2.share_pic;
-            i37 i37Var = new i37();
-            this.e = i37Var;
-            i37Var.a(dataRes.topic_info);
-            if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.h = true;
-            }
-        }
-        if (dataRes.pk_module != null) {
-            this.i = true;
-            this.h = true;
-            if (this.e == null) {
-                this.e = new i37();
-            }
-            this.e.b(dataRes.pk_module);
-        } else {
-            this.i = false;
-        }
-        if (dataRes.time_line != null) {
-            this.h = true;
-            if (this.e == null) {
-                this.e = new i37();
-            }
-            this.e.c(dataRes.time_line);
-        }
-        this.f = new ArrayList();
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.h = true;
-            int i = 1;
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
-                    boolean z = false;
-                    for (ThreadInfo threadInfo : specialTopic.thread_list) {
-                        if (threadInfo != null) {
-                            k37 k37Var = new k37();
-                            if (!z) {
-                                k37Var.a = true;
-                                k37Var.d = specialTopic.title;
-                                z = true;
-                            }
-                            k37Var.b = i;
-                            k37Var.c = this.a;
-                            k37Var.c(threadInfo);
-                            this.f.add(k37Var);
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-        if (this.h) {
-            y37 y37Var = new y37();
-            y37Var.a = R.dimen.tbds78;
-            y37Var.b = R.color.CAM_X0201;
-            this.f.add(y37Var);
-        }
-        RelateThread relateThread = dataRes.relate_thread;
-        if (relateThread == null || ListUtils.isEmpty(relateThread.thread_list)) {
-            return;
-        }
-        y37 y37Var2 = new y37();
-        y37Var2.a = R.dimen.tbds16;
-        this.f.add(y37Var2);
-        this.g = dataRes.relate_thread.has_more.intValue() == 1;
-        for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
-            if (topicThread != null) {
-                j37 j37Var = new j37();
-                j37Var.c(topicThread);
-                j37Var.c = this.a;
-                j37Var.f = this.i;
-                this.f.add(j37Var);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
     }
 }

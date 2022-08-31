@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.tq4;
+import com.baidu.tieba.sq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -768,13 +768,13 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         intent.putExtra("lego_pre_load_data", str);
     }
 
-    public void setRecomData(tq4 tq4Var) {
+    public void setRecomData(sq4 sq4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, tq4Var) == null) || (intent = getIntent()) == null || tq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, sq4Var) == null) || (intent = getIntent()) == null || sq4Var == null) {
             return;
         }
-        tq4Var.c(intent);
+        sq4Var.c(intent);
     }
 
     public void setSmartFrsPosition(int i) {

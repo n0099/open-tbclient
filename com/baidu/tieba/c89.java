@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
+import com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer;
 /* loaded from: classes3.dex */
-public class c89 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c89 {
+    IMediaPlayer a();
 
-    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) || d89.c().g() == null) {
-            return;
-        }
-        d89.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
-    }
+    String b();
+
+    j99 c();
+
+    String e();
 }

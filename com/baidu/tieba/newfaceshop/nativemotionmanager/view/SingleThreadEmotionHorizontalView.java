@@ -27,9 +27,9 @@ import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.ij;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
+import com.baidu.tieba.np7;
 import com.baidu.tieba.pp7;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
     }
 
     /* loaded from: classes5.dex */
-    public class b implements rp7 {
+    public class b implements pp7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleThreadEmotionHorizontalView a;
@@ -109,7 +109,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
             this.a = singleThreadEmotionHorizontalView;
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -118,7 +118,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
             }
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -130,7 +130,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
             }
         }
 
-        @Override // com.baidu.tieba.rp7
+        @Override // com.baidu.tieba.pp7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -331,7 +331,7 @@ public class SingleThreadEmotionHorizontalView extends LinearLayout implements V
     public final void f() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ViewHelper.checkUpIsLogin(this.h.getPageActivity())) {
-            if (pp7.o().q()) {
+            if (np7.o().q()) {
                 ri.M(this.h.getPageActivity(), R.string.obfuscated_res_0x7f0f05eb);
                 return;
             }

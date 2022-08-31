@@ -1,168 +1,28 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ik5 implements pn, lk5, vp4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<BdUniqueId> c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public int b;
+public interface ik5 extends lk5<nk5> {
+    void a(int i);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947856406, "Lcom/baidu/tieba/ik5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947856406, "Lcom/baidu/tieba/ik5;");
-                return;
-            }
-        }
-        c = new SparseArray<>();
-    }
+    List<Integer> d();
 
-    public ik5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void e(List<hk5> list, String str, String str2, String str3, String str4, boolean z, int i);
 
-    public static void b(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, list) == null) || c.size() > 0 || list == null) {
-            return;
-        }
-        for (Integer num : list) {
-            c.put(num.intValue(), BdUniqueId.gen());
-        }
-    }
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
 
-    public static List<BdUniqueId> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < c.size(); i++) {
-                arrayList.add(c.valueAt(i));
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
+    void i(List<hk5> list, int i);
 
-    public static int g(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        int indexOfValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bdUniqueId)) == null) {
-            if (c.size() == 0 || (indexOfValue = c.indexOfValue(bdUniqueId)) == -1 || c.size() <= indexOfValue) {
-                return -1;
-            }
-            return c.keyAt(indexOfValue);
-        }
-        return invokeL.intValue;
-    }
+    void k(List<Object> list);
 
-    @Override // com.baidu.tieba.lk5
-    public Object a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.objValue;
-    }
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
 
-    @Override // com.baidu.tieba.vp4
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
 
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
+    void o(List<hk5> list, List<hk5> list2, boolean z, int i);
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? c.get(this.b) : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
-            this.a = obj;
-        }
-    }
-
-    @Override // com.baidu.tieba.vp4
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (a() instanceof AdvertAppInfo) {
-                return ((vp4) a()).i();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.vp4
-    public AdvertAppInfo p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (a() instanceof vp4) {
-                return (AdvertAppInfo) a();
-            }
-            return null;
-        }
-        return (AdvertAppInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vp4
-    public void setPosition(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (a() instanceof vp4)) {
-            ((vp4) a()).setPosition(i);
-        }
-    }
+    void p(String str);
 }

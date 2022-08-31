@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class k36 extends g36 {
+public final class k36 extends e36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public Set<Integer> b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k36(boolean z) {
-        super(64);
+    public k36() {
+        super(8);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,24 +31,25 @@ public final class k36 extends g36 {
                 return;
             }
         }
-        this.b = z;
+        this.b = new LinkedHashSet();
     }
 
-    @Override // com.baidu.tieba.g36
-    public boolean b(p26 item, s46 timer, j26 config) {
+    @Override // com.baidu.tieba.e36
+    public boolean b(n26 item, q46 timer, h26 config) {
         InterceptResult invokeLLL;
-        Long o;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
             Intrinsics.checkNotNullParameter(timer, "timer");
             Intrinsics.checkNotNullParameter(config, "config");
-            return this.b && (o = item.e().o()) != null && o.longValue() == 0;
+            return (this.b.isEmpty() ^ true) && !this.b.contains(Integer.valueOf(c(item.e())));
         }
         return invokeLLL.booleanValue;
     }
 
-    public /* synthetic */ k36(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z);
+    public final int c(o26 o26Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o26Var)) == null) ? o26Var.m() & 16777215 : invokeL.intValue;
     }
 }

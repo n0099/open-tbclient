@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.xx5;
+import com.baidu.tieba.vx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectCategoryAdapter extends cn<xx5, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends cn<vx5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public class AlaEnterEffectCategoryAdapter extends cn<xx5, ViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, xx5.b);
+        super(context, vx5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,12 +96,12 @@ public class AlaEnterEffectCategoryAdapter extends cn<xx5, ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xx5 xx5Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vx5 vx5Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xx5Var, viewHolder})) == null) {
-            if (xx5Var != null) {
-                viewHolder.a.setText(xx5Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vx5Var, viewHolder})) == null) {
+            if (vx5Var != null) {
+                viewHolder.a.setText(vx5Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.w57;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.u57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class SelectTopicToolItem extends RelativeLayout {
     public EMTextView b;
     public ImageView c;
     public LinearLayout d;
-    public w57 e;
+    public u57 e;
     public b f;
     public boolean g;
     public boolean h;
@@ -77,7 +77,7 @@ public class SelectTopicToolItem extends RelativeLayout {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull w57 w57Var);
+        void a(@NonNull u57 u57Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,13 +101,13 @@ public class SelectTopicToolItem extends RelativeLayout {
         e();
     }
 
-    public void c(w57 w57Var) {
+    public void c(u57 u57Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, w57Var) == null) || w57Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, u57Var) == null) || u57Var == null) {
             return;
         }
-        this.e = w57Var;
-        if (w57Var.j()) {
+        this.e = u57Var;
+        if (u57Var.j()) {
             this.b.setText("#");
             this.a.setText(this.e.e() + "#");
         } else {
@@ -117,12 +117,12 @@ public class SelectTopicToolItem extends RelativeLayout {
     }
 
     public void d() {
-        w57 w57Var;
-        w57 w57Var2;
+        u57 u57Var;
+        u57 u57Var2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (!this.g && (w57Var2 = this.e) != null) {
-                if (w57Var2.j()) {
+            if (!this.g && (u57Var2 = this.e) != null) {
+                if (u57Var2.j()) {
                     this.b.setVisibility(0);
                     this.c.setVisibility(0);
                 } else {
@@ -140,26 +140,26 @@ public class SelectTopicToolItem extends RelativeLayout {
                 this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f00d5));
                 this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080602, SkinManager.getColor(R.color.CAM_X0109), null));
             }
-            if (!this.g && (w57Var = this.e) != null && w57Var.h()) {
-                os4.d(this.a).v(R.color.CAM_X0304);
-                os4.d(this.b).v(R.color.CAM_X0304);
-                os4 d = os4.d(this.d);
+            if (!this.g && (u57Var = this.e) != null && u57Var.h()) {
+                ns4.d(this.a).v(R.color.CAM_X0304);
+                ns4.d(this.b).v(R.color.CAM_X0304);
+                ns4 d = ns4.d(this.d);
                 d.n(R.string.J_X01);
                 d.l(R.dimen.L_X02);
                 d.k(R.color.CAM_X0304);
                 d.f(R.color.CAM_X0905);
             } else if (this.h && !this.g) {
-                os4.d(this.a).v(R.color.CAM_X0105);
-                os4.d(this.b).v(R.color.CAM_X0105);
-                os4 d2 = os4.d(this.d);
+                ns4.d(this.a).v(R.color.CAM_X0105);
+                ns4.d(this.b).v(R.color.CAM_X0105);
+                ns4 d2 = ns4.d(this.d);
                 d2.n(R.string.J_X01);
                 d2.l(R.dimen.L_X02);
                 d2.k(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0201);
             } else {
-                os4.d(this.a).v(R.color.CAM_X0105);
-                os4.d(this.b).v(R.color.CAM_X0105);
-                os4 d3 = os4.d(this.d);
+                ns4.d(this.a).v(R.color.CAM_X0105);
+                ns4.d(this.b).v(R.color.CAM_X0105);
+                ns4 d3 = ns4.d(this.d);
                 d3.n(R.string.J_X01);
                 d3.l(R.dimen.L_X02);
                 d3.k(R.color.CAM_X0209);

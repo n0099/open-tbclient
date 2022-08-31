@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.searchbox.player.constants.PlayerConstant;
-import com.baidu.tbadk.core.atomData.FrsVideoTabPlayActivityConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,142 @@ public class e98 {
     public String c;
     public String d;
     public String e;
-    public int f;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
+    public String k;
+    public String l;
+    public String m;
+    public String n;
+    public String o;
+    public String p;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
+    public String u;
+    public String v;
+    public String w;
+    public int x;
+    public int y;
+    public String z;
+
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 1567) {
+                    if (hashCode != 1568) {
+                        if (hashCode != 1570) {
+                            if (hashCode != 1576) {
+                                if (hashCode != 1599) {
+                                    switch (hashCode) {
+                                        case 49:
+                                            if (str.equals("1")) {
+                                                c = 0;
+                                                break;
+                                            }
+                                            break;
+                                        case 50:
+                                            if (str.equals("2")) {
+                                                c = 2;
+                                                break;
+                                            }
+                                            break;
+                                        case 51:
+                                            if (str.equals("3")) {
+                                                c = 4;
+                                                break;
+                                            }
+                                            break;
+                                        case 52:
+                                            if (str.equals("4")) {
+                                                c = 3;
+                                                break;
+                                            }
+                                            break;
+                                        default:
+                                            switch (hashCode) {
+                                                case 54:
+                                                    if (str.equals("6")) {
+                                                        c = 7;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 55:
+                                                    if (str.equals("7")) {
+                                                        c = 1;
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 56:
+                                                    if (str.equals("8")) {
+                                                        c = '\b';
+                                                        break;
+                                                    }
+                                                    break;
+                                                case 57:
+                                                    if (str.equals("9")) {
+                                                        c = '\t';
+                                                        break;
+                                                    }
+                                                    break;
+                                            }
+                                    }
+                                } else if (str.equals("21")) {
+                                    c = '\f';
+                                }
+                            } else if (str.equals("19")) {
+                                c = '\n';
+                            }
+                        } else if (str.equals("13")) {
+                            c = 11;
+                        }
+                    } else if (str.equals("11")) {
+                        c = 6;
+                    }
+                } else if (str.equals("10")) {
+                    c = 5;
+                }
+                switch (c) {
+                    case 0:
+                    case 1:
+                        return "a002";
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        return "a006";
+                    case 7:
+                        return "a005";
+                    case '\b':
+                    case '\t':
+                    case '\n':
+                        return "a020";
+                    case 11:
+                        return "a023";
+                    case '\f':
+                        return "a088";
+                    default:
+                        return "";
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     public e98() {
         Interceptable interceptable = $ic;
@@ -31,228 +167,130 @@ public class e98 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.z = "index";
     }
 
-    public String a(String str) {
+    public StatisticItem a(StatisticItem statisticItem) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Unknown";
-            }
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1679289728:
-                    if (str.equals("Concern")) {
-                        c = '\t';
-                        break;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, statisticItem)) == null) {
+            if (statisticItem != null) {
+                if (!StringUtils.isNull(this.a)) {
+                    statisticItem.param("obj_locate", this.a);
+                    statisticItem.param("page_type", a.a(this.a));
+                    if (this.a.equals("21")) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
                     }
-                    break;
-                case -1152667590:
-                    if (str.equals("ad_feed")) {
-                        c = 1;
-                        break;
+                    if (this.a.equals("13") && !StringUtils.isNull(this.i) && this.z.equals(this.i)) {
+                        statisticItem.param(TiebaStatic.Params.BHV_ID, TbSingleton.getInstance().getCurrentClickTime());
                     }
-                    break;
-                case -654725321:
-                    if (str.equals("ad_video_landing")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -421681106:
-                    if (str.equals("HomePage")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case -181435716:
-                    if (str.equals("HomeVideo")) {
-                        c = '\b';
-                        break;
-                    }
-                    break;
-                case 2546:
-                    if (str.equals("PB")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 70919:
-                    if (str.equals("Frs")) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 175967569:
-                    if (str.equals(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 671041499:
-                    if (str.equals("ad_paster")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 1974553171:
-                    if (str.equals(PlayerConstant.PAGE_VIDEO_LANDING)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                case 1:
-                case 2:
-                    return LaunchStatsUtils.AD;
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                case '\b':
-                case '\t':
-                    return "tbc";
-                default:
-                    return "Unknown";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "Unknown";
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 1567) {
-                if (hashCode != 1568) {
-                    if (hashCode != 1570) {
-                        if (hashCode != 1576) {
-                            if (hashCode != 1599) {
-                                switch (hashCode) {
-                                    case 49:
-                                        if (str.equals("1")) {
-                                            c = 0;
-                                            break;
-                                        }
-                                        break;
-                                    case 50:
-                                        if (str.equals("2")) {
-                                            c = 2;
-                                            break;
-                                        }
-                                        break;
-                                    case 51:
-                                        if (str.equals("3")) {
-                                            c = 4;
-                                            break;
-                                        }
-                                        break;
-                                    case 52:
-                                        if (str.equals("4")) {
-                                            c = 3;
-                                            break;
-                                        }
-                                        break;
-                                    default:
-                                        switch (hashCode) {
-                                            case 54:
-                                                if (str.equals("6")) {
-                                                    c = 7;
-                                                    break;
-                                                }
-                                                break;
-                                            case 55:
-                                                if (str.equals("7")) {
-                                                    c = 1;
-                                                    break;
-                                                }
-                                                break;
-                                            case 56:
-                                                if (str.equals("8")) {
-                                                    c = '\b';
-                                                    break;
-                                                }
-                                                break;
-                                            case 57:
-                                                if (str.equals("9")) {
-                                                    c = '\t';
-                                                    break;
-                                                }
-                                                break;
-                                        }
-                                }
-                            } else if (str.equals("21")) {
-                                c = '\f';
-                            }
-                        } else if (str.equals("19")) {
-                            c = '\n';
-                        }
-                    } else if (str.equals("13")) {
-                        c = 11;
-                    }
-                } else if (str.equals("11")) {
-                    c = 6;
                 }
-            } else if (str.equals("10")) {
-                c = 5;
+                if (!StringUtils.isNull(this.c)) {
+                    statisticItem.param("tid", this.c);
+                }
+                if (!StringUtils.isNull(this.d)) {
+                    statisticItem.param("fid", this.d);
+                }
+                if (!StringUtils.isNull(this.e)) {
+                    statisticItem.param("uid", this.e);
+                }
+                if (!StringUtils.isNull(this.f)) {
+                    statisticItem.param("obj_source", this.f);
+                } else {
+                    statisticItem.param("obj_source", 0);
+                }
+                if (!StringUtils.isNull(this.g)) {
+                    statisticItem.param("obj_param1", this.g);
+                } else {
+                    statisticItem.param("obj_param1", 0);
+                }
+                if (!StringUtils.isNull(this.h)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, this.h);
+                }
+                if (!StringUtils.isNull(this.i)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, this.i);
+                }
+                int i = this.j;
+                if (i > 0) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, i);
+                }
+                if (!StringUtils.isNull(this.k)) {
+                    statisticItem.param("obj_id", this.k);
+                }
+                if (!StringUtils.isNull(this.l)) {
+                    statisticItem.param("ab_tag", this.l);
+                } else {
+                    statisticItem.param("ab_tag", 0);
+                }
+                if (!StringUtils.isNull(this.n)) {
+                    statisticItem.param(TiebaStatic.Params.TOPIC_TYPE, this.n);
+                }
+                if (!StringUtils.isNull(this.o)) {
+                    statisticItem.param("extra", this.o);
+                } else {
+                    statisticItem.param("extra", 0);
+                }
+                if (!StringUtils.isNull(this.p)) {
+                    statisticItem.param(TiebaStatic.Params.IS_VERTICAL, this.p);
+                }
+                if (!StringUtils.isNull(this.q)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, this.q);
+                }
+                if (!StringUtils.isNull(this.r)) {
+                    statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.r);
+                }
+                if (!StringUtils.isNull(this.s)) {
+                    statisticItem.param("group_id", this.s);
+                }
+                int i2 = this.x;
+                if (i2 > 0) {
+                    statisticItem.param("request_num", i2);
+                }
+                int i3 = this.y;
+                if (i3 > 0) {
+                    statisticItem.param("video_num", i3);
+                }
+                statisticItem.param("obj_extra", StringUtils.isNull(this.w) ? "" : this.w);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, StringUtils.isNull(this.t) ? "" : this.t);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, StringUtils.isNull(this.u) ? "" : this.u);
+                statisticItem.param("nid", StringUtils.isNull(this.v) ? "" : this.v);
             }
-            switch (c) {
-                case 0:
-                    return "HomePage";
-                case 1:
-                    return "Concern";
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    return "Frs";
-                case 7:
-                    return "PB";
-                case '\b':
-                case '\t':
-                case '\n':
-                    return "HomeVideo";
-                case 11:
-                    return FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO_PAGE;
-                case '\f':
-                    return PlayerConstant.PAGE_VIDEO_LANDING;
-                default:
-                    return "Unknown";
-            }
+            return statisticItem;
         }
-        return (String) invokeL.objValue;
+        return (StatisticItem) invokeL.objValue;
     }
 
-    public int c(String str) {
-        InterceptResult invokeL;
+    public e98 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 1;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 49) {
-                if (hashCode == 50 && str.equals("2")) {
-                    c = 1;
-                }
-            } else if (str.equals("1")) {
-                c = 0;
-            }
-            return (c == 0 || c != 1) ? 1 : 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            e98 e98Var = new e98();
+            e98Var.a = this.a;
+            e98Var.b = this.b;
+            e98Var.c = this.c;
+            e98Var.d = this.d;
+            e98Var.e = this.e;
+            e98Var.f = this.f;
+            e98Var.g = this.g;
+            e98Var.h = this.h;
+            e98Var.i = this.i;
+            e98Var.k = this.k;
+            e98Var.l = this.l;
+            e98Var.m = this.m;
+            e98Var.n = this.n;
+            e98Var.q = this.q;
+            e98Var.r = this.r;
+            e98Var.s = this.s;
+            e98Var.t = this.t;
+            e98Var.u = this.u;
+            e98Var.v = this.v;
+            e98Var.x = this.x;
+            e98Var.y = this.y;
+            return e98Var;
         }
-        return invokeL.intValue;
+        return (e98) invokeV.objValue;
     }
 }

@@ -13,7 +13,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.messages.AlaPersonCenterResponseMessage;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.kx5;
+import com.baidu.tieba.ix5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaPersonCenterModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kx5 a;
+    public ix5 a;
     public String b;
     public final HttpMessageListener c;
 
@@ -102,10 +102,10 @@ public class AlaPersonCenterModel extends BdBaseModel {
         registerListener(this.c);
     }
 
-    public void A(kx5 kx5Var) {
+    public void A(ix5 ix5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, kx5Var) == null) {
-            this.a = kx5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ix5Var) == null) {
+            this.a = ix5Var;
         }
     }
 

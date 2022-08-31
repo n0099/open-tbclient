@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class l15 {
     public static /* synthetic */ Interceptable $ic;
+    public static l15 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public HashMap<String, String> a;
+    public HashMap<String, String> b;
+    public HashMap<String, String> c;
 
     public l15() {
         Interceptable interceptable = $ic;
@@ -26,48 +27,96 @@ public class l15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
     }
 
-    public String a() {
+    public static synchronized l15 a() {
         InterceptResult invokeV;
+        l15 l15Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (l15.class) {
+                if (d == null) {
+                    d = new l15();
+                }
+                l15Var = d;
             }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            String str = skinType == 1 ? "skin=night" : skinType == 4 ? "skin=dark" : "skin=default";
-            if (this.b.contains("?")) {
-                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
-            } else {
-                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
-            }
-            return this.b;
+            return l15Var;
         }
-        return (String) invokeV.objValue;
+        return (l15) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) ? false : true : invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = optJSONObject.optString("guide_picture");
-        this.b = optJSONObject.optString("guide_url");
+        try {
+            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("2g");
+                String optString2 = optJSONObject.optString("3g");
+                String optString3 = optJSONObject.optString("4g");
+                String optString4 = optJSONObject.optString("wifi");
+                if (optString != null) {
+                    this.a.put("2g", optString);
+                }
+                if (optString2 != null) {
+                    this.a.put("3g", optString2);
+                }
+                if (optString3 != null) {
+                    this.a.put("4g", optString3);
+                }
+                if (optString4 != null) {
+                    this.a.put("wifi", optString4);
+                }
+            }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
+            if (optJSONObject2 != null) {
+                String optString5 = optJSONObject2.optString("2g");
+                String optString6 = optJSONObject2.optString("3g");
+                String optString7 = optJSONObject2.optString("4g");
+                String optString8 = optJSONObject2.optString("wifi");
+                if (optString5 != null) {
+                    this.b.put("2g", optString5);
+                }
+                if (optString6 != null) {
+                    this.b.put("3g", optString6);
+                }
+                if (optString7 != null) {
+                    this.b.put("4g", optString7);
+                }
+                if (optString8 != null) {
+                    this.b.put("wifi", optString8);
+                }
+            }
+            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
+            if (optJSONObject3 != null) {
+                String optString9 = optJSONObject3.optString("2g");
+                String optString10 = optJSONObject3.optString("3g");
+                String optString11 = optJSONObject3.optString("4g");
+                String optString12 = optJSONObject3.optString("wifi");
+                if (optString9 != null) {
+                    this.c.put("2g", optString9);
+                }
+                if (optString10 != null) {
+                    this.c.put("3g", optString10);
+                }
+                if (optString11 != null) {
+                    this.c.put("4g", optString11);
+                }
+                if (optString12 != null) {
+                    this.c.put("wifi", optString12);
+                }
+            }
+            jSONObject.optString("is_on");
+        } catch (Exception e) {
+            BdLog.detailException(e);
+        }
     }
 }

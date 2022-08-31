@@ -38,12 +38,12 @@ public class vi3 {
 
         /* renamed from: com.baidu.tieba.vi3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0424a implements Runnable {
+        public class RunnableC0432a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0424a(a aVar) {
+            public RunnableC0432a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,7 +96,7 @@ public class vi3 {
             if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
                 ViewGroup viewGroup = this.a;
                 if (viewGroup != null) {
-                    viewGroup.post(new RunnableC0424a(this));
+                    viewGroup.post(new RunnableC0432a(this));
                 }
                 if (this.c.i(quickLoginInfo)) {
                     this.c.a.putParcelable("quick_login_info", quickLoginInfo);

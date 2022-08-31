@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class x05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
+    public c b;
+    public b c;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -20,76 +26,196 @@ public class x05 {
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public class b extends BdAsyncTask<String, Void, Boolean> {
         public static /* synthetic */ Interceptable $ic;
-        public static x05 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public Process a;
+        public final /* synthetic */ x05 b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-340804370, "Lcom/baidu/tieba/x05$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-340804370, "Lcom/baidu/tieba/x05$b;");
+        public b(x05 x05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new x05(null);
+            this.b = x05Var;
+            this.a = null;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                boolean z = false;
+                if (strArr != null && strArr.length >= 1) {
+                    try {
+                        try {
+                            try {
+                                Process exec = Runtime.getRuntime().exec(strArr[0]);
+                                this.a = exec;
+                                if (exec.waitFor() == 0) {
+                                    z = true;
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (InterruptedException e2) {
+                            e2.printStackTrace();
+                        }
+                    } finally {
+                        this.a.destroy();
+                    }
+                }
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.onCancelled();
+                Process process = this.a;
+                if (process != null) {
+                    try {
+                        process.destroy();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                    }
+                }
+                if (this.b.b != null) {
+                    this.b.b.a(false);
+                }
+                if (this.b.a != null) {
+                    this.b.a.removeMessages(0);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                if (this.b.b != null) {
+                    this.b.b.a(bool == null ? false : bool.booleanValue());
+                }
+                if (this.b.a != null) {
+                    this.b.a.removeMessages(0);
+                }
+            }
+        }
+
+        public /* synthetic */ b(x05 x05Var, a aVar) {
+            this(x05Var);
         }
     }
 
-    public /* synthetic */ x05(a aVar) {
-        this();
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(boolean z);
     }
 
-    public static x05 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (x05) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class d extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<x05> a;
 
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            c("kNetStatus=" + i);
+        public d(x05 x05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(x05Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            x05 x05Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what != 0 || (x05Var = this.a.get()) == null) {
+                    return;
+                }
+                x05Var.e();
+            }
         }
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c("kLCSError=1");
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            ga.a("IpReconnLogHelper", 0, 0, null, qn4.b, str);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            c("kNewIpResult=" + str);
-        }
-    }
-
-    public x05() {
+    public x05(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        d dVar = new d(this);
+        this.a = dVar;
+        this.b = cVar;
+        dVar.sendEmptyMessageDelayed(0, 50000L);
+        b bVar = new b(this, null);
+        this.c = bVar;
+        bVar.setSelfExecute(true);
+        b bVar2 = this.c;
+        bVar2.execute(d() + str);
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int I = pi.I();
+            return I != 1 ? I != 2 ? "ping -c 3 -w 5000 " : "ping -c 3 -w 10000 " : "ping -c 3 -w 3000 ";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b bVar = this.c;
+            if (bVar != null) {
+                bVar.cancel(true);
+            }
+            d dVar = this.a;
+            if (dVar != null) {
+                dVar.removeMessages(0);
             }
         }
     }

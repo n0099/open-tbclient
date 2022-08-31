@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.lh5;
+import com.baidu.tieba.jh5;
+import com.baidu.tieba.kh5;
 import com.baidu.tieba.li;
-import com.baidu.tieba.mh5;
 import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -31,15 +31,15 @@ public class TBLottieAnimationView extends LottieAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public mh5 a;
+    public kh5 a;
     public String b;
     public boolean c;
     public boolean d;
     public boolean e;
-    public mh5.a f;
+    public kh5.a f;
 
     /* loaded from: classes3.dex */
-    public class a implements mh5.a {
+    public class a implements kh5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TBLottieAnimationView a;
@@ -62,7 +62,7 @@ public class TBLottieAnimationView extends LottieAnimationView {
             this.a = tBLottieAnimationView;
         }
 
-        @Override // com.baidu.tieba.mh5.a
+        @Override // com.baidu.tieba.kh5.a
         public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) && z && !qi.isEmpty(str)) {
@@ -214,10 +214,10 @@ public class TBLottieAnimationView extends LottieAnimationView {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || qi.isEmpty(str)) {
             return;
         }
-        lh5 lh5Var = new lh5();
-        lh5Var.d(str);
-        lh5Var.c(getFristLoadInternal());
-        setImageAssetDelegate(lh5Var);
+        jh5 jh5Var = new jh5();
+        jh5Var.d(str);
+        jh5Var.c(getFristLoadInternal());
+        setImageAssetDelegate(jh5Var);
     }
 
     public boolean getFristLoadInternal() {
@@ -300,9 +300,9 @@ public class TBLottieAnimationView extends LottieAnimationView {
             return;
         }
         this.b = str;
-        mh5 mh5Var = new mh5(getAnimationPath(), str, this.f);
-        this.a = mh5Var;
-        mh5Var.execute(new Void[0]);
+        kh5 kh5Var = new kh5(getAnimationPath(), str, this.f);
+        this.a = kh5Var;
+        kh5Var.execute(new Void[0]);
     }
 
     @Override // com.airbnb.lottie.LottieAnimationView

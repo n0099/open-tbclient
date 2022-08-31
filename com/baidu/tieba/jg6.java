@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.NavigationBar;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public interface jg6 {
-    NavigationBar M0();
+    void a(int i, int i2, tg6 tg6Var, ArrayList<pn> arrayList);
 }

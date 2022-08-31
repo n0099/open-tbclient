@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.permissions.PassPermissions;
 import com.baidu.sapi2.ServiceManager;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -122,7 +121,7 @@ public class SapiDeviceUtils {
                         return mImei;
                     }
                     if (PassPermissions.checkRequestPermission(h.c, context)) {
-                        String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+                        String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                         mImei = deviceId;
                         if (deviceId == null) {
                             mImei = "";

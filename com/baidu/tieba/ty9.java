@@ -5,10 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ty9<E> extends sy9<E> {
+public abstract class ty9<E> extends uy9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long consumerIndex;
+    public int a;
+    public long b;
+    public long c;
+    public E[] d;
 
     public ty9() {
         Interceptable interceptable = $ic;

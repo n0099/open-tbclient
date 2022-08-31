@@ -6,7 +6,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.ap9;
+import com.baidu.tieba.yo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public interface IAccountAccessor extends IInterface {
                 if (i == 2) {
                     Account zzb = zzb();
                     parcel2.writeNoException();
-                    ap9.d(parcel2, zzb);
+                    yo9.d(parcel2, zzb);
                     return true;
                 }
                 return false;

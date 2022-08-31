@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
+import android.webkit.JsPromptResult;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b66 {
+public class b66 implements w56 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public HashMap<String, String> b;
-    public boolean c;
 
     public b66() {
         Interceptable interceptable = $ic;
@@ -27,53 +22,26 @@ public class b66 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.w56
+    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public HashMap<String, String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (HashMap) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONObject2 = optJSONObject.optJSONObject("hotmonitor")) == null) {
-            return;
-        }
-        this.a = optJSONObject2.optString("link");
-        this.c = optJSONObject2.optInt("open", 0) == 1;
-        JSONArray optJSONArray = optJSONObject2.optJSONArray("config");
-        if (optJSONArray == null || optJSONArray.length() == 0) {
-            return;
-        }
-        this.b = new HashMap<>();
-        for (int i = 0; i < optJSONArray.length(); i++) {
-            JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-            if (optJSONObject3 != null) {
-                String optString = optJSONObject3.optString("event");
-                String optString2 = optJSONObject3.optString("rule");
-                if (!qi.isEmpty(optString) && !qi.isEmpty(optString2)) {
-                    this.b.put(optString, optString2);
-                }
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+            try {
+                v56.f().h(str2);
+            } catch (Throwable unused) {
+                v56.f().e();
             }
         }
+    }
+
+    @Override // com.baidu.tieba.w56
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showH5Dialog" : (String) invokeV.objValue;
     }
 }

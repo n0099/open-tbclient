@@ -31,11 +31,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.ml4;
+import com.baidu.tieba.nf5;
 import com.baidu.tieba.nl4;
-import com.baidu.tieba.pf5;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.uz5;
+import com.baidu.tieba.sz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -242,8 +242,8 @@ public class UserIconLayout extends LinearLayout {
             if (str2 == null || str == null) {
                 return spannableStringBuilder;
             }
-            arrayList.add(new uz5.a(str, R.drawable.pic_smalldot_title));
-            return uz5.h(this.a, str2, arrayList, true);
+            arrayList.add(new sz5.a(str, R.drawable.pic_smalldot_title));
+            return sz5.h(this.a, str2, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -320,7 +320,7 @@ public class UserIconLayout extends LinearLayout {
             String name_show = this.g.getAuthor().getName_show();
             if (this.i) {
                 if (this.k) {
-                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), pf5.l(name_show, 20)));
+                    this.b.setText(e(this.g.getAuthor().getSealPrefix(), nf5.l(name_show, 20)));
                     int byteLength = qi.byteLength(name_show);
                     i = byteLength < 20 ? byteLength >= 16 ? 2 : 4 : 1;
                     ArrayList<IconData> iconInfo = threadData.getAuthor().getIconInfo();
@@ -339,7 +339,7 @@ public class UserIconLayout extends LinearLayout {
                     }
                     setUserTextColor(threadData);
                 }
-                this.b.setText(pf5.l(name_show, 20));
+                this.b.setText(nf5.l(name_show, 20));
             } else if (this.k) {
                 this.b.setText(e(this.g.getAuthor().getSealPrefix(), name_show));
             } else {

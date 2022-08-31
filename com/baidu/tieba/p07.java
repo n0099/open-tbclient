@@ -1,14 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.Resource;
+import java.util.List;
+import tbclient.UnreadTip.DataRes;
 /* loaded from: classes5.dex */
-public class p07 extends a16 {
+public class p07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<String> b;
+    public long c;
+    public String d;
+    public int e;
 
     public p07() {
         Interceptable interceptable = $ic;
@@ -24,19 +32,21 @@ public class p07 extends a16 {
         }
     }
 
-    public void c(Resource resource) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, resource) == null) || resource == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a > 0 : invokeV.booleanValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
             return;
         }
-        this.a = resource.res_id.longValue();
-        this.b = resource.user_name;
-        this.c = resource.user_image;
-        this.d = resource.user_link;
-        this.e = resource.res_title;
-        this.f = resource.res_image;
-        this.g = resource.res_link;
-        this.h = resource.position.longValue();
-        this.i = resource.icon_text;
+        this.a = dataRes.user_count.intValue();
+        this.b = dataRes.portrait_list;
+        this.c = dataRes.hide_unix.longValue() * 1000;
+        this.d = dataRes.show_tip;
+        this.e = dataRes.thread_count.intValue();
     }
 }

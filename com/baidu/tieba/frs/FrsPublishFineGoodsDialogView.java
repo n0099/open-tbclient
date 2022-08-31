@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ts4;
-import com.baidu.tieba.ws4;
-import com.baidu.tieba.ze6;
+import com.baidu.tieba.ss4;
+import com.baidu.tieba.vs4;
+import com.baidu.tieba.xe6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,10 +28,10 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public ws4 g;
+    public vs4 g;
 
     /* loaded from: classes4.dex */
-    public class a implements ws4 {
+    public class a implements vs4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
@@ -54,15 +54,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.baidu.tieba.ws4
-        public void a(int i, ts4 ts4Var) {
+        @Override // com.baidu.tieba.vs4
+        public void a(int i, ss4 ss4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, ts4Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, ss4Var) == null) {
                 this.a.c(i);
             }
         }
 
-        @Override // com.baidu.tieba.ws4
+        @Override // com.baidu.tieba.vs4
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -106,9 +106,9 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.e = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f0664);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ze6(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new ze6(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new ze6(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new xe6(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new xe6(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new xe6(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);

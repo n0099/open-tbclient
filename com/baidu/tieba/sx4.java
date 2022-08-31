@@ -11,8 +11,9 @@ import org.json.JSONObject;
 public class sx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tx4 a;
-    public tx4 b;
+    public int a;
+    public int b;
+    public String c;
 
     public sx4() {
         Interceptable interceptable = $ic;
@@ -24,40 +25,63 @@ public class sx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 20;
+        this.b = 1;
     }
 
-    public tx4 a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (tx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public tx4 b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (tx4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
-        if (optJSONObject != null) {
-            tx4 tx4Var = new tx4();
-            this.a = tx4Var;
-            tx4Var.q = 1;
-            tx4Var.e(optJSONObject);
+        try {
+            g(jSONObject.optString("advertisement_str"));
+            e(jSONObject.optInt("advertisement_limit_a"));
+            f(jSONObject.optInt("advertisement_limit_bc"));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
-        if (optJSONObject2 != null) {
-            tx4 tx4Var2 = new tx4();
-            this.b = tx4Var2;
-            tx4Var2.q = 2;
-            tx4Var2.e(optJSONObject2);
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
         }
     }
 }

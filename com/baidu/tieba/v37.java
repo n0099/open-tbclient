@@ -1,77 +1,158 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.NewHottopic.PkItem;
+import tbclient.NewHottopic.PkModule;
 /* loaded from: classes6.dex */
-public class v37 extends cn<y37, CardViewHolder<a47>> {
+public class v37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public long a;
+    public long b;
+    public long c;
+    public a d;
+    public a e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v37(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), y37.c);
+    /* loaded from: classes6.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+        public long f;
+        public String g;
+
+        public a(v37 v37Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v37Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public v37() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public CardViewHolder<a47> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(PkModule pkModule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            a47 a47Var = new a47(this.a);
-            a47Var.o(this.mPageId);
-            CardViewHolder<a47> cardViewHolder = new CardViewHolder<>(a47Var);
-            int f = ri.f(this.a.getPageActivity(), R.dimen.tbds44);
-            cardViewHolder.getView().setPadding(f, 0, f, 0);
-            return cardViewHolder;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
+        this.b = pkModule.pk_id.longValue();
+        this.c = pkModule.user_pk_id.longValue();
+        a aVar = new a(this);
+        this.d = aVar;
+        aVar.a = pkModule.agree.pk_num.longValue();
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143d) : pkModule.agree.pk_desc;
+        a aVar2 = this.d;
+        PkItem pkItem = pkModule.agree;
+        aVar2.c = pkItem.last_username;
+        aVar2.d = pkItem.pk_icon;
+        aVar2.e = pkItem.has_clicked.longValue() == 1;
+        this.d.f = pkModule.agree.pk_index.longValue();
+        this.d.g = pkModule.agree.pk_icon_after;
+        a aVar3 = new a(this);
+        this.e = aVar3;
+        aVar3.a = pkModule.disagree.pk_num.longValue();
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143c) : pkModule.disagree.pk_desc;
+        a aVar4 = this.e;
+        PkItem pkItem2 = pkModule.disagree;
+        aVar4.c = pkItem2.last_username;
+        aVar4.d = pkItem2.pk_icon;
+        aVar4.e = pkItem2.has_clicked.longValue() == 1;
+        this.e.f = pkModule.disagree.pk_index.longValue();
+        this.e.g = pkModule.disagree.pk_icon_after;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, y37 y37Var, CardViewHolder<a47> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void b(tbclient.NewTopicList.PkModule pkModule) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, y37Var, cardViewHolder})) == null) {
-            if (y37Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
-                return null;
-            }
-            cardViewHolder.a().i(y37Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.b = pkModule.pk_id.longValue();
+        this.c = pkModule.user_pk_id.longValue();
+        a aVar = new a(this);
+        this.d = aVar;
+        aVar.a = pkModule.agree.pk_num.longValue();
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143d) : pkModule.agree.pk_desc;
+        a aVar2 = this.d;
+        tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
+        aVar2.c = pkItem.last_username;
+        aVar2.d = pkItem.pk_icon;
+        aVar2.e = pkItem.has_clicked.longValue() == 1;
+        this.d.f = pkModule.agree.pk_index.longValue();
+        this.d.g = pkModule.agree.pk_icon_after;
+        a aVar3 = new a(this);
+        this.e = aVar3;
+        aVar3.a = pkModule.disagree.pk_num.longValue();
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143c) : pkModule.disagree.pk_desc;
+        a aVar4 = this.e;
+        tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
+        aVar4.c = pkItem2.last_username;
+        aVar4.d = pkItem2.pk_icon;
+        aVar4.e = pkItem2.has_clicked.longValue() == 1;
+        this.e.f = pkModule.disagree.pk_index.longValue();
+        this.e.g = pkModule.disagree.pk_icon_after;
+    }
+
+    public void c(tbclient.PkModule pkModule) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) || pkModule == null || pkModule.agree == null || pkModule.disagree == null) {
+            return;
+        }
+        this.b = pkModule.pk_id.longValue();
+        this.c = pkModule.user_pk_id.longValue();
+        a aVar = new a(this);
+        this.d = aVar;
+        aVar.a = pkModule.agree.pk_num.longValue();
+        this.d.b = StringUtils.isNull(pkModule.agree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143d) : pkModule.agree.pk_desc;
+        a aVar2 = this.d;
+        tbclient.PkItem pkItem = pkModule.agree;
+        aVar2.c = pkItem.last_username;
+        aVar2.d = pkItem.pk_icon;
+        aVar2.e = pkItem.has_clicked.longValue() == 1;
+        this.d.f = pkModule.agree.pk_index.longValue();
+        this.d.g = pkModule.agree.pk_icon_after;
+        a aVar3 = new a(this);
+        this.e = aVar3;
+        aVar3.a = pkModule.disagree.pk_num.longValue();
+        this.e.b = StringUtils.isNull(pkModule.disagree.pk_desc) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f143c) : pkModule.disagree.pk_desc;
+        a aVar4 = this.e;
+        tbclient.PkItem pkItem2 = pkModule.disagree;
+        aVar4.c = pkItem2.last_username;
+        aVar4.d = pkItem2.pk_icon;
+        aVar4.e = pkItem2.has_clicked.longValue() == 1;
+        this.e.f = pkModule.disagree.pk_index.longValue();
+        this.e.g = pkModule.disagree.pk_icon_after;
     }
 }

@@ -6,8 +6,8 @@ import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pq5;
-import com.baidu.tieba.tq5;
+import com.baidu.tieba.nq5;
+import com.baidu.tieba.rq5;
 import com.baidu.tieba.ve;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ import tbclient.LiveSquare.LiveSquareResIdl;
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<tq5> categoryList;
+    public LinkedList<rq5> categoryList;
     public LinkedList<FunctionListInfo> functionList;
     public HeadLiveInfo headLiveInfo;
     public int isSmallFollow;
@@ -50,7 +50,7 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
         this.mPn = 0;
     }
 
-    public LinkedList<tq5> getCategoryList() {
+    public LinkedList<rq5> getCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.categoryList : (LinkedList) invokeV.objValue;
@@ -110,9 +110,9 @@ public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
                 return;
             }
             this.functionList = new LinkedList<>();
-            LinkedList<tq5> linkedList = new LinkedList<>();
+            LinkedList<rq5> linkedList = new LinkedList<>();
             this.categoryList = linkedList;
-            linkedList.addAll(pq5.a(liveSquareResIdl.data.live_with_category));
+            linkedList.addAll(nq5.a(liveSquareResIdl.data.live_with_category));
             this.functionList.addAll(liveSquareResIdl.data.function_list_info);
             DataRes dataRes = liveSquareResIdl.data;
             this.headLiveInfo = dataRes.head_live_info;

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.provider.Settings;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +55,7 @@ public class rh4 implements mh4<String> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (uh4.a(this.a, "android.permission.WRITE_SETTINGS")) {
                 try {
-                    return ApiReplaceUtil.getString(this.a.getContentResolver(), "com.baidu.uuid");
+                    return Settings.System.getString(this.a.getContentResolver(), "com.baidu.uuid");
                 } catch (Exception unused) {
                     return null;
                 }

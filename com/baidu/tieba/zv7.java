@@ -1,44 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zv7 extends yv7 {
+public class zv7 extends tx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zv7(ii5 ii5Var) {
-        super(ii5Var);
+    public zv7(BaseFragmentActivity baseFragmentActivity, View view2) {
+        super(baseFragmentActivity, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ii5Var};
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ii5) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        o(TbConfig.getContentLineSpace(), 1.0f);
-        i(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        y(0);
-        l(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
-        m(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
-        r(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32), ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds44));
-        f(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
-        s(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds32));
-        u(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds38));
-        j(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds31));
-        h(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
+        this.c = null;
+    }
+
+    @Override // com.baidu.tieba.tx7
+    public void c(yv7 yv7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yv7Var) == null) {
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090e15);
+            this.c = textView;
+            textView.setVisibility(8);
+        }
+    }
+
+    public TextView e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (TextView) invokeV.objValue;
+    }
+
+    public void f(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getPushStatusData() == null) {
+            return;
+        }
+        int status = threadData.getPushStatusData().getStatus();
+        if (status == 1) {
+            g(true);
+        } else if (status == 2) {
+            g(false);
+        }
+    }
+
+    public void g(boolean z) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (textView = this.c) == null) {
+            return;
+        }
+        if (z) {
+            textView.setText(R.string.obfuscated_res_0x7f0f0f4a);
+            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f080fa9);
+            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
+            this.c.setClickable(true);
+        } else {
+            textView.setText(R.string.obfuscated_res_0x7f0f027c);
+            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            this.c.setClickable(false);
+        }
+        this.c.setVisibility(0);
     }
 }

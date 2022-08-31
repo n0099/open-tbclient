@@ -27,22 +27,22 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.widget.layout.ObservedChangeLinearLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq6;
-import com.baidu.tieba.cq6;
-import com.baidu.tieba.ea5;
+import com.baidu.tieba.aq6;
+import com.baidu.tieba.ca5;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.jh5;
-import com.baidu.tieba.kr4;
+import com.baidu.tieba.hh5;
+import com.baidu.tieba.jr4;
+import com.baidu.tieba.ni6;
+import com.baidu.tieba.oi6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pi6;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.qi6;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.ri6;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.wg6;
+import com.baidu.tieba.ug6;
+import com.baidu.tieba.zp6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,12 +65,12 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public ImageView N;
     public ImageView O;
     public NoNetworkView P;
-    public bq6 Q;
-    public cq6 R;
+    public zp6 Q;
+    public aq6 R;
     public CollapsingToolbarLayout S;
     public AppBarLayout T;
     public FrameLayout U;
-    public wg6 V;
+    public ug6 V;
     public TextView W;
     public long X;
     public boolean Y;
@@ -80,7 +80,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     public AppBarLayout.OnOffsetChangedListener c0;
 
     /* loaded from: classes4.dex */
-    public class a implements jh5 {
+    public class a implements hh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsSportsRecommendFragment a;
@@ -103,7 +103,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             this.a = frsSportsRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.jh5
+        @Override // com.baidu.tieba.hh5
         public void a(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || i2 == i4) {
@@ -295,27 +295,27 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment
-    public void M1(ri6 ri6Var) {
+    public void M1(pi6 pi6Var) {
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ri6Var) == null) {
-            super.M1(ri6Var);
-            if (ri6Var == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pi6Var) == null) {
+            super.M1(pi6Var);
+            if (pi6Var == null) {
                 return;
             }
-            bq6 bq6Var = this.Q;
-            if (bq6Var != null) {
-                bq6Var.k(ri6Var.e, ri6Var.f, ri6Var.g);
+            zp6 zp6Var = this.Q;
+            if (zp6Var != null) {
+                zp6Var.k(pi6Var.e, pi6Var.f, pi6Var.g);
             }
             if (this.R != null && (frsViewData = this.d) != null && frsViewData.getForum() != null) {
-                this.R.e(ri6Var.h, this.d.getForum().getId());
+                this.R.e(pi6Var.h, this.d.getForum().getId());
             }
-            qi6 qi6Var = this.b;
-            if (qi6Var != null && qi6Var.j()) {
-                j2(ri6Var.d);
+            oi6 oi6Var = this.b;
+            if (oi6Var != null && oi6Var.j()) {
+                j2(pi6Var.d);
             }
-            if (!ListUtils.isEmpty(ri6Var.c)) {
-                Iterator<pn> it = ri6Var.c.iterator();
+            if (!ListUtils.isEmpty(pi6Var.c)) {
+                Iterator<pn> it = pi6Var.c.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -324,8 +324,8 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
                     ThreadData threadData = null;
                     if (next instanceof ThreadData) {
                         threadData = (ThreadData) next;
-                    } else if (next instanceof kr4) {
-                        threadData = ((kr4) next).t;
+                    } else if (next instanceof jr4) {
+                        threadData = ((jr4) next).t;
                     }
                     if (threadData != null && !threadData.isTop()) {
                         long g = pg.g(threadData.getId(), 0L);
@@ -340,14 +340,14 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         }
     }
 
-    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.kg6
+    @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tieba.ig6
     public void V0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             g2();
-            qi6 qi6Var = this.b;
-            if (qi6Var != null) {
-                qi6Var.q(this.X);
+            oi6 oi6Var = this.b;
+            if (oi6Var != null) {
+                oi6Var.q(this.X);
             }
             super.V0();
         }
@@ -360,7 +360,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -368,17 +368,17 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public ea5 getPageStayDurationItem() {
+    public ca5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ea5 pageStayDurationItem = super.getPageStayDurationItem();
+            ca5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.t(pg.g(this.e, 0L));
             }
             return pageStayDurationItem;
         }
-        return (ea5) invokeV.objValue;
+        return (ca5) invokeV.objValue;
     }
 
     public final void h2() {
@@ -485,7 +485,7 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             SkinManager.setViewTextColor(this.W, (int) R.color.CAM_X0112);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ri.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
             if (this.V == null) {
-                this.V = new wg6();
+                this.V = new ug6();
             }
             this.V.h(this.W, this.U, layoutParams, 2000);
         }
@@ -588,13 +588,13 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
-            bq6 bq6Var = this.Q;
-            if (bq6Var != null) {
-                bq6Var.h();
+            zp6 zp6Var = this.Q;
+            if (zp6Var != null) {
+                zp6Var.h();
             }
-            cq6 cq6Var = this.R;
-            if (cq6Var != null) {
-                cq6Var.d();
+            aq6 aq6Var = this.R;
+            if (aq6Var != null) {
+                aq6Var.d();
             }
             NoNetworkView noNetworkView = this.P;
             if (noNetworkView != null) {
@@ -643,13 +643,13 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
             this.T = appBarLayout;
             appBarLayout.addOnOffsetChangedListener(this.c0);
             h2();
-            bq6 bq6Var = new bq6(this, this.c);
-            this.Q = bq6Var;
-            bq6Var.j(this.d);
-            this.R = new cq6(this, this.c);
-            qi6 qi6Var = this.b;
-            if (qi6Var != null) {
-                qi6Var.q(0L);
+            zp6 zp6Var = new zp6(this, this.c);
+            this.Q = zp6Var;
+            zp6Var.j(this.d);
+            this.R = new aq6(this, this.c);
+            oi6 oi6Var = this.b;
+            if (oi6Var != null) {
+                oi6Var.q(0L);
             }
             this.U = (FrameLayout) this.c.findViewById(R.id.obfuscated_res_0x7f090bda);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -688,12 +688,12 @@ public class FrsSportsRecommendFragment extends FrsCommonTabFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view2, boolean z, int i) {
-        pi6 pi6Var;
+        ni6 ni6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (pi6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{view2, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (ni6Var = this.a) == null) {
             return;
         }
-        pi6Var.x(true);
+        ni6Var.x(true);
     }
 
     @Override // com.baidu.tieba.frs.commontab.FrsCommonTabFragment, com.baidu.tbadk.core.BaseFragment

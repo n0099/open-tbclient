@@ -19,16 +19,16 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.c9;
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoHttpResponsedMessage;
 import com.baidu.tieba.forumMember.tbtitle.model.res.GetLevelInfoSocketResponsedMessage;
+import com.baidu.tieba.hk8;
 import com.baidu.tieba.im.message.SettingChangeMessage;
-import com.baidu.tieba.jk8;
+import com.baidu.tieba.md6;
+import com.baidu.tieba.nj8;
 import com.baidu.tieba.od6;
+import com.baidu.tieba.pd6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.pj8;
-import com.baidu.tieba.qd6;
-import com.baidu.tieba.rd6;
-import com.baidu.tieba.rk8;
-import com.baidu.tieba.t97;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.r97;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,16 +43,16 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public rd6 c;
-    public od6<TbTitleActivity> d;
+    public pd6 c;
+    public md6<TbTitleActivity> d;
     public LikeModel e;
-    public od6.c f;
+    public md6.c f;
     public View.OnClickListener g;
     public NoNetworkView.b h;
     public c9 i;
 
     /* loaded from: classes4.dex */
-    public class a implements od6.c {
+    public class a implements md6.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbTitleActivity a;
@@ -75,7 +75,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             this.a = tbTitleActivity;
         }
 
-        @Override // com.baidu.tieba.od6.c
+        @Override // com.baidu.tieba.md6.c
         public void a(DataRes dataRes, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{dataRes, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
@@ -175,7 +175,7 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
                 if (TextUtils.isEmpty(this.a)) {
                     return null;
                 }
-                t97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
+                r97.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a), this.b);
                 return null;
             }
             return (Void) invokeL.objValue;
@@ -248,23 +248,23 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 boolean z = false;
-                if (obj != null && (obj instanceof jk8)) {
-                    pj8.i().n(this.a.b, false);
+                if (obj != null && (obj instanceof hk8)) {
+                    nj8.i().n(this.a.b, false);
                     z = true;
                 }
                 if (z) {
                     TbadkCoreApplication.getInst().addLikeForum(this.a.b);
                     TbTitleActivity tbTitleActivity = this.a;
                     tbTitleActivity.H1(true, tbTitleActivity.a);
-                    jk8 jk8Var = (jk8) obj;
-                    if (jk8Var != null) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, jk8Var));
+                    hk8 hk8Var = (hk8) obj;
+                    if (hk8Var != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, hk8Var));
                     }
                     if (this.a.c.k != null) {
                         this.a.c.k.setVisibility(8);
                     }
-                    jk8Var.x(1);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, jk8Var));
+                    hk8Var.x(1);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, hk8Var));
                 } else if (this.a.e.getErrorCode() != 22) {
                     if (AntiHelper.m(this.a.e.getErrorCode(), this.a.e.getErrorString())) {
                         AntiHelper.u(this.a.getPageContext().getPageActivity(), this.a.e.getErrorString());
@@ -309,9 +309,9 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            rk8.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
-            rk8.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
-            rk8.b(2003007, qd6.class);
+            pk8.c(301005, CmdConfigHttp.CMD_GET_LEVLE_INFO, TbConfig.GET_LEVEL_INFO_URL, GetLevelInfoHttpResponsedMessage.class, false, false, true, false);
+            pk8.f(301005, GetLevelInfoSocketResponsedMessage.class, false);
+            pk8.b(2003007, od6.class);
         }
     }
 
@@ -337,11 +337,11 @@ public class TbTitleActivity extends BaseActivity<TbTitleActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            rd6 rd6Var = new rd6(this, this.g);
-            this.c = rd6Var;
-            rd6Var.t(this.h);
+            pd6 pd6Var = new pd6(this, this.g);
+            this.c = pd6Var;
+            pd6Var.t(this.h);
             F1();
-            this.d = new od6<>(this.f, this);
+            this.d = new md6<>(this.f, this);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a = intent.getStringExtra(TbTitleActivityConfig.FORUM_ID);

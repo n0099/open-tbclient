@@ -7,8 +7,8 @@ import androidx.annotation.BinderThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fn9;
 import com.baidu.tieba.hn9;
-import com.baidu.tieba.jn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,15 +18,15 @@ public final class zzd extends zzab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public hn9 zza;
+    public fn9 zza;
     public final int zzb;
 
-    public zzd(@NonNull hn9 hn9Var, int i) {
+    public zzd(@NonNull fn9 fn9Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hn9Var, Integer.valueOf(i)};
+            Object[] objArr = {fn9Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,7 +36,7 @@ public final class zzd extends zzab {
                 return;
             }
         }
-        this.zza = hn9Var;
+        this.zza = fn9Var;
         this.zzb = i;
     }
 
@@ -45,7 +45,7 @@ public final class zzd extends zzab {
     public final void onPostInitComplete(int i, @NonNull IBinder iBinder, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i, iBinder, bundle) == null) {
-            jn9.e(this.zza, "onPostInitComplete can be called only once per call to getRemoteService");
+            hn9.e(this.zza, "onPostInitComplete can be called only once per call to getRemoteService");
             this.zza.a(i, iBinder, bundle, this.zzb);
             this.zza = null;
         }
@@ -65,10 +65,10 @@ public final class zzd extends zzab {
     public final void zzc(int i, @NonNull IBinder iBinder, @NonNull zzj zzjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, iBinder, zzjVar) == null) {
-            hn9 hn9Var = this.zza;
-            jn9.e(hn9Var, "onPostInitCompleteWithConnectionInfo can be called only once per call togetRemoteService");
-            jn9.d(zzjVar);
-            hn9.c(hn9Var, zzjVar);
+            fn9 fn9Var = this.zza;
+            hn9.e(fn9Var, "onPostInitCompleteWithConnectionInfo can be called only once per call togetRemoteService");
+            hn9.d(zzjVar);
+            fn9.c(fn9Var, zzjVar);
             onPostInitComplete(i, iBinder, zzjVar.zza);
         }
     }

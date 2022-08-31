@@ -1,53 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.clientupdate.ClientUpdater;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.clientupdate.download.Download;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes3.dex */
-public class be7 extends BdAsyncTask<String, Integer, Download> {
+public class be7 {
     public static /* synthetic */ Interceptable $ic;
+    public static int[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientUpdateInfo a;
 
-    public be7(ClientUpdateInfo clientUpdateInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {clientUpdateInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642165, "Lcom/baidu/tieba/be7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947642165, "Lcom/baidu/tieba/be7;");
                 return;
             }
         }
-        this.a = clientUpdateInfo;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public Download doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.a, null);
-            return null;
-        }
-        return (Download) invokeL.objValue;
+        a = new int[]{R.color.CAM_X0313, R.color.CAM_X0308, R.color.CAM_X0314, R.color.CAM_X0204};
     }
 }

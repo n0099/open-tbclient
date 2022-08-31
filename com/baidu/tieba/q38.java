@@ -1,64 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class q38 extends cn<b48, CardViewHolder<q48>> {
+public class q38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public k38 a;
+    public h38 b;
+    public p38 c;
+    public l38 d;
+    public o38 e;
+    public j38 f;
+    public m38 g;
+    public n38 h;
+    public BdTypeListView i;
+    public i38 j;
+    public List<cn> k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q38(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public q38(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.k = new ArrayList();
+        this.i = bdTypeListView;
+        b(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public CardViewHolder<q48> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new q48(this.a)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b48 b48Var, CardViewHolder<q48> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b48Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(b48Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.t();
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final void b(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdTypeListView, tbPageContext, bdUniqueId) == null) {
+            this.a = new k38(tbPageContext, c48.b);
+            this.b = new h38(tbPageContext, w38.f);
+            this.c = new p38(tbPageContext, i48.b);
+            this.d = new l38(tbPageContext, y38.b);
+            this.e = new o38(tbPageContext, z38.b);
+            this.j = new i38(tbPageContext, a48.c);
+            this.g = new m38(tbPageContext, e48.b);
+            this.h = new n38(tbPageContext, f48.b);
+            this.f = new j38(tbPageContext, b48.l);
+            this.k.add(this.a);
+            this.k.add(this.b);
+            this.k.add(this.d);
+            this.k.add(this.e);
+            this.k.add(this.c);
+            this.k.add(this.g);
+            this.k.add(this.h);
+            this.k.add(this.f);
+            this.k.add(this.j);
+            bdTypeListView.a(this.k);
+        }
+    }
+
+    public void c() {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.i) != null && (bdTypeListView.getAdapter2() instanceof gn)) {
+            this.i.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void d() {
+        m38 m38Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (m38Var = this.g) == null) {
+            return;
+        }
+        m38Var.onScroll();
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.w();
+        }
     }
 }

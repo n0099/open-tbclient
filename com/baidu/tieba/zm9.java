@@ -1,69 +1,96 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.Signature;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.zzi;
+import com.google.android.gms.common.zzj;
+import javax.annotation.Nullable;
 /* loaded from: classes6.dex */
 public class zm9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final zm9 b;
+    @Nullable
+    public static zm9 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948364899, "Lcom/baidu/tieba/zm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948364899, "Lcom/baidu/tieba/zm9;");
-                return;
-            }
-        }
-        a = an9.a;
-        b = new zm9();
-    }
-
-    public zm9() {
+    public zm9(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getApplicationContext();
     }
 
     @NonNull
-    public static zm9 a() {
-        InterceptResult invokeV;
+    public static zm9 a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (zm9) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            hn9.d(context);
+            synchronized (zm9.class) {
+                if (b == null) {
+                    ho9.a(context);
+                    b = new zm9(context);
+                }
+            }
+            return b;
+        }
+        return (zm9) invokeL.objValue;
     }
 
-    public int b(@NonNull Context context, int i) {
-        InterceptResult invokeLI;
+    @Nullable
+    public static final zzi b(PackageInfo packageInfo, zzi... zziVarArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
-            int a2 = an9.a(context, i);
-            if (an9.b(context, a2)) {
-                return 18;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, packageInfo, zziVarArr)) == null) {
+            Signature[] signatureArr = packageInfo.signatures;
+            if (signatureArr == null) {
+                return null;
             }
-            return a2;
+            if (signatureArr.length != 1) {
+                Log.w("GoogleSignatureVerifier", "Package has more than one signature.");
+                return null;
+            }
+            zzj zzjVar = new zzj(packageInfo.signatures[0].toByteArray());
+            for (int i = 0; i < zziVarArr.length; i++) {
+                if (zziVarArr[i].equals(zzjVar)) {
+                    return zziVarArr[i];
+                }
+            }
+            return null;
         }
-        return invokeLI.intValue;
+        return (zzi) invokeLL.objValue;
+    }
+
+    public static final boolean c(@NonNull PackageInfo packageInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, packageInfo, z)) == null) {
+            if (packageInfo != null && packageInfo.signatures != null) {
+                if ((z ? b(packageInfo, go9.a) : b(packageInfo, go9.a[0])) != null) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLZ.booleanValue;
     }
 }

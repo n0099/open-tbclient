@@ -1,123 +1,140 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tieba.wr4;
+import android.util.Log;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class ff8 extends wr4 {
+public class ff8 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout a;
-    public EditText b;
+    public boolean a;
+    public final String b;
+    public Process c;
+    public BufferedReader d;
+    public FileOutputStream e;
+    public a f;
 
     /* loaded from: classes4.dex */
-    public class a implements wr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ ff8 b;
-
-        public a(ff8 ff8Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff8Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ff8Var;
-            this.a = activity;
-        }
-
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                if (!qi.isEmpty(this.b.b.getText().toString())) {
-                    TbSingleton.getInstance().setVisitPreviewServer(true);
-                    String obj = this.b.b.getText().toString();
-                    TbSingleton.getInstance().setPubEnvValue(obj);
-                    ri.M(this.a, R.string.obfuscated_res_0x7f0f0396);
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
-                }
-                this.b.dismiss();
-            }
-        }
+    public interface a {
+        void a();
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements wr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ff8 a;
-
-        public b(ff8 ff8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ff8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ff8Var;
-        }
-
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff8(Activity activity) {
-        super(activity);
+    public ff8(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) null);
-        this.a = linearLayout;
-        setContentView(linearLayout);
-        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090921);
-        setPositiveButton(R.string.obfuscated_res_0x7f0f0432, new a(this, activity));
-        setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new b(this));
+        this.a = true;
+        this.d = null;
+        this.e = null;
+        try {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
+            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
+        } catch (FileNotFoundException e) {
+            BdLog.e(Log.getStackTraceString(e));
+        }
+        if (z) {
+            this.b = "logcat -v threadtime *:v -d";
+        } else {
+            this.b = "logcat -v threadtime *:v";
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Process process = this.c;
+            if (process != null) {
+                process.destroy();
+                this.c = null;
+            }
+            BufferedReader bufferedReader = this.d;
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                    this.d = null;
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
+            }
+            FileOutputStream fileOutputStream = this.e;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                } catch (IOException e2) {
+                    BdLog.e(Log.getStackTraceString(e2));
+                }
+                this.e = null;
+            }
+            a aVar = this.f;
+            if (aVar != null) {
+                aVar.a();
+            }
+        }
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f = aVar;
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = false;
+            a();
+            interrupt();
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        String readLine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                try {
+                    this.c = Runtime.getRuntime().exec(this.b);
+                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
+                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
+                        if (readLine.length() != 0 && this.e != null) {
+                            FileOutputStream fileOutputStream = this.e;
+                            fileOutputStream.write((readLine + "\n").getBytes());
+                        }
+                    }
+                    BdLog.d("collector complete.");
+                } catch (IOException e) {
+                    BdLog.e(Log.getStackTraceString(e));
+                }
+            } finally {
+                a();
+            }
+        }
     }
 }

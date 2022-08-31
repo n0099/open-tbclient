@@ -1,94 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.App;
-import tbclient.GoodsInfo;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class lb8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(@NonNull App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            String str = "";
-            if (list == null) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947937223, "Lcom/baidu/tieba/lb8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            for (GoodsInfo goodsInfo : list) {
-                if (goodsInfo != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            str = optJSONObject.optString("id");
-                        }
-                        return str;
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int b(@NonNull App app) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
-            List<GoodsInfo> list = app.goods_info;
-            if (list == null) {
-                return -1;
-            }
-            Iterator<GoodsInfo> it = list.iterator();
-            while (it.hasNext()) {
-                GoodsInfo next = it.next();
-                if (next != null) {
-                    try {
-                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
-                        if (optJSONObject != null) {
-                            return pg.e(optJSONObject.optString("pos"), -1);
-                        }
-                        return -1;
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void c(@NonNull App.Builder builder, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65538, null, builder, i) == null) || builder.goods_info == null) {
-            return;
-        }
-        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
-            GoodsInfo goodsInfo = (GoodsInfo) if7.d(builder.goods_info, i2);
-            if (goodsInfo != null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
-                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
-                    if (optJSONObject != null) {
-                        optJSONObject.put("pos", String.valueOf(pg.e(optJSONObject.optString("pos"), 0) + i));
-                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
-                        builder2.lego_card = jSONObject.toString();
-                        builder.goods_info.set(i2, builder2.build(false));
-                    }
-                } catch (JSONException unused) {
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947937223, "Lcom/baidu/tieba/lb8;");
+                return;
             }
         }
+        TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        TimeUnit.MINUTES.toMillis(1L);
+        a = TimeUnit.SECONDS.toMillis(1L);
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.py;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class ey<T extends ho4> implements jx, wl5 {
+/* loaded from: classes3.dex */
+public class ey<T extends go4> implements jx, ul5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ix<T> a;
@@ -50,7 +50,7 @@ public class ey<T extends ho4> implements jx, wl5 {
     public int p;
     public py.a q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class ey<T extends ho4> implements jx, wl5 {
         this(bVar);
     }
 
-    @Override // com.baidu.tieba.wl5
+    @Override // com.baidu.tieba.ul5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -291,7 +291,7 @@ public class ey<T extends ho4> implements jx, wl5 {
                 this.d.setTag(R.id.obfuscated_res_0x7f0925ab, null);
                 this.g.a(t);
                 sw<T> swVar = this.g;
-                if (swVar instanceof ez8) {
+                if (swVar instanceof cz8) {
                     this.d.setTag(R.id.obfuscated_res_0x7f0925ab, swVar);
                 }
             }
@@ -363,7 +363,7 @@ public class ey<T extends ho4> implements jx, wl5 {
             if (swVar != null) {
                 swVar.onChangeSkinType(tbPageContext, i);
                 if (this.j == null && ((t2 = this.n) == null || !t2.isSupportContent())) {
-                    os4 d = os4.d(this.d);
+                    ns4 d = ns4.d(this.d);
                     d.m(1);
                     d.n(R.string.J_X06);
                     d.f(this.m.h);
@@ -382,14 +382,14 @@ public class ey<T extends ho4> implements jx, wl5 {
             if (swVar3 != null) {
                 swVar3.onChangeSkinType(tbPageContext, i);
                 if (this.g == null && ((t = this.n) == null || !t.isSupportContent())) {
-                    os4 d2 = os4.d(this.d);
+                    ns4 d2 = ns4.d(this.d);
                     d2.m(2);
                     d2.n(R.string.J_X06);
                     d2.f(this.m.h);
                 }
             }
             if (this.g != null && this.j != null) {
-                os4 d3 = os4.d(this.d);
+                ns4 d3 = ns4.d(this.d);
                 d3.n(R.string.J_X06);
                 d3.i(this.m.h, R.color.CAM_X0206);
             }
@@ -413,25 +413,25 @@ public class ey<T extends ho4> implements jx, wl5 {
         }
     }
 
-    public void p(j06<T> j06Var) {
+    public void p(h06<T> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, j06Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, h06Var) == null) {
             sw<T> swVar = this.g;
             if (swVar != null) {
-                swVar.m(j06Var);
+                swVar.m(h06Var);
             }
             sw<T> swVar2 = this.h;
             if (swVar2 != null) {
-                swVar2.m(j06Var);
+                swVar2.m(h06Var);
             }
             for (zw zwVar : this.i) {
                 if (zwVar != null) {
-                    zwVar.m(j06Var);
+                    zwVar.m(h06Var);
                 }
             }
             sw<T> swVar3 = this.j;
             if (swVar3 != null) {
-                swVar3.m(j06Var);
+                swVar3.m(h06Var);
             }
         }
     }
@@ -589,7 +589,7 @@ public class ey<T extends ho4> implements jx, wl5 {
         inflate.setOnTouchListener(new a(this));
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

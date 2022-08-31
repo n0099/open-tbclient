@@ -7,7 +7,6 @@ import android.os.Build;
 import android.os.Process;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -141,7 +140,7 @@ public class xc0 {
             }
             int i3 = 99;
             try {
-                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = ApiReplaceUtil.getSubscriberId(telephonyManager)) == null) {
+                if (!d(context) || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (subscriberId = telephonyManager.getSubscriberId()) == null) {
                     i2 = 0;
                 } else {
                     if (!subscriberId.startsWith("46000") && !subscriberId.startsWith("46002")) {

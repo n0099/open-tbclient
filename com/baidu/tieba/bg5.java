@@ -1,120 +1,104 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
-import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes3.dex */
-public class bg5 {
+public class bg5 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static PostWriteCallBackData a;
-    @Nullable
-    public static dz4 b;
-    @Nullable
-    public static WriteData c;
-    @Nullable
-    public static AntiData d;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Drawable> a;
+    public int b;
+    public int c;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bg5(Drawable drawable, int i) {
+        super(drawable);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int indexOf = str.indexOf("(");
-            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
-            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
-                return null;
-            }
-            return str.substring(i, indexOf2);
         }
-        return (String) invokeL.objValue;
+        this.b = 0;
+        this.c = 1;
+        this.c = i;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    public final Drawable a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
             }
-            return str.equals("4") || str.equals("5") || str.equals("6");
+            return drawable;
         }
-        return invokeL.booleanValue;
+        return (Drawable) invokeV.objValue;
     }
 
-    public static boolean c(int i, int i2, @Nullable Intent intent) {
-        InterceptResult invokeIIL;
-        PostWriteCallBackData postWriteCallBackData;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
-            if (i != 12006) {
-                return false;
-            }
-            boolean z = i2 == -1 && intent != null;
-            if (a != null && b != null && c != null && d != null && z) {
-                try {
-                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    postWriteCallBackData = null;
-                }
-                if (postWriteCallBackData == null) {
-                    return false;
-                }
-                dn8.k().h(true, postWriteCallBackData, b, c, d);
-            } else {
-                dn8.k().h(false, a, null, c, d);
-            }
-            a = null;
-            b = null;
-            c = null;
-            d = null;
-            return true;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) || (a = a()) == null) {
+            return;
         }
-        return invokeIIL.booleanValue;
+        int i6 = this.c;
+        float f2 = i6 != 0 ? i6 != 1 ? i6 != 2 ? 0.0f : 0.2f : 0.15f : 0.1f;
+        float height = f2 != 0.0f ? ((i4 - i5) + (a.getBounds().height() * f2)) - this.b : 0.0f;
+        canvas.save();
+        canvas.translate(a.getBounds().width() * 0.15f, height);
+        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+        canvas.restore();
     }
 
-    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable dz4 dz4Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
-        InterceptResult invokeLLLL;
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, dz4Var, writeData, antiData)) == null) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            boolean z = (currentActivity == null || writeData == null || dz4Var == null || TextUtils.isEmpty(dz4Var.c())) ? false : true;
-            if (z) {
-                a = postWriteCallBackData;
-                b = dz4Var;
-                c = writeData;
-                d = antiData;
-                writeData.setVcodeMD5(dz4Var.b());
-                writeData.setVcodeUrl(dz4Var.c());
-                writeData.setVcodeExtra(dz4Var.a());
-                if (b(dz4Var.d())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, dz4Var.d())));
-                } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Drawable a = a();
+            if (a == null) {
+                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
             }
-            return z;
+            Rect bounds = a.getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
+            }
+            return bounds.right;
         }
-        return invokeLLLL.booleanValue;
+        return invokeCommon.intValue;
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,23 +10,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class t65 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int j = 1;
-    public static int k = 2;
-    public static int l = 3;
-    public static int m = 4;
+    public static /* synthetic */ Interceptable $ic;
+    public static t65 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public int b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public w65 h;
-    public int i;
+    public final HashMap<Integer, Object> a;
+    public final pq4 b;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        Object build();
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,6 +52,67 @@ public class t65 {
                 return;
             }
         }
-        this.i = j;
+        this.a = new HashMap<>();
+        this.b = new pq4();
+    }
+
+    public static t65 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (t65.class) {
+                    if (c == null) {
+                        c = new t65();
+                    }
+                }
+            }
+            return c;
+        }
+        return (t65) invokeV.objValue;
+    }
+
+    public void a(int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
+            this.a.put(Integer.valueOf(i), obj);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.a();
+            this.a.clear();
+        }
+    }
+
+    public Object c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.get(Integer.valueOf(i)) : invokeI.objValue;
+    }
+
+    public Object d(int i, a aVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, aVar)) == null) {
+            Object obj = this.a.get(Integer.valueOf(i));
+            if ((!PreInitMainTabViewSwitch.getIsOn() || obj == null) && aVar != null) {
+                obj = aVar.build();
+            }
+            this.a.remove(Integer.valueOf(i));
+            if (obj == null && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("ViewCache must have return value.");
+            }
+            return obj;
+        }
+        return invokeIL.objValue;
+    }
+
+    public pq4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (pq4) invokeV.objValue;
     }
 }

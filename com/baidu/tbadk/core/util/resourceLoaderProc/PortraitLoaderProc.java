@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.an;
 import com.baidu.tieba.ig;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,7 +155,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
             if (anVar.u()) {
                 anVar.A(i);
                 anVar.z(i2);
-                o55.k().b(str, anVar);
+                m55.k().b(str, anVar);
             }
         }
     }
@@ -186,7 +186,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            an l = o55.k().l(str);
+            an l = m55.k().l(str);
             if (z) {
                 ig.i(l != null, System.currentTimeMillis() - currentTimeMillis);
             }

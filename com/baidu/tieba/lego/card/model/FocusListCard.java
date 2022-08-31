@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jf7;
+import com.baidu.tieba.hf7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -69,10 +69,10 @@ public class FocusListCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = jf7.b(jSONObject.optString("titleColor", ""));
-        this.titleColorNight = jf7.b(jSONObject.optString("titleColorNight", ""));
-        this.bgColor = jf7.b(jSONObject.optString("bgColor", ""));
-        this.bgColorNight = jf7.b(jSONObject.optString("bgColorNight", ""));
+        this.titleColor = hf7.b(jSONObject.optString("titleColor", ""));
+        this.titleColorNight = hf7.b(jSONObject.optString("titleColorNight", ""));
+        this.bgColor = hf7.b(jSONObject.optString("bgColor", ""));
+        this.bgColorNight = hf7.b(jSONObject.optString("bgColorNight", ""));
         JSONArray optJSONArray2 = jSONObject.optJSONArray("itemList");
         int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
         this.focusItemList = new ArrayList(length);
@@ -90,8 +90,8 @@ public class FocusListCard extends BaseCardInfo {
                     if (optJSONArray.length() > 2) {
                         aVar.c = optJSONArray.getString(2);
                     }
-                    aVar.d = jf7.b(optJSONObject.optString("focusColor", ""));
-                    aVar.e = jf7.b(optJSONObject.optString("focusColorNight", ""));
+                    aVar.d = hf7.b(optJSONObject.optString("focusColor", ""));
+                    aVar.e = hf7.b(optJSONObject.optString("focusColorNight", ""));
                     aVar.f = optJSONObject.optString("scheme");
                     aVar.g = optJSONObject.optLong("resourceId");
                     this.focusItemList.add(aVar);

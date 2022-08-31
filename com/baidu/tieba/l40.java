@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.trusts.zone.TrustSubject;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.g40;
 import com.baidu.tieba.j40;
@@ -367,7 +367,7 @@ public class l40 extends j40 {
                     if (!z2 || z) {
                         str = null;
                         a a2 = trustSubject == null ? a.a(trustSubject) : null;
-                        str = ApiReplaceUtil.Overload.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
+                        str = Settings.Secure.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
                         if (TextUtils.isEmpty(str)) {
                             str = "000000000";
                         }
@@ -415,7 +415,7 @@ public class l40 extends j40 {
             str = null;
             if (trustSubject == null) {
             }
-            str = ApiReplaceUtil.Overload.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
+            str = Settings.Secure.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
             if (TextUtils.isEmpty(str)) {
             }
             if (z2) {

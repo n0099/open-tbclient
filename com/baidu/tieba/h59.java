@@ -1,185 +1,275 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h59 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile h59 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static void a() {
-        w59 c;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774845, "Lcom/baidu/tieba/h59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947774845, "Lcom/baidu/tieba/h59;");
+                return;
+            }
+        }
+        b = f59.m();
+    }
+
+    public h59() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (c = c69.c()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = kc1.g();
+    }
+
+    public static h59 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (h59.class) {
+                    if (c == null) {
+                        c = new h59();
+                    }
+                }
+            }
+            return c;
+        }
+        return (h59) invokeV.objValue;
+    }
+
+    public void b(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || i == 0) {
             return;
         }
-        c.b();
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("dbOverNum", i);
+            jSONObject.put("tableName", str2);
+            c("logDiscard", "database", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
+    public final void c(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            u59 a = c69.a();
-            if (a != null) {
-                return a.getAppContext();
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (b) {
+                String jSONObject2 = jSONObject != null ? jSONObject.toString() : "";
+                Log.d("UBCQualityStatics", "Quality event: type=" + str + ", value=" + str2 + ",ext=" + jSONObject2);
             }
-            return null;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            u59 a = c69.a();
-            return a != null ? a.c(str) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            u59 a = c69.a();
-            if (a != null) {
-                return a.d();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject3.put("type", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject3.put("value", str2);
+                }
+                if (jSONObject != null) {
+                    jSONObject3.put("ext", jSONObject);
+                }
+                uBCManager.onEvent("1876", jSONObject3);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return 0;
         }
-        return invokeV.intValue;
     }
 
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
+    public void d(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            w59 c = c69.c();
-            if (c != null) {
-                return c.a(str);
-            }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            u59 a = c69.a();
-            return a != null ? a.getInt(str, i) : i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            u59 a = c69.a();
-            return a != null ? a.getLong(str, j) : j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            u59 a = c69.a();
-            return a != null ? a.e(str) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static w49 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? c69.e() : (w49) invokeV.objValue;
-    }
-
-    public static a59 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? c69.f() : (a59) invokeV.objValue;
-    }
-
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            u59 a = c69.a();
-            return a != null ? a.b(z) : "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            v59 b = c69.b();
-            if (b != null) {
-                return b.a();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            u59 a = c69.a();
-            if (a != null) {
-                return a.isDebug();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n(String str, int i) {
-        u59 a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) || (a = c69.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) || !this.a || TextUtils.isEmpty(str) || i == 0) {
             return;
         }
-        a.putInt(str, i);
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("fileNum", i);
+            c("logDiscard", "fileNum", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
-    public static void o(String str, long j) {
-        u59 a;
+    public void e(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) || (a = c69.a()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLIII(1048579, this, str, i, i2, i3) == null) && this.a && !TextUtils.isEmpty(str)) {
+            if (i == 0 && i2 == 0 && i3 == 0) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+                if (i != 0) {
+                    jSONObject.put("flowExpired", i);
+                }
+                if (i2 != 0) {
+                    jSONObject.put("eventExpired", i2);
+                }
+                if (i3 != 0) {
+                    jSONObject.put("flowInterrupt", i3);
+                }
+                c("logDiscard", "timeExpired", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        a.putLong(str, j);
     }
 
-    public static void p(String str, String str2) {
-        u59 a;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) || (a = c69.a()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && this.a && !TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+                c("logDiscard", "realLog", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        a.putString(str, str2);
     }
 
-    public static void q(int i) {
-        u59 a;
+    public void g(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65552, null, i) == null) || (a = c69.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) || !this.a || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        a.a(i);
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str);
+            jSONObject.put("size", str2);
+            jSONObject.put("logId", str3);
+            c("logSize", "single", jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && this.a && !TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("exception", str);
+                c("sqlError", null, jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) && this.a) {
+            if (TextUtils.isEmpty(str2) && TextUtils.isEmpty(str)) {
+                return;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (!TextUtils.isEmpty(str)) {
+                    jSONObject.put("msg", str);
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("exception", str2);
+                }
+                c("sendFail", "requestError", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && this.a && !TextUtils.isEmpty(str)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("exception", str);
+                c("sendFail", "bodyError", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && this.a) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("errno", i);
+                c("sendFail", "backend", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void l(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, str, str2, str3) == null) || !this.a || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(Constants.EXTRA_CONFIG_LIMIT, str2);
+            jSONObject.put("size", str3);
+            c("logSize", str, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void m(boolean z, long j) {
+        int q;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (z) {
+                q = k49.o().r();
+            } else {
+                q = k49.o().q();
+            }
+            String str = z ? "uploadReal" : "uploadNonReal";
+            if (j > q) {
+                l(str, String.valueOf(q), String.valueOf(j));
+            }
+        }
     }
 }

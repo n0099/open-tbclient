@@ -1,121 +1,106 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.MotionEvent;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p98 extends o98 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int N0;
-    public int O0;
+public interface p98 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p98(Context context, View view2) {
-        super(context, view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static abstract class a implements p98 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final long b;
+
+        public a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = i;
+            this.b = System.currentTimeMillis();
         }
-        m0(false);
-        this.N0 = ri.k(this.O) / 10;
-    }
 
-    @Override // com.baidu.tieba.o98
-    public void V(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Context context = this.O;
-            if (context instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.Y);
-            } else if (context instanceof BaseActivity) {
-                ((BaseActivity) context).setSwipeBackEnabled(this.Y);
+        @Override // com.baidu.tieba.p98
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("timestamp", this.b);
+                    jSONObject.put(DpStatConstants.KEY_NETWORK_STATUS, VideoPlatformStatic.d());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return jSONObject;
             }
-            super.V(z);
-            if (this.Y) {
-                this.Q.getLayoutParams().height = -1;
-                return;
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static abstract class b implements p98 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final String b;
+        public final long c;
+
+        public b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            this.Q.getLayoutParams().height = this.O0;
+            this.a = i;
+            this.b = str;
+            this.c = System.currentTimeMillis();
         }
-    }
 
-    @Override // com.baidu.tieba.o98
-    public void e0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.t.getControl().setVolume(1.0f, 1.0f);
-        }
-    }
-
-    @Override // com.baidu.tieba.o98
-    public boolean f0(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? this.Y || motionEvent.getX() > ((float) this.N0) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o98
-    public void o0(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.o0(i);
-            this.J.setVisibility(8);
-            this.D.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.o98, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
-    public void onPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            if (this.t.getControl().getPlayerWidth() == 0) {
-                return;
+        @Override // com.baidu.tieba.p98
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", this.a);
+                    jSONObject.put("source", this.b);
+                    jSONObject.put("timestamp", this.c);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return jSONObject;
             }
-            this.T = this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth();
-            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * ri.k(this.O));
-            this.O0 = playerHeight;
-            if (playerHeight > ri.i(this.O)) {
-                this.O0 = ri.i(this.O);
-            }
-            this.Q.getLayoutParams().height = this.O0;
-            this.Q.requestLayout();
+            return (JSONObject) invokeV.objValue;
         }
     }
 
-    public void w0(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            this.U = str2;
-            P();
-            Q();
-            o0(this.b);
-            this.F.setPlayer(this.t.getControl());
-            this.B.setVisibility(8);
-            this.u.setPlaceHolder(3);
-            this.u.K(str, 10, false);
-            this.H.setShareData(null);
-        }
-    }
+    JSONObject a();
 }

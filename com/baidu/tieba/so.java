@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class so extends y25 {
+public class so extends w25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,7 +44,7 @@ public class so extends y25 {
         this.p = new int[]{1, 9};
     }
 
-    @Override // com.baidu.tieba.y25
+    @Override // com.baidu.tieba.w25
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

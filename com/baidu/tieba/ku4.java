@@ -1,95 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
+import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.DeviceSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class ku4 {
+public class ku4 extends DeviceEventSceneHandler {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedList<String> a;
-    public static final LinkedList<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925567, "Lcom/baidu/tieba/ku4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925567, "Lcom/baidu/tieba/ku4;");
-                return;
-            }
-        }
-        a = new LinkedList<>();
-        b = new LinkedList<>();
-    }
-
-    public static JSONObject a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public ku4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            b(jSONObject, "uid", TbadkCoreApplication.getCurrentAccount());
-            b(jSONObject, "latest_related_tid", TbadkCoreApplication.getInst().getLatestRelatedTid());
-            b(jSONObject, "latest_related_fid", TbadkCoreApplication.getInst().getLatestRelatedFid());
-            b(jSONObject, "continuous_crash_times", String.valueOf(qu4.q().o()));
-            b(jSONObject, "trigger_safe_mode_status", String.valueOf(qu4.q().s()));
-            b(jSONObject, "fid_info", String.valueOf(a));
-            b(jSONObject, "tid_info", String.valueOf(b));
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public static JSONObject b(JSONObject jSONObject, String str, String str2) {
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    @Nullable
+    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, jSONObject, str, str2)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            if (str != null && str2 != null) {
-                try {
-                    jSONObject.put(str, str2);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
+            return null;
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (Set) invokeLLL.objValue;
     }
 
-    public static void c(String str) {
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.DeviceEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public Set<DeviceSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.offer(str);
-            if (a.size() > 10) {
-                a.poll();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
+            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
+                HashSet hashSet = new HashSet(1);
+                hashSet.add(DeviceSnapshotType.DEVICE_LINUX_KERNEL_VERSION);
+                return hashSet;
             }
+            return null;
         }
+        return (Set) invokeLL.objValue;
     }
 
-    public static void d(String str) {
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            b.offer(str);
-            if (b.size() > 10) {
-                b.poll();
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 }

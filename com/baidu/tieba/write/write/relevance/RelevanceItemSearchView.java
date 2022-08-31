@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ob5;
+import com.baidu.tieba.mb5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RelevanceItemSearchView implements ob5, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements mb5, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -281,7 +281,7 @@ public class RelevanceItemSearchView implements ob5, ViewPager.OnPageChangeListe
         i();
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public boolean I0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public class RelevanceItemSearchView implements ob5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -372,7 +372,7 @@ public class RelevanceItemSearchView implements ob5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -445,7 +445,7 @@ public class RelevanceItemSearchView implements ob5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.ob5
+    @Override // com.baidu.tieba.mb5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

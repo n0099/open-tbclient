@@ -35,11 +35,11 @@ public class lt3 {
 
         /* renamed from: com.baidu.tieba.lt3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0319a extends TypeToken<ResultData<ReservationGameResultData>> {
+        public class C0322a extends TypeToken<ResultData<ReservationGameResultData>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0319a(a aVar) {
+            public C0322a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,7 +83,7 @@ public class lt3 {
             if (!(interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) || TextUtils.isEmpty(str) || this.a == null) {
                 return;
             }
-            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0319a(this).getType());
+            ResultData resultData = (ResultData) this.b.a.fromJson(str, new C0322a(this).getType());
             if (resultData == null) {
                 this.a.onFail("result is null");
             } else if (resultData.errno == 0) {

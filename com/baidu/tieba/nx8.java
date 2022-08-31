@@ -3,77 +3,163 @@ package com.baidu.tieba;
 import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.RectF;
-import android.hardware.camera2.CameraCharacteristics;
-import com.baidu.android.imsdk.internal.Constants;
+import android.hardware.Camera;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class nx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Matrix a;
-    public RectF b;
 
-    public nx8(CameraCharacteristics cameraCharacteristics, RectF rectF) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cameraCharacteristics, rectF};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        if (a(rectF)) {
-            Rect rect = (Rect) cameraCharacteristics.get(CameraCharacteristics.SENSOR_INFO_ACTIVE_ARRAY_SIZE);
-            Integer num = (Integer) cameraCharacteristics.get(CameraCharacteristics.SENSOR_ORIENTATION);
-            int intValue = num == null ? 90 : num.intValue();
-            this.b = new RectF(rect);
-            Integer num2 = (Integer) cameraCharacteristics.get(CameraCharacteristics.LENS_FACING);
-            this.a = b(num2 != null && num2.intValue() == 0, intValue, rectF);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948017947, "Lcom/baidu/tieba/nx8;")) == null) {
             return;
         }
-        throw new IllegalArgumentException("previewRect");
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948017947, "Lcom/baidu/tieba/nx8;");
+        }
     }
 
-    public final boolean a(RectF rectF) {
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
+    public static int b(TbPageContext tbPageContext, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, tbPageContext, i)) == null) {
+            int i3 = 0;
+            try {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                int d = d(tbPageContext);
+                if (cameraInfo.facing == 1) {
+                    i3 = (cameraInfo.orientation + d) % 360;
+                    i2 = (360 - i3) % 360;
+                } else {
+                    i2 = ((cameraInfo.orientation - d) + 360) % 360;
+                }
+                return i2;
+            } catch (RuntimeException e) {
+                yb9.g(e);
+                return i3;
+            }
+        }
+        return invokeLI.intValue;
+    }
+
+    public static int c(Camera.Parameters parameters) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rectF)) == null) ? (rectF.width() == 0.0f || rectF.height() == 0.0f) ? false : true : invokeL.booleanValue;
-    }
-
-    public final Matrix b(boolean z, int i, RectF rectF) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rectF})) == null) {
-            Matrix matrix = new Matrix();
-            matrix.setScale(z ? -1.0f : 1.0f, 1.0f);
-            matrix.postRotate(-i);
-            matrix.mapRect(rectF);
-            Matrix matrix2 = new Matrix();
-            matrix2.setRectToRect(rectF, this.b, Matrix.ScaleToFit.FILL);
-            matrix.setConcat(matrix2, matrix);
-            return matrix;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parameters)) == null) {
+            if (parameters == null) {
+                return -1;
+            }
+            try {
+                if (parameters.isZoomSupported()) {
+                    return Math.min(parameters.getMaxZoom(), 40);
+                }
+                return -1;
+            } catch (Exception e) {
+                yb9.g(e);
+                return -1;
+            }
         }
-        return (Matrix) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 
-    public RectF c(RectF rectF) {
+    public static int d(TbPageContext tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rectF)) == null) {
-            RectF rectF2 = new RectF();
-            this.a.mapRect(rectF2, rectF);
-            return rectF2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            int rotation = tbPageContext.getPageActivity().getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation != 0) {
+                if (rotation != 1) {
+                    if (rotation != 2) {
+                        return rotation != 3 ? 0 : 270;
+                    }
+                    return 180;
+                }
+                return 90;
+            }
+            return 0;
         }
-        return (RectF) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static void e(TbPageContext tbPageContext, int i, Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIL(65541, null, tbPageContext, i, matrix) == null) || matrix == null) {
+            return;
+        }
+        matrix.setScale(1 == i ? -1.0f : 1.0f, 1.0f);
+        matrix.postRotate(b(tbPageContext, i));
+        matrix.postScale(rc9.e() / 2000.0f, rc9.d() / 2000.0f);
+        matrix.postTranslate(rc9.e() / 2.0f, rc9.d() / 2.0f);
+    }
+
+    public static void f(RectF rectF, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, rectF, rect) == null) {
+            rect.left = Math.round(rectF.left);
+            rect.top = Math.round(rectF.top);
+            rect.right = Math.round(rectF.right);
+            rect.bottom = Math.round(rectF.bottom);
+        }
+    }
+
+    public static void g(int i, int i2, Camera camera) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i2, cameraInfo);
+            int i4 = 0;
+            if (i != 0) {
+                if (i == 1) {
+                    i4 = 90;
+                } else if (i == 2) {
+                    i4 = 180;
+                } else if (i == 3) {
+                    i4 = 270;
+                }
+            }
+            if (cameraInfo.facing == 1) {
+                i3 = (360 - ((cameraInfo.orientation + i4) % 360)) % 360;
+            } else {
+                i3 = ((cameraInfo.orientation - i4) + 360) % 360;
+            }
+            camera.setDisplayOrientation(i3);
+        }
+    }
+
+    public static void h(TbPageContext tbPageContext, int i, Camera camera) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65544, null, tbPageContext, i, camera) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, cameraInfo);
+            int d = d(tbPageContext);
+            if (cameraInfo.facing == 1) {
+                i2 = (360 - ((cameraInfo.orientation + d) % 360)) % 360;
+            } else {
+                i2 = ((cameraInfo.orientation - d) + 360) % 360;
+            }
+            camera.setDisplayOrientation(i2);
+        }
     }
 }

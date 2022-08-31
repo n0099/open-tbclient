@@ -1,190 +1,167 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
-public class q09 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 3;
+public class q09 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<TransmitForumData> b;
+    public BdUniqueId a;
+    public List<SimpleForum> b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public bb j;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public BarImageView b;
-        public View c;
-        public int d;
+        public final /* synthetic */ q09 a;
 
-        public a(View view2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q09 q09Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
+                Object[] objArr = {q09Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = 3;
-            if (view2 == null) {
-                return;
-            }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922db);
-            BarImageView barImageView = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090a31);
-            this.b = barImageView;
-            barImageView.setShowOval(true);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
+            this.a = q09Var;
         }
 
-        public void a() {
+        @Override // com.baidu.tieba.bb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (q09.c != this.d) {
-                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-                    SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                    if (responsedMessage.hasError()) {
+                        if (this.a.d != null) {
+                            this.a.d.onError();
+                            return;
+                        }
+                        return;
+                    }
+                    if (z) {
+                        GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                        this.a.b = getRepostForumHttpResMessage.getForumList();
+                        this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                        this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+                    }
+                    if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                        GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                        this.a.b = getRepostForumSocketResMessage.getForumList();
+                        this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                        this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(this.a.b, this.a.g);
+                    }
                 }
-                this.d = q09.c;
             }
-        }
-
-        public void b(TransmitForumData transmitForumData) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, transmitForumData) == null) || transmitForumData == null) {
-                return;
-            }
-            this.a.setText(transmitForumData.forumName);
-            this.b.K(transmitForumData.avatar, 10, false);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948038159, "Lcom/baidu/tieba/q09;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948038159, "Lcom/baidu/tieba/q09;");
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(List<SimpleForum> list, int i);
+
+        void onError();
     }
 
-    public q09(Context context) {
+    public q09(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
     }
 
-    public void b(List<TransmitForumData> list) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-            notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
 
-    public void c(int i) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (c != i) {
-                notifyDataSetChanged();
-            }
-            c = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.size() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
+        }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
         }
-        return invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
         }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            a aVar = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04fb, (ViewGroup) null);
-                aVar = new a(view2);
-                view2.setTag(R.id.obfuscated_res_0x7f091020, aVar);
-            } else {
-                Object tag = view2.getTag(R.id.obfuscated_res_0x7f091020);
-                if (tag instanceof a) {
-                    aVar = (a) tag;
-                }
-            }
-            if (aVar != null) {
-                aVar.a();
-                aVar.b(this.b.get(i));
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

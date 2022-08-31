@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f85 implements o75<HotEvent> {
+public class f85 implements m75<LiveStartClickDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,17 +28,16 @@ public class f85 implements o75<HotEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o75
+    @Override // com.baidu.tieba.m75
     /* renamed from: a */
-    public boolean onEvent(HotEvent hotEvent) {
+    public boolean onEvent(LiveStartClickDataEvent liveStartClickDataEvent) {
         InterceptResult invokeL;
-        HotEventData hotEventData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
-            if (hotEvent == null || (hotEventData = hotEvent.hotEventData) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, liveStartClickDataEvent)) == null) {
+            if (liveStartClickDataEvent == null) {
                 return false;
             }
-            m05.g(hotEventData);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921734, liveStartClickDataEvent.viewTag));
             return true;
         }
         return invokeL.booleanValue;

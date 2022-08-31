@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.wp4;
+import com.baidu.tieba.vp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,7 +52,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String title;
     public int unReadCount;
     public int unReadCountExtra;
-    public wp4 userExtraData;
+    public vp4 userExtraData;
     public int userType;
 
     public ImMessageCenterShowItemData() {
@@ -261,10 +261,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.unReadCountExtra : invokeV.intValue;
     }
 
-    public wp4 getUserExtraData() {
+    public vp4 getUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userExtraData : (wp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.userExtraData : (vp4) invokeV.objValue;
     }
 
     public int getUserType() {
@@ -488,10 +488,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setUserExtraData(wp4 wp4Var) {
+    public void setUserExtraData(vp4 vp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048640, this, wp4Var) == null) {
-            this.userExtraData = wp4Var;
+        if (interceptable == null || interceptable.invokeL(1048640, this, vp4Var) == null) {
+            this.userExtraData = vp4Var;
         }
     }
 

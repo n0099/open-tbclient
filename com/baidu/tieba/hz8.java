@@ -1,22 +1,75 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.net.VpnService;
-import androidx.fragment.app.Fragment;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.q09;
+import com.baidu.tieba.q16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsTabInfo;
+import tbclient.SimpleForum;
 /* loaded from: classes4.dex */
-public class hz8 {
+public class hz8 implements q16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public Activity b;
-    public gz8 c;
+    public q09 a;
+    public ArrayList<TransmitForumData> b;
+    public List<SimpleForum> c;
+    public q16.a d;
+    public boolean e;
+    public int f;
+    public q09.b g;
+
+    /* loaded from: classes4.dex */
+    public class a implements q09.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hz8 a;
+
+        public a(hz8 hz8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hz8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hz8Var;
+        }
+
+        @Override // com.baidu.tieba.q09.b
+        public void a(List<SimpleForum> list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) {
+                this.a.c = list;
+                this.a.f = i;
+                this.a.h();
+            }
+        }
+
+        @Override // com.baidu.tieba.q09.b
+        public void onError() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.g();
+            }
+        }
+    }
 
     public hz8() {
         Interceptable interceptable = $ic;
@@ -28,72 +81,74 @@ public class hz8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new ArrayList<>();
+        this.g = new a(this);
+        BdUniqueId gen = BdUniqueId.gen();
+        q09 q09Var = new q09(gen);
+        this.a = q09Var;
+        q09Var.i(this.g);
+        this.a.j(gen);
+    }
+
+    @Override // com.baidu.tieba.q16
+    public void a(q16.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.d = aVar;
         }
     }
 
-    public static hz8 c(Fragment fragment) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q16
+    public void b() {
+        q09 q09Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
-            hz8 hz8Var = new hz8();
-            hz8Var.a = fragment;
-            return hz8Var;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d == null || (q09Var = this.a) == null) {
+            return;
         }
-        return (hz8) invokeL.objValue;
+        this.e = false;
+        q09Var.l(null);
+        this.a.k(null);
+        this.a.h();
     }
 
-    public void a(int i, int i2, Intent intent) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) && i == 25069) {
-            if (i2 == -1) {
-                gz8 gz8Var = this.c;
-                if (gz8Var != null) {
-                    gz8Var.a();
-                    return;
-                }
-                return;
-            }
-            gz8 gz8Var2 = this.c;
-            if (gz8Var2 != null) {
-                gz8Var2.b();
-            }
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.e) {
+            return;
         }
+        q16.a aVar = this.d;
+        if (aVar != null) {
+            aVar.a(null, false, 2, 0);
+        }
+        this.e = true;
     }
 
-    public void b(gz8 gz8Var) {
+    public final void h() {
+        Long l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz8Var) == null) {
-            this.c = gz8Var;
-            Fragment fragment = this.a;
-            if (fragment != null) {
-                Intent prepare = VpnService.prepare(fragment.getContext());
-                if (prepare != null) {
-                    this.a.startActivityForResult(prepare, 25069);
-                    return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.clear();
+            if (ListUtils.getCount(this.c) > 0) {
+                for (SimpleForum simpleForum : this.c) {
+                    if (simpleForum != null && (l = simpleForum.id) != null && l.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
+                        TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
+                        transmitForumData.tabItemDatas = new ArrayList<>();
+                        for (FrsTabInfo frsTabInfo : simpleForum.tab_info) {
+                            if (frsTabInfo != null && frsTabInfo.is_general_tab.intValue() == 1 && frsTabInfo.tab_id.intValue() > 0 && !StringUtils.isNull(frsTabInfo.tab_name)) {
+                                transmitForumData.tabItemDatas.add(new FrsTabItemData(frsTabInfo));
+                            }
+                        }
+                        this.b.add(transmitForumData);
+                    }
                 }
-                gz8 gz8Var2 = this.c;
-                if (gz8Var2 != null) {
-                    gz8Var2.a();
-                    return;
-                }
-                return;
             }
-            Activity activity = this.b;
-            if (activity != null) {
-                Intent prepare2 = VpnService.prepare(activity);
-                if (prepare2 != null) {
-                    this.b.startActivityForResult(prepare2, 25069);
-                    return;
-                }
-                gz8 gz8Var3 = this.c;
-                if (gz8Var3 != null) {
-                    gz8Var3.a();
-                    return;
-                }
-                return;
+            q16.a aVar = this.d;
+            if (aVar != null) {
+                aVar.a(this.b, true, 2, this.f);
             }
-            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

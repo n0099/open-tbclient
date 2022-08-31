@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cn4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.uw4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.ww4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public ww4 f;
+        public uw4 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,7 +89,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906ac);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906aa);
             this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f09246d);
-            this.f = new ww4(concernRecommendListAdapter.b, this.e);
+            this.f = new uw4(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -102,7 +102,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.r(i);
-                os4 d = os4.d(this.a);
+                ns4 d = ns4.d(this.a);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
@@ -368,10 +368,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            ww4 ww4Var = forumViewHolder.f;
-            if (ww4Var != null) {
-                ww4Var.l(this.c);
-                ww4Var.n(metaData);
+            uw4 uw4Var = forumViewHolder.f;
+            if (uw4Var != null) {
+                uw4Var.l(this.c);
+                uw4Var.n(metaData);
             }
         }
     }

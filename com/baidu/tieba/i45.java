@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,7 +11,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class i45 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static int b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,9 +31,23 @@ public class i45 {
         }
     }
 
-    public static boolean a(boolean z, boolean z2, boolean z3) {
-        InterceptResult invokeCommon;
+    public static synchronized int a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? z || (z2 && !z3) : invokeCommon.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (i45.class) {
+                if (!a && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
+                    b = dimensionPixelSize;
+                    a = true;
+                    Log.d("StatusBarHeightUtil", String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize)));
+                }
+                i = b;
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

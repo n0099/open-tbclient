@@ -1,167 +1,225 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
-import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.SimpleForum;
 /* loaded from: classes5.dex */
 public class s09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public List<SimpleForum> b;
-    public String c;
-    public b d;
-    public String e;
-    public String f;
-    public int g;
-    public String h;
-    public BdUniqueId i;
-    public bb j;
 
     /* loaded from: classes5.dex */
-    public class a extends bb {
+    public static class a implements InputFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s09 a;
+        public c a;
+        public int b;
+        public String c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(s09 s09Var, int i, int i2) {
-            super(i, i2);
+        public a(int i, c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {s09Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i), cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = s09Var;
+            this.c = "[^a-zA-Z0-9一-龥]";
+            this.b = i;
+            this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.bb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        public final String a(String str, String str2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
-            if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
-                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
-                    if (responsedMessage.hasError()) {
-                        if (this.a.d != null) {
-                            this.a.d.onError();
-                            return;
-                        }
-                        return;
-                    }
-                    if (z) {
-                        GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
-                        this.a.b = getRepostForumHttpResMessage.getForumList();
-                        this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
-                        this.a.g = getRepostForumHttpResMessage.getPrivateThread();
-                    }
-                    if (responsedMessage instanceof GetRepostForumSocketResMessage) {
-                        GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
-                        this.a.b = getRepostForumSocketResMessage.getForumList();
-                        this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
-                        this.a.g = getRepostForumSocketResMessage.getPrivateThread();
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(this.a.b, this.a.g);
-                    }
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? str2.replaceAll(str, "") : (String) invokeLL.objValue;
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned == null || charSequence == null) {
+                    return charSequence;
                 }
+                String a = a(this.c, charSequence.toString());
+                int b = nf5.b(spanned.toString()) - (i4 - i3);
+                int b2 = nf5.b(a);
+                int i5 = this.b;
+                int i6 = i5 - b;
+                if (b + b2 > i5) {
+                    c cVar = this.a;
+                    if (cVar != null) {
+                        cVar.a();
+                    }
+                    return StringHelper.cutChineseAndEnglishWithSuffix(a, i6, "");
+                }
+                return a;
             }
+            return (CharSequence) invokeCommon.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(List<SimpleForum> list, int i);
+    public static class b implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c a;
+        public EditText b;
+        public int c;
 
-        void onError();
-    }
-
-    public s09(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        public b(EditText editText, int i, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editText, Integer.valueOf(i), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.b = editText;
+            this.c = i;
+            this.a = cVar;
         }
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
-        this.j = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.j);
-        this.j.getHttpMessageListener().setSelfListener(true);
-        this.j.getSocketMessageListener().setSelfListener(true);
-    }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
-            getRepostForumReqMessage.setThreadTitle(this.e);
-            getRepostForumReqMessage.setThreadContent(this.f);
-            getRepostForumReqMessage.setForumId(this.h);
-            getRepostForumReqMessage.setTag(this.a);
-            getRepostForumReqMessage.setRequestId(this.i);
-            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
-        }
-    }
-
-    public void i(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void j(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned == null || charSequence == null || " ".equals(charSequence)) {
+                    return charSequence;
+                }
+                int c = nf5.c(spanned.toString()) - (i4 - i3);
+                int c2 = nf5.c(charSequence.toString());
+                if (c == 0 && c2 > this.c && TextUtils.isEmpty(this.b.getText())) {
+                    c cVar = this.a;
+                    if (cVar != null) {
+                        cVar.a();
+                    }
+                    return nf5.m(charSequence.toString(), this.c);
+                } else if (TextUtils.isEmpty(this.b.getText()) || (c + c2) - nf5.j(this.b.getText().toString()) <= this.c) {
+                    return charSequence;
+                } else {
+                    c cVar2 = this.a;
+                    if (cVar2 != null) {
+                        cVar2.a();
+                    }
+                    return c2 > this.c ? spanned.toString().substring(i3, i4) : "";
+                }
+            }
+            return (CharSequence) invokeCommon.objValue;
         }
     }
 
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948097741, "Lcom/baidu/tieba/s09;")) == null) {
+            return;
         }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948097741, "Lcom/baidu/tieba/s09;");
+        }
+    }
+
+    public static boolean a(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
+                long fileSize = FileHelper.getFileSize(filePath);
+                if (fileSize < 5120) {
+                    d(1, "" + fileSize);
+                    return true;
+                }
+                int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+                if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
+                    d(2, imageFileWH[0] + "*" + imageFileWH[1]);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
+            int l = su4.k().l("key_upload_pic_max_width", 0);
+            int l2 = su4.k().l("key_upload_pic_max_height", 0);
+            if (l <= 0 || l2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
+                return false;
+            }
+            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+            return imageFileWH[0] >= l || imageFileWH[1] >= l2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? su4.k().l("show_write_title_tip_count", 0) : invokeV.intValue;
+    }
+
+    public static void d(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str) == null) {
+            TiebaStatic.log(new StatisticItem("c14021").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i).param("obj_param1", str));
+        }
+    }
+
+    public static void e(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, writeData) == null) || writeData == null || TextUtils.isEmpty(writeData.getTitle())) {
+            return;
+        }
+        su4.k().w("show_write_title_tip_count", c() + 1);
     }
 }

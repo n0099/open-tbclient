@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.cm5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.am5;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -265,7 +265,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
             } else {
                 TBSelector.makeDrawableSelector().setShape(0).gradientLinear(DrawableSelector.TOP_BOTTOM, strArr).blRadius(this.m ? v : 0.0f).brRadius(this.m ? v : 0.0f).into(this);
             }
-            os4 d = os4.d(this.e);
+            ns4 d = ns4.d(this.e);
             d.z(R.dimen.T_X07);
             d.v(R.color.CAM_X0311);
             if (this.g) {
@@ -299,7 +299,7 @@ public class VipAdFreeGuideLayout extends FrameLayout implements View.OnClickLis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
-            setGuideContent(cm5.e().h(), cm5.e().g());
+            setGuideContent(am5.e().h(), am5.e().g());
         }
     }
 

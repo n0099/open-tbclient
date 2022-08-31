@@ -1,104 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class f66 extends ta {
+public final class f66 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, String> a;
+    public static Map<String, String> b;
+    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public z56 a;
-    public HashMap<String, String> b;
-    public Gson c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f66(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716131, "Lcom/baidu/tieba/f66;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716131, "Lcom/baidu/tieba/f66;");
                 return;
             }
         }
-        this.c = new Gson();
+        a = new HashMap();
+        b = new HashMap();
+        c = new HashMap();
+        a.put("CAM_X0906", "CAM_X0906");
+        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
+        c.put("CAM_X0906", "testMethod");
     }
 
-    public String a(String str) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str.contains("?")) {
-                str = str.split("[?]")[0];
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (b.containsKey(str)) {
+                try {
+                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
+                    declaredMethod.setAccessible(true);
+                    Object invoke = declaredMethod.invoke(null, new Object[0]);
+                    return ((invoke instanceof Boolean) && ((Boolean) invoke).booleanValue()) ? a.get(str) : str;
+                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
+                    e.printStackTrace();
+                }
             }
-            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
-            HashMap<String, String> hashMap = this.b;
-            if (hashMap != null) {
-                return hashMap.get(replace);
-            }
-            return null;
+            return str;
         }
         return (String) invokeL.objValue;
-    }
-
-    public void b(z56 z56Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z56Var) == null) {
-            this.a = z56Var;
-        }
-    }
-
-    public void c(HashMap<String, String> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
-            this.b = hashMap;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.baidu.tieba.va
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        process2(httpMessage2, httpMessageTask);
-        return httpMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        String json;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
-            String a = a(httpMessageTask.getUrl());
-            if (a != null && this.a != null) {
-                if (httpMessage.getExtra() instanceof NetMessage) {
-                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
-                    json = netMessage.getSocketMessage() != null ? this.c.toJson(netMessage.getSocketMessage().getData()) : "";
-                } else {
-                    json = this.c.toJson(httpMessage.getParams());
-                }
-                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
-            }
-            return httpMessage;
-        }
-        return (HttpMessage) invokeLL.objValue;
     }
 }

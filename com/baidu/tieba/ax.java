@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ax extends sw<ho4> {
+public class ax extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static int o;
@@ -34,7 +34,7 @@ public class ax extends sw<ho4> {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public ho4 h;
+    public go4 h;
     public RoundCornerFrameLayout i;
     public FakeVideoContainer j;
     public int k;
@@ -193,12 +193,12 @@ public class ax extends sw<ho4> {
 
     @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ho4 ho4Var;
+        go4 go4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || (ho4Var = this.h) == null || ho4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || (go4Var = this.h) == null || go4Var.getThreadData() == null) {
             return;
         }
-        uz5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        sz5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.i.c(i);
         this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
@@ -221,10 +221,10 @@ public class ax extends sw<ho4> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) {
             int k = ri.k(TbadkCoreApplication.getInst());
             if (k != this.k) {
                 int k2 = ri.k(TbadkCoreApplication.getInst());
@@ -235,11 +235,11 @@ public class ax extends sw<ho4> {
                 r = i / 3;
                 this.k = k;
             }
-            this.h = ho4Var;
-            if (ho4Var == null || ho4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = go4Var;
+            if (go4Var == null || go4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(ho4Var.getThreadData());
+            this.j.setData(go4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;

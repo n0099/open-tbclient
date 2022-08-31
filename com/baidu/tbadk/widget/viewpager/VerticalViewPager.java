@@ -39,7 +39,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wj5;
+import com.baidu.tieba.uj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +95,7 @@ public class VerticalViewPager extends ViewGroup {
     public PagerAdapter f;
     public int f0;
     public int g;
-    public wj5 g0;
+    public uj5 g0;
     public int h;
     public Parcelable i;
     public ClassLoader j;
@@ -2469,13 +2469,13 @@ public class VerticalViewPager extends ViewGroup {
         }
     }
 
-    public void setEventListener(wj5.b bVar) {
-        wj5 wj5Var;
+    public void setEventListener(uj5.b bVar) {
+        uj5 uj5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (wj5Var = this.g0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048638, this, bVar) == null) || (uj5Var = this.g0) == null) {
             return;
         }
-        wj5Var.f(bVar);
+        uj5Var.f(bVar);
     }
 
     public void setNeedHanleTouch(boolean z) {
@@ -2606,7 +2606,7 @@ public class VerticalViewPager extends ViewGroup {
             if (ViewCompat.getImportantForAccessibility(this) == 0) {
                 ViewCompat.setImportantForAccessibility(this, 1);
             }
-            this.g0 = new wj5(this);
+            this.g0 = new uj5(this);
         }
     }
 

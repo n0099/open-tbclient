@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nb7 {
+public class nb7 extends ca7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nb7() {
+        super(s97.j(), 2001143);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, imMessageCenterShowItemData)) == null) {
-            if (imMessageCenterShowItemData == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((o97) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName()) || String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) || "".equals(imMessageCenterShowItemData.getOwnerName());
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(ImMessageCenterShowItemData imMessageCenterShowItemData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imMessageCenterShowItemData)) == null) ? (imMessageCenterShowItemData == null || !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) || "3222425470".equals(imMessageCenterShowItemData.getFriendId()) || "801001117".equals(imMessageCenterShowItemData.getFriendId()) || "5044059141".equals(imMessageCenterShowItemData.getFriendId())) ? false : true : invokeL.booleanValue;
     }
 }

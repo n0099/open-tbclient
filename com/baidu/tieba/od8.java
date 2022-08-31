@@ -3,83 +3,39 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class od8 {
+public class od8 implements rc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    public final DragImageView.h b;
-    public final boolean c;
-    public Map<AdvertAppInfo, nd8> d;
-    public nd8 e;
+    public final jm5 a;
+    public Map<String, AdvertAppInfo> b;
+    public md8 c;
+    public int d;
+    public final Set<String> e;
+    public boolean f;
 
-    /* loaded from: classes5.dex */
-    public class a implements ve7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nd8 a;
-
-        public a(od8 od8Var, nd8 nd8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od8Var, nd8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nd8Var;
-        }
-
-        @Override // com.baidu.tieba.ve7
-        public void a(int i, HashMap<String, Object> hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
-                AdvertAppInfo a = this.a.a();
-                if (i == 0 || a == null) {
-                    return;
-                }
-                String str = "image";
-                if (hashMap != null) {
-                    String str2 = (String) hashMap.get("da_area");
-                    if (!TextUtils.isEmpty(str2)) {
-                        str = str2;
-                    }
-                }
-                if (hc8.h(i)) {
-                    td8.f(a, 0, str, i);
-                } else {
-                    td8.m(a, 0, str);
-                }
-                df7.c(a);
-            }
-        }
-    }
-
-    public od8(@NonNull TbPageContext<?> tbPageContext, boolean z, DragImageView.h hVar) {
+    public od8(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z), hVar};
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -89,86 +45,142 @@ public class od8 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = z;
-        this.b = hVar;
-        this.d = new HashMap();
+        this.e = new LinkedHashSet();
+        this.f = false;
+        jm5 jm5Var = new jm5(PlaceId.PIC_PAGE_INSERT, "PIC_PAGE", aVar);
+        this.a = jm5Var;
+        jm5Var.e(false);
+        this.b = new HashMap();
+        this.d = xj5.a().c();
     }
 
-    public nd8 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nd8 nd8Var = new nd8(this.a);
-            nd8Var.b();
-            nd8Var.setBusinessType(99);
-            nd8Var.setFromCDN(this.c);
-            nd8Var.C(this.b);
-            nd8Var.setAfterClickSchemeListener(new a(this, nd8Var));
-            return nd8Var;
-        }
-        return (nd8) invokeV.objValue;
-    }
-
-    public View b(AdvertAppInfo advertAppInfo, boolean z) {
+    @Override // com.baidu.tieba.rc8
+    public View b(@NonNull String str, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z)) == null) {
-            if (advertAppInfo == null || !(advertAppInfo.h instanceof AdCard)) {
-                return null;
-            }
-            nd8 nd8Var = this.d.get(advertAppInfo);
-            if (nd8Var == null) {
-                nd8Var = a();
-                this.d.put(advertAppInfo, nd8Var);
-            }
-            nd8Var.e((AdCard) advertAppInfo.h);
-            this.e = nd8Var;
-            if (z) {
-                nd8Var.w();
-            }
-            return nd8Var.r();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            this.f = z;
+            return this.c.b(this.b.get(str), z);
         }
         return (View) invokeLZ.objValue;
     }
 
-    public void c() {
-        nd8 nd8Var;
+    @Override // com.baidu.tieba.rc8
+    public AdvertAppInfo d(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (nd8Var = this.e) == null) {
-            return;
-        }
-        nd8Var.w();
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.get(str) : (AdvertAppInfo) invokeL.objValue;
     }
 
-    public void d() {
-        nd8 nd8Var;
+    @Override // com.baidu.tieba.rc8
+    public void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (nd8Var = this.e) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, advertAppInfo) == null) {
+            this.b.put(str, advertAppInfo);
         }
-        nd8Var.A();
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.rc8
+    public boolean f(@NonNull String str) {
+        InterceptResult invokeL;
+        AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            for (nd8 nd8Var : this.d.values()) {
-                if (nd8Var != null) {
-                    nd8Var.B();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? (TextUtils.isEmpty(str) || (advertAppInfo = this.b.get(str)) == null || ib8.l(advertAppInfo)) ? false : true : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public void g(@NonNull ae5 ae5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ae5Var) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("forum_id", ae5Var.c);
+            hashMap.put("forum_name", ae5Var.d);
+            this.a.d(this.d, hashMap);
+        }
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public int getAdCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = 0;
+            if (this.b.isEmpty()) {
+                return 0;
+            }
+            for (AdvertAppInfo advertAppInfo : this.b.values()) {
+                if (!ib8.l(advertAppInfo)) {
+                    i++;
                 }
             }
-            this.d.clear();
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048582, this, tbPageContext, hVar, z) == null) {
+            this.c = new md8(tbPageContext, z, hVar);
         }
     }
 
-    public void f(AdvertAppInfo advertAppInfo) {
-        nd8 nd8Var;
+    @Override // com.baidu.tieba.rc8
+    public void j(@NonNull String str) {
+        AdvertAppInfo advertAppInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) || advertAppInfo == null || (nd8Var = this.d.get(advertAppInfo)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (advertAppInfo = this.b.get(str)) == null) {
             return;
         }
-        nd8Var.B();
-        this.d.remove(advertAppInfo);
+        rd8.o(advertAppInfo);
+        bf7.b(bf7.a(advertAppInfo));
+        boolean add = this.e.add(str);
+        if (!this.f && add) {
+            this.c.d();
+        } else {
+            this.c.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public void k(@NonNull AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, advertAppInfo) == null) {
+            rd8.h(advertAppInfo, 0, 2);
+        }
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !this.b.isEmpty() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.c.f(this.b.get(str));
+        }
+    }
+
+    @Override // com.baidu.tieba.rc8
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.c.e();
+            this.a.b();
+            this.e.clear();
+        }
     }
 }

@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.no4;
+import com.baidu.tieba.mo4;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.t95;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import com.baidu.tieba.v95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -147,10 +147,10 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
             } else {
                 this.g.getImgAgree().setAlpha(1.0f);
             }
-            no4 no4Var = new no4();
-            no4Var.b = 13;
-            no4Var.h = 10;
-            this.g.setStatisticData(no4Var);
+            mo4 mo4Var = new mo4();
+            mo4Var.b = 13;
+            mo4Var.h = 10;
+            this.g.setStatisticData(mo4Var);
             ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f091e35);
             this.j = imageView2;
             WebPManager.setPureDrawable(imageView2, R.drawable.obfuscated_res_0x7f080932, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -296,7 +296,7 @@ public class ImageViewerBottomLayout extends LinearLayout implements View.OnClic
                 }
                 TiebaStatic.log(statisticItem);
             }
-            v95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
+            t95 findPageExtraByView = TbPageExtraHelper.findPageExtraByView(view2);
             StatisticItem statisticItem2 = new StatisticItem("c12942");
             statisticItem2.param("obj_type", "2");
             statisticItem2.param("obj_locate", "12");

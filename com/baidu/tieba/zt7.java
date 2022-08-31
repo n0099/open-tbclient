@@ -8,22 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.PbPage.PbSortType;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class zt7 implements pn {
+public final class zt7 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
-    public static final BdUniqueId j;
+    @JvmField
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public List<PbSortType> g;
-    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -38,35 +30,29 @@ public class zt7 implements pn {
                 return;
             }
         }
-        i = BdUniqueId.gen();
-        j = BdUniqueId.gen();
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        a = gen;
     }
 
-    public zt7(BdUniqueId bdUniqueId) {
+    public zt7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = j;
-        this.c = 0;
-        this.d = false;
-        this.b = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

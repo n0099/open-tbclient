@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface zb8 {
-    int d(String str, boolean z);
+    int a();
 
-    int e(String str, boolean z);
+    void b();
 
-    void f();
-
-    void g(String str, int i, boolean z);
+    void c();
 }

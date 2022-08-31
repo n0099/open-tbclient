@@ -1,84 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetTagList.DataRes;
-import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes6.dex */
-public class wd7 {
+public class wd7 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<vd7> a;
-    public List<vd7> b;
-    public List<Integer> c;
+    public ViewGroup a;
+    public TextView b;
+    public TextView c;
+    public ImageView d;
+    public TextView e;
+    public ImageView f;
+    public TextView g;
+    public int h;
+    public int i;
+    public int j;
 
-    public wd7() {
+    public wd7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0485, (ViewGroup) null);
+        this.a = viewGroup;
+        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09060b);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091b60);
+        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091472);
+        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091473);
+        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a2);
+        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0909a3);
+        this.d.setOnClickListener(this);
+        this.f.setOnClickListener(this);
+        c();
     }
 
-    public List<vd7> a() {
+    public ViewGroup a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ViewGroup) invokeV.objValue;
     }
 
-    public List<vd7> b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : invokeV.intValue;
     }
 
-    public void c(DataRes dataRes) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
         }
-        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            d(arrayList, dataRes.sex_taglist);
-        }
-        if (ListUtils.isEmpty(dataRes.taglist)) {
-            return;
-        }
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        d(this.b, dataRes.taglist);
     }
 
-    public final void d(List<vd7> list, List<ResponseTagInfo> list2) {
+    public void d(List<td7> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) || list == null || list2 == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
+            this.h = list.get(0).a;
+            this.i = list.get(1).a;
         }
-        for (ResponseTagInfo responseTagInfo : list2) {
-            if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
-                vd7 vd7Var = new vd7();
-                vd7Var.a(responseTagInfo);
-                list.add(vd7Var);
-                List<Integer> list3 = this.c;
-                if (list3 != null && vd7Var.c) {
-                    list3.add(Integer.valueOf(vd7Var.a));
-                }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            boolean z = false;
+            if (view2 == this.d) {
+                z = true;
+            } else {
+                ImageView imageView = this.f;
             }
+            this.j = z ? this.h : this.i;
+            SkinManager.setImageResource(this.d, z ? R.drawable.img_lable_boy_s : R.drawable.img_lable_boy_n);
+            TextView textView = this.e;
+            int i = R.color.CAM_X0109;
+            SkinManager.setViewTextColor(textView, z ? R.color.CAM_X0302 : R.color.CAM_X0109);
+            SkinManager.setImageResource(this.f, z ? R.drawable.img_lable_girl_n : R.drawable.img_lable_girl_s);
+            TextView textView2 = this.g;
+            if (!z) {
+                i = R.color.CAM_X0301;
+            }
+            SkinManager.setViewTextColor(textView2, i);
         }
     }
 }

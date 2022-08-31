@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao6;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.qd5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sd5;
+import com.baidu.tieba.yn6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes4.dex */
-public class GameCodeListView extends ConstraintLayout implements sd5 {
+public class GameCodeListView extends ConstraintLayout implements qd5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -120,18 +120,18 @@ public class GameCodeListView extends ConstraintLayout implements sd5 {
         }
     }
 
-    public void b(ao6 ao6Var) {
+    public void b(yn6 yn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ao6Var) == null) {
-            this.c.g(ao6Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yn6Var) == null) {
+            this.c.g(yn6Var);
         }
     }
 
-    @Override // com.baidu.tieba.sd5
+    @Override // com.baidu.tieba.qd5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            os4 d = os4.d(this);
+            ns4 d = ns4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);

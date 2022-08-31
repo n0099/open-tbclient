@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.e9;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.q05;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s05;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -187,18 +187,18 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            os4 d = os4.d(this.a);
+            ns4 d = ns4.d(this.a);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0215);
-            os4 d2 = os4.d(this.e);
+            ns4 d2 = ns4.d(this.e);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            os4 d3 = os4.d(this.c);
+            ns4 d3 = ns4.d(this.c);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X06);
             d3.A(R.string.F_X01);
-            os4.d(this.b).v(R.string.J_X04);
+            ns4.d(this.b).v(R.string.J_X04);
             WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f0806e4, R.color.CAM_X0101, null);
         }
     }
@@ -264,7 +264,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int f = (((getResources().getDisplayMetrics().widthPixels - ri.f(TbadkApplication.getInst(), R.dimen.tbds94)) - ri.f(TbadkApplication.getInst(), R.dimen.tbds180)) - ri.f(TbadkApplication.getInst(), R.dimen.tbds75)) - ri.f(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(s05.a(name, StringHelper.STRING_MORE + j, f, paint));
+                this.c.setText(q05.a(name, StringHelper.STRING_MORE + j, f, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);

@@ -1,25 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gy6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gy6 {
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            new StatisticItem("c14707").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-        }
-    }
+    boolean b(int i, ry6 ry6Var);
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new StatisticItem("c14706").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-        }
-    }
+    boolean c(int i);
+
+    void setData(List<pn> list);
 }

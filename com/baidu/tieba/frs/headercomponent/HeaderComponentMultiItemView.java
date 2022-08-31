@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.ym6;
+import com.baidu.tieba.wm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public TbImageView d;
     public ViewGroup e;
     public TbImageAutoSwitch f;
-    public ym6 g;
+    public wm6 g;
     public List<String> h;
     public LiveFuseForumData i;
     public TbImageAutoSwitch.b j;
@@ -58,13 +58,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentMultiItemView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0255a implements View.OnClickListener {
+        public class View$OnClickListenerC0261a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0255a(a aVar, int i) {
+            public View$OnClickListenerC0261a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -117,7 +117,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.K((String) this.a.h.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0255a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0261a(this, i));
             }
         }
 
@@ -231,13 +231,13 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         g();
     }
 
-    public void f(LiveFuseForumData liveFuseForumData, ym6 ym6Var) {
+    public void f(LiveFuseForumData liveFuseForumData, wm6 wm6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, liveFuseForumData, ym6Var) == null) || liveFuseForumData == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, liveFuseForumData, wm6Var) == null) || liveFuseForumData == null) {
             return;
         }
         this.i = liveFuseForumData;
-        this.g = ym6Var;
+        this.g = wm6Var;
         this.b.setText(liveFuseForumData.online_users);
         this.h.clear();
         if (!ListUtils.isEmpty(liveFuseForumData.head_img)) {
@@ -248,9 +248,9 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         }
         i();
         setOnClickListener(new b(this, liveFuseForumData));
-        ym6 ym6Var2 = this.g;
-        if (ym6Var2 != null) {
-            ym6Var2.a(2, liveFuseForumData);
+        wm6 wm6Var2 = this.g;
+        if (wm6Var2 != null) {
+            wm6Var2.a(2, liveFuseForumData);
         }
     }
 
@@ -305,7 +305,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
         } else {
             this.c.setAlpha(1.0f);
         }
-        os4 d = os4.d(this.e);
+        ns4 d = ns4.d(this.e);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0201);
     }
@@ -313,7 +313,7 @@ public class HeaderComponentMultiItemView extends FrameLayout {
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            os4.d(this.b).v(R.color.CAM_X0105);
+            ns4.d(this.b).v(R.color.CAM_X0105);
             if (!ListUtils.isEmpty(this.f.getChildViews())) {
                 for (View view2 : this.f.getChildViews()) {
                     if (view2 instanceof HeadImageView) {

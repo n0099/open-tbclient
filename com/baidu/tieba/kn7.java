@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface kn7 {
-    void a(String str);
+    void a(int i, String str);
 
-    void b(String str, int i, int i2, String str2);
+    void b(int i, String str);
 
-    void c(String str, int i, String str2);
+    void c();
 
-    boolean d(String str);
+    void d();
 
-    boolean e(String str);
+    void e(String str);
 
-    void f(String str, int i, String str2);
+    void f(int i, int i2, String str);
 
-    void g(String str, int i, String str2);
+    void g();
 
-    void h(String str, String str2);
+    void h(int i, String str);
 
-    void i(String str, String str2);
+    void i(int i, String str);
 
-    void j(String str);
+    void j();
 
     void k(String str);
-
-    void l(String str, int i, String str2);
 }

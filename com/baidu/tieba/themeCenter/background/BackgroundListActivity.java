@@ -6,31 +6,31 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dv4;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.pr8;
+import com.baidu.tieba.bv4;
+import com.baidu.tieba.ca5;
+import com.baidu.tieba.nr8;
+import com.baidu.tieba.sq8;
 import com.baidu.tieba.themeCenter.background.BackgroundListModel;
 import com.baidu.tieba.uq8;
-import com.baidu.tieba.wq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BackgroundListActivity extends BaseActivity<BackgroundListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundListModel b;
-    public wq8 c;
-    public uq8 d;
+    public uq8 c;
+    public sq8 d;
     public BackgroundListModel.c e;
     public BdListView.p f;
-    public final dv4.g g;
+    public final bv4.g g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements BackgroundListModel.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,14 +55,14 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundListModel.c
-        public void a(int i, String str, pr8 pr8Var, List<DressItemData> list) {
+        public void a(int i, String str, nr8 nr8Var, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, pr8Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, nr8Var, list}) == null) {
                 this.a.c.j();
                 BackgroundListActivity backgroundListActivity = this.a;
                 backgroundListActivity.hideLoadingView(backgroundListActivity.c.c());
                 if (i == 0) {
-                    this.a.c.i(pr8Var, list, this.a.b.S());
+                    this.a.c.i(nr8Var, list, this.a.b.S());
                     return;
                 }
                 this.a.showToast(str);
@@ -71,7 +71,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements BdListView.p {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,8 +105,8 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements dv4.g {
+    /* loaded from: classes5.dex */
+    public class c implements bv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BackgroundListActivity a;
@@ -129,7 +129,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             this.a = backgroundListActivity;
         }
 
-        @Override // com.baidu.tieba.dv4.g
+        @Override // com.baidu.tieba.bv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.b == null) {
@@ -163,7 +163,7 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d.a() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -171,17 +171,17 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public ea5 getPageStayDurationItem() {
+    public ca5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ea5 pageStayDurationItem = super.getPageStayDurationItem();
+            ca5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (ea5) invokeV.objValue;
+        return (ca5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -189,9 +189,9 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            wq8 wq8Var = this.c;
-            if (wq8Var != null) {
-                wq8Var.d();
+            uq8 uq8Var = this.c;
+            if (uq8Var != null) {
+                uq8Var.d();
             }
         }
     }
@@ -206,12 +206,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
             BackgroundListModel backgroundListModel = new BackgroundListModel(this);
             this.b = backgroundListModel;
             backgroundListModel.U(this.e);
-            uq8 uq8Var = new uq8(this.a, this.b.getUniqueId());
-            this.d = uq8Var;
-            uq8Var.c(0);
-            wq8 wq8Var = new wq8(this, this.d);
-            this.c = wq8Var;
-            wq8Var.g(this.f, this.g);
+            sq8 sq8Var = new sq8(this.a, this.b.getUniqueId());
+            this.d = sq8Var;
+            sq8Var.c(0);
+            uq8 uq8Var = new uq8(this, this.d);
+            this.c = uq8Var;
+            uq8Var.g(this.f, this.g);
             showLoadingView(this.c.c());
             this.b.loadData();
         }
@@ -231,12 +231,12 @@ public class BackgroundListActivity extends BaseActivity<BackgroundListActivity>
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        wq8 wq8Var;
+        uq8 uq8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b == null || (wq8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.b == null || (uq8Var = this.c) == null) {
             return;
         }
-        showLoadingView(wq8Var.c());
+        showLoadingView(uq8Var.c());
         this.b.loadData();
     }
 

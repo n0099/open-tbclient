@@ -2,21 +2,28 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
+import tbclient.ReplyMe.DataRes;
+import tbclient.ReplyMe.ReplyList;
+import tbclient.ReplyMe.ReplyMeResIdl;
 /* loaded from: classes4.dex */
-public class hc7 {
+public class hc7 implements y85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public ArrayList<FeedData> a;
+    public hq4 b;
+    public fc7 c;
 
     public hc7() {
         Interceptable interceptable = $ic;
@@ -31,57 +38,71 @@ public class hc7 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 0;
-        this.d = 0;
-        this.e = 0;
+        this.a = new ArrayList<>();
+        this.b = new hq4();
+        this.c = new fc7();
     }
 
-    public int a() {
+    public ArrayList<FeedData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
     }
 
-    public int b() {
+    public hq4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (hq4) invokeV.objValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y85
+    public void initByJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            try {
+                JSONArray optJSONArray = jSONObject.optJSONArray("reply_list");
+                if (optJSONArray == null) {
+                    optJSONArray = jSONObject.optJSONArray("at_list");
+                }
+                if (optJSONArray != null) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserJson(optJSONArray.optJSONObject(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.c.f(jSONObject.optJSONObject("message"));
+                this.b.i(jSONObject.optJSONObject("page"));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
-        try {
-            this.a = jSONObject.optInt("agree", 0);
-            this.b = jSONObject.optInt("replyme", 0);
-            this.c = jSONObject.optInt("atme", 0);
-            this.d = jSONObject.optInt("fans", 0);
-            jSONObject.optInt("pletter", 0);
-            this.e = jSONObject.optInt("bookmark", 0);
-        } catch (Exception e) {
-            BdLog.detailException(e);
+    }
+
+    @Override // com.baidu.tieba.y85
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && (message instanceof ReplyMeResIdl)) {
+            DataRes dataRes = ((ReplyMeResIdl) message).data;
+            try {
+                List<ReplyList> list = dataRes.reply_list;
+                if (list != null) {
+                    for (int i = 0; i < list.size(); i++) {
+                        FeedData feedData = new FeedData();
+                        feedData.parserProtoBuf(list.get(i));
+                        this.a.add(feedData);
+                        if ((FeedData.TYPE_ZAN.equals(feedData.getPraiseItemType()) || FeedData.TYPE_GRAFFITI.equals(feedData.getPraiseItemType())) && ListUtils.getCount(feedData.getPraiseList()) == 0) {
+                            this.a.remove(feedData);
+                        }
+                    }
+                }
+                this.b.j(dataRes.page);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
         }
     }
 }

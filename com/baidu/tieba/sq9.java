@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final class sq9 {
+public final /* synthetic */ class sq9 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            throw null;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            throw null;
-        }
-        return invokeV.intValue;
+    static {
+        int[] iArr = new int[ImageView.ScaleType.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[ImageView.ScaleType.CENTER.ordinal()] = 1;
+        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_CROP.ordinal()] = 2;
+        $EnumSwitchMapping$0[ImageView.ScaleType.CENTER_INSIDE.ordinal()] = 3;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_CENTER.ordinal()] = 4;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_START.ordinal()] = 5;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_END.ordinal()] = 6;
+        $EnumSwitchMapping$0[ImageView.ScaleType.FIT_XY.ordinal()] = 7;
     }
 }

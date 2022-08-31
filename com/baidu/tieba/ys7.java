@@ -1,23 +1,70 @@
 package com.baidu.tieba;
 
-import java.util.List;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.chosen.PbChosenActivity;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
+import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface ys7 {
-    int getErroCode();
+public class ys7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String getErrorText();
+    public ys7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+        b();
+    }
 
-    List<Post> getPostList();
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, pk8.a(TbConfig.FINE_PB_PRAISE, 309095));
+            tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
+    }
 
-    ExcellentPbThreadInfo getThreadInfo();
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qb5 qb5Var = new qb5(309095);
+            qb5Var.setResponsedClass(ChosenPbZanSocketResponse.class);
+            qb5Var.g(true);
+            qb5Var.h(false);
+            MessageManager.getInstance().registerTask(qb5Var);
+        }
+    }
 
-    UserInfo getUserInfo();
-
-    List<User> getUserList();
-
-    boolean isEmpty();
+    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
+            ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
+            chosenZanNetMessage.setExcId(j);
+            chosenZanNetMessage.setAction(i);
+            chosenZanNetMessage.setThreadId(j2);
+            chosenZanNetMessage.setPostId(j3);
+            pbChosenActivity.sendMessage(chosenZanNetMessage);
+        }
+    }
 }

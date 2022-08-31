@@ -1,75 +1,29 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.os.Build;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.utils.SocialEncodeUtils;
-import com.baidu.searchbox.live.interfaces.data.UserAccount;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gi7 implements AccountManagerService {
+public class gi7 implements AppInfoService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService.AccountStatusChangedListener a;
-    public AccountManagerService.LoginResultListener b;
-
-    /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gi7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gi7 gi7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gi7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gi7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.a.b != null) {
-                    this.a.b.onResult(this.a.isLogin(2) ? 0 : -2);
-                }
-                if (this.a.a != null) {
-                    this.a.a.onAccountStatusChanged(this.a.isLogin(2));
-                }
-            }
-        }
-    }
 
     public gi7() {
         Interceptable interceptable = $ic;
@@ -81,110 +35,157 @@ public class gi7 implements AccountManagerService {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(this, 2005016));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public void addHostJavascriptInterface(@NonNull WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
-            this.a = accountStatusChangedListener;
+        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public UserAccount getAccount() {
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public Application getApplication() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UserAccount userAccount = new UserAccount();
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                userAccount.setDisplayname(currentAccountInfo.getAccountNameShow());
-                userAccount.setBduss(currentAccountInfo.getBDUSS());
-                userAccount.setUid(currentAccountInfo.getID());
-                userAccount.setProtrait(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
-                userAccount.setNickName(currentAccountInfo.getAccountNameShow());
-                userAccount.setUk(getSocialEncryption(currentAccountInfo.getID(), "baiduuid_"));
-            }
-            return userAccount;
-        }
-        return (UserAccount) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreApplication.getInst() : (Application) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialDecrypt(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    @NonNull
+    public String getCloudControlUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                return SocialEncodeUtils.getSocialDecrypt(str, str2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialEncryption(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getCuid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = "";
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                str3 = SocialEncodeUtils.getSocialEncryption(str, str2);
-                return URLEncoder.encode(str3, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str3;
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().getCuidGalaxy2() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getUid() {
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getFFmpegPath() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            UserAccount account = getAccount();
-            return account != null ? account.getUid() : "";
+            if (StringUtils.isNull(TbadkCoreApplication.getInst().getLibcyberffmpeg()) || StringUtils.isNull(TbadkCoreApplication.getInst().getLibssl()) || StringUtils.isNull(TbadkCoreApplication.getInst().getLibcrypto())) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("libcyber-ffmpeg", TbadkCoreApplication.getInst().getLibcyberffmpeg());
+                jSONObject.put("libcyber-ffmpeg_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
+                jSONObject.put("libssl", TbadkCoreApplication.getInst().getLibssl());
+                jSONObject.put("libssl_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
+                jSONObject.put("libcrypto", TbadkCoreApplication.getInst().getLibcrypto());
+                jSONObject.put("libcrypto_version", TbadkCoreApplication.getInst().getmLibcyberVersion());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public boolean isLogin(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getImAppId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? TbadkCoreApplication.isLogin() : invokeI.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? String.valueOf((long) Constants.APPID_TIEBA) : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getLiveAppId() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.b = loginResultListener;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "tieba" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getPackageName() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
-            this.a = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "com.baidu.tieba" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    @NonNull
+    public String getProtocol() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "tieba" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getSid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public float getStaticDeviceScore(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
+            return -1.0f;
         }
+        return invokeL.floatValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getUA() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return wf5.b() + " (Baidu; P1 " + Build.VERSION.RELEASE + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getVersionCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return TbadkCoreApplication.getInst().getVersionCode() + "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getVersionName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? TbConfig.getVersion() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public String getZid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? TbadkCoreApplication.getInst().getZid() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? AppConfig.isDebug() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AppInfoService
+    public boolean isNightMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -19,7 +19,7 @@ public class hy extends zw {
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout h;
     public BjhArticleLayout i;
-    public ho4 j;
+    public go4 j;
     public int k;
 
     /* loaded from: classes4.dex */
@@ -109,13 +109,13 @@ public class hy extends zw {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j06Var) == null) {
-            super.m(j06Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, h06Var) == null) {
+            super.m(h06Var);
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.setSubClickListener(j06Var);
+                bjhArticleLayout.setSubClickListener(h06Var);
             }
         }
     }
@@ -137,13 +137,13 @@ public class hy extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: u */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) {
-            this.j = ho4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) {
+            this.j = go4Var;
             BjhArticleLayout bjhArticleLayout = this.i;
             if (bjhArticleLayout != null) {
-                bjhArticleLayout.a(ho4Var);
+                bjhArticleLayout.a(go4Var);
             }
         }
     }

@@ -1,45 +1,35 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface ay8 {
-
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(float f);
-
-        float getSpeed();
-
-        void onFinish();
-
-        void onProgress(float f);
-    }
-
     void a();
 
-    boolean b();
+    void b(long j);
 
-    int getMaxDuration();
+    void c(double d);
 
-    float getProgress();
+    void d(int i);
 
-    int getSlideNum();
+    void e(int i, int i2);
 
-    void invalidate();
+    void f(int i, int i2);
 
-    void reset();
+    void g(int i, int i2, int i3);
 
-    void setMaxDuration(int i);
+    void h();
 
-    void setMinDuration(int i);
+    void i();
 
-    void setOnProgressListener(a aVar);
+    void j(int i, cy8 cy8Var);
 
-    void setProgress(long j);
+    void k();
 
-    void setShowDeleteLastTip(boolean z);
+    void l(double d);
 
-    void setVisibility(int i);
+    void m();
 
-    void start();
+    void n(long j, long j2);
 
-    void stop();
+    void o(long j, long j2);
+
+    void onClick();
 }

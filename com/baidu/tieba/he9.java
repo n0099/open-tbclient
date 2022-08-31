@@ -3,7 +3,7 @@ package com.baidu.tieba;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface he9 {
-    String getBizType();
+    void onFailure(String str, JSONObject jSONObject);
 
-    void onReceiveResult(boolean z, String str, String str2, JSONObject jSONObject, JSONObject jSONObject2);
+    void onSuccess(String str, JSONObject jSONObject);
 }

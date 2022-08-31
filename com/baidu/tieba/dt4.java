@@ -25,11 +25,11 @@ public class dt4 implements AppLaunchInfoFetcher.a {
     }
 
     @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(xe5 xe5Var) {
+    public void onFinish(ve5 ve5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, xe5Var) == null) || xe5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ve5Var) == null) || ve5Var == null) {
             return;
         }
-        ct4.t(xe5Var.a, xe5Var.b);
+        et4.a().c(ve5Var.b);
     }
 }

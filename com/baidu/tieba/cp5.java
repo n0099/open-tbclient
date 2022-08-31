@@ -1,151 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountRealNameCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.dto.RealNameDTO;
-import com.baidu.sapi2.result.AccountRealNameResult;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tieba.ju3;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-@Singleton
-@Service
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class cp5 extends ActivityDelegation implements gy3 {
+public class cp5 extends ActivityDelegation implements mh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdUniqueId a;
+    public fp5 b;
+    public Activity c;
+    public Map<String, String> d;
+    public CustomMessageListener e;
 
     /* loaded from: classes3.dex */
-    public class a implements SapiCallback<CheckUserFaceIdResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ju3.d a;
-        public final /* synthetic */ cp5 b;
-
-        public a(cp5 cp5Var, ju3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = cp5Var;
-            this.a = dVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
-                this.a.onFail(checkUserFaceIdResult.getResultMsg());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                if (!"advanced_cert_face_match".equals(checkUserFaceIdResult.action) && !"cert_face_match".equals(checkUserFaceIdResult.action)) {
-                    this.b.f(null, null, this.a);
-                } else {
-                    this.a.onSuccess();
-                }
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends AccountRealNameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ju3.d a;
-
-        public b(cp5 cp5Var, ju3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp5Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.sapi2.callback.AccountRealNameCallback
-        public void onFinish(AccountRealNameResult accountRealNameResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, accountRealNameResult) == null) {
-                super.onFinish(accountRealNameResult);
-                if (accountRealNameResult.getResultCode() == 0) {
-                    this.a.onSuccess();
-                } else {
-                    this.a.onFail(accountRealNameResult.getResultMsg());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements ju3.d {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ cp5 a;
 
-        public c(cp5 cp5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(cp5 cp5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cp5Var};
+                Object[] objArr = {cp5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -154,21 +53,24 @@ public class cp5 extends ActivityDelegation implements gy3 {
             this.a = cp5Var;
         }
 
-        @Override // com.baidu.tieba.ju3.d
-        public void onFail(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.mResult.putString("bundle_fail", "real_name_success");
-                this.a.finish();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
+                return;
             }
-        }
-
-        @Override // com.baidu.tieba.ju3.d
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("bundle_success", "real_name_success");
-                this.a.finish();
+            Object data = customResponsedMessage.getData();
+            if (data instanceof ja5) {
+                ja5 ja5Var = (ja5) data;
+                if (getTag() == ja5Var.a || ja5Var.g) {
+                    this.a.mResult.putInt("result_code", ja5Var.b);
+                    this.a.mResult.putString("result_msg", ja5Var.c);
+                    if (this.a.b != null) {
+                        this.a.b.a(this.a.mResult);
+                    }
+                    this.a.finish();
+                }
             }
         }
     }
@@ -183,37 +85,34 @@ public class cp5 extends ActivityDelegation implements gy3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = BdUniqueId.gen();
+        this.e = new a(this, 2921393);
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            this.c = activity;
         }
     }
 
-    @Override // com.baidu.tieba.gy3
-    public void b(ju3.d dVar) {
+    public void e(fp5 fp5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            HashMap hashMap = new HashMap();
-            hashMap.put("scene", "baidugame");
-            SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, dVar), session.bduss, hashMap);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fp5Var) == null) {
+            this.b = fp5Var;
         }
     }
 
-    public final void f(Context context, String str, ju3.d dVar) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, dVar) == null) {
-            if (SapiAccountManager.getInstance().getSapiConfiguration() == null) {
-                dVar.onFail("pass没有初始化");
-                return;
-            }
-            RealNameDTO realNameDTO = new RealNameDTO();
-            realNameDTO.bduss = SapiAccountManager.getInstance().getSession().bduss;
-            realNameDTO.scene = "baidugame";
-            realNameDTO.needCbKey = true;
-            PassportSDK.getInstance().loadAccountRealName(nm2.U().getActivity(), new b(this, dVar), realNameDTO);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = null;
+            MessageManager.getInstance().unRegisterListener(this.e);
+            super.finish();
         }
     }
 
@@ -221,10 +120,45 @@ public class cp5 extends ActivityDelegation implements gy3 {
     public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            f(getAgent(), zd3.g(this.mParams, "swanAppId"), new c(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            this.e.setTag(this.a);
+            MessageManager.getInstance().registerListener(this.e);
+            int i = this.mParams.getInt("type");
+            String string = this.mParams.getString("orderInfo");
+            ja5 ja5Var = new ja5();
+            ja5Var.a = this.a;
+            ja5Var.b = i;
+            ja5Var.c = string;
+            ja5Var.e = (Map) this.mParams.getSerializable("params");
+            ja5Var.f = this.d;
+            if (getAgent() != null) {
+                ja5Var.d = getAgent();
+            } else {
+                Activity activity = this.c;
+                if (activity != null) {
+                    ja5Var.d = activity;
+                } else {
+                    ja5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
+                }
+            }
+            CustomMessage customMessage = new CustomMessage(2921393, ja5Var);
+            customMessage.setTag(this.a);
+            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
+            this.mResult.putInt("result_code", sendMessage ? 0 : 1);
+            Bundle bundle = this.mResult;
+            bundle.putString("result_msg", "" + sendMessage);
             return false;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mh1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mResult.putInt("result_code", i);
+            this.mResult.putString("result_msg", "");
+            finish();
+        }
     }
 }

@@ -6,7 +6,6 @@ import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -115,7 +114,7 @@ public final class s1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             try {
-                return ApiReplaceUtil.getString(context.getContentResolver(), str);
+                return Settings.System.getString(context.getContentResolver(), str);
             } catch (Exception unused) {
                 return "";
             }

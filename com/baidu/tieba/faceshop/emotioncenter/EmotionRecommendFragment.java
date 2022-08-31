@@ -19,15 +19,15 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dv4;
+import com.baidu.tieba.bv4;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.tieba.faceshop.emotioncenter.model.EmotionCenterModel;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.sb6;
 import com.baidu.tieba.ub6;
-import com.baidu.tieba.wb6;
-import com.baidu.tieba.yp7;
+import com.baidu.tieba.wp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,10 +35,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class EmotionRecommendFragment extends BaseFragment implements ub6 {
+public class EmotionRecommendFragment extends BaseFragment implements sb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wb6 a;
+    public ub6 a;
     public EmotionCenterModel b;
     public boolean c;
     public boolean d;
@@ -47,7 +47,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
     public final CustomMessageListener g;
     public CustomMessageListener h;
     public CustomMessageListener i;
-    public dv4.g j;
+    public bv4.g j;
     public BdListView.p k;
 
     /* loaded from: classes4.dex */
@@ -193,7 +193,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements dv4.g {
+    public class d implements bv4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionRecommendFragment a;
@@ -216,7 +216,7 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
             this.a = emotionRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.dv4.g
+        @Override // com.baidu.tieba.bv4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -292,14 +292,14 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
         this.k = new e(this);
     }
 
-    @Override // com.baidu.tieba.ub6
+    @Override // com.baidu.tieba.sb6
     public void H0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, emotionCenterData) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ub6
+    @Override // com.baidu.tieba.sb6
     public void T0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, emotionCenterData) == null) {
@@ -334,9 +334,9 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            wb6 wb6Var = this.a;
-            if (wb6Var != null) {
-                wb6Var.m(i);
+            ub6 ub6Var = this.a;
+            if (ub6Var != null) {
+                ub6Var.m(i);
             }
         }
     }
@@ -356,9 +356,9 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
         EmotionCenterModel emotionCenterModel2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            wb6 wb6Var = new wb6(getPageContext(), getUniqueId());
-            this.a = wb6Var;
-            wb6Var.p(this.j);
+            ub6 ub6Var = new ub6(getPageContext(), getUniqueId());
+            this.a = ub6Var;
+            ub6Var.p(this.j);
             this.a.q(this.k);
             registerListener(this.g);
             registerListener(this.h);
@@ -413,22 +413,22 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (yp7.l().r()) {
-                wb6 wb6Var = this.a;
-                if (wb6Var != null) {
-                    wb6Var.r();
+            if (wp7.l().r()) {
+                ub6 ub6Var = this.a;
+                if (ub6Var != null) {
+                    ub6Var.r();
                     return;
                 }
                 return;
             }
-            wb6 wb6Var2 = this.a;
-            if (wb6Var2 != null) {
-                wb6Var2.n();
+            ub6 ub6Var2 = this.a;
+            if (ub6Var2 != null) {
+                ub6Var2.n();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ub6
+    @Override // com.baidu.tieba.sb6
     public void w0(EmotionCenterData emotionCenterData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, emotionCenterData) == null) {
@@ -445,9 +445,9 @@ public class EmotionRecommendFragment extends BaseFragment implements ub6 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            wb6 wb6Var = this.a;
-            if (wb6Var != null) {
-                return wb6Var.f();
+            ub6 ub6Var = this.a;
+            if (ub6Var != null) {
+                return ub6Var.f();
             }
             return 0;
         }

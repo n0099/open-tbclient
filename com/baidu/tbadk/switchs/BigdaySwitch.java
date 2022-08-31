@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.cf;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class BigdaySwitch extends cf {
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? tu4.k().l("key_bigday_sync_switch", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? su4.k().l("key_bigday_sync_switch", 0) : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.cf

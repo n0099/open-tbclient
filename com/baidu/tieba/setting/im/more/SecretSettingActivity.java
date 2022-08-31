@@ -27,17 +27,17 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.as4;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.js4;
+import com.baidu.tieba.is4;
+import com.baidu.tieba.se8;
 import com.baidu.tieba.setting.ForbiddenForumActivityConfig;
 import com.baidu.tieba.setting.PrivacyPermissionActivityConfig;
 import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tieba.su4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.tu4;
 import com.baidu.tieba.ue8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.we8;
+import com.baidu.tieba.zr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,10 +48,10 @@ import java.util.ArrayList;
 public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public we8 a;
-    public ue8 b;
+    public ue8 a;
+    public se8 b;
     public boolean c;
-    public ArrayList<js4> d;
+    public ArrayList<is4> d;
     public int e;
     public int f;
     public int g;
@@ -61,8 +61,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
     public int k;
     public int l;
     public MsgRemindModel m;
-    public as4 n;
-    public we8.b o;
+    public zr4 n;
+    public ue8.b o;
     public HttpMessageListener p;
     public bb q;
     public CustomMessageListener r;
@@ -70,7 +70,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
     public MsgRemindModel.f t;
 
     /* loaded from: classes5.dex */
-    public class a implements we8.b {
+    public class a implements ue8.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SecretSettingActivity a;
@@ -93,7 +93,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             this.a = secretSettingActivity;
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -102,7 +102,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -110,7 +110,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -119,7 +119,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -130,7 +130,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void e() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -140,7 +140,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void f() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -148,7 +148,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void g() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -158,7 +158,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -166,7 +166,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void i() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -174,15 +174,15 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void j() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{tu4.k().q("sync_ad_privacy_url", "")}, false);
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{su4.k().q("sync_ad_privacy_url", "")}, false);
             }
         }
 
-        @Override // com.baidu.tieba.we8.b
+        @Override // com.baidu.tieba.ue8.b
         public void onBackPressed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -298,7 +298,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
                 }
                 this.a.c = true;
                 if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    ue8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    se8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
                     if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
                         privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
                     }
@@ -357,9 +357,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                tu4 k = tu4.k();
+                su4 k = su4.k();
                 int l = k.l(PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE + currentAccount, 0);
-                tu4 k2 = tu4.k();
+                su4 k2 = su4.k();
                 int l2 = k2.l(PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE + currentAccount, 0);
                 this.a.k = l;
                 this.a.l = l2;
@@ -399,7 +399,7 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 this.b.showProgressBar();
-                String b = ((js4) this.b.d.get(i)).b();
+                String b = ((is4) this.b.d.get(i)).b();
                 int i2 = 7;
                 if ("showAll".equals(b)) {
                     this.b.X1(this.a, 1);
@@ -548,41 +548,41 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
         this.t = new g(this);
     }
 
-    public final ArrayList<js4> R1(int i) {
+    public final ArrayList<is4> R1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            ArrayList<js4> arrayList = new ArrayList<>();
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f0), "", i == 1, "showAll"));
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f2), "", i == 3, "hideAll"));
+            ArrayList<is4> arrayList = new ArrayList<>();
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f0), "", i == 1, "showAll"));
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f2), "", i == 3, "hideAll"));
             return arrayList;
         }
         return (ArrayList) invokeI.objValue;
     }
 
-    public final ArrayList<js4> S1(int i) {
+    public final ArrayList<is4> S1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            ArrayList<js4> arrayList = new ArrayList<>();
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f0), "", i == 1, "showAll"));
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f1), "", i == 2, "friendOnly"));
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f2), "", i == 3, "hideAll"));
+            ArrayList<is4> arrayList = new ArrayList<>();
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f0), "", i == 1, "showAll"));
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f1), "", i == 2, "friendOnly"));
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f08f2), "", i == 3, "hideAll"));
             return arrayList;
         }
         return (ArrayList) invokeI.objValue;
     }
 
-    public final ArrayList<js4> T1(int i, int i2) {
+    public final ArrayList<is4> T1(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            ArrayList<js4> arrayList = new ArrayList<>();
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0271), "", i == 1, "showAll"));
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b43), "", i == 5, "my_fans_reply"));
-            arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b40), "", i == 6, "my_attention_reply"));
+            ArrayList<is4> arrayList = new ArrayList<>();
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0271), "", i == 1, "showAll"));
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b43), "", i == 5, "my_fans_reply"));
+            arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b40), "", i == 6, "my_attention_reply"));
             if (i2 == 1) {
-                arrayList.add(new js4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b5e), "", i == 7, "myselfOnly"));
+                arrayList.add(new is4(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b5e), "", i == 7, "myselfOnly"));
             }
             return arrayList;
         }
@@ -637,33 +637,33 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
             } else if ("reply".equals(str)) {
                 this.d = T1(this.i, this.j);
             }
-            as4 as4Var = this.n;
-            if (as4Var != null) {
-                as4Var.d();
+            zr4 zr4Var = this.n;
+            if (zr4Var != null) {
+                zr4Var.d();
             }
-            as4 as4Var2 = new as4(getPageContext());
-            this.n = as4Var2;
-            as4Var2.m(str2);
-            as4 as4Var3 = this.n;
-            as4Var3.k(this.d, new e(this, str));
-            as4Var3.m(str2);
-            as4 as4Var4 = this.n;
-            as4Var4.c();
-            as4Var4.n();
+            zr4 zr4Var2 = new zr4(getPageContext());
+            this.n = zr4Var2;
+            zr4Var2.m(str2);
+            zr4 zr4Var3 = this.n;
+            zr4Var3.k(this.d, new e(this, str));
+            zr4Var3.m(str2);
+            zr4 zr4Var4 = this.n;
+            zr4Var4.c();
+            zr4Var4.n();
         }
     }
 
-    public final void Z1(ue8 ue8Var) {
+    public final void Z1(se8 se8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ue8Var) == null) {
-            this.e = ue8Var.c();
-            this.f = ue8Var.i();
-            this.g = ue8Var.d();
-            this.h = ue8Var.e();
-            this.i = ue8Var.g();
-            this.j = ue8Var.h();
-            this.k = ue8Var.a();
-            this.l = ue8Var.b();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, se8Var) == null) {
+            this.e = se8Var.c();
+            this.f = se8Var.i();
+            this.g = se8Var.d();
+            this.h = se8Var.e();
+            this.i = se8Var.g();
+            this.j = se8Var.h();
+            this.k = se8Var.a();
+            this.l = se8Var.b();
         }
     }
 
@@ -697,9 +697,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
         if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             super.onChangeSkinType(i);
             this.a.onChangeSkinType(i);
-            as4 as4Var = this.n;
-            if (as4Var != null) {
-                as4Var.g();
+            zr4 zr4Var = this.n;
+            if (zr4Var != null) {
+                zr4Var.g();
             }
         }
     }
@@ -709,8 +709,8 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new we8(this);
-            this.b = new ue8();
+            this.a = new ue8(this);
+            this.b = new se8();
             this.a.A(this.o);
             this.m = new MsgRemindModel(getPageContext());
             if (this.b.k()) {
@@ -733,9 +733,9 @@ public class SecretSettingActivity extends BaseActivity<SecretSettingActivity> i
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onDestroy();
-            as4 as4Var = this.n;
-            if (as4Var != null) {
-                as4Var.d();
+            zr4 zr4Var = this.n;
+            if (zr4Var != null) {
+                zr4Var.d();
             }
         }
     }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.px4;
+import com.baidu.tieba.nx4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -261,7 +261,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.black_alpha60);
-            px4 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+            nx4 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
             if (activitySwitch == null || !activitySwitch.a()) {
                 i2 = R.drawable.obfuscated_res_0x7f0806fb;
                 i3 = R.drawable.obfuscated_res_0x7f0806f9;

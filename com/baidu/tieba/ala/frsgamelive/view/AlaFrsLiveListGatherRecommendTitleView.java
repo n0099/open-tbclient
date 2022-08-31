@@ -8,15 +8,15 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jz5;
-import com.baidu.tieba.zu5;
+import com.baidu.tieba.hz5;
+import com.baidu.tieba.xu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaFrsLiveListGatherRecommendTitleView extends jz5<zu5> {
+public class AlaFrsLiveListGatherRecommendTitleView extends hz5<xu5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View i;
@@ -77,14 +77,14 @@ public class AlaFrsLiveListGatherRecommendTitleView extends jz5<zu5> {
         j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d00f1 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.m == i) {
@@ -104,11 +104,11 @@ public class AlaFrsLiveListGatherRecommendTitleView extends jz5<zu5> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     /* renamed from: r */
-    public void i(zu5 zu5Var) {
+    public void i(xu5 xu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zu5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, xu5Var) == null) {
             j(this.l, TbadkCoreApplication.getInst().getSkinType());
         }
     }

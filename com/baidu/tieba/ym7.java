@@ -1,110 +1,83 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableStringBuilder;
-import android.text.style.ImageSpan;
-import android.widget.EditText;
-import android.widget.Toast;
-import com.baidu.adp.base.BdBaseActivity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
 public class ym7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends kg<an> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ EditText a;
-        public final /* synthetic */ SpannableStringBuilder b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ EmotionGroupType d;
-        public final /* synthetic */ ym7 e;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? c(d(str)) : (String) invokeL.objValue;
+    }
 
-        public a(ym7 ym7Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ym7Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str).trim() : (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Pattern compile = Pattern.compile(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1368));
+            boolean z = false;
+            int i = 0;
+            while (!z && i < 1000) {
+                Matcher matcher = compile.matcher(str);
+                if (matcher.find()) {
+                    str = matcher.replaceAll(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1369));
+                    i++;
+                } else {
+                    z = true;
                 }
             }
-            this.e = ym7Var;
-            this.a = editText;
-            this.b = spannableStringBuilder;
-            this.c = i;
-            this.d = emotionGroupType;
+            return str;
         }
+        return (String) invokeL.objValue;
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kg
-        public void onLoaded(an anVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, anVar, str, i) == null) {
-                super.onLoaded((a) anVar, str, i);
-                if (anVar != null) {
-                    this.e.c(this.a, this.b, this.c, anVar, this.d);
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str.trim() : (String) invokeL.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            Matcher matcher = Pattern.compile(TbFaceManager.d).matcher(str);
+            while (matcher.find()) {
+                if (!TbFaceManager.i().p(matcher.group())) {
+                    return false;
                 }
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public ym7() {
+    public static String f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            String c = c(str);
+            if (StringUtils.isNull(c)) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1363);
             }
+            return !e(c) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1364) : "";
         }
-    }
-
-    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, jy4 jy4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, jy4Var) == null) {
-            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
-                Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1436, 0).show();
-                return;
-            }
-            String d = jy4Var.d();
-            EmotionGroupType type = jy4Var.getType();
-            if (d != null) {
-                lg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
-            }
-        }
-    }
-
-    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, an anVar, EmotionGroupType emotionGroupType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), anVar, emotionGroupType}) == null) {
-            Bitmap p = anVar.p();
-            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
-            int width = p.getWidth();
-            if (emotionGroupType == EmotionGroupType.LOCAL) {
-                width = (int) (width * 0.5d);
-            }
-            bitmapDrawable.setBounds(0, 0, width, width);
-            bitmapDrawable.setGravity(119);
-            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
-            editText.getText().insert(i, spannableStringBuilder);
-        }
+        return (String) invokeL.objValue;
     }
 }

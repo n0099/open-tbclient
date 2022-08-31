@@ -5,7 +5,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ab7;
 import com.baidu.tieba.db;
 import com.baidu.tieba.im.data.AddGroupInfoData;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
@@ -15,7 +14,8 @@ import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseAddGroupMessage;
 import com.baidu.tieba.im.message.ResponseDismissGroupMessage;
 import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
-import com.baidu.tieba.z87;
+import com.baidu.tieba.x87;
+import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,14 +101,14 @@ public class Static {
                 RequestAddGroupMessage requestAddGroupMessage = (RequestAddGroupMessage) responseAddGroupMessage.getOrginalMessage();
                 ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
                 imMessageCenterPojo.setGroup_name(requestAddGroupMessage.getName());
-                imMessageCenterPojo.setCustomGroupType(z87.a(requestAddGroupMessage.getGroupType()));
+                imMessageCenterPojo.setCustomGroupType(x87.a(requestAddGroupMessage.getGroupType()));
                 AddGroupInfoData addGroupInfo = responseAddGroupMessage.getAddGroupInfo();
                 if (addGroupInfo == null) {
                     return;
                 }
                 imMessageCenterPojo.setGroup_head(addGroupInfo.getPortrait());
                 imMessageCenterPojo.setGid(String.valueOf(addGroupInfo.getGroupId()));
-                imMessageCenterPojo.setPulled_msgId(ab7.a(1L));
+                imMessageCenterPojo.setPulled_msgId(ya7.a(1L));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016016, imMessageCenterPojo));
             }
         }

@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ex extends sw<ho4> {
+/* loaded from: classes3.dex */
+public class ex extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CardForumHeadLayout f;
-    public ho4 g;
+    public go4 g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -98,14 +98,14 @@ public class ex extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: q */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         CardForumHeadLayout cardForumHeadLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) || (cardForumHeadLayout = this.f) == null || ho4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) || (cardForumHeadLayout = this.f) == null || go4Var == null) {
             return;
         }
-        this.g = ho4Var;
+        this.g = go4Var;
         cardForumHeadLayout.setOnClickListener();
-        this.f.setData(ho4Var.getThreadData());
+        this.f.setData(go4Var.getThreadData());
     }
 }

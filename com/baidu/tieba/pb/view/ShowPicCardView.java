@@ -16,7 +16,7 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.km4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vk8;
+import com.baidu.tieba.tk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public vk8 b;
+    public tk8 b;
     public TbImageView c;
     public LinearLayout d;
     public ImageView e;
@@ -69,10 +69,10 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         }
     }
 
-    public vk8 getData() {
+    public tk8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (vk8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (tk8) invokeV.objValue;
     }
 
     public ImageView getIcon() {
@@ -83,37 +83,37 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        vk8 vk8Var;
+        tk8 tk8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (vk8Var = this.b) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || (tk8Var = this.b) == null) {
             return;
         }
-        km4.o(this.a, vk8Var.e());
+        km4.o(this.a, tk8Var.e());
     }
 
-    public void setData(vk8 vk8Var) {
+    public void setData(tk8 tk8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, vk8Var) == null) || vk8Var == null || this.b == vk8Var) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, tk8Var) == null) || tk8Var == null || this.b == tk8Var) {
             return;
         }
-        this.b = vk8Var;
-        if (!StringUtils.isNULL(vk8Var.f())) {
+        this.b = tk8Var;
+        if (!StringUtils.isNULL(tk8Var.f())) {
             this.f.setVisibility(0);
-            this.f.setText(vk8Var.f());
+            this.f.setText(tk8Var.f());
         } else {
             this.f.setVisibility(8);
         }
-        if (!StringUtils.isNULL(vk8Var.a())) {
+        if (!StringUtils.isNULL(tk8Var.a())) {
             this.g.setVisibility(0);
-            this.g.setText(vk8Var.a());
+            this.g.setText(tk8Var.a());
         } else {
             this.g.setVisibility(8);
         }
         if (this.i) {
             this.c.setSupportNoImage(true);
         }
-        int d = vk8Var.d();
-        int b = vk8Var.b();
+        int d = tk8Var.d();
+        int b = tk8Var.b();
         if (d <= 0 || b <= 0) {
             return;
         }
@@ -121,7 +121,7 @@ public class ShowPicCardView extends FrameLayout implements View.OnClickListener
         this.c.setOnClickListener(this);
         this.c.setInterceptOnClick(true);
         this.c.setDefaultResource(R.drawable.icon_click);
-        this.c.K(vk8Var.c(), 18, false);
+        this.c.K(tk8Var.c(), 18, false);
         int k = ri.k(this.a) - (ri.f(this.a, R.dimen.obfuscated_res_0x7f070201) * 2);
         float f = b / d;
         this.c.setLayoutParams(new FrameLayout.LayoutParams(k, (int) (f > 1.7777778f ? k * 1.7777778f : f < 0.75f ? k * 0.75f : k * f)));

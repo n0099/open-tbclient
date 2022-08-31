@@ -31,11 +31,11 @@ public final class l13 {
 
         /* renamed from: com.baidu.tieba.l13$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public static class C0314a extends o13<a> {
+        public static class C0313a extends o13<a> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0314a() {
+            public C0313a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,7 +113,7 @@ public final class l13 {
                     return;
                 }
             }
-            e = new C0314a();
+            e = new C0313a();
             f = new b();
         }
 

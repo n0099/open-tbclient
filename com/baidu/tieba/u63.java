@@ -40,11 +40,11 @@ public class u63 {
 
         /* renamed from: com.baidu.tieba.u63$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class RunnableC0411a implements Runnable {
+        public static class RunnableC0418a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0411a() {
+            public RunnableC0418a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,7 +70,7 @@ public class u63 {
         public static void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-                ExecutorUtilsExt.postOnElastic(new RunnableC0411a(), "V8SoCleaner", 3);
+                ExecutorUtilsExt.postOnElastic(new RunnableC0418a(), "V8SoCleaner", 3);
             }
         }
     }

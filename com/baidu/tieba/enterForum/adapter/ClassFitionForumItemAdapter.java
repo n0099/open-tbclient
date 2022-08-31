@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e96;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.w66;
+import com.baidu.tieba.c96;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.u66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ import java.util.List;
 public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<w66> a;
-    public e96.b b;
+    public List<u66> a;
+    public c96.b b;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -96,7 +96,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         }
     }
 
-    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<w66> list) {
+    public ClassFitionForumItemAdapter(TbPageContext tbPageContext, List<u66> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         this.a = list;
     }
 
-    public void f(e96.b bVar) {
+    public void f(c96.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.b = bVar;
@@ -137,7 +137,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        List<w66> list;
+        List<u66> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048579, this, viewHolder, i) == null) || (list = this.a) == null || list.get(i) == null || !(viewHolder instanceof b)) {
             return;
@@ -146,7 +146,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f0809b2);
         bVar.a.setImageDrawable(WebPManager.getMaskDrawable(this.a.get(i).a(), true));
         bVar.b.setText(this.a.get(i).b());
-        os4 d = os4.d(bVar.b);
+        ns4 d = ns4.d(bVar.b);
         d.z(R.dimen.T_X09);
         d.v(R.color.CAM_X0105);
         bVar.c.setOnClickListener(new a(this, i));
@@ -160,7 +160,7 @@ public class ClassFitionForumItemAdapter extends RecyclerView.Adapter<RecyclerVi
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) ? new b(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01da, viewGroup, false)) : (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void update(List<w66> list) {
+    public void update(List<u66> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
             this.a = list;

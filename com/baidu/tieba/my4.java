@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public final class my4 {
+public class my4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public List<ny4> a;
 
     public my4() {
         Interceptable interceptable = $ic;
@@ -28,72 +24,44 @@ public final class my4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = -1;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final void e(JSONObject jsonObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jsonObject) == null) {
-            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
-            i(jsonObject.optInt("match_cond_registry", 0));
-            h(jsonObject.optInt("match_cond_login", 0));
-            f(jsonObject.optInt("cond_day_after_close", -1));
-            g(jsonObject.optInt("cond_time_close", 0));
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    su4.k().y("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(su4.k().q("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    ny4 ny4Var = new ny4();
+                    ny4 ny4Var2 = new ny4();
+                    ny4Var.h(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        ny4Var2.h(jSONArray2.getJSONObject(i2));
+                        if (ny4Var.c != null && ny4Var.c.equals(ny4Var2.c)) {
+                            if (!TextUtils.isEmpty(ny4Var2.e) && ny4Var2.e.equals(ny4Var.e)) {
+                                z = false;
+                                ny4Var.f = z;
+                            }
+                            z = true;
+                            ny4Var.f = z;
+                        }
+                    }
+                    if (!ny4Var.e()) {
+                        this.a.add(ny4Var);
+                    }
+                }
+                su4.k().y("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 }

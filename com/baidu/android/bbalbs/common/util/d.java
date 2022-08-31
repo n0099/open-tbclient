@@ -5,7 +5,6 @@ import android.os.Process;
 import android.provider.Settings;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ public final class d {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
     }
 
     public static String a(Context context, String str) {
@@ -29,7 +28,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
             try {
-                return ApiReplaceUtil.getString(context.getContentResolver(), str);
+                return Settings.System.getString(context.getContentResolver(), str);
             } catch (Exception e) {
                 a(e);
                 return null;

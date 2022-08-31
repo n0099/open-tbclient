@@ -39,13 +39,13 @@ public class bd2 {
 
         /* renamed from: com.baidu.tieba.bd2$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0211a implements Runnable {
+        public class RunnableC0214a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ zc2 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0211a(a aVar, zc2 zc2Var) {
+            public RunnableC0214a(a aVar, zc2 zc2Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -109,7 +109,7 @@ public class bd2 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f.b.runOnJSThread(new RunnableC0211a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+                this.f.b.runOnJSThread(new RunnableC0214a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
             }
         }
     }

@@ -9,7 +9,7 @@ import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tieba.wu9;
+import com.baidu.tieba.uu9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -514,7 +514,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ long createNativeVideoEncoder() {
-        return wu9.$default$createNativeVideoEncoder(this);
+        return uu9.$default$createNativeVideoEncoder(this);
     }
 
     public void deliverEncodedImage() {
@@ -677,7 +677,7 @@ public class HardwareVideoEncoder implements VideoEncoder {
     @Override // org.webrtc.VideoEncoder
     @CalledByNative
     public /* synthetic */ boolean isHardwareEncoder() {
-        return wu9.$default$isHardwareEncoder(this);
+        return uu9.$default$isHardwareEncoder(this);
     }
 
     @Override // org.webrtc.VideoEncoder

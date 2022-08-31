@@ -13,7 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hl9;
+import com.baidu.tieba.fl9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -133,7 +133,7 @@ public class KSNativeAdVideoAppDownloadView extends x {
             }
             this.g.setText(ksNativeAd.getAppName());
             this.h.setText(ksNativeAd.getActionDescription());
-            ksNativeAd.setDownloadListener(new hl9(ksNativeAd.getActionDescription(), this.h));
+            ksNativeAd.setDownloadListener(new fl9(ksNativeAd.getActionDescription(), this.h));
         }
     }
 

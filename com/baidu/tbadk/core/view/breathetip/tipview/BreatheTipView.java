@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mv4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.kv4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -60,31 +60,31 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = f;
             layoutParams2.rightMargin = f;
             addView(this.b, layoutParams2);
-            os4 d = os4.d(this.a);
+            ns4 d = ns4.d(this.a);
             d.z(R.dimen.T_X08);
             d.A(R.string.F_X02);
-            os4 d2 = os4.d(this.b);
+            ns4 d2 = ns4.d(this.b);
             d2.z(R.dimen.T_X09);
             d2.A(R.string.F_X01);
         }
     }
 
-    public void setData(mv4 mv4Var) {
+    public void setData(kv4 kv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mv4Var) == null) {
-            int i = mv4Var.g;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kv4Var) == null) {
+            int i = kv4Var.g;
             if (i < 0) {
                 i = -2;
             }
-            int i2 = mv4Var.h;
+            int i2 = kv4Var.h;
             setLayoutParams(new LinearLayout.LayoutParams(i, i2 >= 0 ? i2 : -2));
-            this.a.setText(mv4Var.a);
-            SkinManager.setViewTextColor(this.a, mv4Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = mv4Var.f;
-            this.b.setText(mv4Var.b);
-            SkinManager.setViewTextColor(this.b, mv4Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = mv4Var.f + ri.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, mv4Var.e);
+            this.a.setText(kv4Var.a);
+            SkinManager.setViewTextColor(this.a, kv4Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = kv4Var.f;
+            this.b.setText(kv4Var.b);
+            SkinManager.setViewTextColor(this.b, kv4Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = kv4Var.f + ri.f(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, kv4Var.e);
         }
     }
 

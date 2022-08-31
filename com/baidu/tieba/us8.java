@@ -1,133 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class us8<T> {
+public class us8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public T b;
-    public T c;
-    public a d;
-    public String e;
-    public Long f;
+    public int a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
 
-    /* loaded from: classes6.dex */
-    public interface a<T> {
-        void a(us8<T> us8Var, T t, T t2);
-    }
-
-    public us8(String str, T t, String str2) {
+    public us8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = str2;
-        i(t);
-        j(str);
     }
 
-    public T a() {
-        InterceptResult invokeV;
+    public static us8 a(int i, float f, float f2, float f3, float f4, float f5) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (T) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f == null && !TextUtils.isEmpty(this.e)) {
-                d();
-            }
-            Long l = this.f;
-            if (l == null) {
-                return 0L;
-            }
-            return l.longValue();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
+            us8 us8Var = new us8();
+            us8Var.a = i;
+            us8Var.b = f;
+            us8Var.c = f2;
+            us8Var.d = f3;
+            us8Var.e = f4;
+            us8Var.f = f5;
+            return us8Var;
         }
-        return invokeV.longValue;
+        return (us8) invokeCommon.objValue;
     }
 
-    public T d() {
-        InterceptResult invokeV;
+    public static us8 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null && !TextUtils.isEmpty(this.a)) {
-                this.b = f();
-                if (!TextUtils.isEmpty(this.e)) {
-                    this.f = Long.valueOf(e(this.e, 0L));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    return null;
+                                }
+                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
+                            }
+                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
+                        }
+                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
+                    }
+                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
                 }
+                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
             }
-            return this.b;
+            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
         }
-        return (T) invokeV.objValue;
-    }
-
-    public abstract long e(String str, long j);
-
-    public abstract T f();
-
-    public abstract void g(String str, long j);
-
-    public abstract void h();
-
-    public void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
-            this.c = t;
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void k(T t) {
-        T t2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, t) == null) || TextUtils.isEmpty(this.a) || t == (t2 = this.b)) {
-            return;
-        }
-        if (t == null || !t.equals(t2)) {
-            T t3 = this.b;
-            this.b = t;
-            h();
-            if (!TextUtils.isEmpty(this.e)) {
-                Long valueOf = Long.valueOf(System.currentTimeMillis());
-                this.f = valueOf;
-                g(this.e, valueOf.longValue());
-            }
-            a aVar = this.d;
-            if (aVar != null) {
-                aVar.a(this, t3, t);
-            }
-        }
+        return (us8) invokeI.objValue;
     }
 }

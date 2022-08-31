@@ -30,6 +30,6 @@ public class cj1 implements fl1 {
     public InputStream a(InputStream inputStream) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new tr9(inputStream) : (InputStream) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new rr9(inputStream) : (InputStream) invokeL.objValue;
     }
 }

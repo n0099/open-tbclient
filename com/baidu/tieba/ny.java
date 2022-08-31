@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ny extends sw<ho4> {
+public class ny extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vz5 f;
+    public tz5 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ny(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,7 +34,7 @@ public class ny extends sw<ho4> {
                 return;
             }
         }
-        this.f = new vz5(tbPageContext, bdUniqueId);
+        this.f = new tz5(tbPageContext, bdUniqueId);
     }
 
     @Override // com.baidu.tieba.sw
@@ -55,10 +55,10 @@ public class ny extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: p */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) && (ho4Var instanceof x06)) {
-            this.f.a((x06) ho4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) && (go4Var instanceof v06)) {
+            this.f.a((v06) go4Var);
         }
     }
 }

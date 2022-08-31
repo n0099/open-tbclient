@@ -1,107 +1,79 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class rw7 {
+public class rw7 extends gw7<sw7, PbImageAlaRecommendVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
-    public int d;
-    public int e;
-    public a f;
+    public BdUniqueId g;
+    public kt7 h;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
-    }
-
-    public rw7(BdTypeListView bdTypeListView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rw7(y08 y08Var, BdUniqueId bdUniqueId) {
+        super(y08Var, sw7.q);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
+            Object[] objArr = {y08Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((y08) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
+        this.g = bdUniqueId;
     }
 
-    public final int a(List<pn> list, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.gw7, com.baidu.tieba.cn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        v(i, view2, viewGroup, (sw7) obj, (PbImageAlaRecommendVH) viewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: u */
+    public PbImageAlaRecommendVH onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i != -1) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.K0 && (i2 = i2 + 1) == i) {
-                        return i3;
-                    }
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06b3, viewGroup, false), this.a.getPageContext(), this.g) : (PbImageAlaRecommendVH) invokeL.objValue;
+    }
+
+    public View v(int i, View view2, ViewGroup viewGroup, sw7 sw7Var, PbImageAlaRecommendVH pbImageAlaRecommendVH) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sw7Var, pbImageAlaRecommendVH})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, sw7Var, pbImageAlaRecommendVH);
+            if (pbImageAlaRecommendVH != null) {
+                pbImageAlaRecommendVH.c(sw7Var);
+                pbImageAlaRecommendVH.h(this.h);
             }
-            return -1;
+            return view2;
         }
-        return invokeLI.intValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public void b() {
+    public void w(kt7 kt7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = a(this.b.getData(), qs7.b().c());
-        }
-    }
-
-    public void c(int i, int i2) {
-        View childAt;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.b == null || this.c || !qs7.b().e() || qs7.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
-            return;
-        }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
-                a aVar = this.f;
-                if (aVar != null) {
-                    aVar.a();
-                }
-                this.c = true;
-            }
-        }
-    }
-
-    public void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, kt7Var) == null) {
+            this.h = kt7Var;
         }
     }
 }

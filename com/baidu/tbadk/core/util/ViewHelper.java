@@ -24,7 +24,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.bm;
 import com.baidu.tieba.cm;
 import com.baidu.tieba.fg;
-import com.baidu.tieba.iu4;
+import com.baidu.tieba.hu4;
 import com.baidu.tieba.qi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -403,7 +403,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLLL(65561, null, context, str, str2) == null) || context == null) {
             return;
         }
-        iu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        hu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(context, true, str, str2)));
     }
 
@@ -413,7 +413,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeL(65562, null, context) == null) || context == null) {
             return;
         }
-        iu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
+        hu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_toregister", 0, "", new Object[0]);
         skipToLoginActivity(context);
     }
 
@@ -443,7 +443,7 @@ public class ViewHelper {
         if (!(interceptable == null || interceptable.invokeLL(65560, null, context, str) == null) || context == null) {
             return;
         }
-        iu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
+        hu4.a(DI.ACCOUNT, -1L, 0, "nologin_intercept_tologin", 0, "", new Object[0]);
         checkDownloadSo("libmml_framework.so", "com.baidu.tieba.soloader.libmmlframework", "mml_framework");
         checkDownloadSo("libc++_shared.so", "com.baidu.tieba.soloader.libcshared", SwanKV.LIB_CPP_SHARED);
         checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");

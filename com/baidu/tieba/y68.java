@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,22 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GiftInfo;
-import tbclient.User;
 /* loaded from: classes6.dex */
 public class y68 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public List<pn> g;
+    public int b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +30,7 @@ public class y68 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public y68() {
@@ -59,50 +47,10 @@ public class y68 extends BaseCardInfo {
         }
     }
 
-    public void c(User user) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, user) == null) || user == null || ListUtils.isEmpty(user.gift_list)) {
-            return;
-        }
-        this.c = String.valueOf(user.id);
-        this.d = user.name;
-        this.e = user.name_show;
-        this.f = user.sex.intValue();
-        String str = this.c;
-        if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
-            this.a = true;
-        } else {
-            this.a = false;
-        }
-        if (user.sex.intValue() == 2) {
-            this.b = false;
-        } else {
-            this.b = true;
-        }
-        Integer num = user.gift_num;
-        if (num != null) {
-            num.intValue();
-        }
-        this.g = new ArrayList();
-        for (GiftInfo giftInfo : user.gift_list) {
-            if (giftInfo != null) {
-                g78 g78Var = new g78();
-                g78Var.c(giftInfo);
-                this.g.add(g78Var);
-            }
-        }
-    }
-
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !ListUtils.isEmpty(this.g) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

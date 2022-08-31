@@ -1,219 +1,117 @@
 package com.baidu.tieba;
 
+import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
-import javax.annotation.concurrent.NotThreadSafe;
-@NotThreadSafe
+import com.baidu.turbonet.net.TurbonetEngine;
+import java.net.BindException;
+import java.net.ConnectException;
+import java.net.NoRouteToHostException;
+import java.net.PortUnreachableException;
+import java.net.ProtocolException;
+import java.net.SocketTimeoutException;
+import java.net.UnknownHostException;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLKeyException;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLProtocolException;
 /* loaded from: classes5.dex */
-public class s39<E> implements Iterable<E> {
+public class s39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<E> a;
-    public int b;
+    public String a;
+    public String b;
     public int c;
-    public boolean d;
+    public int d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Object<E> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public boolean c;
-        public final /* synthetic */ s39 d;
-
-        public /* synthetic */ b(s39 s39Var, a aVar) {
-            this(s39Var);
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c) {
-                return;
-            }
-            this.c = true;
-            this.d.h();
-        }
-
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.b;
-                while (i < this.a && this.d.i(i) == null) {
-                    i++;
-                }
-                if (i < this.a) {
-                    return true;
-                }
-                a();
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public E next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                while (true) {
-                    int i = this.b;
-                    if (i >= this.a || this.d.i(i) != null) {
-                        break;
-                    }
-                    this.b++;
-                }
-                int i2 = this.b;
-                if (i2 < this.a) {
-                    s39 s39Var = this.d;
-                    this.b = i2 + 1;
-                    return (E) s39Var.i(i2);
-                }
-                a();
-                throw new NoSuchElementException();
-            }
-            return (E) invokeV.objValue;
-        }
-
-        public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                throw new UnsupportedOperationException();
-            }
-        }
-
-        public b(s39 s39Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s39Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = s39Var;
-            this.b = 0;
-            this.c = false;
-            s39Var.j();
-            this.a = s39Var.f();
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100624, "Lcom/baidu/tieba/s39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100624, "Lcom/baidu/tieba/s39;");
-            }
-        }
-    }
-
-    public s39() {
+    public s39(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = 0;
-        this.c = 0;
-        this.d = false;
+        this.c = -14;
+        this.d = -1;
+        this.e = -1L;
+        this.f = -1L;
+        this.g = -1L;
+        this.h = -1L;
+        this.i = -1L;
+        this.a = str;
+        this.g = System.nanoTime() / 1000;
+        this.f = System.currentTimeMillis();
     }
 
-    public boolean e(E e) {
-        InterceptResult invokeL;
+    public void a(Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e == null || this.a.contains(e)) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            if (exc instanceof SocketTimeoutException) {
+                this.c = -1;
+            } else if (exc instanceof UnknownHostException) {
+                this.c = -2;
+            } else if (exc instanceof ConnectException) {
+                this.c = -5;
+            } else if (exc instanceof ProtocolException) {
+                this.c = -3;
+            } else if (exc instanceof BindException) {
+                this.c = -4;
+            } else if (exc instanceof SSLHandshakeException) {
+                this.c = -8;
+            } else if (exc instanceof SSLProtocolException) {
+                this.c = -9;
+            } else if (exc instanceof RemoteException) {
+                this.c = -13;
+            } else if (exc instanceof NoRouteToHostException) {
+                this.c = -6;
+            } else if (exc instanceof PortUnreachableException) {
+                this.c = -7;
+            } else if (exc instanceof SSLKeyException) {
+                this.c = -10;
+            } else if (exc instanceof SSLPeerUnverifiedException) {
+                this.c = -11;
+            } else {
+                this.c = -14;
             }
-            this.a.add(e);
-            this.c++;
-            return true;
         }
-        return invokeL.booleanValue;
     }
 
-    public final int f() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.size() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.h = (System.nanoTime() / 1000) - this.g;
+        }
     }
 
-    public final void g() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int size = this.a.size() - 1; size >= 0; size--) {
-                if (this.a.get(size) == null) {
-                    this.a.remove(size);
-                }
-            }
+            this.i = (System.nanoTime() / 1000) - this.g;
         }
     }
 
-    public final void h() {
+    public void d(TurbonetEngine turbonetEngine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.b - 1;
-            this.b = i;
-            if (i <= 0 && this.d) {
-                this.d = false;
-                g();
-            }
-        }
-    }
-
-    public final E i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.a.get(i) : (E) invokeI.objValue;
-    }
-
-    @Override // java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new b(this, null) : (Iterator) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b++;
+        if (interceptable == null || interceptable.invokeL(1048579, this, turbonetEngine) == null) {
+            Log.v("HTTPMetrics", String.format("url:%s, method:%s, netCode:%d, httpCode:%d, bytesReceived:%d, requestTime:%d, firstByteTime:%d, durationTime:%d", this.a, this.b, Integer.valueOf(this.c), Integer.valueOf(this.d), Long.valueOf(this.e), Long.valueOf(this.f), Long.valueOf(this.h), Long.valueOf(this.i)));
+            turbonetEngine.g(this.a, this.b, this.c, this.d, this.e, this.f, this.h, this.i);
         }
     }
 }

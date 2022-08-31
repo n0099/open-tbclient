@@ -98,6 +98,6 @@ public final class un3 {
     public static b b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? cq5.a() : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? aq5.a() : (b) invokeV.objValue;
     }
 }

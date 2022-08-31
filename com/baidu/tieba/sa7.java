@@ -37,9 +37,16 @@ public class sa7 implements CustomMessageTask.CustomRunnable<Object> {
             if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
                 return null;
             }
-            vr4.f();
-            vr4.b("tb.im_group_search_history");
-            return new ResponseSearchGroupLocalMessage(2001206);
+            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
+            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
+            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
+            responseSearchGroupLocalMessage.setError(0);
+            responseSearchGroupLocalMessage.setGid(groupId);
+            String str = groupId + "";
+            ur4.f();
+            ve<String> g = ur4.g("tb.im_group_search_history");
+            g.g(str, g.get(str));
+            return responseSearchGroupLocalMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

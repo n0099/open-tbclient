@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c9;
-import com.baidu.tieba.fs4;
-import com.baidu.tieba.hs4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.es4;
+import com.baidu.tieba.gs4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
@@ -41,7 +41,7 @@ public class ReplyLinearLayout extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public final List<RelativeLayout> a;
     public TbPageContext<?> b;
-    public fs4 c;
+    public es4 c;
     public ForumManageModel d;
     public TBAlertBuilder e;
     public PersonPostModel.PostInfoList f;
@@ -49,24 +49,24 @@ public class ReplyLinearLayout extends LinearLayout {
     public View h;
     public final int i;
     public final int j;
-    public hs4.e k;
+    public gs4.e k;
     public c9 l;
     public final View.OnClickListener m;
 
     /* loaded from: classes5.dex */
-    public class a implements hs4.e {
+    public class a implements gs4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ReplyLinearLayout a;
 
         /* renamed from: com.baidu.tieba.post.ReplyLinearLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0376a implements View.OnClickListener {
+        public class View$OnClickListenerC0380a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public View$OnClickListenerC0376a(a aVar) {
+            public View$OnClickListenerC0380a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -148,16 +148,16 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a = replyLinearLayout;
         }
 
-        @Override // com.baidu.tieba.hs4.e
-        public void i0(hs4 hs4Var, int i, View view2) {
+        @Override // com.baidu.tieba.gs4.e
+        public void i0(gs4 gs4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, hs4Var, i, view2) == null) || this.a.b == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, gs4Var, i, view2) == null) || this.a.b == null) {
                 return;
             }
             if (this.a.c != null) {
                 this.a.c.dismiss();
             }
-            Map map = (Map) hs4Var.e().getTag();
+            Map map = (Map) gs4Var.e().getTag();
             String[] strArr = (String[]) map.get(Integer.valueOf((int) R.id.obfuscated_res_0x7f091ba5));
             if (strArr == null) {
                 return;
@@ -173,7 +173,7 @@ public class ReplyLinearLayout extends LinearLayout {
             this.a.e.u(this.a.b.getString(R.string.obfuscated_res_0x7f0f04a8));
             this.a.e.o(this.a.b.getString(R.string.obfuscated_res_0x7f0f04a9));
             this.a.e.m(true);
-            this.a.e.r(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0371), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0376a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f04ac), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
+            this.a.e.r(new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f0371), TBAlertConfig.OperateBtnStyle.SECONDARY, new View$OnClickListenerC0380a(this)), new TBAlertConfig.a(this.a.b.getString(R.string.obfuscated_res_0x7f0f04ac), TBAlertConfig.OperateBtnStyle.MAIN, new b(this)));
             this.a.e.c().setCanceledOnTouchOutside(false);
             this.a.e.w();
         }
@@ -251,7 +251,7 @@ public class ReplyLinearLayout extends LinearLayout {
             if (view2.getId() == R.id.obfuscated_res_0x7f091bb1) {
                 this.a.p("c14537", strArr[2]);
                 if (this.a.c == null) {
-                    this.a.c = new fs4(this.a.b);
+                    this.a.c = new es4(this.a.b);
                     this.a.c.i(null, new String[]{this.a.b.getString(R.string.obfuscated_res_0x7f0f04ac)}, this.a.k);
                 }
                 this.a.c.g().e().setTag(map);
@@ -297,16 +297,16 @@ public class ReplyLinearLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        os4 d = os4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091ba4));
+        ns4 d = ns4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091ba4));
         d.z(R.dimen.T_X05);
         d.v(R.color.CAM_X0105);
         d.A(R.string.F_X01);
         WebPManager.setPureDrawable((ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091bb1), R.drawable.obfuscated_res_0x7f080967, R.color.CAM_X0111, WebPManager.ResourceStateType.NORMAL_PRESS);
-        os4 d2 = os4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091bb5));
+        ns4 d2 = ns4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091bb5));
         d2.z(R.dimen.T_X09);
         d2.v(R.color.CAM_X0109);
         d2.A(R.string.F_X01);
-        os4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091bab)).f(R.color.CAM_X0203);
+        ns4.d(viewGroup.findViewById(R.id.obfuscated_res_0x7f091bab)).f(R.color.CAM_X0203);
     }
 
     public final void n(String str, View view2) {

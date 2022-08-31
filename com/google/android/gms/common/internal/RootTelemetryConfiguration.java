@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ln9;
-import com.baidu.tieba.pn9;
+import com.baidu.tieba.jn9;
+import com.baidu.tieba.nn9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public class RootTelemetryConfiguration extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new pn9();
+        CREATOR = new nn9();
     }
 
     public RootTelemetryConfiguration(int i, boolean z, boolean z2, int i2, int i3) {
@@ -98,13 +98,13 @@ public class RootTelemetryConfiguration extends AbstractSafeParcelable {
     public final void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.g(parcel, 1, getVersion());
-            ln9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
-            ln9.c(parcel, 3, getMethodTimingTelemetryEnabled());
-            ln9.g(parcel, 4, getBatchPeriodMillis());
-            ln9.g(parcel, 5, getMaxMethodInvocationsInBatch());
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.g(parcel, 1, getVersion());
+            jn9.c(parcel, 2, getMethodInvocationTelemetryEnabled());
+            jn9.c(parcel, 3, getMethodTimingTelemetryEnabled());
+            jn9.g(parcel, 4, getBatchPeriodMillis());
+            jn9.g(parcel, 5, getMaxMethodInvocationsInBatch());
+            jn9.b(parcel, a);
         }
     }
 }

@@ -23,8 +23,8 @@ import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.tbadk.coreExtra.view.UrlDragImageView;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.r05;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class MultiImageView extends RelativeLayout {
     public Map<String, ImageUrlData> s;
     public boolean t;
     public boolean u;
-    public t05 v;
+    public r05 v;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -368,19 +368,19 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void A(boolean z) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (t05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (r05Var = this.v) == null) {
             return;
         }
-        t05Var.o(z ? 0 : 8);
+        r05Var.o(z ? 0 : 8);
     }
 
     public void B(boolean z, int i) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (t05Var = this.v) != null) {
-            t05Var.p(z ? 0 : 8, i);
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.u && (r05Var = this.v) != null) {
+            r05Var.p(z ? 0 : 8, i);
         }
     }
 
@@ -394,13 +394,13 @@ public class MultiImageView extends RelativeLayout {
 
     public int getBottomHeight() {
         InterceptResult invokeV;
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.u || (t05Var = this.v) == null) {
+            if (!this.u || (r05Var = this.v) == null) {
                 return 0;
             }
-            return t05Var.c();
+            return r05Var.c();
         }
         return invokeV.intValue;
     }
@@ -704,7 +704,7 @@ public class MultiImageView extends RelativeLayout {
             this.f = imagePagerAdapter;
             imagePagerAdapter.u(this.l);
             setAdapter(this.f);
-            this.v = new t05(getContext(), this);
+            this.v = new r05(getContext(), this);
         }
     }
 
@@ -858,12 +858,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnDownloadImageListener(ImageViewerBottomLayout.b bVar) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) || (t05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048616, this, bVar) == null) || (r05Var = this.v) == null) {
             return;
         }
-        t05Var.k(bVar);
+        r05Var.k(bVar);
     }
 
     public void setOnPageChangeListener(ViewPager.OnPageChangeListener onPageChangeListener) {
@@ -874,12 +874,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnReplyClickListener(View.OnClickListener onClickListener) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, onClickListener) == null) || (t05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048618, this, onClickListener) == null) || (r05Var = this.v) == null) {
             return;
         }
-        t05Var.l(onClickListener);
+        r05Var.l(onClickListener);
     }
 
     public void setOnScrollOutListener(BaseViewPager.a aVar) {
@@ -892,12 +892,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setOnShareImageListener(ImageViewerBottomLayout.c cVar) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048620, this, cVar) == null) || (t05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, cVar) == null) || (r05Var = this.v) == null) {
             return;
         }
-        t05Var.m(cVar);
+        r05Var.m(cVar);
     }
 
     public void setOriImgSelectedCallback(UrlDragImageView.p pVar) {
@@ -968,9 +968,9 @@ public class MultiImageView extends RelativeLayout {
                 ((UrlDragImageView) childAt).setUserId(str);
             }
         }
-        t05 t05Var = this.v;
-        if (t05Var != null) {
-            t05Var.n(str);
+        r05 r05Var = this.v;
+        if (r05Var != null) {
+            r05Var.n(str);
         }
     }
 
@@ -984,12 +984,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void setYoungterCoverSomeView(boolean z) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048629, this, z) == null) || (t05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048629, this, z) == null) || (r05Var = this.v) == null) {
             return;
         }
-        t05Var.q(z);
+        r05Var.q(z);
     }
 
     public void setZoomButton(DragImageView dragImageView) {
@@ -1113,12 +1113,12 @@ public class MultiImageView extends RelativeLayout {
     }
 
     public void z(ImageUrlData imageUrlData) {
-        t05 t05Var;
+        r05 r05Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048637, this, imageUrlData) == null) || (t05Var = this.v) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048637, this, imageUrlData) == null) || (r05Var = this.v) == null) {
             return;
         }
-        t05Var.j(imageUrlData);
+        r05Var.j(imageUrlData);
         if (!this.t && imageUrlData != null) {
             if (!this.v.g()) {
                 this.v.r(false);

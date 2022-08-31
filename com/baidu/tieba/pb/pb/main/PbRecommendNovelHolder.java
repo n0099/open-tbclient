@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hq4;
+import com.baidu.tieba.gq4;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.mq4;
+import com.baidu.tieba.lq4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,7 +42,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public mq4 l;
+    public lq4 l;
     public b m;
     public View.OnClickListener n;
 
@@ -84,9 +84,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.W0;
-                    hq4 hq4Var = new hq4();
+                    gq4 gq4Var = new gq4();
                     TbPageContext tbPageContext = (TbPageContext) i9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, hq4Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, gq4Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.W0).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -103,7 +103,7 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(mq4 mq4Var);
+        void a(lq4 lq4Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -145,19 +145,19 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.c.setOnClickListener(this.n);
     }
 
-    public void d(mq4 mq4Var) {
+    public void d(lq4 lq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, mq4Var) == null) || mq4Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, lq4Var) == null) || lq4Var == null) {
             return;
         }
-        this.l = mq4Var;
-        this.b.setText(mq4Var.T0);
-        this.c.setText(mq4Var.U0);
-        this.i.K(mq4Var.b1, 10, false);
-        this.d.K(mq4Var.X0, 10, false);
-        this.h.setText(mq4Var.a1);
-        this.e.setText(mq4Var.Y0);
-        List<String> list = mq4Var.Z0;
+        this.l = lq4Var;
+        this.b.setText(lq4Var.T0);
+        this.c.setText(lq4Var.U0);
+        this.i.K(lq4Var.b1, 10, false);
+        this.d.K(lq4Var.X0, 10, false);
+        this.h.setText(lq4Var.a1);
+        this.e.setText(lq4Var.Y0);
+        List<String> list = lq4Var.Z0;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

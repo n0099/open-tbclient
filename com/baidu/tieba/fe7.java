@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes4.dex */
 public interface fe7 {
-    void a(List<zf7> list);
+    void a(ICardInfo iCardInfo);
 
-    void b();
+    fe7 b(String str, int i);
 
-    void c(long j, String str);
+    fe7 c(String str, long j);
 
-    void d(String str, String str2, String str3, List<ag7> list);
-
-    void e(long j, String str, int i, String str2);
+    fe7 d(String str, String str2);
 }

@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.r0;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,9 +17,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class u46 {
     public static /* synthetic */ Interceptable $ic;
     public static final u46 a;
-    public static final r0 b;
-    public static final Class<? extends w26>[] c;
-    public static final r0 d;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<n26> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,15 +36,9 @@ public final class u46 {
             }
         }
         a = new u46();
-        r0 b2 = r0.d(b36.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{b36.class, a36.class};
-        r0.b d2 = r0.d(b36.class, a36.class);
-        d2.c(c36.class, e36.class);
-        r0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
     }
 
     public u46() {
@@ -58,21 +55,41 @@ public final class u46 {
         }
     }
 
-    public final r0 a() {
-        InterceptResult invokeV;
+    public final n26 a(o26 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (r0) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            n26 acquire = d.acquire();
+            if (acquire == null) {
+                acquire = null;
+            } else {
+                acquire.l(data);
+                acquire.p(player.m().w());
+            }
+            return acquire == null ? new n26(data, player) : acquire;
+        }
+        return (n26) invokeLL.objValue;
     }
 
-    public final Class<? extends w26>[] b() {
+    public final PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c : (Class[]) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            return acquire == null ? new PointF() : acquire;
+        }
+        return (PointF) invokeV.objValue;
     }
 
-    public final r0 c() {
+    public final RectF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (r0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            return acquire == null ? new RectF() : acquire;
+        }
+        return (RectF) invokeV.objValue;
     }
 }

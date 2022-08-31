@@ -1,50 +1,123 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.android.common.security.AESUtil;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class df8 {
+public class df8 extends vr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+    public EditText b;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            pm pmVar = new pm();
-            String version = TbConfig.getVersion();
-            if (TbConfig.getVersionType() == 1 && !qi.isEmpty(TbConfig.getSubVersion())) {
-                version = version + "." + TbConfig.getSubVersion();
+    /* loaded from: classes3.dex */
+    public class a implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ df8 b;
+
+        public a(df8 df8Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {df8Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
-                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
-                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
-                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
-                jSONObject.put("_client_version", version);
-                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
-                jSONObject.put("_os_version", Build.VERSION.RELEASE);
-                jSONObject.put(Config.DEVICE_PART, Build.MODEL + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
-                jSONObject.put(SchemeDescPatchListener.PATCH, pmVar.a(context));
-                return ii.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
+            this.b = df8Var;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                if (!qi.isEmpty(this.b.b.getText().toString())) {
+                    TbSingleton.getInstance().setVisitPreviewServer(true);
+                    String obj = this.b.b.getText().toString();
+                    TbSingleton.getInstance().setPubEnvValue(obj);
+                    ri.M(this.a, R.string.obfuscated_res_0x7f0f0396);
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921508, obj));
+                }
+                this.b.dismiss();
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ df8 a;
+
+        public b(df8 df8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {df8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = df8Var;
+        }
+
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                this.a.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public df8(Activity activity) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) null);
+        this.a = linearLayout;
+        setContentView(linearLayout);
+        this.b = (EditText) this.a.findViewById(R.id.obfuscated_res_0x7f090921);
+        setPositiveButton(R.string.obfuscated_res_0x7f0f0432, new a(this, activity));
+        setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new b(this));
     }
 }

@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class fm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public String b;
+    public GridView a;
 
-    public fm7(d9<?> d9Var) {
+    public fm7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,36 +28,13 @@ public class fm7 {
                 return;
             }
         }
-        this.b = "7a7c80";
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add("7a7c80");
-        this.a.add("f55925");
-        this.a.add("ff5460");
-        this.a.add("cc3314");
-        this.a.add("26bf85");
-        this.a.add("33aaff");
-        this.a.add("3385ff");
-        this.a.add("3668b2");
-        this.a.add("673699");
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09204d);
     }
 
-    public List<String> a() {
-        InterceptResult invokeV;
+    public void a(bm7 bm7Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bm7Var) == null) {
+            this.a.setAdapter((ListAdapter) bm7Var);
         }
     }
 }

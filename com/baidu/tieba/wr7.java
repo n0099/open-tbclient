@@ -5,24 +5,23 @@ import android.view.ViewStub;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
 /* loaded from: classes6.dex */
-public class wr7 extends tr7 {
+public class wr7 extends rr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewStub o;
-    public ViewStub p;
-    public TextView q;
+    public View p;
+    public TbImageView q;
     public TextView r;
     public TextView s;
-    public TextView t;
-    public TextView u;
-    public TextView v;
-    public TextView w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wr7(TbPageContext tbPageContext, View view2) {
@@ -43,92 +42,49 @@ public class wr7 extends tr7 {
                 return;
             }
         }
-        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092586);
+        ViewStub viewStub = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092585);
         this.o = viewStub;
         viewStub.inflate();
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.o.getLayoutParams();
-        layoutParams.topMargin = ((ri.i(tbPageContext.getPageActivity()) / 2) + ri.f(tbPageContext.getPageActivity(), R.dimen.tbds239)) - ri.f(tbPageContext.getPageActivity(), R.dimen.tbds140);
+        layoutParams.topMargin = ri.i(tbPageContext.getPageActivity()) / 2;
         this.o.setLayoutParams(layoutParams);
-        this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092460);
-        ViewStub viewStub2 = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f092583);
-        this.p = viewStub2;
-        viewStub2.inflate();
-        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219d);
-        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091712);
-        this.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219e);
-        this.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090169);
-        this.v = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09219f);
-        this.w = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a44);
+        this.p = view2.findViewById(R.id.obfuscated_res_0x7f092450);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09242b);
+        this.q = tbImageView;
+        tbImageView.setIsRound(true);
+        this.q.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
+        this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092459);
+        this.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092474);
     }
 
-    @Override // com.baidu.tieba.tr7
+    @Override // com.baidu.tieba.rr7
     public void a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.a(i);
-            os4 d = os4.d(this.q);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X03);
-            d.A(R.string.F_X02);
-            os4 d2 = os4.d(this.r);
-            d2.v(R.color.CAM_X0108);
-            d2.z(R.dimen.tbds29);
-            d2.A(R.string.F_X01);
-            os4 d3 = os4.d(this.t);
+            ns4 d = ns4.d(this.p);
+            d.n(R.string.J_X05);
+            d.f(R.color.CAM_X0204);
+            ns4 d2 = ns4.d(this.r);
+            d2.v(R.color.CAM_X0105);
+            d2.z(R.dimen.T_X05);
+            d2.A(R.string.F_X02);
+            ns4 d3 = ns4.d(this.s);
             d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.tbds29);
+            d3.z(R.dimen.T_X08);
             d3.A(R.string.F_X01);
-            os4 d4 = os4.d(this.v);
-            d4.v(R.color.CAM_X0108);
-            d4.z(R.dimen.tbds29);
-            d4.A(R.string.F_X01);
-            os4 d5 = os4.d(this.s);
-            d5.v(R.color.CAM_X0302);
-            d5.z(R.dimen.tbds29);
-            d5.A(R.string.F_X01);
-            os4 d6 = os4.d(this.u);
-            d6.v(R.color.CAM_X0302);
-            d6.z(R.dimen.tbds29);
-            d6.A(R.string.F_X01);
-            os4 d7 = os4.d(this.w);
-            d7.v(R.color.CAM_X0302);
-            d7.z(R.dimen.tbds29);
-            d7.A(R.string.F_X01);
         }
     }
 
-    @Override // com.baidu.tieba.tr7
-    public void c(ur7 ur7Var) {
+    @Override // com.baidu.tieba.rr7
+    public void c(sr7 sr7Var) {
+        ShareStorage.StorageModel storageModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ur7Var) == null) || ur7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sr7Var) == null) || sr7Var == null || (storageModel = (ShareStorage.StorageModel) new Gson().fromJson(sr7Var.d, (Class<Object>) ShareStorage.StorageModel.class)) == null) {
             return;
         }
-        this.q.setText(ur7Var.a);
-        f(ur7Var.a());
-    }
-
-    @Override // com.baidu.tieba.tr7
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            super.d(onClickListener);
-            this.s.setOnClickListener(onClickListener);
-            this.u.setOnClickListener(onClickListener);
-            this.w.setOnClickListener(onClickListener);
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i == 1) {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0ce8);
-            } else if (i == 2) {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0ce9);
-            } else if (i != 3) {
-            } else {
-                this.s.setText(R.string.obfuscated_res_0x7f0f0cea);
-            }
-        }
+        this.q.K(storageModel.url, 10, false);
+        this.r.setText(storageModel.displayname);
+        this.s.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f113c, storageModel.app));
     }
 }

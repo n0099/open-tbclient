@@ -9,7 +9,7 @@ import android.os.RemoteException;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jn9;
+import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public interface IGmsServiceBroker extends IInterface {
                 }
                 if (i == 46) {
                     getService(zzaaVar, parcel.readInt() != 0 ? GetServiceRequest.CREATOR.createFromParcel(parcel) : null);
-                    jn9.d(parcel2);
+                    hn9.d(parcel2);
                     parcel2.writeNoException();
                     return true;
                 } else if (i == 47) {

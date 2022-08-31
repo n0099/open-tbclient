@@ -1,145 +1,95 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.StateInfo;
+import tbclient.VirtualImageInfo;
 /* loaded from: classes5.dex */
-public class q28 extends Dialog {
+public class q28 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile q28 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public LinearLayout c;
-    public float d;
+    public int a;
+    public a25 b;
+    public List<a25> c;
+    public boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q28 a;
-
-        public a(q28 q28Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q28Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q28Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q28(Context context, View view2) {
-        super(context, 16973835);
+    public q28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.d = 0.33f;
-        this.a = context;
-        this.b = view2;
-    }
-
-    public void a(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.d = f;
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public static q28 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d06fb);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.d);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d0);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c33);
-            this.c = linearLayout;
-            linearLayout.setOnClickListener(new a(this));
-            if (this.b == null) {
-                return;
-            }
-            this.c.removeAllViews();
-            if (this.b.getParent() != null) {
-                if (this.b.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.b.getParent()).removeView(this.b);
-                    this.c.addView(this.b);
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (q28.class) {
+                    e = new q28();
                 }
-                return;
             }
-            this.c.addView(this.b);
+            return e;
         }
+        return (q28) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view2) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.b = view2;
-            LinearLayout linearLayout = this.c;
-            if (linearLayout != null) {
-                linearLayout.removeAllViews();
-                if (this.b.getParent() != null) {
-                    if (this.b.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.b.getParent()).removeView(this.b);
-                        this.c.addView(this.b);
-                        return;
-                    }
-                    return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void d(VirtualImageInfo virtualImageInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, virtualImageInfo) == null) || virtualImageInfo == null) {
+            return;
+        }
+        this.a = virtualImageInfo.isset_virtual_image.intValue();
+        String str = virtualImageInfo.virtual_image_url;
+        virtualImageInfo.image_agree_count.intValue();
+        virtualImageInfo.is_allow_agree.intValue();
+        virtualImageInfo.virtual_background_type.intValue();
+        String str2 = virtualImageInfo.virtual_background;
+        virtualImageInfo.recent_incr_agree.intValue();
+        virtualImageInfo.snapshoot_id.intValue();
+        if (virtualImageInfo.personal_state != null) {
+            a25 a25Var = new a25();
+            this.b = a25Var;
+            a25Var.d(virtualImageInfo.personal_state);
+        }
+        if (virtualImageInfo.state_list != null) {
+            this.c = new ArrayList();
+            for (int i = 0; i < virtualImageInfo.state_list.size(); i++) {
+                StateInfo stateInfo = virtualImageInfo.state_list.get(i);
+                if (stateInfo != null) {
+                    a25 a25Var2 = new a25();
+                    a25Var2.d(stateInfo);
+                    this.c.add(a25Var2);
                 }
-                this.c.addView(this.b);
             }
         }
+        virtualImageInfo.allow_customize.intValue();
+        this.d = true;
     }
 }

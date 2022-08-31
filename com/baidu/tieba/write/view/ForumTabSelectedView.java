@@ -22,13 +22,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ef6;
+import com.baidu.tieba.cf6;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -142,7 +142,7 @@ public class ForumTabSelectedView extends LinearLayout {
                 return;
             }
             ri.x(this.a.getContext(), this.a);
-            ef6.a(this.a.g, this.a.g.getPageContext());
+            cf6.a(this.a.g, this.a.g.getPageContext());
         }
     }
 
@@ -210,11 +210,11 @@ public class ForumTabSelectedView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(65542, this, tab) == null) || tab == null || tab.getCustomView() == null) {
             return;
         }
-        ((sv4) f(tab, null).getStyleConfig()).r(R.color.CAM_X0302);
+        ((qv4) f(tab, null).getStyleConfig()).r(R.color.CAM_X0302);
         View e = e(tab);
         if (e != null) {
             e.setVisibility(8);
-            tu4.k().u("send_thread_forum_section_gaokao_red_dot", false);
+            su4.k().u("send_thread_forum_section_gaokao_red_dot", false);
         }
     }
 
@@ -224,11 +224,11 @@ public class ForumTabSelectedView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(65543, this, tab) == null) || tab == null || tab.getCustomView() == null) {
             return;
         }
-        sv4 sv4Var = (sv4) f(tab, null).getStyleConfig();
+        qv4 qv4Var = (qv4) f(tab, null).getStyleConfig();
         if (l(tab)) {
             return;
         }
-        sv4Var.t(R.color.CAM_X0107);
+        qv4Var.t(R.color.CAM_X0107);
     }
 
     @RequiresApi(api = 21)
@@ -271,15 +271,15 @@ public class ForumTabSelectedView extends LinearLayout {
             int f2 = ri.f(getContext(), R.dimen.M_W_X006);
             int f3 = ri.f(getContext(), R.dimen.M_H_X003);
             TBSpecificationBtn tBSpecificationBtn2 = new TBSpecificationBtn(getContext());
-            sv4 sv4Var = new sv4();
-            sv4Var.l(f2);
-            sv4Var.n(f3);
+            qv4 qv4Var = new qv4();
+            qv4Var.l(f2);
+            qv4Var.n(f3);
             if (frsTabItemData.tabId == 505) {
-                sv4Var.t(R.color.CAM_X0302);
+                qv4Var.t(R.color.CAM_X0302);
             } else {
-                sv4Var.t(R.color.CAM_X0107);
+                qv4Var.t(R.color.CAM_X0107);
             }
-            tBSpecificationBtn2.setConfig(sv4Var);
+            tBSpecificationBtn2.setConfig(qv4Var);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(f, 0, f, 0);
             tBSpecificationBtn2.setLayoutParams(layoutParams);
@@ -325,13 +325,13 @@ public class ForumTabSelectedView extends LinearLayout {
                     TabLayout.Tab tabAt = tabLayout.getTabAt(i);
                     if (tabAt != null && (tabAt.getCustomView() instanceof FrameLayout) && (f = f(tabAt, null)) != null) {
                         f.k();
-                        sv4 sv4Var = (sv4) f.getStyleConfig();
+                        qv4 qv4Var = (qv4) f.getStyleConfig();
                         if (tabAt.isSelected()) {
-                            sv4Var.r(R.color.CAM_X0302);
+                            qv4Var.r(R.color.CAM_X0302);
                         } else if (l(tabAt)) {
-                            sv4Var.t(R.color.CAM_X0302);
+                            qv4Var.t(R.color.CAM_X0302);
                         } else {
-                            sv4Var.t(R.color.CAM_X0107);
+                            qv4Var.t(R.color.CAM_X0107);
                         }
                     }
                 }
@@ -356,7 +356,7 @@ public class ForumTabSelectedView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c = new EMTextView(getContext());
             this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            os4.d(this.c).z(R.dimen.T_X08);
+            ns4.d(this.c).z(R.dimen.T_X08);
             this.c.setText(R.string.obfuscated_res_0x7f0f06c3);
             this.c.setOnClickListener(this.h);
             addView(this.c);
@@ -428,7 +428,7 @@ public class ForumTabSelectedView extends LinearLayout {
                             f = f(tabAt, frsTabItemData);
                             frameLayout.addView(f);
                             boolean z = true;
-                            if ((tu4.k().h("send_thread_forum_section_gaokao_red_dot", true) && frsTabItemData.tabType == 102) ? false : false) {
+                            if ((su4.k().h("send_thread_forum_section_gaokao_red_dot", true) && frsTabItemData.tabType == 102) ? false : false) {
                                 frameLayout.addView(e(tabAt));
                             }
                         } else {

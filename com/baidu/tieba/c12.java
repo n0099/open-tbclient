@@ -238,12 +238,12 @@ public final class c12 {
 
         /* renamed from: com.baidu.tieba.c12$b$b  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0217b implements tf3<String> {
+        public class C0223b implements tf3<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ tf3 a;
 
-            public C0217b(b bVar, tf3 tf3Var) {
+            public C0223b(b bVar, tf3 tf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -356,7 +356,7 @@ public final class c12 {
         public void e(@NonNull tf3<String> tf3Var) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tf3Var) == null) {
-                this.e.e(new C0217b(this, tf3Var));
+                this.e.e(new C0223b(this, tf3Var));
             }
         }
 

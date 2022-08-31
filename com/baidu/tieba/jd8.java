@@ -1,128 +1,122 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class jd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public boolean k;
 
-    public jd8() {
+    public static boolean a(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
+            if (i != 2) {
+                return i == 3 ? dm5.k().r(i2, AbsDataRecorder.Scene.PB) : i == 1 && "INDEX".equals(str) && dm5.k().s(AbsDataRecorder.Scene.RECOMMEND);
+            } else if ("frs_new_tab".equals(str) && dm5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                return true;
+            } else {
+                return "frs_hot_tab".equals(str) && dm5.k().s(AbsDataRecorder.Scene.FRS_HOT);
             }
         }
-        this.k = false;
+        return invokeLII.booleanValue;
     }
 
-    public void a(AdvertAppInfo advertAppInfo, @NonNull AdCard adCard) {
+    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, advertAppInfo, adCard) == null) || advertAppInfo == null) {
-            return;
-        }
-        int i = advertAppInfo.m;
-        if (i == 3) {
-            this.a = "apk_download";
-            this.f = advertAppInfo.p;
-            this.g = advertAppInfo.o;
-        } else if (i == 1) {
-            this.a = TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT;
-        }
-        this.e = adCard.getButtonText();
-        this.b = adCard.userName;
-        this.c = adCard.userImage;
-        this.d = adCard.scheme;
-        this.i = adCard.threadTitle;
-        this.j = adCard.getButtonCmdScheme();
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("style");
-        this.b = jSONObject.optString("user_name");
-        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
-        this.d = jSONObject.optString("scheme");
-        this.e = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        this.h = jSONObject.optInt("close_time");
-        JSONObject optJSONObject = jSONObject.optJSONObject("ext_data");
-        if (optJSONObject != null) {
-            this.f = optJSONObject.optString("pkgname");
-            this.g = optJSONObject.optString("download_url");
-        }
-        jSONObject.optString("content");
-        this.k = true;
-        this.j = jSONObject.optString("button_scheme");
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        try {
-            b(new JSONObject(str));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("style", this.a);
-                jSONObject.put("user_name", this.b);
-                jSONObject.put(RecommendDetailActivityConfig.USER_PORTRAIT, this.c);
-                jSONObject.put("scheme", this.d);
-                jSONObject.put(GameGuideConfigInfo.KEY_BUTTON_TEXT, this.e);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("pkgname", this.f);
-                jSONObject2.put("download_url", this.g);
-                jSONObject.put("ext_data", jSONObject2);
-                jSONObject.put("content", this.h);
-                jSONObject.put("button_scheme", this.j);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i == 2 || i == 1) {
+                if (vipAdFreeGuideLayout != null) {
+                    vipAdFreeGuideLayout.setBottomCornerRound(true);
+                }
+            } else if (i == 3) {
+                if (dm5.k().m() && i2 == 1) {
+                    vipAdFreeGuideLayout.setBottomCornerRound(false);
+                    vipAdFreeGuideLayout.setAllCornerRound(false);
+                    if (adCardBaseView.getPbBottomView() != null) {
+                        adCardBaseView.getPbBottomView().setVisibility(8);
+                        return;
+                    }
+                    return;
+                }
+                if (vipAdFreeGuideLayout != null) {
+                    vipAdFreeGuideLayout.setBottomCornerRound(false);
+                    vipAdFreeGuideLayout.setAllCornerRound(true);
+                }
+                if (adCardBaseView.getPbBottomView() != null) {
+                    adCardBaseView.getPbBottomView().setVisibility(0);
+                }
             }
-            return jSONObject.toString();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
+            if (i == 2) {
+                if ("frs_new_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+                } else if ("frs_hot_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+                }
+            } else if (i == 3) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
+            } else if (i == 1) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+            }
+        }
+    }
+
+    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) || vipAdFreeGuideLayout == null) {
+            return;
+        }
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, i);
+    }
+
+    public static void e(AdvertAppInfo advertAppInfo, pf7<?> pf7Var, String str, String str2, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, pf7Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            AdCardBaseView adCardBaseView = pf7Var instanceof AdCardBaseView ? (AdCardBaseView) pf7Var : null;
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = adCardBaseView != null ? adCardBaseView.getVipAdFreeGuideLayout() : null;
+            if (vipAdFreeGuideLayout != null) {
+                if (i == 1) {
+                    i3 = dm5.k().j(advertAppInfo.a);
+                } else {
+                    i3 = advertAppInfo.s;
+                }
+                if (i3 == 1) {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                } else if (i3 == 2) {
+                    d(adCardBaseView, vipAdFreeGuideLayout, str, str2, i, i2);
+                } else if (a(str2, i, i2)) {
+                    d(adCardBaseView, vipAdFreeGuideLayout, str, str2, i, i2);
+                    dm5.k().c();
+                    if (i == 1) {
+                        dm5.k().p(advertAppInfo.a, 2);
+                    } else {
+                        advertAppInfo.s = 2;
+                    }
+                } else {
+                    vipAdFreeGuideLayout.setVisibility(8);
+                    if (i == 1) {
+                        dm5.k().p(advertAppInfo.a, 1);
+                    } else {
+                        advertAppInfo.s = 1;
+                    }
+                }
+            }
+        }
     }
 }

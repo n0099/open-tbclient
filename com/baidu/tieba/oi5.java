@@ -1,44 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Item;
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.view.ItemCardView;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 /* loaded from: classes5.dex */
-public class oi5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
+public interface oi5 {
+    int C();
 
-    public oi5(Item item) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        if (item != null) {
-            ItemData itemData = new ItemData();
-            this.a = itemData;
-            itemData.parseProto(item);
-        }
-    }
+    void F(Context context, String str);
 
-    public ItemData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ItemData) invokeV.objValue;
-    }
+    void H(Context context, String str);
+
+    gg<RelativeLayout> L();
+
+    gg<ImageView> N();
+
+    gg<View> O();
+
+    void Q(Context context, String str);
+
+    void R(Context context, String str, boolean z);
+
+    void V(Context context, String str, String str2);
+
+    void Y(Context context, String str);
+
+    gg<TextView> Y0();
+
+    gg<ItemCardView> e0();
+
+    void g1(Context context, String str);
+
+    ListView getListView();
+
+    gg<GifView> v();
+
+    gg<LinearLayout> y();
+
+    gg<TiebaPlusRecommendCard> y1();
 }

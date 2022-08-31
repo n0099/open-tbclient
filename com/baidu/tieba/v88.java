@@ -1,118 +1,219 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import android.app.Activity;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.Settings;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.play.PlayStatisticsResponseMessage;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.s88;
+import com.baidu.tieba.w88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class v88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Activity> a;
+    public SensorManager b;
+    public s88 c;
+    public Sensor d;
+    public boolean e;
+    public boolean f;
+    public w88 g;
+    public boolean h;
+    public boolean i;
+    public s88.a j;
+    public w88.a k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194771, "Lcom/baidu/tieba/v88;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements s88.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v88 a;
+
+        public a(v88 v88Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v88Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948194771, "Lcom/baidu/tieba/v88;");
+            this.a = v88Var;
+        }
+
+        @Override // com.baidu.tieba.s88.a
+        public void a(int i) {
+            Activity activity;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
+                return;
+            }
+            int requestedOrientation = activity.getRequestedOrientation();
+            if (!this.a.h) {
+                if (i > 225 && i < 315) {
+                    if (requestedOrientation == 8) {
+                        activity.setRequestedOrientation(0);
+                    }
+                } else if (i <= 45 || i >= 135 || requestedOrientation != 0) {
+                } else {
+                    activity.setRequestedOrientation(8);
+                }
+            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
+                if (!this.a.f) {
+                    if (i <= 55 || i >= 125) {
+                        if (requestedOrientation != 0) {
+                            activity.setRequestedOrientation(0);
+                        }
+                    } else if (requestedOrientation != 8) {
+                        activity.setRequestedOrientation(8);
+                    }
+                }
+                this.a.e = false;
+            } else if ((i <= 325 || i >= 360) && (i < 0 || i >= 35)) {
+            } else {
+                if (!this.a.e && requestedOrientation != 1) {
+                    activity.setRequestedOrientation(1);
+                }
+                this.a.f = false;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements w88.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v88 a;
+
+        public b(v88 v88Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v88Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v88Var;
+        }
+
+        @Override // com.baidu.tieba.w88.a
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.h = z;
+            }
+        }
+    }
+
+    public v88(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
-        b();
-    }
-
-    public static void a(HttpMessage httpMessage, g98 g98Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, httpMessage, g98Var) == null) || httpMessage == null || g98Var == null) {
+        this.e = false;
+        this.f = false;
+        this.h = false;
+        this.i = false;
+        this.j = new a(this);
+        this.k = new b(this);
+        if (activity == null) {
             return;
         }
-        httpMessage.addParam("tid", g98Var.c);
-        httpMessage.addParam("fid", g98Var.d);
-        httpMessage.addParam(TiebaStatic.Params.OBJ_TO, g98Var.g);
-        httpMessage.addParam("obj_id", g98Var.k);
-        httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM3, g98Var.h);
-        httpMessage.addParam("obj_source", g98Var.f);
-        httpMessage.addParam("obj_locate", g98Var.a);
-        httpMessage.addParam("obj_param1", g98Var.i);
-        if (!StringUtils.isNull(g98Var.n)) {
-            httpMessage.addParam(TiebaStatic.Params.TOPIC_TYPE, g98Var.n);
+        this.a = new WeakReference<>(activity);
+        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
+        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
+        this.c = new s88(this.j);
+        if (activity.getClass().getName().contains("SwanAppActivity")) {
+            activity.setRequestedOrientation(1);
         }
-        if (StringUtils.isNull(g98Var.p)) {
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void j() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null) {
+                sensorManager.registerListener(this.c, this.d, 2);
+            }
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference == null || (activity = weakReference.get()) == null) {
+                return;
+            }
+            w88 w88Var = new w88(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
+            this.g = w88Var;
+            w88Var.b(this.k);
+            activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
+        }
+    }
+
+    public void k() {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SensorManager sensorManager = this.b;
+            if (sensorManager != null) {
+                sensorManager.unregisterListener(this.c);
+            }
+            WeakReference<Activity> weakReference = this.a;
+            if (weakReference == null || this.g == null || (activity = weakReference.get()) == null) {
+                return;
+            }
+            activity.getContentResolver().unregisterContentObserver(this.g);
+        }
+    }
+
+    public void l() {
+        WeakReference<Activity> weakReference;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
             return;
         }
-        httpMessage.addParam(TiebaStatic.Params.IS_VERTICAL, g98Var.p);
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_DURATION_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (activity.getRequestedOrientation() == 1) {
+            activity.setRequestedOrientation(0);
+            this.e = true;
+            return;
         }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PB_PLAY_STATISTICS_CMD, TbConfig.SERVER_ADDRESS + TbConfig.URL_PLAY_STATISTICS);
-            tbHttpMessageTask.setResponsedClass(PlayStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public static void d(long j, String str, g98 g98Var, String str2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), str, g98Var, str2, Long.valueOf(j2)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PLAY_DURATION_STATISTICS);
-            httpMessage.addParam(TiebaStatic.Params.OBJ_DURATION, j);
-            httpMessage.addParam("obj_type", str);
-            httpMessage.addParam("playduration", j2);
-            if (g98Var != null) {
-                httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, g98Var.m);
-            }
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            a(httpMessage, g98Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public static void e(String str, String str2, String str3, g98 g98Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, g98Var, Integer.valueOf(i)}) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.PB_PLAY_STATISTICS_CMD);
-            httpMessage.addParam(VideoFinishResult.KEY_VIDEO_MD5, str);
-            httpMessage.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            httpMessage.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
-            httpMessage.addParam("obj_type", str3);
-            if (TbSingleton.getInstance().getPcdnConfigData() != null && TbSingleton.getInstance().getPcdnConfigData().c()) {
-                httpMessage.addParam("pcdn_state", i);
-            }
-            a(httpMessage, g98Var);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
+        activity.setRequestedOrientation(1);
+        this.f = true;
     }
 }

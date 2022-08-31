@@ -3,24 +3,18 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.RequestOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuLocalMessage;
+import com.baidu.tieba.im.message.ResponseOfficialBarMenuMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class na7 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+public class na7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public e87 b;
 
     public na7() {
         Interceptable interceptable = $ic;
@@ -32,54 +26,27 @@ public class na7 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadRes
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 2001154;
-        this.b = e87.w();
-    }
-
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
-        }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (this.b == null) {
-                return a(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof RequestOfficialBarMenuLocalMessage)) {
+                return null;
             }
-            List<i87> x = e87.x();
-            if (x != null && x.size() > 0) {
-                HashMap hashMap = new HashMap(x.size());
-                for (i87 i87Var : x) {
-                    hashMap.put(i87Var.b(), i87Var);
-                }
-                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
-                if (l == null) {
-                    return a(this.a);
-                }
-                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
-                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
-                aVar.b = l;
-                aVar.a = x;
-                try {
-                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return officialFeedHeadResponsedMessage;
+            ur4.f();
+            byte[] bArr = ur4.d("tb.official_bar_menu").get(ResponseOfficialBarMenuMessage.OFFICIAL_BAR_MENU_KEY_PRE + ((RequestOfficialBarMenuLocalMessage) customMessage).getForum_id());
+            ResponseOfficialBarMenuLocalMessage responseOfficialBarMenuLocalMessage = new ResponseOfficialBarMenuLocalMessage();
+            try {
+                responseOfficialBarMenuLocalMessage.decodeInBackGround(2001177, bArr);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return a(this.a);
+            return responseOfficialBarMenuLocalMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

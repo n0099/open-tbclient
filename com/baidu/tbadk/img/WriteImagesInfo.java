@@ -7,8 +7,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TbImageHelper;
-import com.baidu.tieba.a65;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -393,7 +393,7 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         while (descendingIterator.hasNext()) {
             ImageFileInfo next = descendingIterator.next();
             if (next != null && !next.isHasAddPostQualityAction()) {
-                next.addPersistAction(a65.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
+                next.addPersistAction(y55.g(TbImageHelper.getInstance().getPostImageSize(), TbImageHelper.getInstance().getPostImageHeightLimit()));
                 next.setHasAddPostQualityAction(true);
             }
         }

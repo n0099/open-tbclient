@@ -78,14 +78,14 @@ public class rd0 {
 
         /* renamed from: com.baidu.tieba.rd0$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0392b implements Runnable {
+        public class RunnableC0391b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ boolean a;
             public final /* synthetic */ Exception b;
             public final /* synthetic */ b c;
 
-            public RunnableC0392b(b bVar, boolean z, Exception exc) {
+            public RunnableC0391b(b bVar, boolean z, Exception exc) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -208,7 +208,7 @@ public class rd0 {
             if (!(interceptable == null || interceptable.invokeL(1048580, this, exc) == null) || this.c.d == null || this.c.d.isEmpty()) {
                 return;
             }
-            new Handler(Looper.getMainLooper()).post(new RunnableC0392b(this, this.c.q(), exc));
+            new Handler(Looper.getMainLooper()).post(new RunnableC0391b(this, this.c.q(), exc));
         }
 
         public void g(T t) {

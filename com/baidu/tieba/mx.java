@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mx extends sw<ho4> {
+public class mx extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public ho4 i;
+    public go4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mx(Context context) {
@@ -63,24 +63,24 @@ public class mx extends sw<ho4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.g.b();
-            ho4 ho4Var = this.i;
-            if (ho4Var == null || ho4Var.getThreadData() == null) {
+            go4 go4Var = this.i;
+            if (go4Var == null || go4Var.getThreadData() == null) {
                 return;
             }
-            uz5.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            sz5.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: p */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) {
-            if (ho4Var != null && ho4Var.getThreadData() != null) {
-                this.i = ho4Var;
-                ThreadData threadData = ho4Var.getThreadData();
-                uz5.j(threadData, this.h);
+        if (interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) {
+            if (go4Var != null && go4Var.getThreadData() != null) {
+                this.i = go4Var;
+                ThreadData threadData = go4Var.getThreadData();
+                sz5.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

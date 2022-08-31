@@ -1,36 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.BlockPopInfoData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.ueg.UEGCancelModel;
-import com.baidu.tieba.wr4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BlockPopInfo;
 /* loaded from: classes6.dex */
 public class vr8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean d;
+    public static BlockPopInfo c;
+    public static BlockPopInfo d;
     public transient /* synthetic */ FieldHolder $fh;
-    public UEGCancelModel a;
-    public UEGCancelModel.b b;
-    public int c;
+    public TbPageContext a;
+    public CustomMessageListener b;
 
     /* loaded from: classes6.dex */
-    public class a implements UEGCancelModel.b {
+    public class a implements vr4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr8 a;
 
         public a(vr8 vr8Var) {
             Interceptable interceptable = $ic;
@@ -44,204 +39,192 @@ public class vr8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                vr4Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements vr4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BlockPopInfo a;
+        public final /* synthetic */ vr8 b;
+
+        public b(vr8 vr8Var, BlockPopInfo blockPopInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vr8Var, blockPopInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = vr8Var;
+            this.b = vr8Var;
+            this.a = blockPopInfo;
         }
 
-        @Override // com.baidu.tieba.ueg.UEGCancelModel.b
-        public void a(BlockPopInfoData blockPopInfoData) {
+        @Override // com.baidu.tieba.vr4.e
+        public void onClick(vr4 vr4Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, blockPopInfoData) == null) || blockPopInfoData == null || vr8.d) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                this.b.e(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(vr8 vr8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vr8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.a.d(blockPopInfoData);
+            vr8.g(null);
+            vr8.f(null);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements wr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfoData a;
-        public final /* synthetic */ vr8 b;
-
-        public b(vr8 vr8Var, BlockPopInfoData blockPopInfoData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vr8Var, blockPopInfoData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vr8Var;
-            this.a = blockPopInfoData;
-        }
-
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                wr4Var.dismiss();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements wr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BlockPopInfoData a;
-        public final /* synthetic */ vr8 b;
-
-        public c(vr8 vr8Var, BlockPopInfoData blockPopInfoData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vr8Var, blockPopInfoData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vr8Var;
-            this.a = blockPopInfoData;
-        }
-
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                this.b.e(this.a);
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", this.b.c).param("obj_type", this.a.win_type));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948250509, "Lcom/baidu/tieba/vr8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948250509, "Lcom/baidu/tieba/vr8;");
-        }
-    }
-
-    public vr8() {
+    public vr8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = TbadkCoreStatisticKey.AntiLocateValue.LOCATE_COLD_BOOT;
-        this.a = new UEGCancelModel();
-        if (this.b == null) {
-            this.b = new a(this);
-        }
-        this.a.B(this.b);
+        c cVar = new c(this, 2005016);
+        this.b = cVar;
+        this.a = tbPageContext;
+        tbPageContext.registerListener(cVar);
     }
 
-    public void c(int i) {
+    public static void f(BlockPopInfo blockPopInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.c = i;
-            this.a.A();
+        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
+            d = blockPopInfo;
         }
     }
 
-    public final void d(BlockPopInfoData blockPopInfoData) {
+    public static void g(BlockPopInfo blockPopInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, blockPopInfoData) == null) || blockPopInfoData == null || z8.g().b() == null) {
-            return;
-        }
-        String str = blockPopInfoData.block_id_code;
-        int i = blockPopInfoData.win_type;
-        String currentAccount = TbadkCoreApplication.getCurrentAccount();
-        String str2 = blockPopInfoData.ahead_url;
-        String str3 = blockPopInfoData.ok_info;
-        String str4 = blockPopInfoData.ahead_info;
-        String str5 = blockPopInfoData.block_info;
-        if ((i != 1 && i != 2 && i != 3 && i != 4) || qi.isEmpty(currentAccount) || qi.isEmpty(str)) {
-            return;
-        }
-        tu4 k = tu4.k();
-        boolean z = false;
-        boolean h = k.h(str + i + currentAccount, false);
-        if ((!qi.isEmpty(str2) || i == 4) && !qi.isEmpty(str3) && ((!qi.isEmpty(str4) || i == 4) && !qi.isEmpty(str5))) {
-            z = true;
-        }
-        if (h || !z) {
-            return;
-        }
-        tu4 k2 = tu4.k();
-        k2.u(str + i + currentAccount, true);
-        h(blockPopInfoData);
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", this.c).param("obj_type", i));
-    }
-
-    public final void e(BlockPopInfoData blockPopInfoData) {
-        Activity b2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = z8.g().b()) == null) {
-            return;
-        }
-        AntiHelper.p(b2, blockPopInfoData.ahead_url);
-    }
-
-    public void f() {
-        UEGCancelModel uEGCancelModel;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (uEGCancelModel = this.a) == null) {
-            return;
-        }
-        uEGCancelModel.onDestroy();
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            d = z;
+        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
+            c = blockPopInfo;
         }
     }
 
-    public final void h(BlockPopInfoData blockPopInfoData) {
-        Activity b2;
+    public final boolean b(BlockPopInfo blockPopInfo) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, blockPopInfoData) == null) || blockPopInfoData == null || (b2 = z8.g().b()) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
+            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
+                BdToast b2 = BdToast.b(this.a.getPageActivity(), blockPopInfo.appeal_msg);
+                b2.f(BdToast.ToastIcon.FAILURE);
+                b2.c(3000);
+                b2.i();
+                return true;
+            } else if (blockPopInfo == null || blockPopInfo.can_post.intValue() != 0) {
+                return false;
+            } else {
+                if ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1) {
+                    if (blockPopInfo.ahead_type.intValue() == 1) {
+                        String str = blockPopInfo.block_info;
+                        String str2 = blockPopInfo.ok_info;
+                        if (!qi.isEmpty(str) && !qi.isEmpty(str2)) {
+                            h(blockPopInfo);
+                        } else {
+                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0829));
+                            b3.f(BdToast.ToastIcon.FAILURE);
+                            b3.c(3000);
+                            b3.i();
+                        }
+                    } else if (blockPopInfo.ahead_type.intValue() == 2) {
+                        e(blockPopInfo);
+                    }
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b(d) : invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b(c) : invokeV.booleanValue;
+    }
+
+    public final void e(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, blockPopInfo) == null) || blockPopInfo == null) {
             return;
         }
-        wr4 wr4Var = new wr4(b2);
-        wr4Var.setMessage(blockPopInfoData.block_info);
-        wr4Var.setNegativeButton(blockPopInfoData.ok_info, new b(this, blockPopInfoData));
-        wr4Var.setPositiveButton(blockPopInfoData.ahead_info, new c(this, blockPopInfoData));
-        wr4Var.create(((e9) b2).getPageContext());
-        wr4Var.show();
+        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
+    }
+
+    public final void h(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, blockPopInfo) == null) || blockPopInfo == null) {
+            return;
+        }
+        vr4 vr4Var = new vr4(this.a.getPageActivity());
+        vr4Var.setMessage(blockPopInfo.block_info);
+        vr4Var.setNegativeButton(blockPopInfo.ok_info, new a(this));
+        vr4Var.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
+        vr4Var.create(this.a).show();
     }
 }

@@ -1,121 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArrayMap;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wy4 {
+public class wy4 extends wo4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final wy4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public Map<String, xy4> b;
-    public int c;
+    public long a;
+    public long b;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286903, "Lcom/baidu/tieba/wy4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948286903, "Lcom/baidu/tieba/wy4;");
-                return;
-            }
-        }
-        d = new wy4(false);
-    }
-
-    public wy4(boolean z) {
+    public wy4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = z;
+        this.a = Long.MAX_VALUE;
+        this.b = 0L;
+        this.c = null;
     }
 
-    public static wy4 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
-            wy4 wy4Var = new wy4(true);
-            wy4Var.a(optJSONObject);
-            return wy4Var;
-        }
-        return (wy4) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public final void a(JSONObject jSONObject) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.wo4
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
-        this.b = new ArrayMap(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                xy4 d2 = xy4.d(optJSONObject);
-                if (!TextUtils.isEmpty(d2.a())) {
-                    this.b.put(d2.a(), d2);
-                }
-            }
-        }
         try {
-            this.c = Integer.parseInt(jSONObject.optString("freq"));
-        } catch (Exception unused) {
-            this.c = 0;
+            this.a = jSONObject.optLong(SmartLaunchStats.UBC_BUSINESS_START_TIME_KEY, Long.MAX_VALUE);
+            this.b = jSONObject.optLong("end_time", 0L);
+            this.c = jSONObject.optString("dest_url", "");
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public xy4 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.b == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return this.b.get(str);
-        }
-        return (xy4) invokeL.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 }

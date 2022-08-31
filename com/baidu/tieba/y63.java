@@ -38,12 +38,12 @@ public class y63 {
 
         /* renamed from: com.baidu.tieba.y63$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0459a implements Runnable {
+        public class RunnableC0465a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
 
-            public RunnableC0459a(a aVar, b bVar) {
+            public RunnableC0465a(a aVar, b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,12 +86,12 @@ public class y63 {
 
             /* renamed from: com.baidu.tieba.y63$a$b$a  reason: collision with other inner class name */
             /* loaded from: classes6.dex */
-            public class RunnableC0460a implements Runnable {
+            public class RunnableC0466a implements Runnable {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ b a;
 
-                public RunnableC0460a(b bVar) {
+                public RunnableC0466a(b bVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -178,7 +178,7 @@ public class y63 {
                         }
                         return;
                     }
-                    this.a.submit(new RunnableC0460a(this));
+                    this.a.submit(new RunnableC0466a(this));
                 }
             }
         }
@@ -208,7 +208,7 @@ public class y63 {
                 boolean z = z63.e(0) == 1;
                 Timer timer = new Timer();
                 b bVar = new b(null);
-                ue3.e0(new RunnableC0459a(this, bVar));
+                ue3.e0(new RunnableC0465a(this, bVar));
                 timer.schedule(new b(this, f, c, timer, x63Var, z, bVar), 0L, x63Var.a);
             }
         }

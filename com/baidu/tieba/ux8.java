@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface ux8 {
-    void a();
-
-    void b(CloudMusicData.MusicTagList.MusicList musicList, int i);
-
-    void c();
-
-    void d(CloudMusicData.MusicTagList musicTagList);
-
-    void e(int i);
+    void D(Intent intent);
 }

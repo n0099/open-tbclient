@@ -1,27 +1,9 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public interface e75 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
-
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
-    }
-
-    e75 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
-
-    void b(int i, iq4 iq4Var, long j);
-
-    void c(@Nullable a aVar);
+    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
 }

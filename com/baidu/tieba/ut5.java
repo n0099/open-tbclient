@@ -1,27 +1,68 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ColorDrawable;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class ut5 {
+public class ut5 extends st5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public TbPageContext c;
-    public it5 d;
-    public View e;
+    public ViewGroup f;
+    public TbImageView g;
 
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ut5 a;
+
+        public a(ut5 ut5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ut5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ut5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a.d.b)) {
+                return;
+            }
+            UrlManager urlManager = UrlManager.getInstance();
+            ut5 ut5Var = this.a;
+            urlManager.dealOneLink(ut5Var.c, new String[]{ut5Var.d.b}, true);
+            ts5.c().f("c12909", this.a.d.e, 3, "-1", 0L, null, null);
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ut5(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,86 +72,109 @@ public abstract class ut5 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = tbPageContext;
-        int k = ri.k(tbPageContext.getPageActivity());
-        this.a = k;
-        this.b = (int) ((k * 9.0d) / 16.0d);
+        e();
     }
 
-    public void a(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.st5
+    public void b(gt5 gt5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) || viewGroup == null) {
-            return;
-        }
-        viewGroup.removeAllViews();
-        viewGroup.addView(c());
-    }
-
-    public void b(it5 it5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it5Var) == null) {
-            this.d = it5Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gt5Var) == null) {
+            super.b(gt5Var);
+            this.g.K(gt5Var.a, 10, false);
+            ts5.c().f("c12908", this.d.e, 3, "-1", 0L, null, null);
         }
     }
 
-    public abstract View c();
-
-    public abstract void d();
-
-    public View e() {
+    @Override // com.baidu.tieba.st5
+    public View c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.e = new View(this.c.getPageActivity());
-            this.e.setLayoutParams(new FrameLayout.LayoutParams(this.a, this.b));
-            this.e.setBackgroundDrawable(new ColorDrawable(this.c.getPageActivity().getResources().getColor(R.color.black_alpha30)));
-            return this.e;
-        }
-        return (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
     }
 
-    public abstract boolean f(it5 it5Var);
+    @Override // com.baidu.tieba.st5
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = new FrameLayout(this.c.getPageActivity());
+            this.g = new TbImageView(this.c.getPageActivity());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(this.a, this.b);
+            this.g.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.g.setLayoutParams(layoutParams);
+            this.f.addView(this.g);
+            this.e.setVisibility(8);
+            this.f.addView(this.e);
+            this.g.setOnClickListener(new a(this));
+            i(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
 
-    public abstract void g(boolean z);
+    @Override // com.baidu.tieba.st5
+    public boolean f(gt5 gt5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gt5Var)) == null) ? (gt5Var == null || 3 != gt5Var.d || TextUtils.isEmpty(gt5Var.a)) ? false : true : invokeL.booleanValue;
+    }
 
+    @Override // com.baidu.tieba.st5
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.st5
     public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            int k = ri.k(this.c.getPageActivity());
-            this.a = k;
-            this.b = (int) ((k * 9.0d) / 16.0d);
-            View view2 = this.e;
-            if (view2 != null) {
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.h();
+            TbImageView tbImageView = this.g;
+            if (tbImageView != null) {
+                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tbImageView.getLayoutParams();
                 layoutParams.width = this.a;
                 layoutParams.height = this.b;
-                this.e.setLayoutParams(layoutParams);
+                this.g.setLayoutParams(layoutParams);
             }
         }
     }
 
-    public abstract void i(int i);
-
-    public abstract void j();
-
-    public void k() {
+    @Override // com.baidu.tieba.st5
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (1 == i) {
+                this.e.setVisibility(0);
+            } else {
+                this.e.setVisibility(8);
+            }
         }
     }
 
-    public void l() {
+    @Override // com.baidu.tieba.st5
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.g = null;
         }
     }
 
-    public abstract void m();
+    @Override // com.baidu.tieba.st5
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
 
-    public abstract void n();
+    @Override // com.baidu.tieba.st5
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
 }

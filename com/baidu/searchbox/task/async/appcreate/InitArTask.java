@@ -6,7 +6,7 @@ import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tieba.bd0;
-import com.baidu.tieba.h25;
+import com.baidu.tieba.f25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,7 +37,7 @@ public class InitArTask extends LaunchTask {
             bd0.r(BdUploadHandler.MEDIA_SOURCE_KEY);
             bd0.j(context);
             bd0.u(false);
-            h25.a();
+            f25.a();
         }
     }
 

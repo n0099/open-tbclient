@@ -1,245 +1,162 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
 import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.io.IOException;
-import java.lang.reflect.Field;
+import com.squareup.wire2.internal.ImmutableList;
+import com.squareup.wire2.internal.MutableOnWriteList;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public final class br9<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
+public final class br9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<M> a;
-    public final Class<B> b;
-    public final Map<Integer, wq9<M, B>> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public br9(Class<M> cls, Class<B> cls2, Map<Integer, wq9<M, B>> map) {
-        super(FieldEncoding.LENGTH_DELIMITED, cls);
+    public static void a(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, map};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            if (list != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) == null) {
+                        throw new NullPointerException("Element at index " + i + " is null");
+                    }
+                }
                 return;
             }
+            throw new NullPointerException("list == null");
         }
-        this.a = cls;
-        this.b = cls2;
-        this.c = map;
     }
 
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> br9<M, B> a(Class<M> cls) {
-        InterceptResult invokeL;
-        Field[] declaredFields;
+    public static void b(Map<?, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-            Class e = e(cls);
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (Field field : cls.getDeclaredFields()) {
-                WireField wireField = (WireField) field.getAnnotation(WireField.class);
-                if (wireField != null) {
-                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new wq9(wireField, field, e));
-                }
-            }
-            return new br9<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
-        }
-        return (br9) invokeL.objValue;
-    }
-
-    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            try {
-                return (Class<B>) Class.forName(cls.getName() + "$Builder");
-            } catch (ClassNotFoundException unused) {
-                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
-            }
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public M decode(yq9 yq9Var) throws IOException {
-        InterceptResult invokeL;
-        ProtoAdapter<?> i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, yq9Var)) != null) {
-            return (M) invokeL.objValue;
-        }
-        B f = f();
-        long c = yq9Var.c();
-        while (true) {
-            int f2 = yq9Var.f();
-            if (f2 != -1) {
-                wq9<M, B> wq9Var = this.c.get(Integer.valueOf(f2));
-                if (wq9Var != null) {
-                    try {
-                        if (wq9Var.f()) {
-                            i = wq9Var.a();
-                        } else {
-                            i = wq9Var.i();
+        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
+            if (map != null) {
+                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    if (entry.getKey() != null) {
+                        if (entry.getValue() == null) {
+                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
                         }
-                        wq9Var.j(f, i.decode(yq9Var));
-                    } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                        f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
+                    } else {
+                        throw new NullPointerException("map.containsKey(null)");
                     }
-                } else {
-                    FieldEncoding g = yq9Var.g();
-                    f.addUnknownField(f2, g, g.rawProtoAdapter().decode(yq9Var));
                 }
-            } else {
-                yq9Var.d(c);
-                return (M) f.build();
+                return;
             }
+            throw new NullPointerException("map == null");
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public void encode(zq9 zq9Var, M m) throws IOException {
+    public static <T> List<T> c(String str, List<T> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zq9Var, m) == null) {
-            for (wq9<M, B> wq9Var : this.c.values()) {
-                Object b = wq9Var.b(m);
-                if (b != null) {
-                    wq9Var.a().encodeWithTag(zq9Var, wq9Var.c, b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (list != null) {
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    return new ArrayList(list);
                 }
+                return new MutableOnWriteList(list);
             }
-            zq9Var.k(m.unknownFields());
+            throw new NullPointerException(str + " == null");
         }
+        return (List) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: d */
-    public int encodedSize(M m) {
-        InterceptResult invokeL;
+    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
-            int i = m.cachedSerializedSize;
-            if (i != 0) {
-                return i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (map != null) {
+                return new LinkedHashMap(map);
             }
-            int i2 = 0;
-            for (wq9<M, B> wq9Var : this.c.values()) {
-                Object b = wq9Var.b(m);
-                if (b != null) {
-                    i2 += wq9Var.a().encodedSizeWithTag(wq9Var.c, b);
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static int e(Object obj, Object obj2, Object obj3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
+            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static boolean f(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
+    }
+
+    public static <T> List<T> g(String str, List<T> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
+            if (list != null) {
+                if (list instanceof MutableOnWriteList) {
+                    list = ((MutableOnWriteList) list).mutableList;
                 }
+                if (list == Collections.emptyList() || (list instanceof ImmutableList)) {
+                    return list;
+                }
+                ImmutableList immutableList = new ImmutableList(list);
+                if (immutableList.contains(null)) {
+                    throw new IllegalArgumentException(str + ".contains(null)");
+                }
+                return immutableList;
             }
-            int size = i2 + m.unknownFields().size();
-            m.cachedSerializedSize = size;
-            return size;
+            throw new NullPointerException(str + " == null");
         }
-        return invokeL.intValue;
+        return (List) invokeLL.objValue;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? (obj instanceof br9) && ((br9) obj).a == this.a : invokeL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            if (map != null) {
+                if (map.isEmpty()) {
+                    return Collections.emptyMap();
+                }
+                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
+                if (!linkedHashMap.containsKey(null)) {
+                    if (!linkedHashMap.containsValue(null)) {
+                        return Collections.unmodifiableMap(linkedHashMap);
+                    }
+                    throw new IllegalArgumentException(str + ".containsValue(null)");
+                }
+                throw new IllegalArgumentException(str + ".containsKey(null)");
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
     }
 
-    public B f() {
+    public static <T> List<T> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            try {
-                return this.b.newInstance();
-            } catch (IllegalAccessException | InstantiationException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return (B) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? new MutableOnWriteList(Collections.emptyList()) : (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: g */
-    public M redact(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
-            Message.a<M, B> newBuilder = m.newBuilder();
-            for (wq9<M, B> wq9Var : this.c.values()) {
-                if (wq9Var.f && wq9Var.a == WireField.Label.REQUIRED) {
-                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", wq9Var.b, this.javaType.getName()));
-                }
-                boolean isAssignableFrom = Message.class.isAssignableFrom(wq9Var.i().javaType);
-                if (!wq9Var.f && (!isAssignableFrom || wq9Var.a.isRepeated())) {
-                    if (isAssignableFrom && wq9Var.a.isRepeated()) {
-                        dr9.k((List) wq9Var.e(newBuilder), wq9Var.i());
-                    }
-                } else {
-                    Object e = wq9Var.e(newBuilder);
-                    if (e != null) {
-                        wq9Var.h(newBuilder, wq9Var.a().redact(e));
-                    }
-                }
-            }
-            newBuilder.clearUnknownFields();
-            return newBuilder.build();
-        }
-        return (M) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: h */
-    public String toString(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (wq9<M, B> wq9Var : this.c.values()) {
-                Object b = wq9Var.b(m);
-                if (b != null) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(wq9Var.b);
-                    sb.append('=');
-                    if (wq9Var.f) {
-                        b = "██";
-                    }
-                    sb.append(b);
-                }
-            }
-            sb.replace(0, 2, this.a.getSimpleName() + '{');
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int hashCode() {
+    public static <K, V> Map<K, V> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? new LinkedHashMap() : (Map) invokeV.objValue;
+    }
+
+    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                list.set(i, protoAdapter.redact(list.get(i)));
+            }
+        }
     }
 }

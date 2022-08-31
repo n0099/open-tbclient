@@ -46,12 +46,12 @@ public class jr2 {
 
         /* renamed from: com.baidu.tieba.jr2$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0305a implements ol1.a {
+        public class C0307a implements ol1.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ File[] a;
 
-            public C0305a(a aVar, File[] fileArr) {
+            public C0307a(a aVar, File[] fileArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -112,7 +112,7 @@ public class jr2 {
                     fileArr = new File[]{b};
                 }
                 if (u != null) {
-                    u.d(p, null, fileArr, new C0305a(this, fileArr));
+                    u.d(p, null, fileArr, new C0307a(this, fileArr));
                 }
             }
         }

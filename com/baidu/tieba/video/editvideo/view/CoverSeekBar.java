@@ -55,12 +55,12 @@ public class CoverSeekBar extends FrameLayout {
 
         /* renamed from: com.baidu.tieba.video.editvideo.view.CoverSeekBar$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0425a implements MediaPlayer.OnInfoListener {
+        public class C0433a implements MediaPlayer.OnInfoListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0425a(a aVar) {
+            public C0433a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class CoverSeekBar extends FrameLayout {
                 mediaPlayer.setVolume(0.0f, 0.0f);
                 if (Build.VERSION.SDK_INT >= 17) {
                     this.a.c.i();
-                    mediaPlayer.setOnInfoListener(new C0425a(this));
+                    mediaPlayer.setOnInfoListener(new C0433a(this));
                     return;
                 }
                 this.a.c.h(0);

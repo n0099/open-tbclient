@@ -7,9 +7,9 @@ import android.graphics.RectF;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.tieba.jq9;
 import com.baidu.tieba.lq9;
-import com.baidu.tieba.nq9;
-import com.baidu.tieba.oq9;
+import com.baidu.tieba.mq9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -254,14 +254,14 @@ public final class SVGAVideoShapeEntity {
     public final void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e == null) {
-            oq9.a().reset();
+            mq9.a().reset();
             Type type = this.a;
             if (type == Type.shape) {
                 Map<String, ? extends Object> map = this.b;
                 Object obj = map != null ? map.get("d") : null;
                 String str = obj instanceof String ? obj : null;
                 if (str != null) {
-                    new lq9(str).a(oq9.a());
+                    new jq9(str).a(mq9.a());
                 }
             } else if (type == Type.ellipse) {
                 Map<String, ? extends Object> map2 = this.b;
@@ -301,7 +301,7 @@ public final class SVGAVideoShapeEntity {
                 float floatValue2 = number2.floatValue();
                 float floatValue3 = number3.floatValue();
                 float floatValue4 = number4.floatValue();
-                oq9.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
+                mq9.a().addOval(new RectF(floatValue - floatValue3, floatValue2 - floatValue4, floatValue + floatValue3, floatValue2 + floatValue4), Path.Direction.CW);
             } else if (type == Type.rect) {
                 Map<String, ? extends Object> map6 = this.b;
                 Object obj6 = map6 != null ? map6.get("x") : null;
@@ -350,12 +350,12 @@ public final class SVGAVideoShapeEntity {
                 float floatValue7 = number7.floatValue();
                 float floatValue8 = number8.floatValue();
                 float floatValue9 = number9.floatValue();
-                oq9.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
+                mq9.a().addRoundRect(new RectF(floatValue5, floatValue6, floatValue7 + floatValue5, floatValue8 + floatValue6), floatValue9, floatValue9, Path.Direction.CW);
             }
             Path path = new Path();
             this.e = path;
             if (path != null) {
-                path.set(oq9.a());
+                path.set(mq9.a());
             }
         }
     }
@@ -509,7 +509,7 @@ public final class SVGAVideoShapeEntity {
         aVar.n(f11 != null ? f11.floatValue() : 0.0f);
         ShapeEntity.ShapeStyle.LineCap lineCap = shapeStyle.lineCap;
         if (lineCap != null) {
-            int i = nq9.$EnumSwitchMapping$1[lineCap.ordinal()];
+            int i = lq9.$EnumSwitchMapping$1[lineCap.ordinal()];
             if (i == 1) {
                 aVar.i("butt");
             } else if (i == 2) {
@@ -520,7 +520,7 @@ public final class SVGAVideoShapeEntity {
         }
         ShapeEntity.ShapeStyle.LineJoin lineJoin = shapeStyle.lineJoin;
         if (lineJoin != null) {
-            int i2 = nq9.$EnumSwitchMapping$2[lineJoin.ordinal()];
+            int i2 = lq9.$EnumSwitchMapping$2[lineJoin.ordinal()];
             if (i2 == 1) {
                 aVar.k("bevel");
             } else if (i2 == 2) {
@@ -633,7 +633,7 @@ public final class SVGAVideoShapeEntity {
         if (!(interceptable == null || interceptable.invokeL(1048588, this, shapeEntity) == null) || (shapeType = shapeEntity.type) == null) {
             return;
         }
-        int i = nq9.$EnumSwitchMapping$0[shapeType.ordinal()];
+        int i = lq9.$EnumSwitchMapping$0[shapeType.ordinal()];
         if (i == 1) {
             type = Type.shape;
         } else if (i == 2) {

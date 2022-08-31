@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
+import com.baidu.tieba.ky5;
 import com.baidu.tieba.my5;
-import com.baidu.tieba.oy5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vy5;
+import com.baidu.tieba.ty5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,9 +67,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            my5 my5Var;
+            ky5 ky5Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (my5Var = this.a.c) == null || my5Var.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ky5Var = this.a.c) == null || ky5Var.l() == 0) {
                 return;
             }
             long g = pg.g(TbadkCoreApplication.getCurrentAccount(), 0L);
@@ -139,22 +139,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            my5 my5Var = this.c;
-            if (my5Var != null) {
-                setGrade(my5Var.d());
+            ky5 ky5Var = this.c;
+            if (ky5Var != null) {
+                setGrade(ky5Var.d());
             }
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, oy5 oy5Var) {
+    public void setData(int i, my5 my5Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, oy5Var) == null) {
-            super.setData(i, oy5Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, my5Var) == null) {
+            super.setData(i, my5Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == vy5.c) {
+                if (i2 == ty5.c) {
                     int f = ri.f(this.d, R.dimen.tbds191);
                     int f2 = ri.f(this.d, R.dimen.tbds157);
                     int f3 = ri.f(this.d, R.dimen.tbds6);

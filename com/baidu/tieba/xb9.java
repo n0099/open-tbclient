@@ -1,23 +1,35 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
+import android.media.MediaMetadataRetriever;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes6.dex */
-public interface xb9 {
+public class xb9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onCompletion();
-
-        boolean onError(int i, int i2, Object obj);
-
-        boolean onInfo(int i, int i2, Object obj);
+    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) || mediaMetadataRetriever == null) {
+            return;
+        }
+        try {
+            mediaMetadataRetriever.release();
+        } catch (Exception e) {
+            yb9.g(e);
+        }
     }
 
-    void release();
-
-    void setListener(a aVar);
-
-    void setSource(ArrayList<String> arrayList);
-
-    void start();
+    public static void b(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Throwable th) {
+            yb9.d(th.getMessage());
+        }
+    }
 }

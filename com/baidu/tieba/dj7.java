@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.ext.ExtLiveLogService;
+import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dj7 extends vc1<ExtLiveLogService> {
+public class dj7 extends vc1<NetworkAgentService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class dj7 extends vc1<ExtLiveLogService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vc1
     /* renamed from: a */
-    public ExtLiveLogService createService() throws ServiceNotFoundException {
+    public NetworkAgentService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ej7() : (ExtLiveLogService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ej7() : (NetworkAgentService) invokeV.objValue;
     }
 }

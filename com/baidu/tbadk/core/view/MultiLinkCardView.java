@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o06;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.m06;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.qf5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,9 +94,9 @@ public class MultiLinkCardView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, list, list2) == null) {
             new ArrayList();
-            sf5 sf5Var = new sf5();
-            List<o06> a = sf5Var.a(list, list2);
-            boolean c = sf5Var.c();
+            qf5 qf5Var = new qf5();
+            List<m06> a = qf5Var.a(list, list2);
+            boolean c = qf5Var.c();
             if (ListUtils.isEmpty(a)) {
                 return;
             }
@@ -221,7 +221,7 @@ public class MultiLinkCardView extends RelativeLayout {
         this.i.setRadius(ri.f(getContext(), R.dimen.tbds10));
         TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092370);
         this.j = textView;
-        os4.d(textView).y(R.array.S_O_X001);
+        ns4.d(textView).y(R.array.S_O_X001);
         this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f09236f);
         this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffc);
         this.o = new ArrayList();

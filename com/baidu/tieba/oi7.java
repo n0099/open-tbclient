@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oi7 extends vc1<PayChannelService> {
+public class oi7 extends vc1<AbConfigService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class oi7 extends vc1<PayChannelService> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vc1
     /* renamed from: a */
-    public PayChannelService createService() throws ServiceNotFoundException {
+    public AbConfigService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pi7() : (PayChannelService) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new pi7() : (AbConfigService) invokeV.objValue;
     }
 }

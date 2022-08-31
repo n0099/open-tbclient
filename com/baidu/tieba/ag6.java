@@ -1,35 +1,31 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.frs.commontab.FrsCommonTabFragment;
-import com.baidu.tieba.frs.view.FrsTopItemInfoView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ItemInfo;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class ag6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment a;
-    public FrsTopItemInfoView b;
+    public final List<q65> a;
+    public Context b;
+    public String c;
+    public String d;
+    public String e;
 
-    public ag6(BaseFragment baseFragment) {
-        FrsViewData frsViewData;
+    public ag6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,44 +35,71 @@ public class ag6 {
                 return;
             }
         }
-        if (baseFragment == null) {
-            return;
-        }
-        this.a = baseFragment;
-        this.b = new FrsTopItemInfoView(baseFragment.getContext());
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        layoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        this.b.setLayoutParams(layoutParams);
-        b();
-        BaseFragment baseFragment2 = this.a;
-        if (!(baseFragment2 instanceof FrsCommonTabFragment) || (frsViewData = ((FrsCommonTabFragment) baseFragment2).d) == null || frsViewData.getForum() == null) {
-            return;
-        }
-        ForumData forum = frsViewData.getForum();
-        this.b.setForumWriteData(new ForumWriteData(forum.getId(), forum.getName(), forum.getPrefixData(), frsViewData.getAnti()));
+        this.a = new LinkedList();
+        this.b = context;
     }
 
-    public View a() {
+    public void a(q65 q65Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, q65Var) == null) || q65Var == null || q65Var.b() == null) {
+            return;
+        }
+        for (q65 q65Var2 : this.a) {
+            if (q65Var2 != null && q65Var2.b() != null && q65Var2.b().e == q65Var.b().e) {
+                return;
+            }
+        }
+        this.a.add(q65Var);
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
     }
 
-    public void b() {
-        FrsTopItemInfoView frsTopItemInfoView;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (frsTopItemInfoView = this.b) == null) {
-            return;
-        }
-        frsTopItemInfoView.e();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void c(ItemInfo itemInfo) {
-        FrsTopItemInfoView frsTopItemInfoView;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) || (frsTopItemInfoView = this.b) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public List<q65> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.e = str;
         }
-        frsTopItemInfoView.setData(itemInfo);
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Context) invokeV.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.d = str;
+        }
     }
 }

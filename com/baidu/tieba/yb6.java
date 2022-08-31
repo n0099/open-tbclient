@@ -7,29 +7,29 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
-import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
+import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionEmptyViewHolder;
+import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionEmptyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yb6 extends cn<dc6, ForumEmotionViewHolder> {
+public class yb6 extends cn<zb6, ForumEmotionEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public cc6 b;
-    public xb6 c;
+    public vb6 b;
+    public ac6 c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yb6(TbPageContext<?> tbPageContext, cc6 cc6Var, BdUniqueId bdUniqueId) {
+    public yb6(TbPageContext<?> tbPageContext, ac6 ac6Var, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cc6Var, bdUniqueId};
+            Object[] objArr = {tbPageContext, ac6Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,41 +42,40 @@ public class yb6 extends cn<dc6, ForumEmotionViewHolder> {
             }
         }
         this.a = tbPageContext;
-        this.b = cc6Var;
+        this.c = ac6Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: s */
-    public ForumEmotionViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public ForumEmotionEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.a);
-            ForumEmotionViewHolder forumEmotionViewHolder = new ForumEmotionViewHolder(this.a, forumEmotionItemView);
-            forumEmotionItemView.b(TbadkCoreApplication.getInst().getSkinType());
-            return forumEmotionViewHolder;
+            ForumEmotionEmptyView forumEmotionEmptyView = new ForumEmotionEmptyView(this.a);
+            forumEmotionEmptyView.b(TbadkCoreApplication.getInst().getSkinType());
+            return new ForumEmotionEmptyViewHolder(this.a, forumEmotionEmptyView);
         }
-        return (ForumEmotionViewHolder) invokeL.objValue;
+        return (ForumEmotionEmptyViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dc6 dc6Var, ForumEmotionViewHolder forumEmotionViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zb6 zb6Var, ForumEmotionEmptyViewHolder forumEmotionEmptyViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dc6Var, forumEmotionViewHolder})) == null) {
-            forumEmotionViewHolder.l(dc6Var, this.b, this.c, i);
-            return forumEmotionViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zb6Var, forumEmotionEmptyViewHolder})) == null) {
+            forumEmotionEmptyViewHolder.b(zb6Var, i, this.c, this.b);
+            return forumEmotionEmptyViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    public void u(xb6 xb6Var) {
+    public void u(vb6 vb6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xb6Var) == null) {
-            this.c = xb6Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vb6Var) == null) {
+            this.b = vb6Var;
         }
     }
 }

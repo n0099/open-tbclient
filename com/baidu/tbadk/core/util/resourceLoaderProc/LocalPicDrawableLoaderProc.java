@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.an;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.pg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -81,14 +81,14 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + (TbadkCoreApplication.getInst().getSkinType() == 1 ? SkinManager.nightSufix : "");
-            an m = o55.k().m(str3);
+            an m = m55.k().m(str3);
             if (m == null) {
                 Bitmap bitmap = SkinManager.getBitmap(pg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
                 an anVar = new an(bitmap, false, str2);
-                o55.k().d(str3, anVar);
+                m55.k().d(str3, anVar);
                 return anVar;
             }
             return m;

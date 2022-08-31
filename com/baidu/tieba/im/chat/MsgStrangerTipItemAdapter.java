@@ -10,7 +10,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,7 +102,7 @@ public class MsgStrangerTipItemAdapter extends MsgCommonItemAdapter<TextView> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
             TextView a2 = msgViewHolder.a();
-            os4 d = os4.d(a2);
+            ns4 d = ns4.d(a2);
             d.z(R.dimen.T_X09);
             d.A(R.string.F_X01);
             d.v(R.color.CAM_X0101);

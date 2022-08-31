@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.HorseRace;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dg6;
+import com.baidu.tieba.bg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetHorseRaceLampList.GetHorseRaceLampListResIdl;
 public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dg6 mData;
+    public bg6 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetLiveHorseRaceHttpResponseMessage() {
@@ -34,13 +34,13 @@ public class GetLiveHorseRaceHttpResponseMessage extends TbHttpResponsedMessage 
                 return;
             }
         }
-        this.mData = new dg6();
+        this.mData = new bg6();
     }
 
-    public dg6 getData() {
+    public bg6 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (dg6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (bg6) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

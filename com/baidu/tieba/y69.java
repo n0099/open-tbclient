@@ -29,7 +29,7 @@ public final class y69 {
         this.a = new x69();
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
+    public final List<com.baidu.ubs.analytics.a.l> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
@@ -39,6 +39,13 @@ public final class y69 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.b(i);
+        }
+    }
+
+    public final void c(com.baidu.ubs.analytics.a.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lVar) == null) {
+            this.a.c(lVar);
         }
     }
 }

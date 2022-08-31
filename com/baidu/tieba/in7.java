@@ -1,27 +1,27 @@
 package com.baidu.tieba;
-
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import java.io.File;
 /* loaded from: classes4.dex */
 public interface in7 {
-    public static final String a = File.separator;
-    public static final String b = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-    public static final String c = b + a + ".tieba_video_monitor";
-    public static final String d = c + a + "v1";
-    public static final String e;
-    public static final String f;
-    public static final String g;
+    void a(String str);
 
-    static {
-        StringBuilder sb = new StringBuilder();
-        sb.append(d);
-        sb.append(a);
-        e = sb.toString();
-        f = b + a + ".tieba_video_monitor_log";
-        g = f + a + "v1";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(g);
-        sb2.append(a);
-        sb2.toString();
-    }
+    void b(String str, int i, int i2, String str2);
+
+    void c(String str, int i, String str2);
+
+    boolean d(String str);
+
+    boolean e(String str);
+
+    void f(String str, int i, String str2);
+
+    void g(String str, int i, String str2);
+
+    void h(String str, String str2);
+
+    void i(String str, String str2);
+
+    void j(String str);
+
+    void k(String str);
+
+    void l(String str, int i, String str2);
 }

@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vh5 {
+public abstract class vh5 implements uh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
-    public List<String> b;
-    public int c;
-    public String d;
+    public yh5 a;
+    public nh5 b;
 
     public vh5() {
         Interceptable interceptable = $ic;
@@ -32,30 +25,21 @@ public class vh5 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void d(yh5 yh5Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yh5Var) == null) {
+            this.a = yh5Var;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("del_success");
-        if (optJSONArray != null) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
-                    this.a.add(optJSONArray.optString(i));
-                }
-            }
-        }
-        JSONArray optJSONArray2 = jSONObject.optJSONArray("del_fail");
-        if (optJSONArray2 != null) {
-            this.b = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                if (!TextUtils.isEmpty(optJSONArray2.optString(i2))) {
-                    this.b.add(optJSONArray2.optString(i2));
-                }
-            }
-        }
-        this.c = jSONObject.optInt("ret_type");
-        this.d = jSONObject.optString("text");
     }
+
+    @Override // com.baidu.tieba.uh5
+    public abstract void dismiss();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h(sh5 sh5Var);
 }

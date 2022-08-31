@@ -28,10 +28,10 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pn8;
+import com.baidu.tieba.nn8;
+import com.baidu.tieba.q65;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.s65;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.tu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
     public int a;
     public Context b;
     public FragmentTabWidget c;
-    public uu4 d;
+    public tu4 d;
     public FragmentTabSwellingView e;
     public int f;
     public b g;
@@ -178,7 +178,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         public int a;
         public TbFragmentTabIndicator b;
         public Fragment c;
-        public s65 d;
+        public q65 d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -259,9 +259,9 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                     if (this.i.contains(bVar)) {
                         return;
                     }
-                    s65 s65Var = bVar.d;
-                    if (s65Var != null) {
-                        s65Var.e();
+                    q65 q65Var = bVar.d;
+                    if (q65Var != null) {
+                        q65Var.e();
                     }
                     this.c.addView(bVar.b, i);
                     if (i == -1) {
@@ -290,9 +290,9 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
                     if (this.i.contains(bVar)) {
                         return;
                     }
-                    s65 s65Var = bVar.d;
-                    if (s65Var != null) {
-                        s65Var.e();
+                    q65 q65Var = bVar.d;
+                    if (q65Var != null) {
+                        q65Var.e();
                     }
                     this.c.b(bVar.b, i, z);
                     if (i == -1) {
@@ -496,7 +496,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             CustomViewPager customViewPager2 = new CustomViewPager(this.b);
             this.k = customViewPager2;
             customViewPager2.setId(R.id.obfuscated_res_0x7f091fbc);
-            pn8.c(this.k, 2);
+            nn8.c(this.k, 2);
             f(i);
             addView(this.k);
             removeView(this.n);
@@ -807,7 +807,7 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, pair) == null) {
             if (this.d == null) {
-                this.d = new uu4(this, R.color.common_color_10274);
+                this.d = new tu4(this, R.color.common_color_10274);
             }
             setShouldDrawIndicatorLine(false);
             setShouldDrawTopLine(false);
@@ -936,9 +936,9 @@ public class FragmentTabHost extends RelativeLayout implements FragmentTabWidget
             BdLog.e(th.getMessage());
         }
         for (b bVar : this.i) {
-            s65 s65Var = bVar.d;
-            if (s65Var != null) {
-                s65Var.f();
+            q65 q65Var = bVar.d;
+            if (q65Var != null) {
+                q65Var.f();
             }
         }
         this.i.clear();

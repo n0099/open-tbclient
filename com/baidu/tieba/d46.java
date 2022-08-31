@@ -1,13 +1,32 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.tieba.i46;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface d46 {
-    void a(p26 p26Var, long j, p46 p46Var, j26 j26Var);
+public final class d46 extends z36 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(p26 p26Var);
-
-    void c(int i, int i2);
-
-    void clear();
-
-    boolean d(p26 p26Var, long j, p46 p46Var, j26 j26Var);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d46() {
+        super(new AkTopRetainer(0.0f, 0.5f, 1, null), new g46());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((i46) objArr[0], (i46.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
 }

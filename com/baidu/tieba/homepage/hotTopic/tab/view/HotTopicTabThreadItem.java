@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by6;
 import com.baidu.tieba.cn4;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.zx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class HotTopicTabThreadItem extends RelativeLayout {
     public TextView h;
     public TextView i;
     public View j;
-    public by6 k;
-    public cn4<by6> l;
+    public zx6 k;
+    public cn4<zx6> l;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -80,7 +80,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             if (this.a.l != null) {
                 this.a.l.c(view2, this.a.k, this.a.k.a, this.a.k.a);
             }
-            ThreadCardUtils.jumpToPB((ho4) this.a.k.f, view2.getContext(), 2, false, true);
+            ThreadCardUtils.jumpToPB((go4) this.a.k.f, view2.getContext(), 2, false, true);
         }
     }
 
@@ -106,14 +106,14 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         e();
     }
 
-    public void c(by6 by6Var) {
-        by6 by6Var2;
+    public void c(zx6 zx6Var) {
+        zx6 zx6Var2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, by6Var) == null) || by6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, zx6Var) == null) || zx6Var == null) {
             return;
         }
-        this.k = by6Var;
-        if (TextUtils.isEmpty(by6Var.d)) {
+        this.k = zx6Var;
+        if (TextUtils.isEmpty(zx6Var.d)) {
             this.b.setVisibility(8);
             this.c.setVisibility(8);
             this.d.setVisibility(8);
@@ -122,46 +122,46 @@ public class HotTopicTabThreadItem extends RelativeLayout {
             layoutParams.addRule(3, R.id.obfuscated_res_0x7f0921c9);
             this.i.setLayoutParams(layoutParams);
         } else {
-            this.b.K(by6Var.d, 10, false);
+            this.b.K(zx6Var.d, 10, false);
             this.b.setVisibility(0);
             RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.i.getLayoutParams();
             layoutParams2.addRule(8, R.id.obfuscated_res_0x7f0906ff);
             layoutParams2.addRule(3, 0);
             this.i.setLayoutParams(layoutParams2);
-            if (by6Var.e > 0) {
+            if (zx6Var.e > 0) {
                 this.d.setVisibility(0);
                 this.c.setVisibility(0);
-                this.f.setText(StringUtils.translateSecondsToString(by6Var.e));
+                this.f.setText(StringUtils.translateSecondsToString(zx6Var.e));
             } else {
                 this.d.setVisibility(8);
                 this.c.setVisibility(8);
             }
         }
-        this.h.setText(by6Var.b);
-        int i = by6Var.c;
+        this.h.setText(zx6Var.b);
+        int i = zx6Var.c;
         if (i < 1000) {
             i = 1000;
         }
         String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(i);
         TextView textView = this.i;
         textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f089a, numberUniformFormatExtraWithRoundInt));
-        this.g.setText(String.valueOf(by6Var.a));
+        this.g.setText(String.valueOf(zx6Var.a));
         d();
-        cn4<by6> cn4Var = this.l;
-        if (cn4Var == null || (by6Var2 = this.k) == null) {
+        cn4<zx6> cn4Var = this.l;
+        if (cn4Var == null || (zx6Var2 = this.k) == null) {
             return;
         }
-        int i2 = by6Var2.a;
-        cn4Var.d(this, by6Var2, i2, i2);
+        int i2 = zx6Var2.a;
+        cn4Var.d(this, zx6Var2, i2, i2);
     }
 
     public final void d() {
-        by6 by6Var;
+        zx6 zx6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (by6Var = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (zx6Var = this.k) == null) {
             return;
         }
-        int indexTextColorRes = TagTextHelper.getIndexTextColorRes(by6Var.a);
+        int indexTextColorRes = TagTextHelper.getIndexTextColorRes(zx6Var.a);
         Drawable background = this.i.getBackground();
         DrawableCompat.setTint(background, SkinManager.getColor(indexTextColorRes));
         background.setAlpha(40);
@@ -207,7 +207,7 @@ public class HotTopicTabThreadItem extends RelativeLayout {
         this.a = i;
     }
 
-    public void setOnItemCoverListener(cn4<by6> cn4Var) {
+    public void setOnItemCoverListener(cn4<zx6> cn4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cn4Var) == null) {
             this.l = cn4Var;

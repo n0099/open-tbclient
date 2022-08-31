@@ -1,112 +1,148 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.play.VideoLoadingProgressView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class d98 {
     public static /* synthetic */ Interceptable $ic;
+    public static d98 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public ImageView b;
-    public VideoLoadingProgressView c;
-    public ObjectAnimator d;
-    public ObjectAnimator e;
-    public ObjectAnimator f;
+    public LinkedHashMap<String, Integer> a;
+    public CustomMessageListener b;
 
-    public d98(ViewGroup viewGroup) {
+    /* loaded from: classes3.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d98 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(d98 d98Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d98Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d98Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+                return;
+            }
+            this.a.a.clear();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947659494, "Lcom/baidu/tieba/d98;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947659494, "Lcom/baidu/tieba/d98;");
+        }
+    }
+
+    public d98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = viewGroup;
-        this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902fb);
-        this.c = (VideoLoadingProgressView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0902fc);
-        d();
+        this.a = new LinkedHashMap<>(150, 0.75f, true);
+        this.b = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public final void a() {
+    public static d98 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.d.cancel();
-            this.e.cancel();
-            this.f.cancel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (d98.class) {
+                    if (c == null) {
+                        c = new d98();
+                    }
+                }
+            }
+            return c;
         }
+        return (d98) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-            this.a.setVisibility(8);
-            this.c.h();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
     }
 
-    public void c() {
+    public int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-            this.e.start();
-            this.f.start();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Integer num = this.a.get(str);
+            if (num != null) {
+                return num.intValue();
+            }
+            return 0;
         }
+        return invokeL.intValue;
     }
 
-    public final void d() {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 1.0f, 0.5f);
-            this.e = ObjectAnimator.ofFloat(this.b, Key.ALPHA, 0.5f, 0.0f);
-            this.f = ObjectAnimator.ofFloat(this.c, Key.ALPHA, 1.0f, 0.0f);
-            this.d.setDuration(50L);
-            this.e.setDuration(50L);
-            this.f.setDuration(50L);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a();
-            this.c.j();
-        }
-    }
-
-    public void f(VideoLoadingProgressView.c cVar) {
-        VideoLoadingProgressView videoLoadingProgressView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) || (videoLoadingProgressView = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        videoLoadingProgressView.setLoadingAnimationListener(cVar);
+        this.a.remove(str);
     }
 
-    public void g() {
+    public void update(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            a();
-            this.b.setAlpha(1.0f);
-            this.c.setAlpha(1.0f);
-            this.a.setVisibility(0);
-            this.c.l();
-            this.d.start();
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            if (i == 0 && this.a.containsKey(str)) {
+                return;
+            }
+            this.a.put(str, Integer.valueOf(i));
         }
     }
 }

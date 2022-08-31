@@ -1,86 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xb7 {
+public class xb7 extends ic7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public int h;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public xb7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ic7, com.baidu.tieba.t85
+    public String getCacheKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    optJSONObject.optString("title");
-                    aVar.b = optJSONObject.optString("content");
-                    aVar.c = optJSONObject.optString("quote_content");
-                    aVar.d = optJSONObject.optString("fname");
-                    aVar.e = optJSONObject.optString("thread_id");
-                    aVar.f = optJSONObject.optString("post_id");
-                    aVar.h = optJSONObject.optInt("type");
-                    aVar.g = optJSONObject.optString("title");
-                    optJSONObject.optInt("thread_type");
-                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
-                    if (optJSONObject2 != null) {
-                        optJSONObject2.optString("id");
-                        optJSONObject2.optString("portrait");
-                        optJSONObject2.optInt("gender");
-                    }
-                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
-                    if (optJSONObject3 != null) {
-                        optJSONObject3.optString("id");
-                        aVar.a = optJSONObject3.optInt("gender");
-                    }
-                }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ic7, com.baidu.tieba.u85
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
-        return (a) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ic7, com.baidu.tieba.u85
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
     }
 }

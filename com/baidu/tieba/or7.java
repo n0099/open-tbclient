@@ -1,164 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.annotation.NonNull;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newlist.view.HotTopicListInfoItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.NewTopicList;
 /* loaded from: classes5.dex */
-public class or7 extends cn<qr7, b> {
+public class or7 implements pn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cn4<qr7> a;
+    public long a;
+    public int b;
+    public String c;
+    public String d;
+    public long e;
+    public String f;
+    public int g;
+    public int h;
 
-    /* loaded from: classes5.dex */
-    public class a implements cn4<qr7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(or7 or7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {or7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cn4
-        /* renamed from: a */
-        public void d(View view2, qr7 qr7Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, qr7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cn4
-        /* renamed from: b */
-        public void c(View view2, qr7 qr7Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, qr7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || qr7Var == null) {
-                return;
-            }
-            lr7.a("c13737", qr7Var, i);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicListInfoItem a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(HotTopicListInfoItem hotTopicListInfoItem) {
-            super(hotTopicListInfoItem);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicListInfoItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotTopicListInfoItem;
-        }
-
-        public void a(qr7 qr7Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, qr7Var) == null) || qr7Var == null) {
-                return;
-            }
-            this.a.a(qr7Var);
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a.d(i);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public or7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), pr7.a);
+    public or7(@NonNull NewTopicList newTopicList, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {newTopicList, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this);
+        this.b = i + 1;
+        this.c = newTopicList.topic_name;
+        this.d = newTopicList.topic_desc;
+        this.e = newTopicList.discuss_num.longValue();
+        this.f = newTopicList.topic_image;
+        this.g = newTopicList.topic_tag.intValue();
+        this.a = newTopicList.topic_id.longValue();
+        this.h = newTopicList.is_video_topic.intValue();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            HotTopicListInfoItem hotTopicListInfoItem = new HotTopicListInfoItem(viewGroup.getContext());
-            hotTopicListInfoItem.setOnItemCoverListener(this.a);
-            hotTopicListInfoItem.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            b bVar = new b(hotTopicListInfoItem);
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return bVar;
-        }
-        return (b) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qr7 qr7Var, b bVar) {
-        InterceptResult invokeCommon;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qr7Var, bVar})) == null) {
-            if (qr7Var == null || bVar == null) {
-                return null;
-            }
-            bVar.a(qr7Var);
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return bVar.getView();
-        }
-        return (View) invokeCommon.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.h == 1 : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? nr7.a : (BdUniqueId) invokeV.objValue;
     }
 }

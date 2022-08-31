@@ -1,170 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tieba.ala.alasquare.live_tab.view.TabLiveStageLiveView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class ms5 {
+public class ms5 extends hz5<kr5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<String> b;
-    public List<SdkLiveInfoData> c;
-    public List<pn> d;
-    public boolean e;
-    public String f;
-    public String g;
+    public View i;
+    public TabLiveStageLiveView j;
+    public int k;
 
-    public ms5(pr5 pr5Var, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ms5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pr5Var, str, str2};
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.e = false;
-        this.b = new ArrayList();
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-            this.e = true;
-        }
-        this.f = str;
-        this.g = str2;
-        a(pr5Var);
+        this.k = 0;
+        r();
     }
 
-    public boolean a(pr5 pr5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pr5Var)) == null) {
-            if (pr5Var == null) {
-                return false;
-            }
-            boolean e = e(pr5Var.b);
-            this.a = pr5Var.a;
-            return e;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = false;
-            List<String> list = this.b;
-            if (list != null) {
-                list.clear();
-            }
-            List<SdkLiveInfoData> list2 = this.c;
-            if (list2 != null) {
-                list2.clear();
-            }
-            List<pn> list3 = this.d;
-            if (list3 != null) {
-                list3.clear();
-            }
-        }
-    }
-
-    public final ArrayList<pn> c(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
-            ArrayList<pn> arrayList = new ArrayList<>();
-            int size = list.size();
-            for (int i = 0; i < size; i += 2) {
-                lr5 lr5Var = new lr5();
-                oq5 oq5Var = new oq5();
-                oq5Var.a = list.get(i);
-                oq5Var.f = true;
-                oq5Var.b = this.e;
-                oq5Var.c = this.f;
-                oq5Var.d = this.g;
-                int i2 = i + 1;
-                oq5Var.e = i2;
-                lr5Var.a = oq5Var;
-                if (i2 < size) {
-                    oq5 oq5Var2 = new oq5();
-                    oq5Var2.a = list.get(i2);
-                    oq5Var2.b = this.e;
-                    oq5Var2.c = this.f;
-                    oq5Var2.d = this.g;
-                    oq5Var2.e = i + 2;
-                    lr5Var.b = oq5Var2;
-                    oq5Var2.g = true;
-                } else {
-                    oq5Var.f = false;
-                    oq5Var.h = true;
-                }
-                arrayList.add(lr5Var);
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public List<pn> d() {
+    @Override // com.baidu.tieba.hz5
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.d)) {
-                arrayList.addAll(this.d);
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d082d : invokeV.intValue;
     }
 
-    public final boolean e(List<SdkLiveInfoData> list) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0201);
+            TabLiveStageLiveView tabLiveStageLiveView = this.j;
+            if (tabLiveStageLiveView != null) {
+                tabLiveStageLiveView.c();
             }
-            ArrayList arrayList = new ArrayList();
-            for (SdkLiveInfoData sdkLiveInfoData : list) {
-                if (sdkLiveInfoData != null) {
-                    String str = sdkLiveInfoData.liveId;
-                    if (!this.b.contains(str)) {
-                        arrayList.add(sdkLiveInfoData);
-                        this.b.add(str);
-                    }
-                }
-            }
-            if (ListUtils.isEmpty(arrayList)) {
-                return false;
-            }
-            this.c.addAll(arrayList);
-            ArrayList<pn> c = c(this.c);
-            this.d = c;
-            return !ListUtils.isEmpty(c);
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.i = h();
+            int[] b = br5.b(getContext());
+            int i = b[0];
+            int i2 = b[1];
+            TabLiveStageLiveView tabLiveStageLiveView = (TabLiveStageLiveView) this.i.findViewById(R.id.obfuscated_res_0x7f091f16);
+            this.j = tabLiveStageLiveView;
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) tabLiveStageLiveView.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = (FrameLayout.LayoutParams) new ViewGroup.LayoutParams(i, i2);
+            } else {
+                layoutParams.width = i;
+                layoutParams.height = i2;
+            }
+            layoutParams.gravity = 1;
+            this.j.setLayoutParams(layoutParams);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hz5
+    /* renamed from: s */
+    public void i(kr5 kr5Var) {
+        SdkLiveInfoData sdkLiveInfoData;
+        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, kr5Var) == null) || kr5Var == null || kr5Var.a == null) {
+            return;
+        }
+        int k = ri.k(this.c);
+        if (k != this.k) {
+            int[] b = br5.b(getContext());
+            int i = b[0];
+            int i2 = b[1];
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.j.getLayoutParams();
+            layoutParams.width = i;
+            layoutParams.height = i2;
+            this.j.setLayoutParams(layoutParams);
+            this.k = k;
+        }
+        this.j.setData(kr5Var.a.a, 101);
+        StatisticItem statisticItem = new StatisticItem("c13551");
+        lr5 lr5Var = kr5Var.a;
+        if (lr5Var != null && (sdkLiveInfoData = lr5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null) {
+            int a = br5.a(alaLiveInfo);
+            SdkLiveInfoData sdkLiveInfoData2 = kr5Var.a.a;
+            SdkLiveInfoData.YYExt yYExt = sdkLiveInfoData2.liveInfo.yyExt;
+            if (yYExt != null) {
+                TiebaStaticHelper.addYYParam(statisticItem, br5.j(yYExt, sdkLiveInfoData2.roomId));
+                str = TiebaStatic.YYValues.YY_LIVE;
+            } else {
+                str = "";
+            }
+            statisticItem.param("obj_param1", a);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
+        }
+        statisticItem.param(TiebaStatic.Params.ENTRY_NAME, "推荐");
+        statisticItem.param("nid", kr5Var.a.a.nid);
+        statisticItem.param(TiebaStatic.Params.LOGID, kr5Var.a.a.logid);
+        TiebaStatic.log(statisticItem);
     }
 }

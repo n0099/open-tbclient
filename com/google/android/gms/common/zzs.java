@@ -5,8 +5,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.tieba.ln9;
-import com.baidu.tieba.no9;
+import com.baidu.tieba.jn9;
+import com.baidu.tieba.lo9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public final class zzs extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new no9();
+        CREATOR = new lo9();
     }
 
     public zzs(String str, @Nullable IBinder iBinder, boolean z, boolean z2) {
@@ -106,17 +106,17 @@ public final class zzs extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.k(parcel, 1, this.zza, false);
+            int a = jn9.a(parcel);
+            jn9.k(parcel, 1, this.zza, false);
             zzi zziVar = this.zzb;
             if (zziVar == null) {
                 Log.w("GoogleCertificatesQuery", "certificate binder is null");
                 zziVar = null;
             }
-            ln9.f(parcel, 2, zziVar, false);
-            ln9.c(parcel, 3, this.zzc);
-            ln9.c(parcel, 4, this.zzd);
-            ln9.b(parcel, a);
+            jn9.f(parcel, 2, zziVar, false);
+            jn9.c(parcel, 3, this.zzc);
+            jn9.c(parcel, 4, this.zzd);
+            jn9.b(parcel, a);
         }
     }
 }

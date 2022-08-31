@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import com.squareup.wire.Message;
-import org.json.JSONObject;
+import com.baidu.adp.BdUniqueId;
 /* loaded from: classes3.dex */
-public interface a95 extends t85 {
-    void initByJson(JSONObject jSONObject);
+public interface a95 {
+    boolean S0();
 
-    void initByProtobuf(Message message);
+    BdUniqueId getUniqueId();
+
+    boolean s0(b95 b95Var);
 }

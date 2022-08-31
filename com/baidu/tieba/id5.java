@@ -1,63 +1,195 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.kd5;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class id5 extends gd5<n65, kd5.b> {
+public class id5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
+    public d a;
+    public a b;
+    public b c;
 
-    public id5(TbPageContext<?> tbPageContext) {
+    /* loaded from: classes4.dex */
+    public static class a extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = id5.c(R.string.obfuscated_res_0x7f0f0c59, new Object[0]);
+            this.e = id5.c(R.string.obfuscated_res_0x7f0f0fbc, new Object[0]);
+            this.f = false;
+            this.g = ri.f(id5.getContext(), R.dimen.obfuscated_res_0x7f0702bf);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = ri.f(id5.getContext(), R.dimen.obfuscated_res_0x7f070292);
+            this.e = id5.c(R.string.obfuscated_res_0x7f0f0fbc, new Object[0]);
+            this.f = id5.c(R.string.obfuscated_res_0x7f0f0fbd, new Object[0]);
+            this.g = id5.c(R.string.obfuscated_res_0x7f0f0488, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ri.f(id5.getContext(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = id5.c(R.string.obfuscated_res_0x7f0f0a40, new Object[0]);
+            this.d = id5.c(R.string.obfuscated_res_0x7f0f0dda, new Object[0]);
+            this.e = id5.c(R.string.obfuscated_res_0x7f0f09ee, new Object[0]);
+            this.f = id5.c(R.string.obfuscated_res_0x7f0f03ef, new Object[0]);
+            this.g = false;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = id5.c(R.string.obfuscated_res_0x7f0f0a46, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public id5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd5
-    /* renamed from: g */
-    public void d(ViewType viewType, n65 n65Var, kd5.b bVar) {
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, n65Var, bVar) == null) {
-            n65Var.m((!bVar.b || TextUtils.isEmpty(bVar.a)) ? bVar.g : bVar.a);
-            n65Var.k(bVar.d);
-            n65Var.i(bVar.c);
-            n65Var.n(bVar.f);
-            n65Var.g(bVar.e);
-            n65Var.p();
-            n65Var.onChangeSkinType();
-            n65Var.c().setOnClickListener(bVar.h);
-        }
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) ? getContext().getString(i, objArr) : (String) invokeIL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd5
-    /* renamed from: h */
-    public n65 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public static Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new n65(this.e.getPageActivity(), null) : (n65) invokeLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? TbadkCoreApplication.getInst().getApplicationContext() : (Context) invokeV.objValue;
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.bf5;
 import com.baidu.tieba.df5;
-import com.baidu.tieba.ff5;
 import com.baidu.tieba.il4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -23,8 +23,8 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final ff5<Integer> a;
-    public static final ff5<Integer> b;
+    public static final df5<Integer> a;
+    public static final df5<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -209,7 +209,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                df5.b(landingType);
+                bf5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -618,8 +618,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new ff5<>(3000, TimeUnit.MILLISECONDS);
-        b = new ff5<>(3000, TimeUnit.MILLISECONDS);
+        a = new df5<>(3000, TimeUnit.MILLISECONDS);
+        b = new df5<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {

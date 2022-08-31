@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ia8;
-import com.baidu.tieba.la8;
-import com.baidu.tieba.mb5;
+import com.baidu.tieba.ga8;
+import com.baidu.tieba.ja8;
+import com.baidu.tieba.kb5;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,10 +35,10 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
     public PostSearchActivity a;
     public View b;
     public BdListView c;
-    public la8 d;
+    public ja8 d;
     public PbListView e;
     public NoDataView f;
-    public ia8 g;
+    public ga8 g;
     public int h;
     public String i;
 
@@ -90,9 +90,9 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.a = (PostSearchActivity) getBaseFragmentActivity();
-            la8 la8Var = new la8(this.a.getPageContext());
-            this.d = la8Var;
-            la8Var.f(this.h);
+            ja8 ja8Var = new ja8(this.a.getPageContext());
+            this.d = ja8Var;
+            ja8Var.f(this.h);
             BdListViewHelper.d(this.a.getActivity(), this.c, BdListViewHelper.HeadType.HASTAB);
             this.c.setAdapter((ListAdapter) this.d);
             PbListView pbListView = new PbListView(this.a.getPageContext().getPageActivity());
@@ -109,15 +109,15 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
             super.onChangeSkinType(i);
             PostSearchActivity postSearchActivity = this.a;
             if (postSearchActivity != null) {
-                mb5.a(postSearchActivity.getPageContext(), this.b);
+                kb5.a(postSearchActivity.getPageContext(), this.b);
             }
             PbListView pbListView = this.e;
             if (pbListView != null) {
                 pbListView.d(i);
             }
-            la8 la8Var = this.d;
-            if (la8Var != null) {
-                la8Var.notifyDataSetChanged();
+            ja8 ja8Var = this.d;
+            if (ja8Var != null) {
+                ja8Var.notifyDataSetChanged();
             }
         }
     }
@@ -148,19 +148,19 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        ia8 ia8Var;
+        ga8 ga8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !StringUtils.isNull(this.i) && (ia8Var = this.g) != null && ia8Var.b() && this.a.E0().l(this.i, this.h)) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !StringUtils.isNull(this.i) && (ga8Var = this.g) != null && ga8Var.b() && this.a.E0().l(this.i, this.h)) {
             B1();
         }
     }
 
     public void r1() {
-        List<ia8.a> list;
+        List<ga8.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ia8 ia8Var = this.g;
-            if (ia8Var != null && (list = ia8Var.a) != null) {
+            ga8 ga8Var = this.g;
+            if (ga8Var != null && (list = ga8Var.a) != null) {
                 list.clear();
                 this.d.c(this.g.a);
                 this.d.notifyDataSetChanged();
@@ -195,18 +195,18 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         }
     }
 
-    public void v1(ia8 ia8Var, boolean z) {
-        ia8 ia8Var2;
-        List<ia8.a> list;
-        List<ia8.a> list2;
-        ia8 ia8Var3;
-        List<ia8.a> list3;
+    public void v1(ga8 ga8Var, boolean z) {
+        ga8 ga8Var2;
+        List<ga8.a> list;
+        List<ga8.a> list2;
+        ga8 ga8Var3;
+        List<ga8.a> list3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048588, this, ia8Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048588, this, ga8Var, z) == null) {
             t1();
             hideLoadingView(this.b);
-            if (ia8Var == null || (list2 = ia8Var.a) == null || list2.size() == 0) {
-                if (z && (ia8Var2 = this.g) != null && (list = ia8Var2.a) != null && list.size() != 0) {
+            if (ga8Var == null || (list2 = ga8Var.a) == null || list2.size() == 0) {
+                if (z && (ga8Var2 = this.g) != null && (list = ga8Var2.a) != null && list.size() != 0) {
                     if (this.g.b.b() == 1) {
                         x1();
                         return;
@@ -218,15 +218,15 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
                 s1();
                 z1();
                 this.c.setVisibility(8);
-                this.g = ia8Var;
+                this.g = ga8Var;
                 return;
             }
-            if (z && (ia8Var3 = this.g) != null && (list3 = ia8Var3.a) != null && list3.size() != 0) {
-                ia8 ia8Var4 = this.g;
-                ia8Var4.b = ia8Var.b;
-                ia8Var4.a.addAll(ia8Var.a);
+            if (z && (ga8Var3 = this.g) != null && (list3 = ga8Var3.a) != null && list3.size() != 0) {
+                ga8 ga8Var4 = this.g;
+                ga8Var4.b = ga8Var.b;
+                ga8Var4.a.addAll(ga8Var.a);
             } else {
-                this.g = ia8Var;
+                this.g = ga8Var;
             }
             if (z) {
                 C1();
@@ -259,8 +259,8 @@ public class PostSearchListFragment extends BaseFragment implements BdListView.p
         }
         boolean z2 = true;
         boolean z3 = !str.equals(this.i) || z;
-        ia8 ia8Var = this.g;
-        if (ia8Var != null && (ia8Var == null || ia8Var.a())) {
+        ga8 ga8Var = this.g;
+        if (ga8Var != null && (ga8Var == null || ga8Var.a())) {
             z2 = z3;
         }
         if (z2) {

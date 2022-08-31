@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -286,7 +285,7 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
-                String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+                String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
                         return true;
@@ -303,7 +302,7 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, h.c)) {
-                String subscriberId = ApiReplaceUtil.getSubscriberId((TelephonyManager) context.getSystemService("phone"));
+                String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {
                         return true;

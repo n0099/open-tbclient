@@ -12,16 +12,15 @@ public class jp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final un8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2007009);
+    public jp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2921414);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,22 +32,16 @@ public class jp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = un8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        mz8 mz8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
-            Integer num = (Integer) customResponsedMessage.getData();
-            if (num.intValue() == 2) {
-                this.b.v(true);
-            } else if (num.intValue() == 1) {
-                this.b.v(false);
-            } else {
-                this.b.v(false);
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || (mz8Var = this.a.r) == null) {
+            return;
         }
+        mz8Var.z();
     }
 }

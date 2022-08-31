@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho4;
+import com.baidu.tieba.go4;
 import com.baidu.tieba.ix;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements ix<ho4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements ix<go4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -144,19 +144,19 @@ public class RichTextLayout extends LinearLayout implements ix<ho4>, View.OnClic
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: d */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho4Var) == null) || ho4Var == null || ho4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go4Var) == null) || go4Var == null || go4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = ho4Var.getThreadData();
+        ThreadData threadData = go4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.e) {
             this.b.setVisibility(8);
-            os4 d = os4.d(this.c);
+            ns4 d = ns4.d(this.c);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
-            if (!originalThreadInfo.m && !ho4Var.getThreadData().shouldShowBlockedState()) {
+            if (!originalThreadInfo.m && !go4Var.getThreadData().shouldShowBlockedState()) {
                 SpannableString c = originalThreadInfo.c();
                 ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                 if (c != null) {

@@ -25,13 +25,13 @@ public class gi3 extends dp1 {
 
         /* renamed from: com.baidu.tieba.gi3$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0267a implements tf3<d63<f63.e>> {
+        public class C0271a implements tf3<d63<f63.e>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ cp1.b a;
             public final /* synthetic */ a b;
 
-            public C0267a(a aVar, cp1.b bVar) {
+            public C0271a(a aVar, cp1.b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,7 +97,7 @@ public class gi3 extends dp1 {
                 if (b0 == null) {
                     return new at1(1001, "null swan runtime");
                 }
-                b0.e0().g(z03.K(), "mapp_i_get_bduss", new C0267a(this, bVar));
+                b0.e0().g(z03.K(), "mapp_i_get_bduss", new C0271a(this, bVar));
                 return at1.f();
             }
             return (at1) invokeLL.objValue;

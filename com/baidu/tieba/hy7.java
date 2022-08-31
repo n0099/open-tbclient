@@ -1,46 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.SmartApp;
 /* loaded from: classes4.dex */
 public class hy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public View a;
-    public ViewGroup b;
-    public EMTextView c;
-    @NonNull
-    public ff5<String> d;
-    public boolean e;
+    public PbFragment a;
+    public View.OnClickListener b;
+    public RelativeLayout c;
+    public HeadImageView d;
+    public TextView e;
+    public TextView f;
+    public ImageView g;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(boolean z);
-    }
-
-    public hy7(@NonNull Context context) {
+    public hy7(PbFragment pbFragment, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {pbFragment, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,106 +43,101 @@ public class hy7 {
                 return;
             }
         }
-        this.d = ff5.b();
-        this.e = false;
-        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0630, (ViewGroup) null);
+        this.b = null;
+        this.a = pbFragment;
+        this.b = onClickListener;
         b();
     }
 
-    public void a(@NonNull BdTypeListView bdTypeListView) {
+    public void a(BdTypeListView bdTypeListView, int i) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) || this.e) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, bdTypeListView, i) == null) || bdTypeListView == null || (relativeLayout = this.c) == null) {
             return;
         }
-        this.e = true;
-        this.a.setVisibility(0);
-        bdTypeListView.x(this.a, 1);
+        bdTypeListView.x(relativeLayout, i);
     }
 
-    public final void b() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906bd);
-            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f092381);
-            this.c = eMTextView;
-            os4 d = os4.d(eMTextView);
-            d.w(R.dimen.M_H_X003);
-            d.v(R.color.CAM_X0109);
-            d.A(R.string.F_X01);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d06d6, (ViewGroup) null);
+            this.c = relativeLayout;
+            HeadImageView headImageView = (HeadImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f091003);
+            this.d = headImageView;
+            headImageView.setIsRound(true);
+            this.d.setPlaceHolder(1);
+            this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092386);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092385);
+            this.g = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091002);
+            this.c.setOnClickListener(this.b);
         }
     }
 
-    public void c() {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            os4 d = os4.d(this.b);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-        }
-    }
-
-    public void d(@NonNull BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.e) {
-            this.e = false;
-            this.a.setVisibility(8);
-            bdTypeListView.removeHeaderView(this.a);
-        }
-    }
-
-    public void e(@NonNull mt7 mt7Var, int i, @Nullable a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, mt7Var, i, aVar) == null) {
-            boolean z = true;
-            boolean z2 = i == 4;
-            boolean z3 = i == 25;
-            if (!z2 && !z3) {
-                z = false;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            RelativeLayout relativeLayout = this.c;
+            if (relativeLayout != null) {
+                SkinManager.setBackgroundColor(relativeLayout, R.color.CAM_X0204);
             }
-            boolean r0 = mt7Var.r0(z);
-            if (r0) {
-                this.c.setText(mt7Var.x());
-                this.a.setVisibility(0);
-                f(mt7Var.Q(), mt7Var.m(), mt7Var.n(), z2, z3);
+            HeadImageView headImageView = this.d;
+            if (headImageView != null) {
+                headImageView.setSkinType(i);
+            }
+            TextView textView = this.e;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            }
+            TextView textView2 = this.f;
+            if (textView2 != null) {
+                SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            }
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                SkinManager.setBackgroundResource(imageView, R.drawable.icon_common_arrow16_right_n);
+            }
+        }
+    }
+
+    public void d(BdTypeListView bdTypeListView) {
+        RelativeLayout relativeLayout;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) || bdTypeListView == null || (relativeLayout = this.c) == null) {
+            return;
+        }
+        bdTypeListView.removeHeaderView(relativeLayout);
+    }
+
+    public void e(kt7 kt7Var, BdTypeListView bdTypeListView) {
+        String charSequence;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, kt7Var, bdTypeListView) == null) || kt7Var == null || bdTypeListView == null) {
+            return;
+        }
+        if (kt7Var.O().isVideoThreadType() && kt7Var.O().getSmartApp() != null) {
+            SmartApp smartApp = kt7Var.O().getSmartApp();
+            this.c.setVisibility(0);
+            d(bdTypeListView);
+            a(bdTypeListView, 1);
+            if (!qi.isEmpty(smartApp.avatar)) {
+                this.d.L(smartApp.avatar, 10, false, false);
+            }
+            if (!qi.isEmpty(smartApp.name)) {
+                charSequence = smartApp.name + " " + ((Object) this.a.getText(R.string.obfuscated_res_0x7f0f11ac));
             } else {
-                this.a.setVisibility(8);
+                charSequence = this.a.getText(R.string.obfuscated_res_0x7f0f090b).toString();
             }
-            if (aVar != null) {
-                aVar.a(r0);
+            this.e.setText(charSequence);
+            if (!qi.isEmpty(smartApp._abstract)) {
+                this.f.setText(smartApp._abstract);
+            } else {
+                this.f.setText(this.a.getText(R.string.obfuscated_res_0x7f0f11ab));
             }
+            this.c.setTag(smartApp);
+            return;
         }
-    }
-
-    public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) && this.d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
-            int i = z ? 1 : 2;
-            if (z2) {
-                i = 3;
-            }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", i));
-        }
-    }
-
-    public hy7(@NonNull View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = ff5.b();
-        this.e = false;
-        this.a = view2;
-        b();
+        this.c.setVisibility(8);
+        d(bdTypeListView);
     }
 }

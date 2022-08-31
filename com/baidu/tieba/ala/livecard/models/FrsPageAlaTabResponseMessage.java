@@ -4,7 +4,7 @@ import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pn;
-import com.baidu.tieba.vg6;
+import com.baidu.tieba.tg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
     public String errMsg;
     public ArrayList<pn> mAltList;
     public ArrayList<pn> mThreadList;
-    public vg6 pageInfo;
+    public tg6 pageInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsPageAlaTabResponseMessage(int i) {
@@ -56,9 +56,9 @@ public class FrsPageAlaTabResponseMessage extends JsonHttpResponsedMessage {
             this.errMsg = jSONObject.optString("errmsg");
             this.alaLiveCount = jSONObject.optInt("ala_live_count");
             JSONObject optJSONObject = jSONObject.optJSONObject("page");
-            vg6 vg6Var = new vg6();
-            this.pageInfo = vg6Var;
-            vg6Var.g = optJSONObject.optInt("has_more") == 1;
+            tg6 tg6Var = new tg6();
+            this.pageInfo = tg6Var;
+            tg6Var.g = optJSONObject.optInt("has_more") == 1;
             this.pageInfo.c = optJSONObject.optInt("pn");
             if (getOrginalMessage() instanceof FrsPageAlaTabRequestMessage) {
                 FrsPageAlaTabRequestMessage frsPageAlaTabRequestMessage = (FrsPageAlaTabRequestMessage) getOrginalMessage();

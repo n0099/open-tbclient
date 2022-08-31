@@ -9,9 +9,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView;
+import com.baidu.tieba.ll6;
 import com.baidu.tieba.nl6;
 import com.baidu.tieba.pl6;
-import com.baidu.tieba.rl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,18 +24,18 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     public final FrsGameStrategyItemListView[] a;
     public int b;
     public Context c;
-    public nl6 d;
-    public pl6 e;
+    public ll6 d;
+    public nl6 e;
     public FrsGameStrategyItemListView f;
     public int g;
     public BdUniqueId h;
 
-    public FrsGameTabPagerAdapter(Context context, nl6 nl6Var, pl6 pl6Var) {
+    public FrsGameTabPagerAdapter(Context context, ll6 ll6Var, nl6 nl6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, nl6Var, pl6Var};
+            Object[] objArr = {context, ll6Var, nl6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,8 +49,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
         this.b = 0;
         this.g = -1;
         this.c = context;
-        this.d = nl6Var;
-        this.e = pl6Var;
+        this.d = ll6Var;
+        this.e = nl6Var;
     }
 
     public FrsGameStrategyItemListView b() {
@@ -160,7 +160,7 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
     @Override // androidx.viewpager.widget.PagerAdapter
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
-        rl6 a;
+        pl6 a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, viewGroup, i)) == null) {
             int i2 = i % 3;
@@ -182,8 +182,8 @@ public class FrsGameTabPagerAdapter extends PagerAdapter {
                 viewGroup.removeView(d);
             }
             viewGroup.addView(d);
-            pl6 pl6Var = this.e;
-            if (pl6Var != null && (a = pl6Var.a(i)) != null) {
+            nl6 nl6Var = this.e;
+            if (nl6Var != null && (a = nl6Var.a(i)) != null) {
                 Object obj = a.c;
                 if (obj instanceof LabelDataList) {
                     d.o(a.a, ((LabelDataList) obj).getSelectedLabelId());

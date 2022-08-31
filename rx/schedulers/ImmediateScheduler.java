@@ -1,6 +1,6 @@
 package rx.schedulers;
 
-import com.baidu.tieba.dv9;
+import com.baidu.tieba.bv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
 /* loaded from: classes8.dex */
-public final class ImmediateScheduler extends dv9 {
+public final class ImmediateScheduler extends bv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,13 +28,13 @@ public final class ImmediateScheduler extends dv9 {
         throw new IllegalStateException("No instances!");
     }
 
-    @Override // com.baidu.tieba.dv9
-    public dv9.a createWorker() {
+    @Override // com.baidu.tieba.bv9
+    public bv9.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (dv9.a) invokeV.objValue;
+        return (bv9.a) invokeV.objValue;
     }
 }

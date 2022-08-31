@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
+import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class on6 extends sw<vn6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemGameCodeLayout f;
+    public final CardItemRecentUpdateLayout f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public on6(Context context) {
@@ -34,7 +34,7 @@ public class on6 extends sw<vn6> {
                 return;
             }
         }
-        this.f = new CardItemGameCodeLayout(context);
+        this.f = new CardItemRecentUpdateLayout(context);
     }
 
     @Override // com.baidu.tieba.sw
@@ -58,7 +58,7 @@ public class on6 extends sw<vn6> {
     public void a(vn6 vn6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, vn6Var) == null) {
-            this.f.setData(vn6Var);
+            this.f.setData(vn6Var.c());
         }
     }
 }

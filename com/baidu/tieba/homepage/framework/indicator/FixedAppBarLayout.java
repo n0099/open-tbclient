@@ -39,14 +39,14 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gz4;
 import com.baidu.tieba.homepage.personalize.view.HomeTabBarView;
-import com.baidu.tieba.iz4;
 import com.baidu.tieba.mn4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.tu4;
+import com.baidu.tieba.su4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -431,7 +431,7 @@ public class FixedAppBarLayout extends AppBarLayout {
         alaLiveTipView.setViewLocate(1);
         this.a.b.setHasBubble(false);
         if (this.a.b.getVisibility() != 0) {
-            iz4.f();
+            gz4.f();
         }
         this.a.b.setVisibility(0);
     }
@@ -482,12 +482,12 @@ public class FixedAppBarLayout extends AppBarLayout {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            String[] split = tu4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
+            String[] split = su4.k().q("key_home_page_seacher_anim_show_number", "").split(",");
             long currentTimeMillis = System.currentTimeMillis();
             if (split.length >= 7 || TimeHelper.isSameDay(pg.g(split[split.length - 1], 0L), currentTimeMillis)) {
                 return false;
             }
-            tu4 k = tu4.k();
+            su4 k = su4.k();
             if (split.length == 6) {
                 str = String.valueOf(currentTimeMillis);
             } else {
@@ -505,17 +505,17 @@ public class FixedAppBarLayout extends AppBarLayout {
             setImageBackgroundVisibility(8);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0208);
             this.a.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a07, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
-            os4 d2 = os4.d(this.a.g);
+            ns4 d2 = ns4.d(this.a.g);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);
             if (TbadkApplication.getInst().getSkinType() != 1 && TbadkApplication.getInst().getSkinType() != 4) {
-                os4 d3 = os4.d(this.a.h);
+                ns4 d3 = ns4.d(this.a.h);
                 d3.l(R.dimen.L_X01);
                 d3.k(R.color.CAM_X0113);
                 d3.n(R.string.J_X01);
                 d3.f(R.color.CAM_X0211);
             } else {
-                os4 d4 = os4.d(this.a.h);
+                ns4 d4 = ns4.d(this.a.h);
                 d4.n(R.string.J_X01);
                 d4.f(R.color.CAM_X0211);
             }

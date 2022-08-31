@@ -44,22 +44,22 @@ import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.c9;
+import com.baidu.tieba.dc6;
+import com.baidu.tieba.ec6;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.faceshop.EmotionPackageDetailModel;
 import com.baidu.tieba.faceshop.packagedetail.PackageDetailListView;
-import com.baidu.tieba.fc6;
-import com.baidu.tieba.gc6;
 import com.baidu.tieba.gi;
-import com.baidu.tieba.jk8;
+import com.baidu.tieba.hk8;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
 import com.baidu.tieba.newfaceshop.NewFaceGroupShareModel;
+import com.baidu.tieba.oa6;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.qa6;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.wr4;
+import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,15 +74,15 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
     public View A;
     public EmotionPackageData B;
     public int C;
-    public wr4 D;
-    public wr4 E;
+    public vr4 D;
+    public vr4 E;
     public ImageView F;
     public NewFaceGroupDownloadModel G;
     public NewFaceGroupShareModel H;
     public String I;
     public View J;
     public LikeModel K;
-    public gc6 L;
+    public ec6 L;
     public int M;
     public final CustomMessageListener N;
     public final CustomMessageListener O;
@@ -276,7 +276,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         public final /* synthetic */ EmotionPackageDetailActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements wr4.e {
+        public class a implements vr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -299,18 +299,18 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 this.a = eVar;
             }
 
-            @Override // com.baidu.tieba.wr4.e
-            public void onClick(wr4 wr4Var) {
+            @Override // com.baidu.tieba.vr4.e
+            public void onClick(vr4 vr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
                     this.a.a.l2();
-                    wr4Var.dismiss();
+                    vr4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements wr4.e {
+        public class b implements vr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -330,11 +330,11 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 }
             }
 
-            @Override // com.baidu.tieba.wr4.e
-            public void onClick(wr4 wr4Var) {
+            @Override // com.baidu.tieba.vr4.e
+            public void onClick(vr4 vr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                    wr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                    vr4Var.dismiss();
                 }
             }
         }
@@ -363,7 +363,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && pi.z()) {
                 if (this.a.D == null) {
                     EmotionPackageDetailActivity emotionPackageDetailActivity = this.a;
-                    emotionPackageDetailActivity.D = new wr4(emotionPackageDetailActivity.getPageContext().getPageActivity());
+                    emotionPackageDetailActivity.D = new vr4(emotionPackageDetailActivity.getPageContext().getPageActivity());
                     this.a.D.setMessageId(R.string.obfuscated_res_0x7f0f0d24);
                     this.a.D.setPositiveButton(R.string.obfuscated_res_0x7f0f0d25, new a(this));
                     this.a.D.setNegativeButton(R.string.obfuscated_res_0x7f0f04ea, new b(this));
@@ -466,7 +466,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                             this.a.s.setEnabled(false);
                         }
                     }
-                    if (qa6.c().e("" + this.a.C)) {
+                    if (oa6.c().e("" + this.a.C)) {
                         this.a.v.setText(R.string.obfuscated_res_0x7f0f027a);
                         SkinManager.setViewTextColor(this.a.v, (int) R.color.CAM_X0109);
                         SkinManager.setImageResource(this.a.u, R.drawable.icon_bar_downloaded);
@@ -569,7 +569,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         public final /* synthetic */ EmotionPackageDetailActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements wr4.e {
+        public class a implements vr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -592,18 +592,18 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 this.a = hVar;
             }
 
-            @Override // com.baidu.tieba.wr4.e
-            public void onClick(wr4 wr4Var) {
+            @Override // com.baidu.tieba.vr4.e
+            public void onClick(vr4 vr4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                    wr4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) {
+                    vr4Var.dismiss();
                     this.a.a.s.setEnabled(true);
                 }
             }
         }
 
         /* loaded from: classes4.dex */
-        public class b implements wr4.e {
+        public class b implements vr4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -626,10 +626,10 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                 this.a = hVar;
             }
 
-            @Override // com.baidu.tieba.wr4.e
-            public void onClick(wr4 wr4Var) {
+            @Override // com.baidu.tieba.vr4.e
+            public void onClick(vr4 vr4Var) {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) || this.a.a.B == null || TextUtils.isEmpty(this.a.a.B.forum_name)) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, vr4Var) == null) || this.a.a.B == null || TextUtils.isEmpty(this.a.a.B.forum_name)) {
                     return;
                 }
                 this.a.a.m2();
@@ -673,7 +673,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             } else if (httpResponsedMessage.getError() == 170003) {
                 if (this.a.E == null) {
                     EmotionPackageDetailActivity emotionPackageDetailActivity2 = this.a;
-                    emotionPackageDetailActivity2.E = new wr4(emotionPackageDetailActivity2.getPageContext().getPageActivity());
+                    emotionPackageDetailActivity2.E = new vr4(emotionPackageDetailActivity2.getPageContext().getPageActivity());
                     this.a.E.setMessageId(R.string.obfuscated_res_0x7f0f0d23);
                     this.a.E.setNegativeButton(R.string.obfuscated_res_0x7f0f0d21, new a(this));
                     this.a.E.setPositiveButton(R.string.obfuscated_res_0x7f0f0d22, new b(this));
@@ -729,11 +729,11 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                         EmotionPackageDetailActivity emotionPackageDetailActivity = this.a;
                         emotionPackageDetailActivity.showToast(emotionPackageDetailActivity.K.getErrorString());
                     } else {
-                        jk8 jk8Var = (jk8) obj;
-                        if (jk8Var != null) {
+                        hk8 hk8Var = (hk8) obj;
+                        if (hk8Var != null) {
                             TbadkApplication.getInst().addLikeForum(this.a.B.forum_name);
-                            jk8Var.x(1);
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, jk8Var));
+                            hk8Var.x(1);
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, hk8Var));
                         } else {
                             ri.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0c40);
                         }
@@ -778,9 +778,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof fc6)) {
-                fc6 fc6Var = (fc6) customResponsedMessage.getData();
-                int i = fc6Var.a;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof dc6)) {
+                dc6 dc6Var = (dc6) customResponsedMessage.getData();
+                int i = dc6Var.a;
                 if (i == 0) {
                     ri.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f04fc);
                     SkinManager.setImageResource(this.a.u, R.drawable.icon_bar_downloaded);
@@ -795,7 +795,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
                     ri.M(this.a.getActivity(), R.string.obfuscated_res_0x7f0f0501);
                     this.a.t.setEnabled(true);
                 } else if (i == 2) {
-                    int i2 = fc6Var.b;
+                    int i2 = dc6Var.b;
                     if (i2 > 0 && i2 < 100) {
                         ri.K(this.a.getActivity(), this.a.getString(R.string.obfuscated_res_0x7f0f0d2f));
                     } else if (i2 >= 100) {
@@ -933,9 +933,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            gc6 gc6Var = this.L;
-            if (gc6Var != null) {
-                gc6Var.y(i2);
+            ec6 ec6Var = this.L;
+            if (ec6Var != null) {
+                ec6Var.y(i2);
             }
         }
     }
@@ -1016,9 +1016,9 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            gc6 gc6Var = this.L;
-            if (gc6Var != null) {
-                gc6Var.s();
+            ec6 ec6Var = this.L;
+            if (ec6Var != null) {
+                ec6Var.s();
             }
         }
     }
@@ -1111,7 +1111,7 @@ public class EmotionPackageDetailActivity extends BaseActivity<EmotionPackageDet
             findViewById3.setOnClickListener(this);
             this.x = (ImageView) findViewById(R.id.obfuscated_res_0x7f0925cc);
             this.y = (TextView) findViewById(R.id.obfuscated_res_0x7f0925dd);
-            this.L = new gc6(this);
+            this.L = new ec6(this);
         }
     }
 

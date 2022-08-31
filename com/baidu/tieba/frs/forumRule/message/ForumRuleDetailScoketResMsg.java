@@ -3,7 +3,7 @@ package com.baidu.tieba.frs.forumRule.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vk6;
+import com.baidu.tieba.tk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.ForumRuleDetail.ForumRuleDetailResIdl;
 public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk6 mForumRuleDetailData;
+    public tk6 mForumRuleDetailData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailScoketResMsg() {
@@ -53,9 +53,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
                     setErrorString(forumRuleDetailResIdl.error.usermsg);
                 }
                 if (forumRuleDetailResIdl.data != null) {
-                    vk6 vk6Var = new vk6();
-                    this.mForumRuleDetailData = vk6Var;
-                    vk6Var.q(forumRuleDetailResIdl.data);
+                    tk6 tk6Var = new tk6();
+                    this.mForumRuleDetailData = tk6Var;
+                    tk6Var.q(forumRuleDetailResIdl.data);
                 }
             }
             return forumRuleDetailResIdl;
@@ -63,9 +63,9 @@ public class ForumRuleDetailScoketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public vk6 getmForumRuleDetailData() {
+    public tk6 getmForumRuleDetailData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumRuleDetailData : (vk6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mForumRuleDetailData : (tk6) invokeV.objValue;
     }
 }

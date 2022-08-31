@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,16 +12,16 @@ public class tp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final un8 b;
+    public fo8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2921452);
+    public tp8(MainTabActivity mainTabActivity) {
+        super(2921636);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,36 +33,40 @@ public class tp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = un8Var;
-    }
-
-    public final void a() {
-        un8 un8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            sn8 sn8Var = this.a.x;
-            if (sn8Var != null) {
-                sn8Var.h();
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921032));
-            MainTabActivity mainTabActivity = this.a;
-            if (mainTabActivity.r == null) {
-                mainTabActivity.r = new oz8(mainTabActivity.getPageContext(), this.a.q, "main_tab", 3, null);
-                this.a.r.E("8");
-            }
-            if (this.a.w.d() || (un8Var = this.b) == null || un8Var.B() == null || this.b.B().getFragmentTabWidget() == null) {
-                return;
-            }
-            this.a.r.I(false, this.b.B().getTabWrapper(), this.b.B().getFragmentTabWidget().getWriteView());
-        }
+        this.b = mainTabActivity.f;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        fo8 fo8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof v15) && ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
-            a();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            return;
+        }
+        MainTabActivity mainTabActivity = this.a;
+        this.b = mainTabActivity.f;
+        mainTabActivity.c1(true);
+        if (MainTabActivity.X && (fo8Var = this.b) != null && fo8Var.i() != null) {
+            this.b.i().a();
+        }
+        fo8 fo8Var2 = this.b;
+        if (fo8Var2 != null && fo8Var2.d() != null) {
+            this.b.d().b();
+        }
+        fo8 fo8Var3 = this.b;
+        if (fo8Var3 != null && fo8Var3.a() != null) {
+            this.b.a().l();
+            this.b.a().m();
+        }
+        if (ft4.a().f()) {
+            ft4.a().g(this.a.getClass().getName());
+            ft4.a().l(false);
+        }
+        if (ft4.a().e()) {
+            ft4.a().b();
+            ft4.a().h(this.a.getClass().getName());
+            ft4.a().k(false);
         }
     }
 }

@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import org.json.JSONObject;
+import tbclient.FrsPage.MemberShowIcon;
 /* loaded from: classes4.dex */
 public class kp4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public gp4 c;
 
     public kp4() {
         Interceptable interceptable = $ic;
@@ -26,41 +23,31 @@ public class kp4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new gp4();
-        ArrayList<jp4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        if (str3 == null) {
-            str3 = "";
+        try {
+            jSONObject.optString("icon");
+            jSONObject.optString("name");
+            jSONObject.optString("url");
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        String str4 = this.b;
-        jp4 jp4Var = new jp4(str3, str4 != null ? str4 : "", null);
-        jp4Var.t(true);
-        arrayList.add(jp4Var);
-        this.c.g(arrayList);
+    }
+
+    public void b(MemberShowIcon memberShowIcon) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberShowIcon) == null) || memberShowIcon == null) {
+            return;
+        }
+        String str = memberShowIcon.icon;
+        String str2 = memberShowIcon.name;
+        String str3 = memberShowIcon.url;
     }
 }

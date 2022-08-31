@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,16 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class oq5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public SdkLiveInfoData a;
-    public boolean b;
+    public int a;
+    public String b;
     public String c;
-    public String d;
-    public int e;
+    public ThreadData d;
+    public boolean e;
     public boolean f;
     public boolean g;
     public boolean h;
@@ -53,16 +55,32 @@ public class oq5 extends BaseCardInfo {
                 return;
             }
         }
-        this.b = false;
         this.f = false;
         this.g = false;
         this.h = false;
+    }
+
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Deprecated
+    public void parserProtobuf(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadInfo) == null) {
+            if (this.d == null) {
+                this.d = new ThreadData();
+            }
+            this.d.parserProtobuf(threadInfo);
+        }
     }
 }

@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -374,7 +373,7 @@ public class xy {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), str);
+                return Settings.System.getString(this.a.getContentResolver(), str);
             } catch (Exception e) {
                 l00.c(e);
                 return null;

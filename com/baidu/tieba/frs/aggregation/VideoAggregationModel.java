@@ -16,7 +16,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.ii6;
+import com.baidu.tieba.gi6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public static class VideoAggregationResponseMessage extends JsonHttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public List<ii6> mDataList;
+        public List<gi6> mDataList;
         public boolean mHasMore;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -82,10 +82,10 @@ public class VideoAggregationModel extends BdBaseModel {
                     this.mDataList = new ArrayList();
                     JSONArray jSONArray = new JSONArray(optString);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        ii6 ii6Var = new ii6();
-                        ii6Var.f(jSONArray.optString(i2));
-                        if (ii6Var.n != null) {
-                            this.mDataList.add(ii6Var);
+                        gi6 gi6Var = new gi6();
+                        gi6Var.f(jSONArray.optString(i2));
+                        if (gi6Var.n != null) {
+                            this.mDataList.add(gi6Var);
                         }
                     }
                 }
@@ -201,7 +201,7 @@ public class VideoAggregationModel extends BdBaseModel {
     public interface c {
         void a(String str);
 
-        void b(List<ii6> list, boolean z, boolean z2);
+        void b(List<gi6> list, boolean z, boolean z2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

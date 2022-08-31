@@ -1,11 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.lego.activity.LegoListFragment;
 /* loaded from: classes3.dex */
 public interface ee7 {
-    pf7 B();
+    void a(int i, long j, String str, String str2);
 
-    LegoListFragment U();
-
-    uf7 v0();
+    void b(long j, String str);
 }

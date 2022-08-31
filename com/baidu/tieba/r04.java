@@ -32,7 +32,7 @@ public class r04 extends ax2 implements xx2 {
     public int f;
 
     /* loaded from: classes5.dex */
-    public class a implements ov9<String> {
+    public class a implements mv9<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ boolean a;
@@ -60,7 +60,7 @@ public class r04 extends ax2 implements xx2 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ov9
+        @Override // com.baidu.tieba.mv9
         public void call(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -145,7 +145,7 @@ public class r04 extends ax2 implements xx2 {
                 Log.i("SwanGameReloadDelegate", "execCall: target = " + this.f);
                 Log.i("SwanGameReloadDelegate", "execCall: waitCallback = " + checkProcessId);
             }
-            av9.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
+            yu9.f("").k(Schedulers.io()).w(new a(this, checkProcessId, bundle));
         }
     }
 

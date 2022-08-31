@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,17 +29,14 @@ public class dd8 {
         }
     }
 
-    public static dd8 a(JSONObject jSONObject) {
+    public static dd8 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
             dd8 dd8Var = new dd8();
-            dd8Var.a = jSONObject.optString("apk_name");
-            dd8Var.b = jSONObject.optString("apk_url");
-            dd8Var.c = jSONObject.optString("download_key");
+            dd8Var.a = jSONObject.optString("lottie");
+            dd8Var.b = jSONObject.optString("text");
+            dd8Var.c = jSONObject.optString("cmd");
             return dd8Var;
         }
         return (dd8) invokeL.objValue;

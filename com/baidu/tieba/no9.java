@@ -1,63 +1,58 @@
 package com.baidu.tieba;
 
-import android.os.IBinder;
 import android.os.Parcel;
-import android.os.Parcelable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-import com.google.android.gms.common.zzs;
 /* loaded from: classes5.dex */
-public final class no9 implements Parcelable.Creator<zzs> {
+public final class no9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009329, "Lcom/baidu/tieba/no9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009329, "Lcom/baidu/tieba/no9;");
+                return;
+            }
+        }
+        no9.class.getClassLoader();
+    }
 
     public no9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* bridge */ /* synthetic */ zzs createFromParcel(Parcel parcel) {
-        int q = SafeParcelReader.q(parcel);
-        boolean z = false;
-        String str = null;
-        IBinder iBinder = null;
-        boolean z2 = false;
-        while (parcel.dataPosition() < q) {
-            int k = SafeParcelReader.k(parcel);
-            int h = SafeParcelReader.h(k);
-            if (h == 1) {
-                str = SafeParcelReader.d(parcel, k);
-            } else if (h == 2) {
-                iBinder = SafeParcelReader.l(parcel, k);
-            } else if (h == 3) {
-                z = SafeParcelReader.i(parcel, k);
-            } else if (h != 4) {
-                SafeParcelReader.p(parcel, k);
-            } else {
-                z2 = SafeParcelReader.i(parcel, k);
-            }
+    public static void a(Parcel parcel, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, parcel, z) == null) {
+            parcel.writeInt(1);
         }
-        SafeParcelReader.g(parcel, q);
-        return new zzs(str, iBinder, z, z2);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
-    @Override // android.os.Parcelable.Creator
-    public final /* synthetic */ zzs[] newArray(int i) {
-        return new zzs[i];
+    public static boolean b(Parcel parcel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, parcel)) == null) ? parcel.readInt() != 0 : invokeL.booleanValue;
     }
 }

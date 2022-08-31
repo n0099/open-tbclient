@@ -1,13 +1,39 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface zd9 {
-    void a(String str, JSONObject jSONObject);
+public class zd9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public jc1<fe9> a;
 
-    void b(String str, JSONObject jSONObject);
+    public zd9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a();
+    }
 
-    void c(String str, int i, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, JSONObject jSONObject);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            hc1 b = hc1.b();
+            this.a = b;
+            b.a(new ge9());
+        }
+    }
 }

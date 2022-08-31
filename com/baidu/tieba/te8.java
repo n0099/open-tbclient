@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ForumList;
-import tbclient.GetDislikeList.DataRes;
-/* loaded from: classes6.dex */
-public class te8 {
+/* loaded from: classes5.dex */
+public class te8 extends cf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<re8> a;
-    public boolean b;
 
     public te8() {
         Interceptable interceptable = $ic;
@@ -25,25 +21,58 @@ public class te8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = true;
     }
 
-    public void a(DataRes dataRes) {
+    @Override // com.baidu.tieba.cf
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
-        for (ForumList forumList : dataRes.forum_list) {
-            re8 re8Var = new re8();
-            re8Var.a = forumList.avatar;
-            re8Var.b = forumList.forum_name;
-            re8Var.c = String.valueOf(forumList.forum_id);
-            this.a.add(re8Var);
+    }
+
+    @Override // com.baidu.tieba.cf
+    public String[] getCrashKeys() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cf
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
         }
-        this.b = dataRes.has_more.intValue() == 1;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cf
+    public int getMaxCrashTimes() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 10;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.cf
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "reply_private_setting_switch" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cf
+    public int getOffType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

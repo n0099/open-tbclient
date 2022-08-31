@@ -37,15 +37,15 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al5;
 import com.baidu.tieba.dj4;
 import com.baidu.tieba.ej4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoVerticalPageFragment;
+import com.baidu.tieba.yk5;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -75,7 +75,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
     public VideoVerticalPageFragment o;
     public NavigationBar p;
     public TextView q;
-    public al5 r;
+    public yk5 r;
     public CustomMessageListener s;
     public CustomMessageListener t;
 
@@ -384,7 +384,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -410,7 +410,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             NavigationBar navigationBar = this.p;
             if (navigationBar != null && this.q != null) {
                 navigationBar.setBackgroundResource(R.drawable.obfuscated_res_0x7f081211);
-                os4 d = os4.d(this.q);
+                ns4 d = ns4.d(this.q);
                 d.A(R.string.F_X01);
                 d.v(R.color.CAM_X0101);
                 d.z(R.dimen.T_X05);
@@ -458,7 +458,7 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(FrsVideoTabPlayActivityConfig.KEY_FPS_MIDDLE_VIDEO);
             this.d = System.currentTimeMillis();
             setContentView(R.layout.obfuscated_res_0x7f0d08c0);
-            this.r = new al5(getPageContext(), "client_videomiddle");
+            this.r = new yk5(getPageContext(), "client_videomiddle");
             O0();
             P0();
             addNoAdjustSoftInputHeightListener();
@@ -485,9 +485,9 @@ public class FrsVideoTabPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            al5 al5Var = this.r;
-            if (al5Var != null) {
-                al5Var.h();
+            yk5 yk5Var = this.r;
+            if (yk5Var != null) {
+                yk5Var.h();
             }
             String str = TextUtils.isEmpty(this.f) ? "0" : "1";
             long currentTimeMillis = System.currentTimeMillis() - this.d;

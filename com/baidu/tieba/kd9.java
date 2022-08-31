@@ -1,55 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes4.dex */
-public class kd9 extends id9 {
+public final class kd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd9(Context context) {
-        super(context);
+    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         }
-        this.d = "";
-        this.b = false;
-        this.c = false;
-        this.g = -100;
+        return (byte[]) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.hd9
-    public hd9 d() {
-        InterceptResult invokeV;
+    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i();
-            return this;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         }
-        return (hd9) invokeV.objValue;
-    }
-
-    public hd9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (hd9) invokeV.objValue;
+        return (byte[]) invokeLLL.objValue;
     }
 }

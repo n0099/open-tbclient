@@ -12,11 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sc7 extends cn<qc7, CardViewHolder<tc7>> {
+public class sc7 extends cn<oc7, CardViewHolder<tc7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public j06 b;
+    public h06 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,9 +56,9 @@ public class sc7 extends cn<qc7, CardViewHolder<tc7>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             tc7 tc7Var = new tc7(this.a, viewGroup);
-            j06 j06Var = this.b;
-            if (j06Var != null) {
-                tc7Var.n(j06Var);
+            h06 h06Var = this.b;
+            if (h06Var != null) {
+                tc7Var.n(h06Var);
             }
             return new CardViewHolder<>(tc7Var);
         }
@@ -68,15 +68,15 @@ public class sc7 extends cn<qc7, CardViewHolder<tc7>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qc7 qc7Var, CardViewHolder<tc7> cardViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, oc7 oc7Var, CardViewHolder<tc7> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qc7Var, cardViewHolder})) == null) {
-            if (qc7Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, oc7Var, cardViewHolder})) == null) {
+            if (oc7Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
                 return null;
             }
-            cardViewHolder.a().w(this.c);
-            cardViewHolder.a().i(qc7Var);
+            cardViewHolder.a().x(this.c);
+            cardViewHolder.a().i(oc7Var);
             return cardViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
@@ -86,6 +86,13 @@ public class sc7 extends cn<qc7, CardViewHolder<tc7>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             this.c = str;
+        }
+    }
+
+    public void v(h06 h06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, h06Var) == null) {
+            this.b = h06Var;
         }
     }
 }

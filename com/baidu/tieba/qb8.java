@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qb8 implements qk5<pb8> {
+public class qb8 implements ok5<pb8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,7 +26,7 @@ public class qb8 implements qk5<pb8> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qk5
+    @Override // com.baidu.tieba.ok5
     /* renamed from: b */
     public pb8 a() {
         InterceptResult invokeV;

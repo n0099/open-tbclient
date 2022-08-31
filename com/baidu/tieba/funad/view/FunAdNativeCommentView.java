@@ -22,10 +22,10 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hl8;
-import com.baidu.tieba.ht6;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.zs6;
+import com.baidu.tieba.fl8;
+import com.baidu.tieba.ft6;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.xs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,25 +91,25 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public void f(@NonNull hl8 hl8Var, @NonNull Activity activity) {
+    public void f(@NonNull fl8 fl8Var, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, hl8Var, activity) == null) {
-            super.f(hl8Var, activity);
-            if (hl8Var.e() == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, fl8Var, activity) == null) {
+            super.f(fl8Var, activity);
+            if (fl8Var.e() == null) {
                 return;
             }
-            FunNativeAd2 funNativeAd2 = (FunNativeAd2) hl8Var.e();
+            FunNativeAd2 funNativeAd2 = (FunNativeAd2) fl8Var.e();
             this.w.setText(this.c);
-            this.u.K(ht6.j(funNativeAd2), 10, false);
-            if (ht6.m(funNativeAd2) != null) {
-                boolean B = ht6.B(funNativeAd2);
-                ht6.I(this.k, B);
-                ht6.G(this.h, B);
+            this.u.K(ft6.j(funNativeAd2), 10, false);
+            if (ft6.m(funNativeAd2) != null) {
+                boolean B = ft6.B(funNativeAd2);
+                ft6.I(this.k, B);
+                ft6.G(this.h, B);
                 return;
             }
-            boolean A = ht6.A(funNativeAd2, ht6.k(funNativeAd2));
-            ht6.I(this.k, A);
-            ht6.G(this.h, A);
+            boolean A = ft6.A(funNativeAd2, ft6.k(funNativeAd2));
+            ft6.I(this.k, A);
+            ft6.G(this.h, A);
         }
     }
 
@@ -162,13 +162,13 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
-    public zs6.g getLogItem() {
+    public xs6.g getLogItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return zs6.b("pb", UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0");
+            return xs6.b("pb", UbsABTestHelper.isPbCommentFunAdABTest() ? "1" : "0");
         }
-        return (zs6.g) invokeV.objValue;
+        return (xs6.g) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.funad.view.FunAdNativePbView, com.baidu.tieba.funad.view.FunAbsAdView
@@ -190,12 +190,12 @@ public class FunAdNativeCommentView extends FunAdNativePbView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.h();
-            os4.d(this).f(R.color.CAM_X0205);
-            os4 d = os4.d(this);
+            ns4.d(this).f(R.color.CAM_X0205);
+            ns4 d = ns4.d(this);
             d.n(R.string.J_X06);
             d.i(R.color.CAM_X0205, R.color.CAM_X0206);
-            os4.d(this.v).v(R.color.CAM_X0109);
-            os4.d(this.w).v(R.color.CAM_X0107);
+            ns4.d(this.v).v(R.color.CAM_X0109);
+            ns4.d(this.w).v(R.color.CAM_X0107);
             WebPManager.setPureDrawable(this.y, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             this.u.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             SkinManager.setBackgroundColor(this.z, R.color.CAM_X0203);

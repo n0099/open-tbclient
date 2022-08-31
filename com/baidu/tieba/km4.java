@@ -191,8 +191,8 @@ public class km4 {
                 return;
             }
             cookieManager.setAcceptCookie(true);
-            if ((un4.b() != null ? un4.b().c(TbadkCoreApplication.getCurrentBduss()) : null) != null) {
-                String a2 = yn4.a(TbadkCoreApplication.getCurrentAccountInfo());
+            if ((tn4.b() != null ? tn4.b().c(TbadkCoreApplication.getCurrentBduss()) : null) != null) {
+                String a2 = xn4.a(TbadkCoreApplication.getCurrentAccountInfo());
                 StringBuilder sb = new StringBuilder();
                 if (!StringUtils.isNull(a2)) {
                     sb.append("STOKEN=");

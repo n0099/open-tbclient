@@ -161,12 +161,12 @@ public class lx extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: w */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ho4Var) == null) {
-            if (ho4Var != null && ho4Var.getThreadData() != null && ho4Var.getThreadData().getItem() != null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, go4Var) == null) {
+            if (go4Var != null && go4Var.getThreadData() != null && go4Var.getThreadData().getItem() != null) {
                 this.h.setVisibility(0);
-                this.h.setData(ho4Var.getThreadData().itemData, 13, ho4Var.getThreadData().tid);
+                this.h.setData(go4Var.getThreadData().itemData, 13, go4Var.getThreadData().tid);
                 return;
             }
             this.h.setVisibility(8);

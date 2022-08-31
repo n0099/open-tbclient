@@ -1,73 +1,102 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h88 extends i65 {
+public class h88 extends hz5<e78> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947777697, "Lcom/baidu/tieba/h88;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947777697, "Lcom/baidu/tieba/h88;");
-                return;
-            }
-        }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
-    }
+    public TbPageContext i;
+    public View j;
+    public TbImageView k;
+    public TextView l;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h88(Context context, View.OnClickListener onClickListener) {
-        super(context, onClickListener);
+    public h88(TbPageContext tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View.OnClickListener) objArr2[1]);
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g();
+        View h = h();
+        this.j = h;
+        this.i = tbPageContext;
+        h.setTag(this);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090ca2);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090ca0);
     }
 
-    public final void g() {
-        TbImageView tbImageView;
+    @Override // com.baidu.tieba.hz5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i = j;
-            layoutParams.width = i;
-            layoutParams.height = i;
-            layoutParams.topMargin = k;
-            this.c.setLayoutParams(layoutParams);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d03e9 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.hz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
+            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hz5
+    /* renamed from: r */
+    public void i(e78 e78Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, e78Var) == null) {
+            if (e78Var == null) {
+                this.j.setVisibility(8);
+                return;
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            this.k.K(e78Var.a, 10, false);
+            this.j.setOnClickListener(this);
+            if (e78Var.b > 0) {
+                this.l.setVisibility(0);
+                long j = e78Var.b;
+                if (j > 99) {
+                    this.l.setText("99");
+                    return;
+                } else {
+                    this.l.setText(String.valueOf(j));
+                    return;
+                }
+            }
+            this.l.setVisibility(8);
         }
     }
 }

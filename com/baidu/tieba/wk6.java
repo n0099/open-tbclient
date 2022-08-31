@@ -1,109 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.text.SpannableStringBuilder;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ForumRule;
-import tbclient.PbContent;
 /* loaded from: classes6.dex */
-public class wk6 implements pn {
+public class wk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<PbContent> b;
-    public boolean c;
+    public Context a;
+    public View b;
+    public RelativeLayout c;
+    public EMTextView d;
+    public EMTextView e;
+    public final int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948273511, "Lcom/baidu/tieba/wk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948273511, "Lcom/baidu/tieba/wk6;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    public wk6() {
+    public wk6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds21);
+        this.a = context;
+        b(context);
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public List<PbContent> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void f(ForumRule forumRule) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, forumRule) == null) || forumRule == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (relativeLayout = this.c) == null) {
             return;
         }
-        this.a = forumRule.title;
-        this.b = forumRule.content;
-        this.c = forumRule.status.intValue() == 1;
+        relativeLayout.setVisibility(0);
+        bdTypeRecyclerView.s(this.c);
     }
 
-    public void g(boolean z) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.c = z;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.b == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02be, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092407);
+            this.d = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092409);
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(context.getResources().getString(R.string.obfuscated_res_0x7f0f06b9));
+            EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.obfuscated_res_0x7f08090f, R.color.CAM_X0109, EMRichTextAnyIconSpan.IconType.WEBP);
+            eMRichTextAnyIconSpan.b(ri.f(context, R.dimen.tbds0));
+            eMRichTextAnyIconSpan.d(ri.f(context, R.dimen.M_W_X002));
+            spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 0, 1, 33);
+            this.d.setText(spannableStringBuilder);
+            this.e = (EMTextView) this.b.findViewById(R.id.obfuscated_res_0x7f092408);
+            c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(List<PbContent> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
-            this.b = list;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{DrawableSelector.make().setShape(0).radius(this.f).gradientLinear(DrawableSelector.TL_BR, R.color.CAM_X0212, R.color.CAM_X0212).build(), DrawableSelector.make().setShape(0).radius(this.f).defaultColor("#4D000000").build()});
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                if (layerDrawable.getDrawable(1) != null) {
+                    layerDrawable.getDrawable(1).setAlpha(255);
+                }
+            } else if (layerDrawable.getDrawable(1) != null) {
+                layerDrawable.getDrawable(1).setAlpha(0);
+            }
+            this.c.setBackgroundDrawable(layerDrawable);
+            ns4.d(this.d).v(R.color.CAM_X0109);
+            ns4.d(this.e).v(R.color.CAM_X0109);
         }
     }
 
-    public void j(String str) {
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (relativeLayout = this.c) == null) {
+            return;
         }
+        relativeLayout.setVisibility(8);
+        bdTypeRecyclerView.removeHeaderView(this.c);
+    }
+
+    public void e(String str) {
+        EMTextView eMTextView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (eMTextView = this.e) == null) {
+            return;
+        }
+        eMTextView.setText(str);
     }
 }

@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.TextView;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,17 +13,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class z78 extends jz5<w68> {
+public class z78 extends hz5<x68> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TbImageView j;
-    public TextView k;
-    public TextView l;
-    public w68 m;
+    public TbImageView i;
+    public View j;
+    public View k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z78(TbPageContext<?> tbPageContext) {
+    public z78(TbPageContext tbPageContext) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,32 +39,27 @@ public class z78 extends jz5<w68> {
             }
         }
         View h = h();
-        this.i = h;
-        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f09055e);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09055c);
-        this.l = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f09055d);
+        this.j = h;
+        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f0905cf);
+        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f091543);
     }
 
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a9 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a5 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
         this.a = i;
-        SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setViewTextColor(this.l, R.color.CAM_X0109, 1);
-        if (this.m.a == null) {
-            SkinManager.setImageResource(this.j, R.drawable.icon_shen_mine);
-        }
+        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
+        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
     }
 
     @Override // android.view.View.OnClickListener
@@ -76,19 +70,26 @@ public class z78 extends jz5<w68> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jz5
+    @Override // com.baidu.tieba.hz5
     /* renamed from: r */
-    public void i(w68 w68Var) {
+    public void i(x68 x68Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, w68Var) == null) || w68Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, x68Var) == null) {
+            if (x68Var == null) {
+                this.j.setVisibility(8);
+            }
+            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
+            if (layoutParams != null) {
+                if (layoutParams.width > 0) {
+                    layoutParams.width = x68Var.a;
+                }
+                if (layoutParams.height > 0) {
+                    layoutParams.height = x68Var.b;
+                }
+            }
+            this.k.setLayoutParams(layoutParams);
+            this.j.setVisibility(0);
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
-        this.m = w68Var;
-        String str = w68Var.a;
-        if (str != null) {
-            this.j.K(str, 10, false);
-        }
-        this.k.setText(w68Var.b);
-        this.l.setText(w68Var.c);
     }
 }

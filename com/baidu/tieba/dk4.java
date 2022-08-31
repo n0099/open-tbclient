@@ -71,7 +71,7 @@ public class dk4 {
                 if (missionInfo != null) {
                     dj4 dj4Var = new dj4(missionInfo);
                     if (missionInfo.tasktype.intValue() == 5) {
-                        ru4.e().g(missionInfo);
+                        qu4.e().g(missionInfo);
                     } else if (missionInfo.tasktype.intValue() == 9) {
                         rj4.c().f(dj4Var);
                     } else if (dj4Var.L()) {

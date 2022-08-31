@@ -12,7 +12,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.pm4;
-import com.baidu.tieba.s55;
+import com.baidu.tieba.q55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,7 +69,7 @@ public class GetEmotionPidModel extends BdBaseModel {
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(s55 s55Var);
+        void a(q55 q55Var);
 
         void onFail(int i, String str);
     }

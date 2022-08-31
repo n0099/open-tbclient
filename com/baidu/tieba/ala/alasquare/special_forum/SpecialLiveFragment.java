@@ -50,15 +50,15 @@ import com.baidu.tieba.ala.alasquare.special_forum.subtab.OtherSubTabFragment;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.RecommendTabFragment;
 import com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment;
 import com.baidu.tieba.c9;
-import com.baidu.tieba.jh5;
-import com.baidu.tieba.jk8;
+import com.baidu.tieba.hh5;
+import com.baidu.tieba.hk8;
+import com.baidu.tieba.nt5;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pt5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.rt5;
 import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.tieba.yt5;
+import com.baidu.tieba.wt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -118,9 +118,9 @@ public class SpecialLiveFragment extends BaseFragment {
     public ScrollHorizontalTabView s;
     public CustomViewPager t;
     public q u;
-    public yt5 v;
-    public rt5 w;
-    public pt5 x;
+    public wt5 v;
+    public pt5 w;
+    public nt5 x;
     public List<TabData> y;
     public List<SpecialLiveTabInfo> z;
 
@@ -232,7 +232,7 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements jh5 {
+    public class c implements hh5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialLiveFragment a;
@@ -255,7 +255,7 @@ public class SpecialLiveFragment extends BaseFragment {
             this.a = specialLiveFragment;
         }
 
-        @Override // com.baidu.tieba.jh5
+        @Override // com.baidu.tieba.hh5
         public void a(View view2, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
@@ -267,7 +267,7 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements rt5.b {
+    public class d implements pt5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SpecialLiveFragment a;
@@ -290,7 +290,7 @@ public class SpecialLiveFragment extends BaseFragment {
             this.a = specialLiveFragment;
         }
 
-        @Override // com.baidu.tieba.rt5.b
+        @Override // com.baidu.tieba.pt5.b
         public void a(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
@@ -298,13 +298,13 @@ public class SpecialLiveFragment extends BaseFragment {
             }
         }
 
-        @Override // com.baidu.tieba.rt5.b
-        public void b(pt5 pt5Var) {
+        @Override // com.baidu.tieba.pt5.b
+        public void b(nt5 nt5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pt5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nt5Var) == null) {
                 SpecialLiveFragment specialLiveFragment = this.a;
                 specialLiveFragment.hideLoadingView(specialLiveFragment.c);
-                this.a.g2(pt5Var);
+                this.a.g2(nt5Var);
             }
         }
     }
@@ -452,11 +452,11 @@ public class SpecialLiveFragment extends BaseFragment {
                 } else if (this.a.A.getErrorCode() != 0) {
                     ri.N(this.a.b, this.a.A.getErrorString());
                 } else {
-                    jk8 jk8Var = (jk8) obj;
-                    if (jk8Var != null) {
+                    hk8 hk8Var = (hk8) obj;
+                    if (hk8Var != null) {
                         TbadkCoreApplication.getInst().addLikeForum(this.a.H);
-                        jk8Var.x(1);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, jk8Var));
+                        hk8Var.x(1);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, hk8Var));
                         return;
                     }
                     ri.M(this.a.b, R.string.obfuscated_res_0x7f0f0c40);
@@ -653,10 +653,10 @@ public class SpecialLiveFragment extends BaseFragment {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            jk8 jk8Var;
+            hk8 hk8Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jk8) && (jk8Var = (jk8) customResponsedMessage.getData()) != null && this.a.G.equals(jk8Var.g())) {
-                if (jk8Var.m() == 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hk8) && (hk8Var = (hk8) customResponsedMessage.getData()) != null && this.a.G.equals(hk8Var.g())) {
+                if (hk8Var.m() == 1) {
                     if (this.a.r2()) {
                         this.a.K = 3;
                     } else {
@@ -1121,11 +1121,11 @@ public class SpecialLiveFragment extends BaseFragment {
         }
     }
 
-    public final void g2(pt5 pt5Var) {
+    public final void g2(nt5 nt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, pt5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, nt5Var) == null) {
             this.d.setVisibility(0);
-            this.x = pt5Var;
+            this.x = nt5Var;
             f2();
             e2();
             if (this.L) {
@@ -1231,9 +1231,9 @@ public class SpecialLiveFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             super.onChangeSkinType(i2);
-            yt5 yt5Var = this.v;
-            if (yt5Var != null) {
-                yt5Var.f(i2);
+            wt5 wt5Var = this.v;
+            if (wt5Var != null) {
+                wt5Var.f(i2);
             }
             ScrollHorizontalTabView scrollHorizontalTabView = this.s;
             if (scrollHorizontalTabView != null) {
@@ -1334,8 +1334,8 @@ public class SpecialLiveFragment extends BaseFragment {
             b2();
             this.y = new ArrayList();
             this.z = new ArrayList();
-            this.v = new yt5(getPageContext());
-            this.w = new rt5(getPageContext(), new d(this));
+            this.v = new wt5(getPageContext());
+            this.w = new pt5(getPageContext(), new d(this));
             x2(true);
             s2(true);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -1349,9 +1349,9 @@ public class SpecialLiveFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroy();
-            yt5 yt5Var = this.v;
-            if (yt5Var != null) {
-                yt5Var.g();
+            wt5 wt5Var = this.v;
+            if (wt5Var != null) {
+                wt5Var.g();
             }
             if (this.R != null) {
                 MessageManager.getInstance().unRegisterListener(this.R);
@@ -1371,9 +1371,9 @@ public class SpecialLiveFragment extends BaseFragment {
             if (this.Q != null) {
                 MessageManager.getInstance().unRegisterListener(this.Q);
             }
-            rt5 rt5Var = this.w;
-            if (rt5Var != null) {
-                rt5Var.f();
+            pt5 pt5Var = this.w;
+            if (pt5Var != null) {
+                pt5Var.f();
             }
             AlaLiveUserNotifyController alaLiveUserNotifyController = this.C;
             if (alaLiveUserNotifyController != null) {
@@ -1401,9 +1401,9 @@ public class SpecialLiveFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onPause();
-            yt5 yt5Var = this.v;
-            if (yt5Var != null) {
-                yt5Var.d(true);
+            wt5 wt5Var = this.v;
+            if (wt5Var != null) {
+                wt5Var.d(true);
                 this.v.k();
             }
         }
@@ -1466,19 +1466,19 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     public final void u2(int i2, float f2) {
-        yt5 yt5Var;
+        wt5 wt5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (yt5Var = this.v) == null || f2 == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (wt5Var = this.v) == null || f2 == 0.0f) {
             return;
         }
         if (this.F <= i2) {
             if (this.J && f2 >= 0.3f) {
-                yt5Var.d(true);
+                wt5Var.d(true);
                 this.v.h();
                 this.J = false;
             }
         } else if (!this.J && f2 <= 0.3f) {
-            yt5Var.d(false);
+            wt5Var.d(false);
             this.v.i();
             this.J = true;
         }
@@ -1486,11 +1486,11 @@ public class SpecialLiveFragment extends BaseFragment {
     }
 
     public final void v2() {
-        pt5 pt5Var;
+        nt5 nt5Var;
         AlaUserInfoData alaUserInfoData;
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (pt5Var = this.x) == null || (alaUserInfoData = pt5Var.d) == null || this.K == 1) {
+        if (!(interceptable == null || interceptable.invokeV(1048602, this) == null) || (nt5Var = this.x) == null || (alaUserInfoData = nt5Var.d) == null || this.K == 1) {
             return;
         }
         int i2 = alaUserInfoData.level_id;

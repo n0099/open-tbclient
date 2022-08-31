@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nw6;
+import com.baidu.mobstat.MtjConfig;
+import com.baidu.mobstat.StatService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.hq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
 /* loaded from: classes4.dex */
-public class lu6 implements hg7 {
+public class lu6 implements hq8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nw6.d a;
 
-    public lu6(nw6.d dVar) {
+    public lu6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,43 +32,35 @@ public class lu6 implements hg7 {
                 return;
             }
         }
-        this.a = dVar;
-    }
-
-    @Override // com.baidu.tieba.hg7
-    public void a(boolean z, Message message, boolean z2, long j, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), message, Boolean.valueOf(z2), Long.valueOf(j), str, Integer.valueOf(i)}) == null) {
-            mu6 mu6Var = new mu6();
-            ag7 ag7Var = new ag7();
-            ag7Var.a = j;
-            ag7Var.b = str;
-            wf7 a = fg7.d().a(ag7Var);
-            if (a != null) {
-                a.c(z, message, z2, i);
-            }
-            mu6Var.b(a);
-            nw6.d dVar = this.a;
-            if (dVar != null) {
-                dVar.e(z, mu6Var, z2, "", str, true);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.hg7
-    public void b(long j, String str, String str2, int i) {
-        nw6.d dVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i)}) == null) || (dVar = this.a) == null) {
+        String version = TbConfig.getVersion();
+        if (TextUtils.isEmpty(version)) {
             return;
         }
-        dVar.c(str, str2, i, true, 1);
+        StatService.setAppVersionName(TbadkCoreApplication.getInst(), version);
     }
 
-    @Override // com.baidu.tieba.hg7
-    public void c(long j, String str, Message message, boolean z) {
+    @Override // com.baidu.tieba.hq8.a
+    public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, message, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            StatService.setFeedTrack(MtjConfig.FeedTrackStrategy.TRACK_NONE);
+            StatService.autoTrace(context);
+        }
+    }
+
+    @Override // com.baidu.tieba.hq8.a
+    public void b(Context context, WebView webView, WebChromeClient webChromeClient) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, webView, webChromeClient) == null) {
+            StatService.trackWebView(context, webView, webChromeClient);
+        }
+    }
+
+    @Override // com.baidu.tieba.hq8.a
+    public void c(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, str, z) == null) {
+            StatService.setAppChannel(context, str, z);
         }
     }
 }

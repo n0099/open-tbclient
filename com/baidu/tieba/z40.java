@@ -50,12 +50,12 @@ public class z40 extends EventListener {
 
         /* renamed from: com.baidu.tieba.z40$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0479a implements c {
+        public class C0480a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0479a(a aVar) {
+            public C0480a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class z40 extends EventListener {
         public BufferedSource source() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c(this.a.source(), new C0479a(this)) : (BufferedSource) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.c(this.a.source(), new C0480a(this)) : (BufferedSource) invokeV.objValue;
         }
     }
 

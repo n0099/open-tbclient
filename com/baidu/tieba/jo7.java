@@ -1,15 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.myCollection.message.RequestQueryCollectUpdateNumMessage;
-import com.baidu.tieba.myCollection.message.ResponseQueryCollectUpdateNumMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,86 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.inner.FlushManager;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jo7 {
+public class jo7 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static jo7 d;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    @SuppressLint({"HandlerLeak"})
-    public final Handler b;
-    public final db c;
-
-    /* loaded from: classes4.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jo7 a;
-
-        public a(jo7 jo7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jo7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jo7Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
-                this.a.a = System.currentTimeMillis();
-                MessageManager.getInstance().sendMessage(new RequestQueryCollectUpdateNumMessage());
-                this.a.b.sendMessageDelayed(this.a.b.obtainMessage(1), FlushManager.ReportTimer.DEFAULT_INTERVAL);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends db {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(jo7 jo7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jo7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 303005 && (socketResponsedMessage instanceof ResponseQueryCollectUpdateNumMessage)) {
-                nz4.h0().a0(((ResponseQueryCollectUpdateNumMessage) socketResponsedMessage).getCollectUpdateNum());
-            }
-        }
-    }
+    public boolean a;
+    public List<p15> b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -111,8 +35,7 @@ public class jo7 {
                 return;
             }
         }
-        rk8.g(303005, ResponseQueryCollectUpdateNumMessage.class, false, SocketMessageTask.DupLicateMode.REMOVE_ME, true);
-        d = null;
+        d = BdUniqueId.gen();
     }
 
     public jo7() {
@@ -125,64 +48,32 @@ public class jo7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 0L;
-        this.b = new a(this);
-        this.c = new b(this, 303005);
-        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public static synchronized jo7 d() {
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("need_profile", 0) == 1;
+        JSONArray optJSONArray = jSONObject.optJSONArray("nearby_person_list");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            this.b = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                p15 p15Var = new p15();
+                p15Var.a(optJSONArray.optJSONObject(i));
+                this.b.add(p15Var);
+            }
+        }
+        this.c = jSONObject.optInt("has_more", 0) == 1;
+    }
+
+    @Override // com.baidu.tieba.pn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
-        jo7 jo7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            synchronized (jo7.class) {
-                if (d == null) {
-                    d = new jo7();
-                }
-                jo7Var = d;
-            }
-            return jo7Var;
-        }
-        return (jo7) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.removeMessages(1);
-            this.b.removeMessages(2);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = 0L;
-            c();
-            f();
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            long currentTimeMillis = System.currentTimeMillis() - this.a;
-            if (currentTimeMillis <= 0) {
-                currentTimeMillis = 0;
-            }
-            if (currentTimeMillis >= FlushManager.ReportTimer.DEFAULT_INTERVAL) {
-                Handler handler = this.b;
-                handler.sendMessageDelayed(handler.obtainMessage(1), 10000L);
-            } else {
-                long j = FlushManager.ReportTimer.DEFAULT_INTERVAL - currentTimeMillis;
-                Handler handler2 = this.b;
-                handler2.sendMessageDelayed(handler2.obtainMessage(1), j);
-            }
-            this.a = System.currentTimeMillis();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -2,22 +2,20 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActBtn;
+import tbclient.DetailInfo;
 /* loaded from: classes3.dex */
 public class bl8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public bl8(ActBtn actBtn) {
+    public bl8(DetailInfo detailInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {actBtn};
+            Object[] objArr = {detailInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,18 +25,10 @@ public class bl8 {
                 return;
             }
         }
-        this.a = 0;
-        if (actBtn == null) {
+        if (detailInfo == null) {
             return;
         }
-        this.a = actBtn.type.intValue();
-        String str = actBtn.url;
-        String str2 = actBtn.text;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        String str = detailInfo.text;
+        String str2 = detailInfo.url;
     }
 }

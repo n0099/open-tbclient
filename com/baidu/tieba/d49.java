@@ -1,122 +1,148 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.ByteBuffer;
+import java.io.InterruptedIOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.Executor;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.RejectedExecutionException;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public class d49 extends InputStream {
+public class d49 implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c49 a;
+    public final BlockingQueue<Runnable> a;
     public boolean b;
-    public ByteBuffer c;
-    public IOException d;
+    public boolean c;
+    public long d;
+    public final String e;
 
-    public d49(c49 c49Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654720, "Lcom/baidu/tieba/d49;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947654720, "Lcom/baidu/tieba/d49;");
+            }
+        }
+    }
+
+    public d49(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c49Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = c49Var;
+        this.b = false;
+        this.c = false;
+        this.d = -1L;
+        this.e = str;
+        this.a = new LinkedBlockingQueue();
     }
 
-    public final void a() throws IOException {
+    public void a() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.b) {
-                IOException iOException = this.d;
-                if (iOException != null) {
-                    throw iOException;
-                }
-            } else if (c()) {
-            } else {
-                if (this.c == null) {
-                    this.c = ByteBuffer.allocateDirect(32768);
-                }
-                this.c.clear();
-                this.a.u(this.c);
-                IOException iOException2 = this.d;
-                if (iOException2 == null) {
-                    ByteBuffer byteBuffer = this.c;
-                    if (byteBuffer != null) {
-                        byteBuffer.flip();
-                        return;
+            b(0);
+        }
+    }
+
+    public void b(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            long nanoTime = System.nanoTime();
+            long convert = TimeUnit.NANOSECONDS.convert(i, TimeUnit.MILLISECONDS);
+            if (!this.c) {
+                if (!this.b) {
+                    this.b = true;
+                    while (this.b) {
+                        if (i == 0) {
+                            try {
+                                c(false, 0L).run();
+                            } catch (InterruptedIOException | RuntimeException e) {
+                                this.b = false;
+                                this.c = true;
+                                throw e;
+                            }
+                        } else {
+                            c(true, (convert - System.nanoTime()) + nanoTime).run();
+                        }
                     }
                     return;
                 }
-                throw iOException2;
+                throw new IllegalStateException("Cannot run loop when it is already running.");
             }
+            throw new IllegalStateException("Cannot run loop as an exception has occurred previously.");
         }
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public final Runnable c(boolean z, long j) throws InterruptedIOException {
+        Runnable poll;
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ByteBuffer byteBuffer = this.c;
-            return byteBuffer != null && byteBuffer.hasRemaining();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            try {
+                if (!z) {
+                    poll = this.a.take();
+                } else {
+                    poll = this.a.poll(j, TimeUnit.NANOSECONDS);
+                }
+                if (poll != null) {
+                    return poll;
+                }
+                p39.c("cr_CronetHttpURLConn", "****** Messageloop timeout exception, url is: %s", this.e);
+                throw new SocketTimeoutException();
+            } catch (InterruptedException e) {
+                InterruptedIOException interruptedIOException = new InterruptedIOException();
+                interruptedIOException.initCause(e);
+                throw interruptedIOException;
+            }
         }
-        return invokeV.booleanValue;
+        return (Runnable) invokeCommon.objValue;
     }
 
-    public void d(IOException iOException) {
+    @Override // java.util.concurrent.Executor
+    public void execute(Runnable runnable) throws RejectedExecutionException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iOException) == null) {
-            this.d = iOException;
-            this.b = true;
-            this.c = null;
+        if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
+            if (runnable != null) {
+                try {
+                    this.a.put(runnable);
+                    return;
+                } catch (InterruptedException e) {
+                    throw new RejectedExecutionException(e);
+                }
+            }
+            throw new IllegalArgumentException();
         }
     }
 
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
+    public void quit() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            a();
-            if (c()) {
-                return this.c.get() & 255;
-            }
-            return -1;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
-                throw new IndexOutOfBoundsException();
-            }
-            if (i2 == 0) {
-                return 0;
-            }
-            a();
-            if (c()) {
-                int min = Math.min(this.c.limit() - this.c.position(), i2);
-                this.c.get(bArr, i, min);
-                return min;
-            }
-            return -1;
-        }
-        return invokeLII.intValue;
     }
 }

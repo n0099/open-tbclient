@@ -26,7 +26,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.location.LocationClientOption;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -945,7 +944,7 @@ public class c {
             try {
                 WifiInfo connectionInfo = this.g.getConnectionInfo();
                 if (connectionInfo != null) {
-                    return ApiReplaceUtil.getMacAddress(connectionInfo);
+                    return connectionInfo.getMacAddress();
                 }
                 return null;
             } catch (Error | Exception unused) {

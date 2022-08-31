@@ -1,109 +1,120 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.AlaConfig;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpReqMessage;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpResMessage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zx5 {
+public class zx5 extends hz5<uw5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public HttpMessageListener b;
+    public TextView i;
+    public ProgressBar j;
+    public FrameLayout k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
 
-    /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zx5 zx5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zx5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zx5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage)) {
-                AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
-                if (alaEnterEffectEditHttpResMessage.getError() != 0) {
-                    if (this.a.a != null) {
-                        this.a.a.a(alaEnterEffectEditHttpResMessage.getErrorString());
-                    }
-                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || this.a.a == null) {
-                } else {
-                    this.a.a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-
-        void b(boolean z);
-    }
-
-    public zx5(b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zx5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
-        this.a = bVar;
-        rk8.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
-        this.b.setSelfListener(true);
-        MessageManager.getInstance().registerListener(this.b);
+        r(h());
     }
 
-    public void b(String str, boolean z) {
+    @Override // com.baidu.tieba.hz5
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-            MessageManager.getInstance().sendMessage(new AlaEnterEffectEditHttpReqMessage(str, z));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0102 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.hz5
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
         }
     }
 
-    public void c() {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.b);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090209);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912cd);
+            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0912ce);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090220);
+            this.j = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f09020a);
+            this.k = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0912d1);
+            h().setOnClickListener(this);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hz5
+    /* renamed from: s */
+    public void i(uw5 uw5Var) {
+        rw5 c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, uw5Var) == null) || (c = uw5Var.c()) == null || c.b() == null) {
+            return;
+        }
+        String str = "LV." + c.b().yy_level_id;
+        if (!TextUtils.isEmpty(c.b().yy_level_name)) {
+            str = c.b().yy_level_name + str;
+            this.m.setText(c.b().yy_level_name);
+        }
+        this.i.setText(str);
+        if (c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.l.setVisibility(8);
+            this.j.setVisibility(8);
+            return;
+        }
+        if (!TextUtils.isEmpty(c.b().yy_level_next_name)) {
+            this.n.setText(c.b().yy_level_next_name);
+        }
+        long j = c.b().yy_levelup_exp;
+        long j2 = c.b().yy_level_exp;
+        this.j.setMax((int) j);
+        this.j.setProgress((int) j2);
+        if (TextUtils.isEmpty(c.b().yy_level_next_name) || c.b().yy_levelup_exp <= c.b().yy_level_exp) {
+            return;
+        }
+        String string = this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0222);
+        int i = (int) ((((float) (c.b().yy_levelup_exp - c.b().yy_level_exp)) * 100.0f) / ((float) c.b().yy_levelup_exp));
+        if (i <= 0) {
+            i = 1;
+        }
+        this.l.setText(String.format(string, c.b().yy_level_next_name, i + "%"));
     }
 }

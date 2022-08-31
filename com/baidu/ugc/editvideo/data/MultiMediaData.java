@@ -11,8 +11,8 @@ import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.fc9;
-import com.baidu.tieba.m99;
+import com.baidu.tieba.dc9;
+import com.baidu.tieba.k99;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -229,7 +229,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (fc9.e(list)) {
+            if (dc9.e(list)) {
                 return "";
             }
             ArrayList arrayList = new ArrayList();
@@ -238,7 +238,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
                 multiMediaData.textureId = 0;
                 arrayList.add(multiMediaData);
             }
-            return fc9.e(arrayList) ? "" : new m99().a(arrayList);
+            return dc9.e(arrayList) ? "" : new k99().a(arrayList);
         }
         return (String) invokeL.objValue;
     }
@@ -247,7 +247,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, str)) == null) {
-            if (fc9.e(list) || TextUtils.isEmpty(str)) {
+            if (dc9.e(list) || TextUtils.isEmpty(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
@@ -273,7 +273,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new m99().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
+                return (List) new k99().c(str, new TypeToken<List<MultiMediaData>>() { // from class: com.baidu.ugc.editvideo.data.MultiMediaData.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

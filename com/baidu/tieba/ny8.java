@@ -1,185 +1,130 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.jy8;
-import com.baidu.tieba.ly8;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.core.ImageLoader;
-import java.io.File;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
 /* loaded from: classes5.dex */
 public class ny8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ny8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ly8 a;
-    public List<sy8> b;
 
-    /* loaded from: classes5.dex */
-    public class a implements ry8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ny8 a;
-
-        public a(ny8 ny8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ny8Var;
-        }
-
-        @Override // com.baidu.tieba.ry8
-        public void a(jy8.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-                jy8.a().c(bVar);
-                if (fc9.e(this.a.b)) {
-                    return;
-                }
-                ny8 ny8Var = this.a;
-                ny8Var.h((sy8) fc9.c(ny8Var.b, 0));
-                fc9.g(this.a.b, 0);
-            }
-        }
-    }
-
-    public ny8() {
+    public static long[] a(int i, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i < 0) {
+                i = 0;
             }
-        }
-        this.b = new Vector();
-        this.a = new ly8.b().d();
-    }
-
-    public static ny8 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (ny8.class) {
-                    if (c == null) {
-                        c = new ny8();
+            float[] fArr = new float[i];
+            if (i > 1) {
+                float f = 1.0f / i;
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        int i4 = i2 - 1;
+                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
+                    } else {
+                        fArr[i2] = i3 * f;
                     }
+                    i2 = i3;
                 }
+            } else if (i == 1) {
+                fArr[0] = 0.5f;
             }
-            return c;
+            long[] jArr = new long[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
+            }
+            return jArr;
         }
-        return (ny8) invokeV.objValue;
+        return (long[]) invokeCommon.objValue;
     }
 
-    public final void c() {
+    public static qy8 b(sy8 sy8Var, iy8 iy8Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
-            throw new IllegalStateException(ImageLoader.ERROR_NOT_INIT);
-        }
-    }
-
-    public Bitmap d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, sy8Var, iy8Var)) == null) {
+            if (sy8Var == null || iy8Var == null || sy8Var.e == null) {
                 return null;
             }
-            Bitmap a2 = g().a(str);
-            if (a2 == null || a2.isRecycled()) {
-                Bitmap a3 = e().a(str);
-                if (a3 == null || a3.isRecycled()) {
-                    return null;
+            long[] a = a(sy8Var.b, sy8Var.a);
+            MultiMediaData multiMediaData = sy8Var.e;
+            qy8 qy8Var = new qy8();
+            qy8Var.e = new ArrayList();
+            qy8Var.a = multiMediaData.path;
+            qy8Var.c = sy8Var.c;
+            qy8Var.d = sy8Var.d;
+            qy8Var.b = multiMediaData.rotation;
+            for (int i = 0; i < sy8Var.b; i++) {
+                long j = multiMediaData.start + a[i];
+                ky8 ky8Var = new ky8();
+                ky8Var.a = dy8.b(multiMediaData.path, j, multiMediaData.type);
+                ky8Var.b = multiMediaData.path;
+                ky8Var.f = i;
+                ky8Var.g = multiMediaData.type;
+                ky8Var.h = sy8Var.c;
+                ky8Var.i = sy8Var.d;
+                ky8Var.j = iy8Var;
+                ky8Var.d = j;
+                ky8Var.c = multiMediaData.rotation;
+                qy8Var.e.add(ky8Var);
+            }
+            return qy8Var;
+        }
+        return (qy8) invokeLL.objValue;
+    }
+
+    public static List<qy8> c(ry8 ry8Var, iy8 iy8Var) {
+        InterceptResult invokeLL;
+        List<ky8> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ry8Var, iy8Var)) == null) {
+            MultiMediaData multiMediaData = null;
+            if (ry8Var == null || iy8Var == null || ry8Var.b <= 0 || dc9.e(ry8Var.e) || dc9.e(ry8Var.f)) {
+                return null;
+            }
+            long[] a = a(ry8Var.b, ry8Var.a);
+            ArrayList arrayList = new ArrayList();
+            qy8 qy8Var = null;
+            for (int i = 0; i < ry8Var.b; i++) {
+                long j = ((float) a[i]) / 1000.0f;
+                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(ry8Var.e, j);
+                MultiMediaData multiMediaData2 = (MultiMediaData) dc9.c(ry8Var.f, findInputIndexInSegments);
+                if (multiMediaData2 != null) {
+                    if (multiMediaData2 != multiMediaData) {
+                        qy8Var = new qy8();
+                        qy8Var.e = new ArrayList();
+                        qy8Var.a = multiMediaData2.path;
+                        qy8Var.c = ry8Var.c;
+                        qy8Var.d = ry8Var.d;
+                        qy8Var.b = multiMediaData2.rotation;
+                        arrayList.add(qy8Var);
+                    }
+                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) dc9.c(ry8Var.e, findInputIndexInSegments), j) * 1000;
+                    ky8 ky8Var = new ky8();
+                    ky8Var.a = dy8.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
+                    ky8Var.b = multiMediaData2.path;
+                    ky8Var.f = i;
+                    ky8Var.g = multiMediaData2.type;
+                    ky8Var.h = ry8Var.c;
+                    ky8Var.i = ry8Var.d;
+                    ky8Var.d = multiMediaDataSeekTime;
+                    ky8Var.j = iy8Var;
+                    ky8Var.c = multiMediaData2.rotation;
+                    if (qy8Var != null && (list = qy8Var.e) != null) {
+                        list.add(ky8Var);
+                    }
+                    multiMediaData = multiMediaData2;
                 }
-                return a3;
             }
-            return a2;
+            return arrayList;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public gy8 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c();
-            String str = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
-            if (!TextUtils.equals(this.a.c.b(), str)) {
-                this.a.c.d(str);
-            }
-            return this.a.c;
-        }
-        return (gy8) invokeV.objValue;
-    }
-
-    public qy8 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c();
-            return this.a.b;
-        }
-        return (qy8) invokeV.objValue;
-    }
-
-    public final void h(sy8 sy8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sy8Var) == null) {
-            c();
-            jy8.b b = jy8.a().b();
-            if (b != null) {
-                b.m(this.a.a);
-                b.setDataSource(sy8Var.a);
-                b.h(sy8Var, new a(this));
-                return;
-            }
-            this.b.add(sy8Var);
-        }
-    }
-
-    public void i(ty8 ty8Var, ky8 ky8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, ty8Var, ky8Var) == null) {
-            List<sy8> c2 = py8.c(ty8Var, ky8Var);
-            if (fc9.e(c2)) {
-                return;
-            }
-            for (sy8 sy8Var : c2) {
-                h(sy8Var);
-            }
-        }
-    }
-
-    public void j(uy8 uy8Var, ky8 ky8Var) {
-        sy8 b;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, uy8Var, ky8Var) == null) || (b = py8.b(uy8Var, ky8Var)) == null) {
-            return;
-        }
-        h(b);
+        return (List) invokeLL.objValue;
     }
 }

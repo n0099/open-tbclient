@@ -16,17 +16,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fz7 extends bz7 {
+public class fz7 extends zy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LinearLayout f;
     public zx g;
     public ItemCardView h;
     public ThreadData i;
-    public ho4 j;
+    public go4 j;
+    public ly k;
 
     /* loaded from: classes4.dex */
-    public class a extends ho4 {
+    public class a extends go4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fz7 a;
@@ -49,17 +50,17 @@ public class fz7 extends bz7 {
             this.a = fz7Var;
         }
 
-        @Override // com.baidu.tieba.ho4
-        public eq4 getNegFeedBackData() {
+        @Override // com.baidu.tieba.go4
+        public dq4 getNegFeedBackData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return null;
             }
-            return (eq4) invokeV.objValue;
+            return (dq4) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.ho4
+        @Override // com.baidu.tieba.go4
         public ThreadData getThreadData() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -133,7 +134,7 @@ public class fz7 extends bz7 {
         }
     }
 
-    @Override // com.baidu.tieba.bz7
+    @Override // com.baidu.tieba.zy7
     public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -158,22 +159,31 @@ public class fz7 extends bz7 {
             layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
             this.f.addView(this.g.h(), layoutParams);
+            if (this.k == null) {
+                ly lyVar = new ly(this.a.getPageActivity());
+                this.k = lyVar;
+                lyVar.x("pb");
+            }
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.tbds_30);
+            this.f.addView(this.k.h(), layoutParams2);
             if (this.h == null) {
                 this.h = new ItemCardView(this.a.getPageActivity());
             }
             this.h.setBackGroundColor(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams2.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams2.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.h, layoutParams2);
+            LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams3.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
+            layoutParams3.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams3.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams3.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            this.f.addView(this.h, layoutParams3);
             return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bz7
+    @Override // com.baidu.tieba.zy7
     public void b(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
@@ -189,15 +199,24 @@ public class fz7 extends bz7 {
         if (itemCardView != null) {
             itemCardView.G();
         }
+        ly lyVar = this.k;
+        if (lyVar != null) {
+            lyVar.onChangeSkinType(tbPageContext, i);
+        }
     }
 
-    @Override // com.baidu.tieba.bz7
+    @Override // com.baidu.tieba.zy7
     public void c(OriginalThreadInfo originalThreadInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
             this.d = originalThreadInfo;
             this.i = originalThreadInfo == null ? null : originalThreadInfo.b();
-            this.j = new a(this);
+            a aVar = new a(this);
+            this.j = aVar;
+            ly lyVar = this.k;
+            if (lyVar != null) {
+                lyVar.a(aVar);
+            }
             ItemCardView itemCardView = this.h;
             if (itemCardView != null && originalThreadInfo != null) {
                 itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
@@ -209,11 +228,15 @@ public class fz7 extends bz7 {
         }
     }
 
-    @Override // com.baidu.tieba.bz7
+    @Override // com.baidu.tieba.zy7
     public void d(sw.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             super.d(aVar);
+            ly lyVar = this.k;
+            if (lyVar != null) {
+                lyVar.y(aVar);
+            }
             zx zxVar = this.g;
             if (zxVar != null) {
                 zxVar.x(aVar);
@@ -221,6 +244,18 @@ public class fz7 extends bz7 {
             LinearLayout linearLayout = this.f;
             if (linearLayout != null) {
                 linearLayout.setOnClickListener(new b(this));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zy7
+    public void e(h06 h06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, h06Var) == null) {
+            super.e(h06Var);
+            ly lyVar = this.k;
+            if (lyVar != null) {
+                lyVar.m(this.b);
             }
         }
     }

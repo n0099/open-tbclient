@@ -3,9 +3,9 @@ package com.baidu.tieba.pbextra;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.g28;
+import com.baidu.tieba.e28;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.yk8;
+import com.baidu.tieba.wk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,8 +47,8 @@ public class PbExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof yk8)) {
-                ((yk8) customResponsedMessage.getData()).a().add(new g28(null, PostData.P0));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof wk8)) {
+                ((wk8) customResponsedMessage.getData()).a().add(new e28(null, PostData.P0));
             }
         }
     }

@@ -1,235 +1,110 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWorkErr;
-import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.wr4;
-import com.baidu.tieba.zx4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.Date;
 /* loaded from: classes5.dex */
 public class mm8 {
     public static /* synthetic */ Interceptable $ic;
-    public static AtomicBoolean a;
-    public static List<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements wr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr4 a;
-        public final /* synthetic */ zx4 b;
-
-        public a(wr4 wr4Var, zx4 zx4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wr4Var, zx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wr4Var;
-            this.b = zx4Var;
+    public static void a() {
+        k9 mainDBDatabaseManager;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                this.a.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, this.b));
-            }
-        }
+        mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements wr4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wr4 a;
-
-        public b(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wr4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wr4Var;
-        }
-
-        @Override // com.baidu.tieba.wr4.e
-        public void onClick(wr4 wr4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wr4Var) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static abstract class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public abstract void a(String str);
-
-        public void b(zx4.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-                if (cVar != null && cVar.a) {
-                    if (cVar instanceof zx4.a) {
-                        a(((zx4.a) cVar).b);
-                        return;
-                    } else if (cVar instanceof zx4.b) {
-                        c(((zx4.b) cVar).b);
-                        return;
-                    } else {
-                        e();
-                        return;
-                    }
-                }
-                d();
-            }
-        }
-
-        public abstract void c(String str);
-
-        public abstract void d();
-
-        public abstract void e();
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947977585, "Lcom/baidu/tieba/mm8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947977585, "Lcom/baidu/tieba/mm8;");
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            BdLog.e("deleteVieoChunkUploadData Called");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return;
             }
-        }
-        a = new AtomicBoolean(false);
-        b = Arrays.asList(Integer.valueOf((int) NetWorkErr.ERROR_UEG_IDENTITY_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_PHONE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_MODIFY_PWD), Integer.valueOf((int) NetWorkErr.ERROR_UEG_FACE_VERIFY), Integer.valueOf((int) NetWorkErr.ERROR_UEG_DOUBLE_CHECK), Integer.valueOf((int) NetWorkErr.ERROR_UEG_BIND_MOBILE));
-    }
-
-    public static boolean a(int i, AuthTokenData authTokenData, c cVar) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, authTokenData, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i == 3250020 || i == 3250021) && (authTokenData == null || TextUtils.isEmpty(authTokenData.getAuthToken()))) {
-                    return false;
-                }
-                return c(i, authTokenData.getAuthToken(), cVar);
+            k9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str == null || mainDBDatabaseManager == null) {
+                return;
             }
-            return false;
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
         }
-        return invokeILL.booleanValue;
     }
 
-    public static boolean b(int i, String str, c cVar) {
-        InterceptResult invokeILL;
+    public static nm8 c(String str) {
+        InterceptResult invokeL;
+        nm8 nm8Var;
+        Exception e;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, null, i, str, cVar)) == null) {
-            if (b.contains(Integer.valueOf(i))) {
-                if ((i == 3250020 || i == 3250021) && TextUtils.isEmpty(str)) {
-                    return false;
-                }
-                return c(i, str, cVar);
-            }
-            return false;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
+            return (nm8) invokeL.objValue;
         }
-        return invokeILL.booleanValue;
-    }
-
-    public static boolean c(int i, String str, c cVar) {
-        InterceptResult invokeILL;
-        zx4 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, null, i, str, cVar)) == null) {
-            if (a.compareAndSet(false, true)) {
-                String.valueOf(System.currentTimeMillis());
-                if (i == 3250022) {
-                    zx4 d = zx4.d();
-                    d.g(cVar);
-                    if (cVar != null) {
-                        cVar.d();
-                    }
-                    if (TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                        wr4 wr4Var = new wr4(TbadkCoreApplication.getInst().getCurrentActivity());
-                        wr4Var.setMessageId(R.string.obfuscated_res_0x7f0f0287);
-                        wr4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0ae5, new a(wr4Var, d));
-                        wr4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0371, new b(wr4Var));
-                        if (TbadkCoreApplication.getInst().getCurrentActivity() instanceof e9) {
-                            wr4Var.create(((e9) TbadkCoreApplication.getInst().getCurrentActivity()).getPageContext());
-                            wr4Var.show();
+        Cursor cursor2 = null;
+        nm8 nm8Var2 = null;
+        if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
+            return null;
+        }
+        k9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        try {
+            cursor = mainDBDatabaseManager.j("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            try {
+                try {
+                    if (cursor.moveToFirst()) {
+                        nm8Var = new nm8();
+                        try {
+                            nm8Var.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            nm8Var.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            nm8Var2 = nm8Var;
+                        } catch (Exception e2) {
+                            e = e2;
+                            mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
+                            og.a(cursor);
+                            return nm8Var;
                         }
                     }
-                } else {
-                    if (i == 3250017) {
-                        a2 = zx4.b();
-                    } else if (i == 3250023) {
-                        a2 = zx4.c();
-                    } else if (i == 3250024) {
-                        a2 = new zx4(4, null);
-                    } else {
-                        a2 = zx4.a(str);
-                    }
-                    a2.g(cVar);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921372, a2));
+                    og.a(cursor);
+                    return nm8Var2;
+                } catch (Exception e3) {
+                    nm8Var = null;
+                    e = e3;
                 }
-                a.set(false);
-                return true;
+            } catch (Throwable th) {
+                th = th;
+                cursor2 = cursor;
+                og.a(cursor2);
+                throw th;
             }
-            return false;
+        } catch (Exception e4) {
+            nm8Var = null;
+            e = e4;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            og.a(cursor2);
+            throw th;
         }
-        return invokeILL.booleanValue;
+    }
+
+    public static boolean d(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        k9 mainDBDatabaseManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+                return false;
+            }
+            Date date = new Date();
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        }
+        return invokeLLI.booleanValue;
     }
 }

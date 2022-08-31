@@ -1,62 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.enterForum.recforum.holder.RecommendThreadHolder;
-import com.baidu.tieba.enterForum.recforum.view.RecommendThreadView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class y76 extends cn<c86, RecommendThreadHolder> {
+public class y76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<z76> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y76(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public y76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: s */
-    public RecommendThreadHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static y76 b(JSONObject jSONObject) {
         InterceptResult invokeL;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new RecommendThreadHolder(new RecommendThreadView(viewGroup.getContext())) : (RecommendThreadHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("recommend_forum_info")) == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                arrayList.add(z76.A(optJSONArray.optJSONObject(i)));
+            }
+            y76 y76Var = new y76();
+            y76Var.c(arrayList);
+            return y76Var;
+        }
+        return (y76) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c86 c86Var, RecommendThreadHolder recommendThreadHolder) {
-        InterceptResult invokeCommon;
+    public List<z76> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c86Var, recommendThreadHolder})) == null) {
-            recommendThreadHolder.a(c86Var);
-            return recommendThreadHolder.getView();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void c(List<z76> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
-        return (View) invokeCommon.objValue;
     }
 }

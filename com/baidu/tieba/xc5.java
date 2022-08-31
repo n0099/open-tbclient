@@ -1,16 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.tieba.vc5;
-import com.baidu.tieba.wc5;
 /* loaded from: classes6.dex */
-public interface xc5<Q extends vc5, P extends wc5> {
-    int a();
+public interface xc5<T> {
+    void onError(int i, String str);
 
-    Q b();
-
-    String c();
-
-    P d();
-
-    int e();
+    void onSuccess(T t);
 }

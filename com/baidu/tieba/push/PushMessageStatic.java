@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.tbadk.util.ChatStatusManager;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.kz4;
-import com.baidu.tieba.lz4;
+import com.baidu.tieba.gu4;
+import com.baidu.tieba.iz4;
+import com.baidu.tieba.jz4;
+import com.baidu.tieba.ma8;
+import com.baidu.tieba.na8;
 import com.baidu.tieba.oa8;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.qa8;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -47,18 +47,18 @@ public class PushMessageStatic {
 
         /* renamed from: com.baidu.tieba.push.PushMessageStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0379a implements kz4.h {
+        public class C0382a implements iz4.h {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Ringtone a;
-            public final /* synthetic */ pa8 b;
+            public final /* synthetic */ na8 b;
 
-            public C0379a(a aVar, Ringtone ringtone, pa8 pa8Var) {
+            public C0382a(a aVar, Ringtone ringtone, na8 na8Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ringtone, pa8Var};
+                    Object[] objArr = {aVar, ringtone, na8Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -69,10 +69,10 @@ public class PushMessageStatic {
                     }
                 }
                 this.a = ringtone;
-                this.b = pa8Var;
+                this.b = na8Var;
             }
 
-            @Override // com.baidu.tieba.kz4.h
+            @Override // com.baidu.tieba.iz4.h
             public void dismiss() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -80,26 +80,26 @@ public class PushMessageStatic {
                     if (ringtone != null) {
                         ringtone.stop();
                     }
-                    pa8 pa8Var = this.b;
-                    if (pa8Var != null) {
-                        pa8Var.l();
+                    na8 na8Var = this.b;
+                    if (na8Var != null) {
+                        na8Var.l();
                     }
                 }
             }
         }
 
         /* loaded from: classes5.dex */
-        public class b implements pa8.e {
+        public class b implements na8.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ kz4 a;
+            public final /* synthetic */ iz4 a;
 
-            public b(a aVar, kz4 kz4Var) {
+            public b(a aVar, iz4 iz4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, kz4Var};
+                    Object[] objArr = {aVar, iz4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -109,17 +109,17 @@ public class PushMessageStatic {
                         return;
                     }
                 }
-                this.a = kz4Var;
+                this.a = iz4Var;
             }
 
-            @Override // com.baidu.tieba.pa8.e
+            @Override // com.baidu.tieba.na8.e
             public void a(View view2) {
-                kz4 kz4Var;
+                iz4 iz4Var;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (kz4Var = this.a) == null) {
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (iz4Var = this.a) == null) {
                     return;
                 }
-                kz4Var.t();
+                iz4Var.t();
             }
         }
 
@@ -158,7 +158,7 @@ public class PushMessageStatic {
                     if ((this.a == 4 && isOpen) || currentActivity == null) {
                         return;
                     }
-                    new oa8(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).s();
+                    new ma8(currentActivity, this.b.getForegroundShowData().getExtData(), this.b.getForegroundShowData().getRemindInfo()).s();
                 }
             }
         }
@@ -234,12 +234,12 @@ public class PushMessageStatic {
             int type = extData.getType();
             TbPageContext currentPageContext = TbadkCoreApplication.getInst().getCurrentPageContext(TbadkCoreApplication.getInst().getCurrentActivity());
             if (type == 3 || type == 6 || type == 7) {
-                pa8 pa8Var = new pa8(currentPageContext);
-                pa8Var.o(pushGeneralData);
-                Ringtone f = qa8.f();
-                kz4 e = lz4.e(pa8Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
-                e.x(new C0379a(this, f, pa8Var));
-                pa8Var.p(new b(this, e));
+                na8 na8Var = new na8(currentPageContext);
+                na8Var.o(pushGeneralData);
+                Ringtone f = oa8.f();
+                iz4 e = jz4.e(na8Var.m(), currentPageContext, null, 0L, remindInfo.getShowtime());
+                e.x(new C0382a(this, f, na8Var));
+                na8Var.p(new b(this, e));
             } else if (type == 1 || type == 2 || type == 4 || type == 5 || type == 8 || type == 9) {
                 sg.a().post(new c(this, type, pushGeneralData));
             }
@@ -279,19 +279,19 @@ public class PushMessageStatic {
                 if (strArr != null && tbPageContext != null && strArr.length > 0) {
                     String str = strArr[0];
                     if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                        qa8.e(tbPageContext.getContext(), str, true);
+                        oa8.e(tbPageContext.getContext(), str, true);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ALBUM)) {
-                        qa8.a(tbPageContext.getContext(), str);
+                        oa8.a(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_SKILL_DETAIL)) {
-                        qa8.d(tbPageContext.getContext(), str);
+                        oa8.d(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                        qa8.b(tbPageContext.getContext(), str);
+                        oa8.b(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_ORDER_PAGE)) {
-                        qa8.c(tbPageContext.getContext(), str);
+                        oa8.c(tbPageContext.getContext(), str);
                         return 0;
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_MAIN_PAGE)) {
                         UrlSchemaJumpHelper.jumpGamePlayPage(tbPageContext.getContext(), str);
@@ -336,7 +336,7 @@ public class PushMessageStatic {
 
     public static void b(boolean z, TbPageContext tbPageContext, PushRemindInfo pushRemindInfo, PushExtData pushExtData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), tbPageContext, pushRemindInfo, pushExtData}) == null) && pushRemindInfo != null && pushExtData != null && z && hu4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), tbPageContext, pushRemindInfo, pushExtData}) == null) && pushRemindInfo != null && pushExtData != null && z && gu4.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
             YyExtData yyExtData = new YyExtData();
             yyExtData.mSid = pushExtData.getSid();
             yyExtData.mSsid = pushExtData.getSsid();
@@ -357,10 +357,10 @@ public class PushMessageStatic {
             hashMap.put("view_top_params_key_yyext", yyExtData);
             hashMap.put("view_top_params_key_type", 1);
             hashMap.put("view_top_params_room_id", pushExtData.getLiveId());
-            if (lz4.e(null, tbPageContext, hashMap, 0L, pushRemindInfo.getShowtime()) != null) {
-                lz4.d();
+            if (jz4.e(null, tbPageContext, hashMap, 0L, pushRemindInfo.getShowtime()) != null) {
+                jz4.d();
                 TbSingleton.getInstance().setIsNeedRemindLiveRoom(false);
-                hu4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                gu4.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
             }
         }
     }

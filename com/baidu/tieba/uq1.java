@@ -38,13 +38,13 @@ public class uq1 extends rq1 {
 
         /* renamed from: com.baidu.tieba.uq1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0417a implements p43.e {
+        public class C0424a implements p43.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a13 a;
             public final /* synthetic */ a b;
 
-            public C0417a(a aVar, a13 a13Var) {
+            public C0424a(a aVar, a13 a13Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -128,7 +128,7 @@ public class uq1 extends rq1 {
                         return;
                     }
                     this.a.a();
-                    p43.g(M, this.c, "", new C0417a(this, M), this.d);
+                    p43.g(M, this.c, "", new C0424a(this, M), this.d);
                     return;
                 }
                 this.f.d(this.b, new at1(1001, "swan activity is null"));

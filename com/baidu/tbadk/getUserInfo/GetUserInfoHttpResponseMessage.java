@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.i55;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.g55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h55 mData;
+    public f55 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoHttpResponseMessage(int i) {
@@ -40,10 +40,10 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public h55 getData() {
+    public f55 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : (h55) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mData : (f55) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,9 +52,9 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            h55 h55Var = this.mData;
-            if (h55Var != null && h55Var.a() != null) {
-                i55.d().i(this.mData.a());
+            f55 f55Var = this.mData;
+            if (f55Var != null && f55Var.a() != null) {
+                g55.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -77,9 +77,9 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            h55 h55Var = new h55();
-            this.mData = h55Var;
-            h55Var.b(getUserInfoResIdl.data);
+            f55 f55Var = new f55();
+            this.mData = f55Var;
+            f55Var.b(getUserInfoResIdl.data);
         }
     }
 }

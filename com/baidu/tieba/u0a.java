@@ -1,34 +1,52 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.view.ViewGroup;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import android.app.Dialog;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
+import java.util.List;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.model.PayFinishInfo;
 import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.dialog.CancelType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes6.dex */
 public interface u0a {
+    void a(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(CancelType cancelType);
-    }
+    void b(int i, String str, PayCallBackBean payCallBackBean);
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(CancelType cancelType);
+    void c(CancelType cancelType, AbsViewEventHandler absViewEventHandler);
 
-        void b();
-    }
+    void d(Activity activity, g2a g2aVar, d2a d2aVar, Dialog dialog, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    GiftBagsInfo a();
+    void e(Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, IYYPayAmountView.ViewParams viewParams);
 
-    boolean b(Activity activity, b bVar, w0a w0aVar, AbsViewEventHandler absViewEventHandler);
+    void g(PayFinishInfo payFinishInfo);
 
-    void c(ViewGroup viewGroup, Activity activity);
+    void h(AbsViewEventHandler absViewEventHandler, PayDialogType payDialogType);
 
-    void d(GiftBagsInfo giftBagsInfo);
+    void i(Activity activity, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
 
-    boolean e(Activity activity, a aVar, w0a w0aVar, AbsViewEventHandler absViewEventHandler);
+    void j();
 
-    void f(GiftBagsInfo giftBagsInfo);
+    boolean k(Activity activity, IYYPayResultView iYYPayResultView, AbsViewEventHandler absViewEventHandler);
+
+    boolean m(Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler);
+
+    void n(Activity activity, d2a d2aVar, List<PayWayInfo> list, String str, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+
+    void o(Activity activity);
+
+    PayDialogType p();
+
+    void refreshWindow(WindowParams windowParams);
+
+    void release();
 }

@@ -369,14 +369,14 @@ public class i93 extends n93 {
 
         /* renamed from: com.baidu.tieba.i93$b$b  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0283b implements Runnable {
+        public class RunnableC0288b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ Set b;
             public final /* synthetic */ b c;
 
-            public RunnableC0283b(b bVar, String str, Set set) {
+            public RunnableC0288b(b bVar, String str, Set set) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -749,7 +749,7 @@ public class i93 extends n93 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, set)) == null) {
-                d(new RunnableC0283b(this, str, set));
+                d(new RunnableC0288b(this, str, set));
                 return this;
             }
             return (SharedPreferences.Editor) invokeLL.objValue;

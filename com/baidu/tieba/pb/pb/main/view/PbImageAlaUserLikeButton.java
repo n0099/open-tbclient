@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.tw4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.vw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements vw4 {
+public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements tw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,17 +45,17 @@ public class PbImageAlaUserLikeButton extends DynamicUserLikeButton implements v
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                sv4 sv4Var = new sv4();
-                sv4Var.t(R.color.CAM_X0109);
-                setConfig(sv4Var);
+                qv4 qv4Var = new qv4();
+                qv4Var.t(R.color.CAM_X0109);
+                setConfig(qv4Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc0));
             } else {
-                sv4 sv4Var2 = new sv4();
-                sv4Var2.r(R.color.CAM_X0302);
-                sv4Var2.i(R.drawable.obfuscated_res_0x7f0808ff, 0, TBSpecificationButtonConfig.IconType.SVG);
-                sv4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
-                setConfig(sv4Var2);
+                qv4 qv4Var2 = new qv4();
+                qv4Var2.r(R.color.CAM_X0302);
+                qv4Var2.i(R.drawable.obfuscated_res_0x7f0808ff, 0, TBSpecificationButtonConfig.IconType.SVG);
+                qv4Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds26));
+                setConfig(qv4Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ac));
             }

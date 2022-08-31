@@ -9,7 +9,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.setting.more.MoreActivity;
-import com.baidu.tieba.tn4;
+import com.baidu.tieba.sn4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,7 +53,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof GetImageWatermarkTypeResMsg)) {
                 GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
                 if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                    tn4.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                    sn4.c().i(getImageWatermarkTypeResMsg.mMaskType);
                 }
             }
         }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.homepage.topic.topicdetail.holder.TopicTimelineHolder;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView;
-import com.baidu.tieba.l37;
+import com.baidu.tieba.j37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<l37> b;
+    public List<j37> b;
 
     public TopicTimelineAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -43,13 +43,13 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: d */
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i) {
-        l37 l37Var;
+        j37 j37Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, topicTimelineHolder, i) == null) || (l37Var = (l37) ListUtils.getItem(this.b, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, topicTimelineHolder, i) == null) || (j37Var = (j37) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
         TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.a();
-        topicTimelineCellCardView.setData(l37Var);
+        topicTimelineCellCardView.setData(j37Var);
         topicTimelineCellCardView.b();
     }
 
@@ -69,7 +69,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ListUtils.getCount(this.b) : invokeV.intValue;
     }
 
-    public void setData(List<l37> list) {
+    public void setData(List<j37> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || ListUtils.isEmpty(list)) {
             return;

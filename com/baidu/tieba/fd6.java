@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.MemberGroupInfo;
 /* loaded from: classes4.dex */
 public class fd6 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public jk8 a;
+    public MemberGroupInfo a;
     public String b;
-    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public class fd6 implements pn {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public fd6() {
@@ -54,29 +54,29 @@ public class fd6 implements pn {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public String b() {
+    public MemberGroupInfo b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (MemberGroupInfo) invokeV.objValue;
     }
 
-    public jk8 c() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (jk8) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
+        }
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
         }
     }
 
-    public void g(String str) {
+    public void g(MemberGroupInfo memberGroupInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, memberGroupInfo) == null) {
+            this.a = memberGroupInfo;
         }
     }
 
@@ -84,13 +84,12 @@ public class fd6 implements pn {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 
-    public void h(jk8 jk8Var) {
+    public void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jk8Var) == null) {
-            this.a = jk8Var;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
         }
     }
 }

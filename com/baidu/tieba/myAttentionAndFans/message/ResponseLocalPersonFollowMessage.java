@@ -2,7 +2,7 @@ package com.baidu.tieba.myAttentionAndFans.message;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pq4;
+import com.baidu.tieba.oq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pq4 data;
+    public oq4 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseLocalPersonFollowMessage() {
@@ -32,20 +32,20 @@ public class ResponseLocalPersonFollowMessage extends CustomResponsedMessage<Obj
         }
     }
 
-    public void setData(pq4 pq4Var) {
+    public void setData(oq4 oq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pq4Var) == null) {
-            this.data = pq4Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oq4Var) == null) {
+            this.data = oq4Var;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.pq4' to match base method */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.tieba.oq4' to match base method */
     @Override // com.baidu.adp.framework.message.CustomResponsedMessage
     /* renamed from: getData */
     public Object getData2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (pq4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.data : (oq4) invokeV.objValue;
     }
 }

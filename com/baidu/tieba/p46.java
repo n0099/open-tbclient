@@ -1,43 +1,80 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.Comparable;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.properties.ReadWriteProperty;
+import kotlin.reflect.KProperty;
 /* loaded from: classes5.dex */
-public interface p46 {
+public final class p46<T extends Comparable<? super T>> implements ReadWriteProperty<Object, T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Function1<T, Unit> a;
+    public T b;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static float a(p46 p46Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, p46Var)) == null) {
-                Intrinsics.checkNotNullParameter(p46Var, "this");
-                return 1 / (p46Var.b() - 0.6f);
+    public p46(T initial, Function1<? super T, Unit> onChange) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {initial, onChange};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return invokeL.floatValue;
+        }
+        Intrinsics.checkNotNullParameter(initial, "initial");
+        Intrinsics.checkNotNullParameter(onChange, "onChange");
+        this.a = onChange;
+        this.b = initial;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty, kotlin.properties.ReadOnlyProperty
+    /* renamed from: a */
+    public T getValue(Object thisRef, KProperty<?> property) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, thisRef, property)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            return this.b;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // kotlin.properties.ReadWriteProperty
+    /* renamed from: b */
+    public void setValue(Object thisRef, KProperty<?> property, T value) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef, property, value) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Intrinsics.checkNotNullParameter(property, "property");
+            Intrinsics.checkNotNullParameter(value, "value");
+            T t = this.b;
+            this.b = value;
+            if (Intrinsics.areEqual(t, value)) {
+                return;
+            }
+            this.a.invoke(value);
         }
     }
 
-    int a();
-
-    float b();
-
-    int c();
-
-    float d();
-
-    float e();
-
-    int getHeight();
-
-    int getWidth();
-
-    void setHeight(int i);
-
-    void setWidth(int i);
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b.toString() : (String) invokeV.objValue;
+    }
 }

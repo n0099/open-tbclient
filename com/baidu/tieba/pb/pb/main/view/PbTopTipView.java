@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.v56;
-import com.baidu.tieba.w56;
+import com.baidu.tieba.t56;
+import com.baidu.tieba.u56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,8 +33,8 @@ public class PbTopTipView extends TextView {
     public Animation c;
     public Animation d;
     public Runnable e;
-    public w56 f;
-    public v56.b g;
+    public u56 f;
+    public t56.b g;
     public Runnable h;
 
     /* loaded from: classes5.dex */
@@ -71,7 +71,7 @@ public class PbTopTipView extends TextView {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements v56.b {
+    public class b implements t56.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbTopTipView a;
@@ -94,7 +94,7 @@ public class PbTopTipView extends TextView {
             this.a = pbTopTipView;
         }
 
-        @Override // com.baidu.tieba.v56.b
+        @Override // com.baidu.tieba.t56.b
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2) && this.a.b) {
@@ -102,21 +102,21 @@ public class PbTopTipView extends TextView {
             }
         }
 
-        @Override // com.baidu.tieba.v56.b
+        @Override // com.baidu.tieba.t56.b
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v56.b
+        @Override // com.baidu.tieba.t56.b
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.v56.b
+        @Override // com.baidu.tieba.t56.b
         public void d(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -347,9 +347,9 @@ public class PbTopTipView extends TextView {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w56 w56Var = new w56(getContext());
-            this.f = w56Var;
-            w56Var.d(this.g);
+            u56 u56Var = new u56(getContext());
+            this.f = u56Var;
+            u56Var.d(this.g);
             setOnTouchListener(new c(this));
             setupPaddings();
             this.d = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010102);

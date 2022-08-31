@@ -25,16 +25,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fc8;
 import com.baidu.tieba.gi;
-import com.baidu.tieba.hc8;
-import com.baidu.tieba.nm5;
+import com.baidu.tieba.lm5;
+import com.baidu.tieba.om5;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.qm5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.un4;
-import com.baidu.tieba.yf5;
-import com.baidu.tieba.zj5;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.wf5;
+import com.baidu.tieba.xj5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,7 +54,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public qm5 a;
+    public om5 a;
     public String b;
     public final Runnable c;
     public String d;
@@ -66,7 +66,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public HashMap<String, e> j;
     public String k;
     public final Runnable l;
-    public yf5.b m;
+    public wf5.b m;
     public Timer n;
     public String o;
     public String p;
@@ -327,7 +327,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (zj5.a().m()) {
+            if (xj5.a().m()) {
                 return true;
             }
             for (String str2 : s) {
@@ -344,7 +344,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public boolean C1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? hc8.l(str, getApplicationContext()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? fc8.l(str, getApplicationContext()) : invokeL.booleanValue;
     }
 
     @JavascriptInterface
@@ -450,7 +450,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -628,7 +628,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            un4.b c2 = un4.b().c(TbadkCoreApplication.getCurrentBduss());
+            tn4.b c2 = tn4.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 != null) {
                 String str3 = c2.a;
@@ -644,8 +644,8 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 str = "";
             }
             boolean z = true;
-            yf5.b bVar = new yf5.b(str2, str);
-            yf5.b bVar2 = this.m;
+            wf5.b bVar = new wf5.b(str2, str);
+            wf5.b bVar2 = this.m;
             if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
                 z = false;
             }
@@ -690,7 +690,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 sg.a().post(this.l);
             } else if (id == R.id.obfuscated_res_0x7f092604) {
                 this.a.c();
-                nm5.f(getPageContext().getPageActivity(), this.b);
+                lm5.f(getPageContext().getPageActivity(), this.b);
             } else if (id == R.id.obfuscated_res_0x7f092602) {
                 this.a.c();
                 gi.a(this.b);
@@ -706,7 +706,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             initWebView();
-            this.a = new qm5(this);
+            this.a = new om5(this);
             initData();
             this.a.j();
             this.a.x(new c(this));
@@ -735,9 +735,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             webViewDestory();
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             stopLoadTimer();
-            qm5 qm5Var = this.a;
-            if (qm5Var != null) {
-                qm5Var.o();
+            om5 om5Var = this.a;
+            if (om5Var != null) {
+                om5Var.o();
             }
             super.onDestroy();
         }
@@ -758,14 +758,14 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        qm5 qm5Var;
+        om5 om5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
             super.onNewIntent(intent);
             this.b = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
             this.q = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-            if (B1(this.b) && (qm5Var = this.a) != null) {
-                qm5Var.r(false);
+            if (B1(this.b) && (om5Var = this.a) != null) {
+                om5Var.r(false);
             }
             refresh();
         }
@@ -806,9 +806,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             dismissAllDialog();
             dismissAllPopupWindow();
             hideListMenu();
-            qm5 qm5Var = this.a;
-            if (qm5Var != null) {
-                qm5Var.c();
+            om5 om5Var = this.a;
+            if (om5Var != null) {
+                om5Var.c();
             }
         }
     }
@@ -818,9 +818,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
             super.onUserChanged(z);
-            qm5 qm5Var = this.a;
-            if (qm5Var != null) {
-                qm5Var.u(z);
+            om5 om5Var = this.a;
+            if (om5Var != null) {
+                om5Var.u(z);
             }
         }
     }

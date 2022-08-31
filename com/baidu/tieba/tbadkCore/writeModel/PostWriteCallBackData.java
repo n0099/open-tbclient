@@ -7,8 +7,8 @@ import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
-import com.baidu.tieba.cr4;
-import com.baidu.tieba.f15;
+import com.baidu.tieba.br4;
+import com.baidu.tieba.d15;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.pg;
@@ -44,10 +44,10 @@ public class PostWriteCallBackData implements Serializable {
     public int isCopyTWZhibo;
     public boolean isDyamicCallback;
     public CustomDialogData mActDialogData;
-    public f15 mAdverSegmentData;
+    public d15 mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public cr4 mReplyPrivacyTip;
+    public br4 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -196,10 +196,10 @@ public class PostWriteCallBackData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.questionMsg : (String) invokeV.objValue;
     }
 
-    public cr4 getReplyPrivacyTip() {
+    public br4 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mReplyPrivacyTip : (cr4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.mReplyPrivacyTip : (br4) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -226,10 +226,10 @@ public class PostWriteCallBackData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.video_id : (String) invokeV.objValue;
     }
 
-    public f15 getmAdverSegmentData() {
+    public d15 getmAdverSegmentData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mAdverSegmentData : (f15) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.mAdverSegmentData : (d15) invokeV.objValue;
     }
 
     public boolean isDyamicCallback() {
@@ -368,10 +368,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setReplyPrivacyTip(cr4 cr4Var) {
+    public void setReplyPrivacyTip(br4 br4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, cr4Var) == null) {
-            this.mReplyPrivacyTip = cr4Var;
+        if (interceptable == null || interceptable.invokeL(1048619, this, br4Var) == null) {
+            this.mReplyPrivacyTip = br4Var;
         }
     }
 
@@ -403,10 +403,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setmAdverSegmentData(f15 f15Var) {
+    public void setmAdverSegmentData(d15 d15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, f15Var) == null) {
-            this.mAdverSegmentData = f15Var;
+        if (interceptable == null || interceptable.invokeL(1048624, this, d15Var) == null) {
+            this.mAdverSegmentData = d15Var;
         }
     }
 

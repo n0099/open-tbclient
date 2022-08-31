@@ -1,43 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
 /* loaded from: classes6.dex */
 public class uf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(NewGodData newGodData) {
-        InterceptResult invokeL;
+    public static void a(int i) {
+        int videoAutoPlayReal;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            return c(newGodData != null && newGodData.getType() == 2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(NewGodInfo newGodInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            return c(newGodInfo != null && newGodInfo.type.intValue() == 2);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0611);
+        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
+            if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() == -1) {
+                videoAutoPlayReal = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+            } else {
+                videoAutoPlayReal = TbadkCoreApplication.getInst().getVideoAutoPlayReal();
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0610);
+            StatisticItem.make(CommonStatisticKey.KEY_VIDEO_AD_PLAY_SWITCH).param("obj_type", i).param(TiebaStatic.Params.OBJ_PARAM2, videoAutoPlayReal).eventStat();
         }
-        return (String) invokeZ.objValue;
     }
 }

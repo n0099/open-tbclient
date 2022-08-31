@@ -37,8 +37,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.video.VideoItemData;
@@ -442,7 +442,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             threadData.threadType = 40;
             threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
             threadData.setTitle(shareThreadMsgData.title);
-        } else if (!StringUtils.isNull(mi5.E(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+        } else if (!StringUtils.isNull(ki5.E(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
             threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
         } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
             threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
@@ -657,14 +657,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            os4 d = os4.d(this.d);
+            ns4 d = ns4.d(this.d);
             d.A(R.string.F_X02);
             d.v(R.color.CAM_X0105);
-            os4.d(this.e).v(R.color.CAM_X0107);
-            os4.d(this.f).v(R.color.CAM_X0109);
-            os4.d(this.j).v(R.color.CAM_X0107);
-            os4.d(this.R).v(R.color.CAM_X0109);
-            os4 d2 = os4.d(this.z);
+            ns4.d(this.e).v(R.color.CAM_X0107);
+            ns4.d(this.f).v(R.color.CAM_X0109);
+            ns4.d(this.j).v(R.color.CAM_X0107);
+            ns4.d(this.R).v(R.color.CAM_X0109);
+            ns4 d2 = ns4.d(this.z);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0204);
         }

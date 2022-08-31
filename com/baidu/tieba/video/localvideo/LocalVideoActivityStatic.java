@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bm;
 import com.baidu.tieba.cm;
-import com.baidu.tieba.r16;
+import com.baidu.tieba.p16;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
-import com.baidu.tieba.xs8;
-import com.baidu.tieba.xt8;
+import com.baidu.tieba.vs8;
+import com.baidu.tieba.vt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,14 +59,14 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<r16> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<p16> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof xs8)) {
+                if (customMessage == null || !(customMessage.getData() instanceof vs8)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new xt8((xs8) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new vt8((vs8) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

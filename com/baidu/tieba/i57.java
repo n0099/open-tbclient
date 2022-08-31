@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.hottopic.data.RelateForumItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,85 +14,80 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.TopicList.DataRes;
-import tbclient.TopicList.NewTopicList;
-import tbclient.TopicList.TabList;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class i57 {
+public class i57 extends k06 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<m57> b;
-    public l57 c;
-    public List<b57> d;
-    public List<a57> e;
-    public List<TopicList> f;
-    public List<NewTopicList> g;
+    public List<pn> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947804574, "Lcom/baidu/tieba/i57;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947804574, "Lcom/baidu/tieba/i57;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public i57() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = null;
     }
 
-    public List<TopicList> a() {
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<pn> list = this.a;
+            if (list == null || list.size() == 0) {
+                return 0;
+            }
+            return this.a.size();
+        }
+        return invokeV.intValue;
     }
 
-    public void b(DataRes dataRes) {
-        List<TopicList> list;
-        List<TopicList> list2;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) || dataRes == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void parserProtobuf(List<RelateForum> list) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() == 0) {
             return;
         }
-        List<TabList> list3 = dataRes.tab_list;
-        if (list3 != null && !ListUtils.isEmpty(list3)) {
-            this.b = new ArrayList();
-            for (TabList tabList : dataRes.tab_list) {
-                m57 m57Var = new m57();
-                m57Var.a(tabList);
-                this.b.add(m57Var);
+        this.showTopDivider = true;
+        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb2);
+        this.a = new ArrayList();
+        for (RelateForum relateForum : list) {
+            if (!StringUtils.isNull(relateForum.forum_name)) {
+                RelateForumItemData relateForumItemData = new RelateForumItemData();
+                relateForumItemData.parserProtobuf(relateForum);
+                this.a.add(relateForumItemData);
             }
         }
-        if (dataRes.media_topic != null) {
-            l57 l57Var = new l57();
-            this.c = l57Var;
-            l57Var.a(dataRes.media_topic);
-        }
-        TopicListModule topicListModule = dataRes.topic_manual;
-        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
-            this.e = new ArrayList();
-            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
-                a57 a57Var = new a57();
-                a57Var.b(dataRes.topic_manual);
-                a57Var.a(dataRes.topic_manual.topic_list.get(i));
-                this.e.add(a57Var);
-            }
-        }
-        TopicListModule topicListModule2 = dataRes.topic_bang;
-        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
-            this.d = new ArrayList();
-            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
-                b57 b57Var = new b57();
-                b57Var.b(dataRes.topic_bang);
-                b57Var.a(dataRes.topic_bang.topic_list.get(i2));
-                this.d.add(b57Var);
-            }
-        }
-        this.f = dataRes.frs_tab_topic;
-        this.g = dataRes.topic_list;
     }
 }

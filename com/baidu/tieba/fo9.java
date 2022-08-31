@@ -1,79 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.Feature;
+import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
 /* loaded from: classes4.dex */
-public class fo9 {
+public final class fo9 implements Parcelable.Creator<Feature> {
     public static /* synthetic */ Interceptable $ic;
-    public static fo9 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public eo9 a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947771001, "Lcom/baidu/tieba/fo9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947771001, "Lcom/baidu/tieba/fo9;");
-                return;
-            }
-        }
-        b = new fo9();
-    }
 
     public fo9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = null;
     }
 
-    @NonNull
-    public static eo9 a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? b.b(context) : (eo9) invokeL.objValue;
-    }
-
-    @NonNull
-    public final synchronized eo9 b(@NonNull Context context) {
-        InterceptResult invokeL;
-        eo9 eo9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    if (context.getApplicationContext() != null) {
-                        context = context.getApplicationContext();
-                    }
-                    this.a = new eo9(context);
-                }
-                eo9Var = this.a;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* bridge */ /* synthetic */ Feature createFromParcel(Parcel parcel) {
+        int q = SafeParcelReader.q(parcel);
+        String str = null;
+        int i = 0;
+        long j = -1;
+        while (parcel.dataPosition() < q) {
+            int k = SafeParcelReader.k(parcel);
+            int h = SafeParcelReader.h(k);
+            if (h == 1) {
+                str = SafeParcelReader.d(parcel, k);
+            } else if (h == 2) {
+                i = SafeParcelReader.m(parcel, k);
+            } else if (h != 3) {
+                SafeParcelReader.p(parcel, k);
+            } else {
+                j = SafeParcelReader.n(parcel, k);
             }
-            return eo9Var;
         }
-        return (eo9) invokeL.objValue;
+        SafeParcelReader.g(parcel, q);
+        return new Feature(str, i, j);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ Feature[] newArray(int i) {
+        return new Feature[i];
     }
 }

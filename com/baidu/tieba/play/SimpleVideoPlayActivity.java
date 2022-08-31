@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p98;
+import com.baidu.tieba.n98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public p98 c;
+    public n98 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -85,9 +85,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            p98 p98Var = new p98(this, frameLayout2);
-            this.c = p98Var;
-            p98Var.setStageType("2006");
+            n98 n98Var = new n98(this, frameLayout2);
+            this.c = n98Var;
+            n98Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();

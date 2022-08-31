@@ -1,33 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.forumMember.manito.ManitoMemberItemViewHolder;
+import com.baidu.tieba.forumMember.member.ComplaintBarlordViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wc6 extends cf6<xc6, ManitoMemberItemViewHolder> {
+public class wc6 extends cn<xc6, ComplaintBarlordViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener l;
+    public int a;
+    public View.OnClickListener b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -56,101 +51,91 @@ public class wc6 extends cf6<xc6, ManitoMemberItemViewHolder> {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                xc6 xc6Var = (xc6) view2.getTag();
-                TiebaStatic.log("c10624");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, xc6Var.h(), xc6Var.f(), "")));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof String)) {
+                String str = (String) view2.getTag();
+                if (this.a.a == 1 || this.a.a == 4) {
+                    str = str + "?isNightModel=1";
+                }
+                CustomMessage customMessage = new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.mContext, this.a.mContext.getString(R.string.obfuscated_res_0x7f0f0422), str, true));
+                customMessage.setTag(this.a.mPageId);
+                MessageManager.getInstance().sendMessage(customMessage);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wc6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public wc6(d9 d9Var) {
+        super(d9Var.getPageActivity(), xc6.c, d9Var.getUniqueId());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {d9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new a(this);
+        this.b = new a(this);
     }
 
-    public final SpannableStringBuilder F(String str, String[] strArr, int[] iArr) {
-        InterceptResult invokeLLL;
-        int indexOf;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.cn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, xc6 xc6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        z(i, view2, viewGroup, xc6Var, complaintBarlordViewHolder);
+        return view2;
+    }
+
+    public final void w(ComplaintBarlordViewHolder complaintBarlordViewHolder, xc6 xc6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, strArr, iArr)) == null) {
-            if (str == null || strArr == null || iArr == null || strArr.length <= 0 || iArr.length <= 0 || strArr.length != iArr.length) {
-                return null;
-            }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            SpannableString spannableString = new SpannableString(str);
-            for (int i = 0; i < strArr.length; i++) {
-                if (strArr[i] != null && (indexOf = str.indexOf(strArr[i])) >= 0) {
-                    spannableString.setSpan(new ForegroundColorSpan(iArr[i]), indexOf, strArr[i].length() + indexOf, 17);
-                }
-            }
-            spannableStringBuilder.append((CharSequence) spannableString);
-            return spannableStringBuilder;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, complaintBarlordViewHolder, xc6Var) == null) {
+            complaintBarlordViewHolder.d.setText(xc6Var.a);
+            complaintBarlordViewHolder.b.setTag(xc6Var.b);
+            complaintBarlordViewHolder.b.setOnClickListener(this.b);
         }
-        return (SpannableStringBuilder) invokeLLL.objValue;
+    }
+
+    public final void x(ComplaintBarlordViewHolder complaintBarlordViewHolder) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, complaintBarlordViewHolder) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            this.a = skinType;
+            if (complaintBarlordViewHolder.a == skinType) {
+                return;
+            }
+            complaintBarlordViewHolder.a = skinType;
+            SkinManager.setBackgroundResource(complaintBarlordViewHolder.b, R.drawable.frs_member_manito_bg);
+            SkinManager.setBackgroundColor(complaintBarlordViewHolder.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(complaintBarlordViewHolder.d, R.color.CAM_X0105, 1);
+            SkinManager.setImageResource(complaintBarlordViewHolder.e, R.drawable.icon_arrow12_gray66_right);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
-    /* renamed from: G */
-    public ManitoMemberItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: y */
+    public ComplaintBarlordViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) ? new ManitoMemberItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d055e, (ViewGroup) null)) : (ManitoMemberItemViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new ComplaintBarlordViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03e7, viewGroup, false)) : (ComplaintBarlordViewHolder) invokeL.objValue;
     }
 
-    public View H(int i, View view2, ViewGroup viewGroup, xc6 xc6Var, ManitoMemberItemViewHolder manitoMemberItemViewHolder) {
+    public View z(int i, View view2, ViewGroup viewGroup, xc6 xc6Var, ComplaintBarlordViewHolder complaintBarlordViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xc6Var, manitoMemberItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, xc6Var, manitoMemberItemViewHolder);
-            if (xc6Var != null && manitoMemberItemViewHolder != null) {
-                if (manitoMemberItemViewHolder.f != this.f) {
-                    SkinManager.setBackgroundResource(manitoMemberItemViewHolder.getView(), R.drawable.frs_member_manito_bg);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.b, R.color.CAM_X0106, 1);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.c, R.color.CAM_X0109, 1);
-                    SkinManager.setBackgroundColor(manitoMemberItemViewHolder.e, R.color.CAM_X0204);
-                    SkinManager.setViewTextColor(manitoMemberItemViewHolder.d, R.color.CAM_X0109, 1);
-                }
-                manitoMemberItemViewHolder.a.e(xc6Var.b(), 12, false);
-                manitoMemberItemViewHolder.b.setText(pf5.e(xc6Var.g(), 16));
-                if (StringUtils.isNull(xc6Var.c())) {
-                    manitoMemberItemViewHolder.c.setText(R.string.obfuscated_res_0x7f0f07e4);
-                } else {
-                    manitoMemberItemViewHolder.c.setText(pf5.e(xc6Var.c(), 30));
-                }
-                int color = SkinManager.getColor(R.color.CAM_X0301);
-                String numberUniformFormat = StringHelper.numberUniformFormat(xc6Var.a());
-                manitoMemberItemViewHolder.d.setText(F(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0603), numberUniformFormat), new String[]{numberUniformFormat}, new int[]{color}));
-                manitoMemberItemViewHolder.getView().setTag(xc6Var);
-                manitoMemberItemViewHolder.getView().setOnClickListener(this.l);
-                manitoMemberItemViewHolder.f = this.f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xc6Var, complaintBarlordViewHolder})) == null) {
+            if (xc6Var != null && complaintBarlordViewHolder != null) {
+                x(complaintBarlordViewHolder);
+                w(complaintBarlordViewHolder, xc6Var);
             }
             return view2;
         }
         return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.cf6, com.baidu.tieba.cn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        H(i, view2, viewGroup, (xc6) obj, (ManitoMemberItemViewHolder) viewHolder);
-        return view2;
     }
 }

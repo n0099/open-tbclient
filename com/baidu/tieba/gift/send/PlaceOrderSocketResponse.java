@@ -3,7 +3,7 @@ package com.baidu.tieba.gift.send;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.bu6;
+import com.baidu.tieba.zt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.PlaceOrder.PlaceOrderResIdl;
 public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bu6 orderInfo;
+    public zt6 orderInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PlaceOrderSocketResponse() {
@@ -52,18 +52,18 @@ public class PlaceOrderSocketResponse extends TbSocketReponsedMessage {
                 setErrorString(placeOrderResIdl.error.usermsg);
             }
             if (placeOrderResIdl.data != null) {
-                bu6 bu6Var = new bu6();
-                this.orderInfo = bu6Var;
-                bu6Var.c(placeOrderResIdl.data);
+                zt6 zt6Var = new zt6();
+                this.orderInfo = zt6Var;
+                zt6Var.c(placeOrderResIdl.data);
             }
             return placeOrderResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public bu6 getOrderInfo() {
+    public zt6 getOrderInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orderInfo : (bu6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.orderInfo : (zt6) invokeV.objValue;
     }
 }

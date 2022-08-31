@@ -17,11 +17,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class px extends sw<ho4> {
+public class px extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiImgLayout f;
-    public ho4 g;
+    public go4 g;
     public int h;
     public String i;
 
@@ -55,9 +55,9 @@ public class px extends sw<ho4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    uz5.a(this.a.g.getThreadData().getId());
-                    uz5.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    uz5.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.a(this.a.g.getThreadData().getId());
+                    sz5.l(this.a.f.a, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.l(this.a.f.b, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -107,10 +107,10 @@ public class px extends sw<ho4> {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j06Var) == null) {
-            this.f.setSubClickListener(j06Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h06Var) == null) {
+            this.f.setSubClickListener(h06Var);
         }
     }
 
@@ -129,12 +129,12 @@ public class px extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: r */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ho4Var) == null) {
-            this.g = ho4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
+            this.g = go4Var;
             this.f.setFrom(this.i);
-            this.f.a(ho4Var);
+            this.f.a(go4Var);
         }
     }
 

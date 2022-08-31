@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.rk8;
+import com.baidu.tieba.pk8;
 import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -61,8 +61,8 @@ public class ScreenLockLoadMoreModel extends BdBaseModel<ScreenLockActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            rk8.h(309420, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
-            rk8.c(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
+            pk8.h(309420, ScreenLockLoadMoreSocketResponseMessage.class, false, false);
+            pk8.c(309420, CmdConfigHttp.CMD_SCREEN_LOCK_MESSAGE_MORE, TbConfig.CMD_SCREEN_LOCK_MESSAGE_MORE, ScreenLockLoadMoreHttpResponseMessage.class, false, false, false, false);
         }
     }
 

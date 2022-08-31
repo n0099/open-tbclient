@@ -16,7 +16,7 @@ public class qx3 {
     public static gy3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? dp5.a() : (gy3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? bp5.a() : (gy3) invokeV.objValue;
     }
 
     @Inject(force = false)

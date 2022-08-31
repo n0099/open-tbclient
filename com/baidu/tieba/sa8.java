@@ -1,44 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.pm.PackageManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetLockWindowMsg.DataRes;
 /* loaded from: classes5.dex */
 public class sa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public ta8 c;
+    public MetaData d;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public sa8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
-            return !StringUtils.isNull(systemProperty) && pg.e(systemProperty.replace("V", ""), 0) >= 9;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
-            try {
-                try {
-                } catch (PackageManager.NameNotFoundException unused) {
-                    if (packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.StartBgActivityControlActivity"), 0) != null) {
-                        return true;
-                    }
-                }
-            } catch (PackageManager.NameNotFoundException unused2) {
-            }
-            return packageManager.getActivityInfo(new ComponentName("com.vivo.permissionmanager", "com.vivo.permissionmanager.activity.ScreenLockedActionControlActivity"), 0) != null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public ta8 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (ta8) invokeV.objValue;
+    }
+
+    public MetaData d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : (MetaData) invokeV.objValue;
+    }
+
+    public void e(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.a = dataRes.publish_user;
+        this.b = dataRes.publish_pic;
+        MetaData metaData = new MetaData();
+        this.d = metaData;
+        metaData.parserProtobuf(dataRes.author);
+        this.d.setPendantData(null);
+        ta8 ta8Var = new ta8();
+        this.c = ta8Var;
+        ta8Var.e(dataRes.thread_info);
     }
 }

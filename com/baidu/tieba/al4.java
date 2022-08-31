@@ -49,7 +49,7 @@ public class al4 {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if ((data instanceof hn8) && ((hn8) data).b) {
+            if ((data instanceof fn8) && ((fn8) data).b) {
                 bl4.f().a("717");
             }
         }

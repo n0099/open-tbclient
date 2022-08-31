@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.rk8;
-import com.baidu.tieba.sp4;
-import com.baidu.tieba.yt6;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.rp4;
+import com.baidu.tieba.wt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
     public boolean e;
     public long f;
     public String g;
-    public yt6 h;
+    public wt6 h;
     public b i;
     public bb j;
     public int mUserType;
@@ -87,7 +87,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, boolean z, yt6 yt6Var);
+        void a(int i, String str, boolean z, wt6 wt6Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -118,8 +118,8 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         aVar.getHttpMessageListener().setSelfListener(true);
         this.j.getSocketMessageListener().setSelfListener(true);
         registerListener(this.j);
-        rk8.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
-        rk8.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
+        pk8.h(309052, GetPersonalGiftListSocketResponseMessage.class, false, false);
+        pk8.c(309052, CmdConfigHttp.CMD_GET_PERSONAL_GIFT_LIST, TbConfig.GET_PERSONAL_GIFT_LIST, GetPersonalGiftListHttpResponseMessage.class, false, false, false, false);
     }
 
     public final GetPersonalGiftListRequest E(int i, long j) {
@@ -165,49 +165,49 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public final void I(yt6 yt6Var) {
+    public final void I(wt6 wt6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, yt6Var) == null) || yt6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, wt6Var) == null) || wt6Var == null) {
             return;
         }
         if (this.h == null) {
-            this.h = new yt6();
+            this.h = new wt6();
         }
         if (this.h.c() == null) {
-            this.h.i(new yt6.b());
+            this.h.i(new wt6.b());
         }
         if (this.h.d() == null) {
-            this.h.j(new yt6.c());
+            this.h.j(new wt6.c());
         }
         if (this.h.a() == null) {
             this.h.g(new ArrayList<>());
         }
-        this.h.h(yt6Var.b());
-        this.h.k(yt6Var.e());
-        this.h.i(yt6Var.c());
-        this.h.j(yt6Var.d());
-        yt6 yt6Var2 = this.h;
-        yt6Var2.h = yt6Var.h;
-        yt6Var2.f = yt6Var.f;
-        if (yt6Var.g != null) {
-            yt6Var2.g = new sp4();
-            sp4 sp4Var = this.h.g;
-            sp4 sp4Var2 = yt6Var.g;
-            sp4Var.a = sp4Var2.a;
-            sp4Var.b = sp4Var2.b;
+        this.h.h(wt6Var.b());
+        this.h.k(wt6Var.e());
+        this.h.i(wt6Var.c());
+        this.h.j(wt6Var.d());
+        wt6 wt6Var2 = this.h;
+        wt6Var2.h = wt6Var.h;
+        wt6Var2.f = wt6Var.f;
+        if (wt6Var.g != null) {
+            wt6Var2.g = new rp4();
+            rp4 rp4Var = this.h.g;
+            rp4 rp4Var2 = wt6Var.g;
+            rp4Var.a = rp4Var2.a;
+            rp4Var.b = rp4Var2.b;
         }
         if (this.h.c() != null) {
             this.b = this.h.c().a;
             this.a = this.h.c().b == 1;
         }
-        if (yt6Var.a() == null || yt6Var.a().size() <= 0) {
+        if (wt6Var.a() == null || wt6Var.a().size() <= 0) {
             return;
         }
         if (this.c) {
-            ArrayList<yt6.a> a2 = yt6Var.a();
+            ArrayList<wt6.a> a2 = wt6Var.a();
             int size = this.h.a().size() + 1;
             for (int i = 0; i < a2.size(); i++) {
-                yt6.a aVar = a2.get(i);
+                wt6.a aVar = a2.get(i);
                 if (aVar != null) {
                     aVar.h = size;
                     size++;
@@ -217,7 +217,7 @@ public class MyGiftListModel extends BdBaseModel<MyGiftListActivity> {
             return;
         }
         this.h.a().clear();
-        this.h.a().addAll(yt6Var.a());
+        this.h.a().addAll(wt6Var.a());
     }
 
     public void J(b bVar) {

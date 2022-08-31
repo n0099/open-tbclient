@@ -1,32 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.os.Parcel;
+import android.os.Parcelable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.gms.common.internal.BinderWrapper;
 /* loaded from: classes5.dex */
-public abstract class rn9<TListener> {
+public final class rn9 implements Parcelable.Creator<BinderWrapper> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public TListener a;
 
-    public rn9(hn9 hn9Var, TListener tlistener) {
+    public rn9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hn9Var, tlistener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tlistener;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ BinderWrapper createFromParcel(Parcel parcel) {
+        return new BinderWrapper(parcel, null);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+    @Override // android.os.Parcelable.Creator
+    public final /* synthetic */ BinderWrapper[] newArray(int i) {
+        return new BinderWrapper[i];
     }
 }

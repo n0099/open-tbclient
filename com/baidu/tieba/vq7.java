@@ -1,37 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
+import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class vq7 {
+public class vq7<V> implements fr7<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public final List<cn> b;
-    public List<pn> c;
-    public uq7 d;
-    public sq7 e;
-    public tq7 f;
-    public jr7 g;
+    public InterestSelectionStyleAModel a;
+    public oq7 b;
+    public BaseInterestSelectionFragment c;
 
-    public vq7(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+    public vq7(BaseInterestSelectionFragment baseInterestSelectionFragment, oq7 oq7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdTypeRecyclerView};
+            Object[] objArr = {baseInterestSelectionFragment, oq7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,148 +30,46 @@ public class vq7 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        d(context, bdTypeRecyclerView);
+        this.c = baseInterestSelectionFragment;
+        this.b = oq7Var;
+        this.a = new InterestSelectionStyleAModel(oq7Var, this);
     }
 
-    public void a(int i, ar7 ar7Var, int i2) {
+    @Override // com.baidu.tieba.fr7
+    public void a(V v) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), ar7Var, Integer.valueOf(i2)}) == null) {
-            new fr7().a(i, ar7Var, i2, this.c, this.a);
-        }
-    }
-
-    public void b(boolean z) {
-        List<pn> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || (list = this.c) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, v) == null) || (baseInterestSelectionFragment = this.c) == null) {
             return;
         }
-        for (pn pnVar : this.c) {
-            if (pnVar != null && (pnVar instanceof br7)) {
-                br7 br7Var = (br7) pnVar;
-                br7Var.t(z);
-                h(br7Var);
-            }
-        }
-        this.a.getAdapter().notifyDataSetChanged();
+        baseInterestSelectionFragment.s1();
     }
 
-    public List<pn> c() {
-        InterceptResult invokeV;
+    public void b() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
-            this.d = new uq7(context, dr7.c);
-            this.e = new sq7(context, br7.i);
-            this.f = new tq7(context, cr7.d);
-            this.b.add(this.d);
-            this.b.add(this.e);
-            this.b.add(this.f);
-            this.a = bdTypeRecyclerView;
-            bdTypeRecyclerView.a(this.b);
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<pn> list = this.c;
-            if (list != null && list.size() > 0) {
-                for (pn pnVar : this.c) {
-                    if (pnVar != null && (pnVar instanceof br7) && ((br7) pnVar).k()) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<pn> list = this.c;
-            if (list == null || list.size() <= 0) {
-                return false;
-            }
-            for (pn pnVar : this.c) {
-                if (pnVar != null && (pnVar instanceof br7) && !((br7) pnVar).k()) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            uq7 uq7Var = this.d;
-            if (uq7Var != null) {
-                uq7Var.notifyDataSetChanged();
-            }
-            sq7 sq7Var = this.e;
-            if (sq7Var != null) {
-                sq7Var.notifyDataSetChanged();
-            }
-            tq7 tq7Var = this.f;
-            if (tq7Var != null) {
-                tq7Var.notifyDataSetChanged();
-            }
-        }
-    }
-
-    public final void h(br7 br7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, br7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13682");
-            statisticItem.param("obj_type", 2);
-            statisticItem.param("obj_locate", 3);
-            statisticItem.param("fid", br7Var.c());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public void i(ir7 ir7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ir7Var) == null) {
-            this.f.x(ir7Var);
-        }
-    }
-
-    public void j(List<yq7> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, list) == null) || this.a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (interestSelectionStyleAModel = this.a) == null) {
             return;
         }
-        List<pn> b = new fr7().b(list);
-        if (ListUtils.isEmpty(this.c)) {
-            this.c = b;
-        } else {
-            this.c.addAll(b);
-        }
-        if (ListUtils.isEmpty(this.c)) {
-            return;
-        }
-        this.a.setData(this.c);
-        this.g.a();
+        interestSelectionStyleAModel.onDestroy();
     }
 
-    public void k(jr7 jr7Var) {
+    public void c() {
+        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, jr7Var) == null) {
-            this.g = jr7Var;
-            this.e.z(jr7Var);
-            this.f.y(jr7Var);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (interestSelectionStyleAModel = this.a) == null) {
+            return;
         }
+        interestSelectionStyleAModel.E();
+    }
+
+    @Override // com.baidu.tieba.fr7
+    public void onError(int i, String str) {
+        BaseInterestSelectionFragment baseInterestSelectionFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) || (baseInterestSelectionFragment = this.c) == null) {
+            return;
+        }
+        baseInterestSelectionFragment.t1(str);
     }
 }

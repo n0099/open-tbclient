@@ -1,210 +1,123 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.personPolymeric.PersonPolymericActivity;
+import com.baidu.tieba.personPolymeric.holder.PersonCommentHolder;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.regex.Pattern;
 /* loaded from: classes6.dex */
-public class v58 {
+public class v58 extends cn<PersonPostModel.PostInfoList, PersonCommentHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u58 a;
-    public j58 b;
-    public q58 c;
-    public i58 d;
-    public k58 e;
-    public p58 f;
-    public m58 g;
-    public s58 h;
-    public l58 i;
-    public x28 j;
-    public u28 k;
-    public x58 l;
-    public e68 m;
-    public b68 n;
-    public g68 o;
-    public f68 p;
-    public y58 q;
-    public a68 r;
-    public z58 s;
-    public c68 t;
-    public d68 u;
-    public List<cn> v;
-    public BdTypeRecyclerView w;
+    public String a;
+    public TbPageContext<PersonPolymericActivity> b;
+    public boolean c;
 
-    public v58(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView, BdUniqueId bdUniqueId) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v58(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = new ArrayList();
-        a(tbPageContext, bdTypeRecyclerView);
-        e(bdUniqueId);
+        this.b = tbPageContext;
     }
 
-    public final void a(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tbPageContext, bdTypeRecyclerView) == null) {
-            this.w = bdTypeRecyclerView;
-            this.a = new u58(tbPageContext);
-            this.b = new j58(tbPageContext);
-            this.c = new q58(tbPageContext);
-            this.d = new i58(tbPageContext);
-            this.e = new k58(tbPageContext);
-            this.f = new p58(tbPageContext, tbPageContext.getUniqueId());
-            this.g = new m58(tbPageContext, y68.h);
-            this.h = new s58(tbPageContext);
-            this.i = new l58(tbPageContext);
-            this.j = new x28(tbPageContext, z28.b);
-            this.k = new u28(tbPageContext.getPageActivity(), p28.d);
-            this.l = new x58(tbPageContext, PersonPostModel.PostInfoList.POST_INFO);
-            this.m = new e68(tbPageContext, v06.i0);
-            this.n = new b68(tbPageContext, v06.q0);
-            this.o = new g68(tbPageContext, w06.U);
-            this.p = new f68(tbPageContext, v06.r0);
-            this.s = new z58(tbPageContext, v06.t0);
-            this.t = new c68(tbPageContext, v06.s0);
-            this.u = new d68(tbPageContext, v06.u0);
-            this.q = new y58(tbPageContext, q06.N0);
-            this.r = new a68(tbPageContext, r06.N0);
-            this.v.add(this.a);
-            this.v.add(this.b);
-            this.v.add(this.c);
-            this.v.add(this.d);
-            this.v.add(this.e);
-            this.v.add(this.f);
-            this.v.add(this.g);
-            this.v.add(this.h);
-            this.v.add(this.i);
-            this.v.add(this.j);
-            this.v.add(this.k);
-            this.v.add(this.l);
-            this.v.add(this.m);
-            this.v.add(this.n);
-            this.v.add(this.o);
-            this.v.add(this.p);
-            this.v.add(this.s);
-            this.v.add(this.t);
-            this.v.add(this.u);
-            this.v.add(this.q);
-            this.v.add(this.r);
-            bdTypeRecyclerView.a(this.v);
-            c("page_recommend");
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.cn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
+        t(i, view2, viewGroup, postInfoList, personCommentHolder);
+        return view2;
     }
 
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cn
+    /* renamed from: s */
+    public PersonCommentHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.w.getListAdapter() == null) {
-            return;
-        }
-        this.w.getListAdapter().notifyDataSetChanged();
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonCommentHolder(LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0709, viewGroup, false), this.b, this.c) : (PersonCommentHolder) invokeL.objValue;
     }
 
-    public final void c(String str) {
-        List<cn> list;
+    public View t(int i, View view2, ViewGroup viewGroup, PersonPostModel.PostInfoList postInfoList, PersonCommentHolder personCommentHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (list = this.v) == null) {
-            return;
-        }
-        for (cn cnVar : list) {
-            if (cnVar instanceof xl5) {
-                ((xl5) cnVar).g(str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, postInfoList, personCommentHolder})) == null) {
+            if (postInfoList != null && personCommentHolder != null) {
+                if (this.a == null) {
+                    this.a = postInfoList.user_portrait;
+                }
+                personCommentHolder.c(postInfoList, false, this.a);
+                ArrayList<String[]> arrayList = new ArrayList<>();
+                int length = postInfoList.content.length;
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (postInfoList.content[i2].post_content.length != 0) {
+                        StringBuffer stringBuffer = new StringBuffer();
+                        if (!postInfoList.content[i2].post_content[0].text.startsWith("回复 ")) {
+                            stringBuffer.append("回复：");
+                        }
+                        int length2 = postInfoList.content[i2].post_content.length;
+                        for (int i3 = 0; i3 < length2; i3++) {
+                            stringBuffer.append(postInfoList.content[i2].post_content[i3].text);
+                        }
+                        arrayList.add(new String[]{stringBuffer.toString(), String.valueOf(postInfoList.thread_id), String.valueOf(postInfoList.content[i2].post_id), String.valueOf(postInfoList.content[i2].post_type), StringHelper.getFormatTime(postInfoList.content[i2].create_time * 1000), String.valueOf(postInfoList.thread_type)});
+                    }
+                }
+                personCommentHolder.a.setContent(arrayList);
+                if (Pattern.compile("^回复：").matcher(postInfoList.title).find()) {
+                    personCommentHolder.b.setText(postInfoList.title.replaceFirst("回复：", "原贴："));
+                } else {
+                    personCommentHolder.b.setText(postInfoList.title);
+                }
+                personCommentHolder.b.setTag(new String[]{String.valueOf(postInfoList.thread_id), null, null, String.valueOf(postInfoList.thread_type)});
+                if (postInfoList.thread_type == 33) {
+                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.icon_zhibo), (Drawable) null, (Drawable) null, (Drawable) null);
+                } else {
+                    personCommentHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
+                }
+                SkinManager.setBackgroundResource(personCommentHolder.b, R.drawable.person_post_line);
+                SkinManager.setViewTextColor(personCommentHolder.b, R.color.common_color_10039, 1);
+                int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
+                personCommentHolder.b.setPadding(dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize);
+                personCommentHolder.a(TbadkCoreApplication.getInst().getSkinType());
             }
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public void d(boolean z) {
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.l.u(z);
-            this.c.w(z);
-            this.m.x(z);
-            this.n.v(z);
-            this.o.w(z);
-            this.p.v(z);
-            this.q.y(z);
-            this.r.x(z);
-            this.s.x(z);
-            this.t.x(z);
-            this.u.x(z);
-        }
-    }
-
-    public void e(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.m.a = bdUniqueId;
-            this.n.a = bdUniqueId;
-            this.o.a = bdUniqueId;
-            this.p.a = bdUniqueId;
-            this.s.a = bdUniqueId;
-            this.t.a = bdUniqueId;
-            this.u.a = bdUniqueId;
-            this.q.a = bdUniqueId;
-            this.r.a = bdUniqueId;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.m.y(i);
-            this.n.w(i);
-            this.o.x(i);
-            this.p.w(i);
-            this.q.z(i);
-            this.r.y(i);
-            this.s.y(i);
-            this.t.y(i);
-            this.u.y(i);
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.m.z(i);
-            this.n.x(i);
-            this.o.y(i);
-            this.p.x(i);
-            this.q.A(i);
-            this.r.z(i);
-            this.s.z(i);
-            this.t.z(i);
-            this.u.z(i);
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m.A(i);
-            this.n.y(i);
-            this.o.z(i);
-            this.p.y(i);
-            this.q.B(i);
-            this.r.A(i);
-            this.s.A(i);
-            this.t.A(i);
-            this.u.A(i);
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
         }
     }
 }

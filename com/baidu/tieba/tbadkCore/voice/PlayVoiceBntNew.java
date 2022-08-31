@@ -24,8 +24,8 @@ import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.k75;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.AudioAnimationView;
@@ -213,7 +213,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            os4 d = os4.d(this.b);
+            ns4 d = ns4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -405,9 +405,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (m75.b().d()) {
-                m75.b().n(false);
-                m75.b().l(false);
+            if (k75.b().d()) {
+                k75.b().n(false);
+                k75.b().l(false);
             }
             f(false);
             if (i == 1) {

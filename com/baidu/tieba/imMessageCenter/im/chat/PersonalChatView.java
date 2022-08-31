@@ -35,12 +35,12 @@ import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.imMessageCenter.im.chat.GamePlayServiceView;
 import com.baidu.tieba.imMessageCenter.im.model.PersonalMsglistModel;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.u25;
+import com.baidu.tieba.s25;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.ya7;
+import com.baidu.tieba.wa7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -603,7 +603,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && i == 0) {
             UrlSchemaJumpHelper.jumpGameGodsPage(this.d, "com.baidu.tieba://unidispatch/GameGodsDetailPage?god_id=" + this.p + "&" + BdUniDispatchSchemeController.PARAM_FROM_NATIVE + "=1");
-            ya7.a(this.p);
+            wa7.a(this.p);
         }
     }
 
@@ -737,11 +737,11 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
             this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             LinearLayout linearLayout = this.l;
             if (linearLayout != null) {
-                os4.d(linearLayout).f(R.color.CAM_X0201);
+                ns4.d(linearLayout).f(R.color.CAM_X0201);
             }
             EMTextView eMTextView = this.k;
             if (eMTextView != null) {
-                os4 d2 = os4.d(eMTextView);
+                ns4 d2 = ns4.d(eMTextView);
                 d2.v(R.color.CAM_X0107);
                 d2.z(R.dimen.T_X05);
             }
@@ -769,7 +769,7 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
                 this.a = gamePlayServiceView;
                 this.mTool.addView(gamePlayServiceView, indexOfChild);
                 this.a.c(this);
-                ya7.b(this.p);
+                wa7.b(this.p);
             }
             ViewGroup viewGroup = this.mLayBottom;
             if (viewGroup instanceof BottomInputLayout) {
@@ -778,12 +778,12 @@ public class PersonalChatView extends CommonPersonalMsglistView implements Botto
         }
     }
 
-    public final void y(u25 u25Var) {
+    public final void y(s25 s25Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, u25Var) == null) || u25Var == null || u25Var == null || !(u25Var instanceof View)) {
+        if (!(interceptable == null || interceptable.invokeL(1048593, this, s25Var) == null) || s25Var == null || s25Var == null || !(s25Var instanceof View)) {
             return;
         }
-        ((View) u25Var).setOnClickListener(this.q);
+        ((View) s25Var).setOnClickListener(this.q);
     }
 
     public Button z() {

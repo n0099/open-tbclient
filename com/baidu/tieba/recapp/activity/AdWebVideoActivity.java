@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.tieba.ad.browser.newstyle.TBAdWebView;
-import com.baidu.tieba.jd8;
-import com.baidu.tieba.kd8;
+import com.baidu.tieba.hd8;
+import com.baidu.tieba.id8;
 import com.baidu.tieba.recapp.view.DistributeVideoView;
 import com.baidu.tieba.recapp.view.WebViewContainer;
 import com.baidu.tieba.ri;
@@ -42,7 +42,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
     public int K;
     public int L;
     public int M;
-    public jd8 N;
+    public hd8 N;
     public WebViewContainer.OnScrollChangedCallback O;
 
     /* loaded from: classes5.dex */
@@ -171,7 +171,7 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 if (this.M == 14) {
                     Integer valueOf = Integer.valueOf(ri.k(getActivity()));
                     builder.video_height = valueOf;
-                    builder.video_width = Integer.valueOf(kd8.c(valueOf.intValue()));
+                    builder.video_width = Integer.valueOf(id8.c(valueOf.intValue()));
                 } else {
                     Integer valueOf2 = Integer.valueOf(ri.k(getActivity()));
                     builder.video_width = valueOf2;
@@ -190,9 +190,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 int intValue2 = build.video_height.intValue();
                 this.J = intValue2;
                 this.L = intValue2 / 2;
-                jd8 jd8Var = this.N;
-                if (jd8Var != null) {
-                    this.D.setVideoTailFrameData(jd8Var);
+                hd8 hd8Var = this.N;
+                if (hd8Var != null) {
+                    this.D.setVideoTailFrameData(hd8Var);
                 }
                 this.D.setPageContext(getPageContext());
                 this.D.setData(build, 2, getPageContext());
@@ -236,9 +236,9 @@ public class AdWebVideoActivity extends AdWebViewActivity {
                 this.M = intent.getIntExtra(AdWebVideoActivityConfig.KEY_GOOD_STYLE, 7);
                 String stringExtra = intent.getStringExtra(AdWebVideoActivityConfig.KEY_TAIL_FRAME);
                 if (!TextUtils.isEmpty(stringExtra)) {
-                    jd8 jd8Var = new jd8();
-                    this.N = jd8Var;
-                    jd8Var.c(stringExtra);
+                    hd8 hd8Var = new hd8();
+                    this.N = hd8Var;
+                    hd8Var.c(stringExtra);
                 }
             } else if (bundle != null) {
                 this.F = bundle.getString("video_url");

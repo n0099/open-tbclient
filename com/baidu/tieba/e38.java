@@ -1,41 +1,90 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.person.PersonMoreData;
+import com.baidu.tieba.person.PersonMoreItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class e38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<pn> a;
+    public f38 a;
+    public TbPageContext b;
+    public List<pn> c;
+    public PersonMoreData d;
 
-    public e38() {
+    public e38(TbPageContext tbPageContext, Bundle bundle, h06<b48> h06Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bundle, h06Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = tbPageContext;
+        f38 f38Var = new f38(tbPageContext);
+        this.a = f38Var;
+        f38Var.f(h06Var);
+        if (bundle == null || !(OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
+            return;
+        }
+        this.d = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new ArrayList();
+            PersonMoreData personMoreData = this.d;
+            if (personMoreData == null || ListUtils.isEmpty(personMoreData.mUrlMaps)) {
+                return;
+            }
+            for (PersonMoreItemData personMoreItemData : this.d.mUrlMaps) {
+                if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
+                    b48 b48Var = new b48();
+                    b48Var.e = personMoreItemData.mName;
+                    b48Var.a = 36;
+                    b48Var.g = personMoreItemData.mUrl;
+                    b48Var.k = personMoreItemData.mId;
+                    this.c.add(b48Var);
+                }
             }
         }
     }
 
-    public void a(ArrayList<pn> arrayList) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getPageActivity().setContentView(R.layout.obfuscated_res_0x7f0d06e4);
+            this.a.c(this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091944));
+            a();
+            this.a.e(this.c);
         }
     }
 
-    public void b(boolean z) {
+    public void c() {
+        f38 f38Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (f38Var = this.a) == null) {
+            return;
         }
+        f38Var.d();
     }
 }

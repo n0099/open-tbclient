@@ -150,7 +150,7 @@ public class ij4 {
                     String optString = jSONObject.optString("url");
                     Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
                     this.k = valueOf;
-                    this.d = po5.a(this.g, optString, "9104", valueOf);
+                    this.d = no5.a(this.g, optString, "9104", valueOf);
                     this.j = jSONObject.optString("swan_app_id");
                 } catch (JSONException e) {
                     e.printStackTrace();

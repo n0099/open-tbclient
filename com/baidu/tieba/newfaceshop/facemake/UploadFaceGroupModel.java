@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.newfaceshop.FaceBaseModel;
-import com.baidu.tieba.yp7;
+import com.baidu.tieba.wp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -67,7 +67,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            yp7.l lVar;
+            wp7.l lVar;
             ArrayList arrayList;
             boolean z;
             Object extra;
@@ -81,7 +81,7 @@ public class UploadFaceGroupModel extends FaceBaseModel {
             } else {
                 HashMap hashMap = (HashMap) extra;
                 Object obj = hashMap.get(WebChromeClient.KEY_ARG_CALLBACK);
-                lVar = (obj == null || !(obj instanceof yp7.l)) ? null : (yp7.l) obj;
+                lVar = (obj == null || !(obj instanceof wp7.l)) ? null : (wp7.l) obj;
                 Object obj2 = hashMap.get("list");
                 arrayList = (obj2 == null || !(obj2 instanceof ArrayList)) ? null : (ArrayList) obj2;
                 Object obj3 = hashMap.get("autoInstall");
@@ -103,9 +103,9 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                         if (lVar != null) {
                             lVar.a(groupId, arrayList);
                         }
-                        yp7.l().u(true, httpResponsedMessage.getErrorString());
+                        wp7.l().u(true, httpResponsedMessage.getErrorString());
                         if (z) {
-                            yp7.l().p(groupId, arrayList, null);
+                            wp7.l().p(groupId, arrayList, null);
                             return;
                         }
                         HashMap hashMap2 = new HashMap();
@@ -142,17 +142,17 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public final void A(yp7.l lVar, String str) {
+    public final void A(wp7.l lVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, lVar, str) == null) {
             if (lVar != null) {
                 lVar.onFail(str);
             }
-            yp7.l().u(false, str);
+            wp7.l().u(false, str);
         }
     }
 
-    public void B(String str, List<FaceData> list, yp7.l lVar, int i) {
+    public void B(String str, List<FaceData> list, wp7.l lVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {

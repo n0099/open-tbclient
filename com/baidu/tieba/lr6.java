@@ -1,23 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class lr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i) {
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, str, i) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
-            statisticItem.addParam("obj_source", 32);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_type", i);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
+            if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && or6.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+                Intent intent = new Intent();
+                intent.putExtra(DealIntentService.KEY_CLASS, 2);
+                intent.putExtra("fname", str);
+                intent.putExtra(str2, "short_cut");
+                frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+                return false;
+            }
+            return true;
         }
+        return invokeCommon.booleanValue;
     }
 }

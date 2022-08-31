@@ -41,12 +41,12 @@ public class VideoHolyCardModel extends BdBaseModel {
 
         /* renamed from: com.baidu.tieba.model.VideoHolyCardModel$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0324a implements Runnable {
+        public class RunnableC0326a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ HttpMessage a;
 
-            public RunnableC0324a(a aVar, HttpMessage httpMessage) {
+            public RunnableC0326a(a aVar, HttpMessage httpMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class VideoHolyCardModel extends BdBaseModel {
                 httpMessage.addParam("localip", VideoHolyCardModel.d);
                 httpMessage.addParam("network", VideoHolyCardModel.e);
                 if (Looper.myLooper() != Looper.getMainLooper()) {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0324a(this, httpMessage));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0326a(this, httpMessage));
                 } else {
                     MessageManager.getInstance().sendMessage(httpMessage);
                 }

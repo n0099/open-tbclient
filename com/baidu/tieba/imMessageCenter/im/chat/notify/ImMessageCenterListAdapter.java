@@ -29,21 +29,21 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ac7;
 import com.baidu.tieba.c9;
-import com.baidu.tieba.cc7;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
-import com.baidu.tieba.nb7;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.pz4;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.nz4;
 import com.baidu.tieba.qi;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.rk8;
+import com.baidu.tieba.t97;
 import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tk8;
-import com.baidu.tieba.v97;
-import com.baidu.tieba.w67;
+import com.baidu.tieba.u67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,10 +51,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
-public class ImMessageCenterListAdapter extends w67 {
+public class ImMessageCenterListAdapter extends u67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cc7 e;
+    public ac7 e;
     public TbPageContext f;
 
     /* loaded from: classes4.dex */
@@ -150,7 +150,7 @@ public class ImMessageCenterListAdapter extends w67 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements tk8.a {
+    public class c implements rk8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ImMessageCenterShowItemData a;
@@ -177,14 +177,14 @@ public class ImMessageCenterListAdapter extends w67 {
             this.b = gVar;
         }
 
-        @Override // com.baidu.tieba.tk8.a
+        @Override // com.baidu.tieba.rk8.a
         public void a(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.tk8.a
+        @Override // com.baidu.tieba.rk8.a
         public void b(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
@@ -369,9 +369,9 @@ public class ImMessageCenterListAdapter extends w67 {
                 UtilHelper.showToast(context, context.getString(R.string.obfuscated_res_0x7f0f0c40));
             } else if (imMessageCenterShowItemData == null || StringUtils.isNull(imMessageCenterShowItemData.getForumName()) || imMessageCenterShowItemData.getForumId() <= 0 || !ViewHelper.checkUpIsLogin(this.a)) {
             } else {
-                tk8 tk8Var = new tk8();
-                tk8Var.b(new c(this, imMessageCenterShowItemData, gVar));
-                tk8Var.c(imMessageCenterShowItemData.getForumName(), imMessageCenterShowItemData.getForumId());
+                rk8 rk8Var = new rk8();
+                rk8Var.b(new c(this, imMessageCenterShowItemData, gVar));
+                rk8Var.c(imMessageCenterShowItemData.getForumName(), imMessageCenterShowItemData.getForumId());
             }
         }
     }
@@ -422,20 +422,20 @@ public class ImMessageCenterListAdapter extends w67 {
     public final void J(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            os4 d2 = os4.d(dVar.b);
+            ns4 d2 = ns4.d(dVar.b);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X07);
-            os4 d3 = os4.d(dVar.c);
+            ns4 d3 = ns4.d(dVar.c);
             d3.v(R.color.CAM_X0110);
             d3.z(R.dimen.T_X08);
-            os4.d(dVar.d).f(R.color.CAM_X0204);
+            ns4.d(dVar.d).f(R.color.CAM_X0204);
         }
     }
 
     public final void K(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
-            os4 d2 = os4.d(eVar.a);
+            ns4 d2 = ns4.d(eVar.a);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X08);
         }
@@ -444,7 +444,7 @@ public class ImMessageCenterListAdapter extends w67 {
     public final void L(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            os4 d2 = os4.d(fVar.a);
+            ns4 d2 = ns4.d(fVar.a);
             d2.v(R.color.CAM_X0105);
             d2.z(R.dimen.T_X05);
             d2.A(R.string.F_X02);
@@ -479,31 +479,31 @@ public class ImMessageCenterListAdapter extends w67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048586, this, gVar, i) == null) {
             int i2 = i == 2 ? R.color.CAM_X0301 : i == 3 ? R.color.CAM_X0319 : i == 4 ? R.color.CAM_X0305 : R.color.CAM_X0315;
-            os4 d2 = os4.d(gVar.c);
+            ns4 d2 = ns4.d(gVar.c);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0101);
             d2.n(R.string.J_X04);
             d2.f(i2);
-            os4 d3 = os4.d(gVar.d);
+            ns4 d3 = ns4.d(gVar.d);
             d3.v(R.color.CAM_X0105);
             d3.z(R.dimen.T_X06);
-            os4 d4 = os4.d(gVar.e);
+            ns4 d4 = ns4.d(gVar.e);
             d4.v(R.color.CAM_X0109);
             d4.z(R.dimen.T_X09);
-            os4 d5 = os4.d(gVar.f);
+            ns4 d5 = ns4.d(gVar.f);
             d5.v(R.color.CAM_X0109);
             d5.z(R.dimen.T_X09);
-            os4 d6 = os4.d(gVar.g);
+            ns4 d6 = ns4.d(gVar.g);
             d6.v(R.color.CAM_X0109);
             d6.z(R.dimen.T_X09);
             TBSelector.setViewBackgroundColorWithPressedState(gVar.a, R.color.CAM_X0205, R.color.CAM_X0204);
         }
     }
 
-    public void O(cc7 cc7Var) {
+    public void O(ac7 ac7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cc7Var) == null) {
-            this.e = cc7Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ac7Var) == null) {
+            this.e = ac7Var;
         }
     }
 
@@ -522,15 +522,15 @@ public class ImMessageCenterListAdapter extends w67 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048589, this, gVar, z) == null) {
             if (z) {
-                sv4 sv4Var = new sv4();
-                sv4Var.t(R.color.CAM_X0109);
-                gVar.i.setConfig(sv4Var);
+                qv4 qv4Var = new qv4();
+                qv4Var.t(R.color.CAM_X0109);
+                gVar.i.setConfig(qv4Var);
                 gVar.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc0));
                 gVar.i.setClickState(false);
             } else {
-                sv4 sv4Var2 = new sv4();
-                sv4Var2.r(R.color.CAM_X0302);
-                gVar.i.setConfig(sv4Var2);
+                qv4 qv4Var2 = new qv4();
+                qv4Var2.r(R.color.CAM_X0302);
+                gVar.i.setConfig(qv4Var2);
                 gVar.i.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ac));
                 gVar.i.setClickState(true);
             }
@@ -538,7 +538,7 @@ public class ImMessageCenterListAdapter extends w67 {
         }
     }
 
-    @Override // com.baidu.tieba.w67
+    @Override // com.baidu.tieba.u67
     public boolean e(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -549,12 +549,12 @@ public class ImMessageCenterListAdapter extends w67 {
             if (String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName()) || String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName())) {
                 return true;
             }
-            return nb7.b(imMessageCenterShowItemData);
+            return lb7.b(imMessageCenterShowItemData);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w67
+    @Override // com.baidu.tieba.u67
     public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -567,7 +567,7 @@ public class ImMessageCenterListAdapter extends w67 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w67, android.widget.Adapter
+    @Override // com.baidu.tieba.u67, android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         e eVar;
@@ -625,14 +625,14 @@ public class ImMessageCenterListAdapter extends w67 {
             }
             if (item != null && String.valueOf(2).equals(item.getOwnerName())) {
                 if (item.getUnReadCount() >= 30) {
-                    cc7 cc7Var = this.e;
-                    if (cc7Var != null) {
-                        cc7Var.L0(true);
+                    ac7 ac7Var = this.e;
+                    if (ac7Var != null) {
+                        ac7Var.L0(true);
                     }
                 } else {
-                    cc7 cc7Var2 = this.e;
-                    if (cc7Var2 != null) {
-                        cc7Var2.L0(false);
+                    ac7 ac7Var2 = this.e;
+                    if (ac7Var2 != null) {
+                        ac7Var2.L0(false);
                     }
                 }
             }
@@ -641,8 +641,8 @@ public class ImMessageCenterListAdapter extends w67 {
         return (View) invokeILL.objValue;
     }
 
-    @Override // com.baidu.tieba.w67
-    public void h(w67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.u67
+    public void h(u67.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setDrawerType(1);
@@ -752,7 +752,7 @@ public class ImMessageCenterListAdapter extends w67 {
         }
     }
 
-    @Override // com.baidu.tieba.w67
+    @Override // com.baidu.tieba.u67
     public BasicNameValuePair t(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         OfficialSettingItemData officialSettingItemData;
@@ -760,7 +760,7 @@ public class ImMessageCenterListAdapter extends w67 {
         GroupSettingItemData groupSettingItemData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048594, this, imMessageCenterShowItemData, i, str)) == null) {
-            if (String.valueOf(2).equals(imMessageCenterShowItemData.getOwnerName()) || (!String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName()) ? !(!String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName()) ? !String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) ? !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) ? !String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName()) : pz4.d().u() && ((officialSettingItemData = (OfficialSettingItemData) imMessageCenterShowItemData.getGroupSetting()) == null || officialSettingItemData.isAcceptNotify()) : (personalSettingItemData = (PersonalSettingItemData) imMessageCenterShowItemData.getGroupSetting()) == null || personalSettingItemData.isAcceptNotify() : pz4.d().s() && ((groupSettingItemData = (GroupSettingItemData) imMessageCenterShowItemData.getGroupSetting()) == null || groupSettingItemData.isAcceptNotify())) : !(pz4.d().E() && v97.a().b()))) {
+            if (String.valueOf(2).equals(imMessageCenterShowItemData.getOwnerName()) || (!String.valueOf(7).equals(imMessageCenterShowItemData.getOwnerName()) ? !(!String.valueOf(1).equals(imMessageCenterShowItemData.getOwnerName()) ? !String.valueOf(4).equals(imMessageCenterShowItemData.getOwnerName()) ? !String.valueOf(8).equals(imMessageCenterShowItemData.getOwnerName()) ? !String.valueOf(5).equals(imMessageCenterShowItemData.getOwnerName()) : nz4.d().u() && ((officialSettingItemData = (OfficialSettingItemData) imMessageCenterShowItemData.getGroupSetting()) == null || officialSettingItemData.isAcceptNotify()) : (personalSettingItemData = (PersonalSettingItemData) imMessageCenterShowItemData.getGroupSetting()) == null || personalSettingItemData.isAcceptNotify() : nz4.d().s() && ((groupSettingItemData = (GroupSettingItemData) imMessageCenterShowItemData.getGroupSetting()) == null || groupSettingItemData.isAcceptNotify())) : !(nz4.d().E() && t97.a().b()))) {
                 str = "";
                 i = 0;
             }

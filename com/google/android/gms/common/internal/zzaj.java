@@ -2,8 +2,8 @@ package com.google.android.gms.common.internal;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import com.baidu.tieba.ln9;
-import com.baidu.tieba.qn9;
+import com.baidu.tieba.jn9;
+import com.baidu.tieba.on9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public final class zzaj extends AbstractSafeParcelable {
                 return;
             }
         }
-        CREATOR = new qn9();
+        CREATOR = new on9();
     }
 
     public zzaj(int i) {
@@ -58,9 +58,9 @@ public final class zzaj extends AbstractSafeParcelable {
     public final void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
-            int a = ln9.a(parcel);
-            ln9.g(parcel, 1, this.zza);
-            ln9.b(parcel, a);
+            int a = jn9.a(parcel);
+            jn9.g(parcel, 1, this.zza);
+            jn9.b(parcel, a);
         }
     }
 }

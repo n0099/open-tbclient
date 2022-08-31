@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.fh7;
-import com.baidu.tieba.gh7;
+import com.baidu.tieba.dh7;
+import com.baidu.tieba.eh7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public d9 a;
     public b b;
-    public List<fh7> c;
+    public List<dh7> c;
     public HotSearchInfoData d;
-    public List<gh7> e;
+    public List<eh7> e;
     public String f;
 
     /* loaded from: classes5.dex */
@@ -94,7 +94,7 @@ public class HotForumModel extends BdBaseModel {
     public interface b {
         void D(String str);
 
-        void r(List<fh7> list, List<gh7> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void r(List<dh7> list, List<eh7> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

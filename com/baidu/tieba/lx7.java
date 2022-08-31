@@ -1,36 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class lx7 implements h75 {
+public class lx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public boolean b;
+    public mq4 c;
 
-    public lx7() {
+    public lx7(TbPageContext tbPageContext) {
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.a = tbPageContext;
+        if (tbPageContext.getPageActivity() == null || this.a.getPageActivity().getIntent() == null || (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter("tid");
+        uri.getQueryParameter(TiebaStatic.Params.EQID);
+        mq4 mq4Var = new mq4();
+        this.c = mq4Var;
+        mq4Var.a = uri.getQueryParameter("tid");
+        this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
+        if (TextUtils.isEmpty(queryParameter) || z8.g().h() > 3) {
+            return;
+        }
+        this.b = true;
     }
 
-    @Override // com.baidu.tieba.h75
-    @NonNull
-    public g75 b(@NonNull TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public void a(PbModel pbModel) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) ? new wv7(tbPageContext) : (g75) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) || !this.b || this.c == null || pbModel == null || pbModel.S1() == null || pbModel.S1().l() == null) {
+            return;
+        }
+        ForumData l = pbModel.S1().l();
+        this.c.c = l.getFirst_class();
+        this.c.d = l.getSecond_class();
+        TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
+        if (z8.g().i("MainTabActivity")) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
+        } else {
+            TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
+        }
     }
 }

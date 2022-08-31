@@ -30,12 +30,12 @@ public class pk0 {
 
         /* renamed from: com.baidu.tieba.pk0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0372a extends BroadcastReceiver {
+        public class C0377a extends BroadcastReceiver {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a this$1;
 
-            public C0372a(a aVar) {
+            public C0377a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,7 +95,7 @@ public class pk0 {
                 if (this.a.d == null) {
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-                    this.a.d = new C0372a(this);
+                    this.a.d = new C0377a(this);
                     eh0.b().registerReceiver(this.a.d, intentFilter);
                     return;
                 }

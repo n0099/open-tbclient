@@ -4,20 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class no4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
+    public String a;
+    public String b;
 
     public no4() {
         Interceptable interceptable = $ic;
@@ -29,17 +22,17 @@ public class no4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = 1;
-        this.d = 1;
-        this.e = 0;
-        this.f = 0;
-        this.g = 1;
-        this.h = 0;
-        this.i = 0;
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optInt("label_id");
+        this.a = jSONObject.optString("label_name");
+        this.b = jSONObject.optString("label_rgb");
     }
 }

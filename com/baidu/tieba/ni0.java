@@ -26,13 +26,13 @@ public class ni0 extends vc1<d21> {
 
         /* renamed from: com.baidu.tieba.ni0$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0331a extends gk0<ui0> {
+        public class C0340a extends gk0<ui0> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d21.b b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0331a(a aVar, Class cls, d21.b bVar) {
+            public C0340a(a aVar, Class cls, d21.b bVar) {
                 super(cls);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -90,7 +90,7 @@ public class ni0 extends vc1<d21> {
         public void a(Object obj, d21.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, obj, bVar) == null) {
-                ck0.a().b(obj, new C0331a(this, ui0.class, bVar));
+                ck0.a().b(obj, new C0340a(this, ui0.class, bVar));
             }
         }
 

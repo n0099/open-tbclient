@@ -1,73 +1,35 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bq9;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes4.dex */
-public class jd9 extends id9 {
-    public static /* synthetic */ Interceptable $ic;
+public class jd9 extends gd9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String h = "XMUnionID";
+    public static boolean i;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements bq9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AtomicBoolean a;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ jd9 c;
-
-        public a(jd9 jd9Var, AtomicBoolean atomicBoolean, Object obj) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947879594, "Lcom/baidu/tieba/jd9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jd9Var, atomicBoolean, obj};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = jd9Var;
-            this.a = atomicBoolean;
-            this.b = obj;
-        }
-
-        @Override // com.baidu.tieba.bq9.c
-        public void a(int i, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
-                this.c.g = i;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947879594, "Lcom/baidu/tieba/jd9;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.bq9.c
-        public void b(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-                this.c.d = str;
-                this.c.b = z;
-                this.c.c = true;
-                this.c.g = 0;
-                this.a.set(true);
-                synchronized (this.b) {
-                    this.b.notifyAll();
-                }
-            }
-        }
+        i = yc9.e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -78,15 +40,18 @@ public class jd9 extends id9 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        if (i) {
+            Log.e(h, "xiaomi XMUnionID !!");
         }
         this.d = "";
         this.b = false;
@@ -94,34 +59,22 @@ public class jd9 extends id9 {
         this.g = -200;
     }
 
-    @Override // com.baidu.tieba.hd9
-    public hd9 d() {
+    @Override // com.baidu.tieba.fd9
+    public fd9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            n();
-            return this;
-        }
-        return (hd9) invokeV.objValue;
-    }
-
-    public hd9 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Object obj = new Object();
-            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-            bq9.d(this.a, new a(this, atomicBoolean, obj));
-            synchronized (obj) {
-                if (!atomicBoolean.get()) {
-                    try {
-                        obj.wait(4000L);
-                    } catch (InterruptedException unused) {
-                    }
+            try {
+                this.c = aq9.b();
+                this.d = aq9.a(this.a);
+                this.g = 0;
+            } catch (Exception e) {
+                if (i) {
+                    Log.e(h, "xiaomi init4UnionId error", e);
                 }
             }
             return this;
         }
-        return (hd9) invokeV.objValue;
+        return (fd9) invokeV.objValue;
     }
 }

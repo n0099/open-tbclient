@@ -1,7 +1,7 @@
 package com.google.firebase;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.jn9;
+import com.baidu.tieba.hn9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,7 +44,7 @@ public class FirebaseException extends Exception {
                 return;
             }
         }
-        jn9.b(str, "Detail message must not be empty");
+        hn9.b(str, "Detail message must not be empty");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -66,6 +66,6 @@ public class FirebaseException extends Exception {
                 return;
             }
         }
-        jn9.b(str, "Detail message must not be empty");
+        hn9.b(str, "Detail message must not be empty");
     }
 }

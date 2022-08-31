@@ -76,110 +76,110 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.ao8;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.ae7;
 import com.baidu.tieba.ap8;
 import com.baidu.tieba.aq8;
-import com.baidu.tieba.be5;
 import com.baidu.tieba.bm;
+import com.baidu.tieba.bo8;
 import com.baidu.tieba.bp8;
 import com.baidu.tieba.bq8;
 import com.baidu.tieba.ca5;
-import com.baidu.tieba.ce7;
+import com.baidu.tieba.cj8;
 import com.baidu.tieba.cm;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.cp8;
-import com.baidu.tieba.cq8;
+import com.baidu.tieba.d55;
+import com.baidu.tieba.da5;
 import com.baidu.tieba.dm;
-import com.baidu.tieba.do8;
 import com.baidu.tieba.dp8;
-import com.baidu.tieba.dq8;
-import com.baidu.tieba.ea5;
+import com.baidu.tieba.dt6;
+import com.baidu.tieba.e25;
 import com.baidu.tieba.ej4;
-import com.baidu.tieba.ej8;
 import com.baidu.tieba.ep8;
-import com.baidu.tieba.f55;
-import com.baidu.tieba.fa5;
 import com.baidu.tieba.fj4;
 import com.baidu.tieba.fl;
 import com.baidu.tieba.fm4;
+import com.baidu.tieba.fo8;
 import com.baidu.tieba.fp8;
-import com.baidu.tieba.ft6;
-import com.baidu.tieba.g25;
+import com.baidu.tieba.g55;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.gp8;
-import com.baidu.tieba.ho8;
+import com.baidu.tieba.hf5;
 import com.baidu.tieba.hp8;
-import com.baidu.tieba.i55;
 import com.baidu.tieba.ig0;
 import com.baidu.tieba.ip8;
-import com.baidu.tieba.jf5;
 import com.baidu.tieba.jg0;
 import com.baidu.tieba.jp8;
 import com.baidu.tieba.kp8;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.ln8;
 import com.baidu.tieba.lp8;
+import com.baidu.tieba.lz4;
 import com.baidu.tieba.mn4;
+import com.baidu.tieba.mn8;
 import com.baidu.tieba.model.CheckRealNameModel;
 import com.baidu.tieba.mp8;
-import com.baidu.tieba.nf5;
+import com.baidu.tieba.mz8;
 import com.baidu.tieba.nn8;
 import com.baidu.tieba.np8;
-import com.baidu.tieba.nz4;
+import com.baidu.tieba.nu4;
+import com.baidu.tieba.od7;
 import com.baidu.tieba.on4;
-import com.baidu.tieba.on8;
+import com.baidu.tieba.oo8;
 import com.baidu.tieba.op8;
-import com.baidu.tieba.ou4;
-import com.baidu.tieba.oz8;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
 import com.baidu.tieba.pn8;
+import com.baidu.tieba.po8;
 import com.baidu.tieba.pp8;
-import com.baidu.tieba.qd7;
+import com.baidu.tieba.pu4;
+import com.baidu.tieba.qn8;
 import com.baidu.tieba.qo8;
 import com.baidu.tieba.qp8;
-import com.baidu.tieba.qu4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rn8;
 import com.baidu.tieba.ro8;
 import com.baidu.tieba.rp8;
+import com.baidu.tieba.s65;
 import com.baidu.tieba.sg;
 import com.baidu.tieba.sj4;
 import com.baidu.tieba.sn8;
 import com.baidu.tieba.so8;
 import com.baidu.tieba.sp8;
+import com.baidu.tieba.su4;
 import com.baidu.tieba.tbadkCore.FrsCommonImageLayout;
+import com.baidu.tieba.tf5;
 import com.baidu.tieba.tn;
-import com.baidu.tieba.tn8;
+import com.baidu.tieba.tn4;
 import com.baidu.tieba.to8;
 import com.baidu.tieba.tp8;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.u65;
-import com.baidu.tieba.un4;
-import com.baidu.tieba.un8;
+import com.baidu.tieba.tr8;
 import com.baidu.tieba.uo8;
 import com.baidu.tieba.up8;
-import com.baidu.tieba.vf5;
+import com.baidu.tieba.ur4;
 import com.baidu.tieba.vo8;
 import com.baidu.tieba.vp8;
-import com.baidu.tieba.vr4;
 import com.baidu.tieba.vr8;
+import com.baidu.tieba.vu4;
+import com.baidu.tieba.w65;
+import com.baidu.tieba.wa5;
+import com.baidu.tieba.wn8;
 import com.baidu.tieba.wo8;
 import com.baidu.tieba.wp8;
 import com.baidu.tieba.xo8;
 import com.baidu.tieba.xp8;
-import com.baidu.tieba.xr8;
-import com.baidu.tieba.xu4;
-import com.baidu.tieba.y65;
-import com.baidu.tieba.ya5;
+import com.baidu.tieba.xs6;
+import com.baidu.tieba.yj5;
+import com.baidu.tieba.yk5;
 import com.baidu.tieba.yn8;
 import com.baidu.tieba.yo8;
 import com.baidu.tieba.yp8;
 import com.baidu.tieba.z8;
+import com.baidu.tieba.zd5;
 import com.baidu.tieba.zo8;
 import com.baidu.tieba.zp8;
-import com.baidu.tieba.zs6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -190,7 +190,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceManager.j, UserIconBox.c, ig0, FrsCommonImageLayout.e, IVideoNeedPreload {
+public class MainTabActivity extends BaseFragmentActivity implements ln8, VoiceManager.j, UserIconBox.c, ig0, FrsCommonImageLayout.e, IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic;
     public static boolean X;
     public transient /* synthetic */ FieldHolder $fh;
@@ -198,12 +198,12 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     public WeakReference<Context> B;
     public int C;
     public Integer D;
-    public yn8 E;
+    public wn8 E;
     public boolean F;
     public boolean G;
     @Nullable
     public TiePlusEventController H;
-    public ej8 I;
+    public cj8 I;
     public boolean J;
     public int K;
     public int L;
@@ -223,10 +223,10 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     public int b;
     public boolean c;
     public String d;
-    public un8 e;
-    public ho8 f;
-    public ro8 g;
-    public qo8 h;
+    public sn8 e;
+    public fo8 f;
+    public po8 g;
+    public oo8 h;
     public i i;
     public PackageChangedReceiver j;
     public long k;
@@ -234,17 +234,17 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     public gg<TbImageView> m;
     public gg<TbImageView> n;
     public boolean o;
-    public ak5 p;
+    public yj5 p;
     public ViewGroup q;
-    public oz8 r;
+    public mz8 r;
     public CheckRealNameModel s;
     public String t;
-    public al5 u;
+    public yk5 u;
     public ShareSuccessReplyToServerModel v;
-    public xr8 w;
-    public sn8 x;
+    public vr8 w;
+    public qn8 x;
     public fj4 y;
-    public vr8 z;
+    public tr8 z;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
@@ -315,7 +315,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class c extends jf5<Object> {
+    public class c extends hf5<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity a;
@@ -338,7 +338,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             this.a = mainTabActivity;
         }
 
-        @Override // com.baidu.tieba.jf5
+        @Override // com.baidu.tieba.hf5
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -506,9 +506,9 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            ho8 ho8Var;
+            fo8 fo8Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (ho8Var = this.a.f) == null || ho8Var.c() == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (fo8Var = this.a.f) == null || fo8Var.c() == null) {
                 return;
             }
             if (UbsABTestHelper.isNewInterestShowTestA()) {
@@ -520,7 +520,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class h extends ca5 {
+    public class h extends aa5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MainTabActivity b;
@@ -543,24 +543,24 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             this.b = mainTabActivity;
         }
 
-        @Override // com.baidu.tieba.ca5
-        public boolean a(ea5 ea5Var) {
+        @Override // com.baidu.tieba.aa5
+        public boolean a(ca5 ca5Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ea5Var)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ca5Var)) == null) {
                 return false;
             }
             return invokeL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.aa5
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? fa5.b().c() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? da5.b().c() : invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.aa5
         public boolean c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -679,25 +679,25 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             String str = "check_real_name" + TbConfig.getVersion();
-            if (!tu4.k().h(str, true) || StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) || !ri.D() || (checkRealNameModel = this.s) == null) {
+            if (!su4.k().h(str, true) || StringUtils.isNull(TbadkCoreApplication.getCurrentAccount()) || !ri.D() || (checkRealNameModel = this.s) == null) {
                 return;
             }
             checkRealNameModel.A(CheckRealNameModel.TYPE_APP_FIRST_START);
-            tu4.k().u(str, false);
+            su4.k().u(str, false);
         }
     }
 
     public void L0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String str = tu4.o("key_is_clear_concern_cache_when_version_update") + "_" + TbConfig.getVersion();
-            if (tu4.k().h(str, false)) {
+            String str = su4.o("key_is_clear_concern_cache_when_version_update") + "_" + TbConfig.getVersion();
+            if (su4.k().h(str, false)) {
                 return;
             }
-            vr4.f();
+            ur4.f();
             try {
-                vr4.e("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).g("0", null);
-                tu4.k().u(str, true);
+                ur4.e("tb.concern_page", TbadkCoreApplication.getCurrentAccount()).g("0", null);
+                su4.k().u(str, true);
             } catch (Exception e2) {
                 BdLog.e(e2, true);
             }
@@ -721,10 +721,10 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     }
 
     @NonNull
-    public ho8 O0() {
+    public fo8 O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (ho8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f : (fo8) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.ig0
@@ -773,18 +773,18 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             SpeedStatsManager.getInstance().setIsSwitchOn(true);
-            MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW = rn8.b(getIntent());
-            boolean a2 = rn8.a(getIntent());
+            MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW = pn8.b(getIntent());
+            boolean a2 = pn8.a(getIntent());
             this.P = a2;
             if (a2) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LogoActivityConfig(this)));
                 finish();
                 return;
             }
-            registerListener(new vp8(this));
+            registerListener(new tp8(this));
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                pn8.a(MainTabScheduleStrategy.SCHEDULE);
-                ao8.a().e(this);
+                nn8.a(MainTabScheduleStrategy.SCHEDULE);
+                yn8.a().e(this);
             }
         }
     }
@@ -794,7 +794,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             try {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007002, new u65(getPageContext().getPageActivity())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007002, new s65(getPageContext().getPageActivity())));
             } finally {
                 TTIStats.record("MainTabActivity.initTabsOnActivityCreated", System.currentTimeMillis() - currentTimeMillis);
             }
@@ -823,12 +823,12 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
 
     public final void a1(Bundle bundle) {
         boolean z;
-        ho8 ho8Var;
+        fo8 fo8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_SECONDCREATE_START_STAMP_KEY);
             if (TbadkCoreApplication.getInst().getIsFirstUse()) {
-                nf5.b(new c(this), null);
+                lf5.b(new c(this), null);
             }
             Window window = getWindow();
             window.setBackgroundDrawable(new ColorDrawable(0));
@@ -840,11 +840,11 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             if (S0(getIntent())) {
                 return;
             }
-            ou4.c = ou4.d;
+            nu4.c = nu4.d;
             if (getIntent() != null) {
-                yn8 yn8Var = new yn8(getPageContext());
-                this.E = yn8Var;
-                if (!yn8Var.b(getIntent()) && (ho8Var = this.f) != null && ho8Var.f() != null) {
+                wn8 wn8Var = new wn8(getPageContext());
+                this.E = wn8Var;
+                if (!wn8Var.b(getIntent()) && (fo8Var = this.f) != null && fo8Var.f() != null) {
                     this.f.f().b(getIntent());
                 }
                 if (getIntent().getIntExtra("locate_type", 0) == 200) {
@@ -853,28 +853,28 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
                 }
                 this.d = getIntent().getStringExtra("from");
             }
-            on8 on8Var = new on8();
-            ou4.h(on8Var);
-            on8Var.g(this);
+            mn8 mn8Var = new mn8();
+            nu4.h(mn8Var);
+            mn8Var.g(this);
             if (N0()) {
                 CompatibleUtile.getInstance().openGpu(getPageContext().getPageActivity());
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_HOME_FRAGMENT_CONTROLLER_START_STAMP_KEY);
-            this.x = new sn8(this);
+            this.x = new qn8(this);
             this.e.K(this.mIsLogin);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_HOME_FRAGMENT_CONTROLLER_END_STAMP_KEY);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY);
             b1();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.REG_RECEIVER_END_STAMP_KEY);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CHECK_CLIENT_CONFIG_START_STAMP_KEY);
-            do8.i().e(this);
+            bo8.i().e(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.CHECK_CLIENT_CONFIG_END_STAMP_KEY);
             ej4.w().q();
-            this.p = new ak5();
+            this.p = new yj5();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_TABS_ON_ACTIVITY_CREATED_START_STAMP_KEY);
             U0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.INIT_TABS_ON_ACTIVITY_CREATED_END_STAMP_KEY);
-            registerListener(new jp8(this, this.e));
+            registerListener(new hp8(this, this.e));
             Intent intent = new Intent();
             intent.putExtras(getIntent());
             boolean z2 = true;
@@ -902,62 +902,62 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
                 TbadkCoreApplication.getInst().setInstallOtherApp(null);
             }
             TbadkCoreApplication.getInst().startTrackConfigRequest();
-            registerListener(new mp8(this, this.e));
+            registerListener(new kp8(this, this.e));
             VoiceManager t0 = t0();
             this.l = t0;
             if (t0 != null) {
                 t0.onCreate(getPageContext());
             }
-            registerListener(new so8(this, this.e));
+            registerListener(new qo8(this, this.e));
             addNoAdjustSoftInputHeightListener();
             if (TbadkCoreApplication.isLogin()) {
-                ya5.b().f();
+                wa5.b().f();
             }
             if (TbadkCoreApplication.isLogin()) {
-                i55.d().h();
+                g55.d().h();
             }
-            int l = tu4.k().l("app_restart_times", 0);
-            tu4.k().w("app_restart_times", ((l > 100 || l < 0) ? 100 : 100) + 1);
+            int l = su4.k().l("app_restart_times", 0);
+            su4.k().w("app_restart_times", ((l > 100 || l < 0) ? 100 : 100) + 1);
             CheckRealNameModel checkRealNameModel = new CheckRealNameModel(getPageContext());
             this.s = checkRealNameModel;
             checkRealNameModel.D(this.V);
             K0();
-            this.u = new al5(getPageContext(), "homepage");
+            this.u = new yk5(getPageContext(), "homepage");
             this.v = new ShareSuccessReplyToServerModel();
-            this.w = new xr8(getPageContext());
+            this.w = new vr8(getPageContext());
             this.y = fj4.D();
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             TiebaStatic.log(new StatisticItem("c14261").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", skinType == 4 ? 2 : skinType == 1 ? 1 : 0));
             if (TbSingleton.getInstance().isEnableBenchmark() && TbSingleton.getInstance().getCpuFlopsDuration() <= 0) {
                 sg.a().postDelayed(new d(this), 5000L);
             }
-            registerListener(new zp8(this, this.e));
+            registerListener(new xp8(this, this.e));
             TbSingleton.getInstance().startOneGame();
             this.B = new WeakReference<>(TbadkCoreApplication.getInst());
             L0();
-            yn8 yn8Var2 = this.E;
-            if (yn8Var2 != null && yn8Var2.b(intent)) {
+            wn8 wn8Var2 = this.E;
+            if (wn8Var2 != null && wn8Var2.b(intent)) {
                 this.E.a(getIntent(), this.e);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_START_STAMP_KEY);
             i1();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.UPDATE_PROFILE_INFO_END_STAMP_KEY);
             if (UbsABTestHelper.isPersonalizeFunAdABTest()) {
-                zs6.m().J(this, zs6.g(), zs6.b("personalize", "1"));
+                xs6.m().J(this, xs6.g(), xs6.b("personalize", "1"));
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_START_STAMP_KEY);
-            if (UbsABTestHelper.isFrsFunAdSdkTest() && UbsABTestHelper.isGetFunAdPreLoadABTest() && be5.r()) {
-                zs6.m().K(this, ft6.e().d("frs_feed"), zs6.b("frs", "1"), "", be5.f());
+            if (UbsABTestHelper.isFrsFunAdSdkTest() && UbsABTestHelper.isGetFunAdPreLoadABTest() && zd5.r()) {
+                xs6.m().K(this, dt6.e().d("frs_feed"), xs6.b("frs", "1"), "", zd5.f());
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.TRY_LOAD_NATIVE_FUN_END_STAMP_KEY);
             TbSingleton.getInstance().getChannelConfigModel().d();
             TbSingleton.getInstance().setActiveTimeStamp();
-            ho8 ho8Var2 = this.f;
-            if (ho8Var2 != null && ho8Var2.f() != null) {
+            fo8 fo8Var2 = this.f;
+            if (fo8Var2 != null && fo8Var2.f() != null) {
                 this.f.f().c();
             }
             sg.a().postDelayed(new e(this), 1000L);
-            int l2 = tu4.k().l("key_fps_time", 2);
+            int l2 = su4.k().l("key_fps_time", 2);
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libai-entry.so"))) {
                 RequestParams requestParams = new RequestParams();
                 requestParams.setRunType(cm.a);
@@ -976,14 +976,14 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     public final void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            registerListener(new to8(this, this.e));
-            registerListener(new bq8(this, this.e));
-            registerListener(new pp8(this, this.e));
-            registerListener(new cp8(this, this.e));
+            registerListener(new ro8(this, this.e));
+            registerListener(new zp8(this, this.e));
             registerListener(new np8(this, this.e));
-            registerListener(new up8(this, this.e));
-            registerListener(new xo8(this, this.e));
-            registerListener(new ip8(this, this.e));
+            registerListener(new ap8(this, this.e));
+            registerListener(new lp8(this, this.e));
+            registerListener(new sp8(this, this.e));
+            registerListener(new vo8(this, this.e));
+            registerListener(new gp8(this, this.e));
             this.i = new i(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbConfig.getBroadcastActionNewVersion());
@@ -996,31 +996,31 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             intentFilter2.addAction("android.intent.action.PACKAGE_CHANGED");
             intentFilter2.addDataScheme("package");
             registerReceiver(this.j, intentFilter2);
-            registerListener(new sp8(this, this.e));
-            registerListener(new yp8(this, this.e));
-            registerListener(new kp8(this, this.e));
-            registerListener(new wo8(this));
-            registerListener(new bp8(this, this.e));
-            registerListener(new dq8(this, this.e));
-            registerListener(new cq8(this));
-            registerListener(new zo8(this, this.e));
             registerListener(new qp8(this, this.e));
-            registerListener(new lp8(this, this.e));
-            registerListener(new tp8(this, this.e));
-            registerListener(new gp8(this, this.e));
-            registerListener(new ap8(this, this.e));
+            registerListener(new wp8(this, this.e));
+            registerListener(new ip8(this, this.e));
+            registerListener(new uo8(this));
+            registerListener(new zo8(this, this.e));
+            registerListener(new bq8(this, this.e));
+            registerListener(new aq8(this));
+            registerListener(new xo8(this, this.e));
             registerListener(new op8(this, this.e));
-            registerListener(new yo8(this, this.e));
-            registerListener(new aq8(this, this.e));
+            registerListener(new jp8(this, this.e));
             registerListener(new rp8(this, this.e));
-            registerListener(new xp8(this, this.e));
-            registerListener(new wp8(this));
-            registerListener(new hp8(this));
-            registerListener(new uo8(this, this.e));
+            registerListener(new ep8(this, this.e));
+            registerListener(new yo8(this, this.e));
+            registerListener(new mp8(this, this.e));
+            registerListener(new wo8(this, this.e));
+            registerListener(new yp8(this, this.e));
+            registerListener(new pp8(this, this.e));
+            registerListener(new vp8(this, this.e));
+            registerListener(new up8(this));
+            registerListener(new fp8(this));
+            registerListener(new so8(this, this.e));
+            registerListener(new bp8(this, this.e));
             registerListener(new dp8(this, this.e));
-            registerListener(new fp8(this, this.e));
-            registerListener(new ep8(this));
-            registerListener(new vo8(this));
+            registerListener(new cp8(this));
+            registerListener(new to8(this));
         }
     }
 
@@ -1052,7 +1052,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, keyEvent)) == null) {
             if (!MainTabActivityConfig.IS_BACK_CLOSE_ALL_ACTIVITY && keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 4) {
                 if (this.g == null) {
-                    this.g = new ro8(this, this.e);
+                    this.g = new po8(this, this.e);
                 }
                 return this.g.d(keyEvent);
             }
@@ -1068,10 +1068,10 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, motionEvent)) == null) {
             if (this.T) {
-                un8 un8Var = this.e;
-                if (un8Var == null || un8Var.B() == null || this.e.B().getCurrentTabType() != 1 || motionEvent.getPointerCount() <= 1 || !this.e.E()) {
-                    un8 un8Var2 = this.e;
-                    if (un8Var2 != null && un8Var2.B() != null && ((currentTabType = this.e.B().getCurrentTabType()) == 2 || currentTabType == 22 || currentTabType == 23)) {
+                sn8 sn8Var = this.e;
+                if (sn8Var == null || sn8Var.B() == null || this.e.B().getCurrentTabType() != 1 || motionEvent.getPointerCount() <= 1 || !this.e.E()) {
+                    sn8 sn8Var2 = this.e;
+                    if (sn8Var2 != null && sn8Var2.B() != null && ((currentTabType = this.e.B().getCurrentTabType()) == 2 || currentTabType == 22 || currentTabType == 23)) {
                         this.S.a(motionEvent);
                     }
                     return super.dispatchTouchEvent(motionEvent);
@@ -1103,7 +1103,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
 
     public void f1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && y65.d().b()) {
+        if ((interceptable == null || interceptable.invokeV(1048601, this) == null) && w65.d().b()) {
             StatisticItem statisticItem = new StatisticItem("c14132");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -1131,7 +1131,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.q : (ViewGroup) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -1147,13 +1147,13 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nn8
+    @Override // com.baidu.tieba.ln8
     public int getCurrentTabType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            un8 un8Var = this.e;
-            if (un8Var == null || un8Var.B() == null) {
+            sn8 sn8Var = this.e;
+            if (sn8Var == null || sn8Var.B() == null) {
                 return -1;
             }
             return this.e.B().getCurrentTabType();
@@ -1161,11 +1161,11 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ba5
-    public ca5 getPageStayFilter() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.z95
+    public aa5 getPageStayFilter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? new h(this) : (ca5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? new h(this) : (aa5) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:13:0x0026  */
@@ -1181,8 +1181,8 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         if (interceptable != null && (invokeV = interceptable.invokeV(1048607, this)) != null) {
             return (TbPageTag) invokeV.objValue;
         }
-        un8 un8Var = this.e;
-        if (un8Var != null && un8Var.B() != null) {
+        sn8 sn8Var = this.e;
+        if (sn8Var != null && sn8Var.B() != null) {
             Fragment currentFragment = this.e.B().getCurrentFragment();
             if (currentFragment instanceof BaseFragment) {
                 tbPageTag = ((BaseFragment) currentFragment).getTbPageTag();
@@ -1232,12 +1232,12 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         }
     }
 
-    @Override // com.baidu.tieba.nn8
+    @Override // com.baidu.tieba.ln8
     @NonNull
-    public nn8.a j0() {
+    public ln8.a j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f.a().h() : (nn8.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f.a().h() : (ln8.a) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -1250,7 +1250,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             }
             super.onActivityResult(i2, i3, intent);
             if (this.h == null) {
-                this.h = new qo8(this, this.e);
+                this.h = new oo8(this, this.e);
             }
             this.h.f(i2, i3, intent);
         }
@@ -1259,23 +1259,23 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048612, this, i2) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
             TbSingleton.getInstance().mIsForceLayoutMaintab = true;
-            un8 un8Var = this.e;
-            if (un8Var != null) {
-                un8Var.F(i2);
+            sn8 sn8Var = this.e;
+            if (sn8Var != null) {
+                sn8Var.F(i2);
             }
             adjustResizeForSoftInputOnSkinTypeChanged(i2);
-            oz8 oz8Var = this.r;
-            if (oz8Var != null) {
-                oz8Var.s(i2);
+            mz8 mz8Var = this.r;
+            if (mz8Var != null) {
+                mz8Var.s(i2);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        un8 un8Var;
+        sn8 sn8Var;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048613, this, configuration) == null) || configuration == null) {
             return;
@@ -1284,12 +1284,12 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         if (d1()) {
             return;
         }
-        ao8.a().b(configuration);
+        yn8.a().b(configuration);
         if (TbadkCoreApplication.getInst().getSkinType() != 1) {
             SkinManager.setDayOrDarkSkinTypeWithSystemMode(true, false);
         }
-        if (TbSingleton.getInstance().isFromFeedVideoClick() && configuration.orientation == 1 && (un8Var = this.e) != null) {
-            un8Var.F(TbadkCoreApplication.getInst().getSkinType());
+        if (TbSingleton.getInstance().isFromFeedVideoClick() && configuration.orientation == 1 && (sn8Var = this.e) != null) {
+            sn8Var.F(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -1298,8 +1298,9 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048614, this, bundle) == null) {
             getLifecycle().addObserver(this.U);
+            this.Q = pu4.q().i(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_CREATE_START_STAMP_KEY);
-            ya5.b().w(System.currentTimeMillis());
+            wa5.b().w(System.currentTimeMillis());
             TbadkCoreApplication.getInst().setMainActivity(this);
             setIsAddSwipeBackLayout(false);
             try {
@@ -1307,23 +1308,20 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             } catch (ArrayIndexOutOfBoundsException e2) {
                 TiebaStatic.log(new StatisticItem("crashInMainActivity").param("obj_source", e2.toString()));
             }
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                this.Q = qu4.q().i(this);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_SUPER_CREATE_END_STAMP_KEY);
-                if (Z0()) {
-                    return;
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_SUPER_CREATE_END_STAMP_KEY);
+            if (Z0()) {
+                return;
+            }
+            if (!isTaskRoot()) {
+                if (mn4.e()) {
+                    BdLog.e("MainTabActivity没有放在task根，请排查");
                 }
-                if (!isTaskRoot()) {
-                    if (mn4.e()) {
-                        BdLog.e("MainTabActivity没有放在task根，请排查");
-                    }
-                    TiebaStatic.log(new StatisticItem("MainTab_isTaskRoot").param("obj_param1", z8.g().e()));
-                    finish();
-                    return;
-                }
-                tn8.a(this, getIntent());
-                if (un4.b() != null) {
-                    un4.b().d();
+                TiebaStatic.log(new StatisticItem("MainTab_isTaskRoot").param("obj_param1", z8.g().e()));
+                finish();
+            } else if (PermissionUtil.isAgreePrivacyPolicy()) {
+                rn8.a(this, getIntent());
+                if (tn4.b() != null) {
+                    tn4.b().d();
                 }
                 V0();
                 T0();
@@ -1333,9 +1331,9 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
                 if (PreInitMainTabViewSwitch.getIsOn()) {
                     LaunchTaskSchedule.getInstance().startTaskInSingleThread(5);
                 }
-                un8 un8Var = new un8(this);
-                this.e = un8Var;
-                this.f = new ho8(this, un8Var);
+                sn8 sn8Var = new sn8(this);
+                this.e = sn8Var;
+                this.f = new fo8(this, sn8Var);
                 this.mHandler.post(new a(this));
                 int loadInt = TbadkSettings.getInst().loadInt("skin_", 0);
                 if (loadInt != 1) {
@@ -1344,11 +1342,11 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
                     TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
                     TbadkCoreApplication.getInst().SendSkinTypeBroadcast(loadInt);
                 }
-                pn8.b(new b(this, bundle), 0);
+                nn8.b(new b(this, bundle), 0);
                 if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                     this.f.a().l();
                 }
-                ya5.b().x(System.currentTimeMillis());
+                wa5.b().x(System.currentTimeMillis());
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_CREATE_END_STAMP_KEY);
             }
         }
@@ -1372,90 +1370,90 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005010, null));
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005012, null));
             h1();
-            nz4.h0().n();
-            nz4.h0().p();
-            nz4.h0().X(false);
+            lz4.h0().n();
+            lz4.h0().p();
+            lz4.h0().X(false);
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService("input_method");
             if (inputMethodManager != null && getCurrentFocus() != null) {
                 inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 2);
             }
-            xu4 xu4Var = this.mWaitingDialog;
-            if (xu4Var != null) {
-                xu4Var.h(false);
+            vu4 vu4Var = this.mWaitingDialog;
+            if (vu4Var != null) {
+                vu4Var.h(false);
                 this.mWaitingDialog = null;
             }
             G0();
-            un8 un8Var = this.e;
-            if (un8Var != null) {
-                un8Var.G();
-            }
-            sn8 sn8Var = this.x;
+            sn8 sn8Var = this.e;
             if (sn8Var != null) {
-                sn8Var.i();
+                sn8Var.G();
             }
-            ho8 ho8Var = this.f;
-            if (ho8Var != null && ho8Var.j() != null) {
+            qn8 qn8Var = this.x;
+            if (qn8Var != null) {
+                qn8Var.i();
+            }
+            fo8 fo8Var = this.f;
+            if (fo8Var != null && fo8Var.j() != null) {
                 this.f.j().b();
             }
             try {
                 super.onDestroy();
             } catch (Exception unused2) {
             }
-            ou4.h(null);
-            f55.h().l();
+            nu4.h(null);
+            d55.h().l();
             VoiceManager t0 = t0();
             this.l = t0;
             if (t0 != null) {
                 t0.onDestory(getPageContext());
             }
-            oz8 oz8Var = this.r;
-            if (oz8Var != null) {
-                oz8Var.u();
+            mz8 mz8Var = this.r;
+            if (mz8Var != null) {
+                mz8Var.u();
             }
-            al5 al5Var = this.u;
-            if (al5Var != null) {
-                al5Var.h();
+            yk5 yk5Var = this.u;
+            if (yk5Var != null) {
+                yk5Var.h();
             }
             ShareSuccessReplyToServerModel shareSuccessReplyToServerModel = this.v;
             if (shareSuccessReplyToServerModel != null) {
                 shareSuccessReplyToServerModel.cancelLoadData();
             }
-            vr8 vr8Var = this.z;
-            if (vr8Var != null) {
-                vr8Var.f();
+            tr8 tr8Var = this.z;
+            if (tr8Var != null) {
+                tr8Var.f();
             }
-            un8 un8Var2 = this.e;
-            if (un8Var2 != null && un8Var2.A() != null) {
+            sn8 sn8Var2 = this.e;
+            if (sn8Var2 != null && sn8Var2.A() != null) {
                 this.e.A().t();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                zs6.m().d("6061002332-203360688");
+                xs6.m().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                zs6.m().c(zs6.s());
+                xs6.m().c(xs6.s());
             }
             if (this.H != null) {
                 getLifecycle().removeObserver(this.H);
             }
-            ce7.b().c();
+            ae7.b().c();
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
             if (searchTask instanceof dm) {
                 searchTask.cancel();
             }
             KernelCacheAssistant.get().release();
-            ho8 ho8Var2 = this.f;
-            if (ho8Var2 != null && ho8Var2.d() != null) {
+            fo8 fo8Var2 = this.f;
+            if (fo8Var2 != null && fo8Var2.d() != null) {
                 this.f.d().c();
             }
-            ho8 ho8Var3 = this.f;
-            if (ho8Var3 != null && ho8Var3.h() != null) {
+            fo8 fo8Var3 = this.f;
+            if (fo8Var3 != null && fo8Var3.h() != null) {
                 this.f.h().c();
             }
-            ho8 ho8Var4 = this.f;
-            if (ho8Var4 != null && ho8Var4.g() != null) {
+            fo8 fo8Var4 = this.f;
+            if (fo8Var4 != null && fo8Var4.g() != null) {
                 this.f.g().b();
             }
-            qd7.m(this).B();
+            od7.m(this).B();
             System.gc();
         }
     }
@@ -1501,18 +1499,18 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onKeyboardVisibilityChanged(boolean z) {
-        un8 un8Var;
+        sn8 sn8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048618, this, z) == null) || (un8Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048618, this, z) == null) || (sn8Var = this.e) == null) {
             return;
         }
-        un8Var.I(z);
+        sn8Var.I(z);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onNewIntent(Intent intent) {
-        un8 un8Var;
-        un8 un8Var2;
+        sn8 sn8Var;
+        sn8 sn8Var2;
         FragmentTabHost.b j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048619, this, intent) == null) {
@@ -1522,17 +1520,17 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             }
             setIntent(intent);
             String stringExtra = intent.getStringExtra("target_scheme");
-            yn8 yn8Var = this.E;
-            if (yn8Var != null && yn8Var.b(intent)) {
+            wn8 wn8Var = this.E;
+            if (wn8Var != null && wn8Var.b(intent)) {
                 this.E.a(intent, this.e);
             } else {
-                ho8 ho8Var = this.f;
-                if (ho8Var != null && ho8Var.f() != null) {
+                fo8 fo8Var = this.f;
+                if (fo8Var != null && fo8Var.f() != null) {
                     this.f.f().b(intent);
                 }
             }
             if (StringUtils.isNull(stringExtra)) {
-                i55.d().h();
+                g55.d().h();
                 if (intent.getBooleanExtra(FrsActivityConfig.KEY_REFRESH, false)) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007008));
                     U0();
@@ -1556,21 +1554,21 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
                             intExtra = this.p.a();
                         }
                     }
-                    un8 un8Var3 = this.e;
-                    if (un8Var3 != null && un8Var3.B() != null) {
+                    sn8 sn8Var3 = this.e;
+                    if (sn8Var3 != null && sn8Var3.B() != null) {
                         this.e.M(intExtra);
                     }
-                } else if ((intExtra == 17 || intExtra == 18) && (un8Var = this.e) != null && un8Var.B() != null) {
+                } else if ((intExtra == 17 || intExtra == 18) && (sn8Var = this.e) != null && sn8Var.B() != null) {
                     this.e.B().setCurrentTab(0);
                 }
-                un8 un8Var4 = this.e;
-                if (un8Var4 != null && un8Var4.B() != null && (j = this.e.B().j(intExtra)) != null) {
+                sn8 sn8Var4 = this.e;
+                if (sn8Var4 != null && sn8Var4.B() != null && (j = this.e.B().j(intExtra)) != null) {
                     Fragment fragment = j.c;
                     if (fragment instanceof on4) {
                         ((on4) fragment).d1(intent);
                     }
                 }
-                if (!TextUtils.isEmpty(intent.getStringExtra(MainTabActivityConfig.PUSH_TID)) && (un8Var2 = this.e) != null && un8Var2.B() != null) {
+                if (!TextUtils.isEmpty(intent.getStringExtra(MainTabActivityConfig.PUSH_TID)) && (sn8Var2 = this.e) != null && sn8Var2.B() != null) {
                     this.e.M(2);
                 }
                 M0(getPageContext().getPageActivity(), TbadkCoreApplication.getIntent());
@@ -1586,7 +1584,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             if (d1()) {
                 return;
             }
-            ao8.a().c();
+            yn8.a().c();
             this.F = false;
             LogoActivityConfig.isFirst = false;
             if (this.a) {
@@ -1599,23 +1597,23 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
                 t0.onPause(getPageContext());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921003));
-            sn8 sn8Var = this.x;
-            if (sn8Var != null) {
-                sn8Var.g();
+            qn8 qn8Var = this.x;
+            if (qn8Var != null) {
+                qn8Var.g();
             }
             KuangFloatingViewController.getInstance().hideFloatingView();
-            f55.h().i(true);
-            ho8 ho8Var = this.f;
-            if (ho8Var != null && ho8Var.a() != null) {
+            d55.h().i(true);
+            fo8 fo8Var = this.f;
+            if (fo8Var != null && fo8Var.a() != null) {
                 this.f.a().c();
             }
-            ho8 ho8Var2 = this.f;
-            if (ho8Var2 != null && ho8Var2.d() != null) {
+            fo8 fo8Var2 = this.f;
+            if (fo8Var2 != null && fo8Var2.d() != null) {
                 this.f.d().c();
             }
-            un8 un8Var = this.e;
-            if (un8Var != null) {
-                un8Var.L();
+            sn8 sn8Var = this.e;
+            if (sn8Var != null) {
+                sn8Var.L();
             }
         }
     }
@@ -1649,8 +1647,8 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
-        ho8 ho8Var;
-        un8 un8Var;
+        fo8 fo8Var;
+        sn8 sn8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_START_STAMP_KEY);
@@ -1658,7 +1656,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             if (d1()) {
                 return;
             }
-            ao8.a().d();
+            yn8.a().d();
             this.F = true;
             int i2 = this.K;
             if (i2 <= 1) {
@@ -1670,68 +1668,68 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             }
             if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && this.K > 1 && TbSingleton.getInstance().mIsSplashClick) {
                 sg.a().postDelayed(new g(this), 500L);
-                ho8 ho8Var2 = this.f;
-                if (ho8Var2 != null && ho8Var2.b() != null) {
+                fo8 fo8Var2 = this.f;
+                if (fo8Var2 != null && fo8Var2.b() != null) {
                     this.f.b().b();
                 }
                 TbSingleton.getInstance().mIsSplashClick = false;
                 this.K = 2;
             }
-            ho8 ho8Var3 = this.f;
-            if (ho8Var3 != null && ho8Var3.a() != null) {
+            fo8 fo8Var3 = this.f;
+            if (fo8Var3 != null && fo8Var3.a() != null) {
                 c1(true);
                 this.f.a().m();
             }
             TbSingleton.getInstance().isCanShowHotSplash = false;
             if (this.A) {
-                vf5.f(this.B);
+                tf5.f(this.B);
                 this.A = false;
             }
-            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && (un8Var = this.e) != null && un8Var.A() != null) {
+            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && (sn8Var = this.e) != null && sn8Var.A() != null) {
                 this.e.A().setLottieView(true);
             }
-            un8 un8Var2 = this.e;
-            if (un8Var2 != null && un8Var2.B() != null) {
+            sn8 sn8Var2 = this.e;
+            if (sn8Var2 != null && sn8Var2.B() != null) {
                 this.b = this.e.B().getCurrentTabType();
             }
             changeSkinType(this.mSkinType);
-            f55.h().i(true);
-            if (TbadkCoreApplication.isLogin() && ya5.b().e()) {
-                ya5.b().f();
+            d55.h().i(true);
+            if (TbadkCoreApplication.isLogin() && wa5.b().e()) {
+                wa5.b().f();
             }
             VoiceManager t0 = t0();
             this.l = t0;
             if (t0 != null) {
                 t0.onResume(getPageContext());
             }
-            un8 un8Var3 = this.e;
-            if (un8Var3 != null) {
-                un8Var3.J();
+            sn8 sn8Var3 = this.e;
+            if (sn8Var3 != null) {
+                sn8Var3.J();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001385, getActivity()));
-            ya5.b().f();
+            wa5.b().f();
             if (sj4.f().b() != null && sj4.f().h() != null && sj4.f().b().getCurTaskType() == 6) {
                 sj4.f().h().a();
             }
-            ho8 ho8Var4 = this.f;
-            if (ho8Var4 != null && ho8Var4.a() != null) {
+            fo8 fo8Var4 = this.f;
+            if (fo8Var4 != null && fo8Var4.a() != null) {
                 this.f.a().k();
                 if (this.D.intValue() != 1) {
                     this.f.a().k();
                 }
             }
-            if (!TbSingleton.getInstance().isNewUserRedPackageShowed() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (ho8Var = this.f) != null && ho8Var.d() != null) {
+            if (!TbSingleton.getInstance().isNewUserRedPackageShowed() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (fo8Var = this.f) != null && fo8Var.d() != null) {
                 this.f.d().d();
             }
             f1();
             if (MessageManager.getInstance().hasListener(2001118)) {
                 DownloadData downloadData = new DownloadData();
                 downloadData.setStatus(21);
-                g25.q().w(downloadData);
+                e25.q().w(downloadData);
             }
             if (!PermissionUtil.checkLocationForTieba(this)) {
-                tu4.k().u("key_post_thread_has_request_location", false);
-                tu4.k().u("key_home_common_tab_fragment_has_request_location_local", false);
+                su4.k().u("key_post_thread_has_request_location", false);
+                su4.k().u("key_home_common_tab_fragment_has_request_location_local", false);
             }
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
         }
@@ -1748,8 +1746,8 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             if (d1()) {
                 return;
             }
-            un8 un8Var = this.e;
-            if (un8Var != null && un8Var.B() != null) {
+            sn8 sn8Var = this.e;
+            if (sn8Var != null && sn8Var.B() != null) {
                 bundle.putInt("locate_type", this.e.B().getCurrentTabType());
             }
             bundle.putParcelable(com.kwad.components.core.i.a.FRAGMENTS_TAG, null);
@@ -1767,8 +1765,8 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048625, this, str) == null) {
             super.onScreenShot(str);
-            un8 un8Var = this.e;
-            if (un8Var == null || un8Var.B() == null || this.e.B().getCurrentTabType() != 2) {
+            sn8 sn8Var = this.e;
+            if (sn8Var == null || sn8Var.B() == null || this.e.B().getCurrentTabType() != 2) {
                 return;
             }
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SCREEN_SHOT).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", 1));
@@ -1818,13 +1816,13 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             super.onUserChanged(z);
             this.o = true;
             if (z) {
-                i55.d().h();
+                g55.d().h();
                 K0();
                 i1();
             }
             this.e.D();
             U0();
-            tu4.k().u("key_member_auto_ban_renewal_show", false);
+            su4.k().u("key_member_auto_ban_renewal_show", false);
         }
     }
 
@@ -1833,11 +1831,11 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            un8 un8Var = this.e;
-            if (un8Var == null) {
+            sn8 sn8Var = this.e;
+            if (sn8Var == null) {
                 return true;
             }
-            return un8Var.O();
+            return sn8Var.O();
         }
         return invokeV.booleanValue;
     }
@@ -1863,7 +1861,7 @@ public class MainTabActivity extends BaseFragmentActivity implements nn8, VoiceM
             if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
                 return false;
             }
-            return vf5.a(1);
+            return tf5.a(1);
         }
         return invokeV.booleanValue;
     }

@@ -76,52 +76,52 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.InsertGalleryAsyncTask;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.am8;
-import com.baidu.tieba.c87;
+import com.baidu.tieba.a87;
+import com.baidu.tieba.cb8;
+import com.baidu.tieba.db8;
+import com.baidu.tieba.de8;
+import com.baidu.tieba.ds4;
 import com.baidu.tieba.easterEgg.EasterEggBridge;
-import com.baidu.tieba.eb8;
-import com.baidu.tieba.es4;
-import com.baidu.tieba.fb8;
-import com.baidu.tieba.fe8;
-import com.baidu.tieba.fo4;
+import com.baidu.tieba.eo4;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.gi;
+import com.baidu.tieba.h25;
 import com.baidu.tieba.h5power.DescriptionTableInfo;
+import com.baidu.tieba.hf5;
 import com.baidu.tieba.hk4;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.j25;
-import com.baidu.tieba.jf5;
+import com.baidu.tieba.je8;
 import com.baidu.tieba.jo;
 import com.baidu.tieba.km4;
-import com.baidu.tieba.le8;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.ou4;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.nu4;
+import com.baidu.tieba.oe5;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.qe5;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.qm4;
 import com.baidu.tieba.quickWebView.message.WebViewCacheReqMsg;
 import com.baidu.tieba.quickWebView.message.WebViewCacheResHttpMsg;
+import com.baidu.tieba.qz4;
+import com.baidu.tieba.qz8;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.share.ImplicitShareMessage;
-import com.baidu.tieba.sz4;
-import com.baidu.tieba.sz8;
+import com.baidu.tieba.su4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.tu4;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.tl8;
+import com.baidu.tieba.u15;
+import com.baidu.tieba.ue5;
+import com.baidu.tieba.ul8;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.v16;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.vl8;
-import com.baidu.tieba.w15;
-import com.baidu.tieba.we5;
-import com.baidu.tieba.wl8;
-import com.baidu.tieba.wx4;
-import com.baidu.tieba.x16;
+import com.baidu.tieba.w05;
 import com.baidu.tieba.xi;
-import com.baidu.tieba.y05;
 import com.baidu.tieba.yj4;
+import com.baidu.tieba.yl8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -144,7 +144,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @jo
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements wl8 {
+public class CommonTbJsBridge implements ul8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_POST_WALL = "postFakeTheWall";
     public static final String CHANGE_SKIN_TYPE = "changeSkinType";
@@ -222,7 +222,7 @@ public class CommonTbJsBridge implements wl8 {
     public final String SHOW_MORE_FORUM_ICON;
     @NonNull
     public final JSONObject emptyParams4CallJs;
-    public vl8 jsPromptBridge;
+    public tl8 jsPromptBridge;
     public final Context mContext;
     public int mH5PersonalizedRecSwitch;
     public long mLastLoadUrlTime;
@@ -321,7 +321,7 @@ public class CommonTbJsBridge implements wl8 {
     }
 
     /* loaded from: classes3.dex */
-    public class c implements fe8.c {
+    public class c implements de8.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -352,7 +352,7 @@ public class CommonTbJsBridge implements wl8 {
 
         /* JADX WARN: Removed duplicated region for block: B:20:0x0038  */
         /* JADX WARN: Removed duplicated region for block: B:34:? A[RETURN, SYNTHETIC] */
-        @Override // com.baidu.tieba.fe8.c
+        @Override // com.baidu.tieba.de8.c
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -395,7 +395,7 @@ public class CommonTbJsBridge implements wl8 {
     }
 
     /* loaded from: classes3.dex */
-    public class d extends jf5<ImMessageCenterPojo> {
+    public class d extends hf5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -419,17 +419,17 @@ public class CommonTbJsBridge implements wl8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jf5
+        @Override // com.baidu.tieba.hf5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c87.f().i(this.a) : (ImMessageCenterPojo) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a87.f().i(this.a) : (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements qe5<ImMessageCenterPojo> {
+    public class e implements oe5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -455,7 +455,7 @@ public class CommonTbJsBridge implements wl8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qe5
+        @Override // com.baidu.tieba.oe5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
@@ -591,7 +591,7 @@ public class CommonTbJsBridge implements wl8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            tu4.k().w("key_bawu_task_toast", -1);
+            su4.k().w("key_bawu_task_toast", -1);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
@@ -720,10 +720,10 @@ public class CommonTbJsBridge implements wl8 {
                 JSONObject jSONObject = new JSONObject(str);
                 boolean optBoolean = jSONObject.optBoolean("open");
                 String optString = jSONObject.optString(EasterEggBridge.KEY_METHOD_NAME);
-                w15 w15Var = new w15();
-                w15Var.g(optBoolean);
-                w15Var.f(optString);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, w15Var));
+                u15 u15Var = new u15();
+                u15Var.g(optBoolean);
+                u15Var.f(optString);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156673, u15Var));
                 i = 1;
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -811,13 +811,13 @@ public class CommonTbJsBridge implements wl8 {
         return (String) invokeL.objValue;
     }
 
-    public am8 changeSkinTypeInH5(HashMap hashMap) {
+    public yl8 changeSkinTypeInH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hashMap)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (hashMap == null) {
-                return am8Var;
+                return yl8Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -826,52 +826,52 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(CHANGE_SKIN_TYPE, jSONObject);
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v5, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public am8 checkAppInstall(String str) {
+    public yl8 checkAppInstall(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             int isInstalledPackage = !StringUtils.isNull(str) ? UtilHelper.isInstalledPackage(this.mContext, str) : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", isInstalledPackage);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 closeNativeMask(int i) {
+    public yl8 closeNativeMask(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921444, Boolean.valueOf(i == 1)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
+                yl8Var.o(jSONObject.toString());
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeI.objValue;
+        return (yl8) invokeI.objValue;
     }
 
-    public am8 dealClickGoBackToH5(HashMap hashMap) {
+    public yl8 dealClickGoBackToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hashMap)) == null) {
@@ -882,24 +882,24 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(CLICK_GO_BACK_TO_H5, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 dealGoBackFromNative(HashMap hashMap) {
+    public yl8 dealGoBackFromNative(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hashMap)) == null) {
             JSONObject jSONObject = new JSONObject();
             callJsMethod(GO_BACK_FROM_NATIVE, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
     public void dealJsChargeIbeanCallback() {
@@ -909,7 +909,7 @@ public class CommonTbJsBridge implements wl8 {
         }
     }
 
-    @Override // com.baidu.tieba.wl8
+    @Override // com.baidu.tieba.ul8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         boolean z;
@@ -1216,31 +1216,31 @@ public class CommonTbJsBridge implements wl8 {
         }
     }
 
-    public am8 deleteOfflineBundle() {
+    public yl8 deleteOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
-                eb8.q().i();
-                fb8.a().g(null);
+                cb8.q().i();
+                db8.a().g(null);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 disableBack(int i) {
+    public yl8 disableBack(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             Context context = this.mContext;
             if (context instanceof TbWebViewActivity) {
                 if (i == 0) {
@@ -1249,16 +1249,16 @@ public class CommonTbJsBridge implements wl8 {
                     ((TbWebViewActivity) context).setSwipeBackEnabled(false);
                 }
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeI.objValue;
+        return (yl8) invokeI.objValue;
     }
 
-    public am8 finishPage(String str, String str2) {
+    public yl8 finishPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).finish();
@@ -1269,32 +1269,32 @@ public class CommonTbJsBridge implements wl8 {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.mContext, "FictionalCharacterDetailsPage", hashMap)));
                 }
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeLL.objValue;
+        return (yl8) invokeLL.objValue;
     }
 
-    public am8 finishTestAnswer(long j) {
+    public yl8 finishTestAnswer(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921383, Long.valueOf(j)));
             Context context = this.mContext;
             if (context instanceof Activity) {
                 ((Activity) context).finish();
             }
-            am8Var.o(FINISH_TEST_ANSWER);
-            return am8Var;
+            yl8Var.o(FINISH_TEST_ANSWER);
+            return yl8Var;
         }
-        return (am8) invokeJ.objValue;
+        return (yl8) invokeJ.objValue;
     }
 
-    public am8 gamePush(String str, String str2, String str3, String str4) {
+    public yl8 gamePush(String str, String str2, String str3, String str4) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, str2, str3, str4)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("gameId", str);
@@ -1307,64 +1307,64 @@ public class CommonTbJsBridge implements wl8 {
             String jSONObject2 = jSONObject.toString();
             if (!TextUtils.isEmpty(jSONObject2)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
-                return am8Var;
+                return yl8Var;
             }
-            am8Var.p();
-            return am8Var;
+            yl8Var.p();
+            return yl8Var;
         }
-        return (am8) invokeLLLL.objValue;
+        return (yl8) invokeLLLL.objValue;
     }
 
-    public am8 getAppStorage(String str) {
+    public yl8 getAppStorage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            am8 am8Var = new am8();
-            tu4 k = tu4.k();
+            yl8 yl8Var = new yl8();
+            su4 k = su4.k();
             String q = k.q("key_local_app_storage_" + str, "");
             int i = !qi.isEmpty(q) ? 1 : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
                 jSONObject.put("data", q);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 getClipperInformation() {
+    public yl8 getClipperInformation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             String clipBoardContent = UtilHelper.getClipBoardContent();
             int i = !qi.isEmpty(clipBoardContent) ? 1 : 0;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
                 jSONObject.put("data", clipBoardContent);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 getDeviceInfo() {
+    public yl8 getDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(1048592, this)) != null) {
-            return (am8) invokeV.objValue;
+            return (yl8) invokeV.objValue;
         }
-        am8 am8Var = new am8();
+        yl8 yl8Var = new yl8();
         StringBuffer stringBuffer = new StringBuffer(1024);
         String imei = TbadkCoreApplication.getInst().getImei();
         stringBuffer.append("imei=");
@@ -1426,30 +1426,30 @@ public class CommonTbJsBridge implements wl8 {
                 jSONObject.put(HttpConstants.HTTP_BOARD, str6);
                 jSONObject.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str7);
                 jSONObject.put("sign", c2);
-                am8Var = am8Var;
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var = yl8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 e = e2;
-                am8Var = am8Var;
+                yl8Var = yl8Var;
                 BdLog.e(e);
-                am8Var.o("");
-                return am8Var;
+                yl8Var.o("");
+                return yl8Var;
             }
         } catch (JSONException e3) {
             e = e3;
         }
     }
 
-    public am8 getGetModalData() {
+    public yl8 getGetModalData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             JSONObject jSONObject = null;
             int i = 0;
             try {
-                String f2 = sz4.c().f();
+                String f2 = qz4.c().f();
                 if (!TextUtils.isEmpty(f2)) {
                     jSONObject = new JSONObject(f2);
                     i = 1;
@@ -1461,83 +1461,83 @@ public class CommonTbJsBridge implements wl8 {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
                 jSONObject2.put("user_info", jSONObject);
-                am8Var.o(jSONObject2.toString());
+                yl8Var.o(jSONObject2.toString());
             } catch (JSONException e3) {
                 BdLog.e(e3);
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 getHdid() {
+    public yl8 getHdid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("hdid", TbadkCoreApplication.getInst().getHdid());
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 getOfflineUserInfo() {
+    public yl8 getOfflineUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("version", TbConfig.getVersion());
                 jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
                 jSONObject.put("uid", TbadkCoreApplication.getCurrentAccountId());
-                jSONObject.put("hybridVersion", eb8.q().C());
+                jSONObject.put("hybridVersion", cb8.q().C());
                 jSONObject.put("hybridOffline", QuickWebViewSwitch.getInOn() ? 1 : 0);
                 jSONObject.put("offlineApiHost", tempUrl);
                 if (TbDebugSingleton.getInstance().getUrlSwitchMap() != null && !TextUtils.isEmpty(TbDebugSingleton.getInstance().getUrlSwitchMap().b)) {
                     jSONObject.put("hostArr", TbDebugSingleton.getInstance().getUrlSwitchMap().b);
                 }
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
+                yl8Var.o(jSONObject.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 getPhotoAlbumResult(HashMap<String, String> hashMap) {
+    public yl8 getPhotoAlbumResult(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("imageUrl", hashMap.get("url"));
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
+    public yl8 getSelectPhotoAlbumResult(HashMap<String, List<HashMap>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, hashMap)) == null) {
@@ -1545,7 +1545,7 @@ public class CommonTbJsBridge implements wl8 {
             if (hashMap == null) {
                 return null;
             }
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 JSONArray jSONArray2 = new JSONArray();
@@ -1571,21 +1571,21 @@ public class CommonTbJsBridge implements wl8 {
                 }
                 jSONObject.put("resultCode", i);
                 jSONObject.put("imageArray", jSONArray);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
+    public yl8 getSelectPrivateImResult(HashMap<String, List<ReportPrivateMsgData>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, hashMap)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             List<ReportPrivateMsgData> list = hashMap.get("private_msg");
             try {
                 JSONArray jSONArray = new JSONArray();
@@ -1604,39 +1604,39 @@ public class CommonTbJsBridge implements wl8 {
                 }
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("msgArray", jSONArray);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 getStartLoadTimeInterval() {
+    public yl8 getStartLoadTimeInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("loadUrlTime", this.mLastLoadUrlTime);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 getSupplementInfo() {
+    public yl8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             StringBuffer stringBuffer = new StringBuffer(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             stringBuffer.append("imei=");
@@ -1670,25 +1670,25 @@ public class CommonTbJsBridge implements wl8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c2);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                am8Var.o("");
-                return am8Var;
+                yl8Var.o("");
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
+    public yl8 getToReportThemePage(HashMap<String, ArrayList<String>> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, hashMap)) == null) {
             if (hashMap == null) {
                 return null;
             }
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 JSONObject jSONObject = new JSONObject();
                 ArrayList<String> arrayList = hashMap.get("tid");
@@ -1698,34 +1698,34 @@ public class CommonTbJsBridge implements wl8 {
                 }
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("threadArray", jSONArray);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 getZid() {
+    public yl8 getZid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             String zid = TbadkCoreApplication.getInst().getZid();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
                 jSONObject.put("zid", zid);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
     public int getmH5PersonalizedRecSwitch() {
@@ -1734,11 +1734,11 @@ public class CommonTbJsBridge implements wl8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mH5PersonalizedRecSwitch : invokeV.intValue;
     }
 
-    public am8 goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
+    public yl8 goToEditPost(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{str, str2, str3, str4, str5, str6, str7})) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if ("1".equals(str)) {
                 WriteActivityConfig.newInstance(this.mContext).setType(9).setForumWriteData(new ForumWriteData(str6, str7, null, null)).setIsSaveDraft(false).setContent(str5).setFrom("frs").setCallFrom("2").send();
             } else if ("2".equals(str)) {
@@ -1751,38 +1751,38 @@ public class CommonTbJsBridge implements wl8 {
                 createSubPbActivityConfig.showOpenEditorTips(str5);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeCommon.objValue;
+        return (yl8) invokeCommon.objValue;
     }
 
-    public am8 goToNotificationSetting() {
+    public yl8 goToNotificationSetting() {
         InterceptResult invokeV;
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
             }
             if (currentActivity == null) {
-                return am8Var;
+                return yl8Var;
             }
             currentActivity.startActivity(new Intent("android.settings.APPLICATION_DETAILS_SETTINGS", Uri.parse("package:" + TbadkCoreApplication.getInst().getPackageName())));
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
+    public yl8 goToVideoImmersivePage(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10, String str11, String str12, String str13, String str14, String str15, String str16, String str17) {
         InterceptResult invokeCommon;
         String str18;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14, str15, str16, str17})) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.thread_id = str;
@@ -1811,37 +1811,37 @@ public class CommonTbJsBridge implements wl8 {
             videoItemData.forum_id = str15;
             videoItemData.forum_name = str16;
             arrayList.add(videoItemData);
-            we5.d(this.mContext, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false);
-            return am8Var;
+            ue5.d(this.mContext, arrayList, videoItemData.nid, z, 0, null, "from_nani_video", "personalize_page", "", VideoPlayActivityConfig.FROM_H5_SEARCH, "", "1".equals(str17), false);
+            return yl8Var;
         }
-        return (am8) invokeCommon.objValue;
+        return (yl8) invokeCommon.objValue;
     }
 
-    public am8 handleGamePushStatus() {
+    public yl8 handleGamePushStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            am8 am8Var = new am8();
-            String q = tu4.k().q("key_match_id_list_football", "");
-            String q2 = tu4.k().q("key_match_id_list_basketball", "");
+            yl8 yl8Var = new yl8();
+            String q = su4.k().q("key_match_id_list_football", "");
+            String q2 = su4.k().q("key_match_id_list_basketball", "");
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + q + PreferencesUtil.RIGHT_MOUNT);
                 jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + q2 + PreferencesUtil.RIGHT_MOUNT);
-                am8Var.o(jSONObject.toString());
+                yl8Var.o(jSONObject.toString());
             } catch (JSONException e2) {
                 BdLog.e(e2);
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 handleGetPhotoAlbum() {
+    public yl8 handleGetPhotoAlbum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) TbadkCoreApplication.getInst().getCurrentActivity(), new WriteImagesInfo().toJsonString(), true);
             albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
             albumActivityConfig.setIntentAction(IntentAction.ActivityForResult);
@@ -1852,21 +1852,21 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 handleGoToBarDetail(String str, int i) {
+    public yl8 handleGoToBarDetail(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048609, this, str, i)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (!TextUtils.isEmpty(str)) {
                 ForumDetailActivityConfig forumDetailActivityConfig = new ForumDetailActivityConfig(this.mContext, str, ForumDetailActivityConfig.FromType.BLUEV_SETTLE);
                 if (i == 1 || i == 2 || i == 3) {
@@ -1875,113 +1875,113 @@ public class CommonTbJsBridge implements wl8 {
                 forumDetailActivityConfig.setRequestCode(25070);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumDetailActivityConfig));
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeLI.objValue;
+        return (yl8) invokeLI.objValue;
     }
 
-    public am8 handleGoToMyLive(String str) {
+    public yl8 handleGoToMyLive(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaPersonCenterActivityConfig(this.mContext, str, "", "", 0, true)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 handleGoToMyPost(String str) {
+    public yl8 handleGoToMyPost(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.mContext, str, 0, null)));
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 handlePortal(String str, String str2, String str3) {
+    public yl8 handlePortal(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048612, this, str, str2, str3)) == null) {
-            am8 am8Var = new am8();
-            fe8.c().b(new c(this, str3, str, str2));
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            de8.c().b(new c(this, str3, str, str2));
+            return yl8Var;
         }
-        return (am8) invokeLLL.objValue;
+        return (yl8) invokeLLL.objValue;
     }
 
-    public am8 handleSaveImage(String str) {
+    public yl8 handleSaveImage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (this.mPermissionJudgement == null) {
                 this.mPermissionJudgement = new PermissionJudgePolicy();
             }
             this.mPermissionJudgement.clearRequestPermissionList();
             Context context = this.mContext;
             if (!(context instanceof Activity)) {
-                am8Var.p();
-                return am8Var;
+                yl8Var.p();
+                return yl8Var;
             }
             this.mPermissionJudgement.appendRequestPermission((Activity) context, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-                am8Var.q("权限申请");
-                return am8Var;
+                yl8Var.q("权限申请");
+                return yl8Var;
             }
             new InsertGalleryAsyncTask((Activity) this.mContext, str, new b(this)).execute(new String[0]);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 hasNotificationPermission() {
+    public yl8 hasNotificationPermission() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             int areNotificationsEnabled = Build.VERSION.SDK_INT >= 19 ? NotificationManagerCompat.from(this.mContext).areNotificationsEnabled() : 1;
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", areNotificationsEnabled);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 jumpForumRulesEditPage(String str, String str2) {
+    public yl8 jumpForumRulesEditPage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, str, str2)) == null) {
@@ -1990,16 +1990,16 @@ public class CommonTbJsBridge implements wl8 {
                 forumRuleEditActivityConfig.setRequestCode(25070);
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumRuleEditActivityConfig));
             }
-            return new am8();
+            return new yl8();
         }
-        return (am8) invokeLL.objValue;
+        return (yl8) invokeLL.objValue;
     }
 
-    public am8 jumpLoginActivity(int i, String str) {
+    public yl8 jumpLoginActivity(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048616, this, i, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             JSONObject jSONObject = new JSONObject();
             if (this.mContext == null) {
                 try {
@@ -2007,8 +2007,8 @@ public class CommonTbJsBridge implements wl8 {
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             }
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(this.mContext, true);
             loginActivityConfig.setThirdPartyLoginForResult(i, str);
@@ -2022,29 +2022,29 @@ public class CommonTbJsBridge implements wl8 {
             } catch (JSONException e3) {
                 BdLog.e(e3);
             }
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeIL.objValue;
+        return (yl8) invokeIL.objValue;
     }
 
-    public am8 jumpToHotTrendPage() {
+    public yl8 jumpToHotTrendPage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            am8 am8Var = new am8();
-            ou4.g(this.mContext, 16, false);
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            nu4.g(this.mContext, 16, false);
+            return yl8Var;
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 jumpToHtmlPage(String str, int i) {
+    public yl8 jumpToHtmlPage(String str, int i) {
         InterceptResult invokeLI;
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048618, this, str, i)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (!TextUtils.isEmpty(str) && (context = this.mContext) != null) {
                 km4.o(context, str);
                 if (i == 1) {
@@ -2054,31 +2054,31 @@ public class CommonTbJsBridge implements wl8 {
                     }
                 }
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeLI.objValue;
+        return (yl8) invokeLI.objValue;
     }
 
-    public am8 jumpToVideo(String str, String str2, String str3) {
+    public yl8 jumpToVideo(String str, String str2, String str3) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048619, this, str, str2, str3)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (WriteActivityConfig.isAsyncWriting()) {
-                return am8Var;
+                return yl8Var;
             }
-            int a2 = sz8.a();
-            if (sz8.c(a2)) {
-                sz8.e(this.mContext, a2, 0);
+            int a2 = qz8.a();
+            if (qz8.c(a2)) {
+                qz8.e(this.mContext, a2, 0);
             }
-            if (sz8.b()) {
-                sz8.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+            if (qz8.b()) {
+                qz8.h(null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
             } else {
-                sz8.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
+                qz8.k(false, false, null, null, null, null, 0, Boolean.TRUE, str, str2, str3);
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeLLL.objValue;
+        return (yl8) invokeLLL.objValue;
     }
 
     public void onDestroy() {
@@ -2089,7 +2089,7 @@ public class CommonTbJsBridge implements wl8 {
         }
     }
 
-    public am8 onUserLoginChanged(HashMap hashMap) {
+    public yl8 onUserLoginChanged(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048621, this, hashMap)) == null) {
@@ -2103,14 +2103,14 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(LOGIN_RESULT_TO_H5, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 personlizedSwitchChange(String str) {
+    public yl8 personlizedSwitchChange(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) {
@@ -2119,17 +2119,17 @@ public class CommonTbJsBridge implements wl8 {
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
             }
-            return new am8();
+            return new yl8();
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 playSound(String str) {
+    public yl8 playSound(String str) {
         InterceptResult invokeL;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (pi.z()) {
                 getShakeController().i(str);
                 i = 1;
@@ -2143,42 +2143,42 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 playVibrate() {
+    public yl8 playVibrate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             boolean g = getShakeController().g();
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", g ? 1 : 0);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 postWriteWallData(HashMap hashMap) {
+    public yl8 postWriteWallData(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, hashMap)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (hashMap == null) {
-                return am8Var;
+                return yl8Var;
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -2188,33 +2188,33 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(CHANGE_POST_WALL, jSONObject);
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 putAppStorage(String str, String str2) {
+    public yl8 putAppStorage(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048626, this, str, str2)) == null) {
-            am8 am8Var = new am8();
-            tu4 k = tu4.k();
+            yl8 yl8Var = new yl8();
+            su4 k = su4.k();
             k.y("key_local_app_storage_" + str, str2);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeLL.objValue;
+        return (yl8) invokeLL.objValue;
     }
 
-    public am8 reHide(HashMap hashMap) {
+    public yl8 reHide(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, hashMap)) == null) {
@@ -2225,14 +2225,14 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(RE_HIDE, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 reShow(HashMap hashMap) {
+    public yl8 reShow(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048628, this, hashMap)) == null) {
@@ -2243,18 +2243,18 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(RE_SHOW, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 reportUserTheme(String str, ArrayList<String> arrayList) {
+    public yl8 reportUserTheme(String str, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048629, this, str, arrayList)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             ReportThemeActivityConfig reportThemeActivityConfig = new ReportThemeActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), str, arrayList);
             reportThemeActivityConfig.setRequestCode(12018);
             reportThemeActivityConfig.setIntentAction(IntentAction.ActivityForResult);
@@ -2262,34 +2262,34 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 0);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeLL.objValue;
+        return (yl8) invokeLL.objValue;
     }
 
-    public am8 saveImageSuccess(HashMap<String, Integer> hashMap) {
+    public yl8 saveImageSuccess(HashMap<String, Integer> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048630, this, hashMap)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT).intValue() == -1) {
-                am8Var.q("图片保存错误");
+                yl8Var.q("图片保存错误");
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
+    public yl8 selectPhotoAlbum(int i, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048631, this, i, arrayList)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
             writeImagesInfo.setMaxImagesAllowed(i);
             if (arrayList != null) {
@@ -2318,21 +2318,21 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 0);
-                am8Var.o(jSONObject2.toString());
-                return am8Var;
+                yl8Var.o(jSONObject2.toString());
+                return yl8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeIL.objValue;
+        return (yl8) invokeIL.objValue;
     }
 
-    public am8 selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
+    public yl8 selectPrivateMsg(String str, ArrayList<JSONObject> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048632, this, str, arrayList)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             ArrayList arrayList2 = new ArrayList();
             if (!ListUtils.isEmpty(arrayList)) {
                 for (int i = 0; i < arrayList.size(); i++) {
@@ -2344,25 +2344,25 @@ public class CommonTbJsBridge implements wl8 {
                     arrayList2.add(new ReportPrivateMsgData(jSONObject.optString("msgId"), optString, jSONObject.optString(FileMetaUtil.CREATE_TIME)));
                 }
             }
-            nf5.c(new d(this, str), new e(this, str, arrayList2));
+            lf5.c(new d(this, str), new e(this, str, arrayList2));
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 0);
-                am8Var.o(jSONObject2.toString());
-                return am8Var;
+                yl8Var.o(jSONObject2.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeLL.objValue;
+        return (yl8) invokeLL.objValue;
     }
 
-    public am8 sendCompleteTaskReqMsg(String str, String str2) {
+    public yl8 sendCompleteTaskReqMsg(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048633, this, str, str2)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             int i = 0;
             try {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
@@ -2380,40 +2380,40 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
-                am8Var.o(jSONObject2.toString());
-                return am8Var;
+                yl8Var.o(jSONObject2.toString());
+                return yl8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeLL.objValue;
+        return (yl8) invokeLL.objValue;
     }
 
-    public am8 setClipperInformation(String str) {
+    public yl8 setClipperInformation(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048634, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             gi.a(str);
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 setDisableGoBack() {
+    public yl8 setDisableGoBack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             Context context = this.mContext;
             int i = 1;
             if (context instanceof TbWebViewActivity) {
@@ -2424,20 +2424,20 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public void setJsPromptBridge(vl8 vl8Var) {
+    public void setJsPromptBridge(tl8 tl8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, vl8Var) == null) {
-            this.jsPromptBridge = vl8Var;
+        if (interceptable == null || interceptable.invokeL(1048636, this, tl8Var) == null) {
+            this.jsPromptBridge = tl8Var;
         }
     }
 
@@ -2448,27 +2448,27 @@ public class CommonTbJsBridge implements wl8 {
         }
     }
 
-    public am8 setSearchHistory(HashMap hashMap) {
+    public yl8 setSearchHistory(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, hashMap)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
-                am8Var.o(new JSONArray(hashMap.get("data").toString()).toString());
+                yl8Var.o(new JSONArray(hashMap.get("data").toString()).toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
+    public yl8 setShareInfo(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i, String str9) {
         InterceptResult invokeCommon;
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048639, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i), str9})) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("title", str);
@@ -2494,22 +2494,22 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i2);
-                am8Var.o(jSONObject3.toString());
-                return am8Var;
+                yl8Var.o(jSONObject3.toString());
+                return yl8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeCommon.objValue;
+        return (yl8) invokeCommon.objValue;
     }
 
-    public am8 share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9) {
+    public yl8 share(int i, int i2, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, int i3, String str9) {
         InterceptResult invokeCommon;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048640, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, str5, str6, str7, str8, Integer.valueOf(i3), str9})) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("channel", i);
@@ -2544,9 +2544,9 @@ public class CommonTbJsBridge implements wl8 {
                     shareItem.p = true;
                     ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                     shareDialogConfig.mShowMoreForumShare = true;
-                    x16.c().l(shareDialogConfig);
-                    am8Var.o("");
-                    return am8Var;
+                    v16.c().l(shareDialogConfig);
+                    yl8Var.o("");
+                    return yl8Var;
                 } else if (i == 0) {
                     if (shareItem != null && !qi.isEmpty(str) && i2 == 1) {
                         setShareItem(shareItem);
@@ -2563,17 +2563,17 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("resultCode", i4);
-                am8Var.o(jSONObject3.toString());
-                return am8Var;
+                yl8Var.o(jSONObject3.toString());
+                return yl8Var;
             } catch (JSONException e3) {
                 BdLog.e(e3);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeCommon.objValue;
+        return (yl8) invokeCommon.objValue;
     }
 
-    public am8 shareSuccessNotification(HashMap hashMap) {
+    public yl8 shareSuccessNotification(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, hashMap)) == null) {
@@ -2595,18 +2595,18 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(SHARE_SUCCCESS_NOTIFICATION, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
+    public yl8 showLowerHairHint(int i, int i2, String str, String str2, int i3, String str3, String str4, double d2, String str5, String str6, int i4, String str7, String str8, String str9, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048642, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, Integer.valueOf(i3), str3, str4, Double.valueOf(d2), str5, str6, Integer.valueOf(i4), str7, str8, str9, Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             hk4 hk4Var = new hk4();
             hk4Var.c = i;
             hk4Var.d = i2;
@@ -2622,13 +2622,13 @@ public class CommonTbJsBridge implements wl8 {
             hk4Var.p = str8;
             hk4Var.q = str9;
             if (i == hk4.y) {
-                es4.h(TbadkCoreApplication.getInst().getCurrentActivity(), hk4Var).j();
+                ds4.h(TbadkCoreApplication.getInst().getCurrentActivity(), hk4Var).j();
             } else if (i == hk4.z) {
                 Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                fo4 fo4Var = new fo4(currentActivity);
+                eo4 eo4Var = new eo4(currentActivity);
                 if (currentActivity != null) {
-                    fo4Var.d(currentActivity, hk4Var);
-                    fo4Var.i();
+                    eo4Var.d(currentActivity, hk4Var);
+                    eo4Var.i();
                 }
             } else if (i == hk4.A) {
                 if (i2 == hk4.D) {
@@ -2645,19 +2645,19 @@ public class CommonTbJsBridge implements wl8 {
                         ((Activity) context).finish();
                     }
                 }
-                u75.i(new TopToastEvent(i5, str));
+                s75.i(new TopToastEvent(i5, str));
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeCommon.objValue;
+        return (yl8) invokeCommon.objValue;
     }
 
     public void showShareDialog(ShareItem shareItem) {
@@ -2678,11 +2678,11 @@ public class CommonTbJsBridge implements wl8 {
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 
-    public am8 showTipToast(String str, String str2, String str3, int i, int i2) {
+    public yl8 showTipToast(String str, String str2, String str3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048644, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             int i3 = 0;
             i3 = 0;
             if (!TextUtils.isEmpty(str)) {
@@ -2691,13 +2691,13 @@ public class CommonTbJsBridge implements wl8 {
                     Activity activity = (Activity) context;
                     if (!TextUtils.isEmpty(str3)) {
                         String str4 = "showToast_" + str3;
-                        int l = tu4.k().l(str4, 0);
+                        int l = su4.k().l(str4, 0);
                         if (l < i) {
-                            tu4.k().w(str4, l);
-                            u75.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
+                            su4.k().w(str4, l);
+                            s75.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
                         }
                     } else {
-                        u75.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
+                        s75.i(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
                     }
                     if (i2 == 1) {
                         activity.finish();
@@ -2708,27 +2708,27 @@ public class CommonTbJsBridge implements wl8 {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", i3);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 BdLog.e(e2);
-                return am8Var;
+                return yl8Var;
             }
         }
-        return (am8) invokeCommon.objValue;
+        return (yl8) invokeCommon.objValue;
     }
 
-    public am8 springFestivalTimeToH5(HashMap<String, String> hashMap) {
+    public yl8 springFestivalTimeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048645, this, hashMap)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             if (hashMap != null && hashMap.get(TiebaStatic.LogFields.RESULT) != null) {
-                am8Var.o(hashMap.get(TiebaStatic.LogFields.RESULT));
+                yl8Var.o(hashMap.get(TiebaStatic.LogFields.RESULT));
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
     public String startApp(String str) {
@@ -2755,45 +2755,45 @@ public class CommonTbJsBridge implements wl8 {
         return (String) invokeL.objValue;
     }
 
-    public am8 startDownloadCss(String str) {
+    public yl8 startDownloadCss(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048648, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             JSONObject jSONObject = new JSONObject();
             if (!qi.isEmpty(str)) {
                 try {
                     if (qi.isEmpty(str)) {
                         jSONObject.put("resultCode", 0);
-                        am8Var.o(jSONObject.toString());
-                        return am8Var;
+                        yl8Var.o(jSONObject.toString());
+                        return yl8Var;
                     }
                     String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
                     String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
                     if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
                         jSONObject.put("resultCode", 0);
-                        am8Var.o(jSONObject.toString());
-                        return am8Var;
+                        yl8Var.o(jSONObject.toString());
+                        return yl8Var;
                     }
                     DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
                     downloadData.setPath(customLoginCssStoragePath);
-                    j25.k().l(downloadData);
+                    h25.k().l(downloadData);
                     jSONObject.put("resultCode", 1);
                 } catch (JSONException e2) {
                     BdLog.e(e2);
                 }
             }
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 startLoginModule(String str) {
+    public yl8 startLoginModule(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             WebView webView = this.mWebView;
             if (webView == null) {
                 ViewHelper.checkUpIsLogin(this.mContext);
@@ -2804,62 +2804,62 @@ public class CommonTbJsBridge implements wl8 {
             jSResultData.setStatus(1);
             jSResultData.setErrorCode("0");
             jSResultData.setErrorMsg("");
-            am8Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return am8Var;
+            yl8Var.o(OrmObject.jsonStrWithObject(jSResultData));
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 switchOfflineBundleStatus(int i) {
+    public yl8 switchOfflineBundleStatus(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048650, this, i)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 QuickWebViewSwitch.setState(i == 1 ? TriState.YES : TriState.NO);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (am8) invokeI.objValue;
+        return (yl8) invokeI.objValue;
     }
 
-    public am8 switchOfflineInterface(String str) {
+    public yl8 switchOfflineInterface(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, str)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 if (StringUtils.isNull(str)) {
                     str = TbConfig.SERVER_ADDRESS + TbConfig.WEBVIEW_CACHE_URL;
                 }
                 tempUrl = str;
-                y05.a().g(true);
+                w05.a().g(true);
                 TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.WEBVIEW_CACHE_INFO, tempUrl + "?cmd=309485");
                 tbHttpMessageTask.setResponsedClass(WebViewCacheResHttpMsg.class);
                 MessageManager.getInstance().registerTask(tbHttpMessageTask);
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 switchUrlHost(ArrayList<JSONObject> arrayList) {
+    public yl8 switchUrlHost(ArrayList<JSONObject> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048652, this, arrayList)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
                 qm4 qm4Var = new qm4();
                 qm4Var.a = new LinkedHashMap();
@@ -2877,16 +2877,16 @@ public class CommonTbJsBridge implements wl8 {
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", 1);
-                am8Var.o(jSONObject2.toString());
+                yl8Var.o(jSONObject2.toString());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            return am8Var;
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 thirdPartyLoginResultToH5(HashMap hashMap) {
+    public yl8 thirdPartyLoginResultToH5(HashMap hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, hashMap)) == null) {
@@ -2902,41 +2902,41 @@ public class CommonTbJsBridge implements wl8 {
                 e2.printStackTrace();
             }
             callJsMethod(RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            am8 am8Var = new am8();
-            am8Var.o(jSONObject.toString());
-            return am8Var;
+            yl8 yl8Var = new yl8();
+            yl8Var.o(jSONObject.toString());
+            return yl8Var;
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
-    public am8 updateOfflineBundle() {
+    public yl8 updateOfflineBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
-            am8 am8Var = new am8();
+            yl8 yl8Var = new yl8();
             try {
-                eb8.q().i();
+                cb8.q().i();
                 MessageManager.getInstance().sendMessage(new WebViewCacheReqMsg("0.0.0.0"));
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", 1);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             } catch (JSONException e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (am8) invokeV.objValue;
+        return (yl8) invokeV.objValue;
     }
 
-    public am8 updateSearchForumInfo(String str) {
+    public yl8 updateSearchForumInfo(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048655, this, str)) == null) {
-            le8.d().f(str);
-            return new am8();
+            je8.d().f(str);
+            return new yl8();
         }
-        return (am8) invokeL.objValue;
+        return (yl8) invokeL.objValue;
     }
 
     public CommonTbJsBridge(Context context, WebView webView) {
@@ -2963,29 +2963,29 @@ public class CommonTbJsBridge implements wl8 {
     }
 
     public void dealSpringFestivalTimer(HashMap hashMap) {
-        vl8 vl8Var;
+        tl8 tl8Var;
         WebView webView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) || (vl8Var = this.jsPromptBridge) == null || (webView = this.mWebView) == null || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hashMap) == null) || (tl8Var = this.jsPromptBridge) == null || (webView = this.mWebView) == null || hashMap == null) {
             return;
         }
-        vl8Var.i(webView, "getPageLeaveTime", hashMap);
+        tl8Var.i(webView, "getPageLeaveTime", hashMap);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:18:0x004c  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public am8 startApp(String str, String str2) {
+    public yl8 startApp(String str, String str2) {
         InterceptResult invokeLL;
         boolean z;
         Intent launchIntentForPackage;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLL = interceptable.invokeLL(1048646, this, str, str2)) != null) {
-            return (am8) invokeLL.objValue;
+            return (yl8) invokeLL.objValue;
         }
-        am8 am8Var = new am8();
-        List<String> a2 = wx4.a();
+        yl8 yl8Var = new yl8();
+        List<String> a2 = ux4.a();
         try {
             if (isLegalSchema(a2, str2)) {
                 Intent intent = new Intent();
@@ -3001,16 +3001,16 @@ public class CommonTbJsBridge implements wl8 {
                 }
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("resultCode", z ? 1 : 0);
-                am8Var.o(jSONObject.toString());
-                return am8Var;
+                yl8Var.o(jSONObject.toString());
+                return yl8Var;
             }
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("resultCode", z ? 1 : 0);
-            am8Var.o(jSONObject2.toString());
-            return am8Var;
+            yl8Var.o(jSONObject2.toString());
+            return yl8Var;
         } catch (JSONException e2) {
             BdLog.e(e2);
-            return am8Var;
+            return yl8Var;
         }
         z = false;
         if (!z) {

@@ -3,7 +3,7 @@ package com.baidu.tieba.downloadmanager.net;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
-import com.baidu.tieba.s56;
+import com.baidu.tieba.q56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.ItemManage.ItemManageResIdl;
 /* loaded from: classes3.dex */
-public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage<s56, ItemManageResIdl> {
+public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMessage<q56, ItemManageResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,9 +42,9 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
         Error error;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bArr)) == null) {
-            s56 s56Var = new s56();
+            q56 q56Var = new q56();
             ItemManageResIdl itemManageResIdl = (ItemManageResIdl) new Wire(new Class[0]).parseFrom(bArr, ItemManageResIdl.class);
-            s56Var.b(itemManageResIdl.data);
+            q56Var.b(itemManageResIdl.data);
             if (itemManageResIdl != null && (error = itemManageResIdl.error) != null) {
                 Integer num = error.errorno;
                 if (num != null) {
@@ -52,7 +52,7 @@ public class DownloadManagerSocketResponseMessage extends MvcSocketResponsedMess
                 }
                 setErrorString(itemManageResIdl.error.usermsg);
             }
-            setData(s56Var);
+            setData(q56Var);
             return itemManageResIdl;
         }
         return invokeIL.objValue;

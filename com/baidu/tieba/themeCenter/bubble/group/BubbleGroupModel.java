@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.bb;
+import com.baidu.tieba.br8;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.dr8;
-import com.baidu.tieba.pr8;
-import com.baidu.tieba.rk8;
+import com.baidu.tieba.nr8;
+import com.baidu.tieba.pk8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,19 +24,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public pr8 b;
-    public List<dr8> c;
+    public nr8 b;
+    public List<br8> c;
     public c d;
     public boolean e;
     public bb f;
     public final HttpMessageListener g;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,7 +95,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,9 +138,9 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        void a(int i, String str, pr8 pr8Var, List<dr8> list);
+        void a(int i, String str, nr8 nr8Var, List<br8> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -180,8 +180,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            rk8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            rk8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
+            pk8.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            pk8.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
@@ -203,14 +203,14 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     }
 
     public final void K(int i) {
-        List<dr8> list;
+        List<br8> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (list = this.c) == null || list.size() <= 0) {
             return;
         }
-        for (dr8 dr8Var : this.c) {
-            if (dr8Var != null && dr8Var.a() != null) {
-                for (DressItemData dressItemData : dr8Var.a()) {
+        for (br8 br8Var : this.c) {
+            if (br8Var != null && br8Var.a() != null) {
+                for (DressItemData dressItemData : br8Var.a()) {
                     if (dressItemData != null) {
                         if (dressItemData.getPropsId() == i) {
                             dressItemData.setInUse(true);

@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.GroupData;
 import com.baidu.tieba.db;
+import com.baidu.tieba.hf5;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.data.GroupMsgData;
 import com.baidu.tieba.im.message.RequestRemoveMembersMessage;
@@ -20,10 +21,9 @@ import com.baidu.tieba.im.message.ResponseRemoveMembersMessage;
 import com.baidu.tieba.im.message.ResponseUpdateGroupMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.CommonGroupChatMessage;
-import com.baidu.tieba.jf5;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.t87;
-import com.baidu.tieba.v77;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.r87;
+import com.baidu.tieba.t77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -244,7 +244,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, chatMessage) == null) || this.mGroup == null || chatMessage == null) {
             return;
         }
-        nf5.c(new jf5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
+        lf5.c(new hf5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupMsglistModel this$0;
@@ -271,11 +271,11 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.jf5
+            @Override // com.baidu.tieba.hf5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v77.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(t77.h().c(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }
@@ -292,7 +292,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getGroup() != null) {
-                return t87.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
+                return r87.o().p(String.valueOf(getGroup().getGroupId()), this.customGroupType);
             }
             return 0L;
         }
@@ -305,7 +305,7 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
         if (!(interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) || this.mGroup == null || chatMessage == null) {
             return;
         }
-        nf5.c(new jf5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
+        lf5.c(new hf5<Boolean>(this, chatMessage) { // from class: com.baidu.tieba.im.model.CommonGroupMsglistModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ CommonGroupMsglistModel this$0;
@@ -332,11 +332,11 @@ public abstract class CommonGroupMsglistModel extends MsglistModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.jf5
+            @Override // com.baidu.tieba.hf5
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(v77.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? Boolean.valueOf(t77.h().m(String.valueOf(this.this$0.mGroup.getGroupId()), String.valueOf(this.val$msg.getMsgId()))) : (Boolean) invokeV.objValue;
             }
         }, null);
     }

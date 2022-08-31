@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ux extends uw implements ix<eq4>, jx {
+public class ux extends uw implements ix<dq4>, jx {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -128,17 +128,17 @@ public class ux extends uw implements ix<eq4>, jx {
         this.f = align;
     }
 
-    public void m(ho4 ho4Var) {
+    public void m(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, ho4Var) == null) || ho4Var == null || ho4Var.getNegFeedBackData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, go4Var) == null) || go4Var == null || go4Var.getNegFeedBackData() == null) {
             return;
         }
-        if (ho4Var.getNegFeedBackData().h() <= 0 && ho4Var.getThreadData() != null) {
-            if (!ho4Var.showCardBottomOpWeight() && !ho4Var.isFromFrs()) {
+        if (go4Var.getNegFeedBackData().h() <= 0 && go4Var.getThreadData() != null) {
+            if (!go4Var.showCardBottomOpWeight() && !go4Var.isFromFrs()) {
                 l(Align.ALIGN_RIGHT_BOTTOM);
-            } else if (ho4Var.isSupportTop()) {
-                v((!p(ho4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
-            } else if (ho4Var.isSupportBottom()) {
+            } else if (go4Var.isSupportTop()) {
+                v((!p(go4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
+            } else if (go4Var.isSupportBottom()) {
                 ey eyVar = this.d;
                 if (eyVar != null) {
                     eyVar.n(this);
@@ -149,7 +149,7 @@ public class ux extends uw implements ix<eq4>, jx {
         } else if (this.g) {
             k();
         } else {
-            r(ho4Var);
+            r(go4Var);
         }
     }
 
@@ -176,32 +176,32 @@ public class ux extends uw implements ix<eq4>, jx {
         }
     }
 
-    public final boolean p(ho4 ho4Var) {
+    public final boolean p(go4 go4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ho4Var)) == null) ? (ho4Var instanceof v06) && ((v06) ho4Var).n : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, go4Var)) == null) ? (go4Var instanceof t06) && ((t06) go4Var).n : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: q */
-    public void a(eq4 eq4Var) {
+    public void a(dq4 dq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eq4Var) == null) {
-            if (eq4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, dq4Var) == null) {
+            if (dq4Var == null) {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.setData(eq4Var);
+            this.e.setData(dq4Var);
             this.e.setFirstRowSingleColumn(true);
             this.e.setVisibility(0);
         }
     }
 
-    public final void r(ho4 ho4Var) {
+    public final void r(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, ho4Var) == null) {
-            if (ho4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, go4Var) == null) {
+            if (go4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);

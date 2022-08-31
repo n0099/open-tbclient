@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class my extends sw<ho4> implements q88 {
+public abstract class my extends sw<go4> implements o88 {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
     public static int u;
@@ -38,9 +38,9 @@ public abstract class my extends sw<ho4> implements q88 {
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public TextView g;
-    public ho4 h;
+    public go4 h;
     public RoundCornerFrameLayout i;
-    public l98 j;
+    public j98 j;
     public String k;
     public String l;
     public BdUniqueId m;
@@ -81,8 +81,8 @@ public abstract class my extends sw<ho4> implements q88 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ho4 ho4Var = this.b.h;
-                if (ho4Var != null && ho4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
+                go4 go4Var = this.b.h;
+                if (go4Var != null && go4Var.getThreadData().getThreadVideoInfo().is_vertical.intValue() != 1) {
                     this.a.width = this.b.f.getWidth();
                     this.a.height = (this.b.f.getWidth() / 16) * 9;
                 }
@@ -117,9 +117,9 @@ public abstract class my extends sw<ho4> implements q88 {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            ho4 ho4Var;
+            go4 go4Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (ho4Var = this.a.h) == null || ho4Var.getThreadData() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (go4Var = this.a.h) == null || go4Var.getThreadData() == null) {
                 return;
             }
             Rect computeViewArea = ThreadCardUtils.computeViewArea(this.a.i);
@@ -128,7 +128,7 @@ public abstract class my extends sw<ho4> implements q88 {
             ThreadData threadData = myVar.h.getThreadData();
             my myVar2 = this.a;
             String str = myVar2.k;
-            we5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, myVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
+            ue5.c(false, context, threadData, 0, computeViewArea, "from_nani_video", "personalize_page", "", str, str, myVar2.h.getThreadData().isJumpToFrsVideoTabPlay);
         }
     }
 
@@ -233,26 +233,26 @@ public abstract class my extends sw<ho4> implements q88 {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (aVar.b() == 1) {
                     my myVar = this.a;
-                    uz5.l(myVar.g, myVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.l(myVar.g, myVar.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                     return false;
                 } else if (aVar.b() == 2) {
-                    l98 l98Var = this.a.j;
-                    if (l98Var != null) {
-                        l98Var.onScroll();
+                    j98 j98Var = this.a.j;
+                    if (j98Var != null) {
+                        j98Var.onScroll();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 3) {
-                    l98 l98Var2 = this.a.j;
-                    if (l98Var2 != null) {
-                        l98Var2.onVolumeUp();
+                    j98 j98Var2 = this.a.j;
+                    if (j98Var2 != null) {
+                        j98Var2.onVolumeUp();
                         return false;
                     }
                     return false;
                 } else if (aVar.b() == 6) {
-                    l98 l98Var3 = this.a.j;
-                    if (l98Var3 != null) {
-                        return l98Var3.onBackPress();
+                    j98 j98Var3 = this.a.j;
+                    if (j98Var3 != null) {
+                        return j98Var3.onBackPress();
                     }
                     return false;
                 } else if (aVar.b() == 7) {
@@ -320,20 +320,20 @@ public abstract class my extends sw<ho4> implements q88 {
         this.s = new e(this);
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j.getCurrentPosition() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ho4 ho4Var = this.h;
-            if (ho4Var == null || ho4Var.getThreadData() == null) {
+            go4 go4Var = this.h;
+            if (go4Var == null || go4Var.getThreadData() == null) {
                 return null;
             }
             return this.h.getThreadData().getVideoUrl();
@@ -341,7 +341,7 @@ public abstract class my extends sw<ho4> implements q88 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public abstract class my extends sw<ho4> implements q88 {
                 }
                 this.g = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f09250c);
                 this.i = (RoundCornerFrameLayout) this.f.findViewById(R.id.obfuscated_res_0x7f090aba);
-                l98 q = q();
+                j98 q = q();
                 this.j = q;
                 q.setUniqueId(this.m);
                 this.j.setFrom(this.k);
@@ -385,28 +385,28 @@ public abstract class my extends sw<ho4> implements q88 {
         }
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            l98 l98Var = this.j;
-            if (l98Var == null) {
+            j98 j98Var = this.j;
+            if (j98Var == null) {
                 return false;
             }
-            return l98Var.isFullScreen();
+            return j98Var.isFullScreen();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.j.isPlaying() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -415,23 +415,23 @@ public abstract class my extends sw<ho4> implements q88 {
 
     @Override // com.baidu.tieba.jx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        ho4 ho4Var;
+        go4 go4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) || (ho4Var = this.h) == null || ho4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) || (go4Var = this.h) == null || go4Var.getThreadData() == null) {
             return;
         }
-        uz5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+        sz5.l(this.g, this.h.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         this.i.c(i);
         this.i.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0209));
     }
 
-    public l98 p() {
+    public j98 p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (l98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.j : (j98) invokeV.objValue;
     }
 
-    public abstract l98 q();
+    public abstract j98 q();
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00b5, code lost:
@@ -451,10 +451,10 @@ public abstract class my extends sw<ho4> implements q88 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, ho4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, go4Var) == null) {
             int k = ri.k(TbadkCoreApplication.getInst());
             if (k != this.n) {
                 int k2 = ri.k(TbadkCoreApplication.getInst());
@@ -465,11 +465,11 @@ public abstract class my extends sw<ho4> implements q88 {
                 x = i / 3;
                 this.n = k;
             }
-            this.h = ho4Var;
-            if (ho4Var == null || ho4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
+            this.h = go4Var;
+            if (go4Var == null || go4Var.getThreadData() == null || this.h.getThreadData().getThreadVideoInfo() == null) {
                 return;
             }
-            this.j.setData(ho4Var.getThreadData());
+            this.j.setData(go4Var.getThreadData());
             ViewGroup.LayoutParams layoutParams = this.i.getLayoutParams();
             int i2 = layoutParams.width;
             int i3 = layoutParams.height;
@@ -538,7 +538,7 @@ public abstract class my extends sw<ho4> implements q88 {
         }
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public void startPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -549,7 +549,7 @@ public abstract class my extends sw<ho4> implements q88 {
         }
     }
 
-    @Override // com.baidu.tieba.q88
+    @Override // com.baidu.tieba.o88
     public void stopPlay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -567,9 +567,9 @@ public abstract class my extends sw<ho4> implements q88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.k = str;
-            l98 l98Var = this.j;
-            if (l98Var != null) {
-                l98Var.setFrom(str);
+            j98 j98Var = this.j;
+            if (j98Var != null) {
+                j98Var.setFrom(str);
             }
         }
     }
@@ -599,19 +599,19 @@ public abstract class my extends sw<ho4> implements q88 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.l = str;
-            l98 l98Var = this.j;
-            if (l98Var != null) {
-                l98Var.setStageType(str);
+            j98 j98Var = this.j;
+            if (j98Var != null) {
+                j98Var.setStageType(str);
             }
         }
     }
 
-    public void z(g98 g98Var) {
-        l98 l98Var;
+    public void z(e98 e98Var) {
+        j98 j98Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, g98Var) == null) || (l98Var = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, e98Var) == null) || (j98Var = this.j) == null) {
             return;
         }
-        l98Var.setStatistic(g98Var);
+        j98Var.setStatistic(e98Var);
     }
 }

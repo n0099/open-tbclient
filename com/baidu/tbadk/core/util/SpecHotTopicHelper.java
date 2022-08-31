@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
 import com.baidu.tieba.an;
-import com.baidu.tieba.jv4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -72,7 +72,7 @@ public class SpecHotTopicHelper {
                 if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, anVar, str, i) == null) {
                     super.onLoaded((AnonymousClass2) anVar, str, i);
                     if (anVar != null) {
-                        o55.k().a(str, anVar.p());
+                        m55.k().a(str, anVar.p());
                     }
                 }
             }
@@ -106,15 +106,15 @@ public class SpecHotTopicHelper {
         if (StringUtils.isNull(leftHotIconUrl) || StringUtils.isNull(rightHotIconUrl)) {
             return;
         }
-        Bitmap j = o55.k().j(leftHotIconUrl);
+        Bitmap j = m55.k().j(leftHotIconUrl);
         if ((j == null || !AbstractImageLoaderProc.isImageFileExist(leftHotIconUrl, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(leftHotIconUrl, 10)) != null) {
             j = loadBdImageFromLocal.p();
-            o55.k().a(leftHotIconUrl, j);
+            m55.k().a(leftHotIconUrl, j);
         }
-        Bitmap j2 = o55.k().j(rightHotIconUrl);
+        Bitmap j2 = m55.k().j(rightHotIconUrl);
         if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(rightHotIconUrl, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(rightHotIconUrl, 10)) != null) {
             j2 = loadBdImageFromLocal2.p();
-            o55.k().a(rightHotIconUrl, j2);
+            m55.k().a(rightHotIconUrl, j2);
         }
         if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
             int i2 = 0;
@@ -127,10 +127,10 @@ public class SpecHotTopicHelper {
                         bitmapDrawable = new BitmapDrawable(j2);
                         bitmapDrawable.setBounds(0, 0, j2.getWidth(), j2.getHeight());
                     }
-                    jv4 jv4Var = new jv4(bitmapDrawable);
-                    jv4Var.b(ri.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
+                    hv4 hv4Var = new hv4(bitmapDrawable);
+                    hv4Var.b(ri.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
                     int i4 = i + i3;
-                    spannableString.setSpan(jv4Var, i4, i4 + 1, 33);
+                    spannableString.setSpan(hv4Var, i4, i4 + 1, 33);
                     i2++;
                 }
             }
@@ -142,8 +142,8 @@ public class SpecHotTopicHelper {
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Bitmap j = o55.k().j(str);
-            Bitmap j2 = o55.k().j(str2);
+            Bitmap j = m55.k().j(str);
+            Bitmap j2 = m55.k().j(str2);
             if (j == null || j2 == null) {
                 if (!ri.C()) {
                     sg.a().post(new Runnable(str, str2) { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1

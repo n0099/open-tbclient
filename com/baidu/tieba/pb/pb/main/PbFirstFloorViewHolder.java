@@ -25,17 +25,17 @@ import com.baidu.tbadk.novel.NovelMemberCardView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz7;
-import com.baidu.tieba.mt7;
-import com.baidu.tieba.nw7;
+import com.baidu.tieba.kt7;
+import com.baidu.tieba.lw7;
 import com.baidu.tieba.pb.ThreadSkinView;
 import com.baidu.tieba.pb.view.PbBusinessPromotionContainer;
 import com.baidu.tieba.pb.view.PbFirstFloorQuestionThreadView;
 import com.baidu.tieba.pg;
+import com.baidu.tieba.qx7;
+import com.baidu.tieba.qz7;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sx7;
-import com.baidu.tieba.sz7;
-import com.baidu.tieba.zv7;
+import com.baidu.tieba.xv7;
+import com.baidu.tieba.zy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,12 +65,12 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
     public NovelMemberCardView p;
     public BaseWebView q;
     public LinearLayout r;
-    public nw7 s;
+    public lw7 s;
     public FrameLayout t;
-    public bz7 u;
+    public zy7 u;
     public ThreadForumEnterButtonContainer v;
     public PbBusinessPromotionContainer w;
-    public sz7 x;
+    public qz7 x;
     public VoteView y;
     public TextView z;
 
@@ -127,20 +127,20 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         this.b = 3;
         this.B = new a(this);
         this.a = tbPageContext;
-        this.s = new nw7(view2);
+        this.s = new lw7(view2);
         ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09184e);
         this.d = imageView;
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
-        matrix.postTranslate(0.0f, -sx7.i());
+        matrix.postTranslate(0.0f, -qx7.i());
         this.d.setImageMatrix(matrix);
         this.e = view2.findViewById(R.id.obfuscated_res_0x7f09039d);
         this.f = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091bd4);
         this.c = view2;
         int k = (((ri.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.f.getPaddingLeft()) - this.f.getPaddingRight();
-        zv7 zv7Var = new zv7(this.f.getLayoutStrategy());
-        zv7Var.H = k;
-        this.f.setLayoutStrategy(zv7Var);
+        xv7 xv7Var = new xv7(this.f.getLayoutStrategy());
+        xv7Var.H = k;
+        this.f.setLayoutStrategy(xv7Var);
         this.i = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c42);
         int min = Math.min(k - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
         this.f.getLayoutStrategy().q(min);
@@ -167,7 +167,7 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         ThreadForumEnterButtonContainer threadForumEnterButtonContainer = (ThreadForumEnterButtonContainer) view2.findViewById(R.id.obfuscated_res_0x7f0917dd);
         this.v = threadForumEnterButtonContainer;
         threadForumEnterButtonContainer.setFrom(1);
-        this.x = new sz7(tbPageContext);
+        this.x = new qz7(tbPageContext);
         this.w = (PbBusinessPromotionContainer) view2.findViewById(R.id.obfuscated_res_0x7f0917ab);
         this.t = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09172f);
         VoteView voteView = (VoteView) view2.findViewById(R.id.obfuscated_res_0x7f0925ec);
@@ -195,31 +195,31 @@ public class PbFirstFloorViewHolder extends TypeAdapter.ViewHolder {
         view2.setVisibility(8);
     }
 
-    public void c(@NonNull mt7 mt7Var, boolean z, boolean z2) {
+    public void c(@NonNull kt7 kt7Var, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mt7Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.v == null || mt7Var == null || mt7Var.l() == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{kt7Var, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.v == null || kt7Var == null || kt7Var.l() == null) {
             return;
         }
-        if (mt7Var.i0() && mt7Var.u0()) {
+        if (kt7Var.i0() && kt7Var.u0()) {
             this.v.setVisibility(8);
             return;
         }
         this.v.setBottomPlaceHolderVisibility(z2);
         if (!z) {
-            ListUtils.isEmpty(mt7Var.p());
+            ListUtils.isEmpty(kt7Var.p());
         }
         ThreadData threadData = new ThreadData();
-        threadData.setId(mt7Var.Q());
-        threadData.setFid(pg.g(mt7Var.l().getId(), 0L));
-        threadData.setForum_name(mt7Var.l().getName());
-        threadData.setFirstClassName(mt7Var.l().getFirst_class());
-        threadData.setSecondClassName(mt7Var.l().getSecond_class());
-        if (mt7Var.O() != null) {
-            threadData.setThreadType(mt7Var.O().threadType);
+        threadData.setId(kt7Var.Q());
+        threadData.setFid(pg.g(kt7Var.l().getId(), 0L));
+        threadData.setForum_name(kt7Var.l().getName());
+        threadData.setFirstClassName(kt7Var.l().getFirst_class());
+        threadData.setSecondClassName(kt7Var.l().getSecond_class());
+        if (kt7Var.O() != null) {
+            threadData.setThreadType(kt7Var.O().threadType);
         }
-        if (mt7Var.i) {
+        if (kt7Var.i) {
             this.v.setVisibility(8);
-            this.w.f(threadData, mt7Var.h(), mt7Var.u0());
+            this.w.f(threadData, kt7Var.h(), kt7Var.u0());
             return;
         }
         this.w.setVisibility(8);

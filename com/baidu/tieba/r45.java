@@ -1,113 +1,160 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.editortools.pb.PbNewInputContainer;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r45 extends y25 {
+public class r45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r45(Context context, boolean z, boolean z2, int i) {
-        super(context, (String) null, 27);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ TBAlertBuilder b;
+
+        public a(c cVar, TBAlertBuilder tBAlertBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, tBAlertBuilder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+            this.b = tBAlertBuilder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                c cVar = this.a;
+                if (cVar != null) {
+                    cVar.a();
+                }
+                this.b.dismiss();
             }
         }
-        this.o = false;
-        this.n = 3;
-        PbNewInputContainer pbNewInputContainer = new PbNewInputContainer(context);
-        this.m = pbNewInputContainer;
-        pbNewInputContainer.setTransLink(!z);
-        ((PbNewInputContainer) this.m).setmAtListRequestResponseCode(i);
-        this.t = ((PbNewInputContainer) this.m).getInputView();
-        ((PbNewInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f1096));
-        ((PbNewInputContainer) this.m).L(z2);
-        this.p = new int[]{4, 17, 24, 3, 9, 6, 44, 12, 10, 13, 11, 28, 29, 39, 45};
     }
 
-    public void g(TextWatcher textWatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, textWatcher) == null) {
-            this.t.addTextChangedListener(textWatcher);
+    /* loaded from: classes5.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TBAlertBuilder a;
+
+        public b(TBAlertBuilder tBAlertBuilder) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tBAlertBuilder};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tBAlertBuilder;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                r45.b();
+                this.a.dismiss();
+            }
         }
     }
 
-    public void h(int i) {
-        z25 z25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (z25Var = this.m) == null) {
-            return;
-        }
-        ((PbNewInputContainer) z25Var).x(i);
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a();
     }
 
-    public EditText i() {
-        InterceptResult invokeV;
+    public static void b() {
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.t : (EditText) invokeV.objValue;
-    }
-
-    public void j() {
-        z25 z25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (z25Var = this.m) == null) {
-            return;
-        }
-        ((PbNewInputContainer) z25Var).K();
-    }
-
-    public void k(TextWatcher textWatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
-            this.t.removeTextChangedListener(textWatcher);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (skinType == 4) {
+                    str = "&skin=dart";
+                } else if (skinType == 1) {
+                    str = "&skin=night";
+                } else {
+                    str = "";
+                }
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity instanceof TbPageContextSupport) {
+                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.VIRTUAL_IMAGE_MAIN_URL + str});
+                }
+            } catch (Exception e) {
+                BdLog.e("openPageByUrl fail:" + e.toString());
+            }
         }
     }
 
-    public void l(String str) {
+    public static void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.m == null || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06d7, (ViewGroup) null);
+            ns4 d = ns4.d(inflate.findViewById(R.id.obfuscated_res_0x7f0925a6));
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092598);
+            ns4 d2 = ns4.d(textView);
+            d2.A(R.string.F_X01);
+            d2.z(R.dimen.T_X07);
+            d2.v(R.color.CAM_X0105);
+            d2.n(R.string.J_X07);
+            d2.l(R.dimen.L_X02);
+            d2.k(R.color.CAM_X0105);
+            d2.j(R.string.A_X07);
+            textView.setOnClickListener(new a(cVar, tBAlertBuilder));
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092597);
+            ns4 d3 = ns4.d(textView2);
+            d3.A(R.string.F_X01);
+            d3.z(R.dimen.T_X07);
+            d3.v(R.color.CAM_X0304);
+            d3.n(R.string.J_X07);
+            d3.l(R.dimen.L_X02);
+            d3.k(R.color.CAM_X0304);
+            d3.j(R.string.A_X07);
+            textView2.setOnClickListener(new b(tBAlertBuilder));
+            tBAlertBuilder.p(true);
+            tBAlertBuilder.i(inflate);
+            tBAlertBuilder.w();
         }
-        ((PbNewInputContainer) this.m).setDefaultHint(str);
-    }
-
-    public void m(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.m == null || StringUtils.isNull(str)) {
-            return;
-        }
-        ((PbNewInputContainer) this.m).setHint(str);
-    }
-
-    public void n(int i) {
-        z25 z25Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (z25Var = this.m) == null) {
-            return;
-        }
-        ((PbNewInputContainer) z25Var).setType(i);
     }
 }

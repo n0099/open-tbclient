@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.p57;
 import com.baidu.tieba.pi;
+import com.baidu.tieba.pk8;
 import com.baidu.tieba.r57;
-import com.baidu.tieba.rk8;
-import com.baidu.tieba.t57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -175,9 +175,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void h0(t57 t57Var);
+        void h0(r57 r57Var);
 
-        void m0(t57 t57Var, t57 t57Var2, t57 t57Var3);
+        void m0(r57 r57Var, r57 r57Var2, r57 r57Var3);
 
         void s0(String str);
 
@@ -279,7 +279,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.f = new a(this, 2016491);
-            rk8.b(2016491, r57.class);
+            pk8.b(2016491, p57.class);
             registerListener(this.f);
         }
     }
@@ -288,8 +288,8 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.e = new b(this, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, 309416);
-            rk8.h(309416, HotSelectSocketResponseMessage.class, false, false);
-            rk8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
+            pk8.h(309416, HotSelectSocketResponseMessage.class, false, false);
+            pk8.c(309416, CmdConfigHttp.CMD_HTTP_GET_HOTTOPIC_SELECT, TbConfig.SET_HOTSELECT, HotSelectHttpResponseMessage.class, true, true, true, true);
             registerListener(this.e);
         }
     }

@@ -1,77 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class of7 implements Runnable {
+public class of7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public uf7 e;
 
-    public of7(uf7 uf7Var) {
+    public static nf7 a(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uf7Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof ce7)) {
+                return null;
             }
+            return ((ce7) tbPageContext.getPageActivity()).B();
         }
-        this.d = false;
-        this.e = uf7Var;
+        return (nf7) invokeL.objValue;
     }
 
-    public void a(int i) {
+    public static LegoListFragment b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof ce7)) {
+                return null;
+            }
+            return ((ce7) tbPageContext.getPageActivity()).U();
         }
+        return (LegoListFragment) invokeL.objValue;
     }
 
-    public void b(boolean z) {
+    public static sf7 c(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) {
+            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof ce7)) {
+                return null;
+            }
+            return ((ce7) tbPageContext.getPageActivity()).v0();
         }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        uf7 uf7Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (uf7Var = this.e) == null) {
-            return;
-        }
-        if (!this.d) {
-            uf7Var.j(this.b, this.c, this.a, 2);
-        }
-        this.e.j(this.b, this.c, this.a, 1);
+        return (sf7) invokeL.objValue;
     }
 }

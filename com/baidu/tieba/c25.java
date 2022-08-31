@@ -1,19 +1,24 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NotificationHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.CustomState;
-import tbclient.StateInfo;
 /* loaded from: classes3.dex */
-public class c25 {
+public class c25 implements g25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
 
     public c25() {
         Interceptable interceptable = $ic;
@@ -29,32 +34,84 @@ public class c25 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g25
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+            tc8 n = tc8.n();
+            if (i == 3) {
+                n.v(downloadData);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+            } else {
+                n.B(downloadData);
+            }
+            d25.a(downloadData);
+            tc8.n().y(downloadData);
+        }
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g25
+    public void onFileDownloadSucceed(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void c(CustomState customState) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customState) == null) || customState == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) || downloadData == null) {
             return;
         }
-        this.a = customState.icon;
-        this.b = customState.content;
+        String[] tag = downloadData.getTag();
+        if (tag != null && tag.length == 3) {
+            String str = tag[0];
+            String str2 = tag[1];
+            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", str, "is_detail", tag[2], "ref_type", str2);
+        }
+        d25.c(downloadData);
+        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
+        tc8.n().y(downloadData);
+        if (downloadData.isNeedInvokeApk()) {
+            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+        }
     }
 
-    public void d(StateInfo stateInfo) {
+    @Override // com.baidu.tieba.g25
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, stateInfo) == null) {
-            this.a = stateInfo.icon;
-            this.b = stateInfo.text;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
         }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.g25
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) || downloadData == null) {
+            return;
+        }
+        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
+        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
+        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
+            SharedPreferences.Editor edit = sharedPreferences.edit();
+            edit.putLong(downloadData.getId(), downloadData.getSize());
+            edit.commit();
+        }
+        tc8.n().C(downloadData);
+        tc8.n().y(downloadData);
+    }
+
+    @Override // com.baidu.tieba.g25
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            downloadData.setStatusMsg(null);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

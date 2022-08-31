@@ -24,10 +24,10 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.an;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.ii5;
+import com.baidu.tieba.gi5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.m55;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ public class GridImageLayout extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public gg<ImageView> a;
     public gg<GifView> b;
-    public ii5 c;
+    public gi5 c;
     public ArrayList<TbRichTextImageInfo> d;
     public int e;
     public int f;
@@ -148,7 +148,7 @@ public class GridImageLayout extends RelativeLayout {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            an m = o55.k().m(lg.h().g(tbImageView.getUrl(), this.a.n));
+            an m = m55.k().m(lg.h().g(tbImageView.getUrl(), this.a.n));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -240,7 +240,7 @@ public class GridImageLayout extends RelativeLayout {
             eMTextView.setPadding(f, 0, f, 0);
             eMTextView.setGravity(16);
             eMTextView.setText(this.h);
-            os4 d = os4.d(eMTextView);
+            ns4 d = ns4.d(eMTextView);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0101);
             d.A(R.string.F_X02);
@@ -602,12 +602,12 @@ public class GridImageLayout extends RelativeLayout {
         }
     }
 
-    public void setLayoutStrategy(ii5 ii5Var) {
+    public void setLayoutStrategy(gi5 gi5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, ii5Var) == null) {
-            this.c = ii5Var;
-            if (ii5Var != null) {
-                this.f = ii5Var.I;
+        if (interceptable == null || interceptable.invokeL(1048596, this, gi5Var) == null) {
+            this.c = gi5Var;
+            if (gi5Var != null) {
+                this.f = gi5Var.I;
             }
         }
     }

@@ -24,7 +24,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ls8;
+import com.baidu.tieba.js8;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -288,7 +288,7 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = ls8.a(2002);
+            layoutParams.type = js8.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;

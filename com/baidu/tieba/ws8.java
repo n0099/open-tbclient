@@ -1,75 +1,56 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.SevenZipUtils;
 /* loaded from: classes6.dex */
 public class ws8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
+    public static final String h;
+    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
 
-    public ws8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281261, "Lcom/baidu/tieba/ws8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948281261, "Lcom/baidu/tieba/ws8;");
+                return;
             }
         }
-    }
-
-    public static ws8 a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            ws8 ws8Var = new ws8();
-            ws8Var.a = i;
-            ws8Var.b = f;
-            ws8Var.c = f2;
-            ws8Var.d = f3;
-            ws8Var.e = f4;
-            ws8Var.f = f5;
-            return ws8Var;
-        }
-        return (ws8) invokeCommon.objValue;
-    }
-
-    public static ws8 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
-                    }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
-                }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
-            }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-        }
-        return (ws8) invokeI.objValue;
+        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
+        StringBuilder sb = new StringBuilder();
+        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
+        sb.append("/");
+        sb.append("tieba");
+        sb.append("/videoCover.jpg");
+        b = sb.toString();
+        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
+        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
+        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
+        StringBuilder sb2 = new StringBuilder();
+        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
+        sb2.append("/");
+        sb2.append("DCIM/tieba/");
+        g = sb2.toString();
+        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
+        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.os.Looper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,9 +12,9 @@ import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
 public final class iv9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final iv9 b;
+    public static final AtomicReference<iv9> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReference<jv9> a;
+    public final bv9 a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,7 +29,7 @@ public final class iv9 {
                 return;
             }
         }
-        b = new iv9();
+        b = new AtomicReference<>();
     }
 
     public iv9() {
@@ -44,24 +45,34 @@ public final class iv9 {
                 return;
             }
         }
-        this.a = new AtomicReference<>();
+        bv9 b2 = gv9.a().b().b();
+        if (b2 != null) {
+            this.a = b2;
+        } else {
+            this.a = new jv9(Looper.getMainLooper());
+        }
     }
 
     public static iv9 a() {
+        iv9 iv9Var;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (iv9) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            do {
+                iv9 iv9Var2 = b.get();
+                if (iv9Var2 != null) {
+                    return iv9Var2;
+                }
+                iv9Var = new iv9();
+            } while (!b.compareAndSet(null, iv9Var));
+            return iv9Var;
+        }
+        return (iv9) invokeV.objValue;
     }
 
-    public jv9 b() {
+    public static bv9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.get() == null) {
-                this.a.compareAndSet(null, jv9.a());
-            }
-            return this.a.get();
-        }
-        return (jv9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a().a : (bv9) invokeV.objValue;
     }
 }

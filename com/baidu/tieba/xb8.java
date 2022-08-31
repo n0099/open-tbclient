@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface xb8 {
-    void onDestroy();
+    int d(String str, boolean z);
 
-    void onPause();
+    int e(String str, boolean z);
 
-    void onResume();
+    void f();
+
+    void g(String str, int i, boolean z);
 }

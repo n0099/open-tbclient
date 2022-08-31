@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rr7;
+import com.baidu.tieba.pr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -157,10 +157,10 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
             }
             return;
         }
-        rr7 rr7Var = new rr7();
-        rr7Var.a = this;
-        rr7Var.b = baseResp;
-        MessageManager.getInstance().runTask(2921351, null, rr7Var);
+        pr7 pr7Var = new pr7();
+        pr7Var.a = this;
+        pr7Var.b = baseResp;
+        MessageManager.getInstance().runTask(2921351, null, pr7Var);
         closeActivity();
     }
 

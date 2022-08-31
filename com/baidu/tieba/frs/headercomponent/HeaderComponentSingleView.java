@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.ym6;
-import com.baidu.tieba.zm6;
+import com.baidu.tieba.wm6;
+import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentSingleView extends FrameLayout implements zm6 {
+public class HeaderComponentSingleView extends FrameLayout implements xm6 {
     public static /* synthetic */ Interceptable $ic;
     public static final int m;
     public static final int n;
@@ -50,7 +50,7 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public ym6 j;
+    public wm6 j;
     public LiveFuseForumData k;
     public TbImageAutoSwitch.b l;
 
@@ -62,13 +62,13 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0256a implements View.OnClickListener {
+        public class View$OnClickListenerC0262a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0256a(a aVar, int i) {
+            public View$OnClickListenerC0262a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,7 +121,7 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
                 headImageView.K((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0256a(this, i));
+                headImageView.setOnClickListener(new View$OnClickListenerC0262a(this, i));
             }
         }
 
@@ -233,17 +233,17 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
         h();
     }
 
-    @Override // com.baidu.tieba.zm6
+    @Override // com.baidu.tieba.xm6
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             int childCount = this.d.getChildCount();
             for (int i = 0; i < childCount; i++) {
-                os4 d = os4.d((TextView) this.d.getChildAt(i));
+                ns4 d = ns4.d((TextView) this.d.getChildAt(i));
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
             }
-            os4.d(this.b).v(R.color.CAM_X0108);
+            ns4.d(this.b).v(R.color.CAM_X0108);
             i();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
@@ -253,21 +253,21 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            os4 d2 = os4.d(this.f);
+            ns4 d2 = ns4.d(this.f);
             d2.n(R.string.J_X06);
             d2.f(R.color.CAM_X0201);
         }
     }
 
-    @Override // com.baidu.tieba.zm6
-    public void b(List<LiveFuseForumData> list, ym6 ym6Var) {
+    @Override // com.baidu.tieba.xm6
+    public void b(List<LiveFuseForumData> list, wm6 wm6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, ym6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, wm6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = ym6Var;
+        this.j = wm6Var;
         List<String> list2 = liveFuseForumData.title;
         if (!ListUtils.isEmpty(list2)) {
             int size = list2.size();
@@ -277,7 +277,7 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
                 textView.setLines(1);
                 textView.setEllipsize(TextUtils.TruncateAt.END);
                 textView.setText(list2.get(i));
-                os4 d = os4.d(textView);
+                ns4 d = ns4.d(textView);
                 d.v(R.color.CAM_X0105);
                 d.A(R.string.F_X02);
                 d.z(R.dimen.T_X06);
@@ -308,9 +308,9 @@ public class HeaderComponentSingleView extends FrameLayout implements zm6 {
         }
         a();
         setOnClickListener(new b(this));
-        ym6 ym6Var2 = this.j;
-        if (ym6Var2 != null) {
-            ym6Var2.a(1, this.k);
+        wm6 wm6Var2 = this.j;
+        if (wm6Var2 != null) {
+            wm6Var2.a(1, this.k);
         }
     }
 

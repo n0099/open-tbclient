@@ -4,7 +4,6 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +55,7 @@ public class InitSapiTask extends LaunchTask {
 
     public void initSapi() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager.getInstance().runTask(2921328, null, AppRuntime.getAppContext());
         }
     }

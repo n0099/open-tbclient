@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y48;
+import com.baidu.tieba.w48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public y48 mData;
+    public w48 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsePersonBarByUidLocalMessage() {
@@ -32,16 +32,16 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
         }
     }
 
-    public y48 getPersonBarData() {
+    public w48 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (y48) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (w48) invokeV.objValue;
     }
 
-    public void setPersonBarData(y48 y48Var) {
+    public void setPersonBarData(w48 w48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, y48Var) == null) {
-            this.mData = y48Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, w48Var) == null) {
+            this.mData = w48Var;
         }
     }
 
@@ -70,9 +70,9 @@ public class ResponsePersonBarByUidLocalMessage extends CustomResponsedMessage<S
     public void decodeInBackGround(int i, String str) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            y48 y48Var = new y48();
-            this.mData = y48Var;
-            y48Var.n(str);
+            w48 w48Var = new w48();
+            this.mData = w48Var;
+            w48Var.n(str);
         }
     }
 }

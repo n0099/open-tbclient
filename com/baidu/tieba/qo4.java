@@ -1,20 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.AppCode;
+import tbclient.AwardInfo;
 /* loaded from: classes5.dex */
 public class qo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public qo4() {
         Interceptable interceptable = $ic;
@@ -30,33 +24,14 @@ public class qo4 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(AwardInfo awardInfo) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public void b(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, awardInfo) == null) || awardInfo == null) {
             return;
         }
-        try {
-            jSONObject.optString("game_icon");
-            this.a = jSONObject.optString("post_url");
-            jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void c(AppCode appCode) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, appCode) == null) || appCode == null) {
-            return;
-        }
-        String str = appCode.game_icon;
-        this.a = appCode.post_url;
-        String str2 = appCode.button_text;
+        awardInfo.award_id.longValue();
+        awardInfo.award_act_id.longValue();
+        String str = awardInfo.award_name;
+        String str2 = awardInfo.award_imgsrc;
     }
 }

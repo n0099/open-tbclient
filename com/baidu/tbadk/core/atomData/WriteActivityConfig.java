@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tieba.bn8;
+import com.baidu.tieba.cn8;
 import com.baidu.tieba.dn8;
-import com.baidu.tieba.en8;
-import com.baidu.tieba.fn8;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
@@ -108,7 +108,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            fn8.g = new Intent(getIntent());
+            dn8.g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -620,8 +620,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = dn8.k().q();
-            en8.a("发帖阻拦状态 = " + q);
+            boolean q = bn8.k().q();
+            cn8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 ri.N(currentActivity, "正在发布，请稍后");
             }

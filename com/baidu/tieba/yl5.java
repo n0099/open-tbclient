@@ -1,76 +1,101 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.account.safeManage.AccountSafeModel;
+import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
+import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class yl5 extends BaseAdapter {
+public class yl5 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public boolean b;
-    public List<AccountData> c;
-    public View.OnClickListener d;
+    public final BaseActivity a;
+    public zl5 b;
+    public AccountSafeModel c;
+    public bb d;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ yl5 a;
 
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public b(yl5 yl5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yl5 yl5Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yl5Var};
+                Object[] objArr = {yl5Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yl5Var;
         }
 
-        public /* synthetic */ b(yl5 yl5Var, a aVar) {
-            this(yl5Var);
+        @Override // com.baidu.tieba.bb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            String errorString;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                if (this.a.c != null) {
+                    this.a.c.H(false);
+                }
+                this.a.a.closeLoadingDialog();
+                if (responsedMessage == null) {
+                    return;
+                }
+                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                    se8 privacyData = responsedMessage instanceof ResponsedPrivacyHttpMessage ? ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData() : null;
+                    if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
+                        privacyData = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.G(privacyData);
+                    }
+                    if (this.a.b == null || this.a.c == null || this.a.c.A() == null) {
+                        return;
+                    }
+                    this.a.b.d(this.a.c.A().f());
+                    return;
+                }
+                if (StringUtils.isNull(responsedMessage.getErrorString())) {
+                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0c40);
+                } else {
+                    errorString = responsedMessage.getErrorString();
+                }
+                this.a.a.showToast(errorString);
+            }
         }
     }
 
-    public yl5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    public yl5(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,141 +105,73 @@ public class yl5 extends BaseAdapter {
                 return;
             }
         }
+        a aVar = new a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
+        this.d = aVar;
         this.a = baseActivity;
-        this.c = null;
-        this.b = false;
-        this.d = onClickListener;
+        baseActivity.registerListener(aVar);
+        this.b = new zl5(this.a, this);
+        this.c = new AccountSafeModel(this.a);
+        if (pi.z()) {
+            g();
+        } else {
+            this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+        }
     }
 
-    public boolean a() {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b.a() : (View) invokeV.objValue;
     }
 
-    public void b(List<AccountData> list) {
+    public void e(int i) {
+        zl5 zl5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.c = list;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (zl5Var = this.b) == null) {
+            return;
         }
+        zl5Var.e(i);
     }
 
-    public void c(boolean z) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.c;
-            return (list != null ? list.size() : 0) + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<AccountData> list = this.c;
-            if (list == null || i < 0 || i >= list.size()) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.closeLoadingDialog();
+            AccountSafeModel accountSafeModel = this.c;
+            if (accountSafeModel != null) {
+                accountSafeModel.cancelLoadData();
             }
-            return this.c.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (getItem(i) != null) {
-                return i;
+            zl5 zl5Var = this.b;
+            if (zl5Var != null) {
+                zl5Var.c();
             }
-            return -1L;
         }
-        return invokeI.longValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
+    public final void g() {
+        AccountSafeModel accountSafeModel;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? getItemId(i) >= 0 ? 0 : 1 : invokeI.intValue;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (accountSafeModel = this.c) == null || accountSafeModel.D()) {
+            return;
+        }
+        this.c.F();
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            try {
-                try {
-                    if (view2 == null) {
-                        if (getItemViewType(i) == 0) {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090051);
-                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090071);
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090772);
-                            bVar.d = textView;
-                            os4.d(textView).v(R.color.CAM_X0105);
-                            bVar.d.setOnClickListener(this.d);
-                            view2.setTag(bVar);
-                            os4.d(bVar.a).v(R.color.CAM_X0105);
-                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
-                        } else {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090120);
-                            view2.setTag(bVar);
-                            os4.d(bVar.b).v(R.color.CAM_X0302);
-                        }
-                    } else {
-                        bVar = (b) view2.getTag();
-                    }
-                    if (getItemViewType(i) == 0) {
-                        AccountData accountData = (AccountData) getItem(i);
-                        bVar.c.setVisibility(8);
-                        bVar.d.setVisibility(8);
-                        bVar.d.setTag(accountData);
-                        if (accountData != null) {
-                            bVar.a.setText(accountData.getAccountNameShow());
-                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                bVar.c.setVisibility(0);
-                            }
-                            if (this.b) {
-                                bVar.d.setVisibility(0);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f09033a) {
+                TiebaStatic.log("c10013");
+                if (!pi.z()) {
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c40);
+                } else {
+                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/accountSecurity/accountOption"});
                 }
-                return view2;
-            } finally {
-                os4.d(view2).f(R.color.CAM_X0205);
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090057) {
+                AccountSafeModel accountSafeModel = this.c;
+                AntiHelper.p(this.a, accountSafeModel != null ? accountSafeModel.B() : "");
             }
         }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
     }
 }

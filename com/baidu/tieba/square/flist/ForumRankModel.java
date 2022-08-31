@@ -11,8 +11,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetMsg;
+import com.baidu.tieba.ur4;
 import com.baidu.tieba.ve;
-import com.baidu.tieba.vr4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,8 +65,8 @@ public class ForumRankModel extends BdBaseModel {
             ForumRankData forumRankData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                vr4.f();
-                ve<String> g = vr4.g("tb.forum_rank");
+                ur4.f();
+                ve<String> g = ur4.g("tb.forum_rank");
                 if (g != null) {
                     str = g.get("forum_rank_cache_key_" + this.a.a);
                 } else {

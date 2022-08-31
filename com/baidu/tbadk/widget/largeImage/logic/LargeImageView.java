@@ -7,7 +7,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.widget.DragImageView;
-import com.baidu.tieba.bh5;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LargeImageView extends DragImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bh5 v0;
+    public zg5 v0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LargeImageView(Context context) {
@@ -37,7 +37,7 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new bh5(this);
+        this.v0 = new zg5(this);
     }
 
     @Override // com.baidu.tbadk.widget.DragImageView
@@ -127,7 +127,7 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new bh5(this);
+        this.v0 = new zg5(this);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -149,6 +149,6 @@ public class LargeImageView extends DragImageView {
                 return;
             }
         }
-        this.v0 = new bh5(this);
+        this.v0 = new zg5(this);
     }
 }

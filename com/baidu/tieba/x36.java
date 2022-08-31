@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,97 +8,95 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class x36 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249486, "Lcom/baidu/tieba/x36;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948249486, "Lcom/baidu/tieba/x36;");
-                return;
-            }
-        }
-        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
-        a = createBitmap;
-    }
-
-    public static final boolean a(p26 p26Var, p26 p26Var2, p46 p46Var, long j, long j2) {
-        InterceptResult invokeCommon;
+    public static final c36 a(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{p26Var, p26Var2, p46Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            int width = p46Var.getWidth();
-            float q = p26Var.f().q();
-            float q2 = p26Var2.f().q();
-            long j3 = j - p26Var.j();
-            float f = width;
-            float f2 = (float) j2;
-            return f - ((q2 + f) * (((float) (j - p26Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (c36) o0Var.d(c36.class);
         }
-        return invokeCommon.booleanValue;
+        return (c36) invokeL.objValue;
     }
 
-    public static final Bitmap b() {
-        InterceptResult invokeV;
+    public static final z26 b(o0 o0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (Bitmap) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (z26) o0Var.d(z26.class);
+        }
+        return (z26) invokeL.objValue;
     }
 
-    public static final boolean c(p26 p26Var, long j) {
+    public static final long c(o0 o0Var) {
+        InterceptResult invokeL;
+        n26 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            z26 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
+            }
+            return a.g();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final y26 d(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (y26) o0Var.d(y26.class);
+        }
+        return (y26) invokeL.objValue;
+    }
+
+    public static final a36 e(o0 o0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return (a36) o0Var.d(a36.class);
+        }
+        return (a36) invokeL.objValue;
+    }
+
+    public static final long f(o0 o0Var) {
+        InterceptResult invokeL;
+        n26 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, o0Var)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            z26 b = b(o0Var);
+            if (b == null || (a = b.a()) == null) {
+                return 0L;
+            }
+            return a.j();
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(o0 o0Var, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, p26Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(p26Var, "<this>");
-            return j - p26Var.j() < 0;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) < 0;
         }
         return invokeLJ.booleanValue;
     }
 
-    public static final boolean d(p26 p26Var, long j) {
+    public static final boolean h(o0 o0Var, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, p26Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(p26Var, "<this>");
-            return e(p26Var, j) || c(p26Var, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, o0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(o0Var, "<this>");
+            return j - f(o0Var) > c(o0Var);
         }
         return invokeLJ.booleanValue;
-    }
-
-    public static final boolean e(p26 p26Var, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, p26Var, j)) == null) {
-            Intrinsics.checkNotNullParameter(p26Var, "<this>");
-            return j - p26Var.j() > p26Var.g();
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static final boolean f(p26 p26Var, p26 danmaku, p46 displayer, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{p26Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            Intrinsics.checkNotNullParameter(p26Var, "<this>");
-            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
-            Intrinsics.checkNotNullParameter(displayer, "displayer");
-            if (d(p26Var, j)) {
-                return false;
-            }
-            long j3 = danmaku.j() - p26Var.j();
-            if (j3 <= 0) {
-                return true;
-            }
-            if (Math.abs(j3) >= j2 || e(p26Var, j) || e(danmaku, j)) {
-                return false;
-            }
-            return p26Var.e().j() == 5 || p26Var.e().j() == 4 || a(p26Var, danmaku, displayer, j, j2) || a(p26Var, danmaku, displayer, j + j2, j2);
-        }
-        return invokeCommon.booleanValue;
     }
 }

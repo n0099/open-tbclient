@@ -17,9 +17,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b16;
 import com.baidu.tieba.homepage.personalize.adapter.AlaRecommendListAdapter;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.z06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -166,12 +166,12 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
         }
     }
 
-    public void setData(b16 b16Var) {
+    public void setData(z06 z06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, b16Var) == null) {
-            if (b16Var != null && !ListUtils.isEmpty(b16Var.c())) {
-                this.e = b16Var.c();
-                this.f = b16Var.f();
+        if (interceptable == null || interceptable.invokeL(1048581, this, z06Var) == null) {
+            if (z06Var != null && !ListUtils.isEmpty(z06Var.c())) {
+                this.e = z06Var.c();
+                this.f = z06Var.f();
                 setVisibility(0);
                 d();
                 return;

@@ -81,14 +81,14 @@ public class nm4 {
                 for (mm4 mm4Var : this.d) {
                     if (mm4Var.b() != null) {
                         if (mm4Var.b() instanceof TextView) {
-                            if (this.g && !nj8.e(this.h)) {
+                            if (this.g && !lj8.e(this.h)) {
                                 ((TextView) mm4Var.b()).setTextColor(this.h);
                             } else {
                                 SkinManager.setViewTextColor(mm4Var.b(), d());
                             }
                         } else if (mm4Var.b() instanceof ImageView) {
                             if (this.g) {
-                                if (!nj8.e(this.h)) {
+                                if (!lj8.e(this.h)) {
                                     ((ImageView) mm4Var.b()).setImageDrawable(SvgManager.getInstance().getPureDrawableWithColorInt(mm4Var.a(), this.h, SvgManager.SvgResourceStateType.NORMAL_PRESS));
                                 } else {
                                     SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange((ImageView) mm4Var.b(), mm4Var.a(), R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL_PRESS);
@@ -129,7 +129,7 @@ public class nm4 {
         if (str.contains(BaseWebViewActivity.QUERY_OPACITY) && !this.f) {
             this.f = true;
             this.e = 0.0f;
-            this.h = nj8.f(i(str, "opacitybtnhex"));
+            this.h = lj8.f(i(str, "opacitybtnhex"));
             NavigationBar navigationBar = this.b;
             if (navigationBar != null && navigationBar.getBackground() != null && this.b.getBackground().mutate() != null) {
                 this.b.getBackground().mutate().setAlpha(0);

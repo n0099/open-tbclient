@@ -1,49 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.os.Build;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.util.UriUtil;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mm5 {
+public class mm5 extends ut4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<AdvertAppInfo> a(@NonNull String str) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mm5(st4 st4Var) {
+        super(st4Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
-                if (optJSONObject2 == null) {
-                    return null;
-                }
-                JSONArray optJSONArray = optJSONObject2.optJSONArray(LaunchStatsUtils.AD);
-                ArrayList arrayList = new ArrayList();
-                if (optJSONArray == null) {
-                    return null;
-                }
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
-                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("adInfo")) != null) {
-                        arrayList.add(AdvertAppInfo.t(optJSONObject));
-                    }
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {st4Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((st4) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (List) invokeL.objValue;
+    }
+
+    @vt4(isAsync = false, value = "showDeviceInfo")
+    private JSONObject showDeviceInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            String cuid = TbadkCoreApplication.getInst().getCuid();
+            String str = Build.VERSION.RELEASE;
+            String str2 = Build.MODEL;
+            int k = ri.k(getContext());
+            int i = ri.i(getContext());
+            String str3 = String.valueOf(k) + "," + String.valueOf(i);
+            String versionName = TbadkCoreApplication.getInst().getVersionName();
+            try {
+                jSONObject.put("systemName", "android");
+                jSONObject.put("systemVersion", str);
+                jSONObject.put("model", str2);
+                jSONObject.put("cuid", cuid);
+                jSONObject.put("resolution", str3);
+                jSONObject.put("appVersion", versionName);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @vt4(isAsync = false, value = "showNetStatus")
+    private JSONObject showNetStatus() {
+        InterceptResult invokeV;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (pi.H()) {
+                i = 1;
+                str = "WIFI";
+            } else if (pi.t()) {
+                i = 3;
+                str = "2G";
+            } else if (pi.u()) {
+                i = 4;
+                str = "3G";
+            } else if (pi.v()) {
+                i = 5;
+                str = "4G";
+            } else {
+                i = 0;
+                str = "NotReachable";
+            }
+            try {
+                jSONObject.put("netStatus", i);
+                jSONObject.put("netDesc", str);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @vt4(isAsync = false, value = "showToast")
+    private void showToast(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        BdToast.b(getContext(), jSONObject.optString("message")).i();
+    }
+
+    @Override // com.baidu.tieba.ut4
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_Utils" : (String) invokeV.objValue;
     }
 }

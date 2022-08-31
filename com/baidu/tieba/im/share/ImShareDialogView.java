@@ -32,12 +32,12 @@ import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa7;
 import com.baidu.tieba.im.share.ImShareDialogView;
-import com.baidu.tieba.mi5;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.qz8;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.sz8;
+import com.baidu.tieba.y97;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class ImShareDialogView extends LinearLayout {
     public SpanGroupEditText m;
     public TextView n;
     public TextView o;
-    public aa7 p;
+    public y97 p;
     public CustomMessageListener q;
 
     /* loaded from: classes4.dex */
@@ -196,7 +196,7 @@ public class ImShareDialogView extends LinearLayout {
             }
             SpannableStringBuilder append = new SpannableStringBuilder(charSequence).append((CharSequence) "//");
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
-            return new SpannableString(append.append((CharSequence) new SpannableString(mi5.G(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.g()))));
+            return new SpannableString(append.append((CharSequence) new SpannableString(ki5.G(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.g()))));
         }
         return (CharSequence) invokeLL.objValue;
     }
@@ -234,43 +234,43 @@ public class ImShareDialogView extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            os4 d = os4.d(this);
+            ns4 d = ns4.d(this);
             d.n(R.string.J_X14);
             d.f(R.color.CAM_X0212);
-            os4.d(this.a).v(R.color.CAM_X0109);
-            os4 d2 = os4.d(this.b);
+            ns4.d(this.a).v(R.color.CAM_X0109);
+            ns4 d2 = ns4.d(this.b);
             d2.n(R.string.J_X05);
             d2.f(R.color.CAM_X0207);
-            os4.d(this.f).v(R.color.CAM_X0107);
-            os4 d3 = os4.d(this.g);
+            ns4.d(this.f).v(R.color.CAM_X0107);
+            ns4 d3 = ns4.d(this.g);
             d3.n(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            os4 d4 = os4.d(this.i);
+            ns4 d4 = ns4.d(this.i);
             d4.v(R.color.CAM_X0105);
             d4.A(R.string.F_X02);
-            os4.d(this.j).v(R.color.CAM_X0107);
-            os4.d(this.k).v(R.color.CAM_X0109);
-            os4.d(this.l).v(R.color.CAM_X0109);
+            ns4.d(this.j).v(R.color.CAM_X0107);
+            ns4.d(this.k).v(R.color.CAM_X0109);
+            ns4.d(this.l).v(R.color.CAM_X0109);
             this.h.setStrokeColorResId(R.color.CAM_X0401);
-            os4 d5 = os4.d(this.m);
+            ns4 d5 = ns4.d(this.m);
             d5.n(R.string.J_X05);
             d5.f(R.color.CAM_X0207);
             this.m.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
             if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-                sz8.l(this.m, R.drawable.obfuscated_res_0x7f0804ae);
+                qz8.l(this.m, R.drawable.obfuscated_res_0x7f0804ae);
             } else {
-                sz8.l(this.m, R.drawable.obfuscated_res_0x7f0804af);
+                qz8.l(this.m, R.drawable.obfuscated_res_0x7f0804af);
             }
             this.m.setHintTextColor(SkinManager.getColor(TbadkCoreApplication.getInst().getSkinType(), (int) R.color.CAM_X0109));
-            os4.d(this.n).x(R.color.CAM_X0107);
-            os4.d(this.o).x(R.color.CAM_X0304);
+            ns4.d(this.n).x(R.color.CAM_X0107);
+            ns4.d(this.o).x(R.color.CAM_X0304);
         }
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.y97
+            this.n.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w97
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,7 +282,7 @@ public class ImShareDialogView extends LinearLayout {
                     }
                 }
             });
-            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.x97
+            this.o.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.v97
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -353,9 +353,9 @@ public class ImShareDialogView extends LinearLayout {
     }
 
     public /* synthetic */ void i(View view2) {
-        aa7 aa7Var = this.p;
-        if (aa7Var != null) {
-            aa7Var.a();
+        y97 y97Var = this.p;
+        if (y97Var != null) {
+            y97Var.a();
         }
     }
 
@@ -426,10 +426,10 @@ public class ImShareDialogView extends LinearLayout {
         }
     }
 
-    public void setShareClickCallBack(aa7 aa7Var) {
+    public void setShareClickCallBack(y97 y97Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, aa7Var) == null) {
-            this.p = aa7Var;
+        if (interceptable == null || interceptable.invokeL(1048590, this, y97Var) == null) {
+            this.p = y97Var;
         }
     }
 

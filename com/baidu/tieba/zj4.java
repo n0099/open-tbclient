@@ -151,7 +151,7 @@ public class zj4 {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, userData, mVar) == null) {
-            tu4 k = tu4.k();
+            su4 k = su4.k();
             boolean z2 = true;
             if (k.h("key_home_operate_dialog_" + TbConfig.getBigAppVersion(), true) || (c = c(TbadkCoreApplication.getInst().getCurrentActivity())) == null || c.getPageActivity() == null || userData == null || mVar == null) {
                 return;
@@ -193,7 +193,7 @@ public class zj4 {
                 if (userData.isNewGod()) {
                     TextView textView4 = new TextView(pageActivity);
                     textView4.setPadding(dimenPixelSize, dimenPixelSize2, dimenPixelSize, dimenPixelSize2);
-                    textView4.setText(userData.getNewGodData().getFieldName() + uf5.a(userData.getNewGodData()));
+                    textView4.setText(userData.getNewGodData().getFieldName() + sf5.a(userData.getNewGodData()));
                     textView4.setTextSize(0, (float) UtilHelper.getDimenPixelSize(R.dimen.T_X09));
                     linearLayout.addView(textView4);
                     textView4.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
@@ -243,18 +243,17 @@ public class zj4 {
             }
             textView6.setTextColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0107));
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) viewGroup.findViewById(R.id.obfuscated_res_0x7f09101a);
-            sv4 sv4Var = new sv4();
-            sv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+            qv4 qv4Var = new qv4();
+            qv4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
             tBSpecificationBtn.setTextSize(R.dimen.T_X05);
-            tBSpecificationBtn.setConfig(sv4Var);
+            tBSpecificationBtn.setConfig(qv4Var);
             tBSpecificationBtn.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0346));
             tBSpecificationBtn.setOnClickListener(new a(this, userData, c));
             this.a = new hj4(c);
             this.a.b(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080d32, false));
             this.a.c(viewGroup);
             this.a.d();
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
+            TbSingleton.getInstance().setExceptInsertAdDiaShow(true);
         }
     }
 }

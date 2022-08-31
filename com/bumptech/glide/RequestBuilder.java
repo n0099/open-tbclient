@@ -39,7 +39,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestBuilder<TranscodeType> implements Cloneable, ModelTypes<RequestBuilder<TranscodeType>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DOWNLOAD_ONLY_OPTIONS;

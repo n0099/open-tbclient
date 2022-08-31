@@ -14,7 +14,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vw8;
+import com.baidu.tieba.tw8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +114,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             }
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.m = true;
-                vw8.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                tw8.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 TbRichText U = TbRichTextView.U(jSONArray, false);
                 g(d(U.toString()));
                 this.j.setText(U);

@@ -6,16 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes6.dex */
-public final class uz9 implements hv9 {
+public final class uz9 implements fv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<hv9> a;
-    public volatile boolean b;
+    public final SequentialSubscription a;
 
     public uz9() {
         Interceptable interceptable = $ic;
@@ -27,84 +23,35 @@ public final class uz9 implements hv9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new SequentialSubscription();
     }
 
-    public static void c(Collection<hv9> collection) {
+    public void a(fv9 fv9Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, collection) == null) || collection == null) {
-            return;
-        }
-        ArrayList arrayList = null;
-        for (hv9 hv9Var : collection) {
-            try {
-                hv9Var.unsubscribe();
-            } catch (Throwable th) {
-                if (arrayList == null) {
-                    arrayList = new ArrayList();
-                }
-                arrayList.add(th);
+        if (interceptable == null || interceptable.invokeL(1048576, this, fv9Var) == null) {
+            if (fv9Var != null) {
+                this.a.update(fv9Var);
+                return;
             }
-        }
-        mv9.d(arrayList);
-    }
-
-    public void a(hv9 hv9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hv9Var) == null) || hv9Var.isUnsubscribed()) {
-            return;
-        }
-        if (!this.b) {
-            synchronized (this) {
-                if (!this.b) {
-                    if (this.a == null) {
-                        this.a = new HashSet(4);
-                    }
-                    this.a.add(hv9Var);
-                    return;
-                }
-            }
-        }
-        hv9Var.unsubscribe();
-    }
-
-    public void b(hv9 hv9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hv9Var) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (!this.b && this.a != null) {
-                boolean remove = this.a.remove(hv9Var);
-                if (remove) {
-                    hv9Var.unsubscribe();
-                }
-            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 
-    @Override // com.baidu.tieba.hv9
+    @Override // com.baidu.tieba.fv9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hv9
+    @Override // com.baidu.tieba.fv9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
-            return;
-        }
-        synchronized (this) {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            Set<hv9> set = this.a;
-            this.a = null;
-            c(set);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

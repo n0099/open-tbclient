@@ -6,23 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.KsSplashScreenAd;
 /* loaded from: classes6.dex */
-public class zk9 extends el9 {
+public class zk9 extends dl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
-    public final /* synthetic */ KsRewardVideoAd c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ yk9 e;
+    public final /* synthetic */ KsSplashScreenAd c;
+    public final /* synthetic */ yk9 d;
 
-    public zk9(yk9 yk9Var, KsRewardVideoAd ksRewardVideoAd, String str) {
+    public zk9(yk9 yk9Var, KsSplashScreenAd ksSplashScreenAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yk9Var, ksRewardVideoAd, str};
+            Object[] objArr = {yk9Var, ksSplashScreenAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,63 +31,54 @@ public class zk9 extends el9 {
                 return;
             }
         }
-        this.e = yk9Var;
-        this.c = ksRewardVideoAd;
-        this.d = str;
+        this.d = yk9Var;
+        this.c = ksSplashScreenAd;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
     public void onAdClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LogPrinter.d();
-            this.e.onAdClicked(this.c, this.b, this.d);
+            this.d.onAdClicked(this.c, this.b, new String[0]);
             this.b = true;
         }
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onPageDismiss() {
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowEnd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogPrinter.d();
-            this.e.onAdClose(this.c);
+            this.d.onAdClose(this.c);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify() {
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowError(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.e.onRewardedVideo(this.c, this.d);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            LogPrinter.e("onAdShowError code: " + i + ", message: " + str, new Object[0]);
+            this.d.onAdError(this.c, i, str);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayEnd() {
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onAdShowStart() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            LogPrinter.d();
-            this.e.onAdError(this.c, i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-            this.e.onAdShow(this.c, this.a, this.d);
+            this.d.onAdShow(this.c, this.a, new String[0]);
             this.a = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsSplashScreenAd.SplashScreenAdInteractionListener
+    public void onSkippedAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LogPrinter.d();
+            this.d.onAdClose(this.c);
         }
     }
 }

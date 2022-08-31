@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface ez2 {
     void a(JSONObject jSONObject);
 

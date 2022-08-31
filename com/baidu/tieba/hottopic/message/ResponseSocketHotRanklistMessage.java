@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.i57;
+import com.baidu.tieba.g57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.TopicList.TopicListResIdl;
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i57 ranklistData;
+    public g57 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotRanklistMessage() {
@@ -48,19 +48,19 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return topicListResIdl;
                 }
-                i57 i57Var = new i57();
-                this.ranklistData = i57Var;
-                i57Var.b(topicListResIdl.data);
+                g57 g57Var = new g57();
+                this.ranklistData = g57Var;
+                g57Var.b(topicListResIdl.data);
             }
             return topicListResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public i57 getHotRanklistData() {
+    public g57 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ranklistData : (i57) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ranklistData : (g57) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

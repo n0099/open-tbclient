@@ -20,10 +20,10 @@ import com.baidu.tbadk.widget.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout;
 import com.baidu.tbadk.widget.pulltorefresh.library.internal.RotateLoadingLayout;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ci5;
+import com.baidu.tieba.di5;
 import com.baidu.tieba.ei5;
 import com.baidu.tieba.fi5;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.hi5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -658,7 +658,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.i.setHeaderScroll(round);
                 }
                 if (this.f && this.b != this.h) {
-                    hi5.a(this.i, this);
+                    fi5.a(this.i, this);
                     return;
                 }
                 g gVar = this.e;
@@ -922,10 +922,10 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.r.getContentSize() : invokeV.intValue;
     }
 
-    public final ei5 getLoadingLayoutProxy() {
+    public final ci5 getLoadingLayoutProxy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (ei5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? j(true, true) : (ci5) invokeV.objValue;
     }
 
     public final Mode getMode() {
@@ -978,28 +978,28 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.g : (State) invokeV.objValue;
     }
 
-    public fi5 h(boolean z, boolean z2) {
+    public di5 h(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            fi5 fi5Var = new fi5();
+            di5 di5Var = new di5();
             if (z && this.h.showHeaderLoadingLayout()) {
-                fi5Var.a(this.r);
+                di5Var.a(this.r);
             }
             if (z2 && this.h.showFooterLoadingLayout()) {
-                fi5Var.a(this.s);
+                di5Var.a(this.s);
             }
-            return fi5Var;
+            return di5Var;
         }
-        return (fi5) invokeCommon.objValue;
+        return (di5) invokeCommon.objValue;
     }
 
     public abstract T i(Context context, AttributeSet attributeSet);
 
-    public final ei5 j(boolean z, boolean z2) {
+    public final ci5 j(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (ei5) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(z, z2) : (ci5) invokeCommon.objValue;
     }
 
     public void k(TypedArray typedArray) {
@@ -1036,7 +1036,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
                     this.j.setBackgroundDrawable(drawable);
                 }
             } else if (obtainStyledAttributes.hasValue(0)) {
-                gi5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
+                ei5.a("ptrAdapterViewBackground", "ptrRefreshableViewBackground");
                 Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
                 if (drawable2 != null) {
                     this.j.setBackgroundDrawable(drawable2);

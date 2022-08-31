@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Intent;
+import android.net.VpnService;
+import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,127 +14,86 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class fz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d9 a;
-    public final rn b;
-    public Runnable c;
-    public boolean d;
+    public Fragment a;
+    public Activity b;
+    public ez8 c;
 
-    public fz8(d9 d9Var, rn rnVar) {
+    public fz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var, rnVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static fz8 c(Fragment fragment) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fragment)) == null) {
+            fz8 fz8Var = new fz8();
+            fz8Var.a = fragment;
+            return fz8Var;
+        }
+        return (fz8) invokeL.objValue;
+    }
+
+    public void a(int i, int i2, Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) && i == 25069) {
+            if (i2 == -1) {
+                ez8 ez8Var = this.c;
+                if (ez8Var != null) {
+                    ez8Var.a();
+                    return;
+                }
                 return;
             }
-        }
-        this.a = d9Var;
-        this.b = rnVar;
-    }
-
-    @NonNull
-    public final Rect a(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            Rect rect = new Rect();
-            view2.getGlobalVisibleRect(rect);
-            return rect;
-        }
-        return (Rect) invokeL.objValue;
-    }
-
-    public final boolean b(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
-            float i = ri.i(TbadkCoreApplication.getInst());
-            return rect.top >= ((int) (0.0f * i)) && rect.bottom <= ((int) (i * 0.66f));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null) {
-            return;
-        }
-        sg.a().removeCallbacks(this.c);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new Runnable() { // from class: com.baidu.tieba.dz8
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        fz8.this.g();
-                    }
-                }
-            };
-        }
-        sg.a().postDelayed(this.c, 2000L);
-    }
-
-    public void e() {
-        rn rnVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null || (rnVar = this.b) == null || rnVar.getListView().getChildCount() == 0 || this.b.getContentViewsCount() == 0) {
-            return;
-        }
-        int childCount = this.b.getListView().getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = this.b.getListView().getChildAt(i);
-            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f0925ab) instanceof ez8)) {
-                ((ez8) childAt.getTag(R.id.obfuscated_res_0x7f0925ab)).b();
+            ez8 ez8Var2 = this.c;
+            if (ez8Var2 != null) {
+                ez8Var2.b();
             }
         }
     }
 
-    public void f(View view2) {
+    public void b(ez8 ez8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f0925ab) instanceof ez8)) {
-            ((ez8) view2.getTag(R.id.obfuscated_res_0x7f0925ab)).b();
-            view2.setTag(R.id.obfuscated_res_0x7f0925ab, null);
-        }
-    }
-
-    public final void g() {
-        rn rnVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null || (rnVar = this.b) == null || rnVar.getListView().getChildCount() == 0 || this.b.getContentViewsCount() == 0) {
-            return;
-        }
-        int childCount = this.b.getListView().getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = this.b.getListView().getChildAt(i);
-            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f0925ab) instanceof ez8)) {
-                ez8 ez8Var = (ez8) childAt.getTag(R.id.obfuscated_res_0x7f0925ab);
-                if (b(a(childAt))) {
-                    ez8Var.play();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ez8Var) == null) {
+            this.c = ez8Var;
+            Fragment fragment = this.a;
+            if (fragment != null) {
+                Intent prepare = VpnService.prepare(fragment.getContext());
+                if (prepare != null) {
+                    this.a.startActivityForResult(prepare, 25069);
+                    return;
                 }
+                ez8 ez8Var2 = this.c;
+                if (ez8Var2 != null) {
+                    ez8Var2.a();
+                    return;
+                }
+                return;
             }
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.d = z;
+            Activity activity = this.b;
+            if (activity != null) {
+                Intent prepare2 = VpnService.prepare(activity);
+                if (prepare2 != null) {
+                    this.b.startActivityForResult(prepare2, 25069);
+                    return;
+                }
+                ez8 ez8Var3 = this.c;
+                if (ez8Var3 != null) {
+                    ez8Var3.a();
+                    return;
+                }
+                return;
+            }
+            throw new IllegalArgumentException("Can not request VPN permission because no Fragment or Activity, please use static function with()");
         }
     }
 }

@@ -53,12 +53,12 @@ public class pb1 {
 
         /* renamed from: com.baidu.tieba.pb1$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0366a implements vo0.b {
+        public class C0374a implements vo0.b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0366a(a aVar) {
+            public C0374a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -123,7 +123,7 @@ public class pb1 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    vo0.a(this.a, this.b, new C0366a(this));
+                    vo0.a(this.a, this.b, new C0374a(this));
                 } catch (Exception e) {
                     iy0.b(new ky0(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
                 }

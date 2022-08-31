@@ -15,7 +15,7 @@ public class cy extends zw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public ho4 i;
+    public go4 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -94,11 +94,11 @@ public class cy extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: u */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) {
-            this.i = ho4Var;
-            this.h.a(ho4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) {
+            this.i = go4Var;
+            this.h.a(go4Var);
         }
     }
 }

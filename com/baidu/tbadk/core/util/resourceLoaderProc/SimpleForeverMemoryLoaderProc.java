@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.an;
 import com.baidu.tieba.ig;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
                 long currentTimeMillis = System.currentTimeMillis();
                 anVar.A(i);
                 anVar.z(i2);
-                o55.k().f(str, anVar);
+                m55.k().f(str, anVar);
                 ig.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -58,7 +58,7 @@ public class SimpleForeverMemoryLoaderProc extends SimpleLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            an o = o55.k().o(str);
+            an o = m55.k().o(str);
             if (z) {
                 ig.i(o != null, System.currentTimeMillis() - currentTimeMillis);
             }

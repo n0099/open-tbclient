@@ -1,25 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.widget.LinearGradientView;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class vq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
+    public View a;
+    public RelativeLayout b;
+    public LinearGradientView c;
+    public BarImageView d;
+    public TextView e;
+    public FrsHeaderBannerView f;
+    public LinearLayout g;
+    public ImageView h;
+    public View i;
+    public TbImageView j;
+    public ImageView k;
+    public ImageView l;
+    public ImageView m;
+    public ImageView n;
 
-    public vq6(String str) {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public a(vq6 vq6Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vq6Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.a;
+                if (context instanceof Activity) {
+                    ((Activity) context).finish();
+                }
+            }
+        }
+    }
+
+    public vq6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,80 +92,52 @@ public class vq6 {
                 return;
             }
         }
-        if (str != null && str.matches("\\d{1}_\\d{1}.*")) {
-            this.a = str.substring(0, 1).contains("1");
-            this.b = str.substring(2, 3).contains("1");
-            if (str.length() >= 5) {
-                this.c = str.substring(4, 5).contains("1");
-                return;
-            }
+        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
+        UtilHelper.getStatusBarHeight();
+        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
+        UtilHelper.getStatusBarHeight();
+        if (context == null) {
             return;
         }
-        this.a = false;
-        this.b = true;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? String.format("%s_%s_%s", Integer.valueOf(this.a ? 1 : 0), Integer.valueOf(this.b ? 1 : 0), Integer.valueOf(this.c ? 1 : 0)) : (String) invokeV.objValue;
-    }
-
-    public vq6(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = z;
-        this.b = z2;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ff, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090d1e);
+        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090d21);
+        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090d1f);
+        this.j = tbImageView;
+        tbImageView.setDefaultBgResource(R.color.transparent);
+        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f080f0e);
+        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b47);
+        TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090a74);
+        this.e = textView;
+        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090b36);
+        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090976);
+        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090975);
+        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090d37);
+        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090978);
+        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09097a);
+        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090977);
+        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090979);
+        this.k.setOnClickListener(new a(this, context));
+        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f02e2));
+        this.d.setStrokeWith(ri.f(TbadkCoreApplication.getInst(), R.dimen.tbds4));
+        this.d.setShowOval(true);
+        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
+        this.d.setStrokeColorResId(R.color.CAM_X0201);
+        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
+        ns4 d = ns4.d(this.i);
+        d.m(1);
+        d.n(R.string.J_X14);
+        d.f(R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
+        SkinManager.setImageResource(this.k, R.drawable.obfuscated_res_0x7f080613);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.obfuscated_res_0x7f080615, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809fd, SkinManager.getColor(R.color.CAM_X0101), null));
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.obfuscated_res_0x7f080614, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0802d8, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

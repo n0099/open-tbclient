@@ -50,13 +50,13 @@ import com.baidu.tbadk.data.VirtualImageCustomFigure;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c25;
+import com.baidu.tieba.a25;
 import com.baidu.tieba.fx;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.jx;
 import com.baidu.tieba.km4;
-import com.baidu.tieba.os4;
-import com.baidu.tieba.pd8;
+import com.baidu.tieba.nd8;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.pg;
 import com.baidu.tieba.pushdialog.PushDialogActivity;
 import com.baidu.tieba.qi;
@@ -667,7 +667,7 @@ public class CardUserInfoLayout extends LinearLayout implements jx {
     public void frsVirtualImageStatistic(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            c25 customState = this.B.getCustomState();
+            a25 customState = this.B.getCustomState();
             if (customState == null) {
                 this.H = fx.d;
             } else {
@@ -957,7 +957,7 @@ public class CardUserInfoLayout extends LinearLayout implements jx {
             boolean z2 = UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(longtitude);
             boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
             if (z2 && isSystemLocationProviderEnabled) {
-                AppPosInfo c2 = pd8.e().c();
+                AppPosInfo c2 = nd8.e().c();
                 String str2 = c2.latitude;
                 String str3 = c2.longitude;
                 if ((UtilHelper.isDecimal(str2) && UtilHelper.isDecimal(str3)) ? false : false) {
@@ -1118,7 +1118,7 @@ public class CardUserInfoLayout extends LinearLayout implements jx {
             return;
         }
         String backgroundValue = VirtualImageCustomFigure.BACK_GROUND_TYPE_TONE.equals(customFigure.getBackGroundType()) ? customFigure.getBackgroundValue() : "#7F66FE";
-        c25 customState = this.B.getCustomState();
+        a25 customState = this.B.getCustomState();
         if (customState != null && !TextUtils.isEmpty(customState.b())) {
             this.q.setVisibility(8);
             ry.b(this.A, 400);
@@ -1170,7 +1170,7 @@ public class CardUserInfoLayout extends LinearLayout implements jx {
         }
         this.f.setOnClickListener(null);
         if (author.getIs_bawu() == 1) {
-            os4 d2 = os4.d(this.f);
+            ns4 d2 = ns4.d(this.f);
             d2.v(R.color.CAM_X0101);
             d2.e(R.string.A_X04);
             d2.n(R.string.J_X04);

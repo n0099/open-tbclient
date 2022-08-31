@@ -1,113 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ta5 extends ua5 {
+public class ta5 extends sa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long b;
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public HashMap<String, String> E;
+    public boolean b;
     public long c;
     public long d;
-    public int e;
+    public long e;
     public long f;
-    public int g;
-    public b h;
-    public final Handler i;
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ta5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ta5 ta5Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ta5Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ta5Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.a.h = new b(this.a);
-                this.a.h.setSelfExecute(true);
-                this.a.h.execute(new String[0]);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends BdAsyncTask<String, Integer, Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ta5 a;
-
-        public b(ta5 ta5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ta5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ta5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Boolean doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.a.g = PerformanceLoggerHelper.getInstance().getCpuUsageStatistic();
-                this.a.e();
-                return Boolean.TRUE;
-            }
-            return (Boolean) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
-            }
-        }
-    }
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public boolean s;
+    public int t;
+    public long u;
+    public int v;
+    public long w;
+    public long x;
+    public boolean y;
+    public long z;
 
     public ta5() {
         Interceptable interceptable = $ic;
@@ -122,23 +56,115 @@ public class ta5 extends ua5 {
                 return;
             }
         }
-        this.h = null;
-        this.i = new a(this, Looper.getMainLooper());
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
     }
 
-    public final void e() {
-        wa5 wa5Var;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (wa5Var = (wa5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || qi.isEmpty(str) || qi.isEmpty(str2)) {
             return;
         }
-        wa5Var.c(this);
+        this.E.put(str, str2);
     }
 
-    public void f() {
+    public void c() {
+        xa5 xa5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.i.sendEmptyMessage(0);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (xa5Var = (xa5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
         }
+        xa5Var.b(this);
+    }
+
+    public void d(int i) {
+        xa5 xa5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (xa5Var = (xa5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
+        }
+        xa5Var.c(this, i);
+    }
+
+    public void e(boolean z) {
+        xa5 xa5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (xa5Var = (xa5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
+        }
+        xa5Var.d(this, z);
+    }
+
+    public ta5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+        if (responsedMessage == null) {
+            return;
+        }
+        this.a = i;
+        this.s = z;
+        if (z) {
+            this.r = responsedMessage.getDownSize();
+            this.A = responsedMessage.getOrginalMessage().getClientLogID();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+            ib ibVar = responsedMessage.performanceData;
+            this.w = ibVar.k;
+            this.x = ibVar.l;
+            this.t = ibVar.i;
+            this.u = ibVar.j;
+        } else {
+            this.q = responsedMessage.getDownSize();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+        }
+        this.c = j;
+        this.d = j4;
+        this.e = j2;
+        this.o = j3;
+        this.m = j5;
+        this.b = !responsedMessage.hasError();
+        ib ibVar2 = responsedMessage.performanceData;
+        this.f = ibVar2.a;
+        this.g = ibVar2.b;
+        this.h = ibVar2.c;
+        this.i = ibVar2.d;
+        this.j = ibVar2.e;
+        this.k = ibVar2.f;
+        this.l = ibVar2.g;
+        long j7 = ibVar2.h;
+        this.n = j7;
+        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
+        this.v = responsedMessage.getError();
+        this.y = z2;
+        this.p = j6;
     }
 }

@@ -1,148 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.tbadk.switchs.VideoCardLazyInitSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m17 {
+public class m17 extends yw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public j98 z;
 
-    public static void a(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m17(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            StringBuilder sb = new StringBuilder();
-            sb.append("key_card_interest_close_click_num_");
-            sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_CLICK).param("uid", currentAccount).param("obj_param1", tu4.k().l(sb.toString(), 0) != 0 ? 2 : 1).param("obj_locate", i));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            StringBuilder sb = new StringBuilder();
-            sb.append("key_card_interest_close_click_num_");
-            sb.append(currentAccount);
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_RECOMMEND_CARD_INTEREST_SHOW).param("uid", currentAccount).param("obj_param1", tu4.k().l(sb.toString(), 0) != 0 ? 2 : 1));
-        }
-    }
-
-    public static boolean c(my4 my4Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, my4Var, str)) == null) {
-            long m = tu4.k().m("key_card_interest_close_click_time_" + str, 0L);
-            if (m != 0) {
-                return my4Var.a() != -1 && ((int) (((((System.currentTimeMillis() - m) / 1000) / 60) / 60) / 24)) >= my4Var.a();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean d(my4 my4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, my4Var)) == null) ? my4Var.c() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean e() {
+    @Override // com.baidu.tieba.yw, com.baidu.tieba.my
+    public j98 q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (UbsABTestHelper.isRecommendCardInterestABTestA() && h()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                my4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig == null) {
-                    return false;
-                }
-                if (d(homepageInterestConfig)) {
-                    return true;
-                }
-                if (tu4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
-                    if (c(homepageInterestConfig, currentAccount)) {
-                        return true;
-                    }
-                } else if (g(homepageInterestConfig)) {
-                    return true;
-                }
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.k) && this.k.equals("index") && VideoCardLazyInitSwitch.getIsOn()) {
+                this.z = new o17(this.b, this.i);
+            } else {
+                this.z = new n17(this.b, this.i);
             }
-            return false;
+            this.z.setStageType("2001");
+            return this.z;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
-            if (h()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                my4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig != null && i2 > 0) {
-                    if (d(homepageInterestConfig)) {
-                        return true;
-                    }
-                    if (tu4.k().l("key_card_interest_close_click_num_" + currentAccount, 0) != 0) {
-                        if (c(homepageInterestConfig, currentAccount) && i == 0) {
-                            return true;
-                        }
-                    } else if (g(homepageInterestConfig) && i == 0) {
-                        return true;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public static boolean g(my4 my4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, my4Var)) == null) ? my4Var.d() == 1 : invokeL.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (TbadkCoreApplication.isLogin()) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                my4 homepageInterestConfig = TbSingleton.getInstance().getHomepageInterestConfig();
-                if (homepageInterestConfig == null) {
-                    return false;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append("key_card_interest_close_click_num_");
-                sb.append(currentAccount);
-                return tu4.k().l(sb.toString(), 0) < homepageInterestConfig.b();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            tu4.k().x("key_card_interest_close_click_time_" + currentAccount, System.currentTimeMillis());
-            String str = "key_card_interest_close_click_num_" + currentAccount;
-            tu4.k().w(str, tu4.k().l(str, 0) + 1);
-        }
+        return (j98) invokeV.objValue;
     }
 }

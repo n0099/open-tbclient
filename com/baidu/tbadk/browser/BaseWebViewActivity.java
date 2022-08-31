@@ -51,10 +51,10 @@ import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rm4;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.un4;
-import com.baidu.tieba.wr4;
-import com.baidu.tieba.wx4;
-import com.baidu.tieba.yf5;
+import com.baidu.tieba.tn4;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.vr4;
+import com.baidu.tieba.wf5;
 import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -104,7 +104,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
     public boolean isNeedRefresh;
     public boolean mAutoChangeStyle;
     public Bundle mBundle;
-    public yf5.b mCookieInfo;
+    public wf5.b mCookieInfo;
     public boolean mCustomJump;
     public boolean mEnableJs;
     public boolean mFixTitle;
@@ -203,11 +203,11 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                     ThreadAchievementShareDialogView threadAchievementShareDialogView = new ThreadAchievementShareDialogView(baseWebViewActivity, baseWebViewActivity.getShareInfo());
                     ThreadAchievementShareInfo threadAchievementShareInfo = threadAchievementShareDialogView.a;
                     if (threadAchievementShareInfo != null && threadAchievementShareInfo.getParams() != null) {
-                        wr4 wr4Var = new wr4(this.a);
-                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), wr4Var)) {
-                            wr4Var.setContentViewSize(2);
-                            wr4Var.setContentView(threadAchievementShareDialogView);
-                            wr4Var.create(this.a.getPageContext()).show();
+                        vr4 vr4Var = new vr4(this.a);
+                        if (threadAchievementShareDialogView.h(this.a.getPageContext(), vr4Var)) {
+                            vr4Var.setContentViewSize(2);
+                            vr4Var.setContentView(threadAchievementShareDialogView);
+                            vr4Var.create(this.a.getPageContext()).show();
                             return;
                         }
                         return;
@@ -546,7 +546,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            un4.b c2 = un4.b().c(TbadkCoreApplication.getCurrentBduss());
+            tn4.b c2 = tn4.b().c(TbadkCoreApplication.getCurrentBduss());
             String str2 = "";
             if (c2 != null) {
                 String str3 = c2.a;
@@ -562,8 +562,8 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
                 str = "";
             }
             boolean z = true;
-            yf5.b bVar = new yf5.b(str2, str);
-            yf5.b bVar2 = this.mCookieInfo;
+            wf5.b bVar = new wf5.b(str2, str);
+            wf5.b bVar2 = this.mCookieInfo;
             if (bVar2 == null || (bVar2 != null && bVar2.equals(bVar))) {
                 z = false;
             }
@@ -581,7 +581,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
             if (context == null || str == null || (parse = Uri.parse(str)) == null) {
                 return null;
             }
-            List<String> a2 = wx4.a();
+            List<String> a2 = ux4.a();
             if (ListUtils.isEmpty(a2)) {
                 return null;
             }
@@ -806,7 +806,7 @@ public abstract class BaseWebViewActivity extends BaseActivity<BaseWebViewActivi
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ba5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.z95
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

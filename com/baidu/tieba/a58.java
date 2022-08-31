@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.personExtra.PersonBarByUidLocalMessage;
+import com.baidu.tieba.personExtra.ResponsePersonBarByUidLocalMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a58 implements i75 {
+public class a58 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,11 +31,26 @@ public class a58 implements i75 {
         }
     }
 
-    @Override // com.baidu.tieba.i75
-    @NonNull
-    public j75 a(@NonNull TbPageContext tbPageContext) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) ? new f58(tbPageContext) : (j75) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof PersonBarByUidLocalMessage)) {
+                return null;
+            }
+            ur4.f();
+            String str = ur4.g("tb.my_pages").get(TbadkCoreApplication.getCurrentAccount());
+            ResponsePersonBarByUidLocalMessage responsePersonBarByUidLocalMessage = new ResponsePersonBarByUidLocalMessage();
+            if (str != null) {
+                try {
+                    responsePersonBarByUidLocalMessage.decodeInBackGround(2001183, str);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            return responsePersonBarByUidLocalMessage;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

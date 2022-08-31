@@ -9,6 +9,7 @@ import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.components.core.response.model.AdResultData;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.lang.reflect.Field;
@@ -41,18 +42,27 @@ public class ik9 extends BaseAdRipper {
     @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
     public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        List<AdInfo> list;
+        List<AdTemplate> adTemplateList;
         AdInfo adInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                Field declaredField = obj.getClass().getDeclaredField("b");
+                Field declaredField = obj.getClass().getDeclaredField("a");
                 declaredField.setAccessible(true);
                 Object obj2 = declaredField.get(obj);
-                if (obj2 == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                if (obj2 == null) {
                     return null;
                 }
-                return nk9.a(adInfo);
+                AdResultData adResultData = obj2 instanceof AdResultData ? (AdResultData) obj2 : null;
+                if ((adResultData != null) && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
+                    AdTemplate adTemplate = adTemplateList.get(0);
+                    List<AdInfo> list = adTemplate == null ? null : adTemplate.adInfoList;
+                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return lk9.a(adInfo);
+                }
+                return null;
             } catch (Exception e) {
                 LogPrinter.e(e);
                 return null;

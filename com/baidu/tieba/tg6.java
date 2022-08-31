@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class tg6 implements u47 {
+/* loaded from: classes5.dex */
+public class tg6 extends pg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
+    public int e;
+    public String f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     public tg6() {
         Interceptable interceptable = $ic;
@@ -25,10 +27,7 @@ public class tg6 implements u47 {
                 return;
             }
         }
-        MetaData metaData = new MetaData();
-        this.a = metaData;
-        if (metaData.getGodUserData() == null) {
-            this.a.setGodUserData(new GodUserData());
-        }
+        this.g = true;
+        this.i = true;
     }
 }

@@ -1,86 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.tieba.frs.gametabs.SpecialFrsWebFragment;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rm6 extends s65 {
+public class rm6 extends ut4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public rm6(int i, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rm6(st4 st4Var) {
+        super(st4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {st4Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((st4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        t65 t65Var = this.a;
-        t65Var.e = i;
-        SpecialFrsWebFragment specialFrsWebFragment = (SpecialFrsWebFragment) t65Var.a;
-        specialFrsWebFragment.k2(i);
-        if (str != null && !str.contains("&_client_version=") && !str.contains("?_client_version=")) {
-            if (str.contains("&ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            } else if (str.contains("?ufanS=1")) {
-                str = str + "&_client_version=" + TbConfig.getVersion();
-            }
-        }
-        specialFrsWebFragment.A1(str);
     }
 
-    @Override // com.baidu.tieba.s65
-    public t65 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            t65 t65Var = new t65();
-            t65Var.a = new SpecialFrsWebFragment();
-            t65Var.e = 101;
-            t65Var.i = t65.k;
-            return t65Var;
-        }
-        return (t65) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.s65
-    public TbFragmentTabIndicator c(Context context) {
+    @vt4(isAsync = false, value = "isGameInstall")
+    private JSONObject isGameInstall(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02e9, (ViewGroup) null);
-            this.b = fragmentTabIndicator;
-            fragmentTabIndicator.setTextSize(2.0f);
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            String optString = jSONObject.optString("packagename");
+            try {
+                PackageInfo packageInfo = getContext().getPackageManager().getPackageInfo(optString, 0);
+                if (packageInfo != null && packageInfo.packageName.equals(optString)) {
+                    jSONObject2.put("isInstall", true);
+                } else {
+                    jSONObject2.put("isInstall", false);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                try {
+                    jSONObject2.put("isInstall", false);
+                } catch (JSONException unused) {
+                    BdLog.e(e.getMessage());
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2.getMessage());
+            }
+            return jSONObject2;
         }
-        return (TbFragmentTabIndicator) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s65
-    public boolean d() {
+    @Override // com.baidu.tieba.ut4
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TBHY_COMMON_IS_GAME_INSTALL" : (String) invokeV.objValue;
     }
 }

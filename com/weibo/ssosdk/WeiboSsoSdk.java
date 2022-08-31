@@ -3,9 +3,9 @@ package com.weibo.ssosdk;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cr9;
+import com.baidu.tieba.dr9;
 import com.baidu.tieba.er9;
-import com.baidu.tieba.fr9;
-import com.baidu.tieba.gr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class WeiboSsoSdk {
     public static /* synthetic */ Interceptable $ic;
     public static WeiboSsoSdk e;
-    public static gr9 f;
+    public static er9 f;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile ReentrantLock a;
     public boolean b;
@@ -121,15 +121,15 @@ public class WeiboSsoSdk {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fr9 a;
+        public final /* synthetic */ dr9 a;
         public final /* synthetic */ WeiboSsoSdk b;
 
-        public c(WeiboSsoSdk weiboSsoSdk, fr9 fr9Var) {
+        public c(WeiboSsoSdk weiboSsoSdk, dr9 dr9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {weiboSsoSdk, fr9Var};
+                Object[] objArr = {weiboSsoSdk, dr9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,7 +140,7 @@ public class WeiboSsoSdk {
                 }
             }
             this.b = weiboSsoSdk;
-            this.a = fr9Var;
+            this.a = dr9Var;
         }
 
         @Override // java.lang.Runnable
@@ -249,8 +249,8 @@ public class WeiboSsoSdk {
         }
         this.a = new ReentrantLock(true);
         this.b = true;
-        gr9 gr9Var = f;
-        if (gr9Var != null && gr9Var.n()) {
+        er9 er9Var = f;
+        if (er9Var != null && er9Var.n()) {
             this.d = 0;
             new Thread(new a(this)).start();
             new Thread(new b(this)).start();
@@ -275,19 +275,19 @@ public class WeiboSsoSdk {
         return (WeiboSsoSdk) invokeV.objValue;
     }
 
-    public static synchronized boolean j(gr9 gr9Var) {
+    public static synchronized boolean j(er9 er9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, gr9Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, er9Var)) == null) {
             synchronized (WeiboSsoSdk.class) {
-                if (gr9Var == null) {
+                if (er9Var == null) {
                     return false;
                 }
-                if (gr9Var.n()) {
+                if (er9Var.n()) {
                     if (f == null) {
-                        gr9 gr9Var2 = (gr9) gr9Var.clone();
-                        f = gr9Var2;
-                        er9.w(gr9Var2.b());
+                        er9 er9Var2 = (er9) er9Var.clone();
+                        f = er9Var2;
+                        cr9.w(er9Var2.b());
                         return true;
                     }
                     return false;
@@ -447,7 +447,7 @@ public class WeiboSsoSdk {
             return;
         }
         this.b = false;
-        String n = er9.n(f.b());
+        String n = cr9.n(f.b());
         try {
             str2 = URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException unused) {
@@ -475,14 +475,14 @@ public class WeiboSsoSdk {
         throw new Exception("network error.");
     }
 
-    public void m(fr9 fr9Var) {
+    public void m(dr9 dr9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, fr9Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, dr9Var) == null) {
             d dVar = this.c;
             if (dVar != null && !TextUtils.isEmpty(dVar.a()) && !TextUtils.isEmpty(this.c.b())) {
-                fr9Var.handler(this.c);
+                dr9Var.handler(this.c);
             } else {
-                Executors.newSingleThreadExecutor().execute(new c(this, fr9Var));
+                Executors.newSingleThreadExecutor().execute(new c(this, dr9Var));
             }
         }
     }

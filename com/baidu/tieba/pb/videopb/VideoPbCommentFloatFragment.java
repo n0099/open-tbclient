@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w56;
+import com.baidu.tieba.u56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -81,9 +81,9 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.v4();
-            w56 w56Var = this.M0;
-            if (w56Var != null) {
-                w56Var.i(null);
+            u56 u56Var = this.M0;
+            if (u56Var != null) {
+                u56Var.i(null);
             }
         }
     }

@@ -1,26 +1,32 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.view.View;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface nn8 {
+public class nn8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-
-        /* renamed from: com.baidu.tieba.nn8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public interface InterfaceC0333a {
-            void a(@NonNull l15 l15Var);
-
-            boolean b();
+    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
+            on8.b(mainTabScheduleStrategy);
         }
-
-        void a(@Nullable InterfaceC0333a interfaceC0333a);
     }
 
-    int getCurrentTabType();
+    public static void b(Runnable runnable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
+            on8.f(new tn8(runnable, i));
+        }
+    }
 
-    @NonNull
-    a j0();
+    public static void c(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            on8.f(new vn8(view2, i));
+        }
+    }
 }

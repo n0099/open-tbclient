@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.zn6;
+import com.baidu.tieba.xn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -189,13 +189,13 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            os4.d(this.a).v(R.color.CAM_X0108);
+            ns4.d(this.a).v(R.color.CAM_X0108);
             if (qi.isEmpty(this.d)) {
-                os4 d = os4.d(this.b);
+                ns4 d = ns4.d(this.b);
                 d.w(R.dimen.M_T_X002);
                 d.v(R.color.CAM_X0105);
             } else {
-                os4 d2 = os4.d(this.b);
+                ns4 d2 = ns4.d(this.b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0304);
             }
@@ -203,12 +203,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
     }
 
-    public void setData(zn6 zn6Var) {
+    public void setData(xn6 xn6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zn6Var) == null) {
-            this.a.setText(zn6Var.a);
-            this.b.setText(zn6Var.b);
-            this.d = zn6Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xn6Var) == null) {
+            this.a.setText(xn6Var.a);
+            this.b.setText(xn6Var.b);
+            this.d = xn6Var.c;
         }
     }
 

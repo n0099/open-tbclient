@@ -1,45 +1,34 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.ScaleAnimation;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbTitleActivityConfig;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.atomData.BawuTeamInfoActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.forumMember.member.FrsMemberHeaderViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.forumMember.member.FrsMemberTeamViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.BawuRoleInfoPub;
+import tbclient.MemberGroupInfo;
 /* loaded from: classes3.dex */
-public class ed6 extends cf6<fd6, FrsMemberHeaderViewHolder> {
+public class ed6 extends af6<fd6, FrsMemberTeamViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LikeModel l;
-    public int m;
-    public int n;
-    public View.OnClickListener o;
+    public View.OnClickListener l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -67,72 +56,36 @@ public class ed6 extends cf6<fd6, FrsMemberHeaderViewHolder> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
+            fd6 fd6Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag();
-                if (tag instanceof Integer) {
-                    pn item = this.a.getItem(((Integer) tag).intValue());
-                    if (item instanceof fd6) {
-                        fd6 fd6Var = (fd6) item;
-                        if (view2.getId() == R.id.obfuscated_res_0x7f0912e0) {
-                            if (ViewHelper.checkUpIsLogin(this.a.c.getPageActivity())) {
-                                if (!pi.z()) {
-                                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f0c40);
-                                    return;
-                                }
-                                String a = fd6Var.a();
-                                this.a.l.Q(fd6Var.b(), a);
+                String str = "";
+                if (view2.getTag() instanceof BawuRoleInfoPub) {
+                    BawuRoleInfoPub bawuRoleInfoPub = (BawuRoleInfoPub) view2.getTag();
+                    this.a.c.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.mContext, "" + bawuRoleInfoPub.user_id, bawuRoleInfoPub.user_name)));
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f0921f0) {
+                    Object tag = view2.getTag();
+                    if (tag instanceof Integer) {
+                        Integer num = (Integer) tag;
+                        if (this.a.getItem(num.intValue()) instanceof fd6) {
+                            fd6Var = (fd6) this.a.getItem(num.intValue());
+                            if (fd6Var != null || fd6Var.b() == null) {
                             }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f092456) {
-                            String a2 = fd6Var.a();
-                            this.a.c.sendMessage(new CustomMessage(2003006, new TbTitleActivityConfig(this.a.mContext, fd6Var.b(), a2)));
+                            String[] split = StringUtils.isNull(fd6Var.b().member_group_type) ? null : fd6Var.b().member_group_type.split("_");
+                            if (split != null && split.length == 2) {
+                                str = split[0];
+                            }
+                            if (StringUtils.isNull(str) || !str.equalsIgnoreCase("1")) {
+                                return;
+                            }
+                            this.a.c.sendMessage(new CustomMessage(2002001, new BawuTeamInfoActivityConfig(this.a.mContext, pg.g(fd6Var.a(), 0L))));
+                            return;
                         }
                     }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends c9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ed6 a;
-
-        public b(ed6 ed6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ed6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ed6Var;
-        }
-
-        @Override // com.baidu.tieba.c9
-        public void c(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (!(obj instanceof jk8) || this.a.l.getErrorCode() != 0) {
-                    if (AntiHelper.m(this.a.l.getErrorCode(), this.a.l.getErrorString())) {
-                        AntiHelper.u(this.a.c.getPageActivity(), this.a.l.getErrorString());
-                        return;
-                    } else {
-                        this.a.c.showToast(this.a.l.getErrorString());
-                        return;
+                    fd6Var = null;
+                    if (fd6Var != null) {
                     }
                 }
-                jk8 jk8Var = (jk8) obj;
-                jk8Var.x(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, jk8Var));
             }
         }
     }
@@ -156,133 +109,57 @@ public class ed6 extends cf6<fd6, FrsMemberHeaderViewHolder> {
                 return;
             }
         }
-        this.m = 0;
-        this.n = 0;
-        this.o = new a(this);
-    }
-
-    public final int[] M(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i <= 3 ? new int[]{-8331843, -10499102} : i <= 9 ? new int[]{-10499102, -154262} : i <= 15 ? new int[]{-154262, -148180} : new int[]{-148180, -100818} : (int[]) invokeI.objValue;
-    }
-
-    public final void N() {
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (tbPageContext = this.c) == null) {
-            return;
-        }
-        LikeModel likeModel = new LikeModel(tbPageContext);
-        this.l = likeModel;
-        likeModel.setLoadDataCallBack(new b(this));
+        this.l = new a(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
-    /* renamed from: O */
-    public FrsMemberHeaderViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: J */
+    public FrsMemberTeamViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            if (this.l == null) {
-                N();
-            }
-            return new FrsMemberHeaderViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02b6, (ViewGroup) null), this.o);
-        }
-        return (FrsMemberHeaderViewHolder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? new FrsMemberTeamViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d02b7, (ViewGroup) null), this.l) : (FrsMemberTeamViewHolder) invokeL.objValue;
     }
 
-    public View P(int i, View view2, ViewGroup viewGroup, fd6 fd6Var, FrsMemberHeaderViewHolder frsMemberHeaderViewHolder) {
+    public View K(int i, View view2, ViewGroup viewGroup, fd6 fd6Var, FrsMemberTeamViewHolder frsMemberTeamViewHolder) {
         InterceptResult invokeCommon;
+        MemberGroupInfo b;
+        List<BawuRoleInfoPub> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fd6Var, frsMemberHeaderViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, fd6Var, frsMemberHeaderViewHolder);
-            if (fd6Var != null && fd6Var.c() != null) {
-                int parseColor = Color.parseColor("#56cfa1");
-                int color = SkinManager.getColor(R.color.CAM_X0109);
-                jk8 c = fd6Var.c();
-                if (TbadkCoreApplication.isLogin()) {
-                    if (c.m() == 1) {
-                        frsMemberHeaderViewHolder.a.setVisibility(8);
-                        frsMemberHeaderViewHolder.b.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setText(R.string.obfuscated_res_0x7f0f0b5d);
-                        SkinManager.setImageResource(frsMemberHeaderViewHolder.c, BitmapHelper.getSmallGradeResourceIdNew(c.l()));
-                        if (StringUtils.isNull(c.h())) {
-                            frsMemberHeaderViewHolder.d.setVisibility(8);
-                        } else {
-                            frsMemberHeaderViewHolder.d.setText(c.h());
-                            frsMemberHeaderViewHolder.d.setVisibility(0);
-                        }
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        SpannableString spannableString = new SpannableString(c.c() + "");
-                        spannableString.setSpan(new ForegroundColorSpan(parseColor), 0, spannableString.length(), 17);
-                        SpannableString spannableString2 = new SpannableString("/" + c.i());
-                        spannableString2.setSpan(new ForegroundColorSpan(color), 0, spannableString2.length(), 17);
-                        spannableStringBuilder.append((CharSequence) spannableString);
-                        spannableStringBuilder.append((CharSequence) spannableString2);
-                        frsMemberHeaderViewHolder.g.setText(spannableStringBuilder);
-                        frsMemberHeaderViewHolder.g.setVisibility(0);
-                        frsMemberHeaderViewHolder.k.setVisibility(0);
-                        frsMemberHeaderViewHolder.l.setVisibility(0);
-                    } else {
-                        frsMemberHeaderViewHolder.a.setVisibility(0);
-                        frsMemberHeaderViewHolder.b.setVisibility(8);
-                        frsMemberHeaderViewHolder.c.setVisibility(8);
-                        frsMemberHeaderViewHolder.d.setVisibility(8);
-                        frsMemberHeaderViewHolder.g.setVisibility(8);
-                        frsMemberHeaderViewHolder.k.setVisibility(8);
-                        frsMemberHeaderViewHolder.l.setVisibility(8);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fd6Var, frsMemberTeamViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, fd6Var, frsMemberTeamViewHolder);
+            if (fd6Var != null && fd6Var.b() != null && (list = (b = fd6Var.b()).member_group_list) != null && list.size() > 0 && !StringUtils.isNull(b.member_group_type)) {
+                frsMemberTeamViewHolder.a.setTag(Integer.valueOf(i));
+                String[] split = !StringUtils.isNull(b.member_group_type) ? b.member_group_type.split("_") : null;
+                String str = (split == null || split.length != 2) ? "" : split[1];
+                TextView textView = frsMemberTeamViewHolder.a;
+                textView.setText(str + "(" + b.member_group_num + SmallTailInfo.EMOTION_SUFFIX);
+                int i2 = 0;
+                for (BawuRoleInfoPub bawuRoleInfoPub : b.member_group_list) {
+                    if (i2 > 3) {
+                        break;
+                    } else if (bawuRoleInfoPub != null) {
+                        frsMemberTeamViewHolder.a(bawuRoleInfoPub, i2);
+                        i2++;
                     }
-                } else {
-                    frsMemberHeaderViewHolder.a.setVisibility(8);
-                    frsMemberHeaderViewHolder.b.setVisibility(8);
-                    frsMemberHeaderViewHolder.c.setVisibility(8);
-                    frsMemberHeaderViewHolder.d.setVisibility(8);
-                    frsMemberHeaderViewHolder.g.setVisibility(8);
-                    frsMemberHeaderViewHolder.k.setVisibility(8);
-                    frsMemberHeaderViewHolder.l.setVisibility(8);
                 }
-                frsMemberHeaderViewHolder.a.setTag(Integer.valueOf(i));
-                frsMemberHeaderViewHolder.d.setTag(Integer.valueOf(i));
-                frsMemberHeaderViewHolder.d.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.h, R.color.CAM_X0201);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.e, R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.i, R.color.CAM_X0204);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.a, R.drawable.frs_btn_like);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.a, R.color.white_alpha100, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.b, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.d, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(frsMemberHeaderViewHolder.j, R.color.CAM_X0105, 1);
-                SkinManager.setBackgroundResource(frsMemberHeaderViewHolder.k, R.drawable.obfuscated_res_0x7f080572);
-                SkinManager.setBackgroundColor(frsMemberHeaderViewHolder.l, R.color.CAM_X0204);
-                if (this.m != c.l() || this.n != c.c()) {
-                    this.m = c.l();
-                    this.n = c.c();
-                    frsMemberHeaderViewHolder.k.setBackgroundDrawable(new GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, M(this.m)));
-                    int c2 = c.c();
-                    this.n = c2;
-                    if (c2 > c.i()) {
-                        this.n = c.i();
-                    }
-                    float i2 = c.i() != 0 ? this.n / c.i() : 0.0f;
-                    if (i2 > 0.999f) {
-                        i2 = 1.0f;
-                    }
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(0.0f, i2, 1.0f, 1.0f);
-                    scaleAnimation.setFillAfter(true);
-                    scaleAnimation.setDuration(1000L);
-                    lj8.c((TbPageContextSupport) this.c.getPageActivity(), frsMemberHeaderViewHolder.k, scaleAnimation, null);
-                }
+                frsMemberTeamViewHolder.b(this.f);
+                SkinManager.setBackgroundColor(frsMemberTeamViewHolder.n, R.color.CAM_X0201);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.a, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.j, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.k, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.l, R.color.CAM_X0106, 1);
+                SkinManager.setViewTextColor(frsMemberTeamViewHolder.m, R.color.CAM_X0106, 1);
+                frsMemberTeamViewHolder.a.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
             }
             return view2;
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.cf6, com.baidu.tieba.cn
+    @Override // com.baidu.tieba.af6, com.baidu.tieba.cn
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        P(i, view2, viewGroup, (fd6) obj, (FrsMemberHeaderViewHolder) viewHolder);
+        K(i, view2, viewGroup, (fd6) obj, (FrsMemberTeamViewHolder) viewHolder);
         return view2;
     }
 }

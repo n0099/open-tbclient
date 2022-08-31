@@ -1,29 +1,120 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.callback.GetTplStokenCallback;
+import com.baidu.sapi2.result.GetTplStokenResult;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import javax.security.cert.CertificateException;
-import javax.security.cert.X509Certificate;
-import org.json.JSONArray;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class xn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public class a extends GetTplStokenCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+
+        public a(xn4 xn4Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xn4Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bVar;
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onStart() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onFailure(GetTplStokenResult getTplStokenResult) {
+            b bVar;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) || (bVar = this.a) == null) {
+                return;
+            }
+            bVar.onFailed();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.sapi2.callback.SapiCallback
+        public void onSuccess(GetTplStokenResult getTplStokenResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
+                if (getTplStokenResult == null) {
+                    b bVar = this.a;
+                    if (bVar != null) {
+                        bVar.onFailed();
+                        return;
+                    }
+                    return;
+                }
+                Map<String, String> map = getTplStokenResult.tplStokenMap;
+                if (map != null && map.size() > 0) {
+                    String str = map.get(TbConfig.PassConfig.TPL);
+                    if (StringUtils.isNULL(str)) {
+                        b bVar2 = this.a;
+                        if (bVar2 != null) {
+                            bVar2.onFailed();
+                            return;
+                        }
+                        return;
+                    }
+                    b bVar3 = this.a;
+                    if (bVar3 != null) {
+                        bVar3.onSuccess(str);
+                        return;
+                    }
+                    return;
+                }
+                b bVar4 = this.a;
+                if (bVar4 != null) {
+                    bVar4.onFailed();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onFailed();
+
+        void onSuccess(String str);
+    }
 
     public xn4() {
         Interceptable interceptable = $ic;
@@ -39,50 +130,34 @@ public class xn4 {
         }
     }
 
-    public String a(String str, String str2) throws CertificateException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
-        int length;
+    public static String a(AccountData accountData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
+            if (accountData != null && b()) {
+                return accountData.getStoken();
             }
-            PublicKey publicKey = X509Certificate.getInstance(new ByteArrayInputStream(str.getBytes())).getPublicKey();
-            JSONArray jSONArray = new JSONArray();
-            byte[] bytes = str2.getBytes("UTF-8");
-            if (bytes.length % 116 == 0) {
-                length = bytes.length / 116;
-            } else {
-                length = (bytes.length / 116) + 1;
-            }
-            for (int i = 0; i < length; i++) {
-                if (1 == length) {
-                    jSONArray.put(ii.j(b(publicKey, bytes)));
-                } else if (i != length - 1) {
-                    byte[] bArr = new byte[116];
-                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
-                    jSONArray.put(ii.j(b(publicKey, bArr)));
-                } else {
-                    int i2 = i * 116;
-                    int length2 = bytes.length - i2;
-                    byte[] bArr2 = new byte[length2];
-                    System.arraycopy(bytes, i2, bArr2, 0, length2);
-                    jSONArray.put(ii.j(b(publicKey, bArr2)));
-                }
-            }
-            return ii.j(jSONArray.toString().getBytes("UTF-8"));
+            return null;
         }
-        return (String) invokeLL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final byte[] b(Key key, byte[] bArr) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        InterceptResult invokeLL;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, key);
-            return cipher.doFinal(bArr);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1 : invokeV.booleanValue;
+    }
+
+    public void c(String str, b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (byte[]) invokeLL.objValue;
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(TbConfig.PassConfig.TPL);
+        if (SapiAccountManager.getInstance().getAccountService() == null) {
+            return;
+        }
+        SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
     }
 }

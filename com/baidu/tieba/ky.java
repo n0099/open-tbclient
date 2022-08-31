@@ -107,12 +107,12 @@ public class ky extends uw implements ix<ThreadData>, jx {
         this.f = align;
     }
 
-    public void l(ho4 ho4Var) {
+    public void l(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ho4Var) == null) {
-            if (ho4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, go4Var) == null) {
+            if (go4Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (ho4Var.isSupportBottom()) {
+            } else if (go4Var.isSupportBottom()) {
                 ey eyVar = this.d;
                 if (eyVar != null) {
                     eyVar.n(this);

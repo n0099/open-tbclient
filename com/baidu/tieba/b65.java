@@ -2,19 +2,19 @@ package com.baidu.tieba;
 
 import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.plugin.capture.bean.FaceItem;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b65 extends y55 {
+public class b65 extends w55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
 
     public b65() {
         Interceptable interceptable = $ic;
@@ -29,29 +29,17 @@ public class b65 extends y55 {
                 return;
             }
         }
-        this.a = 0;
+        this.a = "";
     }
 
-    public static ImageOperation e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ImageOperation imageOperation = new ImageOperation();
-            imageOperation.actionName = "rotate";
-            imageOperation.actionParam = String.valueOf(i);
-            return imageOperation;
-        }
-        return (ImageOperation) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.y55
+    @Override // com.baidu.tieba.w55
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rotate" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y55
+    @Override // com.baidu.tieba.w55
     public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
@@ -59,33 +47,30 @@ public class b65 extends y55 {
             if (bitmap == null) {
                 return null;
             }
-            o55.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
-            int i = this.a;
-            if (i == 0 || i == 1) {
-                return BitmapHelper.rotateBitmap(bitmap, this.a);
-            }
-            return (i == 2 || i == 3) ? BitmapHelper.reversalBitmap(bitmap, this.a) : bitmap;
+            m55.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.loadResizedBitmap(this.a, ri.k(TbadkCoreApplication.getInst()), ri.i(TbadkCoreApplication.getInst()));
         }
         return (Bitmap) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.y55
+    @Override // com.baidu.tieba.w55
     public Bitmap c(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int max = Math.max(ri.k(TbadkCoreApplication.getInst().getApp()), ri.i(TbadkCoreApplication.getInst().getApp()));
-            return b(BitmapHelper.loadResizedBitmap(str, max, max), true);
-        }
-        return (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, ri.k(TbadkCoreApplication.getInst()), ri.i(TbadkCoreApplication.getInst())), true) : (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y55
+    @Override // com.baidu.tieba.w55
     public void d(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
-        this.a = Integer.parseInt(str);
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
     }
 }

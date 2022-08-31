@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.an;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.o55;
+import com.baidu.tieba.m55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,7 +97,7 @@ public class LocalFileDrawableLoaderProc extends AbstractImageLoaderProc {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, o55.k().m(str), i, i2);
+            an checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, m55.k().m(str), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

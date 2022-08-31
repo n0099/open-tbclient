@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc6;
+import com.baidu.tieba.fc6;
+import com.baidu.tieba.gc6;
 import com.baidu.tieba.ic6;
-import com.baidu.tieba.kc6;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,17 +44,17 @@ public class MyForbiddenFansActivity extends BaseActivity {
     public BdRecyclerView e;
     public NoDataView f;
     public MyForbiddenFansListAdapter g;
-    public ic6 h;
-    public kc6 i;
+    public gc6 h;
+    public ic6 i;
     public PbListView j;
     public TextView k;
-    public ic6.b l;
+    public gc6.b l;
     public View.OnClickListener m;
     public View.OnClickListener n;
     public View.OnClickListener o;
 
     /* loaded from: classes4.dex */
-    public class a implements ic6.b {
+    public class a implements gc6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyForbiddenFansActivity a;
@@ -77,8 +77,8 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.a = myForbiddenFansActivity;
         }
 
-        @Override // com.baidu.tieba.ic6.b
-        public void a(int i, String str, ArrayList<hc6> arrayList) {
+        @Override // com.baidu.tieba.gc6.b
+        public void a(int i, String str, ArrayList<fc6> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, arrayList) == null) {
                 if (this.a.isProgressBarShown()) {
@@ -173,9 +173,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
                 if (!ri.D()) {
                     MyForbiddenFansActivity myForbiddenFansActivity = this.a;
                     myForbiddenFansActivity.showToast(myForbiddenFansActivity.getString(R.string.obfuscated_res_0x7f0f0c40));
-                } else if (view2.getTag() instanceof hc6) {
+                } else if (view2.getTag() instanceof fc6) {
                     TiebaStatic.log(new StatisticItem("c13105"));
-                    this.a.i.f(((hc6) view2.getTag()).a);
+                    this.a.i.f(((fc6) view2.getTag()).a);
                 }
             }
         }
@@ -208,9 +208,9 @@ public class MyForbiddenFansActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof hc6)) {
-                hc6 hc6Var = (hc6) view2.getTag();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getActivity(), String.valueOf(hc6Var.a), hc6Var.b)));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof fc6)) {
+                fc6 fc6Var = (fc6) view2.getTag();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.a.getActivity(), String.valueOf(fc6Var.a), fc6Var.b)));
             }
         }
     }
@@ -252,7 +252,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
     }
 
     /* loaded from: classes4.dex */
-    public class f implements kc6.e {
+    public class f implements ic6.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MyForbiddenFansActivity a;
@@ -275,7 +275,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.a = myForbiddenFansActivity;
         }
 
-        @Override // com.baidu.tieba.kc6.e
+        @Override // com.baidu.tieba.ic6.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -284,7 +284,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             }
         }
 
-        @Override // com.baidu.tieba.kc6.e
+        @Override // com.baidu.tieba.ic6.e
         public void b(int i, String str, boolean z, int i2, long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
@@ -366,7 +366,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
         this.o = new d(this);
     }
 
-    public final void K1(ArrayList<hc6> arrayList) {
+    public final void K1(ArrayList<fc6> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) || ListUtils.isEmpty(arrayList)) {
             return;
@@ -419,7 +419,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d029b);
             this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906c2);
-            this.h = new ic6();
+            this.h = new gc6();
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f09160a);
             this.b = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0652));
@@ -445,7 +445,7 @@ public class MyForbiddenFansActivity extends BaseActivity {
             this.g = myForbiddenFansListAdapter;
             this.e.setAdapter(myForbiddenFansListAdapter);
             this.h.j(this.l);
-            this.i = new kc6(getPageContext(), getUniqueId());
+            this.i = new ic6(getPageContext(), getUniqueId());
             this.d.setOnClickListener(this.m);
             this.g.l(this.o);
             this.g.m(this.n);

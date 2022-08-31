@@ -33,12 +33,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.an;
 import com.baidu.tieba.homepage.framework.indicator.NestedScrollHeader;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
+import com.baidu.tieba.k15;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.m15;
-import com.baidu.tieba.nj8;
+import com.baidu.tieba.lj8;
+import com.baidu.tieba.r17;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.t17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -287,9 +287,9 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
     public final void k(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-            m15 f2 = t17.f(TbadkApplication.getInst().getHomeBarShowTabName());
+            k15 f2 = r17.f(TbadkApplication.getInst().getHomeBarShowTabName());
             if (f2 != null) {
-                setBackgroundColor(nj8.a(nj8.f(t17.d(f2)), f));
+                setBackgroundColor(lj8.a(lj8.f(r17.d(f2)), f));
             } else {
                 SkinManager.setBackgroundColorWithAlpha(this, R.color.CAM_X0208, f, TbadkCoreApplication.getInst().getSkinType());
             }

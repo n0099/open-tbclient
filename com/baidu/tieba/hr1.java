@@ -28,14 +28,14 @@ public class hr1 extends gr1 {
 
         /* renamed from: com.baidu.tieba.hr1$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0279a implements ma3.a {
+        public class C0283a implements ma3.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ sr1 b;
             public final /* synthetic */ a c;
 
-            public C0279a(a aVar, String str, sr1 sr1Var) {
+            public C0283a(a aVar, String str, sr1 sr1Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -104,7 +104,7 @@ public class hr1 extends gr1 {
                 sr1 sr1Var = new sr1("accelerometerChange", jSONObject, str);
                 ma3 a = ma3.a();
                 a.b(this.a.getContext(), b.a(jSONObject.optString("interval")));
-                a.e(new C0279a(this, str, sr1Var));
+                a.e(new C0283a(this, str, sr1Var));
                 a.f();
                 sr1Var.b(this.a);
                 return at1.f();

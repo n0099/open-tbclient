@@ -1,19 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.share.ShareEvent;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m85 implements o75<ShareEvent> {
+public class m85 extends vc1<yl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements yl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.yl
+        public void a(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
+                soLoaderEvent.name = str;
+                s75.i(soLoaderEvent);
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
 
     public m85() {
         Interceptable interceptable = $ic;
@@ -30,29 +68,11 @@ public class m85 implements o75<ShareEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.o75
+    @Override // com.baidu.tieba.vc1
     /* renamed from: a */
-    public boolean onEvent(ShareEvent shareEvent) {
-        InterceptResult invokeL;
+    public yl createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareEvent)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                int i = shareEvent.status;
-                if (shareEvent.from == 1) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921696, Integer.valueOf(i)));
-                }
-                if (i == 1) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
-                    String str = shareEvent.tid;
-                    if (!TextUtils.isEmpty(str)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(null) : (yl) invokeV.objValue;
     }
 }

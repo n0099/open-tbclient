@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
 import com.baidu.tieba.qi;
-import com.baidu.tieba.tg6;
-import com.baidu.tieba.u47;
-import com.baidu.tieba.ww4;
+import com.baidu.tieba.rg6;
+import com.baidu.tieba.s47;
+import com.baidu.tieba.uw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +34,9 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
     public TextView c;
     public TextView d;
     public EntelechyUserLikeButton e;
-    public ww4 f;
+    public uw4 f;
     public BdUniqueId g;
-    public tg6 h;
+    public rg6 h;
     public int i;
     public TbPageContext j;
     public View.OnClickListener k;
@@ -105,19 +105,19 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b24);
         EntelechyUserLikeButton entelechyUserLikeButton = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f091b25);
         this.e = entelechyUserLikeButton;
-        ww4 ww4Var = new ww4(tbPageContext, entelechyUserLikeButton);
-        this.f = ww4Var;
-        ww4Var.m("1");
+        uw4 uw4Var = new uw4(tbPageContext, entelechyUserLikeButton);
+        this.f = uw4Var;
+        uw4Var.m("1");
         this.f.l(bdUniqueId);
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(u47 u47Var) {
+    public void a(s47 s47Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, u47Var) == null) && (u47Var instanceof tg6)) {
-            tg6 tg6Var = (tg6) u47Var;
-            this.h = tg6Var;
-            if (StringUtils.isNull(tg6Var.a.getUserId())) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, s47Var) == null) && (s47Var instanceof rg6)) {
+            rg6 rg6Var = (rg6) s47Var;
+            this.h = rg6Var;
+            if (StringUtils.isNull(rg6Var.a.getUserId())) {
                 return;
             }
             this.b.K(this.h.a.getPortrait(), 28, false);

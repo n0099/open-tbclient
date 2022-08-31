@@ -25,13 +25,13 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c57;
 import com.baidu.tieba.d9;
-import com.baidu.tieba.e57;
 import com.baidu.tieba.i9;
 import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.z47;
+import com.baidu.tieba.x47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     public View n;
     public TBLottieAnimationView o;
     public TextView p;
-    public z47 q;
+    public x47 q;
     public ValueAnimator r;
 
     /* loaded from: classes5.dex */
@@ -186,16 +186,16 @@ public class HotTopicDetailHeadView extends RelativeLayout {
     }
 
     public void d(long j, long j2) {
-        z47 z47Var;
+        x47 x47Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (z47Var = this.q) == null || z47Var.b == 1) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (x47Var = this.q) == null || x47Var.b == 1) {
             return;
         }
         this.o.playAnimation();
         i();
-        z47 z47Var2 = this.q;
-        z47Var2.b = 1;
-        z47Var2.d = j2;
+        x47 x47Var2 = this.q;
+        x47Var2.b = 1;
+        x47Var2.d = j2;
     }
 
     @StringRes
@@ -273,7 +273,7 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.a == i) {
             return;
         }
-        os4 d = os4.d(this.f);
+        ns4 d = ns4.d(this.f);
         d.m(1);
         d.n(R.string.J_X14);
         d.f(R.color.CAM_X0201);
@@ -285,9 +285,9 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
         SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0101);
-        z47 z47Var = this.q;
-        if (z47Var != null) {
-            f(z47Var.e);
+        x47 x47Var = this.q;
+        if (x47Var != null) {
+            f(x47Var.e);
         }
         this.a = i;
     }
@@ -323,11 +323,11 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         view2.setBackgroundColor(i);
     }
 
-    public void setBlessInfo(z47 z47Var) {
+    public void setBlessInfo(x47 x47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, z47Var) == null) {
-            this.q = z47Var;
-            if (z47Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, x47Var) == null) {
+            this.q = x47Var;
+            if (x47Var == null) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -338,15 +338,15 @@ public class HotTopicDetailHeadView extends RelativeLayout {
                 this.j.setLayoutParams(layoutParams2);
                 return;
             }
-            this.p.setText(getContext().getResources().getString(e(z47Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(z47Var.a)));
-            if (z47Var.b == 1) {
+            this.p.setText(getContext().getResources().getString(e(x47Var.e), StringHelper.numberUniformFormatExtraWithRoundInt(x47Var.a)));
+            if (x47Var.b == 1) {
                 this.o.setVisibility(8);
                 this.p.setVisibility(0);
                 this.p.setTranslationX(0.0f);
             } else {
                 this.o.setVisibility(0);
                 this.p.setVisibility(4);
-                f(z47Var.e);
+                f(x47Var.e);
                 this.o.cancelAnimation();
             }
             RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.h.getLayoutParams();
@@ -358,24 +358,24 @@ public class HotTopicDetailHeadView extends RelativeLayout {
         }
     }
 
-    public void setTopicInfo(e57 e57Var) {
+    public void setTopicInfo(c57 c57Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, e57Var) == null) || e57Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c57Var) == null) || c57Var == null) {
             return;
         }
-        this.e.setVisibility(TextUtils.isEmpty(e57Var.f) ? 0 : 8);
-        this.g.K(e57Var.e, 10, false);
-        this.c.K(e57Var.f, 39, false);
-        this.h.setText(e57Var.b);
-        if (e57Var.i > 0) {
+        this.e.setVisibility(TextUtils.isEmpty(c57Var.f) ? 0 : 8);
+        this.g.K(c57Var.e, 10, false);
+        this.c.K(c57Var.f, 39, false);
+        this.h.setText(c57Var.b);
+        if (c57Var.i > 0) {
             TextView textView = this.l;
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f0891);
-            textView.setText(String.format(string, "" + e57Var.i));
+            textView.setText(String.format(string, "" + c57Var.i));
             this.l.setVisibility(0);
         } else {
             this.l.setVisibility(8);
         }
-        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088f), StringHelper.numberUniformFormatExtraWithRoundInt(e57Var.d)));
+        this.k.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f088f), StringHelper.numberUniformFormatExtraWithRoundInt(c57Var.d)));
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

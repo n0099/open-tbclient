@@ -16,17 +16,17 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba5;
 import com.baidu.tieba.qi;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vw4;
+import com.baidu.tieba.tw4;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class BlueLikeButton extends TextView implements vw4 {
+public class BlueLikeButton extends TextView implements tw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -54,7 +54,7 @@ public class BlueLikeButton extends TextView implements vw4 {
         this.b = false;
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.b) {
@@ -72,9 +72,9 @@ public class BlueLikeButton extends TextView implements vw4 {
             return;
         }
         Context context = getContext();
-        if ((context instanceof Activity) && (context instanceof ba5)) {
+        if ((context instanceof Activity) && (context instanceof z95)) {
             String stringExtra = ((Activity) context).getIntent().getStringExtra("thread_id");
-            List<String> currentPageSourceKeyList = ((ba5) context).getCurrentPageSourceKeyList();
+            List<String> currentPageSourceKeyList = ((z95) context).getCurrentPageSourceKeyList();
             if (currentPageSourceKeyList == null || !StringHelper.equals((String) ListUtils.getItem(currentPageSourceKeyList, currentPageSourceKeyList.size() - 1), "a002") || qi.isEmpty(stringExtra)) {
                 return;
             }
@@ -82,7 +82,7 @@ public class BlueLikeButton extends TextView implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void b(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
@@ -90,7 +90,7 @@ public class BlueLikeButton extends TextView implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void c(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -98,14 +98,14 @@ public class BlueLikeButton extends TextView implements vw4 {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.vw4
+    @Override // com.baidu.tieba.tw4
     public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {

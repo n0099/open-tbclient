@@ -207,7 +207,7 @@ public class bl4 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            tu4 k = tu4.k();
+            su4 k = su4.k();
             String q = k.q("key_sdk_task_expand_data_" + str, "");
             if (TextUtils.isEmpty(q)) {
                 return null;
@@ -270,7 +270,7 @@ public class bl4 {
     public void l(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            tu4 k = tu4.k();
+            su4 k = su4.k();
             k.y("key_sdk_task_expand_data_" + str, str2);
         }
     }

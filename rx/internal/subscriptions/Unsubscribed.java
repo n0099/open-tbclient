@@ -1,7 +1,7 @@
 package rx.internal.subscriptions;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hv9;
+import com.baidu.tieba.fv9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes8.dex */
-public final class Unsubscribed implements hv9 {
+public final class Unsubscribed implements fv9 {
     public static final /* synthetic */ Unsubscribed[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final Unsubscribed INSTANCE;
@@ -66,7 +66,7 @@ public final class Unsubscribed implements hv9 {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Unsubscribed[]) $VALUES.clone() : (Unsubscribed[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hv9
+    @Override // com.baidu.tieba.fv9
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,7 +76,7 @@ public final class Unsubscribed implements hv9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hv9
+    @Override // com.baidu.tieba.fv9
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

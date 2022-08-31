@@ -5,58 +5,43 @@ import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.util.BdListViewHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class ml7 extends BaseAdapter {
+public class ml7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jl7> a;
-    public MemberTaskCenterActivity b;
-    public View.OnClickListener c;
+    public NoNetworkView a;
+    public NavigationBar b;
+    public BdListView c;
+    public View d;
+    public kl7 e;
+    public View f;
+    public TbImageView g;
+    public TextView h;
+    public MemberTaskCenterActivity i;
 
-    /* loaded from: classes5.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public TextView c;
-        public View d;
-
-        public a(ml7 ml7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ml7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public ml7(MemberTaskCenterActivity memberTaskCenterActivity) {
+    public ml7(MemberTaskCenterActivity memberTaskCenterActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {memberTaskCenterActivity};
+            Object[] objArr = {memberTaskCenterActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -66,8 +51,27 @@ public class ml7 extends BaseAdapter {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = memberTaskCenterActivity;
+        this.i = memberTaskCenterActivity;
+        memberTaskCenterActivity.setContentView(R.layout.obfuscated_res_0x7f0d056b);
+        this.d = memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f091c33);
+        this.a = (NoNetworkView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092568);
+        NavigationBar navigationBar = (NavigationBar) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f092566);
+        this.b = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.b.setTitleText(R.string.obfuscated_res_0x7f0f0ac6);
+        this.c = (BdListView) memberTaskCenterActivity.findViewById(R.id.obfuscated_res_0x7f0914d9);
+        this.f = LayoutInflater.from(memberTaskCenterActivity.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d056c, (ViewGroup) null);
+        BdListViewHelper.d(memberTaskCenterActivity.getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
+        TbImageView tbImageView = (TbImageView) this.f.findViewById(R.id.obfuscated_res_0x7f09014a);
+        this.g = tbImageView;
+        tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.h = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f090731);
+        this.g.setOnClickListener(onClickListener);
+        kl7 kl7Var = new kl7(memberTaskCenterActivity);
+        this.e = kl7Var;
+        kl7Var.d(onClickListener);
+        this.c.addHeaderView(this.f);
+        this.c.setAdapter((ListAdapter) this.e);
     }
 
     public final SpannableString a(String str, String str2) {
@@ -75,109 +79,41 @@ public class ml7 extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             SpannableString spannableString = new SpannableString(str + str2);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), 0, str.length(), 33);
-            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), str.length(), spannableString.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, str.length(), 33);
+            spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0301)), str.length(), spannableString.length(), 33);
             return spannableString;
         }
         return (SpannableString) invokeLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public jl7 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            List<jl7> list = this.a;
-            if (list == null || list.size() <= i) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (jl7) invokeI.objValue;
-    }
-
-    public void c(List<jl7> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            if (list != null) {
-                this.a.addAll(list);
-            }
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.c = onClickListener;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public BdListView b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<jl7> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (BdListView) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (View) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 != null && (view2.getTag() instanceof a)) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getActivity()).inflate(R.layout.obfuscated_res_0x7f0d056d, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09207c);
-                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09207d);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09207e);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
-            }
-            jl7 item = getItem(i);
-            if (item != null) {
-                aVar.a.setText(item.f());
-                aVar.b.setText(a(String.valueOf(item.a()), item.b()));
-                if (item.d()) {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f08eb), TextView.BufferType.EDITABLE);
-                    aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    aVar.c.setBackgroundDrawable(null);
-                    aVar.c.setOnClickListener(null);
-                } else {
-                    aVar.c.setText(this.b.getPageContext().getString(R.string.obfuscated_res_0x7f0f0495), TextView.BufferType.EDITABLE);
-                    SkinManager.setViewTextColor(aVar.c, (int) R.color.member_center_task_btn_textcolor);
-                    aVar.c.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
-                    aVar.c.setTag(item);
-                    aVar.c.setOnClickListener(this.c);
-                }
-                SkinManager.setViewTextColor(aVar.b, (int) R.color.CAM_X0109);
-                SkinManager.setViewTextColor(aVar.a, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(aVar.d, R.color.CAM_X0204);
-            }
-            view2.setTag(aVar);
-            return view2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b.onChangeSkinType(this.i.getPageContext(), i);
+            this.a.d(this.i.getPageContext(), i);
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0205);
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public void e(String str, List<hl7> list, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, list, Long.valueOf(j)}) == null) {
+            this.g.K(str, 10, false);
+            this.h.setText(a(this.i.getResources().getString(R.string.obfuscated_res_0x7f0f0480), String.valueOf(j)));
+            this.e.c(list);
+            this.e.notifyDataSetChanged();
+        }
     }
 }

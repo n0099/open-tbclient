@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.j37;
+import com.baidu.tieba.h37;
 import com.baidu.tieba.pn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -63,9 +63,9 @@ public class ResponseSocketGetTopicThreadMessage extends SocketResponsedMessage 
                 this.mDataList = new ArrayList();
                 for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                     if (topicThread != null) {
-                        j37 j37Var = new j37();
-                        j37Var.f(topicThread);
-                        this.mDataList.add(j37Var);
+                        h37 h37Var = new h37();
+                        h37Var.f(topicThread);
+                        this.mDataList.add(h37Var);
                     }
                 }
             }

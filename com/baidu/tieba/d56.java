@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class d56 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardGame a;
+    public FeatureCardTopic a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,21 +47,21 @@ public class d56 implements pn {
         }
     }
 
-    public FeatureCardGame a() {
+    public FeatureCardTopic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardGame) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardTopic) invokeV.objValue;
     }
 
-    public void b(FeatureCardGame featureCardGame) {
+    public void b(FeatureCardTopic featureCardTopic) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardGame) == null) || featureCardGame == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) == null) || featureCardTopic == null) {
             return;
         }
-        this.a = featureCardGame;
-        String str = featureCardGame.title;
-        Integer num = featureCardGame.floor;
-        Integer num2 = featureCardGame.type;
+        this.a = featureCardTopic;
+        String str = featureCardTopic.title;
+        Integer num = featureCardTopic.floor;
+        Integer num2 = featureCardTopic.type;
     }
 
     @Override // com.baidu.tieba.pn

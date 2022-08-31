@@ -12,7 +12,7 @@ public class em5 extends AbsDataRecorder {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public em5() {
-        super(AbsDataRecorder.Scene.FRS_NEW);
+        super(AbsDataRecorder.Scene.RECOMMEND);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

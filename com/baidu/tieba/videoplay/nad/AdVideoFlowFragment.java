@@ -18,23 +18,23 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qw8;
-import com.baidu.tieba.vb8;
+import com.baidu.tieba.ow8;
+import com.baidu.tieba.tb8;
+import com.baidu.tieba.uj5;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.tieba.videoplay.view.GestureInterceptTouchFrameLayout;
-import com.baidu.tieba.wj5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class AdVideoFlowFragment extends BaseFragment implements wj5.b, qw8 {
+public class AdVideoFlowFragment extends BaseFragment implements uj5.b, ow8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public GestureInterceptTouchFrameLayout a;
     public FrameLayout b;
-    public vb8 c;
+    public tb8 c;
     public VideoItemModel d;
     public int e;
     public int f;
@@ -136,24 +136,24 @@ public class AdVideoFlowFragment extends BaseFragment implements wj5.b, qw8 {
         this.g = new a(this, 2921612);
     }
 
-    @Override // com.baidu.tieba.qw8
+    @Override // com.baidu.tieba.ow8
     public VideoItemModel E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (VideoItemModel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wj5.b
+    @Override // com.baidu.tieba.uj5.b
     public void k0(float f, float f2) {
-        vb8 vb8Var;
+        tb8 tb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (vb8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || (tb8Var = this.c) == null) {
             return;
         }
-        vb8Var.onViewDoubleClick();
+        tb8Var.onViewDoubleClick();
     }
 
-    @Override // com.baidu.tieba.qw8
+    @Override // com.baidu.tieba.ow8
     public void n0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -210,11 +210,11 @@ public class AdVideoFlowFragment extends BaseFragment implements wj5.b, qw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            vb8 vb8Var = this.c;
-            if (vb8Var == null) {
+            tb8 tb8Var = this.c;
+            if (tb8Var == null) {
                 return;
             }
-            vb8Var.onDestroy();
+            tb8Var.onDestroy();
         }
     }
 
@@ -235,11 +235,11 @@ public class AdVideoFlowFragment extends BaseFragment implements wj5.b, qw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onPause();
-            vb8 vb8Var = this.c;
-            if (vb8Var == null) {
+            tb8 tb8Var = this.c;
+            if (tb8Var == null) {
                 return;
             }
-            vb8Var.onPause();
+            tb8Var.onPause();
         }
     }
 
@@ -248,35 +248,35 @@ public class AdVideoFlowFragment extends BaseFragment implements wj5.b, qw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPrimary();
-            vb8 vb8Var = this.c;
-            if (vb8Var == null) {
+            tb8 tb8Var = this.c;
+            if (tb8Var == null) {
                 return;
             }
-            vb8Var.onPrimary(isPrimary());
+            tb8Var.onPrimary(isPrimary());
         }
     }
 
-    @Override // com.baidu.tieba.wj5.b
+    @Override // com.baidu.tieba.uj5.b
     public void onViewClick() {
-        vb8 vb8Var;
+        tb8 tb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (vb8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (tb8Var = this.c) == null) {
             return;
         }
-        vb8Var.onViewClick();
+        tb8Var.onViewClick();
     }
 
-    @Override // com.baidu.tieba.wj5.b
+    @Override // com.baidu.tieba.uj5.b
     public void onViewDragToRight() {
-        vb8 vb8Var;
+        tb8 tb8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (vb8Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (tb8Var = this.c) == null) {
             return;
         }
-        vb8Var.onViewDragToRight();
+        tb8Var.onViewDragToRight();
     }
 
-    @Override // com.baidu.tieba.qw8
+    @Override // com.baidu.tieba.ow8
     public int q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -295,18 +295,18 @@ public class AdVideoFlowFragment extends BaseFragment implements wj5.b, qw8 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
             super.setUserVisibleHint(z);
-            vb8 vb8Var = this.c;
-            if (vb8Var == null) {
+            tb8 tb8Var = this.c;
+            if (tb8Var == null) {
                 return;
             }
-            vb8Var.onUserVisibleHint(z);
+            tb8Var.onUserVisibleHint(z);
         }
     }
 
-    public void t1(vb8 vb8Var) {
+    public void t1(tb8 tb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, vb8Var) == null) {
-            this.c = vb8Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, tb8Var) == null) {
+            this.c = tb8Var;
         }
     }
 }

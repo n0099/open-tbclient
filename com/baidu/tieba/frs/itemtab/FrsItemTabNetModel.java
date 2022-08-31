@@ -7,15 +7,15 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.dn6;
-import com.baidu.tieba.z85;
+import com.baidu.tieba.bn6;
+import com.baidu.tieba.x85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, dn6, T> {
+public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, bn6, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,7 +32,7 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, d
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (z85) objArr2[1]);
+                super((TbPageContext) objArr2[0], (x85) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,6 +82,6 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, d
     public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? dn6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? bn6.class : (Class) invokeV.objValue;
     }
 }

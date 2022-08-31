@@ -1,80 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class fv4 {
+public class fv4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public WeakReference<Drawable> b;
 
-    public static void a(ImageView imageView, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fv4(Drawable drawable) {
+        super(drawable);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, imageView, i) == null) || imageView == null) {
-            return;
-        }
-        WebPManager.setPureDrawable(imageView, i, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
-        ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
-        if (layoutParams != null) {
-            layoutParams.width = ri.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            layoutParams.height = ri.f(TbadkApplication.getInst(), R.dimen.tbds52);
-            imageView.setLayoutParams(layoutParams);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {drawable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Drawable) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(ViewGroup viewGroup) {
-        ViewGroup.LayoutParams layoutParams;
+    public final Drawable a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, viewGroup) == null) || viewGroup == null || (layoutParams = viewGroup.getLayoutParams()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.b;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.b = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
         }
-        layoutParams.height = ri.f(TbadkApplication.getInst(), R.dimen.tbds120);
-        viewGroup.setLayoutParams(layoutParams);
+        return (Drawable) invokeV.objValue;
     }
 
-    public static void c(TextView textView) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, textView) == null) || textView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
-        os4.d(textView).v(R.color.CAM_X0107);
     }
 
-    public static void d(TextView textView) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, textView) == null) || textView == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            Drawable a = a();
+            canvas.save();
+            canvas.translate(f, (((i4 + paint.getFontMetricsInt().descent) - a.getBounds().height()) / 2) + this.a);
+            a.draw(canvas);
+            canvas.restore();
         }
-        os4.d(textView).z(R.dimen.tbds36);
-    }
-
-    public static void e(TextView textView) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, textView) == null) || textView == null) {
-            return;
-        }
-        os4 d = os4.d(textView);
-        d.z(R.dimen.tbds36);
-        d.v(R.color.CAM_X0107);
-    }
-
-    public static void f(TBLottieAnimationView tBLottieAnimationView, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, tBLottieAnimationView, i) == null) || tBLottieAnimationView == null) {
-            return;
-        }
-        if (i != 1 && i != 4) {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110020);
-        } else {
-            SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.obfuscated_res_0x7f110022);
-        }
-        tBLottieAnimationView.setColorFilter(SkinManager.getColor(R.color.CAM_X0107));
     }
 }

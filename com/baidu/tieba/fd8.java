@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,9 +10,10 @@ import org.json.JSONObject;
 public class fd8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public int a;
+    public int b;
+    public int c;
+    public long d;
 
     public fd8() {
         Interceptable interceptable = $ic;
@@ -29,14 +29,18 @@ public class fd8 {
         }
     }
 
-    public static fd8 a(@NonNull JSONObject jSONObject) {
+    public static fd8 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
             fd8 fd8Var = new fd8();
-            fd8Var.a = jSONObject.optString("lottie");
-            fd8Var.b = jSONObject.optString("text");
-            fd8Var.c = jSONObject.optString("cmd");
+            fd8Var.a = jSONObject.optInt("agree_num", -1);
+            fd8Var.b = jSONObject.optInt("share_num", -1);
+            fd8Var.c = jSONObject.optInt("reply_num", -1);
+            fd8Var.d = jSONObject.optLong("time", System.currentTimeMillis());
             return fd8Var;
         }
         return (fd8) invokeL.objValue;

@@ -1,23 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Hashtable;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class iy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Hashtable<String, String> a;
-    public Hashtable<String, String> b;
+    public long a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public String i;
+    public String j;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-702854424, "Lcom/baidu/tieba/iy4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-702854424, "Lcom/baidu/tieba/iy4$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[EmotionGroupType.values().length];
+            a = iArr;
+            try {
+                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public iy4() {
         Interceptable interceptable = $ic;
@@ -29,69 +72,41 @@ public class iy4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new Hashtable<>();
-        this.b = new Hashtable<>();
-    }
-
-    public final void a(Hashtable hashtable, JSONArray jSONArray) {
-        int length;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, hashtable, jSONArray) == null) || (length = jSONArray.length()) <= 0) {
-            return;
-        }
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                try {
-                    hashtable.put(next, optJSONObject.get(next));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
             }
         }
     }
 
-    public boolean b(int i, String str) {
-        InterceptResult invokeIL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (str == null) {
-                return true;
-            }
-            String str2 = null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (String) invokeV.objValue;
+    }
+
+    public void c(@NonNull d35 d35Var, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, d35Var, str) == null) {
+            EmotionGroupType h = d35Var.h();
+            String b = str != null ? a75.b.b(str) : null;
+            int i = a.a[h.ordinal()];
             if (i == 1) {
-                str2 = this.b.get(str);
+                this.j = "1";
+                this.i = str;
             } else if (i == 2) {
-                str2 = this.a.get(str);
+                this.j = "2";
+                this.i = b;
+            } else if (i != 3) {
+                this.j = d35Var.f();
+                this.i = b;
+            } else {
+                this.j = "3";
+                this.i = b;
             }
-            if (StringUtils.isNull(str2)) {
-                return true;
-            }
-            return str2.equals("3");
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONArray optJSONArray = jSONObject.optJSONArray("tdou_cashier_type");
-            JSONArray optJSONArray2 = jSONObject.optJSONArray("pay_cashier_type");
-            BdLog.e("consumepath is:" + jSONObject.toString());
-            a(this.a, optJSONArray);
-            a(this.b, optJSONArray2);
-            BdLog.e("pay mPayCashierType:" + this.a.toString());
-            BdLog.e("pay mPayCashierType:" + this.b.toString());
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

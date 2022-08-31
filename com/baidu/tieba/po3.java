@@ -43,13 +43,13 @@ public class po3 extends Dialog {
 
         /* renamed from: com.baidu.tieba.po3$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class View$OnClickListenerC0374a implements View.OnClickListener {
+        public class View$OnClickListenerC0379a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DialogInterface.OnClickListener a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0374a(a aVar, DialogInterface.OnClickListener onClickListener) {
+            public View$OnClickListenerC0379a(a aVar, DialogInterface.OnClickListener onClickListener) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -348,7 +348,7 @@ public class po3 extends Dialog {
                     this.a.i.setVisibility(0);
                 }
                 this.a.e.setText(charSequence);
-                this.a.e.setOnClickListener(new View$OnClickListenerC0374a(this, onClickListener));
+                this.a.e.setOnClickListener(new View$OnClickListenerC0379a(this, onClickListener));
                 return this;
             }
             return (a) invokeLL.objValue;

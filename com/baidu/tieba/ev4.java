@@ -1,235 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.AnimationDrawable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class ev4 extends dv4 {
+/* loaded from: classes3.dex */
+public class ev4 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public boolean B;
-    public boolean C;
-    public CustomMessageListener D;
-    public CustomMessageListener E;
-
-    /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ev4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ev4 ev4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ev4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ev4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                ev4 ev4Var = this.a;
-                if (ev4Var.B) {
-                    ev4Var.H(TbadkCoreApplication.getInst().getSkinType());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ev4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ev4 ev4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ev4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ev4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.h.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ev4(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity());
+    public ev4(Drawable drawable, int i) {
+        super(drawable, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.B = true;
-        this.C = false;
-        this.D = new a(this, 2016203);
-        this.E = new b(this, 2016204);
-        Y(tbPageContext);
     }
 
-    @Override // com.baidu.tieba.dv4
-    public void H(int i) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            super.H(i);
-            if (this.h == null || this.i == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            if (((ImageSpan) this).mVerticalAlignment == -100) {
+                Drawable drawable = getDrawable();
+                canvas.save();
+                Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+                int i6 = fontMetricsInt.top;
+                canvas.translate(f, i4 + i6 + (((fontMetricsInt.bottom - i6) - (drawable.getBounds().bottom - drawable.getBounds().top)) / 2));
+                drawable.draw(canvas);
+                canvas.restore();
                 return;
             }
-            this.A = false;
-            if (!N()) {
-                AnimationDrawable animationDrawable = PullViewHelper.getInstance().getAnimationDrawable(i);
-                this.n = animationDrawable;
-                if (animationDrawable != null) {
-                    this.A = true;
-                } else {
-                    this.n = new AnimationDrawable();
-                }
-                if (!this.A) {
-                    this.n = PullViewHelper.getInstance().getDefaultAnimationDrawable(i);
-                }
-                this.n.setOneShot(false);
-                this.i.setBackgroundDrawable(this.n);
-            }
-            if (this.C) {
-                this.h.setBackgroundColor(0);
-            }
+            super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
         }
     }
 
-    public final void Y(TbPageContext<?> tbPageContext) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.D.setTag(tbPageContext.getUniqueId());
-            this.E.setTag(tbPageContext.getUniqueId());
-            tbPageContext.registerListener(this.D);
-            tbPageContext.registerListener(this.E);
-        }
-    }
-
-    public void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.D);
-            MessageManager.getInstance().unRegisterListener(this.E);
-        }
-    }
-
-    public void a0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.C = z;
-        }
-    }
-
-    public void b0(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            CustomMessageListener customMessageListener = this.D;
-            if (customMessageListener != null) {
-                customMessageListener.setTag(bdUniqueId);
-            }
-            CustomMessageListener customMessageListener2 = this.E;
-            if (customMessageListener2 != null) {
-                customMessageListener2.setTag(bdUniqueId);
-            }
-            MessageManager.getInstance().registerListener(this.D);
-            MessageManager.getInstance().registerListener(this.E);
-        }
-    }
-
-    @Override // com.baidu.tieba.dv4, com.baidu.tieba.en
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.i.setBackgroundDrawable(null);
-            super.o(z);
-            this.B = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.dv4, com.baidu.tieba.en
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            super.w(z);
-            this.B = false;
-            if (this.A) {
-                return;
-            }
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            int i = this.p;
-            if (i != Integer.MIN_VALUE) {
-                skinType = i;
-            }
-            H(skinType);
-        }
-    }
-
-    @Override // com.baidu.tieba.dv4, com.baidu.tieba.en
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.x();
-            this.B = false;
-        }
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) ? super.getSize(paint, charSequence, i, i2, fontMetricsInt) : invokeCommon.intValue;
     }
 }

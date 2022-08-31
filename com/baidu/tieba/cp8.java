@@ -2,26 +2,28 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
+import com.baidu.tieba.im.model.IMUserListModel;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class cp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final ho8 b;
+    public IMUserListModel a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2921543);
+    public cp8(MainTabActivity mainTabActivity) {
+        super(2016003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,18 +34,18 @@ public class cp8 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.f;
+        this.a = new IMUserListModel(mainTabActivity.getPageContext(), mainTabActivity.getUniqueId());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ho8 ho8Var;
+        MemoryModifyLastMsgMessage.a data;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (ho8Var = this.b) == null || ho8Var.j() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016003 && (data = ((MemoryModifyLastMsgMessage) customResponsedMessage).getData()) != null && a87.f().g(data.a, 2) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(data.a);
+            this.a.request(false, arrayList);
         }
-        this.b.j().a();
     }
 }

@@ -1,66 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.TargetApi;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+@TargetApi(18)
 /* loaded from: classes4.dex */
-public class it8 extends BaseAdapter {
+public class it8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d9 a;
-    public List<MusicData> b;
-    public int c;
+    public Context a;
+    public String b;
+    public String c;
     public String d;
+    public boolean e;
+    public c f;
+    public mt8 g;
+    public kt8 h;
+    public lt8 i;
+    public volatile boolean j;
+    public volatile boolean k;
+    public volatile boolean l;
 
     /* loaded from: classes4.dex */
-    public class a {
+    public class a extends mt8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public View b;
-        public TextView c;
+        public final /* synthetic */ it8 f;
 
-        public a(it8 it8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(it8 it8Var, Context context, String str, String str2, lt8 lt8Var, c cVar) {
+            super(context, str, str2, lt8Var, cVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {it8Var};
+                Object[] objArr = {it8Var, context, str, str2, lt8Var, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (lt8) objArr2[3], (c) objArr2[4]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.f = it8Var;
+        }
+
+        @Override // com.baidu.tieba.mt8
+        public void k() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.j = true;
+                this.f.d();
             }
         }
     }
 
-    public it8(d9 d9Var) {
+    /* loaded from: classes4.dex */
+    public class b extends kt8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ it8 f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(it8 it8Var, Context context, String str, lt8 lt8Var, c cVar) {
+            super(context, str, lt8Var, cVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it8Var, context, str, lt8Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (lt8) objArr2[2], (c) objArr2[3]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = it8Var;
+        }
+
+        @Override // com.baidu.tieba.kt8
+        public void k() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.k = true;
+                this.f.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
+        void onGenFilterVideoFail(int i, String str);
+
+        void onGenFilterVideoRecordError(int i, String str);
+
+        void onGenFilterVideoSuccess(String str);
+    }
+
+    public it8(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {d9Var};
+            Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,171 +127,96 @@ public class it8 extends BaseAdapter {
                 return;
             }
         }
-        this.a = d9Var;
+        this.e = false;
+        this.a = context;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
     }
 
-    public void a(TextView textView, int i, String str) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, textView, i, str) == null) || i <= 0) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.j && this.k && !this.l) {
+            this.i.f();
+            this.l = true;
+            g();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            mt8 mt8Var = this.g;
+            if (mt8Var != null) {
+                mt8Var.interrupt();
+                this.g = null;
+            }
+            kt8 kt8Var = this.h;
+            if (kt8Var != null) {
+                kt8Var.interrupt();
+                this.h = null;
+            }
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f != null) {
+                File file = new File(this.c);
+                if (file.exists() && file.length() > 0) {
+                    this.f.onGenFilterVideoSuccess(this.c);
+                } else {
+                    this.f.onGenFilterVideoFail(223, "Err empty outputFile");
+                }
+            }
+            this.e = false;
+        }
+    }
+
+    public void h(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
+            this.f = cVar;
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.e) {
             return;
         }
-        float f = ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702b3);
-        TextPaint textPaint = new TextPaint();
-        textPaint.setTextSize(f);
-        while (textPaint.measureText(str) > i) {
-            f -= 1.0f;
-            textPaint.setTextSize(f);
-        }
-        textView.setTextSize(0, f);
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public List<MusicData> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (List) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.c = i;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.d = str;
-            if (TextUtils.isEmpty(str) || this.b == null) {
-                return;
+        this.e = true;
+        this.j = false;
+        this.k = false;
+        this.l = false;
+        try {
+            File file = new File(new File(this.c).getParent());
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            int i = -1;
-            for (int i2 = 0; i2 < this.b.size(); i2++) {
-                if (str.equals(this.b.get(i2).id)) {
-                    i = i2;
-                }
+        } catch (Exception e) {
+            e.printStackTrace();
+            c cVar = this.f;
+            if (cVar != null) {
+                cVar.onGenFilterVideoFail(222, en7.a(e));
             }
-            if (i == -1) {
-                i = 1;
-            }
-            this.c = i;
         }
-    }
-
-    public void f(List<MusicData> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, list) == null) || list == null) {
-            return;
+        try {
+            this.i = new lt8(this.c);
+            a aVar = new a(this, this.a, this.b, this.d, this.i, this.f);
+            this.g = aVar;
+            aVar.start();
+            b bVar = new b(this, this.a, this.b, this.i, this.f);
+            this.h = bVar;
+            bVar.start();
+        } catch (Exception unused) {
         }
-        this.b = list;
-        e(this.d);
-        notifyDataSetChanged();
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<MusicData> list = this.b;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            List<MusicData> list = this.b;
-            if (list == null) {
-                return null;
-            }
-            return list.get(i);
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04a9, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09158e);
-                aVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091592);
-                aVar.b = view2.findViewById(R.id.obfuscated_res_0x7f09158f);
-                aVar.a.setDrawerType(1);
-                aVar.a.setIsRound(true);
-                aVar.a.setDefaultBgResource(R.color.transparent);
-                aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f0802ff);
-                aVar.a.setBorderWidth(ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                aVar.a.setConrers(15);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            MusicData musicData = this.b.get(i);
-            if (musicData != null) {
-                int i2 = musicData.editMusicType;
-                if (i2 == 1) {
-                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080b09), 24, false);
-                } else if (i2 != 2) {
-                    aVar.a.K(musicData.img, 10, false);
-                } else {
-                    aVar.a.K(String.valueOf((int) R.drawable.obfuscated_res_0x7f080af3), 24, false);
-                }
-                aVar.b.setVisibility(4);
-                aVar.c.setTextColor(SkinManager.getColor(R.color.CAM_X0107));
-                aVar.c.setText(musicData.name);
-                a(aVar.c, ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c), musicData.name);
-                if (i == this.c) {
-                    aVar.a.setDrawBorder(true);
-                } else {
-                    aVar.a.setDrawBorder(false);
-                }
-                if (i == 0) {
-                    view2.setPadding(ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
-                } else if (i == this.b.size() - 1) {
-                    view2.setPadding(ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f07020f), 0);
-                } else {
-                    view2.setPadding(ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9), ri.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702c3), 0, 0);
-                }
-                if (this.a.getPageActivity() instanceof BaseActivity) {
-                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    ((BaseActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
-                } else if (this.a.getPageActivity() instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().l(TbadkCoreApplication.getInst().getSkinType() == 1);
-                    ((BaseFragmentActivity) this.a.getPageActivity()).getLayoutMode().k(view2);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
     }
 }

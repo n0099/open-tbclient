@@ -1,69 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BawuRoleInfoPub;
-import tbclient.ForumRuleDetail.DataRes;
 /* loaded from: classes6.dex */
-public class xk6 implements pn {
+public class xk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public View b;
+    public EMTextView c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303302, "Lcom/baidu/tieba/xk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303302, "Lcom/baidu/tieba/xk6;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public xk6() {
+    public xk6(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        b(context);
     }
 
-    public void a(DataRes dataRes) {
+    public void a(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) {
-            BawuRoleInfoPub bawuRoleInfoPub = dataRes.bazhu;
-            String str = bawuRoleInfoPub.name_show;
-            String str2 = bawuRoleInfoPub.portrait;
-            dataRes.is_manager.intValue();
-            dataRes.bazhu.user_level.intValue();
-            String str3 = dataRes.publish_time;
-            dataRes.audit_status.intValue();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (view2 = this.b) == null) {
+            return;
+        }
+        view2.setVisibility(0);
+        bdTypeRecyclerView.s(this.b);
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) && this.b == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02bd, (ViewGroup) null);
+            this.b = inflate;
+            this.c = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090a94);
+            c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            ns4 d = ns4.d(this.c);
+            d.A(R.string.F_X02);
+            d.v(R.color.CAM_X0105);
+        }
+    }
+
+    public void d(BdTypeRecyclerView bdTypeRecyclerView) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bdTypeRecyclerView) == null) || bdTypeRecyclerView == null || (view2 = this.b) == null) {
+            return;
+        }
+        view2.setVisibility(8);
+        bdTypeRecyclerView.removeHeaderView(this.b);
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(str);
+        }
     }
 }

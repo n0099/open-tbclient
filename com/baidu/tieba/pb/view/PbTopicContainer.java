@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.km4;
-import com.baidu.tieba.pe5;
+import com.baidu.tieba.ne5;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -65,7 +65,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         int f = ri.f(context, R.dimen.tbds22);
         layoutParams.rightMargin = f;
         textView.setTag(recommendTopicListData);
-        textView.setText(pe5.a(recommendTopicListData.getTopicName()));
+        textView.setText(ne5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
         textView.setTextSize(0, ri.f(context, R.dimen.tbds33));
         textView.setGravity(17);
@@ -82,7 +82,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !pe5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !ne5.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
                 return;

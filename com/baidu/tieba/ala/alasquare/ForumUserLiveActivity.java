@@ -10,14 +10,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.nq5;
+import com.baidu.tieba.lq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements nq5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements lq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -71,14 +71,14 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements nq5 {
         }
     }
 
-    @Override // com.baidu.tieba.nq5
+    @Override // com.baidu.tieba.lq5
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.nq5
+    @Override // com.baidu.tieba.lq5
     public boolean n0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

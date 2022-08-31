@@ -29,7 +29,6 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.mobstat.bm;
 import com.baidu.mobstat.bt;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -244,7 +243,7 @@ public class bw {
                 if (!bo.e(context, com.kuaishou.weapon.p0.h.d) || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                     return "";
                 }
-                String macAddress = ApiReplaceUtil.getMacAddress(connectionInfo);
+                String macAddress = connectionInfo.getMacAddress();
                 return !TextUtils.isEmpty(macAddress) ? macAddress : "";
             } catch (Exception unused) {
                 return "";
@@ -694,7 +693,7 @@ public class bw {
             try {
                 for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
                     if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
+                        byte[] hardwareAddress = networkInterface.getHardwareAddress();
                         if (hardwareAddress == null) {
                             return "";
                         }
@@ -733,9 +732,9 @@ public class bw {
                             InetAddress nextElement2 = inetAddresses.nextElement();
                             if (!nextElement2.isAnyLocalAddress() && (nextElement2 instanceof Inet4Address) && !nextElement2.isLoopbackAddress()) {
                                 if (nextElement2.isSiteLocalAddress()) {
-                                    bArr = ApiReplaceUtil.getHardwareAddress(nextElement);
+                                    bArr = nextElement.getHardwareAddress();
                                 } else if (!nextElement2.isLinkLocalAddress()) {
-                                    bArr = ApiReplaceUtil.getHardwareAddress(nextElement);
+                                    bArr = nextElement.getHardwareAddress();
                                     break;
                                 }
                             }

@@ -1,85 +1,60 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbVideoDetailBrowseModeEmotionHolder;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class tx7 extends iw7<bu7, PbVideoDetailBrowseModeEmotionHolder> {
+public abstract class tx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener g;
+    public BaseFragmentActivity a;
+    public View b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tx7(a18 activity, BdUniqueId mType) {
-        super(activity, mType);
+    public tx7(BaseFragmentActivity baseFragmentActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, mType};
+            Object[] objArr = {baseFragmentActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((a18) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
-        Intrinsics.checkNotNullParameter(mType, "mType");
+        this.a = baseFragmentActivity;
+        this.b = view2;
     }
 
-    public final View.OnClickListener u() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (View.OnClickListener) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: v */
-    public PbVideoDetailBrowseModeEmotionHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            View view2 = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d08ae, viewGroup, false);
-            Intrinsics.checkNotNullExpressionValue(view2, "view");
-            return new PbVideoDetailBrowseModeEmotionHolder(view2);
-        }
-        return (PbVideoDetailBrowseModeEmotionHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cn
-    /* renamed from: w */
-    public void onFillViewHolder(int i, ViewGroup viewGroup, PbVideoDetailBrowseModeEmotionHolder pbVideoDetailBrowseModeEmotionHolder, bu7 bu7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), viewGroup, pbVideoDetailBrowseModeEmotionHolder, bu7Var}) == null) {
-            super.onFillViewHolder(i, viewGroup, pbVideoDetailBrowseModeEmotionHolder, bu7Var);
-            if (pbVideoDetailBrowseModeEmotionHolder == null) {
-                return;
-            }
-            pbVideoDetailBrowseModeEmotionHolder.a();
-            pbVideoDetailBrowseModeEmotionHolder.b(u());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            b(null);
         }
     }
 
-    public final void x(View.OnClickListener onClickListener) {
+    public void b(yv7 yv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yv7Var) == null) || this.a == null || this.b == null) {
+            return;
         }
+        c(yv7Var);
+    }
+
+    public abstract void c(yv7 yv7Var);
+
+    public void d(View view2, View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, view2, onClickListener) == null) || view2 == null) {
+            return;
+        }
+        view2.setOnClickListener(onClickListener);
     }
 }

@@ -12,14 +12,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.br8;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.zq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BubbleItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,11 +32,11 @@ public class BubbleItemView extends LinearLayout {
     public TbImageView g;
     public ImageView h;
     public DressItemData i;
-    public br8 j;
+    public zq8 j;
     public boolean k;
     public View.OnClickListener l;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -157,10 +157,10 @@ public class BubbleItemView extends LinearLayout {
         }
     }
 
-    public void setController(br8 br8Var) {
+    public void setController(zq8 zq8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, br8Var) == null) {
-            this.j = br8Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, zq8Var) == null) {
+            this.j = zq8Var;
         }
     }
 

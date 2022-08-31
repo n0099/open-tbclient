@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c76;
+import com.baidu.tieba.a76;
 import com.baidu.tieba.enterForum.viewholder.LikeForumCreateViewHolder;
 import com.baidu.tieba.enterForum.viewholder.LikeForumItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +24,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public List<c76> b;
+    public List<a76> b;
     public ViewEventCenter c;
     public View.OnClickListener d;
     public b e;
@@ -68,7 +68,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         boolean a(Object obj, RecyclerView.ViewHolder viewHolder);
     }
 
-    public LikeForumItemAdapter(TbPageContext tbPageContext, List<c76> list, ViewEventCenter viewEventCenter) {
+    public LikeForumItemAdapter(TbPageContext tbPageContext, List<a76> list, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,11 +88,11 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         this.c = viewEventCenter;
     }
 
-    public List<c76> e() {
+    public List<a76> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<c76> list = this.b;
+            List<a76> list = this.b;
             return list == null ? new ArrayList() : list;
         }
         return (List) invokeV.objValue;
@@ -117,7 +117,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<c76> list = this.b;
+            List<a76> list = this.b;
             if (list == null) {
                 return 1;
             }
@@ -144,7 +144,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
                 }
                 return;
             }
-            List<c76> list = this.b;
+            List<a76> list = this.b;
             if (list == null || list.size() < i || !(viewHolder instanceof LikeForumItemViewHolder)) {
                 return;
             }
@@ -170,7 +170,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         return (RecyclerView.ViewHolder) invokeLI.objValue;
     }
 
-    public void update(List<c76> list) {
+    public void update(List<a76> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.b = list;

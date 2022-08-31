@@ -17,16 +17,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ig6;
-import com.baidu.tieba.lf6;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.gg6;
+import com.baidu.tieba.jf6;
+import com.baidu.tieba.t95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsAllThreadFragment extends BaseFragment implements ig6 {
+public class FrsAllThreadFragment extends BaseFragment implements gg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -48,24 +48,24 @@ public class FrsAllThreadFragment extends BaseFragment implements ig6 {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public v95 getTbPageExtra() {
+    public t95 getTbPageExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-            return new v95(getUniqueId(), "a006", this.mTbPageExtraPageTabName, baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
+            return new t95(getUniqueId(), "a006", this.mTbPageExtraPageTabName, baseFragmentActivity == null ? null : baseFragmentActivity.getIntent());
         }
-        return (v95) invokeV.objValue;
+        return (t95) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ig6
+    @Override // com.baidu.tieba.gg6
     public void h0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ig6
+    @Override // com.baidu.tieba.gg6
     public void o1() {
         RecyclerView recyclerView;
         Interceptable interceptable = $ic;
@@ -128,15 +128,15 @@ public class FrsAllThreadFragment extends BaseFragment implements ig6 {
         }
     }
 
-    @Override // com.baidu.tieba.ig6
+    @Override // com.baidu.tieba.gg6
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             o1();
-            lf6 lf6Var = new lf6();
-            lf6Var.a = 1;
-            lf6Var.b = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, lf6Var));
+            jf6 jf6Var = new jf6();
+            jf6Var.a = 1;
+            jf6Var.b = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, jf6Var));
         }
     }
 }

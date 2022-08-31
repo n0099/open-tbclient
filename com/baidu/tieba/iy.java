@@ -86,13 +86,13 @@ public class iy extends zw {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: t */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ho4Var) == null) {
-            if (ho4Var != null && ho4Var.getThreadData() != null && ho4Var.getThreadData().originalThreadData != null && ho4Var.getThreadData().originalThreadData.C != null) {
-                if (!ho4Var.getThreadData().originalThreadData.m && !ho4Var.getThreadData().shouldShowBlockedState()) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, go4Var) == null) {
+            if (go4Var != null && go4Var.getThreadData() != null && go4Var.getThreadData().originalThreadData != null && go4Var.getThreadData().originalThreadData.C != null) {
+                if (!go4Var.getThreadData().originalThreadData.m && !go4Var.getThreadData().shouldShowBlockedState()) {
                     this.h.setVisibility(0);
-                    this.i.setData(ho4Var.getThreadData().originalThreadData.D, 13, ho4Var.getThreadData().originalThreadData.f);
+                    this.i.setData(go4Var.getThreadData().originalThreadData.D, 13, go4Var.getThreadData().originalThreadData.f);
                     return;
                 }
                 this.h.setVisibility(8);

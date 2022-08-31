@@ -21,7 +21,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.widget.InterestForumTagView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -197,7 +197,7 @@ public class InterestForumTagLayout extends LinearLayout implements jx {
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eMTextView = this.e) == null) {
             return;
         }
-        os4 d = os4.d(eMTextView);
+        ns4 d = ns4.d(eMTextView);
         d.v(R.color.CAM_X0110);
         d.z(R.dimen.T_X06);
     }
@@ -241,7 +241,7 @@ public class InterestForumTagLayout extends LinearLayout implements jx {
         if (interceptable == null || interceptable.invokeLI(1048583, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                os4 d = os4.d(textView);
+                ns4 d = ns4.d(textView);
                 d.v(R.color.CAM_X0109);
                 d.z(R.dimen.T_X06);
             }

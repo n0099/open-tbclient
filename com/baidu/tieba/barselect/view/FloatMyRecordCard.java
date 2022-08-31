@@ -19,11 +19,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
+import com.baidu.tieba.ky5;
+import com.baidu.tieba.ly5;
 import com.baidu.tieba.my5;
-import com.baidu.tieba.ny5;
-import com.baidu.tieba.oy5;
 import com.baidu.tieba.pg;
-import com.baidu.tieba.xy5;
+import com.baidu.tieba.vy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public oy5 c;
-    public my5 d;
+    public my5 c;
+    public ky5 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -131,12 +131,12 @@ public class FloatMyRecordCard extends LinearLayout {
     }
 
     public void d(int i) {
-        my5 my5Var;
+        ky5 ky5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (my5Var = this.d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (ky5Var = this.d) == null) {
             return;
         }
-        if (my5Var.i() > 3) {
+        if (ky5Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -147,21 +147,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(oy5 oy5Var) {
-        my5 my5Var;
+    public void setData(my5 my5Var) {
+        ky5 ky5Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, oy5Var) == null) {
-            this.c = oy5Var;
-            if (oy5Var != null && oy5Var.a() != null) {
-                ny5 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, my5Var) == null) {
+            this.c = my5Var;
+            if (my5Var != null && my5Var.a() != null) {
+                ly5 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (my5Var = this.d) != null && this.b == xy5.c) {
-                int i = my5Var.i();
+            if (this.c != null && (ky5Var = this.d) != null && this.b == vy5.c) {
+                int i = ky5Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

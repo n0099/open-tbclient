@@ -20,11 +20,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ox extends sw<ho4> {
+public class ox extends sw<go4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MutiImgMutiPicLayout f;
-    public ho4 g;
+    public go4 g;
     public int h;
     public String i;
     public Context j;
@@ -78,7 +78,7 @@ public class ox extends sw<ho4> {
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (tn4.c().g()) {
+                    if (sn4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -119,7 +119,7 @@ public class ox extends sw<ho4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.j);
-                boolean g = tn4.c().g();
+                boolean g = sn4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -202,7 +202,7 @@ public class ox extends sw<ho4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, gifView)) == null) {
                 gifView.setTag(null);
-                if (tn4.c().g()) {
+                if (sn4.c().g()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -238,7 +238,7 @@ public class ox extends sw<ho4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 GifView gifView = new GifView(this.a.j);
-                boolean g = tn4.c().g();
+                boolean g = sn4.c().g();
                 gifView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     gifView.setAdjustViewBounds(false);
@@ -301,11 +301,11 @@ public class ox extends sw<ho4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    uz5.a(this.a.g.getThreadData().getId());
+                    sz5.a(this.a.g.getThreadData().getId());
                     TextView textView = this.a.f.a;
                     TextView textView2 = this.a.f.b;
-                    uz5.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    uz5.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.l(textView, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    sz5.l(textView2, this.a.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -360,10 +360,10 @@ public class ox extends sw<ho4> {
     }
 
     @Override // com.baidu.tieba.sw
-    public void m(j06<ho4> j06Var) {
+    public void m(h06<go4> h06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j06Var) == null) {
-            this.f.setSubClickListener(j06Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, h06Var) == null) {
+            this.f.setSubClickListener(h06Var);
         }
     }
 
@@ -378,12 +378,12 @@ public class ox extends sw<ho4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.ix
     /* renamed from: s */
-    public void a(ho4 ho4Var) {
+    public void a(go4 go4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ho4Var) == null) {
-            this.g = ho4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, go4Var) == null) {
+            this.g = go4Var;
             this.f.setFrom(this.i);
-            this.f.a(ho4Var);
+            this.f.a(go4Var);
         }
     }
 

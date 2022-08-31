@@ -7,8 +7,8 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pl7;
-import com.baidu.tieba.sl7;
+import com.baidu.tieba.nl7;
+import com.baidu.tieba.ql7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class MemberPayFragment extends BaseFragment {
     public int e;
     public int f;
     public String g;
-    public pl7 h;
-    public sl7 i;
+    public nl7 h;
+    public ql7 i;
     public View j;
 
     public MemberPayFragment() {
@@ -64,9 +64,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            pl7 pl7Var = this.h;
-            if (pl7Var != null) {
-                pl7Var.q(i);
+            nl7 nl7Var = this.h;
+            if (nl7Var != null) {
+                nl7Var.q(i);
             }
         }
     }
@@ -95,30 +95,30 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             this.j = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0567, viewGroup, false);
-            pl7 pl7Var = new pl7(getPageContext(), this.j, this.a, this.b, this.c, this.d, this.e, this.f, this.g);
-            this.h = pl7Var;
-            pl7Var.t(this.i);
+            nl7 nl7Var = new nl7(getPageContext(), this.j, this.a, this.b, this.c, this.d, this.e, this.f, this.g);
+            this.h = nl7Var;
+            nl7Var.t(this.i);
             return this.j;
         }
         return (View) invokeLLL.objValue;
     }
 
     public void r1(Boolean bool) {
-        pl7 pl7Var;
+        nl7 nl7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (pl7Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, bool) == null) || (nl7Var = this.h) == null) {
             return;
         }
-        pl7Var.r(bool.booleanValue());
+        nl7Var.r(bool.booleanValue());
     }
 
-    public void s1(sl7 sl7Var) {
+    public void s1(ql7 ql7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sl7Var) == null) {
-            this.i = sl7Var;
-            pl7 pl7Var = this.h;
-            if (pl7Var != null) {
-                pl7Var.t(sl7Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, ql7Var) == null) {
+            this.i = ql7Var;
+            nl7 nl7Var = this.h;
+            if (nl7Var != null) {
+                nl7Var.t(ql7Var);
             }
         }
     }

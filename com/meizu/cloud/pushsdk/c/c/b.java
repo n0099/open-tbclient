@@ -5,7 +5,7 @@ import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.meizu.cloud.pushsdk.c.a.c;
 import com.meizu.cloud.pushsdk.c.c.a;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends com.meizu.cloud.pushsdk.c.c.a {
     public String d;
     public String e;
@@ -17,7 +17,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     public String k;
     public int l;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a<T extends a<T>> extends a.AbstractC0640a<T> {
         public String a;
         public String b;
@@ -80,7 +80,7 @@ public class b extends com.meizu.cloud.pushsdk.c.c.a {
     }
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class C0641b extends a<C0641b> {
         public C0641b() {
         }

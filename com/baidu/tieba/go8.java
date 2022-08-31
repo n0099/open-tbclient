@@ -1,21 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.LoginActivity;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.interest.InterestPanelShowManager;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
@@ -24,13 +16,51 @@ public class go8 {
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
     public boolean b;
+    public Runnable c;
 
-    public go8(MainTabActivity mainTabActivity, un8 un8Var) {
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ go8 a;
+
+        public a(go8 go8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {go8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = go8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                    this.a.b = true;
+                } else {
+                    this.a.a();
+                }
+            }
+        }
+    }
+
+    public go8(MainTabActivity mainTabActivity, sn8 sn8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,95 +70,42 @@ public class go8 {
                 return;
             }
         }
+        this.b = false;
+        this.c = new a(this);
         this.a = mainTabActivity;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TbSingleton.getInstance().getNewUserRedPackageData() == null) {
             return;
         }
-        if (c() && TbSingleton.getInstance().hasPerformedFirstLoginTest() && TbSingleton.getInstance().isNeedShowInterestGuide()) {
-            this.b = true;
-            InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a);
-            if (TbSingleton.getInstance().triggerInterestPanelYDaysConfig) {
-                interestGuideActivityConfig.setCustomTitle(new String[]{this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0915), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0916), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0911)});
-                interestGuideActivityConfig.setScene(10);
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-        tu4.k().x("key_app_launch_time", System.currentTimeMillis());
-        b();
+        TbSingleton.getInstance().setNewUserRedPackageShowed(true);
+        this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
+        TbSingleton.getInstance().setNewUserRedPackageData(null);
     }
 
-    public final void b() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-            return;
-        }
-        TbSingleton.getInstance().setHasPerformedFirstLoginTest(true);
-        if (UbsABTestHelper.isFirstLoginTestA()) {
-            if (TbadkCoreApplication.isLogin() || LoginActivity.class.getName().equals(ri.w())) {
-                return;
-            }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2921535, this));
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        } else if (UbsABTestHelper.isFirstLoginTestB()) {
-            if (TbadkApplication.getInst().isNeedNewUserLead()) {
-                InterestGuideActivityConfig interestGuideActivityConfig = new InterestGuideActivityConfig(this.a, 4);
-                interestGuideActivityConfig.setRequestCode(25060);
-                interestGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig));
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-            }
-        } else if (TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestGuideActivityConfig interestGuideActivityConfig2 = new InterestGuideActivityConfig(this.a, 4);
-            interestGuideActivityConfig2.setRequestCode(25060);
-            interestGuideActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, interestGuideActivityConfig2));
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            this.b = false;
+            sg.a().removeCallbacks(this.c);
+            sg.a().postDelayed(this.c, 200L);
         }
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Activity b = z8.g().b();
-            String localClassName = b != null ? b.getLocalClassName() : "";
-            return localClassName.contains("MainTabActivity") || localClassName.contains("FrsActivity") || localClassName.contains("PbActivity") || localClassName.contains("NewSquareSearchActivity") || localClassName.contains("PbCommentFloatActivity");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            sg.a().removeCallbacks(this.c);
         }
-        return invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || TbSingleton.getInstance().hasPerformInterestPanelShow) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            sg.a().removeCallbacks(this.c);
+            sg.a().postDelayed(this.c, 200L);
         }
-        TbSingleton.getInstance().hasPerformInterestPanelShow = true;
-        if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-        tu4.k().x("key_app_launch_time", System.currentTimeMillis());
-        b();
-        if (!UbsABTestHelper.isFirstLoginTestA() && !UbsABTestHelper.isFirstLoginTestB() && !TbadkApplication.getInst().isNeedNewUserLead()) {
-            InterestPanelShowManager.a().d(this.a);
-            TbSingleton.getInstance();
-            TbSingleton.setExceptInsertAdDiaShow(true);
-        }
-        if (!UbsABTestHelper.isFirstLoginTestB() || TbadkApplication.getInst().isNeedNewUserLead()) {
-            return;
-        }
-        InterestPanelShowManager.a().d(this.a);
-        TbSingleton.getInstance();
-        TbSingleton.setExceptInsertAdDiaShow(true);
     }
 }

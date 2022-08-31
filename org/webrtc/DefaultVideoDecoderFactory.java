@@ -1,7 +1,7 @@
 package org.webrtc;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vu9;
+import com.baidu.tieba.tu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class DefaultVideoDecoderFactory implements VideoDecoderFactory {
     @Nullable
     @Deprecated
     public /* synthetic */ VideoDecoder createDecoder(String str) {
-        return vu9.$default$createDecoder(this, str);
+        return tu9.$default$createDecoder(this, str);
     }
 
     @Override // org.webrtc.VideoDecoderFactory

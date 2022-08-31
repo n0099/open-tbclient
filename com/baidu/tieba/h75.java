@@ -1,11 +1,22 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public interface h75 extends a75 {
-    public static final String a = "com.baidu.tieba.h75";
+public interface h75 {
 
-    @NonNull
-    g75 b(@NonNull TbPageContext tbPageContext);
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a();
+
+        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    }
+
+    void a(@Nullable a aVar);
+
+    void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5);
 }

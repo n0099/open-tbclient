@@ -1,100 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.media.AudioManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.FrsHeadVideoAutoPlaySwitch;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class vf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    @NonNull
+    public Runnable b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948238884, "Lcom/baidu/tieba/vf5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public vf5(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948238884, "Lcom/baidu/tieba/vf5;");
-        }
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i == 3 || i == 4) {
-                return pi.H();
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {runnable};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i != 5) {
-                int autoPlaySwitch = TbadkCoreApplication.getInst().getAutoPlaySwitch();
-                if ((autoPlaySwitch == 3 || !pi.H()) && (autoPlaySwitch != 2 || !pi.x())) {
-                    return false;
-                }
-            } else if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 2 && (!FrsHeadVideoAutoPlaySwitch.getIsOn() || !pi.H() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 1)) {
-                return false;
-            }
-            return true;
         }
-        return invokeI.booleanValue;
+        this.a = false;
+        this.b = runnable;
     }
 
-    public static boolean b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) ? a(i) : invokeIL.booleanValue;
-    }
-
-    public static boolean c() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (pi.H() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() != 3) || (pi.x() && TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2) : invokeV.booleanValue;
-    }
-
-    public static boolean e(WeakReference<Context> weakReference, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65541, null, weakReference, z)) == null) {
-            if (weakReference == null || weakReference.get() == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a) {
                 return false;
             }
-            AudioManager audioManager = (AudioManager) weakReference.get().getSystemService("audio");
-            if (z) {
-                if (audioManager.requestAudioFocus(null, 3, 2) != 1) {
-                    return false;
-                }
-            } else if (audioManager.abandonAudioFocus(null) != 1) {
-                return false;
-            }
+            this.a = true;
+            this.b.run();
             return true;
         }
-        return invokeLZ.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void f(WeakReference<Context> weakReference) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, weakReference) == null) || weakReference == null || weakReference.get() == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a) {
+                this.b.run();
+                return true;
+            }
+            return false;
         }
-        a = ((AudioManager) weakReference.get().getSystemService("audio")).isMusicActive();
+        return invokeV.booleanValue;
     }
 }

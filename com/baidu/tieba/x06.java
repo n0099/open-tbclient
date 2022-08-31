@@ -1,120 +1,98 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
 /* loaded from: classes6.dex */
-public class x06 extends v06 {
+public class x06 extends BaseCardInfo implements a16 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String N0;
-    public List<String> O0;
-    public String P0;
-    public String Q0;
-    public long R0;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public List<w06> d;
+    public int e;
+    public int f;
 
-    public x06(ThreadData threadData) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948246603, "Lcom/baidu/tieba/x06;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948246603, "Lcom/baidu/tieba/x06;");
+                return;
+            }
+        }
+        g = BdUniqueId.gen();
+    }
+
+    public x06() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (threadData == null) {
-            return;
-        }
-        this.a = threadData;
-        String str = threadData.tid;
-        threadData.getTitle();
-        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
-        if (voiceRoomData != null) {
-            this.N0 = voiceRoomData.room_name;
-            this.O0 = e0(voiceRoomData);
-            this.P0 = String.valueOf(voiceRoomData.talker_num);
-            this.Q0 = String.valueOf(voiceRoomData.joined_num);
-            this.R0 = voiceRoomData.room_id.longValue();
+        this.a = true;
+        this.b = true;
+    }
+
+    @Override // com.baidu.tieba.a16
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) ? (threadData == null || threadData.getVoiceRoomData() == null || threadData.getVoiceRoomData().room_id.longValue() <= 0 || StringUtils.isNull(threadData.getVoiceRoomData().room_name)) ? false : true : invokeL.booleanValue;
-    }
-
-    public String Z() {
+    @Override // com.baidu.tieba.a16
+    public int getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.Q0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public List<String> a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.O0 : (List) invokeV.objValue;
-    }
-
-    public long b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.R0 : invokeV.longValue;
-    }
-
-    public String c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.N0 : (String) invokeV.objValue;
-    }
-
-    public String d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.P0 : (String) invokeV.objValue;
-    }
-
-    public final List<String> e0(VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (User user : voiceRoom.talker) {
-                if (user != null) {
-                    arrayList.add(user.portrait);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.v06, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.B) {
-                return v06.F0;
-            }
-            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a16
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return true;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.a16
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
+        }
     }
 }

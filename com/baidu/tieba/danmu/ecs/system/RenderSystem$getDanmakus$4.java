@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.ecs.system;
 
-import com.baidu.tieba.m46;
-import com.baidu.tieba.p26;
+import com.baidu.tieba.k46;
+import com.baidu.tieba.n26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\f\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\u0010\u0000\u001a\u00020\u00012\u0006\u0010\u0002\u001a\u00020\u0003H\n"}, d2 = {"<anonymous>", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "r", "Lcom/baidu/tieba/danmu/render/RenderObject;"}, k = 3, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes3.dex */
-public final class RenderSystem$getDanmakus$4 extends Lambda implements Function1<m46, p26> {
+public final class RenderSystem$getDanmakus$4 extends Lambda implements Function1<k46, n26> {
     public static /* synthetic */ Interceptable $ic;
     public static final RenderSystem$getDanmakus$4 INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,13 +56,13 @@ public final class RenderSystem$getDanmakus$4 extends Lambda implements Function
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function1
-    public final p26 invoke(m46 r) {
+    public final n26 invoke(k46 r) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, r)) == null) {
             Intrinsics.checkNotNullParameter(r, "r");
             return r.d();
         }
-        return (p26) invokeL.objValue;
+        return (n26) invokeL.objValue;
     }
 }

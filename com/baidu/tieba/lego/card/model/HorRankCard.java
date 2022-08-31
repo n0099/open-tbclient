@@ -5,8 +5,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ff7;
 import com.baidu.tieba.hf7;
-import com.baidu.tieba.jf7;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +27,7 @@ public class HorRankCard extends BaseCardInfo {
     public final int position;
     public List<a> rankInfoList;
     public final double ratio;
-    public final hf7 rightText;
+    public final ff7 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
@@ -85,8 +85,8 @@ public class HorRankCard extends BaseCardInfo {
                 return;
             }
         }
-        this.titleColor = jf7.b(jSONObject.optString("tColor", ""));
-        this.titleColorNight = jf7.b(jSONObject.optString("tColorNight", ""));
+        this.titleColor = hf7.b(jSONObject.optString("tColor", ""));
+        this.titleColorNight = hf7.b(jSONObject.optString("tColorNight", ""));
         this.displayNum = jSONObject.optDouble("displayNum", 5.0d);
         this.ratio = jSONObject.optDouble("ratio", 1.0d);
         int optInt = jSONObject.optInt("picType", 1);
@@ -116,13 +116,13 @@ public class HorRankCard extends BaseCardInfo {
             aVar.h = optJSONObject.optString("btnText");
             aVar.i = optJSONObject.optString("btnDone");
             aVar.j = optJSONObject.optString("picScheme");
-            aVar.k = jf7.b(optJSONObject.optString("bgColor", ""));
-            aVar.l = jf7.b(optJSONObject.optString("bgColorNight", ""));
+            aVar.k = hf7.b(optJSONObject.optString("bgColor", ""));
+            aVar.l = hf7.b(optJSONObject.optString("bgColorNight", ""));
             optJSONObject.optLong("resourceId");
             aVar.m = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = hf7.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = ff7.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
@@ -162,10 +162,10 @@ public class HorRankCard extends BaseCardInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.ratio : invokeV.doubleValue;
     }
 
-    public hf7 getRightText() {
+    public ff7 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rightText : (hf7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.rightText : (ff7) invokeV.objValue;
     }
 
     public int getTitleColor() {

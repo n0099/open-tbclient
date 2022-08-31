@@ -23,7 +23,7 @@ import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.cn4;
-import com.baidu.tieba.qr7;
+import com.baidu.tieba.or7;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,8 +41,8 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     public TextView f;
     public TextView g;
     public View h;
-    public qr7 i;
-    public cn4<qr7> j;
+    public or7 i;
+    public cn4<or7> j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicListInfoItem(Context context) {
@@ -66,17 +66,17 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         c();
     }
 
-    public void a(qr7 qr7Var) {
+    public void a(or7 or7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, qr7Var) == null) || qr7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, or7Var) == null) || or7Var == null) {
             return;
         }
-        this.i = qr7Var;
-        this.b.K(qr7Var.f, 10, false);
-        this.d.setCompoundDrawablesWithIntrinsicBounds(qr7Var.b() ? WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2a, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL) : null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.d.setText(qr7Var.c);
-        this.g.setText(qr7Var.d);
-        String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), qr7Var.g);
+        this.i = or7Var;
+        this.b.K(or7Var.f, 10, false);
+        this.d.setCompoundDrawablesWithIntrinsicBounds(or7Var.b() ? WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a2a, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL) : null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.d.setText(or7Var.c);
+        this.g.setText(or7Var.d);
+        String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), or7Var.g);
         if (TextUtils.isEmpty(hotTopicTagStr)) {
             this.e.setVisibility(8);
         } else {
@@ -84,25 +84,25 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
             this.e.setText(hotTopicTagStr);
         }
         b();
-        if (qr7Var.e > 0) {
+        if (or7Var.e > 0) {
             this.f.setVisibility(0);
-            String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(qr7Var.e);
+            String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(or7Var.e);
             TextView textView = this.f;
             textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f088f, numberUniformFormatExtraWithRoundInt));
         } else {
             this.f.setVisibility(4);
         }
         TextView textView2 = this.c;
-        textView2.setText("" + qr7Var.b);
+        textView2.setText("" + or7Var.b);
     }
 
     public final void b() {
-        qr7 qr7Var;
+        or7 or7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (qr7Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (or7Var = this.i) == null) {
             return;
         }
-        int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(qr7Var.g);
+        int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(or7Var.g);
         Drawable background = this.e.getBackground();
         DrawableCompat.setTint(background, SkinManager.getColor(hotTopicTagColorRes));
         this.e.setBackgroundDrawable(background);
@@ -147,18 +147,18 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        qr7 qr7Var;
+        or7 or7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (qr7Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (or7Var = this.i) == null) {
             return;
         }
-        long j = qr7Var.a;
+        long j = or7Var.a;
         if (j <= 0) {
             return;
         }
-        cn4<qr7> cn4Var = this.j;
+        cn4<or7> cn4Var = this.j;
         if (cn4Var != null) {
-            cn4Var.c(view2, qr7Var, qr7Var.b, j);
+            cn4Var.c(view2, or7Var, or7Var.b, j);
         }
         String tryFixDefaultValue = StringUtils.tryFixDefaultValue(String.valueOf(this.i.a));
         String tryFixDefaultValue2 = StringUtils.tryFixDefaultValue(this.i.c);
@@ -169,7 +169,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         new HotTopicActivityConfig(getContext()).createNormalConfig(tryFixDefaultValue, null, String.valueOf(this.i.a()), "5", locate).start();
     }
 
-    public void setOnItemCoverListener(cn4<qr7> cn4Var) {
+    public void setOnItemCoverListener(cn4<or7> cn4Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cn4Var) == null) {
             this.j = cn4Var;

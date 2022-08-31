@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeListDialog;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vn6;
+import com.baidu.tieba.tn6;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -71,7 +71,7 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || ListUtils.isEmpty(this.a.g)) {
                 return;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(14)));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new zv4(14)));
             if (this.a.e == null) {
                 this.a.e = new GameCodeListDialog(view2.getContext());
             }
@@ -144,13 +144,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            os4 d = os4.d(this.b);
+            ns4 d = ns4.d(this.b);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X07);
-            os4 d2 = os4.d(this.c);
+            ns4 d2 = ns4.d(this.c);
             d2.v(R.color.CAM_X0107);
             d2.z(R.dimen.T_X08);
-            os4 d3 = os4.d(this);
+            ns4 d3 = ns4.d(this);
             d3.n(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
             WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0807d5, WebPManager.ResourceStateType.NORMAL);
@@ -162,13 +162,13 @@ public class CardItemGameCodeLayout extends RelativeLayout implements jx {
         }
     }
 
-    public void setData(vn6 vn6Var) {
+    public void setData(tn6 tn6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vn6Var) == null) || vn6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tn6Var) == null) || tn6Var == null) {
             return;
         }
-        this.f = vn6Var.f();
-        this.g = vn6Var.c();
+        this.f = tn6Var.f();
+        this.g = tn6Var.c();
         if (this.f != 0) {
             this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02c4), Integer.valueOf(this.f)));
         } else {

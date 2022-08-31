@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import okhttp3.Interceptor;
 import okhttp3.Response;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class lz3 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public qs2.b a;
     public final gs2 b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements gs2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

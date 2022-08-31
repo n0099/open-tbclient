@@ -1,81 +1,46 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.view.MotionEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.tieba.yi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fq8 extends PriorityOrganizer.Task {
+public class fq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static fq8 mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public un8 m;
-    public MainTabActivity n;
+    public a mICrabSdk;
 
     /* loaded from: classes4.dex */
-    public class a implements yi8.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fq8 a;
+    public interface a {
+        void a(Application application);
 
-        public a(fq8 fq8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fq8Var;
-        }
+        void b(Exception exc);
 
-        @Override // com.baidu.tieba.yi8.d
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.u();
-            }
-        }
+        void c(String str);
 
-        @Override // com.baidu.tieba.yi8.d
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.u();
-            }
-        }
+        void d(String str);
 
-        @Override // com.baidu.tieba.yi8.d
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.u();
-            }
-        }
+        void e(String str);
+
+        void f(MotionEvent motionEvent, Activity activity);
+
+        void onPause(Activity activity);
+
+        void onResume(Activity activity);
     }
 
-    public fq8(TbPageContext tbPageContext, un8 un8Var, MainTabActivity mainTabActivity) {
+    public fq8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, un8Var, mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,44 +50,113 @@ public class fq8 extends PriorityOrganizer.Task {
                 return;
             }
         }
-        this.m = un8Var;
-        this.n = mainTabActivity;
+        this.mICrabSdk = getCrabSdk();
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void A() {
+    private a getCrabSdk() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (PollingModel.K()) {
-                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                yi8 yi8Var = new yi8();
-                yi8Var.i(iconPopData);
-                yi8Var.k(new a(this));
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            if (!isCrabSdkSwitchOn() || (runTask = MessageManager.getInstance().runTask(2016565, a.class)) == null) {
+                return null;
             }
-            u();
+            return (a) runTask.getData();
         }
+        return (a) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean v() {
+    public static fq8 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            un8 un8Var = this.m;
-            return (un8Var == null || un8Var.B() == null || this.m.B().getCurrentTabType() != 2) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (mInstance == null) {
+                synchronized (fq8.class) {
+                    if (mInstance == null) {
+                        mInstance = new fq8();
+                    }
+                }
+            }
+            return mInstance;
         }
-        return invokeV.booleanValue;
+        return (fq8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean x() {
+    private boolean isCrabSdkSwitchOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            return PollingModel.K() && iconPopData.getPic160() != null && iconPopData.getTitle() != null && this.n.W0() && this.n.F && iconPopData.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? su4.k().l("pref_key_crab_sdk_enable", 1) == 1 : invokeV.booleanValue;
+    }
+
+    public void behaviorRecordEvent(MotionEvent motionEvent, Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, activity) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        aVar.f(motionEvent, activity);
+    }
+
+    public void initSdk(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, application) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.a(application);
+    }
+
+    public void onPause(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.onPause(activity);
+    }
+
+    public void onResume(Activity activity) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.onResume(activity);
+    }
+
+    public void setFlutterPath(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.c(str);
+    }
+
+    public void setLastFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.e(str);
+    }
+
+    public void setOpenFlutterPage(String str) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.d(str);
+    }
+
+    public void uploadException(Exception exc) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, exc) == null) || (aVar = this.mICrabSdk) == null) {
+            return;
+        }
+        aVar.b(exc);
     }
 }

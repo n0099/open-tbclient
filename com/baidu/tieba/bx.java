@@ -48,9 +48,9 @@ public class bx extends uw implements ix<ThreadData>, jx {
         m(z);
     }
 
-    public void k(ho4 ho4Var, boolean z) {
+    public void k(go4 go4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, go4Var, z) == null) {
             this.f = z;
             t(0);
             o(true);

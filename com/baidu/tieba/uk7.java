@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.SevenZipUtils;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetVipInfo.VipBasicList;
 import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes6.dex */
 public class uk7 implements pn {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk7 a;
-    public List<VipSpecialItem> b;
-    public int c;
-    public String d;
+    public tk7 a;
+    public List<vk7> b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,15 +39,18 @@ public class uk7 implements pn {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
     }
 
-    public uk7(VipBasicList vipBasicList) {
+    public uk7(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vipBasicList};
+            Object[] objArr = {vipSpecialList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,35 +60,39 @@ public class uk7 implements pn {
                 return;
             }
         }
-        this.c = 0;
-        this.d = "";
-        if (vipBasicList == null || vipBasicList.item.size() <= 0) {
+        if (vipSpecialList == null || (list = vipSpecialList.item) == null || list.size() <= 0) {
             return;
         }
-        this.d = vipBasicList.card_id;
-        this.c = vipBasicList.card_type.intValue();
-        vk7 vk7Var = new vk7();
-        this.a = vk7Var;
-        vk7Var.e(5);
-        this.a.d(vipBasicList.class_name);
-        this.a.f(vipBasicList.class_url_name);
-        this.a.g(vipBasicList.class_url);
-        this.b = new ArrayList();
-        for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-            this.b.add(vipSpecialItem);
+        String str = vipSpecialList.card_id;
+        tk7 tk7Var = new tk7();
+        this.a = tk7Var;
+        tk7Var.e(4);
+        this.a.d(vipSpecialList.class_name);
+        this.a.f(vipSpecialList.class_url_name);
+        this.a.g(vipSpecialList.class_url);
+        String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
+        if (StringUtils.isNull(f) || !f.equals(currentAccount)) {
+            e = false;
+            f = currentAccount;
         }
-    }
-
-    public List<VipSpecialItem> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        this.b = new ArrayList();
+        for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+            this.b.add(new vk7(vipSpecialList.item.get(i3)));
+            if (e) {
+                if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new vk7(true, true));
+                }
+            } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                this.b.add(new vk7(true, false));
+                return;
+            }
+        }
     }
 
     @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

@@ -1,34 +1,46 @@
 package com.baidu.tieba;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.EmotionUtil;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.faceshop.EmotionData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
+import com.baidu.tieba.faceshop.DiyEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class sa6 extends f35 {
+public class sa6 extends d35 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String e;
-    public String f;
+    public ArrayList<String> e;
+    public Set<String> f;
     public int g;
-    public int h;
-    public ArrayList<String> i;
 
-    public sa6(EmotionGroupData emotionGroupData) {
+    public sa6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {emotionGroupData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,149 +50,275 @@ public class sa6 extends f35 {
                 return;
             }
         }
-        this.i = new ArrayList<>();
-        this.e = emotionGroupData.getGroupId();
-        this.f = emotionGroupData.getGroupName();
-        this.g = emotionGroupData.getWidth();
-        this.h = emotionGroupData.getHeight();
-        u();
+        this.e = new ArrayList<>();
+        this.f = new HashSet();
+        this.g = 3;
+        x();
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= this.i.size()) {
+            if (i >= this.e.size()) {
                 return null;
             }
-            return this.i.get(i);
+            return this.e.get(i);
         }
         return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i.size() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<String> arrayList = this.e;
+            if (arrayList == null || arrayList.size() == 0) {
+                return 1;
+            }
+            return this.e.size();
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
+    public an e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (an) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d35
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? n55.b() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户Diy表情" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? EmotionGroupType.BIG_EMOTION : (EmotionGroupType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.USER_DIY : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.i.contains(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f.contains(str) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public an n(String str) {
         InterceptResult invokeL;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Throwable th;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048586, this, str)) != null) {
+            return (an) invokeL.objValue;
+        }
+        File file = new File(u(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
+        if (!file.exists()) {
             return null;
         }
-        return (an) invokeL.objValue;
+        try {
+            fileInputStream = new FileInputStream(file);
+        } catch (Exception e) {
+            e = e;
+            fileInputStream = null;
+            byteArrayOutputStream = null;
+        } catch (Throwable th2) {
+            byteArrayOutputStream = null;
+            th = th2;
+            fileInputStream = null;
+        }
+        try {
+            byteArrayOutputStream = new ByteArrayOutputStream(1024);
+            try {
+                try {
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = fileInputStream.read(bArr, 0, 1024);
+                        if (read != -1) {
+                            byteArrayOutputStream.write(bArr, 0, read);
+                        } else {
+                            byte[] byteArray = byteArrayOutputStream.toByteArray();
+                            an anVar = new an(NSGif.f(byteArray, 0, byteArray.length));
+                            og.c(fileInputStream);
+                            og.d(byteArrayOutputStream);
+                            return anVar;
+                        }
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    e.printStackTrace();
+                    og.c(fileInputStream);
+                    og.d(byteArrayOutputStream);
+                    return null;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+                og.c(fileInputStream);
+                og.d(byteArrayOutputStream);
+                throw th;
+            }
+        } catch (Exception e3) {
+            e = e3;
+            byteArrayOutputStream = null;
+        } catch (Throwable th4) {
+            th = th4;
+            byteArrayOutputStream = null;
+            og.c(fileInputStream);
+            og.d(byteArrayOutputStream);
+            throw th;
+        }
     }
 
-    @Override // com.baidu.tieba.f35
+    @Override // com.baidu.tieba.d35
     public an o(String str) {
         InterceptResult invokeL;
-        String b;
+        Bitmap image;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (v(str)) {
-                b = ra6.c(str, true, false);
-            } else {
-                b = ra6.b(str, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if ("#(meme,diysetting)".equals(str)) {
+                return new an(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0808c1)), false);
             }
-            Bitmap f = ra6.f(this.e, b);
-            if (f == null) {
+            File u = u(str);
+            if (u == null || (image = FileHelper.getImage(u.getAbsolutePath())) == null) {
                 return null;
             }
-            return new an(f, false, str);
+            return new an(image, false, str);
         }
         return (an) invokeL.objValue;
     }
 
-    public final void u() {
+    @Override // com.baidu.tieba.d35
+    public void p(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            t(2);
-            q(4);
-            Bitmap f = ra6.f(this.e, "panel.png");
-            Bitmap f2 = ra6.f(this.e, "panel_momo.png");
-            if (f != null) {
-                r(new an(f, false));
-            }
-            if (f2 != null) {
-                s(new an(f2, false));
-            }
-            this.i.clear();
-            for (EmotionData emotionData : ya6.o().p(this.e)) {
-                this.i.add(emotionData.getSharpText());
-            }
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == this.g) {
+            return;
         }
+        this.g = i;
+        an anVar = new an(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08092b)), false);
+        super.s(anVar);
+        super.r(anVar);
+        m55.k().h(lg.h().g("#(meme,diysetting)", 20));
     }
 
-    public boolean v(String str) {
+    public File u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            if (str.startsWith(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX)) {
-                String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-                String substring = replace.substring(0, replace.indexOf(","));
-                if (substring.contains("_") && !substring.contains("collect_")) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+            String replace2 = replace.substring(0, replace.indexOf(",")).replace("diy_", "");
+            if (replace2.contains("_")) {
+                replace2 = replace2.substring(replace2.indexOf("_") + 1);
+            }
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + n55.c() + "/" + replace2 + "_s.jpg");
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public final Bitmap v(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bitmap)) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+                PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0105), PorterDuff.Mode.SRC_IN);
+                Paint paint = new Paint();
+                paint.setColorFilter(porterDuffColorFilter);
+                new Canvas(createBitmap).drawBitmap(bitmap, 0.0f, 0.0f, paint);
+                return createBitmap;
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public boolean w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+            if (this.e != null && !TextUtils.isEmpty(str)) {
+                Iterator<String> it = this.e.iterator();
+                while (it.hasNext()) {
+                    if (it.next().contains(str)) {
+                        return true;
+                    }
                 }
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            t(2);
+            q(4);
+            an anVar = new an(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08092b)), false);
+            super.s(anVar);
+            super.r(anVar);
+            y();
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            List<DiyEmotionData> r = wa6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+            this.e.clear();
+            this.f.clear();
+            for (DiyEmotionData diyEmotionData : r) {
+                this.e.add(diyEmotionData.getSharpText());
+                this.f.add(diyEmotionData.getSharpText());
+            }
+        }
     }
 }

@@ -25,13 +25,13 @@ public class wr {
 
         /* renamed from: com.baidu.tieba.wr$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0440a implements Runnable {
+        public class RunnableC0445a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ byte[] a;
             public final /* synthetic */ a b;
 
-            public RunnableC0440a(a aVar, byte[] bArr) {
+            public RunnableC0445a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -120,7 +120,7 @@ public class wr {
         public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0440a(this, bArr), "HandshakeRequest");
+                ExecutorUtilsExt.postOnSerial(new RunnableC0445a(this, bArr), "HandshakeRequest");
             }
         }
 

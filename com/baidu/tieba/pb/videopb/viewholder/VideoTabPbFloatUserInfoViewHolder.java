@@ -30,15 +30,15 @@ import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextData;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c67;
-import com.baidu.tieba.ly7;
-import com.baidu.tieba.mi5;
+import com.baidu.tieba.a67;
+import com.baidu.tieba.jy7;
+import com.baidu.tieba.ki5;
 import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.tieba.pb.view.PbFirstFloorUserLikeButton;
 import com.baidu.tieba.rg;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.zv7;
+import com.baidu.tieba.xv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,7 +72,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
     public View s;
     public TextView t;
     public FrameLayout u;
-    public ly7 v;
+    public jy7 v;
     public boolean w;
     public AbsVideoPbFragment x;
 
@@ -84,12 +84,12 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: com.baidu.tieba.pb.videopb.viewholder.VideoTabPbFloatUserInfoViewHolder$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0365a extends rg {
+        public class C0373a extends rg {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0365a(a aVar) {
+            public C0373a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -143,7 +143,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
                 alphaAnimation.setStartOffset(500L);
                 alphaAnimation.setDuration(500L);
-                alphaAnimation.setAnimationListener(new C0365a(this));
+                alphaAnimation.setAnimationListener(new C0373a(this));
                 this.a.n.startAnimation(alphaAnimation);
             }
         }
@@ -230,7 +230,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         this.o = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f092525);
         TbRichTextView tbRichTextView = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f09251b);
         this.p = tbRichTextView;
-        tbRichTextView.setLayoutStrategy(new zv7(this.p.getLayoutStrategy()));
+        tbRichTextView.setLayoutStrategy(new xv7(this.p.getLayoutStrategy()));
         this.p.getLayoutStrategy().n(1.0f);
         this.p.getLayoutStrategy().j(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds0));
         this.p.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X06));
@@ -241,18 +241,18 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
         TbRichTextView tbRichTextView2 = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f092524);
         this.q = tbRichTextView2;
         tbRichTextView2.setIsNeedResizeEmotion(true);
-        zv7 zv7Var = new zv7(this.q.getLayoutStrategy());
-        zv7Var.v(TbConfig.getContentSize());
-        zv7Var.n(0.9f);
-        zv7Var.j(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
-        this.q.setLayoutStrategy(zv7Var);
+        xv7 xv7Var = new xv7(this.q.getLayoutStrategy());
+        xv7Var.v(TbConfig.getContentSize());
+        xv7Var.n(0.9f);
+        xv7Var.j(ri.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X003));
+        this.q.setLayoutStrategy(xv7Var);
         this.q.setMaxLines(3);
         this.q.setAddExpandableListener(true);
         FrameLayout frameLayout = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f09251d);
         this.u = frameLayout;
-        ly7 ly7Var = new ly7(absVideoPbFragment, frameLayout);
-        this.v = ly7Var;
-        ly7Var.f = 2;
+        jy7 jy7Var = new jy7(absVideoPbFragment, frameLayout);
+        this.v = jy7Var;
+        jy7Var.f = 2;
         this.r = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09251c);
         View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0924f0);
         this.s = findViewById;
@@ -276,7 +276,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
                     BdLog.e(e);
                     i = 0;
                 }
-                spannableStringBuilder.append((CharSequence) mi5.q(i, true));
+                spannableStringBuilder.append((CharSequence) ki5.q(i, true));
             }
             tbRichTextData.A(spannableStringBuilder);
             ListUtils.add(list, 0, tbRichTextData);
@@ -323,7 +323,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
             tbRichTextData = new TbRichTextData(1);
             ListUtils.add(B, 0, tbRichTextData);
         }
-        tbRichTextData.e0(mi5.s());
+        tbRichTextData.e0(ki5.s());
     }
 
     public void e(TbRichText tbRichText, List<HeadItem> list) {
@@ -348,7 +348,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
                     BdLog.e(e);
                     i = 0;
                 }
-                tbRichTextData.e0(mi5.q(i, false));
+                tbRichTextData.e0(ki5.q(i, false));
                 return;
             }
             return;
@@ -479,7 +479,7 @@ public class VideoTabPbFloatUserInfoViewHolder extends TypeAdapter.ViewHolder {
             if (!ListUtils.isEmpty(list)) {
                 tbRichText = TbRichTextView.Y(list, true, threadData);
             } else {
-                tbRichText = new TbRichText(c67.c(str, 1));
+                tbRichText = new TbRichText(a67.c(str, 1));
             }
             TbRichText tbRichText2 = tbRichText;
             e(tbRichText2, threadData.getItemStar());

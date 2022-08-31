@@ -1,86 +1,102 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.ala.square.IAlaSquareTabController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThreadInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class qq5 extends BaseCardInfo {
+public class qq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public ThreadData d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
+    public d9 a;
+    public BdTypeListView b;
+    public final List<cn> c;
+    public pq5 d;
+    public yt5 e;
+    public zt5 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100500, "Lcom/baidu/tieba/qq5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948100500, "Lcom/baidu/tieba/qq5;");
-                return;
-            }
-        }
-        i = BdUniqueId.gen();
-    }
-
-    public qq5() {
+    public qq5(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = false;
-        this.g = false;
-        this.h = false;
+        this.c = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        a();
     }
 
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (ThreadData) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zt5 zt5Var = new zt5((TbPageContext) this.a);
+            this.f = zt5Var;
+            zt5Var.v(1);
+            yt5 yt5Var = new yt5((TbPageContext) this.a);
+            this.e = yt5Var;
+            yt5Var.v(1);
+            this.d = new pq5((TbPageContext) this.a, sq5.f);
+            this.c.add(this.f);
+            this.c.add(this.e);
+            this.c.add(this.d);
+            this.b.a(this.c);
+        }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
     }
 
-    @Deprecated
-    public void parserProtobuf(ThreadInfo threadInfo) {
+    public void c(ju5 ju5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadInfo) == null) {
-            if (this.d == null) {
-                this.d = new ThreadData();
-            }
-            this.d.parserProtobuf(threadInfo);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ju5Var) == null) {
+            this.f.x(ju5Var);
+            this.e.x(ju5Var);
+        }
+    }
+
+    public void d(List<pn> list) {
+        BdTypeListView bdTypeListView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || (bdTypeListView = this.b) == null) {
+            return;
+        }
+        bdTypeListView.setData(list);
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f.w(i);
+            this.e.w(i);
+        }
+    }
+
+    public void f(IAlaSquareTabController iAlaSquareTabController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, iAlaSquareTabController) == null) {
+            this.d.x(iAlaSquareTabController);
         }
     }
 }

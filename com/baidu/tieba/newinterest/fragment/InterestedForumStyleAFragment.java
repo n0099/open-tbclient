@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
+import com.baidu.tieba.pv4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.rv4;
-import com.baidu.tieba.tv4;
-import com.baidu.tieba.wq7;
+import com.baidu.tieba.uq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public wq7 n;
+    public uq7 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -97,22 +97,22 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            os4 d = os4.d(this.h);
+            ns4 d = ns4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X03);
             d.A(R.string.F_X02);
-            os4 d2 = os4.d(this.i);
+            ns4 d2 = ns4.d(this.i);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X07);
             d2.A(R.string.F_X01);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            os4.d(this.l).f(R.color.CAM_X0201);
-            os4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            os4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            ns4.d(this.l).f(R.color.CAM_X0201);
+            ns4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            ns4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            wq7 wq7Var = this.n;
-            if (wq7Var != null) {
-                wq7Var.k(i);
+            uq7 uq7Var = this.n;
+            if (uq7Var != null) {
+                uq7Var.k(i);
             }
         }
     }
@@ -177,19 +177,19 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 textView.setText(strArr[0]);
                 this.i.setText(this.c[2]);
             }
-            rv4 rv4Var = new rv4();
+            pv4 pv4Var = new pv4();
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090f29);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.j.setConfig(rv4Var);
+            this.j.setConfig(pv4Var);
             this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0938));
             this.j.setEnabled(false);
-            tv4 tv4Var = new tv4();
+            rv4 rv4Var = new rv4();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091de6);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            tv4Var.r(R.color.CAM_X0105);
-            this.g.setConfig(tv4Var);
+            rv4Var.r(R.color.CAM_X0105);
+            this.g.setConfig(rv4Var);
             this.g.setText(getString(R.string.obfuscated_res_0x7f0f0940));
             this.k = this.e.findViewById(R.id.obfuscated_res_0x7f090f2a);
             this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090f2b);
@@ -203,7 +203,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.f.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, v1(R.dimen.tbds78)));
             this.f.s(view2);
-            this.n = new wq7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new uq7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 }

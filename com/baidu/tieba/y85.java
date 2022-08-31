@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import com.squareup.wire.Message;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface y85 extends t85 {
-    HashMap<String, Object> v();
+public interface y85 extends r85 {
+    void initByJson(JSONObject jSONObject);
 
-    HashMap<String, String> x();
+    void initByProtobuf(Message message);
 }

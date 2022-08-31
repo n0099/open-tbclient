@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,16 +13,18 @@ public class gp8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final ho8 b;
+    public final sn8 b;
+    public cq8 c;
+    public dq8 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gp8(MainTabActivity mainTabActivity, un8 un8Var) {
-        super(2001437);
+    public gp8(MainTabActivity mainTabActivity, sn8 sn8Var) {
+        super(2921728);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, un8Var};
+            Object[] objArr = {mainTabActivity, sn8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,16 +36,23 @@ public class gp8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = mainTabActivity.f;
+        this.b = sn8Var;
+        this.c = new cq8(mainTabActivity.getPageContext(), sn8Var, mainTabActivity);
+        dq8 dq8Var = new dq8(mainTabActivity.getPageContext(), sn8Var, mainTabActivity);
+        this.d = dq8Var;
+        PriorityOrganizer.r(this.c, dq8Var);
+        setPriority(1);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ho8 ho8Var;
+        sn8 sn8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof hn8) && ((hn8) customResponsedMessage.getData()).b && this.a.C == 0 && (ho8Var = this.b) != null && ho8Var.a() != null) {
-            this.b.a().f();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921728 || (sn8Var = this.b) == null || sn8Var.B() == null || this.c.w(true)) {
+            return;
         }
+        this.c.F(true);
+        this.a.P0().u(this.c);
     }
 }

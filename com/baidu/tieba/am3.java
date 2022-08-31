@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.os.Build;
+import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -11,7 +12,6 @@ import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -63,7 +63,7 @@ public class am3 implements cm3 {
     public String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.cm3
@@ -100,10 +100,10 @@ public class am3 implements cm3 {
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager != null) {
-                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                    String deviceId = telephonyManager.getDeviceId();
                     if (TextUtils.isEmpty(deviceId)) {
                         if (Build.VERSION.SDK_INT >= 26) {
-                            deviceId = ApiReplaceUtil.getImei(telephonyManager);
+                            deviceId = telephonyManager.getImei();
                         }
                         return TextUtils.isEmpty(deviceId) ? "" : deviceId;
                     }
@@ -134,7 +134,7 @@ public class am3 implements cm3 {
             }
             try {
                 TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
-                String deviceId = telephonyManager == null ? "" : ApiReplaceUtil.getDeviceId(telephonyManager);
+                String deviceId = telephonyManager == null ? "" : telephonyManager.getDeviceId();
                 return TextUtils.isEmpty(deviceId) ? "" : deviceId;
             } catch (Exception unused) {
                 return "";

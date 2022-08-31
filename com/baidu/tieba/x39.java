@@ -1,48 +1,103 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UploadDataSink;
 import java.io.IOException;
-import java.io.InputStream;
+import java.net.ProtocolException;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
-public class x39 extends InputStream {
+public final class x39 extends c49 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public y39 b;
-    public long c;
-    public boolean d;
+    public final int d;
+    public final UploadDataProvider e;
+    public ByteBuffer f;
+    public boolean g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948249579, "Lcom/baidu/tieba/x39;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948249579, "Lcom/baidu/tieba/x39;");
-                return;
-            }
-        }
-        e = x39.class.getName();
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public x39(InputStream inputStream, y39 y39Var) {
+    /* loaded from: classes6.dex */
+    public class b extends UploadDataProvider {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x39 a;
+
+        public b(x39 x39Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x39Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x39Var;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a.d == -1) {
+                    return this.a.g ? this.a.f.limit() : this.a.f.position();
+                }
+                return this.a.d;
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void b(UploadDataSink uploadDataSink, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uploadDataSink, byteBuffer) == null) {
+                int remaining = byteBuffer.remaining();
+                if (remaining < this.a.f.remaining()) {
+                    byteBuffer.put(this.a.f.array(), this.a.f.position(), remaining);
+                    this.a.f.position(this.a.f.position() + remaining);
+                } else {
+                    byteBuffer.put(this.a.f);
+                }
+                uploadDataSink.c(false);
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UploadDataProvider
+        public void c(UploadDataSink uploadDataSink) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uploadDataSink) == null) {
+                this.a.f.position(0);
+                uploadDataSink.a();
+            }
+        }
+
+        public /* synthetic */ b(x39 x39Var, a aVar) {
+            this(x39Var);
+        }
+    }
+
+    public x39(a49 a49Var, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, y39Var};
+            Object[] objArr = {a49Var, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -52,165 +107,110 @@ public class x39 extends InputStream {
                 return;
             }
         }
-        this.c = 0L;
-        this.d = false;
-        this.a = inputStream;
-        this.b = y39Var;
-    }
-
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return this.a.available();
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            }
+        this.e = new b(this, null);
+        this.g = false;
+        if (a49Var == null) {
+            throw new NullPointerException("Argument connection cannot be null.");
         }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.d) {
+        if (j > 2147483647L) {
+            throw new IllegalArgumentException("Use setFixedLengthStreamingMode() or setChunkedStreamingMode() for requests larger than 2GB.");
+        }
+        if (j >= 0) {
+            int i3 = (int) j;
+            this.d = i3;
+            this.f = ByteBuffer.allocate(i3);
             return;
         }
-        this.d = true;
-        try {
-            try {
-                if (this.a.read() == -1) {
-                    this.b.onComplete(this.c);
-                } else {
-                    this.b.a(this.c);
-                }
-                this.a.close();
-            } catch (Exception unused) {
-                this.a.close();
-            } catch (Throwable th) {
-                try {
-                    this.a.close();
-                } catch (Exception e2) {
-                    this.b.b(e2, this.c);
-                }
-                throw th;
-            }
-        } catch (Exception e3) {
-            this.b.b(e3, this.c);
-        }
+        throw new IllegalArgumentException("Content length < 0.");
     }
 
-    @Override // java.io.InputStream
-    public int read(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.c49
+    public void e() throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, 0, bArr.length);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                try {
-                    this.a.reset();
-                } catch (IOException e2) {
-                    this.b.b(e2, this.c);
-                    throw e2;
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-            long skip = this.a.skip(j);
-            this.c += skip;
-            return skip;
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
-            if (this.d) {
-                return -1;
-            }
-            try {
-                int read = this.a.read(bArr, i, i2);
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
-                }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
-            }
-        }
-        return invokeLII.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
+    @Override // com.baidu.tieba.c49
+    public UploadDataProvider f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d) {
-                return -1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (UploadDataProvider) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c49
+    public void g() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.g = true;
+            if (this.f.position() >= this.d) {
+                this.f.flip();
+                return;
             }
-            try {
-                int read = this.a.read();
-                if (read >= 0) {
-                    this.c += read;
-                } else {
-                    this.d = true;
-                    this.b.onComplete(this.c);
+            throw new ProtocolException("Content received is less than Content-Length");
+        }
+    }
+
+    public final void l(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.d != -1 && this.f.position() + i > this.d) {
+                throw new ProtocolException("exceeded content-length limit of " + this.d + " bytes");
+            } else if (!this.g) {
+                if (this.d == -1 && this.f.limit() - this.f.position() <= i) {
+                    ByteBuffer allocate = ByteBuffer.allocate(Math.max(this.f.capacity() * 2, this.f.capacity() + i));
+                    this.f.flip();
+                    allocate.put(this.f);
+                    this.f = allocate;
                 }
-                return read;
-            } catch (IOException e2) {
-                this.b.b(e2, this.c);
-                throw e2;
-            } catch (IllegalStateException e3) {
-                Log.e(e, "Exception reading data from InputStream", e3);
-                return -1;
+            } else {
+                throw new IllegalStateException("Cannot write after being connected.");
             }
         }
-        return invokeV.intValue;
+    }
+
+    @Override // java.io.OutputStream
+    public void write(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            c();
+            l(1);
+            this.f.put((byte) i);
+        }
+    }
+
+    @Override // java.io.OutputStream
+    public void write(byte[] bArr, int i, int i2) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
+            c();
+            l(i2);
+            this.f.put(bArr, i, i2);
+        }
+    }
+
+    public x39(a49 a49Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a49Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new b(this, null);
+        this.g = false;
+        if (a49Var != null) {
+            this.d = -1;
+            this.f = ByteBuffer.allocate(16384);
+            return;
+        }
+        throw null;
     }
 }

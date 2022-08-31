@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GoodsWin;
 /* loaded from: classes3.dex */
-public class du6 {
+public class du6 extends sa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Integer a;
-    public String b;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public du6() {
+        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,23 +22,32 @@ public class du6 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.intValue() == 1 : invokeV.booleanValue;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+    @Override // com.baidu.tieba.wa
+    public /* bridge */ /* synthetic */ HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
+        HttpResponsedMessage httpResponsedMessage2 = httpResponsedMessage;
+        c(httpResponsedMessage2);
+        return httpResponsedMessage2;
     }
 
-    public void b(GoodsWin goodsWin) {
+    public HttpResponsedMessage c(HttpResponsedMessage httpResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, goodsWin) == null) {
-            this.a = goodsWin.show;
-            this.b = goodsWin.goods_url;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
+            if (httpResponsedMessage != null && httpResponsedMessage.getError() == 1990055 && !cu6.c(httpResponsedMessage.getCmd())) {
+                cu6.d();
+            }
+            return httpResponsedMessage;
         }
+        return (HttpResponsedMessage) invokeL.objValue;
     }
 }

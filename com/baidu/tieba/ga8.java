@@ -1,36 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import androidx.core.app.NotificationCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ga8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q58 a;
-    public r58 b;
-    public j68 c;
-    public List<cn> d;
-    public ArrayList<pn> e;
-    public BdTypeListView f;
+    public List<a> a;
+    public hq4 b;
 
-    public ga8(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public long c;
+        public String d;
+        public String e;
+        public long f;
+        public int g;
+        public int h;
+        public String i;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public ga8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,83 +61,90 @@ public class ga8 {
                 return;
             }
         }
-        this.d = new ArrayList();
-        this.e = new ArrayList<>();
-        this.f = bdTypeListView;
-        a(tbPageContext);
+        this.a = new ArrayList();
+        this.b = new hq4();
     }
 
-    public final void a(TbPageContext<?> tbPageContext) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.a = new q58(tbPageContext);
-            this.b = new r58(tbPageContext, b78.b);
-            b58 b58Var = new b58(tbPageContext, this, tbPageContext.getUniqueId());
-            this.c = b58Var;
-            this.b.u(b58Var);
-            this.d.add(this.a);
-            this.d.add(this.b);
-            this.f.a(this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<a> list = this.a;
+            return (list == null || list.size() == 0) ? false : true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void b() {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.f.getAdapter2() instanceof gn)) {
-            this.f.getAdapter2().notifyDataSetChanged();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            hq4 hq4Var = this.b;
+            return hq4Var != null && hq4Var.b() == 1;
         }
+        return invokeV.booleanValue;
     }
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        ArrayList<pn> arrayList;
+    public void c(JSONObject jSONObject) {
+        JSONArray jSONArray;
+        String str;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            boolean z = false;
-            if (qi.isEmpty(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            String str2 = "";
+            if (jSONObject == null) {
+                return;
             }
-            if (this.f != null && (arrayList = this.e) != null) {
-                Iterator<pn> it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    pn next = it.next();
-                    if ((next instanceof CardPersonDynamicThreadData) && StringHelper.equals(str, ((CardPersonDynamicThreadData) next).b)) {
-                        z = true;
-                        it.remove();
-                        break;
-                    }
+            try {
+                this.b.i(jSONObject.getJSONObject("page"));
+                JSONArray optJSONArray = jSONObject.optJSONArray("post_list");
+                if (optJSONArray == null || optJSONArray.length() == 0) {
+                    return;
                 }
-                if (z) {
-                    ArrayList<pn> mergeDynamicThreadByTime = PersonPostModel.mergeDynamicThreadByTime(this.e);
-                    this.e = mergeDynamicThreadByTime;
-                    this.f.setData(mergeDynamicThreadByTime);
-                    b();
+                this.a.clear();
+                int i2 = 0;
+                while (i2 < optJSONArray.length()) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    if (jSONObject2 == null) {
+                        jSONArray = optJSONArray;
+                        str = str2;
+                        i = i2;
+                    } else {
+                        JSONObject jSONObject3 = jSONObject2.getJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR);
+                        String optString = jSONObject3.optString("name_show", str2);
+                        jSONObject3.optString("name", str2);
+                        long optLong = jSONObject2.optLong("pid", 0L);
+                        String optString2 = jSONObject2.optString("title", str2);
+                        long optLong2 = jSONObject2.optLong("time", 0L) * 1000;
+                        String optString3 = jSONObject2.optString("content", str2);
+                        String optString4 = jSONObject2.optString("fname", str2);
+                        long optLong3 = jSONObject2.optLong("tid", 0L);
+                        jSONArray = optJSONArray;
+                        int optInt = jSONObject2.optInt("is_floor", 0);
+                        str = str2;
+                        int optInt2 = jSONObject2.optInt("is_replay", 0);
+                        i = i2;
+                        if (jSONObject2.optInt("thread_type", 0) != 33) {
+                            a aVar = new a();
+                            aVar.a = optLong;
+                            aVar.b = optString2;
+                            aVar.c = optLong2;
+                            aVar.d = optString3;
+                            aVar.e = optString4;
+                            aVar.f = optLong3;
+                            aVar.g = optInt;
+                            aVar.h = optInt2;
+                            aVar.i = optString;
+                            this.a.add(aVar);
+                        }
+                    }
+                    i2 = i + 1;
+                    optJSONArray = jSONArray;
+                    str2 = str;
                 }
+            } catch (Exception e) {
+                BdLog.d(e.getMessage());
             }
-            return z;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void d(ArrayList<pn> arrayList) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) || arrayList == null || this.f == null) {
-            return;
-        }
-        this.e.clear();
-        this.e.addAll(arrayList);
-        this.f.setData(this.e);
-    }
-
-    public void e() {
-        BdTypeListView bdTypeListView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (bdTypeListView = this.f) == null) {
-            return;
-        }
-        bdTypeListView.F();
     }
 }

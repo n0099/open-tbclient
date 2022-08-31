@@ -4,14 +4,14 @@ import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.kd5;
+import com.baidu.tieba.id5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hd5 extends gd5<dd5, kd5.a> {
+public class hd5 extends ed5<k65, id5.d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> e;
@@ -35,21 +35,23 @@ public class hd5 extends gd5<dd5, kd5.a> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd5
+    @Override // com.baidu.tieba.ed5
     /* renamed from: g */
-    public void d(ViewType viewType, dd5 dd5Var, kd5.a aVar) {
+    public void d(ViewType viewType, k65 k65Var, id5.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, dd5Var, aVar) == null) {
-            dd5Var.b(aVar);
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, k65Var, dVar) == null) {
+            k65Var.s(dVar.b);
+            k65Var.k().setText(dVar.a);
+            k65Var.onChangeSkinType();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd5
+    @Override // com.baidu.tieba.ed5
     /* renamed from: h */
-    public dd5 f(ViewType viewType, ViewGroup viewGroup) {
+    public k65 f(ViewType viewType, ViewGroup viewGroup) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new dd5(this.e.getPageActivity()) : (dd5) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new k65(this.e.getPageActivity()) : (k65) invokeLL.objValue;
     }
 }

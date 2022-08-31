@@ -16,6 +16,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.bb;
 import com.baidu.tieba.d9;
+import com.baidu.tieba.g87;
 import com.baidu.tieba.i87;
 import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedActivity;
 import com.baidu.tieba.im.forum.broadcast.data.BroadcastMajorHistoryRequestMessage;
@@ -25,11 +26,10 @@ import com.baidu.tieba.im.message.LoadOfficialHistoryMessage;
 import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.message.chat.OfficialChatMessage;
-import com.baidu.tieba.k87;
-import com.baidu.tieba.l87;
-import com.baidu.tieba.rk8;
-import com.baidu.tieba.x87;
-import com.baidu.tieba.y87;
+import com.baidu.tieba.j87;
+import com.baidu.tieba.pk8;
+import com.baidu.tieba.v87;
+import com.baidu.tieba.w87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,9 +49,9 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
 
     /* loaded from: classes4.dex */
     public interface IFeedHeadLoadCallback {
-        void onListDataLoad(List<y87> list, List<i87> list2);
+        void onListDataLoad(List<w87> list, List<g87> list2);
 
-        void onReadCountLoad(LongSparseArray<l87> longSparseArray);
+        void onReadCountLoad(LongSparseArray<j87> longSparseArray);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,12 +138,12 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             @Override // com.baidu.tieba.bb
             @RequiresApi(api = 16)
             public void onMessage(ResponsedMessage<?> responsedMessage) {
-                k87 data;
+                i87 data;
                 Interceptable interceptable2 = $ic;
                 if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                     return;
                 }
-                LongSparseArray<l87> longSparseArray = null;
+                LongSparseArray<j87> longSparseArray = null;
                 if (responsedMessage instanceof ResponseHttpMajorHistoryMessage) {
                     data = ((ResponseHttpMajorHistoryMessage) responsedMessage).getData();
                 } else {
@@ -152,11 +152,11 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
                 if (data == null) {
                     return;
                 }
-                List<l87> b = data.b();
+                List<j87> b = data.b();
                 if (b != null && b.size() > 0) {
                     longSparseArray = new LongSparseArray<>(b.size());
-                    for (l87 l87Var : b) {
-                        longSparseArray.put(l87Var.b(), l87Var);
+                    for (j87 j87Var : b) {
+                        longSparseArray.put(j87Var.b(), j87Var);
                     }
                 }
                 if (this.this$0.callback == null || longSparseArray == null) {
@@ -180,15 +180,15 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
             List<ChatMessage> list = officialFeedHeadResponsedMessage.getData().b;
             ArrayList arrayList = new ArrayList();
             loop0: for (ChatMessage chatMessage : list) {
-                List<x87.a> b = x87.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                List<v87.a> b = v87.b(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                 if (b != null && b.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                     int i = 0;
                     while (i < b.size()) {
                         if (arrayList.size() >= 80) {
                             break loop0;
                         }
-                        x87.a aVar = b.get(i);
-                        y87 a = y87.a(chatMessage, aVar);
+                        v87.a aVar = b.get(i);
+                        w87 a = w87.a(chatMessage, aVar);
                         a.i(i == 0 && !StringUtils.isNull(aVar.c));
                         arrayList.add(a);
                         i++;
@@ -215,20 +215,20 @@ public class OfficialBarFeedMsglistModel extends BdBaseModel<OfficialBarFeedActi
     private void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            rk8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
-            rk8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
+            pk8.h(309669, ResponseSocketMajorHistoryMessage.class, false, false);
+            pk8.c(309669, CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_HISTORY, TbConfig.URL_FORUM_BROADCAST_HISTORY, ResponseHttpMajorHistoryMessage.class, true, false, true, false);
         }
     }
 
-    private void sendReadCountMessage(List<y87> list) {
+    private void sendReadCountMessage(List<w87> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65542, this, list) == null) || list == null || list.size() <= 0) {
             return;
         }
         ArrayList arrayList = new ArrayList(list.size());
-        for (y87 y87Var : list) {
-            if (y87Var.f()) {
-                arrayList.add(Long.valueOf(y87Var.d().h));
+        for (w87 w87Var : list) {
+            if (w87Var.f()) {
+                arrayList.add(Long.valueOf(w87Var.d().h));
             }
         }
         BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();

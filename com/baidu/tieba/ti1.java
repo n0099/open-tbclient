@@ -20,11 +20,11 @@ public class ti1 implements mk1 {
 
         /* renamed from: com.baidu.tieba.ti1$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0408a implements uf3<Bundle> {
+        public class C0412a implements uf3<Bundle> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0408a(a aVar) {
+            public C0412a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -73,7 +73,7 @@ public class ti1 implements mk1 {
         public Bundle execCall(Bundle bundle) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) ? (Bundle) rf3.b(new C0408a(this)) : (Bundle) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) ? (Bundle) rf3.b(new C0412a(this)) : (Bundle) invokeL.objValue;
         }
     }
 

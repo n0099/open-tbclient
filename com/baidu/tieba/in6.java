@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class in6 extends cn<tn6, a> {
+public class in6 extends cn<rn6, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,48 +23,7 @@ public class in6 extends cn<tn6, a> {
     public class a extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public EMTextView a;
-        public ImageView b;
-        public int c;
-        public int d;
-
-        /* renamed from: com.baidu.tieba.in6$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0292a implements View.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public View$OnClickListenerC0292a(a aVar, in6 in6Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, in6Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.view.View.OnClickListener
-            public void onClick(View view2) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c <= 0) {
-                    return;
-                }
-                mq6 mq6Var = new mq6();
-                mq6Var.e = 16;
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921384, mq6Var));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new bw4(4, this.a.d, 2)));
-            }
-        }
+        public TextView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(in6 in6Var, View view2) {
@@ -88,29 +43,30 @@ public class in6 extends cn<tn6, a> {
                     return;
                 }
             }
-            view2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f090b55);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090b54);
-            this.a.setOnClickListener(new View$OnClickListenerC0292a(this, in6Var));
-        }
-
-        public void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                os4.d(this.a).v(R.color.CAM_X0304);
-                os4 d = os4.d(this.itemView);
-                d.m(2);
-                d.n(R.string.J_X06);
-                d.f(R.color.CAM_X0205);
-                WebPManager.setPureDrawable(this.b, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, null);
+            if (view2 instanceof TextView) {
+                this.a = (TextView) view2;
+                ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
+                marginLayoutParams.topMargin = ri.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+                this.a.setLayoutParams(marginLayoutParams);
+                this.a.setText(R.string.obfuscated_res_0x7f0f0714);
+                this.a.setPadding(ri.f(in6Var.mContext, R.dimen.M_W_X005), ri.f(in6Var.mContext, R.dimen.M_H_X005), 0, 0);
+                ns4 d = ns4.d(this.a);
+                d.z(R.dimen.T_X07);
+                d.A(R.string.F_X02);
             }
         }
 
-        public void e(int i) {
+        public void a() {
+            TextView textView;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.c = i;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (textView = this.a) == null) {
+                return;
             }
+            ns4 d = ns4.d(textView);
+            d.v(R.color.CAM_X0105);
+            d.m(1);
+            d.n(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
         }
     }
 
@@ -138,23 +94,21 @@ public class in6 extends cn<tn6, a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
-    /* renamed from: s */
+    /* renamed from: u */
     public a onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0324, (ViewGroup) null)) : (a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new a(this, new TextView(this.mContext)) : (a) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.cn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, tn6 tn6Var, a aVar) {
+    /* renamed from: v */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rn6 rn6Var, a aVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tn6Var, aVar})) == null) {
-            aVar.e(tn6Var.c());
-            aVar.d = tn6Var.getPositionInFrsItemTab();
-            aVar.d();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rn6Var, aVar})) == null) {
+            aVar.a();
             return aVar.getView();
         }
         return (View) invokeCommon.objValue;

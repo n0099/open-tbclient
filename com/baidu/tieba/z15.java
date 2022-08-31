@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.UserGrowth;
 import tbclient.UserTaskInfo;
 /* loaded from: classes6.dex */
 public class z15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public double d;
-    public List<b25> e;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
 
     public z15() {
         Interceptable interceptable = $ic;
@@ -34,84 +30,77 @@ public class z15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new ArrayList();
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public long b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public long c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public List<b25> d() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
     }
 
-    public double e() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void f(JSONObject jSONObject) {
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("level_id");
-        this.b = jSONObject.optLong("score");
-        this.c = jSONObject.optLong("target_score");
-        this.d = jSONObject.optDouble("tmoney");
-        this.e.clear();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_info");
-        if (optJSONArray == null) {
-            return;
-        }
-        int length = optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject jSONObject2 = null;
-            try {
-                jSONObject2 = optJSONArray.getJSONObject(i);
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            b25 b25Var = new b25();
-            b25Var.g(jSONObject2);
-            this.e.add(b25Var);
-        }
+        jSONObject.optLong("id");
+        this.a = jSONObject.optString("name");
+        this.b = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+        this.c = jSONObject.optString("task_icon_url");
+        this.d = jSONObject.optInt("status");
+        jSONObject.optInt("target_num");
+        jSONObject.optInt("curr_num");
+        jSONObject.optInt("task_type");
+        this.e = jSONObject.optInt("weight");
+        this.f = jSONObject.optString("act_type");
     }
 
-    public void g(UserGrowth userGrowth) {
+    public void h(UserTaskInfo userTaskInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, userGrowth) == null) || userGrowth == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, userTaskInfo) == null) || userTaskInfo == null) {
             return;
         }
-        this.a = userGrowth.level_id.intValue();
-        this.b = userGrowth.score.longValue();
-        this.c = userGrowth.target_score.longValue();
-        this.d = userGrowth.tmoney.doubleValue();
-        this.e.clear();
-        for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
-            b25 b25Var = new b25();
-            b25Var.h(userTaskInfo);
-            this.e.add(b25Var);
-        }
+        userTaskInfo.id.longValue();
+        this.a = userTaskInfo.name;
+        this.b = userTaskInfo.brief;
+        this.c = userTaskInfo.task_icon_url;
+        this.d = userTaskInfo.status.intValue();
+        userTaskInfo.target_num.intValue();
+        userTaskInfo.curr_num.intValue();
+        userTaskInfo.task_type.intValue();
+        this.e = userTaskInfo.weight.intValue();
+        this.f = userTaskInfo.act_type;
     }
 }

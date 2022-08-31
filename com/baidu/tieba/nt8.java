@@ -1,34 +1,38 @@
 package com.baidu.tieba;
 
 import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLExt;
+import android.opengl.EGLSurface;
+import android.util.Log;
+import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.ByteBuffer;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import org.webrtc.EglBase10;
 @TargetApi(18)
 /* loaded from: classes5.dex */
 public class nt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public boolean c;
-    public volatile boolean d;
-    public volatile boolean e;
+    public EGLDisplay a;
+    public EGLContext b;
+    public EGLSurface c;
+    public Surface d;
 
-    public nt8(String str) throws IOException {
+    public nt8(Surface surface) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {surface};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,99 +42,102 @@ public class nt8 {
                 return;
             }
         }
-        this.b = 2;
-        this.c = false;
-        this.a = new MediaMuxer(str, 0);
+        if (surface != null) {
+            this.d = surface;
+            b();
+            return;
+        }
+        throw null;
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        int addTrack;
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (!this.c) {
-                    addTrack = this.a.addTrack(mediaFormat);
-                } else {
-                    throw new IllegalStateException("muxer already started");
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            boolean z = false;
+            while (true) {
+                int eglGetError = EGL14.eglGetError();
+                if (eglGetError == 12288) {
+                    break;
                 }
+                Log.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+                z = true;
             }
-            return addTrack;
+            if (z) {
+                throw new RuntimeException("EGL error encountered (see log)");
+            }
         }
-        return invokeL.intValue;
     }
 
-    public synchronized boolean b() {
-        InterceptResult invokeV;
-        boolean z;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                z = this.c;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.a = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                int[] iArr = new int[2];
+                if (!EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
+                    this.a = null;
+                    throw new RuntimeException("unable to initialize EGL14");
+                }
+                EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                if (EGL14.eglChooseConfig(this.a, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
+                    this.b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                    a("eglCreateContext");
+                    if (this.b != null) {
+                        this.c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.d, new int[]{12344}, 0);
+                        a("eglCreateWindowSurface");
+                        if (this.c == null) {
+                            throw new RuntimeException("surface was null");
+                        }
+                        return;
+                    }
+                    throw new RuntimeException("null context");
+                }
+                throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
             }
-            return z;
+            throw new RuntimeException("unable to get EGL14 display");
         }
-        return invokeV.booleanValue;
     }
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = true;
+            EGLDisplay eGLDisplay = this.a;
+            EGLSurface eGLSurface = this.c;
+            if (!EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.b)) {
+                throw new RuntimeException("eglMakeCurrent failed");
+            }
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = true;
+            if (EGL14.eglGetCurrentContext().equals(this.b)) {
+                EGLDisplay eGLDisplay = this.a;
+                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
+            }
+            EGL14.eglDestroySurface(this.a, this.c);
+            EGL14.eglDestroyContext(this.a, this.b);
+            this.d.release();
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
         }
     }
 
-    public synchronized boolean e() {
+    public void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.a, this.c, j);
+        }
+    }
+
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.e && this.d) {
-                    if (this.b > 0 && this.e && this.d) {
-                        this.a.start();
-                        this.c = true;
-                        notifyAll();
-                    }
-                    return this.c;
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (this.b > 0) {
-                    try {
-                        this.a.stop();
-                        this.a.release();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    this.c = false;
-                }
-            }
-        }
-    }
-
-    public synchronized void g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EGL14.eglSwapBuffers(this.a, this.c) : invokeV.booleanValue;
     }
 }

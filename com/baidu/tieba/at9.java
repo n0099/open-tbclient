@@ -6,11 +6,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
 /* loaded from: classes3.dex */
-public class at9 extends ct9 implements et9 {
+public class at9 implements ws9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public byte[] a;
+    public TreeMap<String, String> b;
 
     public at9() {
         Interceptable interceptable = $ic;
@@ -22,29 +26,49 @@ public class at9 extends ct9 implements et9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    @Override // com.baidu.tieba.dt9
-    public String a() {
+    @Override // com.baidu.tieba.zs9
+    public String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.b.get(str);
+            return str2 == null ? "" : str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.zs9
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.b.containsKey(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.zs9
+    public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.b.keySet()).iterator() : (Iterator) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.et9
-    public void c(String str) {
+    @Override // com.baidu.tieba.zs9
+    public byte[] getContent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.c = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.et9
-    public void h(short s) {
+    @Override // com.baidu.tieba.ws9
+    public void put(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Short.valueOf(s)}) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.b.put(str, str2);
         }
     }
 }

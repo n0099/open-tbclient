@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.hottopic.data.RelateForumItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,15 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.RelateForum;
+import tbclient.TopicList.TabList;
 /* loaded from: classes4.dex */
-public class k57 extends m06 {
+public class k57 implements pn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pn> a;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,46 +43,27 @@ public class k57 extends m06 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public int getCount() {
-        InterceptResult invokeV;
+    public void a(TabList tabList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<pn> list = this.a;
-            if (list == null || list.size() == 0) {
-                return 0;
-            }
-            return this.a.size();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, tabList) == null) || tabList == null) {
+            return;
         }
-        return invokeV.intValue;
+        String str = tabList.tab_name;
+        this.a = tabList.tab_type;
+        String str2 = tabList.share_pic;
+        String str3 = tabList.share_title;
+        String str4 = tabList.share_desc;
+        String str5 = tabList.share_url;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.pn
+    @Override // com.baidu.tieba.pn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void parserProtobuf(List<RelateForum> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null || list.size() == 0) {
-            return;
-        }
-        this.showTopDivider = true;
-        this.mGroupTitle = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fb2);
-        this.a = new ArrayList();
-        for (RelateForum relateForum : list) {
-            if (!StringUtils.isNull(relateForum.forum_name)) {
-                RelateForumItemData relateForumItemData = new RelateForumItemData();
-                relateForumItemData.parserProtobuf(relateForum);
-                this.a.add(relateForumItemData);
-            }
-        }
     }
 }

@@ -1,223 +1,81 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.animation.Animator;
+import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qj9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.banner2.UnifiedBannerADListener;
-import com.qq.e.ads.banner2.UnifiedBannerView;
-import com.qq.e.comm.util.AdError;
 /* loaded from: classes5.dex */
-public class pj9 extends ReporterPidLoader<UnifiedBannerView> {
+public class pj9 implements Animator.AnimatorListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ qj9.a a;
+    public final /* synthetic */ View b;
+    public final /* synthetic */ ViewGroup c;
+    public final /* synthetic */ float d;
+    public final /* synthetic */ float e;
+    public final /* synthetic */ int[] f;
+    public final /* synthetic */ ViewGroup g;
+    public final /* synthetic */ qj9 h;
 
-    /* loaded from: classes5.dex */
-    public class a implements UnifiedBannerADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ UnifiedBannerView[] c;
-        public final /* synthetic */ pj9 d;
-
-        public a(pj9 pj9Var, UnifiedBannerView[] unifiedBannerViewArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pj9Var, unifiedBannerViewArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = pj9Var;
-            this.c = unifiedBannerViewArr;
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked(this.c[0], this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADCloseOverlay() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.d.onAdClose(this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c[0], this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADLeftApplication() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADOpenOverlay() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.e();
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onADReceive() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                LogPrinter.d();
-                this.d.onAdLoaded((pj9) this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
-                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pj9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
+    public pj9(qj9 qj9Var, qj9.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {qj9Var, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.h = qj9Var;
+        this.a = aVar;
+        this.b = view2;
+        this.c = viewGroup;
+        this.d = f;
+        this.e = f2;
+        this.f = iArr;
+        this.g = viewGroup2;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
-        InterceptResult invokeL;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationCancel(Animator animator) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new bj9(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        UnifiedBannerView unifiedBannerView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (unifiedBannerView = (UnifiedBannerView) obj) == null) {
-            return;
-        }
-        unifiedBannerView.destroy();
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public double getAdBiddingPrices(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((UnifiedBannerView) obj).getECPM() / 100.0d : invokeL.doubleValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (!(context instanceof Activity)) {
-                onError(0, "NoA");
-                return;
-            }
-            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
-            unifiedBannerView.setRefresh(0);
-            unifiedBannerView.loadAD();
-            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
+        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationEnd(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
-            double d3 = d * 100.0d;
-            if (z) {
-                unifiedBannerView.sendWinNotification((int) d3);
-                return;
-            }
-            int i2 = 1;
-            if (i == 3) {
-                i2 = 2;
-            } else if (i == 5) {
-                i2 = 3;
-            }
-            unifiedBannerView.sendLossNotification((int) d3, i2, "");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationRepeat(Animator animator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
-            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
-            onShowStart(unifiedBannerView);
-            if (unifiedBannerView.getParent() != null) {
-                ((ViewGroup) unifiedBannerView.getParent()).removeView(unifiedBannerView);
-            }
-            viewGroup.removeAllViews();
-            int width = viewGroup.getWidth();
-            viewGroup.addView(unifiedBannerView, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.animation.Animator.AnimatorListener
+    public void onAnimationStart(Animator animator) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
+            this.h.getClass();
+        }
     }
 }

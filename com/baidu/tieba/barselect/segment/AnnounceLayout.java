@@ -14,10 +14,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ni5;
-import com.baidu.tieba.oy5;
+import com.baidu.tieba.li5;
+import com.baidu.tieba.my5;
 import com.baidu.tieba.ri;
-import com.baidu.tieba.vy5;
+import com.baidu.tieba.ty5;
 import com.baidu.tieba.zi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -32,7 +32,7 @@ public class AnnounceLayout extends CardBasicLayout {
     public TextView f;
 
     /* loaded from: classes3.dex */
-    public class a extends ni5 {
+    public class a extends li5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AnnounceLayout h;
@@ -141,17 +141,17 @@ public class AnnounceLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, oy5 oy5Var) {
+    public void setData(int i, my5 my5Var) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, oy5Var) == null) {
-            super.setData(i, oy5Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, my5Var) == null) {
+            super.setData(i, my5Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == vy5.b) {
+                if (i2 == ty5.b) {
                     this.d = ri.r((Activity) getContext()).widthPixels - (ri.f(getContext(), R.dimen.tbds120) * 2);
                 }
                 int i3 = this.a;
-                if (i3 == vy5.c || i3 == vy5.d) {
+                if (i3 == ty5.c || i3 == ty5.d) {
                     this.d = ri.r((Activity) getContext()).widthPixels - (ri.f(getContext(), R.dimen.tbds96) * 2);
                 }
                 c(new SpannableStringBuilder(this.c.b()));

@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GameCodeList;
-import tbclient.ItemGameCode;
+import tbclient.RecentUpdate;
 /* loaded from: classes6.dex */
-public class vn6 extends ho4 {
+public class vn6 extends go4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<GameCodeList> b;
+    public RecentUpdate a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +32,7 @@ public class vn6 extends ho4 {
                 return;
             }
         }
-        c = BdUniqueId.gen();
+        b = BdUniqueId.gen();
     }
 
     public vn6() {
@@ -51,32 +48,33 @@ public class vn6 extends ho4 {
                 return;
             }
         }
-        this.b = new ArrayList();
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public List<GameCodeList> c() {
+    public RecentUpdate c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RecentUpdate) invokeV.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public void f(RecentUpdate recentUpdate) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
+        }
     }
 
-    @Override // com.baidu.tieba.ho4
-    public eq4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.go4
+    public dq4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (eq4) invokeV.objValue;
+        return (dq4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ho4
+    @Override // com.baidu.tieba.go4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,14 +88,6 @@ public class vn6 extends ho4 {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
-    }
-
-    public void h(ItemGameCode itemGameCode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, itemGameCode) == null) {
-            this.a = itemGameCode.unclaimed_num.intValue();
-            this.b = new ArrayList(itemGameCode.game_code_list);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

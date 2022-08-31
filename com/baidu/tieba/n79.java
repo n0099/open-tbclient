@@ -1,303 +1,165 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import android.os.Build;
+import android.os.Environment;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.g79;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.net.NetworkInterface;
-import java.util.Collections;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.b;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class n79 {
+public final class n79 extends s79 {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
-    public static String b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public n79() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                k(r69.h().getContext());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return c;
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String b(WifiManager wifiManager) throws Exception {
-        InterceptResult invokeL;
+    public static void b(w69 w69Var, a79 a79Var, y69 y69Var, q69 q69Var, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wifiManager)) == null) {
-            String str = "";
-            boolean z = 3 == wifiManager.getWifiState();
-            try {
-                wifiManager.setWifiEnabled(true);
-                FileInputStream fileInputStream = new FileInputStream(new File("/sys/class/net/wlan0/address"));
-                str = c(fileInputStream);
-                fileInputStream.close();
-            } catch (Exception e) {
-                a89.d(e);
-            }
-            wifiManager.setWifiEnabled(z);
-            return str;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{w69Var, a79Var, y69Var, q69Var, list, list2, list3}) == null) {
+            w69Var.b(list2.size() != 0 ? list2.get(list2.size() - 1).getId() : 0);
+            a79Var.a(p79.e().I());
+            y69Var.b(list.size() != 0 ? list.get(list.size() - 1).getId() : 0);
+            q69Var.b(list3.size() != 0 ? list3.get(list3.size() - 1).getId() : 0);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s79
+    public final void a() {
+        g79 g79Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, inputStream)) != null) {
-            return (String) invokeL.objValue;
-        }
-        StringWriter stringWriter = new StringWriter();
-        char[] cArr = new char[2048];
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
-            while (true) {
-                int read = bufferedReader.read(cArr);
-                if (read != -1) {
-                    stringWriter.write(cArr, 0, read);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g79Var = g79.a.a;
+            if (g79Var.a().size() == 0) {
+                q79.b(" 线程轮询  app 应该是退出了");
+            }
+            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
+                StringBuffer stringBuffer = new StringBuffer();
+                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
+                stringBuffer.append("/baidu/ab/");
+                stringBuffer.append(l79.l(p69.h().getContext()));
+                stringBuffer.append("/");
+                a = stringBuffer.toString();
+            }
+            w69 w69Var = new w69();
+            a79 a79Var = new a79();
+            y69 y69Var = new y69();
+            q69 q69Var = new q69();
+            List<com.baidu.ubs.analytics.a.i> a2 = w69Var.a();
+            List<com.baidu.ubs.analytics.a.n> d = a79Var.d();
+            List<com.baidu.ubs.analytics.a.l> a3 = y69Var.a();
+            List<com.baidu.ubs.analytics.a.a> a4 = q69Var.a();
+            q79.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
+            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
+                q79.b("这次记录 json 为空的，就不传了  ………………");
+                if (d.size() > 1) {
+                    for (int i = 0; i < d.size(); i++) {
+                        if (d.get(i).O() == null) {
+                            a79Var.c(d.get(i).I());
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            JSONArray jSONArray = new JSONArray();
+            String j = p69.h().j();
+            if (p69.h().k() != null) {
+                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : p69.h().k().entrySet()) {
+                    try {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put("exp_id", entry.getKey());
+                        jSONObject.put("sid", entry.getValue().L());
+                        jSONArray.put(jSONObject);
+                    } catch (JSONException e) {
+                        y79.d(e);
+                    }
+                }
+            }
+            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
+            b.a aVar = new b.a();
+            aVar.r(l79.l(p69.h().getContext()));
+            aVar.b(j);
+            aVar.q(jSONArray.toString());
+            aVar.g(Build.VERSION.RELEASE);
+            aVar.d(l79.g(p69.h().getContext()));
+            aVar.f(Build.MODEL);
+            aVar.e(Build.BRAND);
+            aVar.f(Build.MODEL);
+            aVar.h(l79.h(p69.h().getContext()));
+            aVar.i(com.baidu.ubs.analytics.d.a.c());
+            aVar.j(i79.d() ? "1" : "0");
+            aVar.k(l79.i(p69.h().getContext()));
+            aVar.m(l79.j(p69.h().getContext()));
+            aVar.n(l79.m());
+            aVar.o(l79.n());
+            aVar.p(l79.a());
+            int f = l79.f(p69.h().getContext());
+            aVar.l(f == 1 ? "WIFI" : f == 2 ? "2G" : f == 3 ? "3G" : f == 4 ? "4G" : f == 5 ? "unKnow" : "noNet");
+            p69.h();
+            aVar.setPhone("");
+            bVar.a(aVar);
+            bVar.c(a4);
+            bVar.e(a2);
+            bVar.b(d);
+            bVar.d(a3);
+            String a5 = w79.a(bVar);
+            String e2 = v79.e(a, "ABJson.log");
+            if (!e2.equals("")) {
+                StringBuffer stringBuffer2 = new StringBuffer();
+                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
+                stringBuffer2.append(e2);
+                stringBuffer2.append(a5);
+                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
+                if (b79.a(p69.h().getContext(), stringBuffer2.toString())) {
+                    q79.b("上传成功，删除本地文件的       ");
+                    v79.b(a + "ABJson.log");
+                    b(w69Var, a79Var, y69Var, q69Var, a3, a2, a4);
+                    return;
+                }
+                StringBuffer stringBuffer3 = new StringBuffer();
+                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
+                stringBuffer3.append(a5);
+                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
+                if (b79.a(p69.h().getContext(), stringBuffer3.toString())) {
+                    b(w69Var, a79Var, y69Var, q69Var, a3, a2, a4);
+                    return;
+                } else if (v79.d(a5, a, "ABJson.log")) {
+                    b(w69Var, a79Var, y69Var, q69Var, a3, a2, a4);
+                    return;
                 } else {
-                    inputStream.close();
-                    return stringWriter.toString();
+                    return;
                 }
             }
-        } catch (Throwable th) {
-            inputStream.close();
-            throw th;
-        }
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            try {
-                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
-                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
-                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
-                        if (hardwareAddress == null) {
-                            return "";
-                        }
-                        StringBuilder sb = new StringBuilder();
-                        int length = hardwareAddress.length;
-                        for (int i = 0; i < length; i++) {
-                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
-                        }
-                        if (sb.length() > 0) {
-                            sb.deleteCharAt(sb.length() - 1);
-                        }
-                        return sb.toString();
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                a89.d(e);
-                return null;
+            StringBuffer stringBuffer4 = new StringBuffer();
+            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
+            stringBuffer4.append(a5);
+            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
+            if (b79.a(p69.h().getContext(), stringBuffer4.toString())) {
+                b(w69Var, a79Var, y69Var, q69Var, a3, a2, a4);
+            } else if (v79.d(a5, a, "ABJson.log")) {
+                b(w69Var, a79Var, y69Var, q69Var, a3, a2, a4);
             }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                return ApiReplaceUtil.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Exception e) {
-                a89.d(e);
-                return "NA";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static int f(Context context) {
-        InterceptResult invokeL;
-        NetworkInfo activeNetworkInfo;
-        NetworkInfo.State state;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
-                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
-                if (networkInfo != null && (state = networkInfo.getState()) != null && (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING)) {
-                    return 1;
-                }
-                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
-                if (networkInfo2 != null) {
-                    NetworkInfo.State state2 = networkInfo2.getState();
-                    String subtypeName = networkInfo2.getSubtypeName();
-                    if (state2 != null && (state2 == NetworkInfo.State.CONNECTED || state2 == NetworkInfo.State.CONNECTING)) {
-                        switch (activeNetworkInfo.getSubtype()) {
-                            case 1:
-                            case 2:
-                            case 4:
-                            case 7:
-                            case 11:
-                                return 2;
-                            case 3:
-                            case 5:
-                            case 6:
-                            case 8:
-                            case 9:
-                            case 10:
-                            case 12:
-                            case 14:
-                            case 15:
-                                return 3;
-                            case 13:
-                                return 4;
-                            default:
-                                return (subtypeName.equalsIgnoreCase("TD-SCDMA") || subtypeName.equalsIgnoreCase("WCDMA") || subtypeName.equalsIgnoreCase("CDMA2000")) ? 3 : 5;
-                        }
-                    }
-                }
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            try {
-                String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
-                return deviceId == null ? "" : w79.a(deviceId);
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
-            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-            if (connectionInfo == null || !Config.DEF_MAC_ID.equals(ApiReplaceUtil.getMacAddress(connectionInfo))) {
-                return (connectionInfo == null || ApiReplaceUtil.getMacAddress(connectionInfo) == null) ? "" : w79.a(ApiReplaceUtil.getMacAddress(connectionInfo));
-            }
-            try {
-                String d = d();
-                if (d != null) {
-                    return w79.a(d);
-                }
-                return w79.a(b(wifiManager));
-            } catch (Exception e) {
-                a89.d(e);
-                return w79.a(Config.DEF_MAC_ID);
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            int i = 0;
-            try {
-                i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (PackageManager.NameNotFoundException e) {
-                a89.d(e);
-            }
-            return String.valueOf(i);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 1);
-                return packageInfo != null ? packageInfo.versionName == null ? StringUtil.NULL_STRING : packageInfo.versionName : "";
-            } catch (PackageManager.NameNotFoundException e) {
-                a89.d(e);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void k(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            ((WindowManager) context.getSystemService("window")).getDefaultDisplay().getMetrics(displayMetrics);
-            a = String.valueOf(displayMetrics.widthPixels);
-            b = String.valueOf(displayMetrics.heightPixels);
-            c = String.valueOf(displayMetrics.density);
-        }
-    }
-
-    public static String l(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            try {
-                return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
-            } catch (PackageManager.NameNotFoundException e) {
-                a89.d(e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                k(r69.h().getContext());
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                k(r69.h().getContext());
-            }
-            return b;
-        }
-        return (String) invokeV.objValue;
     }
 }

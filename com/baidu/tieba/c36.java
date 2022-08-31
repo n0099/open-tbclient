@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import android.graphics.Matrix;
 import android.graphics.PointF;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,12 +11,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class c36 extends w26 {
+public final class c36 extends u26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
-    public PointF c;
-    public RectF d;
+    public final a7<b36> b;
+    public final PointF c;
+    public float d;
+    public final PointF e;
+    public float f;
 
     public c36() {
         Interceptable interceptable = $ic;
@@ -30,55 +33,82 @@ public final class c36 extends w26 {
                 return;
             }
         }
+        this.b = new a7<>(0);
         this.c = new PointF();
-        this.d = new RectF();
+        this.e = new PointF(1.0f, 1.0f);
+        this.f = 1.0f;
     }
 
-    public final PointF c() {
-        InterceptResult invokeV;
+    public final void c(long j) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (PointF) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            g();
+            a7.b<b36> it = this.b.iterator();
+            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
+            while (it.hasNext()) {
+                it.next().a(j);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.w26, com.baidu.tieba.z7.a
+    public final void d(b36 action) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
+            Intrinsics.checkNotNullParameter(action, "action");
+            action.c(this);
+            action.b();
+            this.b.a(action);
+        }
+    }
+
+    public final float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.floatValue;
+    }
+
+    public final PointF f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (PointF) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a().f().u();
+            this.c.set(0.0f, 0.0f);
+            this.d = 0.0f;
+            this.e.set(1.0f, 1.0f);
+            this.f = 1.0f;
+        }
+    }
+
+    public final void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    public final void i(Matrix matrix) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
+            Intrinsics.checkNotNullParameter(matrix, "matrix");
+            PointF pointF = this.e;
+            matrix.setScale(pointF.x, pointF.y);
+            matrix.postRotate(this.d);
+            PointF pointF2 = this.c;
+            matrix.postTranslate(pointF2.x, pointF2.y);
+        }
+    }
+
+    @Override // com.baidu.tieba.u26, com.baidu.tieba.z7.a
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.reset();
-            this.b = false;
-            this.c = new PointF();
-            this.d = new RectF();
+            g();
+            this.b.clear();
         }
-    }
-
-    public final c36 update(boolean z, int i, PointF position, RectF rect, int i2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), position, rect, Integer.valueOf(i2)})) == null) {
-            Intrinsics.checkNotNullParameter(position, "position");
-            Intrinsics.checkNotNullParameter(rect, "rect");
-            this.b = z;
-            if (!Intrinsics.areEqual(this.c, position)) {
-                this.c.set(position);
-            }
-            if (!Intrinsics.areEqual(this.d, rect)) {
-                this.d.set(rect);
-            }
-            return this;
-        }
-        return (c36) invokeCommon.objValue;
     }
 }

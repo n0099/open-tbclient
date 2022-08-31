@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class ew2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
@@ -30,7 +30,7 @@ public final class ew2 {
     public SparseArray<a> a;
     public Set<String> b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
     }

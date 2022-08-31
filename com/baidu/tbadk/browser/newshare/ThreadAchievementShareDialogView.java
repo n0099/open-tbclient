@@ -31,16 +31,16 @@ import com.baidu.tbadk.core.util.svg.SvgMaskType;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jf5;
-import com.baidu.tieba.nf5;
-import com.baidu.tieba.qe5;
+import com.baidu.tieba.hf5;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.oe5;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.tm4;
 import com.baidu.tieba.um4;
 import com.baidu.tieba.vm4;
-import com.baidu.tieba.wr4;
-import com.baidu.tieba.zx7;
+import com.baidu.tieba.vr4;
+import com.baidu.tieba.xx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,9 +65,9 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     public TextView k;
     public TextView l;
     public PermissionJudgePolicy m;
-    public zx7 n;
+    public xx7 n;
     public TbPageContext o;
-    public wr4 p;
+    public vr4 p;
     public Bitmap q;
     public View r;
     public ImageView s;
@@ -317,7 +317,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class h extends jf5<ShareItem> {
+    public class h extends hf5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Bitmap a;
@@ -345,7 +345,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jf5
+        @Override // com.baidu.tieba.hf5
         /* renamed from: a */
         public ShareItem doInBackground() {
             InterceptResult invokeV;
@@ -355,7 +355,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class i implements qe5<ShareItem> {
+    public class i implements oe5<ShareItem> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ int a;
@@ -381,7 +381,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qe5
+        @Override // com.baidu.tieba.oe5
         /* renamed from: a */
         public void onReturnDataInUI(ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -469,12 +469,12 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         return invokeV.booleanValue;
     }
 
-    public boolean h(TbPageContext tbPageContext, wr4 wr4Var) {
+    public boolean h(TbPageContext tbPageContext, vr4 vr4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, wr4Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, vr4Var)) == null) {
             this.o = tbPageContext;
-            this.p = wr4Var;
+            this.p = vr4Var;
             l(this.c);
             if (this.a.getParams() != null && !ListUtils.isEmpty(this.a.getParams().getThread_list())) {
                 this.u.addView(new tm4(this.c, this.a).a());
@@ -621,7 +621,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             return;
         }
         if (this.n == null) {
-            this.n = new zx7(this.o);
+            this.n = new xx7(this.o);
         }
         if (this.a.getParams() != null && !TextUtils.isEmpty(this.a.getParams().getUrl())) {
             this.n.b(this.a.getParams().getUrl(), BitmapHelper.Bitmap2Bytes(bitmap, 100));
@@ -669,6 +669,6 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
         statisticItem.param("obj_source", this.z);
         TiebaStatic.log(statisticItem);
-        nf5.b(new h(this, bitmap, i2), new i(this, i2));
+        lf5.b(new h(this, bitmap, i2), new i(this, i2));
     }
 }

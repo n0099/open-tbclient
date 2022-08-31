@@ -51,14 +51,14 @@ public class yy3 extends jm2 {
 
         /* renamed from: com.baidu.tieba.yy3$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0475a implements Runnable {
+        public class RunnableC0477a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ tj2 a;
             public final /* synthetic */ int b;
             public final /* synthetic */ a c;
 
-            public RunnableC0475a(a aVar, tj2 tj2Var, int i) {
+            public RunnableC0477a(a aVar, tj2 tj2Var, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,7 +137,7 @@ public class yy3 extends jm2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i, tj2Var) == null) {
                 ue3.d0(this.c.m);
-                this.c.m = new RunnableC0475a(this, tj2Var, i);
+                this.c.m = new RunnableC0477a(this, tj2Var, i);
                 ue3.g0(this.c.m);
             }
         }

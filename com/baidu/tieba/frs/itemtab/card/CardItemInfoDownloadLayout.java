@@ -22,11 +22,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bw4;
 import com.baidu.tieba.jx;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -260,9 +260,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            bw4 bw4Var = new bw4(6);
-            bw4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, bw4Var));
+            zv4 zv4Var = new zv4(6);
+            zv4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, zv4Var));
         }
     }
 
@@ -270,15 +270,15 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            os4 d = os4.d(this.a);
+            ns4 d = ns4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            os4 d2 = os4.d(this.g);
+            ns4 d2 = ns4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            os4.d(this.h).v(R.color.CAM_X0305);
-            os4.d(this.e).v(R.color.CAM_X0311);
+            ns4.d(this.h).v(R.color.CAM_X0305);
+            ns4.d(this.e).v(R.color.CAM_X0311);
             WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08093c, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
@@ -289,12 +289,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements jx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                os4 d = os4.d(this.h);
+                ns4 d = ns4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            os4 d2 = os4.d(this.h);
+            ns4 d2 = ns4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }

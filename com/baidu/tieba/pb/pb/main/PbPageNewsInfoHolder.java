@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fx7;
+import com.baidu.tieba.dx7;
 import com.baidu.tieba.i9;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.kq4;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -43,12 +43,12 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public ImageView l;
     public TextView m;
     public View n;
-    public lq4 o;
-    public lq4 p;
-    public lq4 q;
+    public kq4 o;
+    public kq4 p;
+    public kq4 q;
     public TbPageContext r;
     public int s;
-    public fx7 t;
+    public dx7 t;
     public b u;
     public View.OnClickListener v;
 
@@ -108,7 +108,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(fx7 fx7Var);
+        void a(dx7 dx7Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,18 +150,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         i(this.v);
     }
 
-    public void g(fx7 fx7Var) {
+    public void g(dx7 dx7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, fx7Var) == null) || fx7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dx7Var) == null) || dx7Var == null) {
             return;
         }
-        this.t = fx7Var;
-        lq4 lq4Var = fx7Var.T0;
-        this.o = lq4Var;
-        this.p = fx7Var.U0;
-        this.q = fx7Var.V0;
-        if (lq4Var != null) {
-            this.d.K(lq4Var.d, 10, false);
+        this.t = dx7Var;
+        kq4 kq4Var = dx7Var.T0;
+        this.o = kq4Var;
+        this.p = dx7Var.U0;
+        this.q = dx7Var.V0;
+        if (kq4Var != null) {
+            this.d.K(kq4Var.d, 10, false);
             this.f.setText(this.o.b);
             this.g.setText(this.o.e);
             this.e.setText(this.o.f);
@@ -170,25 +170,25 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         } else {
             this.c.setVisibility(8);
         }
-        lq4 lq4Var2 = this.p;
-        if (lq4Var2 != null) {
-            this.j.setText(lq4Var2.b);
+        kq4 kq4Var2 = this.p;
+        if (kq4Var2 != null) {
+            this.j.setText(kq4Var2.b);
             SkinManager.setBackgroundResource(this.i, R.drawable.icon_frs_news);
         } else {
             this.h.setVisibility(8);
             this.j.setVisibility(8);
             this.i.setVisibility(8);
         }
-        lq4 lq4Var3 = this.q;
-        if (lq4Var3 != null) {
-            this.m.setText(lq4Var3.b);
+        kq4 kq4Var3 = this.q;
+        if (kq4Var3 != null) {
+            this.m.setText(kq4Var3.b);
             SkinManager.setBackgroundResource(this.l, R.drawable.icon_frs_game);
         } else {
             this.k.setVisibility(8);
             this.m.setVisibility(8);
             this.m.setVisibility(8);
         }
-        this.a.setTag(fx7Var);
+        this.a.setTag(dx7Var);
     }
 
     public void h(int i) {

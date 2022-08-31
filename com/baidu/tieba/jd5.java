@@ -1,57 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.template.state.ViewType;
-import com.baidu.tieba.kd5;
+import android.util.Log;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class jd5 extends gd5<m65, kd5.d> {
+public class jd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> e;
 
-    public jd5(TbPageContext<?> tbPageContext) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = tbPageContext;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TbadkCoreApplication.getInst().isDebugMode() : invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd5
-    /* renamed from: g */
-    public void d(ViewType viewType, m65 m65Var, kd5.d dVar) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewType, m65Var, dVar) == null) {
-            m65Var.s(dVar.b);
-            m65Var.k().setText(dVar.a);
-            m65Var.onChangeSkinType();
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && a()) {
+            Log.d("TemplatePageLoader", str);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gd5
-    /* renamed from: h */
-    public m65 f(ViewType viewType, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, viewType, viewGroup)) == null) ? new m65(this.e.getPageActivity()) : (m65) invokeLL.objValue;
     }
 }

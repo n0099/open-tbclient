@@ -40,13 +40,13 @@ import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.tbadk.mutiprocess.live.LiveStartClickDataEvent;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fu4;
 import com.baidu.tieba.gu4;
-import com.baidu.tieba.hu4;
-import com.baidu.tieba.iz4;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.gz4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.ri;
+import com.baidu.tieba.s75;
 import com.baidu.tieba.sg;
-import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -277,7 +277,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728 && !customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
-                this.a.setData(gu4.a().b, gu4.a().c(this.a.m), false);
+                this.a.setData(fu4.a().b, fu4.a().c(this.a.m), false);
             }
         }
     }
@@ -314,7 +314,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921733 && this.a.m == 2) {
-                this.a.setData(gu4.a().b, gu4.a().c(this.a.m), false);
+                this.a.setData(fu4.a().b, fu4.a().c(this.a.m), false);
             }
         }
     }
@@ -616,7 +616,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 z();
                 return;
             }
-            String b2 = iz4.b(liveRemindRecommendData);
+            String b2 = gz4.b(liveRemindRecommendData);
             if (StringUtils.isNull(b2)) {
                 o("");
             } else {
@@ -646,7 +646,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             O(i2);
             this.f.setSkinType(i2);
             SkinManager.setBackgroundShapeDrawable(this.g, ri.f(this.b, R.dimen.tbds74), R.color.CAM_X0310, R.color.CAM_X0310);
-            os4 d2 = os4.d(this.h);
+            ns4 d2 = ns4.d(this.h);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0101);
@@ -859,7 +859,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                     this.e.post(new i(this));
                 }
                 if (this.f.getVisibility() == 0) {
-                    hu4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
+                    gu4.b().f(LiveRemindConfig.Scene.LIVE_BUBBLE);
                     L();
                     return;
                 }
@@ -980,7 +980,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
             }
             LiveStartClickDataEvent liveStartClickDataEvent = new LiveStartClickDataEvent();
             liveStartClickDataEvent.viewTag = str;
-            u75.i(liveStartClickDataEvent);
+            s75.i(liveStartClickDataEvent);
         }
     }
 
@@ -989,7 +989,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onAttachedToWindow();
-            setData(gu4.a().b, gu4.a().c(this.m), true);
+            setData(fu4.a().b, fu4.a().c(this.m), true);
         }
     }
 
@@ -997,7 +997,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
-            iz4.e();
+            gz4.e();
             if (view2.getId() != R.id.obfuscated_res_0x7f0901c5 && view2.getId() != R.id.obfuscated_res_0x7f090200) {
                 z();
                 H();
@@ -1078,7 +1078,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
                 this.p = this.l.getDisappearSecond() * 1000;
                 this.h.setText(this.l.getDesc());
                 B(false);
-                if (hu4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
+                if (gu4.b().j(LiveRemindConfig.Scene.LIVE_BUBBLE)) {
                     N(true);
                     G();
                 } else if (this.x) {
@@ -1212,7 +1212,7 @@ public class AlaLiveTipView extends LinearLayout implements View.OnClickListener
         if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             LiveRemindNormalConfigData liveRemindNormalConfigData = this.k;
             if (liveRemindNormalConfigData != null && !StringUtils.isNull(liveRemindNormalConfigData.getNormalIconScheme())) {
-                o(iz4.a(this.k.getNormalIconScheme(), this.m));
+                o(gz4.a(this.k.getNormalIconScheme(), this.m));
             } else {
                 o("");
             }

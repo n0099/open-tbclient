@@ -1,55 +1,105 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.widget.BaseAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class us5 {
+public abstract class us5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public Context b;
+    public List<ys5> c;
+    public int d;
 
-    public static void a(oq5 oq5Var, String str, String str2) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        SdkLiveInfoData.YYExt yYExt;
+    public us5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, oq5Var, str, str2) == null) || oq5Var == null || (sdkLiveInfoData = oq5Var.a) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        this.c = new ArrayList();
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ys5 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.c.get(i) : (ys5) invokeI.objValue;
+    }
+
+    public void b(TbPageContext<?> tbPageContext, ThreadData threadData, String str) {
+        String str2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, threadData, str) == null) || tbPageContext == null || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
             return;
         }
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-        if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-            str3 = "";
-            str4 = str3;
-            str5 = str4;
-            str6 = str5;
+        if (TbadkCoreApplication.getCurrentAccount() != null) {
+            String userId = threadData.getAuthor().getUserId();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            z = TextUtils.equals(userId, currentAccount);
+            str2 = currentAccount;
         } else {
-            str4 = yYExt.sid;
-            str5 = yYExt.ssid;
-            str6 = yYExt.yyUid;
-            str3 = yYExt.templateId;
+            str2 = "";
+            z = false;
         }
-        TiebaStatic.log(new StatisticItem(str).param("fid", oq5Var.c).param("liveid", oq5Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3).param(TiebaStatic.YYParams.YYLIVEID, TextUtils.isEmpty(str4) ? "" : "1").param(TiebaStatic.Params.VID, oq5Var.a.nid).param("obj_source", TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2) ? 1 : 2));
+        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+        alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
+        alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
+        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, str, str2, z, "")));
     }
 
-    public static void b(oq5 oq5Var, String str) {
+    public void c(List<ys5> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, oq5Var, str) == null) {
-            a(oq5Var, "c14705", str);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || ListUtils.isEmpty(list)) {
+            return;
         }
+        this.c.clear();
+        this.c.addAll(list);
+        notifyDataSetChanged();
     }
 
-    public static void c(oq5 oq5Var, String str) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, oq5Var, str) == null) {
-            a(oq5Var, "c14704", str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.size() : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
     }
 }

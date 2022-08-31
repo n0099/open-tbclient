@@ -35,13 +35,13 @@ public class g04 extends f04 {
 
         /* renamed from: com.baidu.tieba.g04$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class RunnableC0260a implements Runnable {
+        public class RunnableC0267a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ l04 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0260a(a aVar, l04 l04Var) {
+            public RunnableC0267a(a aVar, l04 l04Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -132,7 +132,7 @@ public class g04 extends f04 {
                 if (f04.a) {
                     Log.d("CheckAdvisedToRestApi", "on success");
                 }
-                this.c.b.post(new RunnableC0260a(this, l04Var));
+                this.c.b.post(new RunnableC0267a(this, l04Var));
             }
         }
 

@@ -46,13 +46,13 @@ public abstract class z03 extends w03 {
 
         /* renamed from: com.baidu.tieba.z03$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class RunnableC0476a implements Runnable {
+        public class RunnableC0478a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ tf3 a;
             public final /* synthetic */ a b;
 
-            public RunnableC0476a(a aVar, tf3 tf3Var) {
+            public RunnableC0478a(a aVar, tf3 tf3Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -108,7 +108,7 @@ public abstract class z03 extends w03 {
                     if (z && !this.a.e("event_flag_force_post", false)) {
                         tf3Var.a(this.a);
                     } else {
-                        z03.M().post(new RunnableC0476a(this, tf3Var));
+                        z03.M().post(new RunnableC0478a(this, tf3Var));
                     }
                 }
             }

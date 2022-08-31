@@ -57,12 +57,12 @@ public class f63 extends l63<e> {
 
             /* renamed from: com.baidu.tieba.f63$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes4.dex */
-            public class C0243a implements v53 {
+            public class C0249a implements v53 {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public C0243a(a aVar) {
+                public C0249a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -118,7 +118,7 @@ public class f63 extends l63<e> {
                 if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.isFinishing()) {
                     return;
                 }
-                y53.u(this.a, this.c.c.M(), this.b, null, new C0243a(this));
+                y53.u(this.a, this.c.c.M(), this.b, null, new C0249a(this));
             }
         }
 

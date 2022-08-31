@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.ns4;
 import com.baidu.tieba.sg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -148,13 +148,13 @@ public class TitleTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             if (this.a != i) {
-                os4 d = os4.d(this.b);
+                ns4 d = ns4.d(this.b);
                 d.n(R.string.J_X05);
                 d.l(R.dimen.L_X01);
                 d.k(R.color.CAM_X0602);
                 d.f(R.color.CAM_X0206);
-                os4.d(this.f).f(R.color.CAM_X0203);
-                os4.d(this.e).v(R.color.CAM_X0107);
+                ns4.d(this.f).f(R.color.CAM_X0203);
+                ns4.d(this.e).v(R.color.CAM_X0107);
                 this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080942, SkinManager.getColor(R.color.CAM_X0107), null));
                 if (this.c != null) {
                     this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f57, SkinManager.getColor(R.color.CAM_X0302), null));

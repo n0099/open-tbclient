@@ -5,7 +5,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -64,7 +63,7 @@ public class t91 {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ApiReplaceUtil.getMacAddress(((WifiManager) ea1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo()) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ((WifiManager) ea1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo().getMacAddress() : (String) invokeV.objValue;
     }
 
     public static String c() {
@@ -92,7 +91,7 @@ public class t91 {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             try {
                 NetworkInterface byName = NetworkInterface.getByName("wlan0");
-                if (byName != null && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(byName)) != null) {
+                if (byName != null && (hardwareAddress = byName.getHardwareAddress()) != null) {
                     StringBuilder sb = new StringBuilder();
                     int length = hardwareAddress.length;
                     for (int i = 0; i < length; i++) {
@@ -117,7 +116,7 @@ public class t91 {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
                 InetAddress a = a();
-                if (a == null || (hardwareAddress = ApiReplaceUtil.getHardwareAddress(NetworkInterface.getByInetAddress(a))) == null) {
+                if (a == null || (hardwareAddress = NetworkInterface.getByInetAddress(a).getHardwareAddress()) == null) {
                     return "";
                 }
                 StringBuilder sb = new StringBuilder();

@@ -25,8 +25,6 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al5;
-import com.baidu.tieba.bg5;
 import com.baidu.tieba.dj4;
 import com.baidu.tieba.ej4;
 import com.baidu.tieba.qi;
@@ -34,8 +32,10 @@ import com.baidu.tieba.ri;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.danmu.DanmuProgressManager;
 import com.baidu.tieba.videoplay.fragment.VideoMiddleFragment;
+import com.baidu.tieba.xs6;
+import com.baidu.tieba.yk5;
 import com.baidu.tieba.z8;
-import com.baidu.tieba.zs6;
+import com.baidu.tieba.zf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     public boolean b;
     public List<VideoItemData> c;
     public VideoMiddleFragment d;
-    public al5 e;
+    public yk5 e;
     public boolean f;
     public Rect g;
     public String h;
@@ -172,7 +172,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) || bg5.c(i, i2, intent)) {
+        if (!(interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, intent) == null) || zf5.c(i, i2, intent)) {
             return;
         }
         super.onActivityResult(i, i2, intent);
@@ -206,7 +206,7 @@ public class VideoPlayActivity extends BaseFragmentActivity {
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_HOME_PAGE);
             BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(VideoPlayActivityConfig.KEY_FPS_VIDEO_FRS_PAGE);
             setContentView(R.layout.obfuscated_res_0x7f0d08c0);
-            this.e = new al5(getPageContext(), "client_videomiddle");
+            this.e = new yk5(getPageContext(), "client_videomiddle");
             G0();
             K0();
             addNoAdjustSoftInputHeightListener();
@@ -223,15 +223,15 @@ public class VideoPlayActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDestroy();
             DanmuProgressManager.b.a().b();
-            al5 al5Var = this.e;
-            if (al5Var != null) {
-                al5Var.h();
+            yk5 yk5Var = this.e;
+            if (yk5Var != null) {
+                yk5Var.h();
             }
             if (UbsABTestHelper.isVideoAdDrawABTestA()) {
-                zs6.m().d("6061002332-203360688");
+                xs6.m().d("6061002332-203360688");
             }
             if (UbsABTestHelper.isVideoAdDrawABTestB()) {
-                zs6.m().c(zs6.s());
+                xs6.m().c(xs6.s());
             }
         }
     }

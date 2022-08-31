@@ -1,146 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AccountData;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class gb7 {
+public class gb7 implements hb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Integer> a;
 
-    /* loaded from: classes4.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.gb7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0266a extends jf5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-
-            public C0266a(a aVar, boolean z) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = z;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.jf5
-            public Integer doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!this.a) {
-                        u77.a().b();
-                    }
-                    return 0;
-                }
-                return (Integer) invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements qe5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qe5
-            /* renamed from: a */
-            public void onReturnDataInUI(Integer num) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
+    public gb7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
-            if (!isNull) {
-                nz4.h0().g0(new zz4());
-                nz4.h0().b0(0);
-                nz4.h0().Z(0);
-                nz4.h0().Y(0);
-                nz4.h0().c0(0);
-                nz4.h0().d0(0);
-                nz4.h0().a();
-                nf5.a();
-                f87.w().q();
-                e87.w().q();
-            }
-            nf5.c(new C0266a(this, isNull), new b(this));
         }
+        HashMap<String, Integer> hashMap = new HashMap<>(6);
+        this.a = hashMap;
+        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
+        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.hb7
+    public boolean a(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            MessageManager.getInstance().registerListener(2005016, new a(0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
+            if (chatMessageArr != null && chatMessageArr.length >= 2) {
+                ChatMessage chatMessage = chatMessageArr[0];
+                ChatMessage chatMessage2 = chatMessageArr[1];
+                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
+                    return false;
+                }
+                return this.a.containsKey(c(chatMessageArr));
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hb7
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) == null) || listView == null) {
+            return;
+        }
+        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
+        View childAt = listView.getChildAt(lastVisiblePosition);
+        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
+        if (childAt == null || childAt2 == null) {
+            return;
+        }
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f0920a8);
+        TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.obfuscated_res_0x7f0920a8);
+        if (chatMessageArr == null || chatMessageArr.length <= 1) {
+            return;
+        }
+        ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
+    }
+
+    public final String c(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr == null || chatMessageArr.length <= 1 || chatMessageArr[0] == null || chatMessageArr[1] == null) {
+                return null;
+            }
+            return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
+        }
+        return (String) invokeL.objValue;
     }
 }

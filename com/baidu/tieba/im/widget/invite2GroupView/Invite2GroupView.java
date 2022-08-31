@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.InviteMsgData;
-import com.baidu.tieba.qe5;
-import com.baidu.tieba.r97;
-import com.baidu.tieba.t87;
+import com.baidu.tieba.oe5;
+import com.baidu.tieba.p97;
+import com.baidu.tieba.r87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -146,7 +146,7 @@ public final class Invite2GroupView extends LinearLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class d implements qe5<Boolean> {
+    public class d implements oe5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbPageContext a;
@@ -205,7 +205,7 @@ public final class Invite2GroupView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qe5
+        @Override // com.baidu.tieba.oe5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -270,7 +270,7 @@ public final class Invite2GroupView extends LinearLayout {
             this.b.K(this.e.getPortrait(), 10, false);
             this.c.setText(this.e.getNotice());
             setOnClickListener(new b(this, tbPageContext));
-            if (t87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
+            if (r87.o().i(String.valueOf(this.e.getGroupId()), 1) != null) {
                 if (String.valueOf(this.e.getGroupId()).equals(this.d.getTag())) {
                     this.d.setText(R.string.obfuscated_res_0x7f0f08ac);
                     this.d.setOnClickListener(new c(this));
@@ -278,7 +278,7 @@ public final class Invite2GroupView extends LinearLayout {
                 }
                 return;
             }
-            r97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
+            p97.k().m(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.e.getGroupId()), 60000L, new d(this, tbPageContext));
         }
     }
 

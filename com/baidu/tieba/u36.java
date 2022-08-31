@@ -1,91 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
 import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class u36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<p26> a;
-    public int b;
-    public int c;
-    public boolean d;
 
-    public u36(List<p26> data, long j, long j2, int i, int i2, boolean z) {
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
             }
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues <= 0) {
+                    return i2 - 1;
+                } else {
+                    size = i2;
+                }
+            }
+            return i;
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
-        this.b = i;
-        this.c = i2;
-        this.d = z;
+        return invokeLLL.intValue;
     }
 
-    public final List<p26> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
+            }
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues <= 0) {
+                    return i2 - 1;
+                } else {
+                    size = i2;
+                }
+            }
+            return size;
         }
+        return invokeLLL.intValue;
     }
 
-    public final void f(boolean z) {
+    public static final <T extends Comparable<? super T>> m26<T> c(Collection<? extends T> collection) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
+            Intrinsics.checkNotNullParameter(collection, "<this>");
+            return new m26<>(collection);
         }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public /* synthetic */ u36(List list, long j, long j2, int i, int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(list, j, j2, i, i2, (i3 & 32) != 0 ? false : z);
+        return (m26) invokeL.objValue;
     }
 }

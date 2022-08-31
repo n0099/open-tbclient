@@ -1,8 +1,8 @@
 package com.baidu.tieba.legoBusiness.homeExtra;
 
-import com.baidu.tieba.lg7;
-import com.baidu.tieba.mg7;
-import com.baidu.tieba.qe7;
+import com.baidu.tieba.jg7;
+import com.baidu.tieba.kg7;
+import com.baidu.tieba.oe7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,8 +28,8 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        qe7.a().b(new lg7());
-        qe7.a().b(new mg7());
+        oe7.a().b(new jg7());
+        oe7.a().b(new kg7());
     }
 
     public HomeExtraStatic() {

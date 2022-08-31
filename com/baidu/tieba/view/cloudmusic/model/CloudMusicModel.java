@@ -13,7 +13,7 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.d9;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
-import com.baidu.tieba.zx8;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zx8<CloudMusicData> a;
+    public xx8<CloudMusicData> a;
     public final HttpMessageListener b;
 
     /* loaded from: classes6.dex */
@@ -128,13 +128,13 @@ public class CloudMusicModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void A(zx8<CloudMusicData> zx8Var) {
+    public void A(xx8<CloudMusicData> xx8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, zx8Var) == null) || zx8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, xx8Var) == null) || xx8Var == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = zx8Var;
+        this.a = xx8Var;
     }
 
     public final void B() {

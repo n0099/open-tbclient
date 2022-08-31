@@ -4,16 +4,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
 /* loaded from: classes5.dex */
 public class sy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public float b;
+    public long a;
+    public int b;
     public int c;
     public int d;
-    public List<my8> e;
+    public MultiMediaData e;
 
     public sy8() {
         Interceptable interceptable = $ic;

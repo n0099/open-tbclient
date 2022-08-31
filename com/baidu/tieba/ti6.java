@@ -1,18 +1,22 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class ti6 implements ck6 {
+public class ti6 implements bk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public is6 a;
 
     public ti6() {
         Interceptable interceptable = $ic;
@@ -28,53 +32,62 @@ public class ti6 implements ck6 {
         }
     }
 
-    @Override // com.baidu.tieba.ck6
-    public wr6 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.bk6
+    public void a(yr6 yr6Var, FrsViewData frsViewData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, frsFragment, noPressedRelativeLayout)) == null) {
-            if (frsFragment.T3()) {
-                return null;
-            }
-            return new wr6(frsFragment, noPressedRelativeLayout);
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, yr6Var, frsViewData) == null) || yr6Var == null || frsViewData == null) {
+            return;
         }
-        return (wr6) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ck6
-    public bk6 b(FrsFragment frsFragment, vn vnVar, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsFragment, vnVar, z)) == null) ? new nj6(frsFragment, vnVar, z) : (bk6) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.ck6
-    public dk6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new vi6() : (dk6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ck6
-    public ek6 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, frsFragment, noPressedRelativeLayout)) == null) ? new ur6(frsFragment, noPressedRelativeLayout) : (ek6) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ck6
-    public is6 e(String str, FrsFragment frsFragment, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, str, frsFragment, i)) == null) {
-            if (frsFragment == null) {
-                return null;
-            }
-            ui6 ui6Var = new ui6(frsFragment, null, null, i);
-            this.a = ui6Var;
-            ui6Var.R(frsFragment.q3());
-            return this.a;
+        ArrayList<pn> threadList = frsViewData.getThreadList();
+        if (ListUtils.isEmpty(threadList)) {
+            return;
         }
-        return (is6) invokeLLI.objValue;
+        ArrayList arrayList = new ArrayList();
+        Iterator<pn> it = threadList.iterator();
+        while (it.hasNext()) {
+            pn next = it.next();
+            if (next.getType() == ThreadData.TYPE_TOP) {
+                arrayList.add(next);
+            }
+        }
+        frsViewData.setTopThreadList(arrayList);
+    }
+
+    @Override // com.baidu.tieba.bk6
+    public void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            view2.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.bk6
+    public void c(yr6 yr6Var, gf6 gf6Var, FrsViewData frsViewData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, yr6Var, gf6Var, frsViewData) == null) || yr6Var == null || gf6Var == null || frsViewData == null) {
+            return;
+        }
+        yr6Var.w();
+        if (frsViewData == null || frsViewData.getForum() == null) {
+            return;
+        }
+        gf6Var.a1(frsViewData.getForum().getFrsBannerData());
+    }
+
+    @Override // com.baidu.tieba.bk6
+    public int d(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) ? mr6.e(i, frsRequestData) : invokeIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.bk6
+    public boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return false;
+        }
+        return invokeI.booleanValue;
     }
 }
